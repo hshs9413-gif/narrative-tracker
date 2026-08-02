@@ -4,9 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       years:
-        description: "years to backfill"
+        description: "소급할 연수 (예: 3)"
         required: false
         default: "3"
+      start:
+        description: "시작일 YYYY-MM-DD (입력 시 years보다 우선)"
+        required: false
+        default: ""
+
+concurrency:
+  group: data-commit
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -16,15 +24,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
       - run: pip install -r requirements.txt
-      - run: python scripts/backfill_market_data.py --years "${{ github.event.inputs.years }}"
+
+      - name: Run backfill
+        run: |
+          if [ -n "${{ github.event.inputs.start }}" ]; then
+            python scripts/backfill_market_data.py --start "${{ github.event.inputs.start }}"
+          else
+            python scripts/backfill_market_data.py --years "${{ github.event.inputs.years }}"
+          fi
+
       - name: Commit result
         run: |
           git config user.name "narrative-tracker-bot"
           git config user.email "actions@github.com"
           git add docs/data/market_snapshot.csv
-          git diff --cached --quiet || git commit -m "chore: backfill market history"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: backfill market history"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "push 재시도 $i..."
+            sleep 5
+          done
+          echo "push 실패"; exit 1
