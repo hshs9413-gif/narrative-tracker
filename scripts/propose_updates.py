@@ -243,22 +243,34 @@ def call_gemini(events, attention, market, scan):
         scan=", ".join(scan),
     )
 
-    body = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        # 검색 그라운딩 활성화. 검색 도구는 다른 도구와 함께 쓸 수 없으므로 단독 사용.
-        "tools": [{"google_search": {}}],
-        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 4096},
-    }
+    def build_body(model, disable_thinking=True):
+        """Gemini 2.5+ 는 thinking이 기본 활성이고 그 토큰이 maxOutputTokens에서
+        차감된다. 예산이 작으면 추론이 전부 소진해 본문이 비고 그라운딩도 나오지 않는다.
+        thinkingConfig는 반드시 generationConfig 안에 중첩해야 적용된다."""
+        gen = {"temperature": 0.2, "maxOutputTokens": 16384}
+        if disable_thinking:
+            if "pro" in model:
+                gen["thinkingConfig"] = {"thinkingBudget": 128}   # Pro는 0을 거부함
+            else:
+                gen["thinkingConfig"] = {"thinkingBudget": 0}     # Flash 계열은 완전 비활성
+        return {
+            "contents": [{"parts": [{"text": prompt}]}],
+            # 검색 그라운딩. 검색 도구는 다른 도구와 함께 쓸 수 없어 단독 사용.
+            "tools": [{"google_search": {}}],
+            "generationConfig": gen,
+        }
 
     data = None
     used_model = None
+    headers = {"x-goog-api-key": api_key, "Content-Type": "application/json"}
     for model in MODEL_CANDIDATES:
+      for disable_thinking in (True, False):     # thinkingConfig 거부 모델 대비
         try:
-            print(f"[INFO] 모델 시도: {model}")
+            print(f"[INFO] 모델 시도: {model} (thinking {'off' if disable_thinking else 'default'})")
             resp = requests.post(
                 GEMINI_URL.format(model=model),
-                headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
-                json=body,
+                headers=headers,
+                json=build_body(model, disable_thinking),
                 timeout=180,
             )
             if resp.status_code == 200:
@@ -277,9 +289,11 @@ def call_gemini(events, attention, market, scan):
                 print("       400은 요청 형식 또는 모델명 오류입니다.", file=sys.stderr)
             elif resp.status_code in (401, 403):
                 print("       401/403은 API 키 문제입니다. 다음 모델을 시도해도 동일합니다.", file=sys.stderr)
-                break
+                return None, None
         except Exception as e:  # noqa: BLE001
             print(f"[WARN] {model} 호출 예외: {e}", file=sys.stderr)
+      if data is not None:
+        break
 
     if data is None:
         print("[WARN] 모든 모델 시도 실패 — 정량 신호만 보고합니다.", file=sys.stderr)
@@ -289,6 +303,16 @@ def call_gemini(events, attention, market, scan):
     try:
         cand = (data.get("candidates") or [{}])[0]
         text = "".join(p.get("text", "") for p in cand.get("content", {}).get("parts", []))
+
+        # 진단 로그: 응답이 비면 원인을 바로 알 수 있게 남긴다
+        usage = data.get("usageMetadata", {}) or {}
+        print(f"[INFO] finishReason={cand.get('finishReason')} "
+              f"thoughts={usage.get('thoughtsTokenCount')} "
+              f"output={usage.get('candidatesTokenCount')} "
+              f"textLen={len(text)}")
+        if cand.get("finishReason") == "MAX_TOKENS" and not text.strip():
+            print("[WARN] thinking이 출력 토큰을 모두 소진했습니다. "
+                  "maxOutputTokens를 더 올리거나 프롬프트를 줄이세요.", file=sys.stderr)
 
         # 그라운딩 메타데이터에서 실제 검색어와 출처 추출
         meta = cand.get("groundingMetadata", {}) or {}
