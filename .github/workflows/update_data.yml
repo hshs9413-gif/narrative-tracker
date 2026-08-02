@@ -3,7 +3,7 @@ name: Daily Data Update
 on:
   # 1. 정기 실행 (Cron 문법 사용, UTC 기준)
   schedule:
-    - cron: '0 0 * * *' # 매일 UTC 자정 (한국 시간 오전 9시) 실행
+    - cron: '30 22 * * 1-5' # 매일 UTC 자정 (한국 시간 오전 9시) 실행
   
   # 2. 수동 실행 버튼 활성화
   workflow_dispatch: 
