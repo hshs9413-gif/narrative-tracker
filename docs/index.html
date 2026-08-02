@@ -110,6 +110,12 @@ if (typeof Chart === 'undefined') {
     content:""; position:absolute; left:0; right:0; top:50%;
     height:1px; background:var(--grid);
   }
+  .today-line{
+    position:absolute; top:-4px; bottom:-4px; width:0;
+    border-left:1px dashed rgba(232,136,124,.45); pointer-events:none; z-index:1;
+  }
+  .axis-today{ color:#E8887C; font-weight:600; }
+
   .event-bar{
     position:absolute; top:50%; transform:translateY(-50%);
     height:16px; border-radius:3px; min-width:3px;
@@ -124,6 +130,12 @@ if (typeof Chart === 'undefined') {
     border-top-left-radius:0; border-bottom-left-radius:0;
     border-left:2px dotted rgba(232,230,223,.6);
   }
+  .event-bar.status-active::after{
+    content:''; position:absolute; right:-1px; top:50%; transform:translateY(-50%);
+    border-left:5px solid; border-top:4px solid transparent;
+    border-bottom:4px solid transparent; opacity:.85;
+  }
+  .event-bar.status-ended{ opacity:.5; }
   .event-bar.status-dormant{
     background-image:repeating-linear-gradient(45deg,
       rgba(0,0,0,.28) 0 4px, transparent 4px 8px);
@@ -308,7 +320,8 @@ if (typeof Chart === 'undefined') {
 </footer>
 
 <script>
-const WINDOW_MONTHS = 18;   // 타임라인 표시 기간(개월)
+const WINDOW_MONTHS = 18;   // 타임라인 최소 표시 기간(개월)
+const WINDOW_CAP    = 40;   // 최대 소급(개월) — 이보다 오래된 이벤트는 좌측 클립
 const LAYER_ORDER = [
   ['political',  '정치/제도'],
   ['cyclical',   '경기순환'],
@@ -495,7 +508,11 @@ function renderStrata(events){
     const d = new Date(e.trigger_date);
     return d < min ? d : min;
   }, today);
-  const windowStart = new Date(Math.max(monthsAgo(today, WINDOW_MONTHS), earliest));
+  // 기록된 이벤트 전체가 보이도록 소급하되, 상한(WINDOW_CAP)을 둔다.
+  const windowStart = new Date(Math.max(
+    +monthsAgo(today, WINDOW_CAP),
+    Math.min(+earliest, +monthsAgo(today, WINDOW_MONTHS))
+  ));
   const span = windowEnd - windowStart;
   const pct = d => ((d - windowStart) / span) * 100;
 
@@ -503,7 +520,9 @@ function renderStrata(events){
   const axis = document.getElementById('axis');
   axis.innerHTML = '';
   // 좁은 화면(모바일)에서는 눈금이 겹치므로 반기 단위로 성긴다
-  const stepMonths = (axis.clientWidth || 600) < 420 ? 6 : 3;
+  const spanMonths = span / (30.44 * 86400000);
+  const baseStep = spanMonths > 28 ? 6 : 3;
+  const stepMonths = baseStep * ((axis.clientWidth || 600) < 420 ? 2 : 1);
   const tick = new Date(windowStart.getFullYear(), Math.floor(windowStart.getMonth()/3)*3, 1);
   while (tick <= windowEnd){
     const p = pct(tick);
@@ -517,6 +536,15 @@ function renderStrata(events){
     }
     tick.setMonth(tick.getMonth() + stepMonths);
   }
+  const todayPct = pct(today);
+  if (todayPct > 4 && todayPct < 97){
+    const t = document.createElement('span');
+    t.className = 'axis-tick axis-today';
+    t.style.left = todayPct + '%';
+    t.textContent = '오늘';
+    axis.appendChild(t);
+  }
+  window.__todayPct = todayPct;   // 트랙 렌더에서 사용
 
   // ── 층별 행 생성 ──
   const body = document.getElementById('strataBody');
@@ -560,6 +588,8 @@ function renderStrata(events){
           }</span>
         </div>
         <div class="event-track">
+          ${(window.__todayPct > 1 && window.__todayPct < 99.5)
+            ? `<span class="today-line" style="left:${window.__todayPct}%"></span>` : ''}
           <div class="event-bar ${layer} intensity-${e.intensity} status-${e.status}${clipped ? ' clipped-start' : ''}"
                style="left:${left}%; width:${width}%"
                title="${e.name} — ${STATUS_LABEL[e.status] ?? e.status} / 강도 ${INTENSITY_LABEL[e.intensity] ?? e.intensity}"></div>
