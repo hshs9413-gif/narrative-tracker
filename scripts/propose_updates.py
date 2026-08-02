@@ -32,6 +32,7 @@ EVENTS_PATH = os.path.join(BASE, "..", "docs", "data", "events.json")
 ATTENTION_PATH = os.path.join(BASE, "..", "docs", "data", "attention.csv")
 MARKET_PATH = os.path.join(BASE, "..", "docs", "data", "market_snapshot.csv")
 SCAN_PATH = os.path.join(BASE, "..", "docs", "data", "scan_keywords.json")
+WATCHLIST_ATT = os.path.join(BASE, "..", "docs", "data", "watchlist_attention.csv")
 
 # 무료 티어 모델을 품질 순으로 시도한다 (2026-07 기준 무료 티어 확인된 모델들).
 # 429(limit:0)가 나오는 모델은 자동으로 건너뛰므로 상위 모델부터 시도해도 안전하다.
@@ -154,11 +155,65 @@ def market_signals(market_rows):
     return sig
 
 
-def load_scan_keywords():
-    if os.path.exists(SCAN_PATH):
-        with open(SCAN_PATH, encoding="utf-8") as f:
-            return json.load(f)
-    return ["연준 금리", "관세 무역전쟁", "지정학 리스크", "인플레이션", "원달러 환율"]
+def load_watchlist():
+    """scan_keywords.json (신형식 dict). 구형식이면 문자열 리스트를 변환."""
+    if not os.path.exists(SCAN_PATH):
+        return []
+    with open(SCAN_PATH, encoding="utf-8") as f:
+        data = json.load(f)
+    if isinstance(data, dict) and "keywords" in data:
+        return data["keywords"]
+    if isinstance(data, list):   # 구형식 호환
+        return [{"id": f"kw{i}", "label": s, "query": s, "layer": "?"}
+                for i, s in enumerate(data)]
+    return []
+
+
+def watchlist_spikes(keywords):
+    """워치리스트 언급량 급등 감지 — 투기수요·신규 트렌드가 붙기 시작하는 신호.
+
+    기준: 최근 3일 평균이 (a) 20건 이상이고 (b) 직전 기준선의 2배 이상.
+    기준선이 5건 미만(거의 무보도)이었다가 20건+ 튀면 '신규 등장'으로 간주.
+    데이터 5일 미만이면 판정하지 않고 수집 상태만 보고한다.
+    """
+    label_of = {k["id"]: k.get("label", k["id"]) for k in keywords}
+    layer_of = {k["id"]: k.get("layer", "?") for k in keywords}
+
+    series = defaultdict(list)
+    for r in load_csv(WATCHLIST_ATT):
+        c = to_float(r.get("wcount")) or to_float(r.get("count"))
+        if c is not None:
+            series[r["keyword_id"]].append((r["date"], c))
+
+    if not series:
+        return {"상태": "워치리스트 데이터 수집 전 (매일 자동 수집됨)"}
+
+    days_max = max(len(v) for v in series.values())
+    if days_max < 5:
+        return {"상태": f"수집 {days_max}일차 — 급등 판정에 5일 이상 필요"}
+
+    spikes = []
+    for kid, pts in series.items():
+        pts.sort()
+        counts = [c for _, c in pts]
+        if len(counts) < 5:
+            continue
+        recent3 = statistics.mean(counts[-3:])
+        base = statistics.mean(counts[-17:-3])
+        if recent3 >= 20 and (base < 5 or recent3 >= base * 2):
+            spikes.append({
+                "id": kid,
+                "키워드": label_of.get(kid, kid),
+                "층위": layer_of.get(kid, "?"),
+                "최근3일평균": round(recent3, 1),
+                "기준선": round(base, 1),
+                "배율": round(recent3 / base, 1) if base >= 1 else "신규",
+            })
+    spikes.sort(key=lambda s: (s["배율"] if isinstance(s["배율"], float) else 99),
+                reverse=True)
+    if not spikes:
+        return {"상태": "급등 키워드 없음", "관측일수": days_max}
+    return {"급등": spikes[:8], "관측일수": days_max}
 
 
 # ────────────────── 2) Gemini 검색 그라운딩 검증 ──────────────────
@@ -189,7 +244,13 @@ PROMPT = """당신은 매크로 내러티브 트래커의 주간 리뷰를 담�
 ## 수행할 작업
 1. 위 각 이벤트에 대해 **검색으로 현재 상황을 확인**하세요. 코드 판정이 실제 뉴스와 맞는지
    대조하고, 어긋나면 어느 쪽이 맞는지 근거와 함께 밝히세요.
-2. 다음 주제들을 검색해 **기록되지 않은 신규 내러티브**가 있는지 확인하세요: {scan}
+2. 다음 글로벌 워치리스트 주제들을 검색해 **기록되지 않은 신규 내러티브**가 있는지 확인하세요: {scan}
+
+## 코드가 감지한 워치리스트 급등 신호 (글로벌 매체 기사량 기반)
+{watchlist}
+
+급등 목록에 있는 키워드는 신규 내러티브 후보로 **우선 검토**하세요. 검색으로 실체를
+확인하고, 일회성 뉴스인지 자산가격 반응이 동반된 트렌드인지 구분하세요.
 3. 각 판단의 근거가 된 기사·날짜를 reason에 구체적으로 적으세요.
 
 ## 출력 형식
@@ -239,7 +300,7 @@ def extract_json(text):
     return None
 
 
-def call_gemini(events, attention, market, scan):
+def call_gemini(events, attention, market, scan, watchlist):
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         diag("[WARN] GEMINI_API_KEY 환경변수가 비어 있습니다. Secrets 등록 여부와 이름(GEMINI_API_KEY)을 확인하세요.")
@@ -251,6 +312,7 @@ def call_gemini(events, attention, market, scan):
         attention=json.dumps(attention, ensure_ascii=False, indent=2),
         market=json.dumps(market, ensure_ascii=False, indent=2),
         scan=", ".join(scan),
+        watchlist=json.dumps(watchlist, ensure_ascii=False, indent=2),
     )
 
     def build_body(model, disable_thinking=True):
@@ -346,7 +408,7 @@ def call_gemini(events, attention, market, scan):
 
 # ────────────────────── 3) GitHub Issue 등록 ──────────────────────
 
-def build_issue_body(attention, market, proposal, grounding):
+def build_issue_body(attention, market, watchlist, proposal, grounding):
     L = [f"자동 생성 주간 리뷰 — {datetime.date.today().isoformat()}",
          f"검증 모델: `{GEMINI_MODEL}` (Google 검색 그라운딩 사용)", ""]
 
@@ -354,6 +416,17 @@ def build_issue_body(attention, market, proposal, grounding):
           json.dumps(attention, ensure_ascii=False, indent=2), "```", ""]
     L += ["## 2. 시장 지표 변동 — 코드 계산", "", "```json",
           json.dumps(market, ensure_ascii=False, indent=2), "```", ""]
+
+    L += ["## 2.5 글로벌 워치리스트 급등 신호 — 코드 계산", ""]
+    if "급등" in watchlist:
+        L += ["| 키워드 | 층위 | 최근3일 | 기준선 | 배율 |", "|---|---|---|---|---|"]
+        for s in watchlist["급등"]:
+            L.append(f"| {s['키워드']} | {s['층위']} | {s['최근3일평균']} | "
+                     f"{s['기준선']} | {s['배율']} |")
+        L += ["", f"(관측 {watchlist.get('관측일수','?')}일 기준. "
+              "글로벌 주요 매체 가중 기사량으로 산출)", ""]
+    else:
+        L += [watchlist.get("상태", "정보 없음"), ""]
 
     if proposal is None:
         L += ["## 3. 웹 검증 — 실패", "",
@@ -454,10 +527,12 @@ def main():
 
     attention = attention_signals(events, load_csv(ATTENTION_PATH))
     market = market_signals(load_csv(MARKET_PATH))
-    scan = load_scan_keywords()
+    kws = load_watchlist()
+    scan = [f"{k.get('label','')}({k.get('query','')})" for k in kws] or ["연준 금리", "관세", "지정학"]
+    watchlist = watchlist_spikes(kws)
 
-    proposal, grounding = call_gemini(events, attention, market, scan)
-    create_issue(build_issue_body(attention, market, proposal, grounding))
+    proposal, grounding = call_gemini(events, attention, market, scan, watchlist)
+    create_issue(build_issue_body(attention, market, watchlist, proposal, grounding))
 
 
 if __name__ == "__main__":
