@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>내러티브 레짐 트래커</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" as="style" crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script>
+// Chart.js가 차단된 경우 다른 CDN으로 재시도 (사내망 CDN 차단 대비)
+if (typeof Chart === 'undefined') {
+  document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"><\/script>');
+}
+</script>
+<style>
+  :root{
+    --bg:#12161C;
+    --surface:#1B212B;
+    --surface-raised:#232B38;
+    --text-primary:#E8E6DF;
+    --text-muted:#8B93A1;
+    --grid:#2A3140;
+    --layer-structural:#C9A227;
+    --layer-cyclical:#5B7C99;
+    --layer-political:#B5483D;
+    --name-col:210px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    overflow-x:hidden;
+    background:var(--bg);
+    color:var(--text-primary);
+    font-family:"Pretendard", -apple-system, sans-serif;
+    line-height:1.5;
+    padding:0 0 80px;
+  }
+  .mono{ font-family:ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  header{
+    padding:48px 32px 32px;
+    border-bottom:1px solid var(--grid);
+    max-width:1200px; margin:0 auto;
+  }
+  .eyebrow{
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--text-muted); margin-bottom:12px;
+  }
+  h1{ font-size:clamp(28px,4vw,40px); font-weight:700; letter-spacing:-.02em; margin-bottom:8px; }
+  .subtitle{ color:var(--text-muted); font-size:15px; max-width:640px; }
+
+  .ticker{
+    display:flex; flex-wrap:wrap; gap:22px;
+    margin-top:28px; padding-top:24px; border-top:1px solid var(--grid);
+  }
+  .ticker-item{ min-width:82px; }
+  .ticker-label{ font-size:11px; color:var(--text-muted); letter-spacing:.06em; margin-bottom:4px; }
+  .ticker-value{ font-size:19px; font-weight:600; }
+  .ticker-date{ font-size:11px; color:var(--text-muted); }
+
+  main{ max-width:1200px; margin:0 auto; padding:40px 32px; }
+  section{ margin-bottom:56px; }
+  .section-title{
+    font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--text-muted); margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .section-title::after{ content:""; flex:1; height:1px; background:var(--grid); }
+
+  /* ── 지층 단면: 이름은 왼쪽 고정칸, 막대는 오른쪽 트랙 (폭 계산 불필요) ── */
+  .strata{
+    background:var(--surface); border:1px solid var(--grid); border-radius:4px;
+    padding:18px 22px 14px;
+  }
+  .strata-axis{
+    position:relative; height:20px;
+    margin-left:var(--name-col); margin-bottom:8px;
+    font-size:11px; color:var(--text-muted);
+  }
+  .axis-tick{ position:absolute; top:0; transform:translateX(-50%); white-space:nowrap; }
+  .axis-tick::after{
+    content:""; position:absolute; left:50%; top:17px; width:1px; height:5px; background:var(--grid);
+  }
+
+  .layer-group{ border-top:1px dashed var(--grid); padding:10px 0 12px; }
+  .layer-group:last-child{ border-bottom:1px dashed var(--grid); }
+  .layer-head{
+    font-size:11px; letter-spacing:.06em; color:var(--text-muted);
+    margin-bottom:8px; padding-left:9px; border-left:3px solid var(--grid);
+  }
+  .layer-group[data-layer="political"]  .layer-head{ border-left-color:var(--layer-political); }
+  .layer-group[data-layer="cyclical"]   .layer-head{ border-left-color:var(--layer-cyclical); }
+  .layer-group[data-layer="structural"] .layer-head{ border-left-color:var(--layer-structural); }
+
+  .event-row{
+    display:grid; grid-template-columns:var(--name-col) 1fr;
+    align-items:center; gap:0; padding:3px 0;
+  }
+  .event-name{
+    font-size:12.5px; padding-right:14px;
+    overflow-wrap:anywhere; line-height:1.35;
+  }
+  .event-name .dot{
+    display:inline-block; width:7px; height:7px; border-radius:50%;
+    margin-right:6px; vertical-align:middle;
+  }
+  .event-track{ position:relative; height:22px; }
+  .event-track::before{                       /* 트랙 배경 가이드선 */
+    content:""; position:absolute; left:0; right:0; top:50%;
+    height:1px; background:var(--grid);
+  }
+  .event-bar{
+    position:absolute; top:50%; transform:translateY(-50%);
+    height:16px; border-radius:3px; min-width:3px;
+  }
+  .event-bar.political{ background:var(--layer-political); }
+  .event-bar.cyclical{ background:var(--layer-cyclical); }
+  .event-bar.structural{ background:var(--layer-structural); }
+  .event-bar.intensity-high{ opacity:1; box-shadow:0 0 0 1px rgba(255,255,255,.3); }
+  .event-bar.intensity-mid{ opacity:.75; }
+  .event-bar.intensity-low{ opacity:.42; }
+  .event-bar.clipped-start{
+    border-top-left-radius:0; border-bottom-left-radius:0;
+    border-left:2px dotted rgba(232,230,223,.6);
+  }
+  .event-bar.status-dormant{
+    background-image:repeating-linear-gradient(45deg,
+      rgba(0,0,0,.28) 0 4px, transparent 4px 8px);
+  }
+  .empty-note{ font-size:12.5px; color:var(--text-muted); padding:6px 0; }
+
+  .legend{ display:flex; gap:18px; margin-top:16px; flex-wrap:wrap; }
+  .legend-item{ display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--text-muted); }
+  .swatch{ width:10px; height:10px; border-radius:2px; }
+  .swatch.hatch{ background-image:repeating-linear-gradient(45deg,#8B93A1 0 3px, transparent 3px 6px); background-color:#4A5260; }
+
+  /* ── 지속기간 · 시장영향 매트릭스 ── */
+  .matrix-wrap{
+    background:var(--surface); border:1px solid var(--grid); border-radius:4px; padding:18px 20px;
+    overflow-x:auto;
+  }
+  table.matrix{ width:100%; border-collapse:collapse; font-size:12.5px; min-width:640px; }
+  table.matrix th{
+    text-align:left; font-weight:500; font-size:11px; letter-spacing:.04em;
+    color:var(--text-muted); padding:0 10px 8px 0; border-bottom:1px solid var(--grid);
+    white-space:nowrap;
+  }
+  table.matrix td{ padding:10px 10px 10px 0; border-bottom:1px solid var(--grid); vertical-align:top; }
+  table.matrix tr:last-child td{ border-bottom:none; }
+  .m-name{ font-weight:600; }
+  .m-layer{ font-size:11px; color:var(--text-muted); }
+  .m-dot{ display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+  .m-num{ font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .m-sub{ font-size:11px; color:var(--text-muted); }
+  .m-tag{
+    display:inline-block; font-size:10.5px; padding:2px 8px; border-radius:20px; white-space:nowrap;
+    background:var(--surface-raised); color:var(--text-muted);
+  }
+  .m-tag.q-dominant{ background:rgba(181,72,61,.2); color:#E8887C; }
+  .m-tag.q-noise{ background:rgba(139,147,161,.16); color:var(--text-muted); }
+  .m-tag.q-under{ background:rgba(201,162,39,.18); color:#D9B94A; }
+  .m-tag.p-long{ color:#D9B94A; }
+  .m-bar{ display:block; height:4px; border-radius:2px; margin-top:5px; background:var(--grid); position:relative; }
+  .m-bar i{ position:absolute; left:0; top:0; bottom:0; border-radius:2px; }
+
+  /* ── 이벤트 카드 ── */
+  .event-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(278px,1fr)); gap:16px; }
+  .card{
+    background:var(--surface); border:1px solid var(--grid); border-radius:4px;
+    padding:18px; border-left:3px solid var(--layer-cyclical);
+  }
+  .card.political{ border-left-color:var(--layer-political); }
+  .card.cyclical{ border-left-color:var(--layer-cyclical); }
+  .card.structural{ border-left-color:var(--layer-structural); }
+  .card-top{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:8px; }
+  .card-name{ font-size:15px; font-weight:600; overflow-wrap:anywhere; }
+  .badge{ font-size:10px; padding:2px 8px; border-radius:20px; white-space:nowrap; }
+  .badge.status-active{ background:rgba(181,72,61,.18); color:#E8887C; }
+  .badge.status-dormant{ background:rgba(139,147,161,.18); color:var(--text-muted); }
+  .badge.status-ended{ background:rgba(139,147,161,.12); color:var(--text-muted); }
+  .card-meta{ font-size:12px; color:var(--text-muted); margin-bottom:10px; }
+  .card-keywords{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+  .kw{ font-size:11px; background:var(--surface-raised); padding:3px 8px; border-radius:3px; }
+  .card-notes{ font-size:12.5px; color:var(--text-muted); }
+
+  .range-tabs{ display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; }
+  .range-tab{
+    font:inherit; font-size:12px; cursor:pointer;
+    background:var(--surface); color:var(--text-muted);
+    border:1px solid var(--grid); border-radius:3px; padding:4px 12px;
+    transition:all .15s ease;
+  }
+  .range-tab:hover{ color:var(--text-primary); }
+  .range-tab[aria-pressed="true"]{
+    background:var(--surface-raised); color:var(--text-primary); border-color:var(--text-muted);
+  }
+  .range-tab:focus-visible{ outline:2px solid var(--text-muted); outline-offset:2px; }
+
+  .chart-wrap{
+    background:var(--surface); border:1px solid var(--grid); border-radius:4px;
+    padding:20px; height:340px;
+  }
+  footer{ max-width:1200px; margin:0 auto; padding:0 32px; color:var(--text-muted); font-size:12px; }
+
+  @media (max-width:700px){
+    :root{ --name-col:112px; }
+    header{ padding:32px 18px 22px; }
+    main{ padding:28px 18px; }
+    footer{ padding:0 18px; }
+    .event-name{ font-size:11.5px; padding-right:10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Macro Narrative / Regime Tracker</div>
+  <h1>내러티브 레짐 트래커</h1>
+  <p class="subtitle">시장을 지배하는 내러티브는 경기순환 · 구조테마 · 정치제도 세 지층을 따라 순환합니다.
+  정치/제도 층의 충격은 아래 지층을 뚫고 올라오는 균열처럼 다른 두 층의 흐름을 왜곡시킵니다.</p>
+  <div class="ticker mono" id="ticker"></div>
+</header>
+
+<main>
+  <section>
+    <div class="section-title">지층 단면 — 내러티브 타임라인</div>
+    <div class="strata">
+      <div class="strata-axis mono" id="axis"></div>
+      <div id="strataBody"></div>
+      <div class="legend">
+        <div class="legend-item"><span class="swatch" style="background:var(--layer-political)"></span>정치/제도</div>
+        <div class="legend-item"><span class="swatch" style="background:var(--layer-cyclical)"></span>경기순환</div>
+        <div class="legend-item"><span class="swatch" style="background:var(--layer-structural)"></span>구조테마</div>
+        <div class="legend-item">진하기 = 강도(상/중/하)</div>
+        <div class="legend-item"><span class="swatch hatch"></span>휴면</div>
+        <div class="legend-item">◁ 점선 = 표시 기간 이전부터 지속</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">지속기간 · 시장영향 매트릭스</div>
+    <div class="matrix-wrap">
+      <table class="matrix" id="matrixTable"></table>
+      <p class="empty-note" style="margin-top:12px">
+        시장영향은 각 이벤트의 <strong>트리거일 전후 실제 자산 변동</strong>을 계산한 값입니다.
+        전체 시장 지표가 아니라 이벤트별로 따로 산출하므로, 어떤 내러티브가 실제로 증시를 움직였는지 구분됩니다.
+        사분면은 <strong>관심도 대비 실제 영향</strong>을 교차한 것으로,
+        '소음'은 뉴스는 많지만 가격에 이미 반영된 상태, '저평가 리스크'는 조용한데 자산이 움직인 상태입니다.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">활성 · 휴면 이벤트</div>
+    <div class="event-grid" id="eventGrid"></div>
+  </section>
+
+  <section>
+    <div class="section-title">내러티브 언급량 (Google News 기사 수)</div>
+    <div class="chart-wrap"><canvas id="attentionChart"></canvas></div>
+    <p class="empty-note">정점 대비 50% 아래로 내려가면 반감기, 25% 아래면 휴면 전환을 검토합니다.
+    RSS 특성상 최대 100건에서 포화되므로 절대량보다 추이를 보세요.</p>
+  </section>
+
+  <section>
+    <div class="section-title">정량 지표 추이</div>
+    <div class="range-tabs" id="rangeTabs">
+      <button class="range-tab" data-days="90">3개월</button>
+      <button class="range-tab" data-days="365">1년</button>
+      <button class="range-tab" data-days="1095">3년</button>
+      <button class="range-tab" data-days="0">전체</button>
+    </div>
+    <div class="chart-wrap"><canvas id="marketChart"></canvas></div>
+  </section>
+</main>
+
+<footer>
+  정량 지표는 GitHub Actions가 매일 자동 수집합니다. 이벤트 기록(events.json)은 직접 갱신합니다.
+</footer>
+
+<script>
+const WINDOW_MONTHS = 18;   // 타임라인 표시 기간(개월)
+const LAYER_ORDER = [
+  ['political',  '정치/제도'],
+  ['cyclical',   '경기순환'],
+  ['structural', '구조테마'],
+];
+const INTENSITY_ORDER = { high:3, mid:2, low:1 };
+const INTENSITY_LABEL = { high:'상', mid:'중', low:'하' };
+const STATUS_LABEL = { active:'활성', dormant:'휴면', ended:'종료' };
+
+async function loadEvents(){
+  try{
+    const res = await fetch('data/events.json');
+    if(!res.ok) return [];
+    return await res.json();
+  }catch{ return []; }
+}
+// 외부 라이브러리 없이 CSV를 파싱한다 (헤더 있는 단순 CSV 전용).
+// CDN이 차단된 환경에서도 동작하도록 자체 구현.
+function parseCSV(text){
+  const lines = text.replace(/\r/g, '').split('\n').filter(l => l.trim() !== '');
+  if (lines.length < 2) return [];
+  const head = lines[0].split(',').map(h => h.trim());
+  return lines.slice(1).map(line => {
+    const cells = line.split(',');
+    const row = {};
+    head.forEach((h, i) => { row[h] = (cells[i] ?? '').trim(); });
+    return row;
+  });
+}
+
+async function loadMarketCSV(){
+  try{
+    const res = await fetch('data/market_snapshot.csv');
+    if(!res.ok) return [];
+    return parseCSV(await res.text());
+  }catch{ return []; }
+}
+async function loadAttentionCSV(){
+  try{
+    const res = await fetch('data/attention.csv');
+    if(!res.ok) return [];
+    return parseCSV(await res.text());
+  }catch{ return []; }
+}
+
+function renderTicker(rows){
+  const el = document.getElementById('ticker');
+  const last = rows[rows.length - 1];
+  if(!last){
+    el.innerHTML = '<div class="ticker-item"><div class="ticker-label">데이터 없음</div>'
+      + '<div class="ticker-date">Actions에서 Collect Market Data를 실행하세요</div></div>';
+    return;
+  }
+  const items = [
+    ['VIX',        last.vix,       '', 'CBOE 변동성지수 (FRED: VIXCLS)'],
+    ['연준금리',    last.fedrate,   '%','연방기금금리 목표 상단 (FRED: DFEDTARU)'],
+    ['달러 DXY',   last.dxy_ice,   '', 'ICE 달러인덱스 — 6개 통화, 1973=100. 뉴스에서 말하는 달러인덱스.'],
+    ['달러 광의',   last.dxy_broad, '', '연준 광의 달러지수 — 26개 통화, 2006.1=100. 원화·위안 포함.'],
+    ['금',         last.gold,      '', '금 선물 종가 (GC=F)'],
+    ['WTI',        last.wti,       '', 'WTI 현물가 (FRED: DCOILWTICO)'],
+    ['미 10년물',   last.us10y,     '%','미국채 10년물 수익률 (FRED: DGS10)'],
+  ];
+  el.innerHTML = items.map(([label, val, unit, tip]) => `
+    <div class="ticker-item" title="${tip}">
+      <div class="ticker-label">${label}</div>
+      <div class="ticker-value">${(val === undefined || val === '' ) ? '—' : val + unit}</div>
+    </div>`).join('')
+    + `<div class="ticker-item"><div class="ticker-label">기준일</div><div class="ticker-date">${last.date}</div></div>`;
+}
+
+// ══════════════ 이벤트별 시장영향 · 지속기간 계산 ══════════════
+// 전체 시장 지표를 그대로 강도로 쓰면 모든 이벤트에 같은 값이 매겨진다.
+// 각 이벤트의 트리거일 전후 실제 자산 변동을 따로 계산해 이벤트별 영향을 낸다.
+
+const IMPACT_ASSETS = [['vix','VIX'],['gold','금'],['wti','WTI'],['dxy_ice','달러'],['us10y','10년물']];
+
+// 층별 통상 지속기간 (일). 지정학은 2~4주, 경기순환은 수개월, 구조테마는 수년.
+const TYPICAL_DURATION = { political: 28, cyclical: 180, structural: 730 };
+const LAYER_KO = { political:'정치/제도', cyclical:'경기순환', structural:'구조테마' };
+const PHASE_KO = {
+  shock:'① 충격', policy:'② 정책대응', overshoot:'③ 과잉반응',
+  side_effect:'④ 부작용 우려', correction:'⑤ 조정'
+};
+
+const dayDiff = (a, b) => Math.round((b - a) / 86400000);
+const numOr = v => (v === '' || v == null) ? null : Number(v);
+
+// 기준일에 가장 가까운 시장 데이터 행의 인덱스 (없으면 -1)
+function rowIndexNear(rows, dateStr){
+  const t = new Date(dateStr);
+  let best = -1, bestGap = Infinity;
+  for (let i = 0; i < rows.length; i++){
+    const gap = Math.abs(new Date(rows[i].date) - t);
+    if (gap < bestGap){ bestGap = gap; best = i; }
+  }
+  return bestGap <= 10 * 86400000 ? best : -1;   // 10일 넘게 떨어지면 무효
+}
+
+// 트리거일 직전 → 이후 5영업일 변동률. 이벤트 고유의 시장 반응.
+function computeImpact(rows, dateStr){
+  const i = rowIndexNear(rows, dateStr);
+  if (i < 1) return null;
+  const before = rows[Math.max(i - 1, 0)];
+  const after  = rows[Math.min(i + 5, rows.length - 1)];
+  const moves = [];
+  IMPACT_ASSETS.forEach(([col, label]) => {
+    const a = numOr(before[col]), b = numOr(after[col]);
+    if (a == null || b == null || a === 0) return;
+    moves.push({ label, pct: (b / a - 1) * 100 });
+  });
+  if (!moves.length) return null;
+  moves.sort((x, y) => Math.abs(y.pct) - Math.abs(x.pct));
+  const peak = Math.abs(moves[0].pct);
+  const strong = moves.filter(m => Math.abs(m.pct) >= 3).length;   // 동시 반응 자산 수
+  return {
+    top: moves[0],
+    peak,
+    strong,
+    grade: (peak >= 8 || strong >= 3) ? 'high' : (peak >= 3 || strong >= 1) ? 'mid' : 'low',
+    all: moves,
+  };
+}
+
+// 언급량: 최근값과 정점 대비 비율
+function attentionOf(attentionRows, id){
+  const series = attentionRows.filter(r => r.event_id === id)
+    .map(r => ({ date: r.date, c: Number(r.count) }))
+    .filter(r => !isNaN(r.c))
+    .sort((a, b) => a.date < b.date ? -1 : 1);
+  if (!series.length) return { days: 0 };
+  const latest = series[series.length - 1].c;
+  const peak = Math.max(...series.map(s => s.c));
+  return { days: series.length, latest, peak, ratio: peak ? latest / peak : 0 };
+}
+
+function computeMetrics(events, marketRows, attentionRows){
+  const today = new Date();
+  return events.map(e => {
+    const trigger = new Date(e.trigger_date);
+    const elapsed = dayDiff(trigger, today);
+    const activeSpan = e.half_life_date ? dayDiff(trigger, new Date(e.half_life_date)) : elapsed;
+    const typical = TYPICAL_DURATION[e.layer] || 180;
+    const impact = computeImpact(marketRows, e.trigger_date);
+    const att = attentionOf(attentionRows, e.id);
+
+    // 지속성 판정 — 휴면/종료 이벤트는 '활성이었던 기간'으로 평가한다.
+    // 트리거 이후 경과일로 재면 이미 끝난 이슈가 '구조화'로 잘못 분류된다.
+    const isOver = e.status === 'dormant' || e.status === 'ended';
+    const judgeSpan = isOver ? activeSpan : elapsed;
+    let persistence;
+    if (judgeSpan < typical * 0.5) persistence = '단기';
+    else if (judgeSpan < typical) persistence = '통상 범위';
+    else if (judgeSpan < typical * 3) persistence = '장기화';
+    else persistence = '구조화';
+    const durationLabel = isOver
+      ? `${activeSpan}일간 활성 후 ${e.status === 'dormant' ? '휴면' : '종료'}`
+      : `${elapsed}일차 진행중`;
+
+    // 관심 vs 영향 사분면 — 재테크 판단의 핵심
+    let quadrant = '측정중';
+    if (att.days >= 3 && impact){
+      const hiAtt = att.ratio >= 0.5;
+      const hiImp = impact.grade !== 'low';
+      quadrant = hiAtt ? (hiImp ? '지배 내러티브' : '소음 (이미 반영)')
+                       : (hiImp ? '저평가 리스크' : '휴면');
+    } else if (impact){
+      quadrant = impact.grade !== 'low' ? '영향 확인됨 (관심도 측정중)' : '영향 낮음';
+    }
+
+    return { e, elapsed, activeSpan, judgeSpan, isOver, durationLabel, typical, persistence, impact, att, quadrant };
+  });
+}
+
+function monthsAgo(date, n){
+  const d = new Date(date);
+  d.setMonth(d.getMonth() - n);
+  return d;
+}
+
+function renderStrata(events){
+  const today = new Date();
+  const windowEnd = new Date(today); windowEnd.setDate(windowEnd.getDate() + 10);
+  const earliest = events.reduce((min, e) => {
+    const d = new Date(e.trigger_date);
+    return d < min ? d : min;
+  }, today);
+  const windowStart = new Date(Math.max(monthsAgo(today, WINDOW_MONTHS), earliest));
+  const span = windowEnd - windowStart;
+  const pct = d => ((d - windowStart) / span) * 100;
+
+  // ── 분기 눈금 ──
+  const axis = document.getElementById('axis');
+  axis.innerHTML = '';
+  const tick = new Date(windowStart.getFullYear(), Math.floor(windowStart.getMonth()/3)*3, 1);
+  while (tick <= windowEnd){
+    const p = pct(tick);
+    if (p >= 0 && p <= 93){
+      const q = Math.floor(tick.getMonth()/3) + 1;
+      const el = document.createElement('span');
+      el.className = 'axis-tick';
+      el.style.left = p + '%';
+      el.textContent = `${String(tick.getFullYear()).slice(2)}.${q}Q`;
+      axis.appendChild(el);
+    }
+    tick.setMonth(tick.getMonth() + 3);
+  }
+
+  // ── 층별 행 생성 ──
+  const body = document.getElementById('strataBody');
+  body.innerHTML = '';
+
+  LAYER_ORDER.forEach(([layer, title]) => {
+    const group = document.createElement('div');
+    group.className = 'layer-group';
+    group.dataset.layer = layer;
+    group.innerHTML = `<div class="layer-head">${title}</div>`;
+
+    const items = events
+      .filter(e => (e.layer === layer))
+      .filter(e => {
+        const end = e.half_life_date ? new Date(e.half_life_date) : today;
+        return end >= windowStart;
+      })
+      .sort((a,b) => new Date(a.trigger_date) - new Date(b.trigger_date));
+
+    if (items.length === 0){
+      group.insertAdjacentHTML('beforeend', '<div class="empty-note">기록된 이벤트 없음</div>');
+    }
+
+    items.forEach(e => {
+      const rawStart = new Date(e.trigger_date);
+      const rawEnd = e.half_life_date ? new Date(e.half_life_date) : today;
+      const clipped = rawStart < windowStart;
+      const left = Math.max(pct(clipped ? windowStart : rawStart), 0);
+      const right = Math.min(pct(rawEnd > windowEnd ? windowEnd : rawEnd), 100);
+      const width = Math.max(right - left, 0.6);
+
+      const row = document.createElement('div');
+      row.className = 'event-row';
+      row.innerHTML = `
+        <div class="event-name" title="${e.notes ?? ''}">
+          <span class="dot" style="background:var(--layer-${layer})"></span>${e.name}
+          <span class="m-sub" style="display:block; padding-left:13px">${
+            (e.status === 'dormant' || e.status === 'ended')
+              ? Math.round((rawEnd - rawStart)/86400000) + '일간 활성'
+              : Math.round((today - rawStart)/86400000) + '일차'
+          }</span>
+        </div>
+        <div class="event-track">
+          <div class="event-bar ${layer} intensity-${e.intensity} status-${e.status}${clipped ? ' clipped-start' : ''}"
+               style="left:${left}%; width:${width}%"
+               title="${e.name} — ${STATUS_LABEL[e.status] ?? e.status} / 강도 ${INTENSITY_LABEL[e.intensity] ?? e.intensity}"></div>
+        </div>`;
+      group.appendChild(row);
+    });
+
+    body.appendChild(group);
+  });
+}
+
+function renderMatrix(metrics){
+  const el = document.getElementById('matrixTable');
+  if (!metrics.length){ el.outerHTML = '<div class="empty-note">이벤트가 없습니다.</div>'; return; }
+
+  const qClass = q => q === '지배 내러티브' ? 'q-dominant'
+                   : q === '소음 (이미 반영)' ? 'q-noise'
+                   : q === '저평가 리스크' ? 'q-under' : '';
+
+  const rows = metrics
+    .slice()
+    .sort((a, b) => (b.impact?.peak || 0) - (a.impact?.peak || 0))
+    .map(m => {
+      const e = m.e;
+      const imp = m.impact;
+      const impCell = imp
+        ? `<span class="m-num">${imp.top.pct >= 0 ? '+' : ''}${imp.top.pct.toFixed(1)}%</span>
+           <span class="m-sub">${imp.top.label}</span>
+           <span class="m-bar"><i style="width:${Math.min(imp.peak * 8, 100)}%;
+             background:var(--layer-${e.layer})"></i></span>
+           <span class="m-sub">${imp.strong}개 자산 3%+ 반응</span>`
+        : '<span class="m-sub">트리거일 시장데이터 없음</span>';
+
+      const attCell = m.att.days >= 1
+        ? `<span class="m-num">${m.att.latest}건/일</span>
+           <span class="m-sub">${m.att.days >= 3 ? '정점 대비 ' + Math.round(m.att.ratio * 100) + '%' : m.att.days + '일차 측정중'}</span>`
+        : '<span class="m-sub">수집 전</span>';
+
+      const ratio = m.judgeSpan / m.typical;
+      const pClass = ratio >= 1 ? 'p-long' : '';
+
+      return `<tr>
+        <td>
+          <div class="m-name"><span class="m-dot" style="background:var(--layer-${e.layer})"></span>${e.name}</div>
+          <div class="m-layer">${LAYER_KO[e.layer] || e.layer}${e.phase ? ' · ' + (PHASE_KO[e.phase] || e.phase) : ''}</div>
+        </td>
+        <td>
+          <span class="m-num">${m.durationLabel}</span>
+          <span class="m-bar"><i style="width:${Math.min(ratio * 100, 100)}%;
+            background:${ratio >= 1 ? 'var(--layer-structural)' : 'var(--text-muted)'}"></i></span>
+          <span class="m-sub ${pClass}">${m.persistence} · 층 통상 ${m.typical}일</span>
+        </td>
+        <td>${impCell}</td>
+        <td>${attCell}</td>
+        <td><span class="m-tag ${qClass(m.quadrant)}">${m.quadrant}</span></td>
+      </tr>`;
+    }).join('');
+
+  el.innerHTML = `
+    <thead><tr>
+      <th>내러티브</th><th>지속기간</th><th>시장영향 (트리거 전후 5일)</th><th>언급량</th><th>사분면</th>
+    </tr></thead>
+    <tbody>${rows}</tbody>`;
+}
+
+function renderCards(events, metrics){
+  const grid = document.getElementById('eventGrid');
+  if (!events.length){ grid.innerHTML = '<div class="empty-note">events.json에 기록된 이벤트가 없습니다.</div>'; return; }
+  grid.innerHTML = events.slice()
+    .sort((a,b) => (INTENSITY_ORDER[b.intensity]||0) - (INTENSITY_ORDER[a.intensity]||0))
+    .map(e => `
+      <div class="card ${e.layer}">
+        <div class="card-top">
+          <span class="card-name">${e.name}</span>
+          <span class="badge status-${e.status}">${STATUS_LABEL[e.status] ?? e.status}</span>
+        </div>
+        <div class="card-meta">${(() => {
+          const m = (metrics || []).find(x => x.e.id === e.id);
+          const dur = m ? `${m.durationLabel} · ${m.persistence}` : '';
+          const imp = m && m.impact ? ` · 영향 ${m.impact.top.pct >= 0 ? '+' : ''}${m.impact.top.pct.toFixed(1)}% (${m.impact.top.label})` : '';
+          return `${dur}${imp}<br>트리거 ${e.trigger_date}${e.half_life_date ? ' · 반감기 ' + e.half_life_date : ''}`;
+        })()}</div>
+        <div class="card-keywords">${(e.keywords||[]).map(k => `<span class="kw">${k}</span>`).join('')}</div>
+        <div class="card-notes">${e.notes ?? ''}</div>
+      </div>`).join('');
+}
+
+const LAYER_COLOR = { political:'#B5483D', cyclical:'#5B7C99', structural:'#C9A227' };
+
+function renderAttention(rows, events){
+  const ctx = document.getElementById('attentionChart');
+  if (typeof Chart === 'undefined'){
+    ctx.parentElement.innerHTML =
+      '<div class="empty-note">차트 라이브러리(CDN)를 불러오지 못해 그래프를 표시할 수 없습니다. 네트워크에서 cdnjs.cloudflare.com 또는 cdn.jsdelivr.net 접근이 차단된 환경일 수 있습니다.</div>';
+    return;
+  }
+  if(!rows.length){
+    ctx.parentElement.innerHTML =
+      '<div class="empty-note">아직 언급량 데이터가 없습니다. Actions에서 Collect Market Data를 며칠 실행하면 쌓입니다.</div>';
+    return;
+  }
+  const dates = [...new Set(rows.map(r => r.date))].sort();
+  const byEvent = {};
+  rows.forEach(r => {
+    (byEvent[r.event_id] = byEvent[r.event_id] || {})[r.date] = Number(r.count);
+  });
+  const nameOf = id => (events.find(e => e.id === id) || {}).name || id;
+  const layerOf = id => (events.find(e => e.id === id) || {}).layer || 'cyclical';
+
+  new Chart(ctx, {
+    type:'line',
+    data:{
+      labels: dates,
+      datasets: Object.keys(byEvent).map(id => ({
+        label: nameOf(id),
+        data: dates.map(d => byEvent[id][d] ?? null),
+        borderColor: LAYER_COLOR[layerOf(id)] || '#8B93A1',
+        backgroundColor: 'transparent',
+        tension:.3, pointRadius:0, spanGaps:true, borderWidth:2,
+      }))
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{ legend:{ labels:{ color:'#8B93A1', font:{ family:'Pretendard' }, boxWidth:12 } } },
+      scales:{
+        x:{ ticks:{ color:'#8B93A1', maxTicksLimit:10 }, grid:{ color:'#2A3140' } },
+        y:{ beginAtZero:true, title:{ display:true, text:'기사 수/일', color:'#8B93A1' },
+            ticks:{ color:'#8B93A1' }, grid:{ color:'#2A3140' } },
+      }
+    }
+  });
+}
+
+let marketChart = null;
+
+function renderChart(rows, days){
+  const ctx = document.getElementById('marketChart');
+  if (typeof Chart === 'undefined'){
+    ctx.parentElement.innerHTML =
+      '<div class="empty-note">차트 라이브러리(CDN)를 불러오지 못해 그래프를 표시할 수 없습니다.</div>';
+    return;
+  }
+  if(!rows.length){
+    ctx.parentElement.innerHTML =
+      '<div class="empty-note">시장 데이터가 없습니다. Actions에서 Backfill 또는 Collect Market Data를 실행하세요.</div>';
+    return;
+  }
+  const num = v => (v === '' || v === undefined || v === null) ? null : Number(v);
+
+  // 기간 필터 (days=0이면 전체)
+  let view = rows;
+  if (days > 0 && rows.length){
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
+    const filtered = rows.filter(r => new Date(r.date) >= cutoff);
+    if (filtered.length >= 2) view = filtered;   // 너무 적으면 전체 유지
+  }
+
+  const cfgData = {
+    labels: view.map(r => r.date),
+    datasets:[
+      { label:'VIX',            data: view.map(r=>num(r.vix)),     borderColor:'#B5483D', yAxisID:'y',  tension:.2, pointRadius:0, borderWidth:1.6, spanGaps:true },
+      { label:'달러 DXY',       data: view.map(r=>num(r.dxy_ice)), borderColor:'#7FA8A0', yAxisID:'y',  tension:.2, pointRadius:0, borderWidth:1.6, spanGaps:true },
+      { label:'금(USD)',        data: view.map(r=>num(r.gold)),    borderColor:'#C9A227', yAxisID:'y1', tension:.2, pointRadius:0, borderWidth:1.6, spanGaps:true },
+      { label:'WTI(USD)',       data: view.map(r=>num(r.wti)),     borderColor:'#5B7C99', yAxisID:'y1', tension:.2, pointRadius:0, borderWidth:1.6, spanGaps:true },
+      { label:'연준 기준금리(%)', data: view.map(r=>num(r.fedrate)), borderColor:'#E8887C', yAxisID:'y2', stepped:true, pointRadius:0, borderWidth:2, spanGaps:true },
+    ]
+  };
+
+  if (marketChart){                    // 이미 그려져 있으면 데이터만 교체
+    marketChart.data = cfgData;
+    marketChart.update();
+    return;
+  }
+
+  marketChart = new Chart(ctx, {
+    type:'line',
+    data: cfgData,
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{ legend:{ labels:{ color:'#8B93A1', font:{ family:'Pretendard' }, boxWidth:12 } } },
+      scales:{
+        x:{ ticks:{ color:'#8B93A1', maxTicksLimit:8, autoSkip:true }, grid:{ color:'#2A3140' } },
+        y:{  position:'left',  title:{ display:true, text:'VIX / DXY', color:'#8B93A1' }, ticks:{ color:'#8B93A1' }, grid:{ color:'#2A3140' } },
+        y1:{ position:'right', title:{ display:true, text:'USD',       color:'#8B93A1' }, ticks:{ color:'#8B93A1' }, grid:{ display:false } },
+        y2:{ position:'right', title:{ display:true, text:'금리 %',    color:'#8B93A1' }, ticks:{ color:'#8B93A1' }, grid:{ display:false }, offset:true },
+      }
+    }
+  });
+}
+
+function setupRangeTabs(rows){
+  const tabs = document.querySelectorAll('#rangeTabs .range-tab');
+  // 보유 데이터 길이에 맞춰 초기 선택 결정
+  const spanDays = rows.length > 1
+    ? (new Date(rows[rows.length-1].date) - new Date(rows[0].date)) / 86400000
+    : 0;
+  let initial = 0;                                  // 데이터가 짧으면 전체
+  if (spanDays > 1095) initial = 365;
+  else if (spanDays > 365) initial = 365;
+  else if (spanDays > 120) initial = 90;
+
+  const apply = days => {
+    tabs.forEach(t => t.setAttribute('aria-pressed', String(Number(t.dataset.days) === days)));
+    renderChart(rows, days);
+  };
+  tabs.forEach(t => t.addEventListener('click', () => apply(Number(t.dataset.days))));
+  apply(initial);
+}
+
+(async function init(){
+  const [events, rows, attention] = await Promise.all([
+    loadEvents(), loadMarketCSV(), loadAttentionCSV()
+  ]);
+
+  // 섹션별 독립 실행: 한 섹션이 실패해도 나머지는 정상 표시된다.
+  const safe = (name, fn) => { try{ fn(); }catch(e){ console.error('[' + name + ']', e); } };
+  let metrics = [];
+  safe('metrics',   () => { metrics = computeMetrics(events, rows, attention); });
+  safe('ticker',    () => renderTicker(rows));
+  safe('strata',    () => renderStrata(events));
+  safe('matrix',    () => renderMatrix(metrics));
+  safe('cards',     () => renderCards(events, metrics));
+  safe('attention', () => renderAttention(attention, events));
+  safe('chart',     () => setupRangeTabs(rows));
+
+  if (!events.length){
+    document.getElementById('strataBody').innerHTML =
+      '<div class="empty-note">events.json을 불러오지 못했습니다. docs/data/events.json 경로를 확인하세요.</div>';
+  }
+})();
+</script>
+</body>
+</html>
