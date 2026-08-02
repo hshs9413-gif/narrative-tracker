@@ -1,8 +1,36 @@
-[
-  "연준 금리",
-  "관세 무역전쟁",
-  "지정학 리스크",
-  "인플레이션",
-  "원달러 환율",
-  "AI 투자"
-]
+{
+  "updated": "2026-08-02",
+  "note": "글로벌 매크로 워치리스트. query는 Google News 영문(글로벌) 검색어. speculative는 워치리스트 전용 분류(투기수요 감지)로, 이벤트 승격 시 3층 체계로 재분류한다.",
+  "keywords": [
+    {"id": "fed_rate",         "layer": "cyclical",    "label": "연준 금리",        "query": "Federal Reserve rate decision"},
+    {"id": "inflation",        "layer": "cyclical",    "label": "인플레이션",       "query": "inflation CPI surprise"},
+    {"id": "recession",        "layer": "cyclical",    "label": "경기침체",         "query": "recession risk economy"},
+    {"id": "yen_carry",        "layer": "cyclical",    "label": "엔캐리트레이드",   "query": "yen carry trade unwind"},
+    {"id": "boj",              "layer": "cyclical",    "label": "일본은행 정책",    "query": "Bank of Japan rate hike"},
+    {"id": "liquidity_qt",     "layer": "cyclical",    "label": "유동성/QT",        "query": "Fed balance sheet liquidity"},
+    {"id": "yields_surge",     "layer": "cyclical",    "label": "금리 급등",        "query": "bond yields surge selloff"},
+    {"id": "corp_default",     "layer": "cyclical",    "label": "기업 디폴트",      "query": "corporate bond default"},
+    {"id": "mega_bankruptcy",  "layer": "cyclical",    "label": "대형기업 파산",    "query": "Chapter 11 bankruptcy filing"},
+    {"id": "banking_risk",     "layer": "cyclical",    "label": "은행 리스크",      "query": "bank failure crisis"},
+    {"id": "cre_defaults",     "layer": "cyclical",    "label": "상업용부동산",     "query": "commercial real estate defaults"},
+    {"id": "hormuz",           "layer": "political",   "label": "호르무즈",         "query": "Strait of Hormuz"},
+    {"id": "mideast",          "layer": "political",   "label": "중동 확전",        "query": "Middle East escalation strike"},
+    {"id": "taiwan",           "layer": "political",   "label": "대만해협",         "query": "Taiwan strait tension"},
+    {"id": "russia_nato",      "layer": "political",   "label": "러시아-NATO",      "query": "Russia NATO escalation"},
+    {"id": "tariffs",          "layer": "political",   "label": "관세/무역전쟁",    "query": "tariffs trade war"},
+    {"id": "sanctions",        "layer": "political",   "label": "제재/수출통제",    "query": "sanctions export controls"},
+    {"id": "fed_independence", "layer": "political",   "label": "연준 독립성",      "query": "Fed independence political pressure"},
+    {"id": "sovereign_debt",   "layer": "political",   "label": "국가부채 위기",    "query": "sovereign debt crisis"},
+    {"id": "cds_spread",       "layer": "political",   "label": "CDS 프리미엄",     "query": "credit default swap spread widening"},
+    {"id": "pandemic",         "layer": "political",   "label": "감염병 확산",      "query": "pandemic outbreak WHO alert"},
+    {"id": "semis",            "layer": "structural",  "label": "반도체",           "query": "semiconductor chips demand supply"},
+    {"id": "ai_capex",         "layer": "structural",  "label": "AI 투자",          "query": "AI capex data center spending"},
+    {"id": "power_demand",     "layer": "structural",  "label": "전력수요",         "query": "data center power grid demand"},
+    {"id": "energy_transition","layer": "structural",  "label": "에너지전환/원전",  "query": "nuclear power renewables expansion"},
+    {"id": "bitcoin_rally",    "layer": "speculative", "label": "비트코인 랠리",    "query": "bitcoin rally record high"},
+    {"id": "gold_record",      "layer": "speculative", "label": "금 신고가",        "query": "gold price record high"},
+    {"id": "meme_squeeze",     "layer": "speculative", "label": "밈주식/숏스퀴즈",  "query": "meme stock short squeeze"},
+    {"id": "ipo_frenzy",       "layer": "speculative", "label": "IPO 과열",         "query": "IPO frenzy oversubscribed"},
+    {"id": "housing_bubble",   "layer": "speculative", "label": "부동산 과열",      "query": "housing bubble prices surge"}
+  ]
+}
