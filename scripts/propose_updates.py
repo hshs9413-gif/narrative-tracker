@@ -47,6 +47,14 @@ GEMINI_MODEL = MODEL_CANDIDATES[0]
 GEMINI_URL = ("https://generativelanguage.googleapis.com/v1beta/models/"
               "{model}:generateContent")
 
+# 실패 원인을 Issue 본문에 그대로 싣기 위해 진단 메시지를 모아둔다.
+DIAG = []
+
+
+def diag(msg):
+    print(msg)
+    DIAG.append(str(msg))
+
 
 # ────────────────────────── 데이터 로드 ──────────────────────────
 
@@ -232,7 +240,7 @@ def extract_json(text):
 def call_gemini(events, attention, market, scan):
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        print("[WARN] GEMINI_API_KEY 없음 — 정량 신호만 보고합니다.", file=sys.stderr)
+        diag("[WARN] GEMINI_API_KEY 환경변수가 비어 있습니다. Secrets 등록 여부와 이름(GEMINI_API_KEY)을 확인하세요.")
         return None, None
 
     prompt = PROMPT.format(
@@ -266,7 +274,7 @@ def call_gemini(events, attention, market, scan):
     for model in MODEL_CANDIDATES:
       for disable_thinking in (True, False):     # thinkingConfig 거부 모델 대비
         try:
-            print(f"[INFO] 모델 시도: {model} (thinking {'off' if disable_thinking else 'default'})")
+            diag(f"[INFO] 모델 시도: {model} (thinking {'off' if disable_thinking else 'default'})")
             resp = requests.post(
                 GEMINI_URL.format(model=model),
                 headers=headers,
@@ -276,27 +284,27 @@ def call_gemini(events, attention, market, scan):
             if resp.status_code == 200:
                 data = resp.json()
                 used_model = model
-                print(f"[INFO] 성공: {model}")
+                diag(f"[INFO] 성공: {model}")
                 break
 
             # 실패 원인을 그대로 노출한다 (429의 limit 값 확인용)
-            print(f"[WARN] {model} → HTTP {resp.status_code}", file=sys.stderr)
-            print(f"       {resp.text[:500]}", file=sys.stderr)
+            diag(f"[WARN] {model} → HTTP {resp.status_code}")
+            diag(f"       {resp.text[:400]}")
             if resp.status_code == 429:
-                print("       429는 쿼터 문제입니다. 'limit: 0'이면 해당 모델이 "
-                      "무료 티어에 배정되지 않은 것이니 다음 모델로 넘어갑니다.", file=sys.stderr)
+                diag("       → 429는 쿼터 문제입니다. limit이 0이면 해당 모델이 무료 티어 대상이 아니고, "
+                     "그 외에는 분당/일일 호출 한도 초과입니다.")
             elif resp.status_code == 400:
-                print("       400은 요청 형식 또는 모델명 오류입니다.", file=sys.stderr)
+                diag("       → 400은 요청 형식 또는 모델명 오류입니다.")
             elif resp.status_code in (401, 403):
-                print("       401/403은 API 키 문제입니다. 다음 모델을 시도해도 동일합니다.", file=sys.stderr)
+                diag("       → 401/403은 API 키 자체의 문제입니다(무효/권한없음).")
                 return None, None
         except Exception as e:  # noqa: BLE001
-            print(f"[WARN] {model} 호출 예외: {e}", file=sys.stderr)
+            diag(f"[WARN] {model} 호출 예외: {e}")
       if data is not None:
         break
 
     if data is None:
-        print("[WARN] 모든 모델 시도 실패 — 정량 신호만 보고합니다.", file=sys.stderr)
+        diag("[WARN] 모든 모델 시도 실패 — 정량 신호만 보고합니다.")
         return None, None
 
     globals()["GEMINI_MODEL"] = used_model
@@ -306,13 +314,12 @@ def call_gemini(events, attention, market, scan):
 
         # 진단 로그: 응답이 비면 원인을 바로 알 수 있게 남긴다
         usage = data.get("usageMetadata", {}) or {}
-        print(f"[INFO] finishReason={cand.get('finishReason')} "
-              f"thoughts={usage.get('thoughtsTokenCount')} "
-              f"output={usage.get('candidatesTokenCount')} "
-              f"textLen={len(text)}")
+        diag(f"[INFO] finishReason={cand.get('finishReason')} "
+             f"thoughts={usage.get('thoughtsTokenCount')} "
+             f"output={usage.get('candidatesTokenCount')} "
+             f"textLen={len(text)}")
         if cand.get("finishReason") == "MAX_TOKENS" and not text.strip():
-            print("[WARN] thinking이 출력 토큰을 모두 소진했습니다. "
-                  "maxOutputTokens를 더 올리거나 프롬프트를 줄이세요.", file=sys.stderr)
+            diag("[WARN] thinking이 출력 토큰을 모두 소진했습니다.")
 
         # 그라운딩 메타데이터에서 실제 검색어와 출처 추출
         meta = cand.get("groundingMetadata", {}) or {}
@@ -327,11 +334,11 @@ def call_gemini(events, attention, market, scan):
         }
         parsed = extract_json(text)
         if parsed is None:
-            print(f"[WARN] JSON 파싱 실패. 응답 앞부분:\n{text[:600]}", file=sys.stderr)
+            diag(f"[WARN] JSON 파싱 실패. 응답 앞부분: {text[:400]!r}")
         return parsed, grounding
 
     except Exception as e:  # noqa: BLE001
-        print(f"[WARN] 응답 처리 실패: {e}", file=sys.stderr)
+        diag(f"[WARN] 응답 처리 실패: {e}")
         return None, None
 
 
@@ -347,8 +354,19 @@ def build_issue_body(attention, market, proposal, grounding):
           json.dumps(market, ensure_ascii=False, indent=2), "```", ""]
 
     if proposal is None:
-        L += ["## 3. 웹 검증", "",
-              "API 키 미설정 또는 호출 실패로 생략되었습니다. 위 정량 신호만 참고하세요.", ""]
+        L += ["## 3. 웹 검증 — 실패", "",
+              "Gemini 검증이 완료되지 않았습니다. 아래 진단 로그에서 원인을 확인하세요.", "",
+              "```", *(DIAG or ["(진단 정보 없음)"]), "```", "",
+              "**원인별 조치**", "",
+              "| 로그 내용 | 원인 | 조치 |",
+              "|---|---|---|",
+              "| `GEMINI_API_KEY 환경변수가 비어 있습니다` | Secret 미등록/이름 불일치 | Settings → Secrets에 `GEMINI_API_KEY` 등록 |",
+              "| `HTTP 429` + `limit: 0` | 해당 모델이 무료 티어 대상 아님 | 자동으로 다음 모델을 시도함. 전부 실패 시 결제 계정 연결 필요 |",
+              "| `HTTP 429` (그 외) | 분당/일일 호출 한도 초과 | 10분 후 1회만 재실행 |",
+              "| `HTTP 400` | 요청 형식 또는 모델명 오류 | `GEMINI_MODEL` 변수 삭제 후 재실행 |",
+              "| `HTTP 401` / `403` | 키가 무효하거나 권한 없음 | AI Studio에서 키 재발급 |",
+              "| `textLen=0` | 응답 본문 없음 | thinking 토큰 소진. 코드 수정 필요 |",
+              ""]
     else:
         ver = proposal.get("verification", [])
         if ver:
