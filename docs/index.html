@@ -196,6 +196,16 @@ if (typeof Chart === 'undefined') {
   .kw{ font-size:11px; background:var(--surface-raised); padding:3px 8px; border-radius:3px; }
   .card-notes{ font-size:12.5px; color:var(--text-muted); }
 
+  .archive-details{ margin-top:18px; }
+  .archive-details summary{
+    cursor:pointer; font-size:12px; color:var(--text-muted);
+    padding:8px 0; user-select:none; list-style-position:inside;
+  }
+  .archive-details summary:hover{ color:var(--text-primary); }
+  .archive-details[open] summary{ margin-bottom:4px; }
+  table.matrix.archive{ min-width:520px; }
+  table.matrix.archive td{ opacity:.85; }
+
   .range-tabs{ display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; }
   .range-tab{
     font:inherit; font-size:12px; cursor:pointer;
@@ -601,9 +611,11 @@ function renderStrata(events){
   });
 }
 
-function renderMatrix(metrics){
+function renderMatrix(allMetrics){
   const el = document.getElementById('matrixTable');
-  if (!metrics.length){ el.outerHTML = '<div class="empty-note">이벤트가 없습니다.</div>'; return; }
+  if (!allMetrics.length){ el.outerHTML = '<div class="empty-note">이벤트가 없습니다.</div>'; return; }
+  const metrics = allMetrics.filter(m => m.e.status !== 'ended');
+  const archived = allMetrics.filter(m => m.e.status === 'ended');
 
   const qClass = q => q === '지배 내러티브' ? 'q-dominant'
                    : q === '소음 (이미 반영)' ? 'q-noise'
@@ -653,9 +665,43 @@ function renderMatrix(metrics){
       <th>내러티브</th><th>지속기간</th><th>시장영향 (트리거 전후 5일)</th><th>언급량</th><th>사분면</th>
     </tr></thead>
     <tbody>${rows}</tbody>`;
+
+  // 종료된 내러티브 — 접이식 아카이브 (백테스트 기록 보존)
+  document.querySelectorAll('.archive-details').forEach(n => n.remove());
+  if (archived.length){
+    const aRows = archived
+      .sort((a, b) => (b.impact?.peak || 0) - (a.impact?.peak || 0))
+      .map(m => {
+        const e = m.e, imp = m.impact;
+        const impCell = imp
+          ? `<span class="m-num">${imp.top.pct >= 0 ? '+' : ''}${imp.top.pct.toFixed(1)}%</span>
+             <span class="m-sub">${imp.top.label} · ${imp.strong}개 자산 3%+</span>`
+          : '<span class="m-sub">—</span>';
+        return `<tr>
+          <td data-label="내러티브">
+            <div class="m-name"><span class="m-dot" style="background:var(--layer-${e.layer})"></span>${e.name}</div>
+            <div class="m-layer">${LAYER_KO[e.layer] || e.layer}</div>
+          </td>
+          <td data-label="활성기간">
+            <span class="m-num">${m.activeSpan}일</span>
+            <span class="m-sub">${e.trigger_date} ~ ${e.half_life_date || ''}</span>
+          </td>
+          <td data-label="시장영향">${impCell}</td>
+        </tr>`;
+      }).join('');
+    el.insertAdjacentHTML('afterend', `
+      <details class="archive-details">
+        <summary>종료된 내러티브 ${archived.length}건 — 과거 영향 기록 보기</summary>
+        <table class="matrix archive">
+          <thead><tr><th>내러티브</th><th>활성기간</th><th>시장영향 (트리거 전후 5일)</th></tr></thead>
+          <tbody>${aRows}</tbody>
+        </table>
+      </details>`);
+  }
 }
 
-function renderCards(events, metrics){
+function renderCards(allEvents, metrics){
+  const events = allEvents.filter(e => e.status !== 'ended');
   const grid = document.getElementById('eventGrid');
   if (!events.length){ grid.innerHTML = '<div class="empty-note">events.json에 기록된 이벤트가 없습니다.</div>'; return; }
   grid.innerHTML = events.slice()
