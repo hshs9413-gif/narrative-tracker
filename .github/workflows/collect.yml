@@ -12,6 +12,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   collect:
@@ -35,11 +36,17 @@ jobs:
         run: python scripts/collect_news.py
         continue-on-error: true
 
+      - name: Auto status transition
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/auto_transition.py
+        continue-on-error: true
+
       - name: Commit and push if changed
         run: |
           git config user.name "narrative-tracker-bot"
           git config user.email "actions@github.com"
-          git add docs/data/market_snapshot.csv docs/data/attention.csv
+          git add docs/data/market_snapshot.csv docs/data/attention.csv docs/data/watchlist_attention.csv docs/data/events.json
           git diff --cached --quiet && exit 0
           git commit -m "chore: daily market snapshot $(date -u +%Y-%m-%d)"
           # 다른 워크플로우가 먼저 push했을 수 있으므로 재시도한다
