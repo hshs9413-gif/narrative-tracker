@@ -4,13 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       years:
-        description: "소급할 연수 (예: 3)"
+        description: "years to backfill"
         required: false
         default: "3"
-      start:
-        description: "시작일 YYYY-MM-DD (입력 시 years보다 우선)"
-        required: false
-        default: ""
 
 permissions:
   contents: write
@@ -20,21 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - run: pip install -r requirements.txt
-
-      - name: Run backfill
-        run: |
-          if [ -n "${{ github.event.inputs.start }}" ]; then
-            python scripts/backfill_market_data.py --start "${{ github.event.inputs.start }}"
-          else
-            python scripts/backfill_market_data.py --years "${{ github.event.inputs.years }}"
-          fi
-
+      - run: python scripts/backfill_market_data.py --years "${{ github.event.inputs.years }}"
       - name: Commit result
         run: |
           git config user.name "narrative-tracker-bot"
