@@ -60,20 +60,50 @@ def fetch_series(symbol, start, end):
 
 
 def fetch_dxy_ice(start, end):
-    """Stooq에서 ICE 달러인덱스 전체 히스토리."""
+    """Stooq에서 ICE 달러인덱스 전체 히스토리.
+    pandas.read_csv는 Stooq가 오류 문자열을 반환할 때 조용히 실패하므로
+    응답을 직접 파싱하고 실패 원인을 로그로 남긴다."""
     try:
         resp = requests.get(STOOQ_DXY_URL, timeout=30,
                             headers={"User-Agent": "Mozilla/5.0 (narrative-tracker)"})
         resp.raise_for_status()
-        df = pd.read_csv(io.StringIO(resp.text))
-        if "Date" not in df.columns or "Close" not in df.columns:
-            print(f"[WARN] Stooq 응답 형식 예상과 다름: {list(df.columns)}", file=sys.stderr)
+        text = resp.text.strip()
+
+        if not text or "Date" not in text.split("\n")[0]:
+            print(f"[WARN] Stooq 응답이 CSV가 아님: {text[:120]!r}", file=sys.stderr)
             return None
-        df["Date"] = pd.to_datetime(df["Date"]).dt.date
-        s = df.set_index("Date")["Close"].dropna()
-        s = s[(s.index >= start) & (s.index <= end)]
-        print(f"[INFO] DXY(ICE): {len(s)}건 ({s.index.min()} ~ {s.index.max()})")
+
+        lines = text.split("\n")
+        header = [h.strip() for h in lines[0].split(",")]
+        try:
+            i_date, i_close = header.index("Date"), header.index("Close")
+        except ValueError:
+            print(f"[WARN] Stooq 헤더 예상과 다름: {header}", file=sys.stderr)
+            return None
+
+        idx, vals = [], []
+        for line in lines[1:]:
+            cells = line.split(",")
+            if len(cells) <= max(i_date, i_close):
+                continue
+            try:
+                d = datetime.date.fromisoformat(cells[i_date].strip())
+                v = float(cells[i_close])
+            except (ValueError, TypeError):
+                continue
+            if start <= d <= end:
+                idx.append(d)
+                vals.append(v)
+
+        if not idx:
+            print(f"[WARN] Stooq: 기간 내 데이터 0건 (전체 {len(lines)-1}행 수신). "
+                  f"요청 기간 {start}~{end}", file=sys.stderr)
+            return None
+
+        s = pd.Series(vals, index=idx)
+        print(f"[INFO] DXY(ICE): {len(s)}건 ({min(idx)} ~ {max(idx)})")
         return s
+
     except Exception as e:  # noqa: BLE001
         print(f"[WARN] Stooq DXY 실패: {e}", file=sys.stderr)
         return None

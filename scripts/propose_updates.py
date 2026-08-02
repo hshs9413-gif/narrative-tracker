@@ -33,7 +33,17 @@ ATTENTION_PATH = os.path.join(BASE, "..", "docs", "data", "attention.csv")
 MARKET_PATH = os.path.join(BASE, "..", "docs", "data", "market_snapshot.csv")
 SCAN_PATH = os.path.join(BASE, "..", "docs", "data", "scan_keywords.json")
 
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.6-flash"
+# 무료 티어에서 쿼터가 배정된 모델을 우선 사용한다.
+# 최신 모델(gemini-3.x)은 무료 티어 쿼터가 0인 경우가 있어 첫 호출부터 429가 발생한다.
+# GEMINI_MODEL 변수를 설정하면 그 모델을 먼저 시도한다.
+MODEL_CANDIDATES = [
+    os.environ.get("GEMINI_MODEL"),
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
+    "gemini-2.5-pro",
+]
+MODEL_CANDIDATES = [m for m in MODEL_CANDIDATES if m]
+GEMINI_MODEL = MODEL_CANDIDATES[0]
 GEMINI_URL = ("https://generativelanguage.googleapis.com/v1beta/models/"
               "{model}:generateContent")
 
@@ -104,11 +114,15 @@ def market_signals(market_rows):
         return {"판정": "시장 데이터 부족 (2일 이상 필요)"}
 
     def pct_change(col, lookback):
-        if len(market_rows) <= lookback:
+        """결측치를 건너뛰고 유효값끼리 비교한다.
+        FRED는 1~2일 발행 지연이 있어 최근 행에 빈 칸이 흔하다."""
+        vals = [(r["date"], to_float(r.get(col))) for r in market_rows]
+        vals = [(d, v) for d, v in vals if v is not None]
+        if len(vals) <= lookback:
             return None
-        cur = to_float(market_rows[-1].get(col))
-        prev = to_float(market_rows[-1 - lookback].get(col))
-        if cur is None or prev is None or prev == 0:
+        cur = vals[-1][1]
+        prev = vals[-1 - lookback][1]
+        if prev == 0:
             return None
         return round((cur / prev - 1) * 100, 2)
 
@@ -236,16 +250,43 @@ def call_gemini(events, attention, market, scan):
         "generationConfig": {"temperature": 0.2, "maxOutputTokens": 4096},
     }
 
-    try:
-        resp = requests.post(
-            GEMINI_URL.format(model=GEMINI_MODEL),
-            headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
-            json=body,
-            timeout=180,
-        )
-        resp.raise_for_status()
-        data = resp.json()
+    data = None
+    used_model = None
+    for model in MODEL_CANDIDATES:
+        try:
+            print(f"[INFO] 모델 시도: {model}")
+            resp = requests.post(
+                GEMINI_URL.format(model=model),
+                headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
+                json=body,
+                timeout=180,
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                used_model = model
+                print(f"[INFO] 성공: {model}")
+                break
 
+            # 실패 원인을 그대로 노출한다 (429의 limit 값 확인용)
+            print(f"[WARN] {model} → HTTP {resp.status_code}", file=sys.stderr)
+            print(f"       {resp.text[:500]}", file=sys.stderr)
+            if resp.status_code == 429:
+                print("       429는 쿼터 문제입니다. 'limit: 0'이면 해당 모델이 "
+                      "무료 티어에 배정되지 않은 것이니 다음 모델로 넘어갑니다.", file=sys.stderr)
+            elif resp.status_code == 400:
+                print("       400은 요청 형식 또는 모델명 오류입니다.", file=sys.stderr)
+            elif resp.status_code in (401, 403):
+                print("       401/403은 API 키 문제입니다. 다음 모델을 시도해도 동일합니다.", file=sys.stderr)
+                break
+        except Exception as e:  # noqa: BLE001
+            print(f"[WARN] {model} 호출 예외: {e}", file=sys.stderr)
+
+    if data is None:
+        print("[WARN] 모든 모델 시도 실패 — 정량 신호만 보고합니다.", file=sys.stderr)
+        return None, None
+
+    globals()["GEMINI_MODEL"] = used_model
+    try:
         cand = (data.get("candidates") or [{}])[0]
         text = "".join(p.get("text", "") for p in cand.get("content", {}).get("parts", []))
 
@@ -260,12 +301,13 @@ def call_gemini(events, attention, market, scan):
             "검색어": meta.get("webSearchQueries", []) or [],
             "출처": sources,
         }
-        return extract_json(text), grounding
+        parsed = extract_json(text)
+        if parsed is None:
+            print(f"[WARN] JSON 파싱 실패. 응답 앞부분:\n{text[:600]}", file=sys.stderr)
+        return parsed, grounding
 
     except Exception as e:  # noqa: BLE001
-        print(f"[WARN] Gemini 호출 실패: {e}", file=sys.stderr)
-        if "resp" in dir():
-            print(resp.text[:800], file=sys.stderr)
+        print(f"[WARN] 응답 처리 실패: {e}", file=sys.stderr)
         return None, None
 
 
