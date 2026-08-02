@@ -33,7 +33,7 @@ ATTENTION_PATH = os.path.join(BASE, "..", "docs", "data", "attention.csv")
 MARKET_PATH = os.path.join(BASE, "..", "docs", "data", "market_snapshot.csv")
 SCAN_PATH = os.path.join(BASE, "..", "docs", "data", "scan_keywords.json")
 
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.6-flash"
 GEMINI_URL = ("https://generativelanguage.googleapis.com/v1beta/models/"
               "{model}:generateContent")
 
