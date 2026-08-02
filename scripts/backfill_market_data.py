@@ -60,53 +60,58 @@ def fetch_series(symbol, start, end):
 
 
 def fetch_dxy_ice(start, end):
-    """Stooq에서 ICE 달러인덱스 전체 히스토리.
-    pandas.read_csv는 Stooq가 오류 문자열을 반환할 때 조용히 실패하므로
-    응답을 직접 파싱하고 실패 원인을 로그로 남긴다."""
-    try:
-        resp = requests.get(STOOQ_DXY_URL, timeout=30,
-                            headers={"User-Agent": "Mozilla/5.0 (narrative-tracker)"})
-        resp.raise_for_status()
-        text = resp.text.strip()
+    """ICE 달러인덱스 히스토리.
 
-        if not text or "Date" not in text.split("\n")[0]:
-            print(f"[WARN] Stooq 응답이 CSV가 아님: {text[:120]!r}", file=sys.stderr)
-            return None
-
-        lines = text.split("\n")
-        header = [h.strip() for h in lines[0].split(",")]
+    Stooq → Yahoo(fdr) 순으로 시도한다. GitHub Actions 러너에서 Stooq가
+    차단되는 사례가 있어, 일일 수집 스크립트와 동일한 폴백 체인을 둔다.
+    """
+    # 1순위: Stooq (기간 파라미터를 명시해 전체 히스토리를 요청)
+    for url in (
+        f"{STOOQ_DXY_URL}&d1={start.strftime('%Y%m%d')}&d2={end.strftime('%Y%m%d')}",
+        STOOQ_DXY_URL,
+    ):
         try:
+            resp = requests.get(url, timeout=30,
+                                headers={"User-Agent": "Mozilla/5.0 (narrative-tracker)"})
+            resp.raise_for_status()
+            text = resp.text.strip()
+            lines = text.split("\n")
+
+            if not text or "Date" not in lines[0]:
+                print(f"[WARN] Stooq 응답이 CSV 아님: {text[:100]!r}", file=sys.stderr)
+                continue
+
+            header = [h.strip() for h in lines[0].split(",")]
             i_date, i_close = header.index("Date"), header.index("Close")
-        except ValueError:
-            print(f"[WARN] Stooq 헤더 예상과 다름: {header}", file=sys.stderr)
-            return None
+            idx, vals = [], []
+            for line in lines[1:]:
+                c = line.split(",")
+                if len(c) <= max(i_date, i_close):
+                    continue
+                try:
+                    d = datetime.date.fromisoformat(c[i_date].strip())
+                    v = float(c[i_close])
+                except (ValueError, TypeError):
+                    continue
+                if start <= d <= end:
+                    idx.append(d); vals.append(v)
 
-        idx, vals = [], []
-        for line in lines[1:]:
-            cells = line.split(",")
-            if len(cells) <= max(i_date, i_close):
-                continue
-            try:
-                d = datetime.date.fromisoformat(cells[i_date].strip())
-                v = float(cells[i_close])
-            except (ValueError, TypeError):
-                continue
-            if start <= d <= end:
-                idx.append(d)
-                vals.append(v)
+            if idx:
+                print(f"[INFO] DXY(ICE) via Stooq: {len(idx)}건 ({min(idx)} ~ {max(idx)})")
+                return pd.Series(vals, index=idx)
+            print(f"[WARN] Stooq: 기간 내 0건 (수신 {len(lines)-1}행)", file=sys.stderr)
+        except Exception as e:  # noqa: BLE001
+            print(f"[WARN] Stooq 실패: {e}", file=sys.stderr)
 
-        if not idx:
-            print(f"[WARN] Stooq: 기간 내 데이터 0건 (전체 {len(lines)-1}행 수신). "
-                  f"요청 기간 {start}~{end}", file=sys.stderr)
-            return None
+    # 2순위: Yahoo 선물 심볼 (일일 수집에서 실제로 동작하는 경로)
+    for alt in ("DX=F", "DX-Y.NYB"):
+        s = fetch_series(alt, start, end)
+        if s is not None and len(s):
+            print(f"[INFO] DXY(ICE) via {alt}: {len(s)}건")
+            return s
 
-        s = pd.Series(vals, index=idx)
-        print(f"[INFO] DXY(ICE): {len(s)}건 ({min(idx)} ~ {max(idx)})")
-        return s
-
-    except Exception as e:  # noqa: BLE001
-        print(f"[WARN] Stooq DXY 실패: {e}", file=sys.stderr)
-        return None
+    print("[WARN] DXY(ICE) 모든 소스 실패 — 해당 컬럼은 비워둡니다.", file=sys.stderr)
+    return None
 
 
 def main():
