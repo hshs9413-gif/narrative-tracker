@@ -204,11 +204,38 @@ if (typeof Chart === 'undefined') {
   footer{ max-width:1200px; margin:0 auto; padding:0 32px; color:var(--text-muted); font-size:12px; }
 
   @media (max-width:700px){
-    :root{ --name-col:112px; }
-    header{ padding:32px 18px 22px; }
-    main{ padding:28px 18px; }
-    footer{ padding:0 18px; }
-    .event-name{ font-size:11.5px; padding-right:10px; }
+    :root{ --name-col:104px; }
+    header{ padding:28px 16px 20px; }
+    main{ padding:24px 14px; }
+    footer{ padding:0 16px; }
+    section{ margin-bottom:40px; }
+    .event-name{ font-size:11.5px; padding-right:8px; }
+    .subtitle{ font-size:13.5px; }
+    .ticker{ gap:14px 18px; }
+    .ticker-item{ min-width:72px; }
+    .ticker-value{ font-size:17px; }
+    .strata{ padding:14px 14px 12px; }
+    .chart-wrap{ height:260px; padding:14px; }
+    .event-grid{ grid-template-columns:1fr; }
+    .legend{ gap:10px 14px; }
+
+    /* 매트릭스: 가로 스크롤 테이블 → 세로 카드 스택 */
+    .matrix-wrap{ overflow-x:visible; padding:6px 14px 14px; }
+    table.matrix{ min-width:0; }
+    table.matrix thead{ display:none; }
+    table.matrix, table.matrix tbody, table.matrix tr, table.matrix td{ display:block; width:100%; }
+    table.matrix tr{
+      border:1px solid var(--grid); border-radius:4px;
+      margin-top:12px; padding:4px 12px 10px;
+      background:var(--surface-raised);
+    }
+    table.matrix td{ border-bottom:none; padding:8px 0 2px; }
+    table.matrix td::before{
+      content:attr(data-label);
+      display:block; font-size:10px; letter-spacing:.06em;
+      color:var(--text-muted); margin-bottom:3px; text-transform:uppercase;
+    }
+    table.matrix td[data-label="내러티브"]::before{ display:none; }
   }
 </style>
 </head>
@@ -475,6 +502,8 @@ function renderStrata(events){
   // ── 분기 눈금 ──
   const axis = document.getElementById('axis');
   axis.innerHTML = '';
+  // 좁은 화면(모바일)에서는 눈금이 겹치므로 반기 단위로 성긴다
+  const stepMonths = (axis.clientWidth || 600) < 420 ? 6 : 3;
   const tick = new Date(windowStart.getFullYear(), Math.floor(windowStart.getMonth()/3)*3, 1);
   while (tick <= windowEnd){
     const p = pct(tick);
@@ -486,7 +515,7 @@ function renderStrata(events){
       el.textContent = `${String(tick.getFullYear()).slice(2)}.${q}Q`;
       axis.appendChild(el);
     }
-    tick.setMonth(tick.getMonth() + 3);
+    tick.setMonth(tick.getMonth() + stepMonths);
   }
 
   // ── 층별 행 생성 ──
@@ -573,19 +602,19 @@ function renderMatrix(metrics){
       const pClass = ratio >= 1 ? 'p-long' : '';
 
       return `<tr>
-        <td>
+        <td data-label="내러티브">
           <div class="m-name"><span class="m-dot" style="background:var(--layer-${e.layer})"></span>${e.name}</div>
           <div class="m-layer">${LAYER_KO[e.layer] || e.layer}${e.phase ? ' · ' + (PHASE_KO[e.phase] || e.phase) : ''}</div>
         </td>
-        <td>
+        <td data-label="지속기간">
           <span class="m-num">${m.durationLabel}</span>
           <span class="m-bar"><i style="width:${Math.min(ratio * 100, 100)}%;
             background:${ratio >= 1 ? 'var(--layer-structural)' : 'var(--text-muted)'}"></i></span>
           <span class="m-sub ${pClass}">${m.persistence} · 층 통상 ${m.typical}일</span>
         </td>
-        <td>${impCell}</td>
-        <td>${attCell}</td>
-        <td><span class="m-tag ${qClass(m.quadrant)}">${m.quadrant}</span></td>
+        <td data-label="시장영향">${impCell}</td>
+        <td data-label="언급량">${attCell}</td>
+        <td data-label="사분면"><span class="m-tag ${qClass(m.quadrant)}">${m.quadrant}</span></td>
       </tr>`;
     }).join('');
 
