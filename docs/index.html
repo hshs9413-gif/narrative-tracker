@@ -118,7 +118,7 @@ if (typeof Chart === 'undefined') {
 
   .event-bar{
     position:absolute; top:50%; transform:translateY(-50%);
-    height:16px; border-radius:3px; min-width:3px;
+    height:16px; border-radius:3px; min-width:9px;
   }
   .event-bar.political{ background:var(--layer-political); }
   .event-bar.cyclical{ background:var(--layer-cyclical); }
@@ -130,22 +130,22 @@ if (typeof Chart === 'undefined') {
     border-top-left-radius:0; border-bottom-left-radius:0;
     border-left:2px dotted rgba(232,230,223,.6);
   }
-  .event-bar.status-active::after{
-    content:''; position:absolute; right:-1px; top:50%; transform:translateY(-50%);
-    border-left:5px solid; border-top:4px solid transparent;
-    border-bottom:4px solid transparent; opacity:.85;
+  /* 진행중: 우측 모서리에 밝은 하이라이트 (오늘까지 이어짐을 표시) */
+  .event-bar.status-active{
+    box-shadow: inset -3px 0 0 rgba(255,255,255,.45);
   }
+  /* 종료: 톤다운된 실선 */
   .event-bar.status-ended{ opacity:.5; }
-  .event-bar.status-dormant{
-    background-image:repeating-linear-gradient(45deg,
-      rgba(0,0,0,.28) 0 4px, transparent 4px 8px);
-  }
+  /* 휴면: 속이 빈 외곽선 — 작은 막대에서도 깔끔하게 읽힘 */
+  .event-bar.status-dormant{ background:transparent !important; }
+  .event-bar.political.status-dormant{ box-shadow: inset 0 0 0 1.5px var(--layer-political); }
+  .event-bar.cyclical.status-dormant{ box-shadow: inset 0 0 0 1.5px var(--layer-cyclical); }
+  .event-bar.structural.status-dormant{ box-shadow: inset 0 0 0 1.5px var(--layer-structural); }
   .empty-note{ font-size:12.5px; color:var(--text-muted); padding:6px 0; }
 
   .legend{ display:flex; gap:18px; margin-top:16px; flex-wrap:wrap; }
   .legend-item{ display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--text-muted); }
   .swatch{ width:10px; height:10px; border-radius:2px; }
-  .swatch.hatch{ background-image:repeating-linear-gradient(45deg,#8B93A1 0 3px, transparent 3px 6px); background-color:#4A5260; }
 
   /* ── 지속기간 · 시장영향 매트릭스 ── */
   .matrix-wrap{
@@ -272,7 +272,7 @@ if (typeof Chart === 'undefined') {
         <div class="legend-item"><span class="swatch" style="background:var(--layer-cyclical)"></span>경기순환</div>
         <div class="legend-item"><span class="swatch" style="background:var(--layer-structural)"></span>구조테마</div>
         <div class="legend-item">진하기 = 강도(상/중/하)</div>
-        <div class="legend-item"><span class="swatch hatch"></span>휴면</div>
+        <div class="legend-item"><span class="swatch" style="background:transparent; box-shadow:inset 0 0 0 1.5px var(--text-muted)"></span>휴면</div>
         <div class="legend-item">◁ 점선 = 표시 기간 이전부터 지속</div>
       </div>
     </div>
