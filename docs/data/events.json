@@ -1,0 +1,47 @@
+[
+  {
+    "id": "fed-politicization-2026",
+    "name": "연준 정치화 (트럼프-워시 갈등)",
+    "layer": "political",
+    "layer_secondary": "cyclical",
+    "trigger_date": "2026-06-01",
+    "peak_date": null,
+    "half_life_date": null,
+    "status": "active",
+    "intensity": "mid",
+    "assets": ["dollar", "us10y", "gold"],
+    "keywords": ["금리인하 압박", "케빈 워시", "이사회 dissent", "연준 독립성"],
+    "reignition_triggers": ["이사회 인사 강제 교체", "워시 의장 사임/해임설"],
+    "notes": "7/29 FOMC 동결(9:3), 3인 동일방향 반대(2016년 이후 최초). 경기순환+정치제도 층 중첩 국면."
+  },
+  {
+    "id": "iran-war-2026",
+    "name": "이란 전쟁",
+    "layer": "political",
+    "layer_secondary": null,
+    "trigger_date": "2026-02-28",
+    "peak_date": "2026-03-21",
+    "half_life_date": "2026-04-18",
+    "status": "dormant",
+    "intensity": "low",
+    "assets": ["oil", "gold", "dollar"],
+    "keywords": ["호르무즈 봉쇄", "정유시설 타격", "확전", "휴전 협상"],
+    "reignition_triggers": ["호르무즈 재봉쇄", "정유시설 직접 타격", "이스라엘-이란 직접 충돌 재점화"],
+    "notes": "2/28 미-이스라엘 공습으로 발발. 3주차 정점 후 4주차부터 하락 안정 패턴 확인."
+  },
+  {
+    "id": "ai-valuation-2024",
+    "name": "AI 밸류에이션 / 데이터센터 투자",
+    "layer": "structural",
+    "layer_secondary": null,
+    "trigger_date": "2024-01-01",
+    "peak_date": null,
+    "half_life_date": null,
+    "status": "active",
+    "intensity": "mid",
+    "assets": ["equity_bigtech", "semiconductor", "power_infra"],
+    "keywords": ["AI 밸류에이션", "데이터센터 투자", "GPU 공급", "전력수요 급증"],
+    "reignition_triggers": ["대형 실적 서프라이즈/쇼크", "규제 이슈"],
+    "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대."
+  }
+]
