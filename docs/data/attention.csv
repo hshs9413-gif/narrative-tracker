@@ -1,4 +1,8 @@
-date,event_id,count
-2026-08-02,fed-politicization-2026,10
-2026-08-02,iran-war-2026,56
-2026-08-02,ai-valuation-2024,106
+date,event_id,count,wcount
+2026-08-02,fed-politicization-2026,10,
+2026-08-02,iran-war-2026,56,
+2026-08-02,ai-valuation-2024,106,
+2026-08-03,fed-politicization-2026,27,33.5
+2026-08-03,iran-war-2026,79,105.0
+2026-08-03,ai-valuation-2024,163,191.0
+2026-08-03,tariff-shock-2025,34,38.0
