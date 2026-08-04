@@ -10,9 +10,21 @@
     "half_life_date": null,
     "status": "active",
     "intensity": "mid",
-    "assets": ["dollar", "us10y", "gold"],
-    "keywords": ["금리인하 압박", "케빈 워시", "이사회 dissent", "연준 독립성"],
-    "reignition_triggers": ["이사회 인사 강제 교체", "워시 의장 사임/해임설"],
+    "assets": [
+      "dollar",
+      "us10y",
+      "gold"
+    ],
+    "keywords": [
+      "금리인하 압박",
+      "케빈 워시",
+      "이사회 dissent",
+      "연준 독립성"
+    ],
+    "reignition_triggers": [
+      "이사회 인사 강제 교체",
+      "워시 의장 사임/해임설"
+    ],
     "notes": "7/29 FOMC 동결(9:3), 3인 동일방향 반대(2016년 이후 최초). 경기순환+정치제도 층 중첩 국면."
   },
   {
@@ -22,13 +34,30 @@
     "phase": "correction",
     "trigger_date": "2026-02-28",
     "peak_date": "2026-03-21",
-    "half_life_date": "2026-04-18",
-    "status": "dormant",
+    "half_life_date": null,
+    "status": "active",
     "intensity": "low",
-    "assets": ["oil", "gold", "dollar"],
-    "keywords": ["호르무즈 봉쇄", "정유시설 타격", "확전", "휴전 협상"],
-    "reignition_triggers": ["호르무즈 재봉쇄", "정유시설 직접 타격", "이스라엘-이란 직접 충돌 재점화"],
-    "notes": "2/28 미-이스라엘 공습으로 발발. 백테스트: T+5 유가 +39.4%, VIX +58.3%. VIX 반감 3거래일, 고변동 21거래일 지속."
+    "assets": [
+      "oil",
+      "gold",
+      "dollar"
+    ],
+    "keywords": [
+      "호르무즈 봉쇄",
+      "정유시설 타격",
+      "확전",
+      "휴전 협상"
+    ],
+    "reignition_triggers": [
+      "호르무즈 재봉쇄",
+      "정유시설 직접 타격",
+      "이스라엘-이란 직접 충돌 재점화"
+    ],
+    "notes": "2/28 미-이스라엘 공습으로 발발. 백테스트: T+5 유가 +39.4%, VIX +58.3%. VIX 반감 3거래일, 고변동 21거래일 지속.",
+    "last_auto": {
+      "date": "2026-08-04",
+      "change": "dormant->active"
+    }
   },
   {
     "id": "ai-valuation-2024",
@@ -40,9 +69,21 @@
     "half_life_date": null,
     "status": "active",
     "intensity": "mid",
-    "assets": ["equity_bigtech", "semiconductor", "power_infra"],
-    "keywords": ["AI 밸류에이션", "데이터센터 투자", "GPU 공급", "전력수요 급증"],
-    "reignition_triggers": ["대형 실적 서프라이즈/쇼크", "규제 이슈"],
+    "assets": [
+      "equity_bigtech",
+      "semiconductor",
+      "power_infra"
+    ],
+    "keywords": [
+      "AI 밸류에이션",
+      "데이터센터 투자",
+      "GPU 공급",
+      "전력수요 급증"
+    ],
+    "reignition_triggers": [
+      "대형 실적 서프라이즈/쇼크",
+      "규제 이슈"
+    ],
     "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대."
   },
   {
@@ -55,9 +96,19 @@
     "half_life_date": "2025-05-06",
     "status": "dormant",
     "intensity": "low",
-    "assets": ["equity", "oil", "dollar"],
-    "keywords": ["상호관세", "관세 인상"],
-    "reignition_triggers": ["대규모 관세 재부과", "주요국 보복관세 발표"],
+    "assets": [
+      "equity",
+      "oil",
+      "dollar"
+    ],
+    "keywords": [
+      "상호관세",
+      "관세 인상"
+    ],
+    "reignition_triggers": [
+      "대규모 관세 재부과",
+      "주요국 보복관세 발표"
+    ],
     "notes": "백테스트: T+5 VIX +89.3%(3년 내 최대 충격), 유가 -16%. 고변동 22거래일(달력 33일) — 정치층 통상기간과 정합. 이후 협상 국면으로 완화."
   },
   {
@@ -70,7 +121,10 @@
     "half_life_date": "2025-06-24",
     "status": "ended",
     "intensity": "low",
-    "assets": ["oil", "gold"],
+    "assets": [
+      "oil",
+      "gold"
+    ],
     "keywords": [],
     "reignition_triggers": [],
     "notes": "백테스트: T+5 유가 +10.2%, VIX +14.4%. 빠른 휴전으로 고변동 단 2거래일(달력 6일) — 정치층 최단 소멸 사례."
@@ -85,7 +139,11 @@
     "half_life_date": "2024-11-15",
     "status": "ended",
     "intensity": "low",
-    "assets": ["dollar", "us10y", "equity"],
+    "assets": [
+      "dollar",
+      "us10y",
+      "equity"
+    ],
     "keywords": [],
     "reignition_triggers": [],
     "notes": "백테스트: T+5 VIX -31.6%(하방 충격 = 불확실성 해소), 금 -5.8%, 10Y +4.2%. 5개 자산 동시반응 — 방향이 음수여도 '상' 강도."
@@ -100,7 +158,11 @@
     "half_life_date": "2024-08-19",
     "status": "ended",
     "intensity": "low",
-    "assets": ["equity", "yen", "vix"],
+    "assets": [
+      "equity",
+      "yen",
+      "vix"
+    ],
     "keywords": [],
     "reignition_triggers": [],
     "notes": "백테스트: 당일 VIX +64.9%(장중 65 터치). VIX 반감 1거래일로 극단적 V자 — 그러나 고변동 잔여는 10월 초까지(달력 64일) 산발 지속."
@@ -115,7 +177,10 @@
     "half_life_date": "2023-11-10",
     "status": "ended",
     "intensity": "low",
-    "assets": ["oil", "gold"],
+    "assets": [
+      "oil",
+      "gold"
+    ],
     "keywords": [],
     "reignition_triggers": [],
     "notes": "백테스트: T+5 금 +5.0%, 유가 +4.6% — 'mid' 등급. 안전자산 중심 반응, 확전 없이 시장영향 제한."
