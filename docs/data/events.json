@@ -93,8 +93,8 @@
     "phase": "correction",
     "trigger_date": "2025-04-03",
     "peak_date": "2025-04-08",
-    "half_life_date": "2025-05-06",
-    "status": "dormant",
+    "half_life_date": null,
+    "status": "active",
     "intensity": "low",
     "assets": [
       "equity",
@@ -109,7 +109,11 @@
       "대규모 관세 재부과",
       "주요국 보복관세 발표"
     ],
-    "notes": "백테스트: T+5 VIX +89.3%(3년 내 최대 충격), 유가 -16%. 고변동 22거래일(달력 33일) — 정치층 통상기간과 정합. 이후 협상 국면으로 완화."
+    "notes": "백테스트: T+5 VIX +89.3%(3년 내 최대 충격), 유가 -16%. 고변동 22거래일(달력 33일) — 정치층 통상기간과 정합. 이후 협상 국면으로 완화.",
+    "last_auto": {
+      "date": "2026-08-05",
+      "change": "dormant->active"
+    }
   },
   {
     "id": "israel-iran-2025",
