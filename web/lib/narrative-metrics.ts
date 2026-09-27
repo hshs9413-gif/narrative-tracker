@@ -20,9 +20,11 @@ export interface Impact {
 }
 
 export interface AttentionSummary {
+  /** 7일 이동평균 (판정 대상) */
   series: { date: string; count: number }[];
-  latest: number | null;
-  peak: number | null;
+  days: number;
+  recentAvg: number | null;
+  peakAvg: number | null;
   ratio: number | null;
 }
 
@@ -81,15 +83,20 @@ function computeImpact(rows: MarketSnapshotRow[], iso: string): Impact | null {
   return { top: moves[0], peak, strong, grade };
 }
 
+// propose_updates.py와 같은 식(최근 7개 평균 ÷ 7일 이동평균 최대, 3일 미만 판정 안 함) — 하루치로 재면 주간 리뷰와 어긋난다.
 export function summarizeAttention(rows: AttentionRow[], eventId: string): AttentionSummary {
-  const series = rows
+  const raw = rows
     .filter((r) => r.event_id === eventId && r.count !== null)
     .map((r) => ({ date: r.date, count: r.count as number }))
     .sort((a, b) => a.date.localeCompare(b.date));
-  if (!series.length) return { series, latest: null, peak: null, ratio: null };
-  const latest = series[series.length - 1].count;
-  const peak = Math.max(...series.map((s) => s.count));
-  return { series, latest, peak, ratio: peak ? latest / peak : 0 };
+  const series = raw.map((s, i) => {
+    const window = raw.slice(Math.max(0, i - 6), i + 1);
+    return { date: s.date, count: window.reduce((sum, w) => sum + w.count, 0) / window.length };
+  });
+  if (raw.length < 3) return { series, days: raw.length, recentAvg: null, peakAvg: null, ratio: null };
+  const recentAvg = series[series.length - 1].count;
+  const peakAvg = Math.max(...series.map((s) => s.count));
+  return { series, days: raw.length, recentAvg, peakAvg, ratio: peakAvg ? recentAvg / peakAvg : 0 };
 }
 
 export function computeMetrics(
@@ -117,7 +124,7 @@ export function computeMetrics(
 
     // 관심 vs 영향 사분면
     let quadrant: Quadrant = "측정중";
-    if (att.series.length >= 3 && impact) {
+    if (att.ratio !== null && impact) {
       const hiAtt = (att.ratio ?? 0) >= 0.5;
       const hiImp = impact.grade !== "low";
       quadrant = hiAtt ? (hiImp ? "지배 내러티브" : "소음 (이미 반영)") : hiImp ? "저평가 리스크" : "휴면";

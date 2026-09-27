@@ -77,7 +77,7 @@ export function NarrativeSections() {
 
       <Section
         title="내러티브 언급량 (Google News 기사 수)"
-        note="정점 대비 50% 아래로 내려가면 반감기, 25% 아래면 휴면 전환을 검토합니다. RSS 특성상 최대 100건에서 포화되므로 절대량보다 추이를 보세요."
+        note="선은 기사 수의 7일 평균이며, 주간 리뷰(propose_updates.py)와 같은 기준입니다. 7일 평균이 정점의 50% 아래로 내려가면 반감기, 25% 아래면 휴면 전환을 검토합니다. RSS 특성상 최대 100건에서 포화되므로 절대량보다 추이를 보세요."
       >
         <AttentionCharts metrics={metrics} />
       </Section>

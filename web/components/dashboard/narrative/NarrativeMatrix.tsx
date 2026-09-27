@@ -92,15 +92,15 @@ export function NarrativeMatrix({ metrics }: { metrics: NarrativeMetrics[] }) {
                   )}
                 </Cell>
                 <Cell label="언급량">
-                  {att.latest !== null ? (
-                    <>
-                      <span className="block whitespace-nowrap font-mono tabular-nums">{att.latest}건/일</span>
-                      <span className="text-[11px] text-text-muted">
-                        {att.series.length >= 3 ? `정점 대비 ${Math.round((att.ratio ?? 0) * 100)}%` : `${att.series.length}일차 측정중`}
-                      </span>
-                    </>
-                  ) : (
+                  {att.days === 0 ? (
                     <span className="text-[11px] text-text-muted">수집 전</span>
+                  ) : att.recentAvg === null ? (
+                    <span className="text-[11px] text-text-muted">{att.days}일차 측정중</span>
+                  ) : (
+                    <>
+                      <span className="block whitespace-nowrap font-mono tabular-nums">{Math.round(att.recentAvg)}건/일</span>
+                      <span className="text-[11px] text-text-muted">7일 평균 · 정점 대비 {Math.round((att.ratio ?? 0) * 100)}%</span>
+                    </>
                   )}
                 </Cell>
                 <Cell label="사분면">
