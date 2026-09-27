@@ -26,6 +26,10 @@
   --policy-easing: #5b8f6b;
   --policy-neutral: #8b93a1;
   --policy-tightening: #b5483d;
+
+  /* 기존 대시보드의 강조색 — 오늘선·지배 내러티브(hot), 저평가 리스크·장기화(warm) */
+  --signal-hot: #e8887c;
+  --signal-warm: #d9b94a;
 }
 
 @theme inline {
@@ -48,6 +52,9 @@
   --color-policy-easing: var(--policy-easing);
   --color-policy-neutral: var(--policy-neutral);
   --color-policy-tightening: var(--policy-tightening);
+
+  --color-signal-hot: var(--signal-hot);
+  --color-signal-warm: var(--signal-warm);
 
   --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;

@@ -28,6 +28,8 @@ export interface GrowthInflation {
   pmi_as_of: string | null;
   breakeven: number | null;
   breakeven_date?: string;
+  breakeven_change?: number; // lookback 대비 28일 평균 변화(%p) — 인플레 축 판정 근거
+  breakeven_lookback_days?: number;
 }
 
 export interface CreditStress {
@@ -70,8 +72,7 @@ export interface CompositeScore {
 }
 
 // ────────────────────── regime_history.json ──────────────────────
-// propose_regime_update.py가 GitHub Issue로 제안하고, 사람이 승인 후 직접 수정하는 파일.
-// end_date가 null이면 현재 진행 중인 구간.
+// 계획만 있고 아직 이 파일을 만드는 스크립트는 없다. end_date가 null이면 진행 중인 구간.
 
 export interface RegimeHistoryEntry {
   id: string;
@@ -91,7 +92,8 @@ export interface RegimeHistoryEntry {
 export type NarrativeLayer = "cyclical" | "structural" | "political";
 export type NarrativeStatus = "active" | "dormant" | "ended";
 export type NarrativeIntensity = "high" | "mid" | "low";
-export type NarrativePhase = "shock" | "overshoot" | "correction";
+// 5단계 사이클 — 지금 데이터엔 3개만 쓰이지만 기존 대시보드가 5개 모두 지원했다.
+export type NarrativePhase = "shock" | "policy" | "overshoot" | "side_effect" | "correction";
 
 export interface NarrativeEvent {
   id: string;
@@ -109,6 +111,15 @@ export interface NarrativeEvent {
   reignition_triggers: string[];
   notes: string;
   last_auto?: { date: string; change: string };
+}
+
+// ────────────────────── attention.csv ──────────────────────
+// collect_news.py가 이벤트별 Google News 일일 기사 수를 쌓는다 (RSS 특성상 100건에서 포화).
+
+export interface AttentionRow {
+  date: string;
+  event_id: string;
+  count: number | null;
 }
 
 // ────────────────────── market_snapshot.csv ──────────────────────

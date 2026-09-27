@@ -4,10 +4,12 @@
 interface RegimeBadgeProps {
   label: string;
   colorMap: Record<string, string>;
+  /** 무엇에 대한 값인지 — "평상"만 있으면 신용인지 정책인지 알 수 없다 */
+  caption?: string;
   size?: "sm" | "md";
 }
 
-export function RegimeBadge({ label, colorMap, size = "md" }: RegimeBadgeProps) {
+export function RegimeBadge({ label, colorMap, caption, size = "md" }: RegimeBadgeProps) {
   const color = colorMap[label] ?? "var(--color-text-muted)";
   const isUnknown = !(label in colorMap);
 
@@ -21,6 +23,7 @@ export function RegimeBadge({ label, colorMap, size = "md" }: RegimeBadgeProps) 
         className="inline-block w-1.5 h-1.5 rounded-full"
         style={{ background: color, opacity: isUnknown ? 0.5 : 1 }}
       />
+      {caption && <span className="text-text-muted">{caption}</span>}
       {label}
     </span>
   );

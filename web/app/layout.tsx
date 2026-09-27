@@ -7,7 +7,7 @@ const PRETENDARD_CSS =
   "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css";
 
 export const metadata: Metadata = {
-  title: "레짐 네러티브 트래커",
+  title: "내러티브 레짐 트래커",
   description: "Macro Narrative / Regime Tracker",
 };
 
