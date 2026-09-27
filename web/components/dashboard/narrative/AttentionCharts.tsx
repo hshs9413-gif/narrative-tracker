@@ -22,14 +22,14 @@ export function AttentionCharts({ metrics }: { metrics: NarrativeMetrics[] }) {
           key={event.id}
           title={event.name}
           points={attention.series.map((s) => ({ date: s.date, value: s.count }))}
-          formatValue={(v) => `${Math.round(v)}건`}
+          formatValue={(v) => `${Math.round(v)}건/일`}
           color={LAYER_COLOR[event.layer]}
           subtitle={attention.ratio !== null ? `정점 대비 ${Math.round(attention.ratio * 100)}%` : undefined}
           referenceLines={
-            attention.peak
+            attention.peakAvg
               ? [
-                  { value: attention.peak * 0.5, label: "반감기 50%" },
-                  { value: attention.peak * 0.25, label: "휴면 25%" },
+                  { value: attention.peakAvg * 0.5, label: "반감기 50%" },
+                  { value: attention.peakAvg * 0.25, label: "휴면 25%" },
                 ]
               : []
           }
