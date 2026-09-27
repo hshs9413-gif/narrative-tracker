@@ -45,7 +45,8 @@ MODEL_CANDIDATES = [
     "gemini-3.5-flash",       # 이전 세대 폴백
     "gemini-3.1-flash-lite",  # 경량 폴백 (15 RPM)
 ]
-MODEL_CANDIDATES = [m for m in MODEL_CANDIDATES if m]
+# GEMINI_MODEL이 기본 목록과 같으면 같은 모델을 두 번 호출해 쿼터를 낭비하므로 중복 제거.
+MODEL_CANDIDATES = list(dict.fromkeys(m for m in MODEL_CANDIDATES if m))
 GEMINI_MODEL = MODEL_CANDIDATES[0]
 GEMINI_URL = ("https://generativelanguage.googleapis.com/v1beta/models/"
               "{model}:generateContent")
@@ -57,6 +58,25 @@ DIAG = []
 def diag(msg):
     print(msg)
     DIAG.append(str(msg))
+
+
+def describe_error(resp):
+    """Gemini 에러에서 원인 판별 필드만 뽑는다 — quotaValue(0=무료 대상 아님)는 본문 뒤쪽이라 앞부분만 찍으면 안 보인다."""
+    try:
+        err = resp.json().get("error", {})
+    except ValueError:
+        return resp.text[:1000]
+    parts = [err.get("message", "").strip()]
+    for d in err.get("details", []):
+        kind = d.get("@type", "").rsplit(".", 1)[-1]
+        if kind == "QuotaFailure":
+            for v in d.get("violations", []):
+                value = v.get("quotaValue")
+                verdict = "무료 티어 대상 아님(limit 0)" if str(value) == "0" else f"한도 {value} 소진"
+                parts.append(f"{v.get('quotaId')} → {verdict}")
+        elif kind == "RetryInfo":
+            parts.append(f"{d.get('retryDelay')} 후 재시도 가능")
+    return " | ".join(p for p in parts if p)
 
 
 # ────────────────────────── 데이터 로드 ──────────────────────────
@@ -351,17 +371,14 @@ def call_gemini(events, attention, market, scan, watchlist):
                 diag(f"[INFO] 성공: {model}")
                 break
 
-            # 실패 원인을 그대로 노출한다 (429의 limit 값 확인용)
             diag(f"[WARN] {model} → HTTP {resp.status_code}")
-            diag(f"       {resp.text[:400]}")
-            if resp.status_code == 429:
-                diag("       → 429는 쿼터 문제입니다. limit이 0이면 해당 모델이 무료 티어 대상이 아니고, "
-                     "그 외에는 분당/일일 호출 한도 초과입니다.")
-            elif resp.status_code == 400:
-                diag("       → 400은 요청 형식 또는 모델명 오류입니다.")
-            elif resp.status_code in (401, 403):
+            diag(f"       {describe_error(resp)}")
+            if resp.status_code in (401, 403):
                 diag("       → 401/403은 API 키 자체의 문제입니다(무효/권한없음).")
                 return None, None
+            if resp.status_code != 400:
+                break  # thinking만 바꾼 재시도는 400에만 의미 있음 — 429·404에선 쿼터만 소진
+            diag("       → 400은 요청 형식 또는 모델명 오류입니다.")
         except Exception as e:  # noqa: BLE001
             diag(f"[WARN] {model} 호출 예외: {e}")
       if data is not None:

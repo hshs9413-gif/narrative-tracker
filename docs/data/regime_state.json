@@ -1,12 +1,14 @@
 {
-  "generated_at": "2026-09-27T10:59:03.933591+00:00",
+  "generated_at": "2026-09-27T12:12:06.248535+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
-    "label": "골디락스",
+    "label": "인플레이션 레짐",
     "pmi": 54.6,
     "pmi_as_of": "2026-08-01",
     "breakeven": 2.34,
-    "breakeven_date": "2026-09-25"
+    "breakeven_date": "2026-09-25",
+    "breakeven_change": 0.054,
+    "breakeven_lookback_days": 91
   },
   "credit_stress": {
     "label": "평상",

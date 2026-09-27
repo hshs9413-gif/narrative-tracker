@@ -6,7 +6,7 @@ docs/data/market_snapshot.csv(최신 행 + lookback_days 전 행) + docs/data/ma
 docs/data/regime_state.json을 새로 씁니다.
 
 판정 기준 4가지:
-  - growth_inflation : PMI(확장/수축) x BEI(완만/과열) 2x2 매트릭스
+  - growth_inflation : PMI(50 기준 확장/수축) x BEI 3개월 변화 방향(상승/둔화) 2x2 매트릭스
   - credit_stress     : HY OAS·VIX 밴드 중 더 나쁜 쪽 (2s10y 역전은 크로스체크로만)
   - policy_stance     : 기준금리의 lookback_days 전 대비 변화 방향
   - composite_score   : 위 판정들에서 규정 기반으로 감점 (확률 아님)
@@ -56,6 +56,16 @@ def latest_value(rows, column):
     return None, None
 
 
+def window_mean(rows, column, end_date, days):
+    """end_date 기준 직전 days일(달력일) 안의 non-null 값 평균. 없으면 None."""
+    start = end_date - datetime.timedelta(days=days)
+    vals = [
+        r[column] for r in rows
+        if r.get(column) is not None and start < datetime.date.fromisoformat(r["date"]) <= end_date
+    ]
+    return sum(vals) / len(vals) if vals else None
+
+
 def find_lookback_row(rows, anchor_date, lookback_days):
     """anchor_date - lookback_days 이하인 행 중 가장 최근 것. 없으면 None."""
     target = anchor_date - datetime.timedelta(days=lookback_days)
@@ -71,9 +81,10 @@ def band_lookup(value, bands):
     return bands[-1]
 
 
-def compute_growth_inflation(manual_inputs, rows, cfg):
+def compute_growth_inflation(manual_inputs, rows, cfg, today):
     pmi_info = manual_inputs.get("ism_pmi", {})
     pmi = pmi_info.get("value")
+    pmi_as_of = pmi_info.get("as_of")
     breakeven, breakeven_date = latest_value(rows, "breakeven10y")
 
     if pmi is None or breakeven is None:
@@ -84,8 +95,25 @@ def compute_growth_inflation(manual_inputs, rows, cfg):
             missing.append("BEI(market_snapshot.csv breakeven10y 결측)")
         return {"label": "미확인", "reason": " · ".join(missing) + " 없어 판정 불가"}
 
+    # 수동 입력값은 갱신을 잊으면 몇 달 전 PMI로 조용히 판정하게 된다 — 명시적으로 막는다.
+    if pmi_as_of:
+        age = (today - datetime.date.fromisoformat(pmi_as_of)).days
+        if age > cfg["pmi_max_age_days"]:
+            return {
+                "label": "미확인",
+                "reason": f"PMI가 {age}일 지난 값({pmi_as_of}) — docs/data/manual_inputs.json 갱신 필요",
+            }
+
+    end = datetime.date.fromisoformat(breakeven_date)
+    window, lookback = cfg["breakeven_window_days"], cfg["breakeven_lookback_days"]
+    now_avg = window_mean(rows, "breakeven10y", end, window)
+    past_avg = window_mean(rows, "breakeven10y", end - datetime.timedelta(days=lookback), window)
+    if past_avg is None:
+        return {"label": "미확인", "reason": f"BEI {lookback}일 전 비교값이 없어 판정 불가"}
+    breakeven_change = round(now_avg - past_avg, 3)
+
     growth_up = pmi >= cfg["pmi_expansion_min"]
-    inflation_up = breakeven >= cfg["breakeven_elevated_min"]
+    inflation_up = breakeven_change >= cfg["breakeven_rising_min_change"]
 
     if growth_up and not inflation_up:
         label = "골디락스"
@@ -102,14 +130,17 @@ def compute_growth_inflation(manual_inputs, rows, cfg):
         "pmi_as_of": pmi_info.get("as_of"),
         "breakeven": breakeven,
         "breakeven_date": breakeven_date,
+        "breakeven_change": breakeven_change,
+        "breakeven_lookback_days": lookback,
     }
 
 
 def compute_credit_stress(rows, cfg):
     hy_oas, hy_oas_date = latest_value(rows, "hy_oas")
     vix, vix_date = latest_value(rows, "vix")
-    us10y, _ = latest_value(rows, "us10y")
-    us2y, _ = latest_value(rows, "us2y")
+    # 스프레드는 두 금리가 같은 날짜여야 의미가 있어 컬럼별 최신값을 섞지 않는다.
+    both = next((r for r in reversed(rows) if r.get("us10y") is not None and r.get("us2y") is not None), None)
+    us10y, us2y = (both["us10y"], both["us2y"]) if both else (None, None)
 
     if hy_oas is None or vix is None:
         missing = []
@@ -142,7 +173,7 @@ def compute_credit_stress(rows, cfg):
 
 def compute_policy_stance(rows, anchor_date, cfg):
     current, current_date = latest_value(rows, "fedrate")
-    lookback_row = find_lookback_row(rows, anchor_date, cfg["lookback_days"]) if current else None
+    lookback_row = find_lookback_row(rows, anchor_date, cfg["lookback_days"]) if current is not None else None
     lookback_value = lookback_row.get("fedrate") if lookback_row else None
 
     if current is None or lookback_value is None:
@@ -248,7 +279,9 @@ def main() -> None:
 
     anchor_date = datetime.date.fromisoformat(rows[-1]["date"])
 
-    growth_inflation = compute_growth_inflation(manual_inputs, rows, thresholds["growth_inflation"])
+    growth_inflation = compute_growth_inflation(
+        manual_inputs, rows, thresholds["growth_inflation"], datetime.date.today()
+    )
     credit_stress = compute_credit_stress(rows, thresholds["credit_stress"])
     policy_stance = compute_policy_stance(rows, anchor_date, thresholds["policy_stance"])
     cross_check = compute_cross_check(rows)
