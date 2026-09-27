@@ -61,9 +61,7 @@ def diag(msg):
 
 
 def describe_error(resp):
-    """Gemini 에러 응답에서 원인 판별에 필요한 필드만 뽑아 한 줄로 만든다."""
-    # 429의 판별 근거(QuotaFailure.quotaValue: 0이면 무료 티어 대상 아님)는 본문 뒤쪽에
-    # 있어서, 예전처럼 앞 400자만 찍으면 한도 소진인지 대상 아님인지 알 수 없었다.
+    """Gemini 에러에서 원인 판별 필드만 뽑는다 — quotaValue(0=무료 대상 아님)는 본문 뒤쪽이라 앞부분만 찍으면 안 보인다."""
     try:
         err = resp.json().get("error", {})
     except ValueError:
@@ -379,9 +377,7 @@ def call_gemini(events, attention, market, scan, watchlist):
                 diag("       → 401/403은 API 키 자체의 문제입니다(무효/권한없음).")
                 return None, None
             if resp.status_code != 400:
-                # thinking 설정만 바꿔 재시도하는 건 400(thinkingConfig 거부)에만 의미가 있다.
-                # 429·404에서 같은 모델을 다시 부르면 쿼터만 더 소진한다.
-                break
+                break  # thinking만 바꾼 재시도는 400에만 의미 있음 — 429·404에선 쿼터만 소진
             diag("       → 400은 요청 형식 또는 모델명 오류입니다.")
         except Exception as e:  # noqa: BLE001
             diag(f"[WARN] {model} 호출 예외: {e}")
