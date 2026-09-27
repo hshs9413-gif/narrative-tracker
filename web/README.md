@@ -54,10 +54,19 @@ npm run build   # web/out/ 생성 확인, TypeScript·정적 생성 에러 0건
   `.github/workflows/collect.yml`에 `collect_market_data.py` 다음 스텝으로 연결.
 - 실행해서 나온 첫 실데이터: 골디락스 / 신용 평상 / 정책 긴축, 스코어 90.
 
+## 배포 (`docs/`에 병합)
+
+`main`에 `web/**` 변경이 push되면 `.github/workflows/deploy_web.yml`이 자동으로
+`npm run build` → `python scripts/deploy_web.py`(→ `docs/`에 병합, `docs/data/`는
+항상 보존) → 커밋까지 처리한다. 로컬에서 미리 확인하려면:
+
+```bash
+cd web && npm run build
+cd .. && python scripts/deploy_web.py   # docs/ 미리보기 (git add 전에 diff 확인)
+```
+
 ## 아직 안 된 것
 
-- `docs/`에 Next 빌드 결과(`out/*`)를 병합하는 배포 스텝 — `docs/data/`(파이썬이
-  쓰는 실데이터)를 덮어쓰지 않게 제외하는 로직이 필요, 아직 안 짬
 - 화면 컴포넌트는 Phase 2(레짐 카드)·3(내러티브 타임라인)·4(시장 지표 차트)까지
   다 붙었고 `npm run lint`·`npm run build`·`next dev` 실기동 + 실데이터로 확인함
 - 차트 데이터의 접근 가능한 표 형태 뷰(dataviz 컨벤션의 "테이블 뷰") — 지금은
