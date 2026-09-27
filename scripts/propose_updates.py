@@ -10,7 +10,7 @@
 
 환경변수:
   GEMINI_API_KEY    : Google AI Studio에서 발급 (무료 티어 가능)
-  GEMINI_MODEL      : (선택) 미설정 시 gemini-3.5-flash부터 순차 시도
+  GEMINI_MODEL      : (선택) 미설정 시 gemini-3.6-flash부터 순차 시도
   GITHUB_TOKEN      : Actions가 자동 제공
   GITHUB_REPOSITORY : Actions가 자동 제공 (owner/repo)
 
@@ -34,16 +34,16 @@ MARKET_PATH = os.path.join(BASE, "..", "docs", "data", "market_snapshot.csv")
 SCAN_PATH = os.path.join(BASE, "..", "docs", "data", "scan_keywords.json")
 WATCHLIST_ATT = os.path.join(BASE, "..", "docs", "data", "watchlist_attention.csv")
 
-# 무료 티어 모델을 품질 순으로 시도한다 (2026-07 기준 무료 티어 확인된 모델들).
-# 429(limit:0)가 나오는 모델은 자동으로 건너뛰므로 상위 모델부터 시도해도 안전하다.
+# 무료 티어 모델을 품질 순으로 시도한다 (2026-09 기준, 실제 API 응답으로 갱신 —
+# gemini-3-flash는 애초에 존재한 적 없는 모델 ID(404), gemini-2.5-flash·-lite는
+# "신규 계정엔 더 이상 제공 안 함, gemini-3.6-flash 쓰라"는 404를 반환해 뺐다).
+# 429(쿼터 초과)가 나오는 모델은 자동으로 건너뛰므로 상위 모델부터 시도해도 안전하다.
 # GEMINI_MODEL 변수를 설정하면 그 모델을 최우선 시도한다.
 MODEL_CANDIDATES = [
     os.environ.get("GEMINI_MODEL"),
-    "gemini-3.5-flash",       # 최신, 무료 일 1,500회 — 품질 최우선
-    "gemini-3-flash",         # 구글 권장 무료 기본 모델
-    "gemini-2.5-flash",       # 구세대 폴백 (일 250회)
+    "gemini-3.6-flash",       # 최신, Google이 현재 권장하는 기본 모델
+    "gemini-3.5-flash",       # 이전 세대 폴백
     "gemini-3.1-flash-lite",  # 경량 폴백 (15 RPM)
-    "gemini-2.5-flash-lite",  # 최후 폴백 (일 1,000회)
 ]
 MODEL_CANDIDATES = [m for m in MODEL_CANDIDATES if m]
 GEMINI_MODEL = MODEL_CANDIDATES[0]
