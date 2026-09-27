@@ -151,12 +151,21 @@ narrative-tracker/
 │   ├── collect.yml                  # 매일 자동 실행
 │   ├── backfill.yml                 # 수동 실행 (과거 데이터 소급)
 │   └── weekly_review.yml            # 매주 자동 실행
+├── config/
+│   └── regime_thresholds.json       # 레짐 판정 임계값 (locked:false 첫 초안)
+├── web/                              # 신규 Next.js 대시보드 (web/README.md 참고)
 └── docs/                            # GitHub Pages 배포 폴더
-    ├── index.html                   # 대시보드
+    ├── index.html                   # 기존 정적 대시보드 (현재 Pages에 실제로 떠 있는 것)
     └── data/
         ├── events.json              # 내러티브 이벤트 기록
-        └── market_snapshot.csv      # 자동 수집되는 정량 지표
+        ├── market_snapshot.csv      # 자동 수집되는 정량 지표
+        ├── manual_inputs.json       # ISM PMI 등 수동 갱신값
+        └── regime_state.json        # compute_regime.py 출력 (레짐 판정 결과)
 ```
+
+> `web/` 대시보드는 아직 `docs/`에 빌드·병합되지 않았습니다 — 지금 GitHub Pages에
+> 실제로 떠 있는 건 `docs/index.html`(기존 정적 페이지)입니다. `web/` 로컬 실행
+> 방법과 배포 미완료 항목은 `web/README.md` 참고.
 
 ## 7. 데이터 소스 (전부 무료, API 키 불필요 · FinanceDataReader 하나로 통일)
 
@@ -172,6 +181,15 @@ narrative-tracker/
 | 美 10년물 금리 | `FRED:DGS10` | 국채 10년물 수익률 |
 | **연준 기준금리** | `FRED:DFEDTARU` | 연방기금금리 목표 상단 — FOMC 결정 시에만 값이 바뀌는 계단형 시계열 |
 | 금 | `GC=F` | fdr이 야후를 경유해 조회 (FRED에 무료 실시간 금 시리즈 없음) |
+| 美 2년물 금리 | `FRED:DGS2` | 10Y와 묶어 2s10y 스프레드(장단기 역전 여부) 계산용 |
+| 하이일드 스프레드 | `FRED:BAMLH0A0HYM2` | ICE BofA 하이일드 옵션조정스프레드 — 신용스트레스 판정용 |
+| 10년 기대인플레이션(BEI) | `FRED:T10YIE` | 레짐 판정(골디락스/인플레/스태그플레/디플레) 축 중 하나 |
+| NFCI | `FRED:NFCI` | 시카고연은 금융여건지수 — 주간(금요일) 갱신, 0=평균 |
+| STLFSI4 | `FRED:STLFSI4` | 세인트루이스연은 금융스트레스지수 — 주간(금요일) 갱신, 0=평균 |
+
+마지막 5개는 `scripts/compute_regime.py`가 레짐 판정에 쓴다. ISM 제조업 PMI는
+무료 실시간 시리즈가 없어 `docs/data/manual_inputs.json`에 매달 보도자료
+헤드라인 숫자를 수동으로 넣는다.
 
 `fdr.DataReader('FRED:시리즈ID', start, end)` 형태로 FRED 데이터를 키 없이 그대로 감싸서
 제공하므로, 별도 requests 코드 없이 하나의 라이브러리·인터페이스로 전부 수집합니다.

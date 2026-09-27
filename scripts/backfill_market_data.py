@@ -37,9 +37,19 @@ FDR_SYMBOLS = {
     "us10y": "FRED:DGS10",
     "fedrate": "FRED:DFEDTARU",
     "gold": "GC=F",
+    "us2y": "FRED:DGS2",
+    "hy_oas": "FRED:BAMLH0A0HYM2",
+    "breakeven10y": "FRED:T10YIE",
+    "nfci": "FRED:NFCI",
+    "stlfsi4": "FRED:STLFSI4",
 }
 STOOQ_DXY_URL = "https://stooq.com/q/d/l/?s=dx.f&i=d"
-COLUMNS = ["date", "vix", "dxy_ice", "dxy_broad", "gold", "wti", "us10y", "fedrate"]
+COLUMNS = [
+    "date", "vix", "dxy_ice", "dxy_broad", "gold", "wti", "us10y", "fedrate",
+    "us2y", "hy_oas", "breakeven10y", "nfci", "stlfsi4",
+]
+# nfci·stlfsi4는 주간(금요일) 갱신이라 fedrate처럼 앞의 값으로 채워야 매일 한 행씩 유지된다.
+STEP_COLUMNS = ["fedrate", "nfci", "stlfsi4"]
 
 
 def fetch_series(symbol, start, end):
@@ -146,12 +156,13 @@ def main():
     df.index.name = "date"
     df = df.sort_index()
 
-    # 연준 기준금리는 FOMC 결정일에만 값이 바뀌는 계단형이므로 앞의 값으로 채움
-    if "fedrate" in df.columns:
-        df["fedrate"] = df["fedrate"].ffill()
+    # 계단형·주간 갱신 지표는 앞의 값으로 채움 (fedrate: FOMC 결정일에만 변경 / nfci·stlfsi4: 매주 금요일 갱신)
+    for c in STEP_COLUMNS:
+        if c in df.columns:
+            df[c] = df[c].ffill()
 
     # 모든 지표가 비어 있는 날(주말·공휴일)은 제거
-    value_cols = [c for c in df.columns if c != "fedrate"]
+    value_cols = [c for c in df.columns if c not in STEP_COLUMNS]
     if value_cols:
         df = df.dropna(subset=value_cols, how="all")
 

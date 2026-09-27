@@ -1,0 +1,8 @@
+{
+  "ism_pmi": {
+    "value": 54.6,
+    "as_of": "2026-08-01",
+    "source": "ISM Manufacturing PMI Report, released 2026-09-01 (covers August 2026)",
+    "note": "ISM PMI는 유료 구독 없인 API/무료 시계열이 없어 매달 보도자료 헤드라인 숫자를 수동으로 갱신함. 다음 갱신: 2026-10-01 발표(9월 데이터)."
+  }
+}
