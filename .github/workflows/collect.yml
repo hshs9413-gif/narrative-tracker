@@ -34,6 +34,8 @@ jobs:
 
       - name: Compute regime state
         run: python scripts/compute_regime.py
+        # 레짐 판정이 실패해도 그날 시장 데이터 커밋은 반드시 진행되어야 한다
+        continue-on-error: true
 
       - name: Run news collector
         run: python scripts/collect_news.py

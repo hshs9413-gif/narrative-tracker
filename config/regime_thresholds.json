@@ -1,12 +1,15 @@
 {
   "locked": false,
-  "version": "2026-09-27-draft1",
-  "rationale": "첫 초안. VIX/HY OAS 밴드는 2008·2020 위기 시 관측치 대비 대략적인 라운드넘버, breakeven 기준선은 연준 2% 목표에 완충폭을 더한 값. 실사용 데이터로 며칠 돌려보고 라벨이 튀는지 확인한 뒤 locked:true로 전환할 것 — 그 전까지는 웹 화면에 '임계값 초안' 경고가 계속 뜬다.",
+  "version": "2026-09-27-draft2",
+  "rationale": "초안 2. VIX/HY OAS 밴드는 2008·2020 위기 시 관측치 대비 대략적인 라운드넘버(3년 백테스트: 평상 572일·경계 194일·경색 11일·위기 4일). 인플레이션 축은 draft1의 고정 수준(BEI≥2.5%)이 3년 822일 중 1일만 충족해 사실상 죽어 있었음 — PMI(확산지수라 50 이상이 곧 '개선 중')와 짝이 맞게 BEI도 3개월 변화 방향으로 바꿈. 실사용 데이터로 라벨이 튀는지 확인한 뒤 locked:true로 전환할 것 — 그 전까지는 웹 화면에 '임계값 초안' 경고가 계속 뜬다.",
 
   "growth_inflation": {
     "pmi_expansion_min": 50,
-    "breakeven_elevated_min": 2.5,
-    "note": "PMI>=50 & breakeven<2.5 → 골디락스 / PMI>=50 & breakeven>=2.5 → 인플레이션 레짐 / PMI<50 & breakeven>=2.5 → 스태그플레이션 / PMI<50 & breakeven<2.5 → 청산·디플레충격"
+    "pmi_max_age_days": 75,
+    "breakeven_window_days": 28,
+    "breakeven_lookback_days": 91,
+    "breakeven_rising_min_change": 0.05,
+    "note": "성장 = PMI>=50, 인플레 상승 = BEI 최근 28일 평균이 91일 전 같은 창 평균보다 +0.05%p 이상. 성장↑·인플레↓ → 골디락스 / 성장↑·인플레↑ → 인플레이션 레짐 / 성장↓·인플레↑ → 스태그플레이션 / 성장↓·인플레↓ → 청산·디플레충격. 3년 백테스트: 인플레↑ 판정 39%, 전환 연 3.2회(기준 +0.10%p는 연 5.7회로 오히려 더 튐). PMI as_of가 75일을 넘으면 오래된 값으로 판정하지 않고 '미확인' 처리 — 매달 1일 ISM 발표 후 2주 유예."
   },
 
   "credit_stress": {
