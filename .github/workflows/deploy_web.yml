@@ -1,0 +1,60 @@
+name: Deploy Web Dashboard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+  workflow_dispatch: {}
+
+concurrency:
+  group: docs-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: web/package-lock.json
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install web dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Build static export
+        working-directory: web
+        run: npm run build
+
+      - name: Merge build into docs/ (never touches docs/data/)
+        run: python scripts/deploy_web.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "narrative-tracker-bot"
+          git config user.email "actions@github.com"
+          git add docs
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: deploy web dashboard build ($(date -u +%Y-%m-%d))"
+          # collect.yml 등 다른 워크플로우가 먼저 push했을 수 있으므로 재시도한다
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "push 재시도 $i..."
+            sleep 5
+          done
+          echo "push 실패"; exit 1

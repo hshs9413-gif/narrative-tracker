@@ -146,16 +146,20 @@ narrative-tracker/
 │   ├── collect_market_data.py       # 일일 시장 지표 수집
 │   ├── backfill_market_data.py      # 과거 데이터 일괄 소급 (최초 1회)
 │   ├── collect_news.py              # 일일 뉴스 언급량 수집
+│   ├── compute_regime.py            # 레짐 판정 → regime_state.json
+│   ├── deploy_web.py                # web/out/ → docs/ 병합 (docs/data/는 보존)
 │   └── propose_updates.py           # 주간 리뷰 제안 (Gemini 검증)
 ├── .github/workflows/
-│   ├── collect.yml                  # 매일 자동 실행
+│   ├── collect.yml                  # 매일 자동 실행 (수집 + 레짐 판정)
 │   ├── backfill.yml                 # 수동 실행 (과거 데이터 소급)
+│   ├── deploy_web.yml               # web/ 변경 시 자동 빌드 후 docs/에 병합
 │   └── weekly_review.yml            # 매주 자동 실행
 ├── config/
 │   └── regime_thresholds.json       # 레짐 판정 임계값 (locked:false 첫 초안)
-├── web/                              # 신규 Next.js 대시보드 (web/README.md 참고)
-└── docs/                            # GitHub Pages 배포 폴더
-    ├── index.html                   # 기존 정적 대시보드 (현재 Pages에 실제로 떠 있는 것)
+├── web/                              # Next.js 대시보드 소스 (web/README.md 참고)
+└── docs/                            # GitHub Pages 배포 폴더 — web/ 빌드 결과가 여기 들어감
+    ├── index.html                   # web/의 next build 결과 (deploy_web.py가 병합)
+    ├── _next/                       # 위와 동일
     └── data/
         ├── events.json              # 내러티브 이벤트 기록
         ├── market_snapshot.csv      # 자동 수집되는 정량 지표
@@ -163,9 +167,9 @@ narrative-tracker/
         └── regime_state.json        # compute_regime.py 출력 (레짐 판정 결과)
 ```
 
-> `web/` 대시보드는 아직 `docs/`에 빌드·병합되지 않았습니다 — 지금 GitHub Pages에
-> 실제로 떠 있는 건 `docs/index.html`(기존 정적 페이지)입니다. `web/` 로컬 실행
-> 방법과 배포 미완료 항목은 `web/README.md` 참고.
+> `docs/` 안에서 `data/`만 파이썬 스크립트가 쓰는 실데이터라 절대 안 건드림.
+> 나머지(`index.html`, `_next/` 등)는 `web/`을 빌드할 때마다 통째로 교체됨 —
+> 직접 편집하지 말 것(다음 배포 때 사라짐). 화면을 고치려면 `web/` 소스를 고칠 것.
 
 ## 7. 데이터 소스 (전부 무료, API 키 불필요 · FinanceDataReader 하나로 통일)
 
