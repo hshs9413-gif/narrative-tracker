@@ -1,0 +1,48 @@
+{
+  "locked": false,
+  "version": "2026-09-27-draft1",
+  "rationale": "첫 초안. VIX/HY OAS 밴드는 2008·2020 위기 시 관측치 대비 대략적인 라운드넘버, breakeven 기준선은 연준 2% 목표에 완충폭을 더한 값. 실사용 데이터로 며칠 돌려보고 라벨이 튀는지 확인한 뒤 locked:true로 전환할 것 — 그 전까지는 웹 화면에 '임계값 초안' 경고가 계속 뜬다.",
+
+  "growth_inflation": {
+    "pmi_expansion_min": 50,
+    "breakeven_elevated_min": 2.5,
+    "note": "PMI>=50 & breakeven<2.5 → 골디락스 / PMI>=50 & breakeven>=2.5 → 인플레이션 레짐 / PMI<50 & breakeven>=2.5 → 스태그플레이션 / PMI<50 & breakeven<2.5 → 청산·디플레충격"
+  },
+
+  "credit_stress": {
+    "hy_oas_bands": [
+      { "label": "평상", "level_index": 0, "max": 3.5 },
+      { "label": "경계", "level_index": 1, "max": 5.0 },
+      { "label": "경색", "level_index": 2, "max": 8.0 },
+      { "label": "시스템위기", "level_index": 3, "max": null }
+    ],
+    "vix_bands": [
+      { "label": "평상", "level_index": 0, "max": 20 },
+      { "label": "경계", "level_index": 1, "max": 30 },
+      { "label": "경색", "level_index": 2, "max": 40 },
+      { "label": "시스템위기", "level_index": 3, "max": null }
+    ],
+    "note": "hy_oas·vix 밴드 중 더 나쁜(level_index가 큰) 쪽을 종합 판정으로 사용. 2s10y 역전 여부는 참고 크로스체크로만 붙이고 레벨 산정에는 안 씀(과거 역전 지속기간이 길어 단독 신호로는 노이즈가 큼)."
+  },
+
+  "policy_stance": {
+    "lookback_days": 90,
+    "easing_threshold": -0.125,
+    "tightening_threshold": 0.125,
+    "note": "lookback_days 전 대비 현재 기준금리 변화가 -0.125%p 이하면 완화, +0.125%p 이상이면 긴축, 그 사이면 중립(0.125%p = FOMC 25bp 인상/인하의 절반, 노이즈 필터)."
+  },
+
+  "composite_score": {
+    "start": 100,
+    "deductions": {
+      "credit_stress_level_1": 5,
+      "credit_stress_level_2": 15,
+      "credit_stress_level_3": 30,
+      "policy_tightening": 10,
+      "growth_inflation_stagflation": 20,
+      "growth_inflation_deflation_shock": 15,
+      "curve_inverted": 10
+    },
+    "note": "감점 항목은 서로 배타적이지 않고 동시에 여러 개 걸릴 수 있음(예: 긴축 국면에서 신용경색까지 오면 credit_stress_level_2 + policy_tightening 동시 차감). 확률 아님, 규정기반 감점 점수."
+  }
+}

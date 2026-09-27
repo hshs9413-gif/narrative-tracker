@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-09-27T10:59:03.933591+00:00",
+  "thresholds_locked": false,
+  "growth_inflation": {
+    "label": "골디락스",
+    "pmi": 54.6,
+    "pmi_as_of": "2026-08-01",
+    "breakeven": 2.34,
+    "breakeven_date": "2026-09-25"
+  },
+  "credit_stress": {
+    "label": "평상",
+    "level_index": 0,
+    "detail": {
+      "hy_oas_pct": {
+        "value": 2.8,
+        "as_of": "2026-09-24",
+        "band": "평상"
+      },
+      "vix_level": {
+        "value": 14.21,
+        "as_of": "2026-09-22",
+        "band": "평상"
+      },
+      "curve_2s10y": {
+        "value": 0.31,
+        "inverted": false
+      }
+    }
+  },
+  "policy_stance": {
+    "label": "긴축",
+    "current": 4.0,
+    "current_date": "2026-09-25",
+    "lookback_days": 90,
+    "lookback_value": 3.75,
+    "lookback_date": "2026-06-26"
+  },
+  "cross_check": {
+    "nfci": {
+      "value": -0.56,
+      "as_of": "2026-09-25",
+      "interpretation": "평균보다 완화적"
+    },
+    "stlfsi4": {
+      "value": -0.91,
+      "as_of": "2026-09-25",
+      "interpretation": "평균보다 낮음"
+    }
+  },
+  "composite_score": {
+    "score": 90,
+    "deductions": [
+      "정책 긴축기조"
+    ],
+    "note": "이건 확률이 아니라 규정기반 감점 점수입니다."
+  }
+}

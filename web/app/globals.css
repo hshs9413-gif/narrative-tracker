@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* 기존 narrative-tracker(docs/index.html)의 다크 팔레트를 그대로 이식 — 새로 디자인하지 않고
+   브랜드 연속성을 유지한다. layer-* 3색은 이미 있던 것이고, credit-*·policy-*는 이번에
+   추가되는 레짐 배지용으로 신규 추가한 것 (기존 톤에 맞춰 채도 낮춘 계열로 골랐다 — 초안,
+   실제 화면에서 보고 조정 예정).*/
+:root {
+  --bg: #12161c;
+  --surface: #1b212b;
+  --surface-raised: #232b38;
+  --text-primary: #e8e6df;
+  --text-muted: #8b93a1;
+  --grid: #2a3140;
+
+  --layer-structural: #c9a227;
+  --layer-cyclical: #5b7c99;
+  --layer-political: #b5483d;
+
+  /* 신용스트레스 사다리 4단계 (평상→시스템위기), 순한 색에서 강한 색으로 */
+  --credit-normal: #5b7c99;
+  --credit-watch: #c9a227;
+  --credit-crunch: #c97a27;
+  --credit-crisis: #b5483d;
+
+  /* 정책기조 3상태 */
+  --policy-easing: #5b8f6b;
+  --policy-neutral: #8b93a1;
+  --policy-tightening: #b5483d;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-grid: var(--grid);
+
+  --color-layer-structural: var(--layer-structural);
+  --color-layer-cyclical: var(--layer-cyclical);
+  --color-layer-political: var(--layer-political);
+
+  --color-credit-normal: var(--credit-normal);
+  --color-credit-watch: var(--credit-watch);
+  --color-credit-crunch: var(--credit-crunch);
+  --color-credit-crisis: var(--credit-crisis);
+
+  --color-policy-easing: var(--policy-easing);
+  --color-policy-neutral: var(--policy-neutral);
+  --color-policy-tightening: var(--policy-tightening);
+
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* 기존 사이트가 다크 단일 테마였으므로 우선 그대로 유지 (라이트 모드 분기 없음).
+   추후 필요하면 :root[data-theme="light"] 블록을 추가. */
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}

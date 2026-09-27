@@ -32,6 +32,9 @@ jobs:
       - name: Run market collector
         run: python scripts/collect_market_data.py
 
+      - name: Compute regime state
+        run: python scripts/compute_regime.py
+
       - name: Run news collector
         run: python scripts/collect_news.py
         continue-on-error: true
@@ -46,7 +49,7 @@ jobs:
         run: |
           git config user.name "narrative-tracker-bot"
           git config user.email "actions@github.com"
-          git add docs/data/market_snapshot.csv docs/data/attention.csv docs/data/watchlist_attention.csv docs/data/events.json
+          git add docs/data/market_snapshot.csv docs/data/attention.csv docs/data/watchlist_attention.csv docs/data/events.json docs/data/regime_state.json
           git diff --cached --quiet && exit 0
           git commit -m "chore: daily market snapshot $(date -u +%Y-%m-%d)"
           # 다른 워크플로우가 먼저 push했을 수 있으므로 재시도한다

@@ -12,6 +12,14 @@ GitHub Actions에서 매일 실행되어 docs/data/market_snapshot.csv에 한 �
   - US10Y   : FRED:DGS10       (미국채 10년물 금리)
   - FEDRATE : FRED:DFEDTARU    (연준 기준금리 목표 상단 — FOMC 결정 시에만 값이 바뀜)
   - GOLD    : GC=F             (야후 경유 금 선물, FRED에 무료 실시간 금 시리즈가 없어 보완)
+  - US2Y    : FRED:DGS2        (미국채 2년물 금리 — 10Y와 묶어 2s10y 스프레드 계산용)
+  - HY_OAS  : FRED:BAMLH0A0HYM2 (ICE BofA 하이일드 옵션조정스프레드 — 신용스트레스 판정용)
+  - BREAKEVEN10Y: FRED:T10YIE  (10년 기대인플레이션, BEI)
+  - NFCI    : FRED:NFCI        (시카고연은 금융여건지수 — 주간 갱신, 0=평균)
+  - STLFSI4 : FRED:STLFSI4     (세인트루이스연은 금융스트레스지수 — 주간 갱신, 0=평균)
+
+이 5개는 compute_regime.py가 레짐 판정에 쓴다 — 레짐 판정 로직 자체는 여기 없고
+별도 스크립트에서 이 CSV + config/regime_thresholds.json을 읽어 처리한다.
 
 의존성: FinanceDataReader, pandas (requirements.txt 참고)
 """
@@ -34,9 +42,17 @@ SYMBOLS = {
     "us10y": "FRED:DGS10",
     "fedrate": "FRED:DFEDTARU",
     "gold": "GC=F",
+    "us2y": "FRED:DGS2",
+    "hy_oas": "FRED:BAMLH0A0HYM2",
+    "breakeven10y": "FRED:T10YIE",
+    "nfci": "FRED:NFCI",
+    "stlfsi4": "FRED:STLFSI4",
 }
 
-FIELDNAMES = ["date", "vix", "dxy_ice", "dxy_broad", "gold", "wti", "us10y", "fedrate"]
+FIELDNAMES = [
+    "date", "vix", "dxy_ice", "dxy_broad", "gold", "wti", "us10y", "fedrate",
+    "us2y", "hy_oas", "breakeven10y", "nfci", "stlfsi4",
+]
 
 # ICE 달러인덱스(DXY, 6개 통화 · 1973=100). FRED에는 없어 Stooq 공개 CSV를 사용.
 STOOQ_DXY_URL = "https://stooq.com/q/d/l/?s=dx.f&i=d"
