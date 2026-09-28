@@ -10,7 +10,9 @@
 import csv
 import datetime
 import os
+import re
 import sys
+from html import unescape
 
 import requests
 
@@ -20,6 +22,10 @@ TABLES = {  # 시트 탭 이름: 파일 (탭별 중복 판단 키는 Apps Script
     "market_snapshot": "market_snapshot.csv",
     "attention": "attention.csv",
     "regime_log": "regime_log.csv",
+}
+NOT_JSON_HINTS = {  # 웹 앱이 JSON 대신 구글 안내 페이지를 돌려줄 때 흔한 원인
+    401: "웹 앱 액세스 권한이 '모든 사용자'가 아님 (배포 관리 → 수정)",
+    404: "주소가 살아 있는 웹 앱 배포가 아님 — 배포 관리에서 웹 앱 URL을 다시 복사해 SHEETS_WEBAPP_URL 갱신",
 }
 
 
@@ -44,24 +50,35 @@ def load_table(filename, cutoff):
     return [header] + [[to_cell(v) for v in r] for r in rows]
 
 
+def page_text(html):
+    """구글 안내·오류 페이지에서 사람이 읽는 문구만 뽑는다 (앞쪽 스크립트 덩어리는 버림)."""
+    html = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", html)
+    return " ".join(unescape(re.sub(r"<[^>]+>", " ", html)).split())[:200]
+
+
 def main():
-    url = os.environ.get("SHEETS_WEBAPP_URL")
-    token = os.environ.get("SHEETS_TOKEN")
+    # 붙여넣을 때 딸려 온 공백·줄바꿈이 있으면 주소·토큰이 달라진다
+    url = os.environ.get("SHEETS_WEBAPP_URL", "").strip()
+    token = os.environ.get("SHEETS_TOKEN", "").strip()
     if not url or not token:
         print("[INFO] SHEETS_WEBAPP_URL / SHEETS_TOKEN 미설정 — 시트 전송 건너뜀")
         return
+    if token in url:
+        sys.exit("[ERROR] SHEETS_TOKEN에 웹 앱 배포 ID(주소 속 AKfycb… 값)가 들어 있음 — "
+                 "Apps Script 프로젝트 설정 → 스크립트 속성의 TOKEN 값을 넣어야 함")
 
     cutoff = (datetime.date.today() - datetime.timedelta(days=SETTLE_DAYS)).isoformat()
     tables = {tab: t for tab, name in TABLES.items() if (t := load_table(name, cutoff))}
-    print(f"[INFO] {cutoff} 이전 확정 행 전송: " + ", ".join(f"{k} {len(v) - 1}행" for k, v in tables.items()))
+    print(f"[INFO] {cutoff} 이전 확정 행 전송: " + ", ".join(f"{k} {len(v) - 1}행" for k, v in tables.items()),
+          flush=True)  # 오류(stderr)보다 먼저 찍히도록
 
     # Apps Script 웹 앱은 302로 결과 주소에 넘겨주므로 리다이렉트를 따라가야 응답(JSON)을 받는다.
     resp = requests.post(url, json={"token": token, "tables": tables}, timeout=180)
     try:
         result = resp.json()
     except ValueError:
-        sys.exit(f"[ERROR] 시트 응답이 JSON이 아님 (HTTP {resp.status_code}) — 웹 앱 배포의 액세스 권한이 "
-                 f"'모든 사용자'인지 확인: {resp.text[:200]!r}")
+        hint = NOT_JSON_HINTS.get(resp.status_code, "웹 앱 배포·코드 확인")
+        sys.exit(f"[ERROR] 시트 응답이 JSON이 아님 (HTTP {resp.status_code}) — {hint}: {page_text(resp.text)!r}")
 
     if not result.get("ok"):
         sys.exit(f"[ERROR] 시트 전송 실패: {result.get('error')} (unauthorized면 SHEETS_TOKEN과 스크립트 속성 TOKEN 불일치)")
