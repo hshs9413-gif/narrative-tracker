@@ -51,7 +51,8 @@ jobs:
         run: |
           git config user.name "narrative-tracker-bot"
           git config user.email "actions@github.com"
-          git add docs/data/market_snapshot.csv docs/data/attention.csv docs/data/watchlist_attention.csv docs/data/events.json docs/data/regime_state.json
+          # 파일을 하나씩 나열하면 새 파일(regime_log.csv 등)이 없을 때 git add가 실패해 커밋이 통째로 막힌다
+          git add docs/data
           git diff --cached --quiet && exit 0
           git commit -m "chore: daily market snapshot $(date -u +%Y-%m-%d)"
           # 다른 워크플로우가 먼저 push했을 수 있으므로 재시도한다
@@ -61,3 +62,11 @@ jobs:
             sleep 5
           done
           echo "push 실패"; exit 1
+
+      - name: Push settled rows to Google Sheets
+        env:
+          SHEETS_WEBAPP_URL: ${{ secrets.SHEETS_WEBAPP_URL }}
+          SHEETS_TOKEN: ${{ secrets.SHEETS_TOKEN }}
+        run: python scripts/push_to_sheets.py
+        # 시트는 사본이라 실패해도 수집·커밋에는 영향 없게 한다
+        continue-on-error: true

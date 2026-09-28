@@ -3,7 +3,8 @@
 
 docs/data/market_snapshot.csv(최신 행 + lookback_days 전 행) + docs/data/manual_inputs.json
 (ISM PMI, 수동 갱신) + config/regime_thresholds.json(임계값)을 읽어
-docs/data/regime_state.json을 새로 씁니다.
+docs/data/regime_state.json을 새로 쓰고, 같은 판정을 docs/data/regime_log.csv에 데이터
+기준일 한 줄로 쌓습니다 (regime_state.json은 매일 덮어써져서 전환 이력이 남지 않기 때문).
 
 판정 기준 4가지:
   - growth_inflation : PMI(50 기준 확장/수축) x BEI 3개월 변화 방향(상승/둔화) 2x2 매트릭스
@@ -27,6 +28,13 @@ MARKET_CSV = os.path.join(BASE, "..", "docs", "data", "market_snapshot.csv")
 MANUAL_INPUTS = os.path.join(BASE, "..", "docs", "data", "manual_inputs.json")
 THRESHOLDS_PATH = os.path.join(BASE, "..", "config", "regime_thresholds.json")
 OUT_PATH = os.path.join(BASE, "..", "docs", "data", "regime_state.json")
+LOG_PATH = os.path.join(BASE, "..", "docs", "data", "regime_log.csv")
+
+LOG_FIELDS = [
+    "date", "growth_inflation", "credit_stress", "policy_stance", "score", "deductions",
+    "pmi", "breakeven", "breakeven_change", "hy_oas", "vix", "curve_2s10y", "fedrate",
+    "thresholds_version",
+]
 
 NUMERIC_COLUMNS = [
     "vix", "dxy_ice", "dxy_broad", "gold", "wti", "us10y",
@@ -45,11 +53,7 @@ def load_market_rows():
 
 
 def latest_value(rows, column):
-    """뒤에서부터 훑어 해당 컬럼이 null이 아닌 첫 행의 (값, 날짜). 없으면 (None, None).
-
-    지표마다 발표 주기·지연이 달라(주말 직후엔 금요일치 HY OAS·BEI가 아직 안 올라오는
-    식) 최신 행 하나가 통째로 채워져 있다고 가정하면 안 된다 — collect_market_data.py의
-    fetch_latest()도 컬럼별로 독립적으로 lookback하는 것과 같은 이유."""
+    """뒤에서부터 훑어 해당 컬럼이 null이 아닌 첫 행의 (값, 날짜) — 지표마다 발표 지연이 달라 최신 행이 비어 있을 수 있다."""
     for row in reversed(rows):
         if row.get(column) is not None:
             return row[column], row["date"]
@@ -267,6 +271,40 @@ def compute_composite_score(growth_inflation, credit_stress, policy_stance, cfg)
     }
 
 
+def upsert_log(day, state, thresholds):
+    """판정 결과를 데이터 기준일 한 줄로 쌓는다 — 같은 기준일로 다시 돌면(주말·재실행) 그 줄을 덮어쓴다."""
+    gi, cs, ps = state["growth_inflation"], state["credit_stress"], state["policy_stance"]
+    detail = cs.get("detail", {})
+    row = {
+        "date": day,
+        "growth_inflation": gi["label"],
+        "credit_stress": cs["label"],
+        "policy_stance": ps["label"],
+        "score": state["composite_score"]["score"],
+        "deductions": "|".join(state["composite_score"]["deductions"]),  # 콤마는 웹의 단순 CSV 파서를 깨뜨림
+        "pmi": gi.get("pmi", ""),
+        "breakeven": gi.get("breakeven", ""),
+        "breakeven_change": gi.get("breakeven_change", ""),
+        "hy_oas": detail.get("hy_oas_pct", {}).get("value", ""),
+        "vix": detail.get("vix_level", {}).get("value", ""),
+        "curve_2s10y": detail.get("curve_2s10y", {}).get("value", ""),
+        "fedrate": ps.get("current", ""),
+        "thresholds_version": thresholds.get("version", ""),
+    }
+
+    log = {}
+    if os.path.exists(LOG_PATH):
+        with open(LOG_PATH, newline="", encoding="utf-8") as f:
+            log = {r["date"]: r for r in csv.DictReader(f)}
+    log[day] = row
+
+    with open(LOG_PATH, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=LOG_FIELDS, lineterminator="\n")
+        writer.writeheader()
+        for d in sorted(log):
+            writer.writerow({k: log[d].get(k, "") for k in LOG_FIELDS})
+
+
 def main() -> None:
     with open(THRESHOLDS_PATH, encoding="utf-8") as f:
         thresholds = json.load(f)
@@ -304,7 +342,9 @@ def main() -> None:
         json.dump(regime_state, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
-    print(f"[INFO] 저장 완료 → docs/data/regime_state.json")
+    upsert_log(anchor_date.isoformat(), regime_state, thresholds)
+
+    print(f"[INFO] 저장 완료 → docs/data/regime_state.json, regime_log.csv ({anchor_date} 기준)")
     print(f"[INFO] growth_inflation={growth_inflation['label']} "
           f"credit_stress={credit_stress['label']} policy_stance={policy_stance['label']} "
           f"score={composite_score['score']}")
