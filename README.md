@@ -27,7 +27,9 @@
 ## 2. 자동 수집 확인
 
 - `.github/workflows/collect.yml` 이 매일 UTC 22:30(한국시간 07:30)에 실행되어
-  `docs/data/market_snapshot.csv` 에 한 행씩 추가하고 자동 커밋합니다.
+  `docs/data/market_snapshot.csv` 의 최근 14일 치를 데이터 기준일로 갱신하고,
+  레짐 판정을 `regime_log.csv` 에 한 줄 쌓은 뒤 자동 커밋합니다.
+- 이어서 7일이 지나 값이 확정된 행을 구글 시트로 보냅니다 (아래 "구글 시트 사본" 참고).
 - 바로 테스트하려면: 저장소 **Actions 탭 → Collect Market Data → Run workflow** 로 수동 실행
 
 ## 3. 자동화 구조
@@ -103,9 +105,29 @@ python scripts/backfill_market_data.py --start 2020-01-01
 
 ### 데이터는 누적됩니다
 
-일일 수집 스크립트는 CSV에 **한 줄씩 덧붙이고**(append) 저장소에 커밋합니다.
-매일 초기화되는 것이 아니라 계속 쌓이며, git 이력에도 전부 남습니다.
-`backfill`은 기존 파일을 덮어쓰므로 최초 1회만 실행하세요.
+일일 수집 스크립트는 매번 **최근 14일 치를 원천에서 다시 받아 데이터 기준일로 덮어쓰고**
+그 이전 행은 그대로 둡니다. 그래서 며칠 늦게 발표되는 FRED 값도 나중에 채워지고,
+예약 실행이 늦거나 하루 빠져도 날짜가 비지 않습니다. 파일은 계속 쌓이며 git 이력에도 전부 남습니다.
+`backfill`은 기존 파일 전체를 덮어쓰므로 최초 1회만 실행하세요.
+
+`regime_state.json`은 매일 덮어써지는 '지금 판정'이고, 판정 이력은 `regime_log.csv`에
+데이터 기준일 한 줄씩 쌓입니다 (같은 기준일로 다시 돌면 그 줄을 덮어씀).
+
+### 구글 시트 사본 (선택)
+
+시트에 붙인 Apps Script 웹 앱으로 `market_snapshot`·`attention`·`regime_log`를 탭별로
+누적합니다 (`scripts/push_to_sheets.py`). 시트는 이미 있는 날짜를 다시 쓰지 않고 새 행만
+추가하므로, 늦게 채워지는 값이 반영되도록 **7일이 지나 확정된 행만** 보냅니다.
+저장소 Secrets에 `SHEETS_WEBAPP_URL`·`SHEETS_TOKEN`이 없으면 이 단계는 건너뜁니다.
+
+시트 쪽 코드의 원본은 `scripts/sheets_webapp.gs`입니다. 설정 방법:
+1. 시트 → **확장 프로그램 → Apps Script**에 이 파일 내용을 붙여넣고 저장
+2. **프로젝트 설정 → 스크립트 속성**에 `TOKEN` = 임의의 긴 문자열
+3. **배포 → 새 배포 → 웹 앱** (실행: 나, 액세스: 모든 사용자) → 웹 앱 URL 복사
+4. 저장소 Secrets: `SHEETS_WEBAPP_URL` = 그 URL, `SHEETS_TOKEN` = 2번 값
+
+코드를 고친 뒤에는 **배포 → 배포 관리 → 수정(연필) → 버전: 새 버전**으로 다시 배포해야
+반영됩니다 (이렇게 하면 URL이 그대로라 Secrets를 바꿀 필요가 없음).
 
 ## 5. 이벤트 기록 방법 (수동)
 
@@ -146,7 +168,8 @@ narrative-tracker/
 │   ├── collect_market_data.py       # 일일 시장 지표 수집
 │   ├── backfill_market_data.py      # 과거 데이터 일괄 소급 (최초 1회)
 │   ├── collect_news.py              # 일일 뉴스 언급량 수집
-│   ├── compute_regime.py            # 레짐 판정 → regime_state.json
+│   ├── compute_regime.py            # 레짐 판정 → regime_state.json + regime_log.csv
+│   ├── push_to_sheets.py            # 확정된 행을 구글 시트로 누적 (선택)
 │   ├── deploy_web.py                # web/out/ → docs/ 병합 (docs/data/는 보존)
 │   └── propose_updates.py           # 주간 리뷰 제안 (Gemini 검증)
 ├── .github/workflows/
@@ -164,7 +187,8 @@ narrative-tracker/
         ├── events.json              # 내러티브 이벤트 기록
         ├── market_snapshot.csv      # 자동 수집되는 정량 지표
         ├── manual_inputs.json       # ISM PMI 등 수동 갱신값
-        └── regime_state.json        # compute_regime.py 출력 (레짐 판정 결과)
+        ├── regime_state.json        # compute_regime.py 출력 (오늘의 레짐 판정)
+        └── regime_log.csv           # 레짐 판정 이력 (데이터 기준일 한 줄씩)
 ```
 
 > `docs/` 안에서 `data/`만 파이썬 스크립트가 쓰는 실데이터라 절대 안 건드림.
