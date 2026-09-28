@@ -125,6 +125,7 @@ python scripts/backfill_market_data.py --start 2020-01-01
 2. **프로젝트 설정 → 스크립트 속성**에 `TOKEN` = 임의의 긴 문자열
 3. **배포 → 새 배포 → 웹 앱** (실행: 나, 액세스: 모든 사용자) → 웹 앱 URL 복사
 4. 저장소 Secrets: `SHEETS_WEBAPP_URL` = 그 URL, `SHEETS_TOKEN` = 2번 값
+   (배포 창에 함께 뜨는 **배포 ID**(`AKfycb…`)는 URL 안에 이미 들어 있는 값이라 토큰으로 쓰면 안 됨)
 
 코드를 고친 뒤에는 **배포 → 배포 관리 → 수정(연필) → 버전: 새 버전**으로 다시 배포해야
 반영됩니다 (이렇게 하면 URL이 그대로라 Secrets를 바꿀 필요가 없음).
