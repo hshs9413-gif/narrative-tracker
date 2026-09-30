@@ -115,10 +115,15 @@ python scripts/backfill_market_data.py --start 2020-01-01
 
 ### 구글 시트 사본 (선택)
 
-시트에 붙인 Apps Script 웹 앱으로 `market_snapshot`·`attention`·`regime_log`를 탭별로
-누적합니다 (`scripts/push_to_sheets.py`). 시트는 이미 있는 날짜를 다시 쓰지 않고 새 행만
-추가하므로, 늦게 채워지는 값이 반영되도록 **7일이 지나 확정된 행만** 보냅니다.
+시트에 붙인 Apps Script 웹 앱으로 `market_snapshot`·`attention`·`watchlist_attention`·`regime_log`를
+탭별로 누적합니다 (`scripts/push_to_sheets.py`). 시트는 이미 있는 키(날짜 등)를 다시 쓰지 않고
+새 행만 추가하므로, 늦게 채워지는 값이 반영되도록 **7일이 지나 확정된 행만** 보냅니다.
 저장소 Secrets에 `SHEETS_WEBAPP_URL`·`SHEETS_TOKEN`이 없으면 이 단계는 건너뜁니다.
+
+`events` 탭은 다릅니다. `events.json`은 날짜별 기록이 아니라 상태가 바뀌는 목록(자동 전환으로
+active→dormant 등)이라, 이벤트당 한 줄로 두고 **id가 같은 줄을 매번 덮어써서** 현재 상태를 그대로
+비춥니다 (확정 대기 없음). 상태 변경 이력이 필요하면 git 이력을 보세요. 목록·dict 필드는
+`a | b | c` 문자열과 JSON 문자열로 펼쳐 담깁니다.
 
 시트 쪽 코드의 원본은 `scripts/sheets_webapp.gs`입니다. 설정 방법:
 1. 시트 → **확장 프로그램 → Apps Script**에 이 파일 내용을 붙여넣고 저장
@@ -129,6 +134,11 @@ python scripts/backfill_market_data.py --start 2020-01-01
 
 코드를 고친 뒤에는 **배포 → 배포 관리 → 수정(연필) → 버전: 새 버전**으로 다시 배포해야
 반영됩니다 (이렇게 하면 URL이 그대로라 Secrets를 바꿀 필요가 없음).
+
+> ⚠️ `watchlist_attention`·`events` 탭을 쓰려면 이 갱신된 `sheets_webapp.gs`로 **먼저 다시 배포**하세요.
+> 예전 코드가 배포된 채로 두면 `watchlist_attention`이 날짜 하나만으로 중복 판정돼 키워드 대부분이
+> 빠진 채 쌓이고, `events`는 새 이벤트만 추가될 뿐 상태 변경이 반영되지 않습니다
+> (재배포 후 다음 실행에서 빠진 행은 자동으로 채워지지만 시트 안의 행 순서는 날짜순이 아닐 수 있음).
 
 ## 5. 이벤트 기록 방법 (수동)
 
