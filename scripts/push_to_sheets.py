@@ -4,11 +4,15 @@
 며칠 늦게 채워지는 최근 행은 SETTLE_DAYS가 지나 확정된 뒤에 보낸다. 첫 실행 때는 그때까지
 쌓인 전체 기록이 한 번에 들어간다.
 
+events.json은 날짜별로 쌓이는 기록이 아니라 상태가 바뀌는 목록(active→dormant 등)이라
+'events' 탭에 이벤트당 한 줄로 두고, 시트 쪽이 id가 같은 줄을 덮어써서 항상 현재 상태를 반영한다.
+
 환경변수: SHEETS_WEBAPP_URL, SHEETS_TOKEN (GitHub Secrets) — 없으면 아무것도 하지 않음
 """
 
 import csv
 import datetime
+import json
 import os
 import re
 import sys
@@ -22,7 +26,13 @@ TABLES = {  # 시트 탭 이름: 파일 (탭별 중복 판단 키는 Apps Script
     "market_snapshot": "market_snapshot.csv",
     "attention": "attention.csv",
     "regime_log": "regime_log.csv",
+    "watchlist_attention": "watchlist_attention.csv",
 }
+EVENT_COLUMNS = [  # events 탭 열 순서 — 여기 없는 필드가 events.json에 생기면 뒤에 덧붙임
+    "id", "name", "layer", "layer_secondary", "phase", "status", "intensity",
+    "trigger_date", "peak_date", "half_life_date", "assets", "keywords",
+    "reignition_triggers", "notes", "last_auto",
+]
 NOT_JSON_HINTS = {  # 웹 앱이 JSON 대신 구글 안내 페이지를 돌려줄 때 흔한 원인
     401: "웹 앱 액세스 권한이 '모든 사용자'가 아님 (배포 관리 → 수정)",
     404: "주소가 살아 있는 웹 앱 배포가 아님 — 배포 관리에서 웹 앱 URL을 다시 복사해 SHEETS_WEBAPP_URL 갱신",
@@ -50,6 +60,30 @@ def load_table(filename, cutoff):
     return [header] + [[to_cell(v) for v in r] for r in rows]
 
 
+def event_cell(value):
+    """리스트는 ' | '로 이어 붙이고 dict는 JSON 문자열로, 비어 있으면(null) 빈 칸으로 — 날짜 등은 문자열 그대로."""
+    if value is None:
+        return ""
+    if isinstance(value, list):
+        return " | ".join(str(v) for v in value)
+    if isinstance(value, dict):
+        return json.dumps(value, ensure_ascii=False, sort_keys=True)
+    return value
+
+
+def load_events():
+    path = os.path.join(DATA_DIR, "events.json")
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        events = json.load(f)
+    if not events:
+        return None
+    header = EVENT_COLUMNS + [k for e in events for k in e if k not in EVENT_COLUMNS]
+    header = list(dict.fromkeys(header))
+    return [header] + [[event_cell(e.get(k)) for k in header] for e in events]
+
+
 def page_text(html):
     """구글 안내·오류 페이지에서 사람이 읽는 문구만 뽑는다 (앞쪽 스크립트 덩어리는 버림)."""
     html = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", html)
@@ -69,6 +103,8 @@ def main():
 
     cutoff = (datetime.date.today() - datetime.timedelta(days=SETTLE_DAYS)).isoformat()
     tables = {tab: t for tab, name in TABLES.items() if (t := load_table(name, cutoff))}
+    if events := load_events():  # 확정 대기 없이 항상 현재 상태 그대로
+        tables["events"] = events
     print(f"[INFO] {cutoff} 이전 확정 행 전송: " + ", ".join(f"{k} {len(v) - 1}행" for k, v in tables.items()),
           flush=True)  # 오류(stderr)보다 먼저 찍히도록
 
