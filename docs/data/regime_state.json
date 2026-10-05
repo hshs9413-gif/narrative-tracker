@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T01:51:33.781912+00:00",
+  "generated_at": "2026-10-05T01:08:13.744182+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -33,20 +33,20 @@
   "policy_stance": {
     "label": "긴축",
     "current": 4.0,
-    "current_date": "2026-10-02",
+    "current_date": "2026-10-05",
     "lookback_days": 90,
     "lookback_value": 3.75,
-    "lookback_date": "2026-07-03"
+    "lookback_date": "2026-07-07"
   },
   "cross_check": {
     "nfci": {
       "value": -0.55,
-      "as_of": "2026-10-02",
+      "as_of": "2026-10-05",
       "interpretation": "평균보다 완화적"
     },
     "stlfsi4": {
       "value": -0.81,
-      "as_of": "2026-10-02",
+      "as_of": "2026-10-05",
       "interpretation": "평균보다 낮음"
     }
   },
