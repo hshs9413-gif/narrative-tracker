@@ -12,6 +12,9 @@ docs/data/regime_state.json을 새로 쓰고, 같은 판정을 docs/data/regime_
   - policy_stance     : 기준금리의 lookback_days 전 대비 변화 방향
   - composite_score   : 위 판정들에서 규정 기반으로 감점 (확률 아님)
 
+여기에 더해 report_crosscheck 키에 외부 리포트의 물가축(WTI 4주 변화, BEI 3개월 변화)과 맞춰 볼 입력값을
+따로 적는다. 판정에는 쓰지 않는 출력 전용이다.
+
 값이 없으면(백필 전이라 컬럼이 비어있거나, PMI 수동입력이 안 됐거나) 그 항목만
 "미확인"으로 떨어뜨리고 reason에 사유를 남긴다 — 전체 스크립트를 실패시키지 않음.
 
@@ -39,7 +42,9 @@ LOG_FIELDS = [
 NUMERIC_COLUMNS = [
     "vix", "dxy_ice", "dxy_broad", "gold", "wti", "us10y",
     "fedrate", "us2y", "hy_oas", "breakeven10y", "nfci", "stlfsi4",
+    "wti_front",
 ]
+WTI_CHANGE_DAYS = 28  # 리포트 물가축과 맞추는 WTI 변화 기간 (4주)
 
 
 def load_market_rows():
@@ -232,6 +237,63 @@ def compute_cross_check(rows):
     return result
 
 
+def value_on_or_before(rows, column, target):
+    """target 이하 날짜 중 column 값이 있는 가장 최근 행의 (값, 날짜) — target이 휴장이면 직전 거래일 값이 된다."""
+    for row in reversed(rows):
+        if row.get(column) is not None and datetime.date.fromisoformat(row["date"]) <= target:
+            return row[column], row["date"]
+    return None, None
+
+
+def compute_report_crosscheck(rows, growth_cfg):
+    """외부 리포트의 물가축과 비교할 입력값 — 레짐 판정에는 쓰지 않는다.
+
+    - wti_front_4w : WTI 근월물(CL=F)의 최신 값 대비 28일 전 값. 28일 전이 휴장이면 직전 거래일 값을 쓴다.
+    - breakeven_3m : 인플레 판정과 같은 식(최근 breakeven_window_days 평균 − lookback일 전 같은 창 평균).
+      성장·인플레 판정이 PMI 만료 등으로 '미확인'이어도 이 값은 계속 나오게 하려고 판정과 별도로 계산한다.
+    """
+    result = {}
+
+    latest, latest_date = latest_value(rows, "wti_front")
+    if latest is None:
+        result["wti_front_4w"] = {"status": "no_data"}
+    else:
+        base, base_date = value_on_or_before(
+            rows, "wti_front", datetime.date.fromisoformat(latest_date) - datetime.timedelta(days=WTI_CHANGE_DAYS)
+        )
+        if base is None or base == 0:
+            result["wti_front_4w"] = {"status": "no_data"}
+        else:
+            result["wti_front_4w"] = {
+                "value": latest,
+                "as_of": latest_date,
+                "base_value": base,
+                "base_date": base_date,
+                "lookback_days": WTI_CHANGE_DAYS,
+                "change": round(latest - base, 3),
+                "change_pct": round((latest / base - 1) * 100, 2),
+            }
+
+    breakeven, breakeven_date = latest_value(rows, "breakeven10y")
+    window, lookback = growth_cfg["breakeven_window_days"], growth_cfg["breakeven_lookback_days"]
+    now_avg = past_avg = None
+    if breakeven is not None:
+        end = datetime.date.fromisoformat(breakeven_date)
+        now_avg = window_mean(rows, "breakeven10y", end, window)
+        past_avg = window_mean(rows, "breakeven10y", end - datetime.timedelta(days=lookback), window)
+    if now_avg is None or past_avg is None:
+        result["breakeven_3m"] = {"status": "no_data"}
+    else:
+        result["breakeven_3m"] = {
+            "value": breakeven,
+            "as_of": breakeven_date,
+            "window_days": window,
+            "lookback_days": lookback,
+            "change": round(now_avg - past_avg, 3),
+        }
+    return result
+
+
 def compute_composite_score(growth_inflation, credit_stress, policy_stance, cfg):
     deductions_cfg = cfg["deductions"]
     score = cfg["start"]
@@ -326,6 +388,7 @@ def main() -> None:
     composite_score = compute_composite_score(
         growth_inflation, credit_stress, policy_stance, thresholds["composite_score"]
     )
+    report_crosscheck = compute_report_crosscheck(rows, thresholds["growth_inflation"])
 
     regime_state = {
         "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -335,6 +398,7 @@ def main() -> None:
         "policy_stance": policy_stance,
         "cross_check": cross_check,
         "composite_score": composite_score,
+        "report_crosscheck": report_crosscheck,
     }
 
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)

@@ -19,6 +19,7 @@ export interface RegimeState {
   policy_stance: PolicyStance;
   cross_check: CrossCheck;
   composite_score: CompositeScore;
+  report_crosscheck?: ReportCrossCheck; // 외부 리포트 물가축과 맞춰 볼 입력값 — 판정에는 안 쓰는 출력 전용
 }
 
 export interface GrowthInflation {
@@ -63,6 +64,18 @@ export interface CrossCheck {
   status?: string; // 데이터 없을 때만
   nfci?: { value: number; as_of: string; interpretation: string };
   stlfsi4?: { value: number; as_of: string; interpretation: string };
+}
+
+export type NoData = { status: "no_data" };
+
+export interface ReportCrossCheck {
+  wti_front_4w: NoData | {
+    value: number; as_of: string; base_value: number; base_date: string;
+    lookback_days: number; change: number; change_pct: number;
+  };
+  breakeven_3m: NoData | {
+    value: number; as_of: string; window_days: number; lookback_days: number; change: number;
+  };
 }
 
 export interface CompositeScore {
@@ -139,6 +152,23 @@ export interface MarketSnapshotRow {
   breakeven10y: number | null;
   nfci: number | null;
   stlfsi4: number | null;
+  // 2026-10 추가 — 리포트 소스 맞추기·한국·장기금리/신용/유동성. 아직 화면에는 안 쓰고 값만 읽어둔다.
+  wti_front: number | null;
+  brent_front: number | null;
+  usdkrw: number | null;
+  kospi: number | null;
+  usdkrw_fred: number | null;
+  us30y: number | null;
+  real10y: number | null;
+  term_premium10y: number | null;
+  ig_oas: number | null;
+  ccc_oas: number | null;
+  sofr: number | null;
+  iorb: number | null;
+  fed_assets: number | null;
+  reserves: number | null;
+  rrp: number | null;
+  tga: number | null;
 }
 
 // ────────────────────── manual_inputs.json ──────────────────────

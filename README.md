@@ -99,6 +99,23 @@ python scripts/backfill_market_data.py --years 3
 python scripts/backfill_market_data.py --start 2020-01-01
 ```
 
+### 새 컬럼만 과거치 채우기 (`--merge`)
+
+`COLUMNS`에 지표를 추가하면 일일 수집이 헤더를 새로 쓰면서 **과거 행의 새 컬럼은 빈칸**으로 남습니다
+(최근 14일 창만 채워짐). 위의 기본 backfill은 파일 전체를 덮어쓰므로, 이럴 땐 병합 모드를 씁니다:
+이력이 없는 컬럼의 **빈칸만** 채우고, 값이 있는 칸·기존 컬럼·행(날짜)은 건드리지 않습니다.
+한 번 채우면 다음 실행부터 대상에서 빠져 같은 명령을 다시 돌려도 안전합니다.
+
+```bash
+python scripts/backfill_market_data.py --merge --dry-run   # 먼저: 어떤 컬럼에 몇 칸 채워지는지만 출력
+python scripts/backfill_market_data.py --merge             # 실제 기록
+python scripts/backfill_market_data.py --merge --columns wti_front,kospi   # 대상 직접 지정 (그래도 빈칸만)
+```
+
+GitHub에서는 **Backfill Market History → Run workflow**에서 `merge`(와 먼저 `dry_run`)를 체크합니다.
+`wti_front_4w`(28일 전 대비)는 `wti_front`에 28일치 이상 이력이 쌓여야 `no_data`를 벗어나므로,
+새 컬럼을 추가한 뒤에는 이 병합을 한 번 돌려 두세요.
+
 > ⚠️ **뉴스 언급량(attention.csv)은 소급 불가입니다.** Google News RSS가 과거 데이터를
 > 제공하지 않기 때문이며, 오늘부터 매일 쌓입니다. 반감기 판정은 최소 1~2주치가
 > 모여야 의미 있는 값이 나옵니다.
@@ -132,9 +149,16 @@ active→dormant 등)이라, 이벤트당 한 줄로 두고 **id가 같은 줄�
 4. 저장소 Secrets: `SHEETS_WEBAPP_URL` = 그 URL, `SHEETS_TOKEN` = 2번 값
    (배포 창에 함께 뜨는 **배포 ID**(`AKfycb…`)는 URL 안에 이미 들어 있는 값이라 토큰으로 쓰면 안 됨)
 
+수집 컬럼이 늘어도 시트 탭은 알아서 따라옵니다 — 새 열 이름을 머리글에 달고(기본 26열을 넘으면 열도 늘림),
+이미 쌓인 행은 **빈칸만** 같은 날짜의 값으로 채웁니다(값이 있는 칸은 절대 덮어쓰지 않음). 그래서
+`backfill --merge`를 시트 전송보다 나중에 돌려도 과거치가 시트에 따라옵니다. 이 동작은 새 열이 기존 열
+**뒤에** 붙고 앞 열 순서가 같을 때만 합니다 — `COLUMNS`를 바꿀 땐 기존 컬럼 순서를 건드리지 마세요.
+
 코드를 고친 뒤에는 **배포 → 배포 관리 → 수정(연필) → 버전: 새 버전**으로 다시 배포해야
 반영됩니다 (이렇게 하면 URL이 그대로라 Secrets를 바꿀 필요가 없음).
 
+> ⚠️ 컬럼이 늘어난 CSV를 처음 보내기 **전에** 갱신된 `sheets_webapp.gs`를 먼저 배포하세요. 옛 코드는 26열을 넘는
+> 새 행을 쓰지 못해 전송이 실패합니다(수집·커밋에는 영향 없고, 재배포 후 다음 실행에서 이어 붙음).
 > ⚠️ `watchlist_attention`·`events` 탭을 쓰려면 이 갱신된 `sheets_webapp.gs`로 **먼저 다시 배포**하세요.
 > 예전 코드가 배포된 채로 두면 `watchlist_attention`이 날짜 하나만으로 중복 판정돼 키워드 대부분이
 > 빠진 채 쌓이고, `events`는 새 이벤트만 추가될 뿐 상태 변경이 반영되지 않습니다
@@ -225,10 +249,28 @@ narrative-tracker/
 | 10년 기대인플레이션(BEI) | `FRED:T10YIE` | 레짐 판정(골디락스/인플레/스태그플레/디플레) 축 중 하나 |
 | NFCI | `FRED:NFCI` | 시카고연은 금융여건지수 — 주간(금요일) 갱신, 0=평균 |
 | STLFSI4 | `FRED:STLFSI4` | 세인트루이스연은 금융스트레스지수 — 주간(금요일) 갱신, 0=평균 |
+| WTI 근월물 | `CL=F` → `wti_front` | 리포트 1차 소스와 맞춘 선물가. 위 `wti`(FRED 현물)는 교차확인용으로 유지 |
+| 브렌트 근월물 | `BZ=F` → `brent_front` | |
+| 원/달러 · KOSPI | `USD/KRW` → `usdkrw`, `KS11` → `kospi` | 한국 시장 값만 있는 날은 행을 새로 만들지 않음(아래 참고) |
+| 원/달러(연준) | `FRED:DEXKOUS` → `usdkrw_fred` | H.10 — 야후 값과 교차확인, 발표 지연 있음 |
+| 美 30년물 · 실질 10년 · 기간프리미엄 | `FRED:DGS30` `DFII10` `THREEFYTP10` → `us30y` `real10y` `term_premium10y` | 일간 |
+| 신용 | `FRED:BAMLC0A0CM` `BAMLH0A3HYC` → `ig_oas` `ccc_oas` | 투자등급 OAS · CCC 이하 OAS (일간) |
+| 단기자금 | `FRED:SOFR` `IORB` `RRPONTSYD` → `sofr` `iorb` `rrp` | SOFR·역레포 일간, **IORB는 FOMC 때만 바뀌는 계단형(ffill)** |
+| 연준 대차대조표 | `FRED:WALCL` `WRESBAL` `WTREGEN` → `fed_assets` `reserves` `tga` | **주간(수요일)이라 ffill**. 단위는 FRED 원본 그대로(시리즈마다 백만/십억 달러) |
 
-마지막 5개는 `scripts/compute_regime.py`가 레짐 판정에 쓴다. ISM 제조업 PMI는
+일간 시리즈(`us30y`·`ig_oas`·`sofr`·`rrp` 등)는 발표가 며칠 늦을 뿐 값이 매일 바뀌므로 채우지 않고 빈칸으로 두면
+14일 재수집 창이 나중에 채웁니다. 주간·계단형(`STEP_COLUMNS`)만 앞의 값으로 이어 채웁니다. 한국 시장 값
+(`usdkrw`·`kospi`)은 이미 있는 행에만 들어가고, 미국 휴장일에 한국 값만 있다고 행을 만들지 않습니다
+(만들면 마지막 행 날짜가 밀려 레짐 기준일·`regime_log` 줄 수가 달라짐).
+새 컬럼은 `COLUMNS` **맨 뒤**에 추가합니다(구글 시트가 열 위치로 이어 붙기 때문).
+
+`us2y`·`hy_oas`·`breakeven10y`·`nfci`·`stlfsi4` 5개는 `scripts/compute_regime.py`가 레짐 판정에 쓴다(2026-10에 추가한 컬럼은 판정에 쓰지 않음). ISM 제조업 PMI는
 무료 실시간 시리즈가 없어 `docs/data/manual_inputs.json`에 매달 보도자료
 헤드라인 숫자를 수동으로 넣는다.
+
+`regime_state.json`의 `report_crosscheck` 키는 외부 리포트 물가축과 맞춰 보는 출력 전용 값입니다(판정에는
+안 쓰임): `wti_front_4w`(WTI 근월물 최신값 vs 28일 전, 그날이 휴장이면 직전 거래일)와 `breakeven_3m`(인플레
+판정과 같은 식의 BEI 3개월 변화 — PMI가 만료돼 판정이 '미확인'이어도 계속 나옴).
 
 `fdr.DataReader('FRED:시리즈ID', start, end)` 형태로 FRED 데이터를 키 없이 그대로 감싸서
 제공하므로, 별도 requests 코드 없이 하나의 라이브러리·인터페이스로 전부 수집합니다.
