@@ -18,7 +18,9 @@ import sys
 
 import pandas as pd
 
-from backfill_market_data import COLUMNS, FDR_SYMBOLS, STEP_COLUMNS, fetch_dxy_ice, fetch_series
+from backfill_market_data import (
+    COLUMNS, FDR_SYMBOLS, ROW_OPTIONAL_COLUMNS, STEP_COLUMNS, fetch_dxy_ice, fetch_series,
+)
 
 CSV_PATH = os.path.join(os.path.dirname(__file__), "..", "docs", "data", "market_snapshot.csv")
 WINDOW_DAYS = 14  # FRED 발표 지연(수일)과 예약 실행 누락을 흡수할 만큼
@@ -65,10 +67,13 @@ def main() -> None:
             df.loc[df.index[0], col] = float(seed)
         df[col] = df[col].ffill()
 
-    # 모든 지표가 비어 있는 날(주말·공휴일)은 행을 만들지 않음
-    value_cols = [c for c in df.columns if c not in STEP_COLUMNS]
+    # 모든 지표가 비어 있는 날(주말·공휴일)은 행을 만들지 않음. 계단형·한국 시장 값만 있는 날도 마찬가지
+    # (ROW_OPTIONAL_COLUMNS 주석 참고). 그런 컬럼만 조회된 날(다른 원천이 전부 실패)에는 기존 행에만 반영한다.
+    value_cols = [c for c in df.columns if c not in ROW_OPTIONAL_COLUMNS]
     if value_cols:
         df = df.dropna(subset=value_cols, how="all")
+    else:
+        df = df[[d.isoformat() in rows for d in df.index]]
     df = df.round(2)
 
     changed = []
