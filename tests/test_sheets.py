@@ -35,5 +35,12 @@ class TokenCheckTest(unittest.TestCase):
         self.assertIn("스크립트 속성의 TOKEN", self.run_main(url, other))
 
 
+    def test_bare_deploy_id_becomes_url(self):
+        self.assertEqual(push_to_sheets.webapp_url(f" {DEPLOY_ID}\n"), f"https://script.google.com/macros/s/{DEPLOY_ID}/exec")
+        full = f"https://script.google.com/macros/s/{DEPLOY_ID}/exec"
+        self.assertEqual(push_to_sheets.webapp_url(full), full)
+        self.assertIn("웹 앱 주소가 아님", self.run_main("script.google.com/macros", "tok"))
+
+
 if __name__ == "__main__":
     unittest.main()
