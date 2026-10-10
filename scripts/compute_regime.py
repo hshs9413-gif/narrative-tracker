@@ -37,6 +37,9 @@ LOG_FIELDS = [
     "date", "growth_inflation", "credit_stress", "policy_stance", "score", "deductions",
     "pmi", "breakeven", "breakeven_change", "hy_oas", "vix", "curve_2s10y", "fedrate",
     "thresholds_version",
+    # 판정에 쓴 값의 실제 날짜 — FRED가 하루 늦게 올리므로 'date'(데이터 기준일)보다 1~2거래일 앞서는 게 보통.
+    # 새 열은 끝에만 붙인다 (구글 시트는 머리글 앞부분이 같아야 새 열을 이어 붙이고 과거 행 빈칸을 채움)
+    "vix_asof", "hy_oas_asof", "breakeven_asof",
 ]
 
 NUMERIC_COLUMNS = [
@@ -352,6 +355,9 @@ def upsert_log(day, state, thresholds):
         "curve_2s10y": detail.get("curve_2s10y", {}).get("value", ""),
         "fedrate": ps.get("current", ""),
         "thresholds_version": thresholds.get("version", ""),
+        "vix_asof": detail.get("vix_level", {}).get("as_of", ""),
+        "hy_oas_asof": detail.get("hy_oas_pct", {}).get("as_of", ""),
+        "breakeven_asof": gi.get("breakeven_date", "") or "",
     }
 
     log = {}
