@@ -46,26 +46,62 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      # 임시 진단: FRED 키가 어떤 이름으로 저장돼 있는지 찾는다. 이름과 '형식이 FRED 키 같은지'만 출력하고 값은 출력하지 않는다.
-      - name: Locate FRED key secret (names only)
+      # 임시 진단: FRED 키가 어떤 이름으로 저장돼 있는지 후보 이름을 하나씩 확인한다 (Secret 이름은 대소문자 구분 없음).
+      # 이름과 '값이 FRED 키 형식인지'만 출력하고 값은 출력하지 않는다.
+      - name: Locate FRED key secret (candidate names, no values)
         env:
-          ALL_SECRETS: ${{ toJSON(secrets) }}
-          ALL_VARS: ${{ toJSON(vars) }}
+          S_FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          V_FRED_API_KEY: ${{ vars.FRED_API_KEY }}
+          S_FRED_KEY: ${{ secrets.FRED_KEY }}
+          V_FRED_KEY: ${{ vars.FRED_KEY }}
+          S_FRED_API: ${{ secrets.FRED_API }}
+          V_FRED_API: ${{ vars.FRED_API }}
+          S_FRED: ${{ secrets.FRED }}
+          V_FRED: ${{ vars.FRED }}
+          S_FREDAPI: ${{ secrets.FREDAPI }}
+          V_FREDAPI: ${{ vars.FREDAPI }}
+          S_FRED_APIKEY: ${{ secrets.FRED_APIKEY }}
+          V_FRED_APIKEY: ${{ vars.FRED_APIKEY }}
+          S_FREDAPIKEY: ${{ secrets.FREDAPIKEY }}
+          V_FREDAPIKEY: ${{ vars.FREDAPIKEY }}
+          S_FRED_TOKEN: ${{ secrets.FRED_TOKEN }}
+          V_FRED_TOKEN: ${{ vars.FRED_TOKEN }}
+          S_FRED_API_TOKEN: ${{ secrets.FRED_API_TOKEN }}
+          V_FRED_API_TOKEN: ${{ vars.FRED_API_TOKEN }}
+          S_FRED_SECRET: ${{ secrets.FRED_SECRET }}
+          V_FRED_SECRET: ${{ vars.FRED_SECRET }}
+          S_FED_API_KEY: ${{ secrets.FED_API_KEY }}
+          V_FED_API_KEY: ${{ vars.FED_API_KEY }}
+          S_FED_API: ${{ secrets.FED_API }}
+          V_FED_API: ${{ vars.FED_API }}
+          S_FED_KEY: ${{ secrets.FED_KEY }}
+          V_FED_KEY: ${{ vars.FED_KEY }}
+          S_FEDAPI: ${{ secrets.FEDAPI }}
+          V_FEDAPI: ${{ vars.FEDAPI }}
+          S_FED_APIKEY: ${{ secrets.FED_APIKEY }}
+          V_FED_APIKEY: ${{ vars.FED_APIKEY }}
+          S_FED_TOKEN: ${{ secrets.FED_TOKEN }}
+          V_FED_TOKEN: ${{ vars.FED_TOKEN }}
+          S_FEDERAL_RESERVE_API_KEY: ${{ secrets.FEDERAL_RESERVE_API_KEY }}
+          V_FEDERAL_RESERVE_API_KEY: ${{ vars.FEDERAL_RESERVE_API_KEY }}
+          S_STLOUISFED_API_KEY: ${{ secrets.STLOUISFED_API_KEY }}
+          V_STLOUISFED_API_KEY: ${{ vars.STLOUISFED_API_KEY }}
+          S_API_KEY: ${{ secrets.API_KEY }}
+          V_API_KEY: ${{ vars.API_KEY }}
+          S_APIKEY: ${{ secrets.APIKEY }}
+          V_APIKEY: ${{ vars.APIKEY }}
         run: |
           python - <<'PY'
-          import json, os, re
+          import os, re
           pat = re.compile(r"^[a-z0-9]{32}$")
-          def scan(kind, raw):
-              items = json.loads(raw or "{}")
-              items.pop("github_token", None)
-              rows = []
-              for name, value in sorted(items.items()):
-                  v = str(value).strip().strip("'\"").strip()
-                  looks = bool(pat.match(v))
-                  rows.append(f"{name}(len={len(v)}, fred_key_format={'yes' if looks else 'no'})")
-              print(f"::notice title={kind}::{len(rows)} - " + "; ".join(rows))
-          scan("secrets", os.environ.get("ALL_SECRETS"))
-          scan("vars", os.environ.get("ALL_VARS"))
+          found = []
+          for k, v in sorted(os.environ.items()):
+              if not (k.startswith("S_") or k.startswith("V_")) or not v:
+                  continue
+              v = v.strip().strip("'\"").strip()
+              kind = "secret" if k.startswith("S_") else "variable"
+              found.append(f"{kind} {k[2:]} (len={len(v)}, fred_key_format={'yes' if pat.match(v) else 'no'})")
+          print("::notice title=fred-key-candidates::" + ("; ".join(found) if found else "후보 이름 중 값이 있는 것 없음"))
           PY
 
       - name: Check FRED API with repository secret
