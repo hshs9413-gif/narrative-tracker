@@ -52,6 +52,9 @@ MAX_OPEN = 12            # active+dormant 상한
 COOLDOWN_DAYS = 3        # 같은 내러티브를 Gemini가 다시 바꾸기까지 최소 간격
 NEW_EVENT_MAX_AGE = 180  # 새 내러티브 trigger_date는 최근 180일 안
 NOTE_MAX = 220
+# 판단 전에 생각할 토큰 예산 — 0이면 기사 77건을 훑고 바로 답해 근거 부족으로 아무것도 안 바꾸는 경향(10/11 확인).
+# 무료 등급 한도(분당 토큰)에 비해 작아 하루 1회 호출엔 부담이 없다. GEMINI_THINKING 변수로 조정.
+THINKING_BUDGET = int(os.environ.get("GEMINI_THINKING", "4096") or 0)
 LOG_KEEP = 400
 MARKET_COLS = {"vix": "VIX", "hy_oas": "HY OAS(%)", "us10y": "美10년(%)", "breakeven10y": "기대인플레 10년(%)",
                "brent_front": "브렌트($)", "gold": "금($)", "dxy_ice": "달러인덱스", "kospi": "KOSPI", "usdkrw": "원/달러"}
@@ -144,7 +147,7 @@ def gather_headlines(events, session=None):
     for e in events:
         if e.get("status") == "ended" or not e.get("keywords"):
             continue
-        add(e["id"], news_feed.headlines(news_feed.or_query(e["keywords"]), "ko", days=7, limit=6, session=session))
+        add(e["id"], news_feed.headlines(news_feed.or_query(e["keywords"]), "ko", days=7, limit=8, session=session))
     for kw in rising_watchlist():
         add(f"watch:{kw['id']}", news_feed.headlines(kw["query"], "en", days=7, limit=5, session=session))
     add("market:ko", news_feed.headlines("증시 OR 환율 OR 국채금리 OR 유가", "ko", days=3, limit=10, session=session))
@@ -254,9 +257,13 @@ def check_update(u, events_by_id, heads, cooled, today):
         return None, "끝난 내러티브는 바꾸지 않음"
     if e.get("auto_lock"):
         return None, "auto_lock으로 잠김"
-    if eid in cooled:
-        return None, f"최근 {COOLDOWN_DAYS}일 안에 이미 바꿈"
     ev, n_src = _evidence(u.get("evidence"), heads)
+    if eid in cooled:
+        # 쿨다운 중엔 상태·단계·강도·검색어는 그대로 두고, 새로 확인된 사실 메모만 받는다
+        note = (u.get("notes_append") or "").strip()
+        if note and ev:
+            return {"change": {"notes_append": note[:NOTE_MAX]}, "evidence": ev}, None
+        return None, f"최근 {COOLDOWN_DAYS}일 안에 이미 바꿈"
     if not ev:
         return None, "근거 기사 없음"
     change = {}
@@ -445,8 +452,13 @@ def main():
         attention=json.dumps(attention_summary(today), ensure_ascii=False),
         headlines=format_headlines(heads))
     try:
-        r = gemini_api.generate(prompt, max_tokens=8192, json_mode=True)
-        proposal = gemini_api.extract_json(r["text"]) or {}
+        r = gemini_api.generate(prompt, max_tokens=8192, json_mode=True, thinking_budget=THINKING_BUDGET)
+        proposal = gemini_api.extract_json(r["text"])
+        notes.append(gemini_api.usage_line(r))
+        if proposal is None:
+            why = "출력 토큰 한도에 걸려 답이 잘림" if r.get("finish") == "MAX_TOKENS" else "JSON이 아닌 답"
+            print(f"::warning title=Gemini 응답 해석 실패::{why} — {gemini_api.usage_line(r)}; 앞부분 {r['text'][:200]!r}")
+            proposal = {}
         entries, n = apply_proposal(proposal, events, heads, log, today, r["model"])
         new_entries += entries
         notes.append(f"모델 {r['model']} · 기사 {len(heads)}건 · 제안 {len(entries)}건 중 반영 {n}건")
@@ -463,7 +475,8 @@ def main():
             news_feed.headlines("ISM manufacturing PMI", "en", days=10, limit=10)
             + news_feed.headlines("ISM 제조업 PMI", "ko", days=10, limit=5))}
         try:
-            r = gemini_api.generate(PMI_PROMPT.format(headlines=format_headlines(pmi_heads)), max_tokens=512, json_mode=True)
+            r = gemini_api.generate(PMI_PROMPT.format(headlines=format_headlines(pmi_heads)), max_tokens=512, json_mode=True,
+                                    thinking_budget=0)
             res, why = check_pmi(gemini_api.extract_json(r["text"]), pmi_heads, manual, today)
             entry = {"date": today.isoformat(), "by": "gemini", "model": r["model"], "kind": "pmi", "event_id": None}
             if res:

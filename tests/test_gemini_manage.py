@@ -76,6 +76,13 @@ class UpdateRulesTest(unittest.TestCase):
                                        events(), heads(), log, TODAY, "m")
         self.assertEqual(n, 0)
         self.assertIn("이미 바꿈", entries[0]["reject_reason"])
+        # 쿨다운 중이어도 메모만은 받는다 (강도 변경은 버림)
+        ev = events()
+        entries, n = gm.apply_proposal({"updates": [{"id": "iran-war-2026", "intensity": "mid", "notes_append": "유조선 공격 지속",
+                                                     "evidence": ["h1"]}]}, ev, heads(), log, TODAY, "m")
+        self.assertEqual(n, 1)
+        self.assertEqual(ev[0]["intensity"], "low")
+        self.assertIn("유조선 공격 지속", ev[0]["notes"])
         # 사람·검증이 손본 것도 쉬게 두고, 규칙 전환은 막지 않는다
         for by, blocked in (("claude", True), ("rule", False)):
             log = [{"date": "2026-10-11", "by": by, "status": "applied", "event_id": "iran-war-2026"}]
