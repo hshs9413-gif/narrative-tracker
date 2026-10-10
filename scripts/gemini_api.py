@@ -30,9 +30,16 @@ def key_status():
     k = _raw_key()
     if not k:
         return "missing"
-    if not re.fullmatch(r"[A-Za-z0-9_\-]{20,}", k):
+    if len(k) < 20 or any(c.isspace() for c in k):
         return "malformed"
     return "ok"
+
+
+def key_shape():
+    """키 값은 숨기고 모양만 — 진단용"""
+    k = _raw_key()
+    return (f"len {len(k)}, AIza로 시작 {k.startswith('AIza')}, "
+            f"영숫자·-·_ 외 문자 {sorted(set(c for c in k if not (c.isalnum() or c in '-_')))!r}")
 
 
 def _headers():

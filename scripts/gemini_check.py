@@ -14,6 +14,7 @@ import gemini_api  # noqa: E402
 
 def main():
     status = gemini_api.key_status()
+    print(f"::notice title=Gemini 키 모양::{status} · {gemini_api.key_shape()}")
     if status != "ok":
         print(f"::warning title=Gemini 키::GEMINI_API_KEY {status} — 저장소 Settings → Secrets and variables → Actions에 GEMINI_API_KEY로 등록 필요")
         return
