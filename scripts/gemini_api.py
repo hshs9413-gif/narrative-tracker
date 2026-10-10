@@ -121,7 +121,9 @@ def generate(prompt, search=False, max_tokens=8192, session=None, models=None, r
                     resp = None
                     break
                 if resp.status_code == 200:
-                    return _parse(model, resp.json())
+                    out = _parse(model, resp.json())
+                    out["fallbacks"] = errors[:]  # 앞 모델이 실패해 넘어온 경우 그 이유
+                    return out
                 if resp.status_code in (429, 500, 503) and attempt < retries:
                     time.sleep(15 * (attempt + 1))
                     continue

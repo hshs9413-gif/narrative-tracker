@@ -173,7 +173,8 @@ PROMPT = """당신은 거시경제 내러티브 트래커의 관리자입니다.
    - intensity는 한 단계씩만(low↔mid↔high).
    - keywords: 언급량이 매일 100에 가깝게 포화되거나 0에 가까우면 더 구체적인 한국어 검색어 2~4개로 교체 제안.
      몇 주 이상 쓸 수 있는 일반 표현으로(특정 인물 발언·하루짜리 사건 이름 금지).
-   - notes_append: 이번에 새로 확인한 사실 한 문장(200자 이내, 날짜 포함).
+   - notes_append: 이번에 새로 확인한 사실 한 문장(200자 이내, 날짜 포함). 근거 기사 제목에 있는 사실만 쓰고,
+     '사상 최고'·'최초' 같은 표현이나 수치는 제목에 그대로 있을 때만 쓰세요. 추측·과장 금지.
 2. 목록에 없는데 여러 매체가 며칠째 다루고 자산 가격도 반응한 새 내러티브가 있으면 new_events에(최대 2개).
    근거 기사 3개 이상(매체 2곳 이상). 일회성 뉴스는 넣지 마세요.
 3. 확실하지 않으면 넣지 마세요 — 잘못 바꾸는 것이 안 바꾸는 것보다 해롭습니다.
@@ -461,6 +462,8 @@ def main():
         r = gemini_api.generate(prompt, max_tokens=8192, json_mode=True, thinking_budget=THINKING_BUDGET)
         proposal = gemini_api.extract_json(r["text"])
         notes.append(gemini_api.usage_line(r))
+        if r.get("fallbacks"):
+            notes.append("앞 모델 실패: " + " | ".join(x[:90] for x in r["fallbacks"][-2:]))
         if proposal is None:
             why = "출력 토큰 한도에 걸려 답이 잘림" if r.get("finish") == "MAX_TOKENS" else "JSON이 아닌 답"
             print(f"::warning title=Gemini 응답 해석 실패::{why} — {gemini_api.usage_line(r)}; 앞부분 {r['text'][:200]!r}")
