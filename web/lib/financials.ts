@@ -1,4 +1,4 @@
-import type { FinancialsIndexEntry, SummaryRow } from "@/types/dashboard";
+import type { SummaryRow } from "@/types/dashboard";
 
 // 기업 재무 화면 계산·표시 — 금액은 원 단위로 받아 조/억으로 줄여 보여준다.
 
@@ -52,26 +52,25 @@ export function bases(rows: SummaryRow[]): string[] {
   return found.sort((a, b) => (order.indexOf(a) + 1 || 9) - (order.indexOf(b) + 1 || 9));
 }
 
-/** 회사명 일부, 사업자등록번호·법인등록번호(하이픈 무관, 앞자리 일부도)로 찾는다. */
-export function searchCompanies(list: FinancialsIndexEntry[], query: string): FinancialsIndexEntry[] {
-  const q = query.trim();
-  if (!q) return list;
-  const d = digitsOnly(q);
-  const lower = q.toLowerCase();
-  return list.filter((c) => {
-    if (c.name.toLowerCase().includes(lower)) return true;
-    if (d.length >= 3 && (digitsOnly(c.bzno).startsWith(d) || digitsOnly(c.crno).startsWith(d))) return true;
-    return false;
-  });
-}
+const PROXY_TIMEOUT_MS = 45_000;
 
-/** 입력이 '목록에 없는 번호'면 무엇인지 — 조회 요청 안내에 쓴다 */
-export function numberKind(query: string): "bzno" | "crno" | null {
-  const d = digitsOnly(query);
-  if (d.length === 10) return "bzno";
-  if (d.length === 13) return "crno";
-  return null;
+/** Apps Script 프록시 GET — 응답의 {error}는 예외로 바꾼다. 키는 프록시에만 있다. */
+export async function proxyGet<T>(base: string, params: Record<string, string>): Promise<T> {
+  const url = new URL(base);
+  Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), PROXY_TIMEOUT_MS);
+  try {
+    const res = await fetch(url.toString(), { signal: ctrl.signal, redirect: "follow" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const body = (await res.json()) as T & { error?: string };
+    if (body && typeof body === "object" && "error" in body && body.error) throw new Error(body.error);
+    return body;
+  } catch (err) {
+    if (err instanceof DOMException && err.name === "AbortError") throw new Error("응답이 너무 늦습니다 — 잠시 뒤 다시 시도하세요");
+    if (err instanceof TypeError) throw new Error("프록시에 연결하지 못했습니다 — Apps Script 배포(액세스: 모든 사용자)와 URL을 확인하세요");
+    throw err;
+  } finally {
+    clearTimeout(timer);
+  }
 }
-
-export const FINANCIALS_WORKFLOW_URL =
-  "https://github.com/hshs9413-gif/narrative-tracker/actions/workflows/financials.yml";

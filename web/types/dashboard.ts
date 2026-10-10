@@ -218,20 +218,30 @@ export interface FredCatalog {
   series: FredCatalogEntry[];
 }
 
-// ────────────────────── financials/*.json ──────────────────────
-// scripts/collect_financials.py 출력 — 금융위원회_기업 재무정보 API. 금액은 원(KRW), debt_ratio는 %.
+// ────────────────────── 기업 재무 (실시간 조회) ──────────────────────
+// scripts/fsc_proxy.gs(Apps Script 웹 앱) 응답 — 금융위원회_기업 재무정보·기업기본정보. 금액은 원(KRW), debt_ratio는 %.
 
-export interface FinancialsIndexEntry {
-  crno: string;
-  bzno: string | null;
-  name: string;
-  years: [string, string];
-  fetched_at?: string;
+/** data/app_config.json — 화면 설정 (공개 값만) */
+export interface AppConfig {
+  fsc_proxy_url?: string;
 }
 
-export interface FinancialsIndex {
-  generated_at: string;
-  companies: FinancialsIndexEntry[];
+export interface CompanySearchItem {
+  crno: string;
+  bzno: string | null;
+  name: string | null;
+  ceo: string | null;
+  market: string | null;
+  established: string | null;
+  address: string | null;
+}
+
+export interface CompanySearchResponse {
+  query: string;
+  kind: "name" | "bzno" | "crno";
+  total: number;
+  truncated: boolean;
+  results: CompanySearchItem[];
 }
 
 export interface SummaryRow {
@@ -262,7 +272,7 @@ export interface AccountRow {
 }
 
 export interface StatementBlock {
-  year: string;
+  year: string | null;
   items: AccountRow[];
   error?: string;
 }
@@ -301,4 +311,6 @@ export interface CompanyFinancials {
   summary: SummaryRow[];
   balance_sheet: StatementBlock;
   income_statement: StatementBlock;
+  /** 기업기본정보 조회가 실패했을 때 사유 (재무는 그대로 보여줌) */
+  profile_error?: string;
 }

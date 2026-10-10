@@ -1,148 +1,217 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import {
-  CBadge, CButton, CButtonGroup, CCallout, CCard, CCardBody, CCardHeader, CCol, CFormInput, CInputGroup, CInputGroupText,
-  CListGroup, CListGroupItem, CPlaceholder, CRow, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow,
+  CBadge, CButton, CButtonGroup, CCallout, CCard, CCardBody, CCardHeader, CCol, CForm, CFormInput, CInputGroup, CInputGroupText,
+  CListGroup, CListGroupItem, CPlaceholder, CRow, CSpinner, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow,
 } from "@coreui/react";
 import { CChartBar } from "@coreui/react-chartjs";
 import CIcon from "@coreui/icons-react";
-import { cilExternalLink, cilSearch } from "@coreui/icons";
+import { cilSearch } from "@coreui/icons";
 import type { ChartData, ChartOptions } from "chart.js";
-import { useCompanyFinancials, useFinancialsIndex } from "@/lib/hooks/use-dashboard-data";
+import { useAppConfig } from "@/lib/hooks/use-dashboard-data";
 import { useChartTheme } from "@/lib/hooks/use-chart-theme";
-import {
-  FINANCIALS_WORKFLOW_URL, axisUnit, bases, fmtBzno, fmtCrno, formatKrw, numberKind, pct, ratio, searchCompanies, yoy,
-} from "@/lib/financials";
-import type { AccountRow, CompanyFinancials as CompanyData, CompanyProfile, SummaryRow } from "@/types/dashboard";
+import { axisUnit, bases, fmtBzno, fmtCrno, formatKrw, pct, proxyGet, ratio, yoy } from "@/lib/financials";
+import type {
+  AccountRow, CompanyFinancials as CompanyData, CompanyProfile, CompanySearchResponse, SummaryRow,
+} from "@/types/dashboard";
 
-// 금융위원회_기업 재무정보 — Actions(Company Financials)가 받아 둔 기업만 보여준다. API 키를 브라우저에 둘 수 없어서다.
+// 금융위원회_기업 재무정보·기업기본정보 — 저장하지 않고 검색할 때마다 실시간 조회한다.
+// API 키는 브라우저에 둘 수 없어 Apps Script 웹 앱(scripts/fsc_proxy.gs)이 대신 호출하고, 그 주소는 data/app_config.json에 있다.
 
-function HowToAdd({ query }: { query?: string }) {
-  const kind = query ? numberKind(query) : null;
+const CRNO_PARAM = "crno";
+
+function readCrnoFromUrl(): string | null {
+  try {
+    const v = new URLSearchParams(window.location.search).get(CRNO_PARAM);
+    return v && /^\d{13}$/.test(v.replace(/\D/g, "")) ? v.replace(/\D/g, "") : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeCrnoToUrl(crno: string | null) {
+  try {
+    const url = new URL(window.location.href);
+    if (crno) url.searchParams.set(CRNO_PARAM, crno);
+    else url.searchParams.delete(CRNO_PARAM);
+    window.history.replaceState(null, "", url.toString());
+  } catch {
+    /* 주소 갱신은 편의 기능 — 실패해도 화면은 그대로 */
+  }
+}
+
+function ProxySetup() {
   return (
-    <div className="small">
-      <a href={FINANCIALS_WORKFLOW_URL} target="_blank" rel="noopener noreferrer">
-        Actions → Company Financials <CIcon icon={cilExternalLink} size="sm" />
-      </a>{" "}
-      → <strong>Run workflow</strong> → <code>number</code>에{" "}
-      {kind === "bzno" ? <>사업자등록번호 <code>{fmtBzno(query)}</code></> : kind === "crno" ? <>법인등록번호 <code>{fmtCrno(query)}</code></> : "사업자등록번호(10자리) 또는 법인등록번호(13자리)"}
-      을 넣고 실행하면 1~2분 뒤 여기에 나타납니다.
-    </div>
+    <CCallout color="info" className="mt-0">
+      <strong>실시간 조회용 Apps Script 웹 앱 주소가 아직 설정되지 않았습니다.</strong>
+      <ol className="small mt-2 mb-0 ps-3">
+        <li><a href="https://script.google.com/home/projects/create" target="_blank" rel="noopener noreferrer">script.google.com</a>에서 새 프로젝트 → 저장소 <code>scripts/fsc_proxy.gs</code> 내용을 붙여넣고 저장</li>
+        <li>프로젝트 설정 → 스크립트 속성 → <code>DATA_GO_KR_KEY</code> = 공공데이터포털 일반 인증키</li>
+        <li>배포 → 새 배포 → 유형 <strong>웹 앱</strong>, 실행 <strong>나</strong>, 액세스 <strong>모든 사용자</strong> → 웹 앱 URL 복사</li>
+        <li><code>docs/data/app_config.json</code>의 <code>fsc_proxy_url</code>에 그 URL을 넣기 (Claude에게 URL을 알려줘도 됨)</li>
+      </ol>
+    </CCallout>
   );
 }
 
 export function CompanyFinancials() {
-  const index = useFinancialsIndex();
+  const cfg = useAppConfig();
+  if (cfg.loading) {
+    return (
+      <CCard className="mb-4"><CCardBody>
+        <CPlaceholder animation="glow"><CPlaceholder xs={12} style={{ height: 120 }} /></CPlaceholder>
+      </CCardBody></CCard>
+    );
+  }
+  const proxy = cfg.data?.fsc_proxy_url?.trim();
+  if (!proxy) return <ProxySetup />;
+  return <LiveFinancials proxy={proxy} />;
+}
+
+type SearchState =
+  | { status: "idle" }
+  | { status: "loading"; query: string }
+  | { status: "done"; query: string; data: CompanySearchResponse }
+  | { status: "error"; query: string; error: string };
+
+function LiveFinancials({ proxy }: { proxy: string }) {
   const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState<string | null>(null);
+  const [search, setSearch] = useState<SearchState>({ status: "idle" });
+  // 주소에 ?crno=가 있으면 그 기업을 바로 연다 (공유·즐겨찾기용). 이 컴포넌트는 설정 파일을 받은 뒤에만
+  // 브라우저에서 그려지므로 window를 바로 읽어도 서버 렌더와 어긋나지 않는다.
+  const [crno, setCrno] = useState<string | null>(readCrnoFromUrl);
+  const seq = useRef(0);
 
-  if (index.loading) {
-    return (
-      <CCard className="mb-4">
-        <CCardBody>
-          <CPlaceholder animation="glow"><CPlaceholder xs={12} style={{ height: 220 }} /></CPlaceholder>
-        </CCardBody>
-      </CCard>
-    );
+  function open(next: string | null) {
+    setCrno(next);
+    writeCrnoToUrl(next);
   }
 
-  const list = index.data?.companies ?? [];
-  if (!list.length) {
-    return (
-      <CCallout color="info" className="mt-0">
-        <strong>아직 수집된 기업이 없습니다.</strong>
-        <div className="mt-2"><HowToAdd /></div>
-      </CCallout>
-    );
+  async function run(e?: FormEvent) {
+    e?.preventDefault();
+    const q = query.trim();
+    if (!q) return;
+    const my = ++seq.current;
+    setSearch({ status: "loading", query: q });
+    try {
+      const data = await proxyGet<CompanySearchResponse>(proxy, { action: "search", q });
+      if (my !== seq.current) return;
+      setSearch({ status: "done", query: q, data });
+      if (data.results.length === 1) open(data.results[0].crno);
+    } catch (err) {
+      if (my !== seq.current) return;
+      setSearch({ status: "error", query: q, error: err instanceof Error ? err.message : String(err) });
+    }
   }
-
-  const matches = searchCompanies(list, query);
-  const crno = selected && list.some((c) => c.crno === selected) ? selected : list[0].crno;
 
   return (
     <>
       <CCard className="mb-4">
         <CCardBody>
-          <CRow className="g-3 align-items-center">
-            <CCol md={7}>
-              <CInputGroup>
-                <CInputGroupText><CIcon icon={cilSearch} /></CInputGroupText>
-                <CFormInput
-                  type="search"
-                  placeholder="회사명 · 사업자등록번호 · 법인등록번호"
-                  aria-label="기업 검색"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-              </CInputGroup>
-            </CCol>
-            <CCol md={5} className="small text-body-secondary">
-              수집된 기업 {list.length}곳 · 목록에 없으면 아래 방법으로 추가
-            </CCol>
-          </CRow>
+          <CForm onSubmit={run}>
+            <CInputGroup>
+              <CInputGroupText><CIcon icon={cilSearch} /></CInputGroupText>
+              <CFormInput
+                type="search"
+                placeholder="회사명 · 사업자등록번호 · 법인등록번호"
+                aria-label="기업 검색"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <CButton type="submit" color="primary" disabled={!query.trim() || search.status === "loading"}>
+                {search.status === "loading" ? <CSpinner size="sm" aria-label="검색 중" /> : "검색"}
+              </CButton>
+            </CInputGroup>
+          </CForm>
+          <div className="small text-body-secondary mt-2">
+            금융위원회 공공데이터를 검색할 때마다 실시간으로 불러옵니다 (저장하지 않음 · 같은 조회는 6시간 캐시). 회사명은 일부만 써도 됩니다.
+          </div>
 
-          {query.trim() && (
-            matches.length ? (
-              <CListGroup className="mt-3">
-                {matches.slice(0, 8).map((c) => (
-                  <CListGroupItem
-                    key={c.crno}
-                    as="button"
-                    active={c.crno === crno}
-                    onClick={() => { setSelected(c.crno); setQuery(""); }}
-                    className="d-flex flex-wrap justify-content-between gap-2"
-                  >
-                    <span className="fw-semibold">{c.name}</span>
-                    <span className="small tnum">
-                      법인 {fmtCrno(c.crno)}{c.bzno && <> · 사업자 {fmtBzno(c.bzno)}</>} · {c.years[0]}~{c.years[1]}
-                    </span>
-                  </CListGroupItem>
-                ))}
-              </CListGroup>
-            ) : (
-              <CCallout color="warning" className="mt-3 mb-0">
-                <strong>&lsquo;{query}&rsquo;와 맞는 기업이 목록에 없습니다.</strong>
-                <div className="mt-1"><HowToAdd query={query} /></div>
-              </CCallout>
-            )
+          {search.status === "error" && (
+            <CCallout color="danger" className="mt-3 mb-0">검색하지 못했습니다 — {search.error}</CCallout>
           )}
-
-          {!query.trim() && list.length > 1 && (
-            <div className="d-flex flex-wrap gap-2 mt-3">
-              {list.map((c) => (
-                <CButton key={c.crno} size="sm" color="secondary" variant={c.crno === crno ? undefined : "outline"} onClick={() => setSelected(c.crno)}>
-                  {c.name}
-                </CButton>
-              ))}
-            </div>
-          )}
-
-          <details className="mt-3 small text-body-secondary">
-            <summary>기업 추가 방법</summary>
-            <div className="mt-2"><HowToAdd /></div>
-          </details>
+          {search.status === "done" && <SearchResults res={search.data} selected={crno} onPick={open} />}
         </CCardBody>
       </CCard>
 
-      <CompanyView key={crno} crno={crno} />
+      {crno && <LiveCompany key={crno} proxy={proxy} crno={crno} />}
     </>
   );
 }
 
-function CompanyView({ crno }: { crno: string }) {
-  const { data, loading, error } = useCompanyFinancials(crno);
-  const [basis, setBasis] = useState<string | null>(null);
+function SearchResults({ res, selected, onPick }: { res: CompanySearchResponse; selected: string | null; onPick: (c: string) => void }) {
+  if (!res.results.length) {
+    return (
+      <CCallout color="warning" className="mt-3 mb-0">
+        &lsquo;{res.query}&rsquo;로 찾은 법인이 없습니다. 회사명은 &lsquo;(주)&rsquo;를 빼고, 번호는 사업자등록번호 10자리·법인등록번호 13자리로 넣어 보세요.
+      </CCallout>
+    );
+  }
+  return (
+    <>
+      <div className="small text-body-secondary mt-3 mb-2">
+        {res.total}곳{res.total > res.results.length ? ` 중 ${res.results.length}곳` : ""}
+        {res.truncated && " · 결과가 많아 일부만 봤습니다 — 이름을 더 구체적으로"}
+      </div>
+      <CListGroup>
+        {res.results.map((c) => (
+          <CListGroupItem key={c.crno} as="button" active={c.crno === selected} onClick={() => onPick(c.crno)} className="text-start">
+            <div className="d-flex flex-wrap justify-content-between gap-2">
+              <span className="fw-semibold">{c.name}</span>
+              <span className="small tnum">법인 {fmtCrno(c.crno)}{c.bzno && <> · 사업자 {fmtBzno(c.bzno)}</>}</span>
+            </div>
+            <div className="small opacity-75">
+              {[c.ceo && `대표 ${c.ceo}`, c.market, c.established && `설립 ${c.established.slice(0, 4)}`, c.address].filter(Boolean).join(" · ")}
+            </div>
+          </CListGroupItem>
+        ))}
+      </CListGroup>
+    </>
+  );
+}
 
-  if (loading) {
+function LiveCompany({ proxy, crno }: { proxy: string; crno: string }) {
+  const [state, setState] = useState<{ data: CompanyData | null; error: string | null }>({ data: null, error: null });
+
+  useEffect(() => {
+    let cancelled = false;
+    proxyGet<CompanyData>(proxy, { action: "company", crno })
+      .then((data) => { if (!cancelled) setState({ data, error: null }); })
+      .catch((err) => { if (!cancelled) setState({ data: null, error: err instanceof Error ? err.message : String(err) }); });
+    return () => { cancelled = true; };
+  }, [proxy, crno]);
+
+  if (state.error) return <CCallout color="danger" className="mt-0">{fmtCrno(crno)} 재무자료를 불러오지 못했습니다 — {state.error}</CCallout>;
+  if (!state.data) {
     return (
       <CCard className="mb-4"><CCardBody>
-        <CPlaceholder animation="glow"><CPlaceholder xs={12} style={{ height: 320 }} /></CPlaceholder>
+        <div className="small text-body-secondary mb-2"><CSpinner size="sm" /> 법인 {fmtCrno(crno)} 불러오는 중…</div>
+        <CPlaceholder animation="glow"><CPlaceholder xs={12} style={{ height: 300 }} /></CPlaceholder>
       </CCardBody></CCard>
     );
   }
-  if (error || !data) {
-    return <CCallout color="danger" className="mt-0">{fmtCrno(crno)} 재무자료를 불러오지 못했습니다{error ? ` (${error})` : ""}.</CCallout>;
+  return <CompanyView data={state.data} />;
+}
+
+function CompanyView({ data }: { data: CompanyData }) {
+  const [basis, setBasis] = useState<string | null>(null);
+
+  if (!data.summary.length) {
+    return (
+      <CCard className="mb-4">
+        <CCardBody>
+          <h4 className="card-title mb-1">{data.name}</h4>
+          <div className="small text-body-secondary tnum mb-2">
+            법인등록번호 {fmtCrno(data.crno)}{data.bzno && <> · 사업자등록번호 {fmtBzno(data.bzno)}</>}
+          </div>
+          {data.profile && <Profile p={data.profile} />}
+          <CCallout color="warning" className="mb-0">
+            금융위원회 재무정보에 이 법인의 재무제표가 없습니다 — 외부감사 대상·공시 법인 위주로 제공되는 자료입니다.
+          </CCallout>
+        </CCardBody>
+      </CCard>
+    );
   }
 
   const options = bases(data.summary);
@@ -188,7 +257,7 @@ function CompanyView({ crno }: { crno: string }) {
       <Statements data={data} basis={b} />
 
       <p className="small text-body-secondary">
-        출처: {data.source} · 수집 {new Date(data.fetched_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })} · 금액 단위 원(조·억으로 줄여 표시)
+        출처: {data.source} · 조회 {new Date(data.fetched_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })} · 금액 단위 원(조·억으로 줄여 표시)
       </p>
     </>
   );
@@ -426,6 +495,12 @@ function Statements({ data, basis }: { data: CompanyData; basis: string }) {
       {blocks.map(({ title, block }) => {
         const items = block.items.filter((i) => i.basis === basis);
         const y = Number(block.year);
+        // 요약표·차트와 같이 왼쪽이 오래된 연도. 값이 하나도 없는 연도(전전기가 비는 경우 등)는 열을 숨긴다
+        const cols = ([
+          { year: y - 2, get: (i: AccountRow) => i.before_previous },
+          { year: y - 1, get: (i: AccountRow) => i.previous },
+          { year: y, get: (i: AccountRow) => i.current },
+        ] as const).filter((c) => items.some((i) => c.get(i) !== null));
         return (
           <CCol lg={6} key={title}>
             <CCard className="h-100">
@@ -438,18 +513,14 @@ function Statements({ data, basis }: { data: CompanyData; basis: string }) {
                   <CTableHead>
                     <CTableRow>
                       <CTableHeaderCell className="bg-body-tertiary">계정</CTableHeaderCell>
-                      <CTableHeaderCell className="bg-body-tertiary text-end">{y}</CTableHeaderCell>
-                      <CTableHeaderCell className="bg-body-tertiary text-end">{y - 1}</CTableHeaderCell>
-                      <CTableHeaderCell className="bg-body-tertiary text-end">{y - 2}</CTableHeaderCell>
+                      {cols.map((c) => <CTableHeaderCell key={c.year} className="bg-body-tertiary text-end tnum">{c.year}</CTableHeaderCell>)}
                     </CTableRow>
                   </CTableHead>
                   <CTableBody>
                     {items.map((i: AccountRow, n) => (
                       <CTableRow key={`${i.account_id}-${n}`}>
                         <CTableDataCell className="text-nowrap">{i.account}</CTableDataCell>
-                        <CTableDataCell className="text-end text-nowrap tnum">{formatKrw(i.current)}</CTableDataCell>
-                        <CTableDataCell className="text-end text-nowrap tnum">{formatKrw(i.previous)}</CTableDataCell>
-                        <CTableDataCell className="text-end text-nowrap tnum">{formatKrw(i.before_previous)}</CTableDataCell>
+                        {cols.map((c) => <CTableDataCell key={c.year} className="text-end text-nowrap tnum">{formatKrw(c.get(i))}</CTableDataCell>)}
                       </CTableRow>
                     ))}
                   </CTableBody>

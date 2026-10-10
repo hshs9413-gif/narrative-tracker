@@ -28,7 +28,7 @@
 | 정량 지표 추이 (기간 필터) | market_snapshot.csv | `charts/MarketIndicatorsChart` |
 | 연준 유동성 — 총자산·지준·TGA·역레포·순유동성 (CoreUI 메인 차트 카드 + 진행바 통계) | market_snapshot.csv + fred_series.json(단위) | `liquidity/LiquidityCard` |
 | 데이터 소스 — FRED 시리즈별 수집 경로·단위·마지막 관측·FRED 갱신 시각 | fred_series.json + market_snapshot.csv | `sources/FredSourcesTable` |
-| 기업 재무 — 회사명·사업자번호·법인번호 검색, 핵심 지표, 손익·재무상태 차트, 요약재무제표, 최신 재무상태표·손익계산서 (연결/별도) | financials/index.json + financials/<법인번호>.json | `financials/CompanyFinancials` |
+| 기업 재무 — 회사명·사업자번호·법인번호 **실시간 검색**, 기업 개요, 핵심 지표, 손익·재무상태 차트, 요약재무제표, 최신 재무상태표·손익계산서 (연결/별도, 연도는 왼쪽이 과거) | app_config.json의 Apps Script 웹 앱(`scripts/fsc_proxy.gs`) → 금융위원회 API, 저장 안 함. `?crno=`로 바로 열기 | `financials/CompanyFinancials` |
 
 레짐 종합점수(`composite_score`)는 화면에서 뺐다 — 대시보드로만 쓰므로 라벨·근거 수치·기준일만 보여준다.
 `compute_regime.py`는 계속 계산해 `regime_state.json`·`regime_log.csv`(`score`·`deductions` 열)에 기록하며,

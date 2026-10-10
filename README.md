@@ -39,7 +39,7 @@
 | 수집 | 정량 지표 (VIX·달러·금·WTI·금리·신용·유동성) | Actions + FRED API(키 있을 때)/fdr/Stooq | 매일 07:30 KST |
 | 수집 | 내러티브 언급량 (기사 수) | Actions + Google News RSS | 매일 07:30 KST |
 | 갱신 | 정량 지표 다시 받기 (FRED가 밤에 올리는 전일 값 반영) | `fred_refresh.yml` | 매일 23:30 KST |
-| 수집 | 기업 재무 (요약재무제표·재무상태표·손익계산서) | Actions + 금융위원회 API | 매주 월 06:45 KST · 수동 추가 |
+| 조회 | 기업 재무 (개요·요약재무제표·재무상태표·손익계산서) | 대시보드 → Apps Script 웹 앱 → 금융위원회 API (저장 안 함) | 검색할 때마다 |
 | 판정 | 레짐(성장·물가 / 신용 / 정책) | `compute_regime.py` (규칙 기반) | 매일 07:30 KST |
 | 자동 전환 | 이벤트 상태 active ↔ dormant (명백한 경우만) | `auto_transition.py` (규칙 기반) | 매일 07:30 KST |
 | 기록 | 내러티브 이벤트 추가·수정·강도 | **사용자** — `events.json` 직접 편집 | 필요할 때 |
@@ -92,24 +92,32 @@ History → `resync_columns`**에 `vix`(또는 `all`)를 넣어 실행합니다.
 올리므로, 아침 수집(07:30 KST)에서는 하루 전 종가가 최신이고 `fred_refresh.yml`(23:30 KST)이 그날 밤 반영합니다.
 아침 뉴스의 'VIX 종가'와 하루 차이가 나는 것은 이 발표 시차 때문입니다 — 카드의 '기준' 날짜를 확인하세요.
 
-### 기업 재무 (금융위원회 API — 선택)
+### 기업 재무 — 실시간 조회 (금융위원회 API · 선택)
 
-공공데이터포털 **금융위원회_기업 재무정보**로 요약재무제표(연도별 매출·영업이익·순이익·자산·부채·자본·부채비율,
-연결/별도)와 최신 연도 재무상태표·손익계산서를 받아 대시보드 **기업 재무**에 표·차트로 보여줍니다.
+대시보드 **기업 재무**에서 회사명(일부)·사업자등록번호·법인등록번호로 검색하면, 그때마다 공공데이터포털
+**금융위원회_기업기본정보**(법인 찾기·기업 개요)와 **금융위원회_기업 재무정보**(요약재무제표·재무상태표·손익계산서)를
+불러와 표·차트로 보여줍니다. 저장소에는 아무것도 저장하지 않습니다.
 
-1. data.go.kr에서 활용신청: **금융위원회_기업 재무정보**(필수), **금융위원회_기업기본정보**(사업자등록번호로 찾을 때·회사명 표시용)
-2. 저장소 Secret `DATA_GO_KR_KEY` = 마이페이지의 일반 인증키 (Encoding·Decoding 어느 쪽이든 됨)
-3. 기업 추가: **Actions → Company Financials → Run workflow**
-   - `number`: 법인등록번호 13자리 또는 사업자등록번호 10자리 (하이픈 무관, 쉼표로 여러 개)
-   - `name`: 회사명 (선택) — 사업자등록번호로 찾을 때 함께 넣으면 확실합니다
-4. 1~2분 뒤 대시보드 기업 재무에서 회사명·사업자등록번호·법인등록번호로 검색
+GitHub Pages는 정적 사이트라 API 키를 브라우저 코드에 넣을 수 없어서(공개됨), **Google Apps Script 웹 앱**
+(`scripts/fsc_proxy.gs`)이 키를 보관하고 대신 호출합니다. 같은 요청은 Apps Script 캐시에 6시간 둡니다(호출량 절약).
 
-재무정보 API는 **법인등록번호로만** 조회됩니다. 사업자등록번호는 기업기본정보 API(`getCorpOutline_V2`)에 `bzno`
-조건으로 법인등록번호를 찾아 바꿉니다 — 공식 문서엔 없는 조건이지만 실제로 걸러지는 것을 확인했고(2026-10-10), 혹시
-안 걸리면 회사명으로 찾은 결과에서 사업자등록번호가 같은 법인을 고릅니다. 개인사업자는 법인등록번호가 없어 대상이 아닙니다.
-기업기본정보로 대표자·설립일·업종·주요사업·주소·종업원·상장·감사인 같은 **기업 개요**도 함께 받아 화면 상단에 보여줍니다.
-목록은 `config/companies.json`, 결과는 `docs/data/financials/`에 쌓입니다. 키·응답 필드 점검은 `scripts/fsc_check.py`
-(`test.yml`의 `fsc-api-check` 잡)가 실제 API로 합니다.
+1. data.go.kr 활용신청: **금융위원회_기업기본정보**, **금융위원회_기업 재무정보** (같은 일반 인증키)
+2. https://script.google.com → **새 프로젝트** → `scripts/fsc_proxy.gs` 내용을 붙여넣고 저장
+3. **프로젝트 설정 → 스크립트 속성 → 속성 추가**: `DATA_GO_KR_KEY` = 일반 인증키 (Encoding·Decoding 어느 쪽이든 됨)
+4. **배포 → 새 배포 → 유형: 웹 앱**, 다음 사용자 인증 정보로 실행: **나**, 액세스 권한: **모든 사용자** → 배포 → 권한 승인
+5. 나온 웹 앱 URL(`https://script.google.com/macros/s/…/exec`)을 `docs/data/app_config.json`의 `fsc_proxy_url`에 넣고 커밋
+   — 대시보드는 이 파일을 실행 중에 읽으므로 다시 빌드할 필요가 없습니다. `…/exec?action=ping`이 `{"ok":true,"key_configured":true}`면 정상
+6. 코드를 고친 뒤에는 **배포 → 배포 관리 → 수정(연필) → 버전: 새 버전** (URL 유지)
+
+- 재무정보 API는 **법인등록번호로만** 조회됩니다. 사업자등록번호는 기업기본정보 API(`getCorpOutline_V2`)의 `bzno` 조건으로
+  법인등록번호를 찾습니다 — 공식 문서엔 없는 조건이지만 실제로 걸러지는 것을 확인했습니다(2026-10-10).
+- 회사명 검색은 일부 일치이며, 같은 법인이 변경 이력별로 여러 행 오므로 법인 단위로 묶고 이름이 같은 법인·상장사를 위에 둡니다.
+  결과가 300행을 넘으면 앞부분만 보므로 이름을 더 구체적으로 넣으세요.
+- 개인사업자는 법인등록번호가 없어 대상이 아니고, 재무정보는 외부감사·공시 법인 위주라 작은 법인은 재무제표가 없을 수 있습니다.
+- 웹 앱 URL은 공개되므로 누구나 이 조회 기능을 쓸 수 있습니다(공공데이터라 문제는 적지만 인증키 일일 호출량을 함께 씁니다).
+  키 값 자체는 응답·오류에 나오지 않습니다.
+- 점검: `test.yml`의 `fsc-api-check` 잡이 실제 키로 API(`scripts/fsc_check.py`)와 프록시 로직(`tests/gas/`, curl로
+  UrlFetchApp 흉내)을 돌려 결과를 주석으로 남깁니다. 로컬 단위 테스트는 `node --test tests/gas/fsc_proxy.test.mjs`.
 
 ## 4. 과거 데이터 채우기 (최초 1회 권장)
 
@@ -237,7 +245,7 @@ narrative-tracker/
 │   ├── resync_fred.py               # CSV의 FRED 컬럼을 FRED 원본과 대조·재동기화
 │   ├── fsc_api.py                   # 공공데이터포털 금융위원회 API 클라이언트 (DATA_GO_KR_KEY)
 │   ├── fsc_check.py                 # 금융위원회 API 점검 (CI)
-│   ├── collect_financials.py        # 기업 재무 수집 → docs/data/financials/
+│   ├── fsc_proxy.gs                 # 기업 재무 실시간 조회 프록시 (Google Apps Script 웹 앱에 붙여넣기)
 │   ├── collect_news.py              # 일일 뉴스 언급량 수집
 │   ├── auto_transition.py           # 언급량 규칙으로 이벤트 상태 자동 전환 (명백한 경우만)
 │   ├── compute_regime.py            # 레짐 판정 → regime_state.json + regime_log.csv
@@ -247,15 +255,14 @@ narrative-tracker/
 │   ├── collect.yml                  # 매일 자동 실행 (수집 + 레짐 판정)
 │   ├── backfill.yml                 # 수동 실행 (과거 데이터 소급)
 │   ├── fred_refresh.yml             # 매일 밤 시장 지표·레짐만 다시 갱신 (FRED 전일 값 반영)
-│   ├── financials.yml               # 기업 재무 수집 (주 1회 + 수동 추가)
 │   ├── deploy_web.yml               # web/ 변경 시 자동 빌드 후 docs/에 병합
 │   └── test.yml                     # scripts/·tests/ 변경 시 파이썬 테스트 + FRED·금융위 API 점검
 ├── config/
-│   ├── regime_thresholds.json       # 레짐 판정 임계값 (locked:false 첫 초안)
-│   └── companies.json               # 기업 재무 조회 목록 (법인번호·사업자번호·회사명)
+│   └── regime_thresholds.json       # 레짐 판정 임계값 (locked:false 첫 초안)
 ├── tests/                           # python -m unittest discover -s tests
 │   ├── test_fred.py                 # FRED API 경로
-│   └── test_fsc.py                  # 금융위원회 API·기업 재무 수집·FRED 재동기화
+│   ├── test_fsc.py                  # 금융위원회 API 클라이언트·FRED 재동기화
+│   └── gas/                         # Apps Script 프록시 테스트 (node --test tests/gas/fsc_proxy.test.mjs)
 ├── web/                              # Next.js 대시보드 소스 — CoreUI 기반 (web/README.md 참고)
 └── docs/                            # GitHub Pages 배포 폴더 — web/ 빌드 결과가 여기 들어감
     ├── index.html                   # web/의 next build 결과 (deploy_web.py가 병합)
@@ -267,7 +274,7 @@ narrative-tracker/
         ├── regime_state.json        # compute_regime.py 출력 (오늘의 레짐 판정)
         ├── regime_log.csv           # 레짐 판정 이력 (데이터 기준일 한 줄씩)
         ├── fred_series.json         # FRED 시리즈별 수집 경로·메타데이터 (fred_catalog.py)
-        └── financials/              # 기업 재무 (index.json + 법인번호별 JSON)
+        └── app_config.json          # 화면 설정 — 기업 재무 조회용 Apps Script 웹 앱 URL(fsc_proxy_url)
 ```
 
 > `docs/` 안에서 `data/`만 파이썬 스크립트가 쓰는 실데이터라 절대 안 건드림.
