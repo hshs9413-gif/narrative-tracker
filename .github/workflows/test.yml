@@ -32,3 +32,21 @@ jobs:
 
       - name: Run tests
         run: python -m unittest discover -s tests -v
+
+  # 저장소 Secret FRED_API_KEY로 실제 FRED API를 한 번 호출해 본다 — 키 인식·호출·유동성 시리즈 단위 확인용.
+  # 데이터 파일은 쓰지 않는다. 같은 저장소 브랜치의 PR·main push·수동 실행에서만 Secret이 보인다(포크 PR 제외).
+  fred-api-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+
+      - name: Check FRED API with repository secret
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/fred_check.py
