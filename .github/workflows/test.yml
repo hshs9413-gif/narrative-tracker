@@ -8,6 +8,7 @@ on:
       - "tests/**"
       - "requirements.txt"
       - ".github/workflows/test.yml"
+      - "docs/data/app_config.json"
   push:
     branches: [main]
     paths:
@@ -103,3 +104,7 @@ jobs:
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY || vars.DATA_GO_KR_KEY }}
         run: node tests/gas/live_check.mjs
+
+      # 배포된 웹 앱(docs/data/app_config.json의 fsc_proxy_url) 실제 호출 — 응답·CORS 확인
+      - name: Ping deployed Apps Script proxy
+        run: node tests/gas/proxy_ping.mjs
