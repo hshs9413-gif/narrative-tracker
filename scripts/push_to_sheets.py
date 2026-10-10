@@ -104,6 +104,55 @@ def webapp_url(value):
     return value
 
 
+VERIFY_COLUMNS = {"market_snapshot": ["vix", "hy_oas", "us10y", "breakeven10y", "fedrate", "nfci"],
+                  "regime_log": ["vix", "score"]}  # 보낸 뒤 다시 읽어 칸 단위로 맞춰 보는 열 (FRED 핵심 지표·판정)
+
+
+def _num(v):
+    try:
+        return round(float(str(v).replace(",", "")), 6)
+    except ValueError:
+        return str(v).strip()
+
+
+def check_sheet(url, tables, get=None):
+    """보낸 표를 시트에서 다시 읽어 행 수·마지막 키·주요 열 값을 맞춰 본다.
+
+    반환: (요약 줄 목록, 문제 줄 목록). 시트 쪽 확인이 실패해도 전송 결과는 그대로 두고 경고만 남긴다.
+    """
+    get = get or (lambda tab: requests.get(url, params={"tab": tab}, timeout=120).json())
+    lines, problems = [], []
+    for tab, table in tables.items():
+        if tab == "events":
+            continue
+        header, rows = table[0], table[1:]
+        got = get(tab)
+        if not got.get("ok"):
+            problems.append(f"{tab}: 시트에서 읽지 못함 ({got.get('error')})")
+            continue
+        s_head, *s_rows = got["rows"]
+        k = 2 if tab in ("attention", "watchlist_attention") else 1
+        key = lambda r: "|".join(str(x) for x in r[:k])
+        sheet_by_key = {key(r): r for r in s_rows}
+        missing = [key(r) for r in rows if key(r) not in sheet_by_key]
+        diffs = []
+        for col in VERIFY_COLUMNS.get(tab, []):
+            if col not in header or col not in s_head:
+                continue
+            i, j = header.index(col), s_head.index(col)
+            for r in rows:
+                sr = sheet_by_key.get(key(r))
+                if sr is not None and _num(sr[j]) != _num(r[i]):
+                    diffs.append(f"{key(r)} {col} 시트 {sr[j] or '빈칸'}/CSV {r[i] if r[i] != '' else '빈칸'}")
+        last = s_rows[-1][0] if s_rows else "-"
+        lines.append(f"{tab} {len(s_rows)}행 (마지막 {last})" + (f" · 대조 {', '.join(VERIFY_COLUMNS[tab])} 다른 칸 {len(diffs)}" if tab in VERIFY_COLUMNS else ""))
+        if missing:
+            problems.append(f"{tab}: 보낸 {len(rows)}행 중 {len(missing)}행이 시트에 없음 (예: {', '.join(missing[:3])})")
+        if diffs:
+            problems.append(f"{tab}: 값이 다른 칸 {len(diffs)} (예: {'; '.join(diffs[:3])})")
+    return lines, problems
+
+
 def main():
     # 붙여넣을 때 딸려 온 공백·줄바꿈이 있으면 주소·토큰이 달라진다
     url = webapp_url(os.environ.get("SHEETS_WEBAPP_URL", ""))
@@ -135,6 +184,17 @@ def main():
     if not result.get("ok"):
         fail(f"[ERROR] 시트 전송 실패: {result.get('error')} (unauthorized면 SHEETS_TOKEN과 스크립트 속성 TOKEN 불일치)")
     print(f"[INFO] 시트에 새로 추가된 행: {result.get('appended')}")
+
+    # 보낸 뒤 시트를 다시 읽어 맞는지 확인 — 결과는 Actions 실행 요약에 남는다
+    try:
+        lines, problems = check_sheet(url, tables)
+    except Exception as e:  # 확인 실패는 전송 실패가 아님
+        print(f"::warning title=Google Sheets 확인 못 함::{type(e).__name__}: {str(e)[:200]}")
+        return
+    added = ", ".join(f"{k} +{v}" for k, v in (result.get("appended") or {}).items() if v) or "새 행 없음"
+    print(f"::notice title=Google Sheets 확인::{added}%0A" + "%0A".join(lines))
+    if problems:
+        print("::warning title=Google Sheets 불일치::" + "%0A".join(problems))
 
 
 if __name__ == "__main__":

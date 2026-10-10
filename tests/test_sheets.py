@@ -42,5 +42,37 @@ class TokenCheckTest(unittest.TestCase):
         self.assertIn("웹 앱 주소가 아님", self.run_main("script.google.com/macros", "tok"))
 
 
+
+class CheckSheetTest(unittest.TestCase):
+    TABLES = {
+        "market_snapshot": [["date", "vix", "gold"], ["2026-10-01", 16.39, 1.0], ["2026-10-02", 15.31, 2.0]],
+        "attention": [["date", "event_id", "count"], ["2026-10-02", "a", 3.0]],
+        "events": [["id"], ["a"]],
+    }
+
+    def sheet(self, snapshot_rows, attention_rows):
+        tabs = {"market_snapshot": [["date", "vix", "gold"]] + snapshot_rows,
+                "attention": [["date", "event_id", "count"]] + attention_rows}
+        return lambda tab: {"ok": True, "rows": tabs[tab]}
+
+    def test_all_match(self):
+        get = self.sheet([["2026-10-01", "16.39", "1"], ["2026-10-02", "15.31", "2"]], [["2026-10-02", "a", "3"]])
+        lines, problems = push_to_sheets.check_sheet("u", self.TABLES, get=get)
+        self.assertEqual(problems, [])
+        self.assertIn("market_snapshot 2행 (마지막 2026-10-02)", lines[0])
+        self.assertIn("다른 칸 0", lines[0])
+
+    def test_missing_row_and_different_vix(self):
+        get = self.sheet([["2026-10-01", "14.21", "1"]], [["2026-10-02", "a", "3"]])
+        _, problems = push_to_sheets.check_sheet("u", self.TABLES, get=get)
+        self.assertTrue(any("1행이 시트에 없음" in p for p in problems))
+        self.assertTrue(any("2026-10-01 vix 시트 14.21/CSV 16.39" in p for p in problems))
+
+    def test_unreadable_tab(self):
+        get = lambda tab: {"ok": False, "error": "no such tab"}
+        _, problems = push_to_sheets.check_sheet("u", self.TABLES, get=get)
+        self.assertIn("market_snapshot: 시트에서 읽지 못함 (no such tab)", problems)
+
+
 if __name__ == "__main__":
     unittest.main()
