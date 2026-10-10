@@ -18,7 +18,7 @@ export interface RegimeState {
   credit_stress: CreditStress;
   policy_stance: PolicyStance;
   cross_check: CrossCheck;
-  composite_score: CompositeScore;
+  composite_score?: CompositeScore; // 화면에서는 쓰지 않는다 (compute_regime.py는 계속 기록)
   report_crosscheck?: ReportCrossCheck; // 외부 리포트 물가축과 맞춰 볼 입력값 — 판정에는 안 쓰는 출력 전용
 }
 
