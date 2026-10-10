@@ -68,6 +68,17 @@ class CheckSheetTest(unittest.TestCase):
         self.assertTrue(any("1행이 시트에 없음" in p for p in problems))
         self.assertTrue(any("2026-10-01 vix 시트 14.21/CSV 16.39" in p for p in problems))
 
+    def test_dates_shown_by_sheet_locale_compare_equal(self):
+        self.assertEqual(push_to_sheets._num("2026. 9. 28"), "2026-09-28")
+        self.assertEqual(push_to_sheets._num("2026-09-28"), "2026-09-28")
+        self.assertEqual(push_to_sheets._num("15.310"), 15.31)
+
+    def test_missing_column_reported(self):
+        tables = {"regime_log": [["date", "vix", "vix_asof"], ["2026-10-02", 16.39, "2026-10-01"]]}
+        get = lambda tab: {"ok": True, "rows": [["date", "vix"], ["2026-10-02", "16.39"]]}
+        _, problems = push_to_sheets.check_sheet("u", tables, get=get)
+        self.assertTrue(any("시트에 없는 열 vix_asof" in p for p in problems))
+
     def test_unreadable_tab(self):
         get = lambda tab: {"ok": False, "error": "no such tab"}
         _, problems = push_to_sheets.check_sheet("u", self.TABLES, get=get)
