@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-10-09T02:25:38.748333+00:00",
+  "generated_at": "2026-10-10T01:51:59.053231+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
     "pmi": 54.6,
     "pmi_as_of": "2026-08-01",
-    "breakeven": 2.35,
-    "breakeven_date": "2026-10-08",
-    "breakeven_change": 0.108,
+    "breakeven": 2.33,
+    "breakeven_date": "2026-10-09",
+    "breakeven_change": 0.11,
     "breakeven_lookback_days": 91
   },
   "credit_stress": {
@@ -15,17 +15,17 @@
     "level_index": 0,
     "detail": {
       "hy_oas_pct": {
-        "value": 3.09,
-        "as_of": "2026-10-07",
+        "value": 3.15,
+        "as_of": "2026-10-08",
         "band": "평상"
       },
       "vix_level": {
-        "value": 15.08,
-        "as_of": "2026-10-07",
+        "value": 15.41,
+        "as_of": "2026-10-08",
         "band": "평상"
       },
       "curve_2s10y": {
-        "value": 0.51,
+        "value": 0.47,
         "inverted": false
       }
     }
