@@ -3,6 +3,8 @@ import { MarketWidgets } from "@/components/dashboard/kpi/MarketWidgets";
 import { DataStatus } from "@/components/dashboard/kpi/DataStatus";
 import { NarrativeSections } from "@/components/dashboard/narrative/NarrativeSections";
 import { MarketIndicatorsChart } from "@/components/dashboard/charts/MarketIndicatorsChart";
+import { LiquidityCard } from "@/components/dashboard/liquidity/LiquidityCard";
+import { FredSourcesTable } from "@/components/dashboard/sources/FredSourcesTable";
 import { Section } from "@/components/dashboard/Section";
 
 // 섹션 구성·순서는 기존 docs/index.html을 따르고, 레짐 카드·데이터 상태 안내가 더해졌다.
@@ -29,6 +31,18 @@ export default function Home() {
 
       <Section id="indicators" title="정량 지표 추이">
         <MarketIndicatorsChart />
+      </Section>
+
+      <Section id="liquidity" title="연준 유동성 (H.4.1 · 역레포)">
+        <LiquidityCard />
+      </Section>
+
+      <Section
+        id="sources"
+        title="데이터 소스 — FRED"
+        note="FRED 시리즈는 FRED_API_KEY가 있으면 공식 API로, 없거나 실패하면 FinanceDataReader(fredgraph.csv)로 받습니다. 어느 경로든 값은 같은 FRED 원본입니다. 금(GC=F)·DXY(ICE)·원유 선물·원/달러·KOSPI는 FRED가 아닌 시장 데이터라 이 표에 없습니다."
+      >
+        <FredSourcesTable />
       </Section>
     </>
   );

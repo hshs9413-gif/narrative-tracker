@@ -181,3 +181,37 @@ export interface ManualInputs {
     note: string;
   };
 }
+
+// ────────────────────── fred_series.json ──────────────────────
+// scripts/fred_catalog.py가 매일 수집 끝에 쓴다. meta는 FRED API(fred/series) 응답에서 고른 필드 —
+// FRED_API_KEY가 한 번도 없었으면 null이다.
+
+export type FredVia = "fred_api" | "fdr" | "failed";
+
+export interface FredSeriesMeta {
+  id: string;
+  title: string;
+  units: string;
+  units_short: string;
+  frequency: string;
+  frequency_short: string;
+  seasonal_adjustment_short: string;
+  observation_start: string;
+  observation_end: string;
+  /** FRED 형식 "2026-10-08 15:31:02-05" (미 중부시간 오프셋) */
+  last_updated: string;
+}
+
+export interface FredCatalogEntry {
+  column: string;
+  id: string;
+  via: FredVia | null;
+  meta: FredSeriesMeta | null;
+  meta_fetched_at: string | null;
+}
+
+export interface FredCatalog {
+  generated_at: string;
+  api_key_configured: boolean;
+  series: FredCatalogEntry[];
+}

@@ -26,6 +26,8 @@
 | 활성 · 휴면 이벤트 | 위와 동일 | `narrative/NarrativeEventCard` |
 | 내러티브 언급량 | attention.csv | `narrative/AttentionCharts` |
 | 정량 지표 추이 (기간 필터) | market_snapshot.csv | `charts/MarketIndicatorsChart` |
+| 연준 유동성 — 총자산·지준·TGA·역레포·순유동성 (CoreUI 메인 차트 카드 + 진행바 통계) | market_snapshot.csv + fred_series.json(단위) | `liquidity/LiquidityCard` |
+| 데이터 소스 — FRED 시리즈별 수집 경로·단위·마지막 관측·FRED 갱신 시각 | fred_series.json + market_snapshot.csv | `sources/FredSourcesTable` |
 
 레짐 종합점수(`composite_score`)는 화면에서 뺐다 — 대시보드로만 쓰므로 라벨·근거 수치·기준일만 보여준다.
 `compute_regime.py`는 계속 계산해 `regime_state.json`·`regime_log.csv`(`score`·`deductions` 열)에 기록하며,
@@ -91,6 +93,17 @@ npm run build   # web/out/ 생성 확인, TypeScript·정적 생성 에러 0건
 `fetch("data/xxx")`(상대경로, 앞 슬래시 없음)로 직접 읽는다 — 매일 커밋되는
 `docs/data/*`를 앱 재배포 없이 그대로 반영하기 위해서다. 여러 섹션이 같은 파일을
 쓰므로 `lib/hooks/use-static-data.ts`가 경로별로 한 번만 받아 공유한다.
+
+### FRED API 연동 화면
+
+- `fred_series.json`은 `scripts/fred_catalog.py`가 매일 수집 끝에 쓴다. `via`(이번 수집이 FRED API / fdr 중 어느 경로였는지)와
+  `meta`(FRED API `fred/series` 응답: 제목·단위·주기·마지막 관측일·`last_updated`)가 들어 있다. `FRED_API_KEY`가 한 번도
+  없었으면 `meta`는 null이고, 표는 키 등록 안내를 띄운다. 파일이 아예 없으면(첫 수집 전) 같은 안내만 보인다.
+- 'FRED 갱신 (KST)'는 FRED가 그 시리즈를 마지막으로 고친 시각(`last_updated`, 미 중부시간 오프셋)을 한국시간으로 바꾼 것.
+  '마지막 관측'이 CSV보다 앞서 있으면(FRED에는 나왔는데 아직 수집 전) 노란 'CSV 날짜' 배지가 붙는다.
+- 연준 유동성 카드는 CSV의 FRED 원본 단위를 십억 달러로 환산한다 (`lib/liquidity.ts`). 메타데이터 단위가 있으면 그걸,
+  없으면 `FALLBACK_UNITS`(= `scripts/fred_catalog.py`의 `EXPECTED_UNITS`)를 쓰고 '단위 가정' 배지를 붙인다.
+  순유동성 = 총자산 − TGA − 역레포, 세 값이 모두 있는 날만 계산. 판정에는 쓰지 않는 화면 전용 값.
 
 ## 레짐 백엔드 (`scripts/compute_regime.py`, `config/regime_thresholds.json`)
 
