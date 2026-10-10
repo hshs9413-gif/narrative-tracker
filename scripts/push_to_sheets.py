@@ -90,6 +90,12 @@ def page_text(html):
     return " ".join(unescape(re.sub(r"<[^>]+>", " ", html)).split())[:200]
 
 
+def fail(msg):
+    """Actions 실행 요약에도 보이도록 오류 주석(::error)을 함께 남기고 끝낸다 — 이 단계는 실패해도 수집을 막지 않아 로그를 열기 전엔 눈에 띄지 않는다."""
+    print(f"::error title=Google Sheets 전송 실패::{msg}", flush=True)
+    sys.exit(msg)
+
+
 def main():
     # 붙여넣을 때 딸려 온 공백·줄바꿈이 있으면 주소·토큰이 달라진다
     url = os.environ.get("SHEETS_WEBAPP_URL", "").strip()
@@ -97,9 +103,9 @@ def main():
     if not url or not token:
         print("[INFO] SHEETS_WEBAPP_URL / SHEETS_TOKEN 미설정 — 시트 전송 건너뜀")
         return
-    if token in url:
-        sys.exit("[ERROR] SHEETS_TOKEN에 웹 앱 배포 ID(주소 속 AKfycb… 값)가 들어 있음 — "
-                 "Apps Script 프로젝트 설정 → 스크립트 속성의 TOKEN 값을 넣어야 함")
+    if token in url or token.startswith("AKfycb"):
+        fail("[ERROR] SHEETS_TOKEN에 웹 앱 배포 ID(주소 속 AKfycb… 값)가 들어 있음 — "
+             "Apps Script 프로젝트 설정 → 스크립트 속성의 TOKEN 값을 넣어야 함")
 
     cutoff = (datetime.date.today() - datetime.timedelta(days=SETTLE_DAYS)).isoformat()
     tables = {tab: t for tab, name in TABLES.items() if (t := load_table(name, cutoff))}
@@ -114,10 +120,10 @@ def main():
         result = resp.json()
     except ValueError:
         hint = NOT_JSON_HINTS.get(resp.status_code, "웹 앱 배포·코드 확인")
-        sys.exit(f"[ERROR] 시트 응답이 JSON이 아님 (HTTP {resp.status_code}) — {hint}: {page_text(resp.text)!r}")
+        fail(f"[ERROR] 시트 응답이 JSON이 아님 (HTTP {resp.status_code}) — {hint}: {page_text(resp.text)!r}")
 
     if not result.get("ok"):
-        sys.exit(f"[ERROR] 시트 전송 실패: {result.get('error')} (unauthorized면 SHEETS_TOKEN과 스크립트 속성 TOKEN 불일치)")
+        fail(f"[ERROR] 시트 전송 실패: {result.get('error')} (unauthorized면 SHEETS_TOKEN과 스크립트 속성 TOKEN 불일치)")
     print(f"[INFO] 시트에 새로 추가된 행: {result.get('appended')}")
 
 
