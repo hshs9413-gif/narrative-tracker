@@ -8,6 +8,7 @@ on:
       - "tests/**"
       - "requirements.txt"
       - ".github/workflows/test.yml"
+      - "docs/data/app_config.json"
   push:
     branches: [main]
     paths:
@@ -97,9 +98,16 @@ jobs:
 
       # Apps Script 프록시(scripts/fsc_proxy.gs) 로직: 단위 테스트 + 실제 API로 한 번 돌려 보기
       - name: Test Apps Script proxy
+        if: ${{ !cancelled() }}  # 앞 단계(공공데이터포털 접속 지연 등)가 실패해도 따로 확인
         run: node --test tests/gas/fsc_proxy.test.mjs
 
       - name: Live-check Apps Script proxy logic
+        if: ${{ !cancelled() }}  # 앞 단계(공공데이터포털 접속 지연 등)가 실패해도 따로 확인
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY || vars.DATA_GO_KR_KEY }}
         run: node tests/gas/live_check.mjs
+
+      # 배포된 웹 앱(docs/data/app_config.json의 fsc_proxy_url) 실제 호출 — 응답·CORS 확인
+      - name: Ping deployed Apps Script proxy
+        if: ${{ !cancelled() }}  # 앞 단계(공공데이터포털 접속 지연 등)가 실패해도 따로 확인
+        run: node tests/gas/proxy_ping.mjs
