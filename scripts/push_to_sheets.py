@@ -120,7 +120,14 @@ def check_sheet(url, tables, get=None):
 
     반환: (요약 줄 목록, 문제 줄 목록). 시트 쪽 확인이 실패해도 전송 결과는 그대로 두고 경고만 남긴다.
     """
-    get = get or (lambda tab: requests.get(url, params={"tab": tab}, timeout=120).json())
+    def http_get(tab):
+        resp = requests.get(url, params={"tab": tab}, timeout=120)
+        try:
+            return resp.json()
+        except ValueError:  # 구글 오류·안내 페이지(HTML)
+            return {"ok": False, "error": f"JSON이 아닌 응답 HTTP {resp.status_code}: {page_text(resp.text)}"}
+
+    get = get or http_get
     lines, problems = [], []
     for tab, table in tables.items():
         if tab == "events":
