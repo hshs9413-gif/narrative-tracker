@@ -57,6 +57,27 @@ jobs:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY || vars.FRED_API_KEY }}
         run: python scripts/resync_fred.py --all-fred --dry-run
 
+      - name: Check alternate market data sources (KOSPI·원달러)
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        run: python scripts/source_check.py
+
+  # 저장소 Secret GEMINI_API_KEY로 모델 목록·검색 그라운딩 한 번 확인 — 무료 등급 쿼터를 아끼려고 호출 2번만 한다
+  gemini-check:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Check Gemini API with repository secret
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: python scripts/gemini_check.py
+
   # 공공데이터포털 금융위원회 API(기업기본정보·기업 재무정보) 점검 — 키 인식, 응답 필드, 사업자등록번호 검색 가능 여부.
   fsc-api-check:
     runs-on: ubuntu-latest
