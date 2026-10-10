@@ -1,8 +1,30 @@
 {
   "crno": "1301110006246",
   "bzno": "1248100998",
-  "name": "삼성전자",
-  "fetched_at": "2026-10-10T11:44:39+00:00",
+  "name": "삼성전자(주)",
+  "profile": {
+    "name": "삼성전자(주)",
+    "ceo": "전영현, 노태문",
+    "established": "19690113",
+    "corp_type": null,
+    "industry": null,
+    "main_business": null,
+    "address": "경기도 수원시 영통구  삼성로 129 (매탄동)",
+    "address_detail": null,
+    "homepage": "www.samsung.com/sec",
+    "phone": "02-2255-0114",
+    "employees": 128881,
+    "market": "유가",
+    "krx_listed": null,
+    "kosdaq_listed": null,
+    "sme": null,
+    "fiscal_month": "12",
+    "auditor": "삼정회계법인",
+    "audit_opinion": "적정의견",
+    "changed_at": "2025/12/01",
+    "bzno": "1248100998"
+  },
+  "fetched_at": "2026-10-10T11:56:37+00:00",
   "source": "금융위원회_기업 재무정보 (공공데이터포털 GetFinaStatInfoService_V2)",
   "summary": [
     {
