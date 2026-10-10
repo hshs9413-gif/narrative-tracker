@@ -1,4 +1,4 @@
-"""금융위원회 API 클라이언트·기업 재무 수집·FRED 재동기화 테스트 — 네트워크 없이 응답을 흉내 낸다.
+"""금융위원회 API 클라이언트(fsc_check용)·FRED 재동기화 테스트 — 네트워크 없이 응답을 흉내 낸다.
 
 실행: python -m unittest discover -s tests -v
 """
@@ -16,7 +16,6 @@ from unittest import mock
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
 import fsc_api  # noqa: E402
-import collect_financials as cf  # noqa: E402
 import resync_fred  # noqa: E402
 
 KEY = "abcDEF123+/xyz=="  # 형식만 흉내 낸 가짜 키 (Decoding 형태)
@@ -121,130 +120,6 @@ class CallTest(Quiet):
     def test_call_all_pages(self):
         s = FakeSession(ok([{"a": 1}] * 2, total=3), ok([{"a": 2}], total=3))
         self.assertEqual(len(fsc_api.call_all("S", "op", {}, num_rows=2, key=KEY, session=s)), 3)
-
-
-class ResolveTest(Quiet):
-    def test_crno_without_outline_access(self):
-        with mock.patch.object(fsc_api, "call", side_effect=fsc_api.FscError("SERVICE_KEY_IS_NOT_REGISTERED_ERROR")):
-            info = cf.resolve("130111-0006246", None)
-        self.assertEqual(info, {"crno": "1301110006246", "bzno": None, "name": None})
-
-    def test_crno_with_outline(self):
-        item = {"crno": "1301110006246", "bzno": "1248100998", "corpNm": "삼성전자(주)"}
-        with mock.patch.object(fsc_api, "call", return_value=([item], 1)):
-            info = cf.resolve("1301110006246")
-        self.assertEqual(info, {"crno": "1301110006246", "bzno": "1248100998", "name": "삼성전자(주)"})
-
-    def test_bzno_direct_filter(self):
-        item = {"crno": "1301110006246", "bzno": "124-81-00998", "corpNm": "삼성전자(주)"}
-        with mock.patch.object(fsc_api, "call", return_value=([item], 1)):
-            info = cf.resolve("1248100998")
-        self.assertEqual(info["crno"], "1301110006246")
-        self.assertEqual(info["name"], "삼성전자(주)")
-
-    def test_bzno_filter_ignored_falls_back_to_name(self):
-        unrelated = [{"crno": "1", "bzno": "9999999999", "corpNm": "다른회사"}]
-        hit = {"crno": "1301110006246", "bzno": "1248100998", "corpNm": "삼성전자(주)"}
-
-        def fake(service, op, params, **kw):
-            if "bzno" in params:
-                return unrelated, 1_200_000  # 조건 무시 → 전체 목록
-            return [{"crno": "2", "bzno": "1111111111", "corpNm": "삼성전자서비스"}, hit], 2
-
-        with mock.patch.object(fsc_api, "call", side_effect=fake):
-            info = cf.resolve("124-81-00998", "삼성전자")
-        self.assertEqual(info["crno"], "1301110006246")
-
-    def test_bzno_without_name_explains(self):
-        with mock.patch.object(fsc_api, "call", return_value=([], 1_200_000)):
-            with self.assertRaises(fsc_api.FscError) as ctx:
-                cf.resolve("1248100998")
-        self.assertIn("회사명", str(ctx.exception))
-
-    def test_bzno_without_outline_access_explains(self):
-        with mock.patch.object(fsc_api, "call", side_effect=fsc_api.FscError("SERVICE_KEY_IS_NOT_REGISTERED_ERROR")):
-            with self.assertRaises(fsc_api.FscError) as ctx:
-                cf.resolve("1248100998", "삼성전자")
-        self.assertIn("기업기본정보", str(ctx.exception))
-
-    def test_bad_number(self):
-        with self.assertRaises(fsc_api.FscError):
-            cf.resolve("12-34")
-
-
-class CollectTest(Quiet):
-    def test_summary_normalization(self):
-        with mock.patch.object(fsc_api, "call_all", return_value=[SUMM_ROW, {**SUMM_ROW, "fnclDcd": "110", "fnclDcdNm": "연결요약재무제표"}]):
-            rows = cf.fetch_summary("1301110006246")
-        self.assertEqual([r["basis"] for r in rows], ["별도", "연결"])
-        r = rows[0]
-        self.assertEqual(r["revenue"], 238043009000000)
-        self.assertEqual(r["net_income"], 33686601000000)
-        self.assertEqual(r["debt_ratio"], 41.1166)
-        self.assertEqual(r["year"], "2025")
-
-    def test_accounts_basis(self):
-        item = {"fnclDcd": "FS_ifrs-full_ConsolidatedMember", "acitId": "ifrs-full_Assets", "acitNm": "자산총계",
-                "crtmAcitAmt": "514531948000000", "pvtrAcitAmt": "455905980000000", "bpvtrAcitAmt": ""}
-        with mock.patch.object(fsc_api, "call_all", return_value=[item]):
-            rows = cf.fetch_accounts("getBs_V2", "1", "2024")
-        self.assertEqual(rows[0]["basis"], "연결")
-        self.assertIsNone(rows[0]["before_previous"])
-
-    def test_main_writes_files_and_keeps_previous_on_failure(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            cfg = os.path.join(tmp, "companies.json")
-            out = os.path.join(tmp, "financials")
-            os.makedirs(out)
-            with open(cfg, "w", encoding="utf-8") as f:
-                json.dump([{"crno": "1301110006246", "bzno": "1248100998", "name": "삼성전자"},
-                           {"crno": "1111111111111", "bzno": None, "name": "옛회사"}], f)
-            with open(os.path.join(out, "index.json"), "w", encoding="utf-8") as f:
-                json.dump({"companies": [{"crno": "1111111111111", "name": "옛회사", "years": ["2020", "2022"]}]}, f)
-
-            def fake_call_all(service, op, params, **kw):
-                if params.get("crno") == "1111111111111":
-                    raise fsc_api.FscError("HTTP 500")
-                if op == "getSummFinaStat_V2":
-                    return [SUMM_ROW, {**SUMM_ROW, "bizYear": "2024"}]
-                return [{"fnclDcd": "PL_ifrs-full_SeparateMember", "acitNm": "매출액", "crtmAcitAmt": "1"}]
-
-            outline = {"crno": "1301110006246", "bzno": "1248100998", "corpNm": "삼성전자(주)", "enpRprFnm": "대표",
-                       "enpEmpeCnt": "125000", "fssCorpChgDtm": "20260901"}
-            with mock.patch.object(cf, "CONFIG_PATH", cfg), mock.patch.object(cf, "OUT_DIR", out), \
-                    mock.patch.object(fsc_api, "call_all", side_effect=fake_call_all), \
-                    mock.patch.object(fsc_api, "call", return_value=([outline], 1)), \
-                    mock.patch.dict(os.environ, {"DATA_GO_KR_KEY": KEY}), \
-                    mock.patch.object(sys, "argv", ["collect_financials.py"]):
-                code = cf.main()
-            with open(os.path.join(out, "index.json"), encoding="utf-8") as f:
-                index = json.load(f)
-            with open(os.path.join(out, "1301110006246.json"), encoding="utf-8") as f:
-                data = json.load(f)
-        self.assertEqual(code, 1)  # 한 곳 실패
-        self.assertEqual({c["crno"] for c in index["companies"]}, {"1301110006246", "1111111111111"})
-        self.assertEqual(data["balance_sheet"]["year"], "2025")
-        self.assertEqual(data["profile"]["ceo"], "대표")
-        self.assertEqual(data["profile"]["employees"], 125000)
-        self.assertEqual(len(data["summary"]), 2)
-        self.assertIn("::warning", self.out.getvalue())
-
-
-class ProfileTest(Quiet):
-    def test_latest_row_and_fields(self):
-        old = {"crno": "1301110006246", "bzno": "1248100998", "corpNm": "삼성전자(주)", "enpRprFnm": "옛대표",
-               "fssCorpChgDtm": "20240101"}
-        new = {**old, "enpRprFnm": "새대표", "fssCorpChgDtm": "20260901", "enpEmpeCnt": "0", "enpHmpgUrl": ""}
-        other = {**new, "crno": "9999999999999", "enpRprFnm": "남"}
-        with mock.patch.object(fsc_api, "call", return_value=([old, new, other], 3)):
-            p = cf.fetch_profile("1301110006246")
-        self.assertEqual(p["ceo"], "새대표")
-        self.assertEqual(p["bzno"], "1248100998")
-        self.assertIsNone(p["homepage"])  # 빈 문자열은 None
-
-    def test_profile_failure_is_soft(self):
-        with mock.patch.object(fsc_api, "call", side_effect=fsc_api.FscError("HTTP 500")):
-            self.assertIsNone(cf.fetch_profile("1301110006246"))
 
 
 class ResyncTest(unittest.TestCase):
