@@ -84,6 +84,21 @@ class ApiKeyTest(QuietTestCase):
         with mock.patch.dict(os.environ, {"FRED_API_KEY": f" {KEY}\n"}):
             self.assertEqual(fred_api.api_key(), KEY)
 
+    def test_quotes_around_key_are_stripped(self):
+        with mock.patch.dict(os.environ, {"FRED_API_KEY": f'"{KEY}"'}):
+            self.assertEqual(fred_api.key_status(), "ok")
+            self.assertEqual(fred_api.api_key(), KEY)
+
+    def test_key_status(self):
+        with mock.patch.dict(os.environ, {}, clear=True):
+            self.assertEqual(fred_api.key_status(), "missing")
+        with mock.patch.dict(os.environ, {"FRED_API_KEY": ""}):
+            self.assertEqual(fred_api.key_status(), "missing")
+        with mock.patch.dict(os.environ, {"FRED_API_KEY": KEY.upper()}):
+            self.assertEqual(fred_api.key_status(), "malformed")
+        with mock.patch.dict(os.environ, {"FRED_API_KEY": KEY[:-1]}):
+            self.assertEqual(fred_api.key_status(), "malformed")
+
 
 class ObservationsTest(QuietTestCase):
     def test_parses_values_and_drops_missing(self):
@@ -250,6 +265,11 @@ class CatalogTest(QuietTestCase):
         catalog, _, _ = fred_catalog.build_catalog({"vix": "FRED:VIXCLS"}, {}, previous, None, self.NOW)
         self.assertIsNone(catalog["series"][0]["meta"])
 
+    def test_unit_spelling_variants_are_not_mismatches(self):
+        fetch = lambda sid: {"id": sid, "units": "Billions of U.S. Dollars"}  # noqa: E731
+        fred_catalog.build_catalog({"rrp": "FRED:RRPONTSYD"}, {}, {}, fetch, self.NOW)
+        self.assertNotIn("단위", self.err.getvalue())
+
     def test_warns_on_unit_mismatch(self):
         fetch = lambda sid: {"id": sid, "units": "Billions of U.S. Dollars"}  # noqa: E731
         fred_catalog.build_catalog({"fed_assets": "FRED:WALCL"}, {}, {}, fetch, self.NOW)
@@ -262,6 +282,19 @@ class CatalogTest(QuietTestCase):
             with open(path, encoding="utf-8") as f:
                 saved = json.load(f)
         self.assertEqual([s["column"] for s in saved["series"]], ["vix", "fed_assets"])
+        self.assertEqual(saved["api_key_status"], "missing")
+
+    def test_update_catalog_records_malformed_key_without_value(self):
+        bad = "Not-A-Real-Key-12345"
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {"FRED_API_KEY": bad}):
+            path = os.path.join(tmp, "fred_series.json")
+            fred_catalog.update_catalog(self.SYMBOLS, {}, path=path)
+            with open(path, encoding="utf-8") as f:
+                text = f.read()
+        saved = json.loads(text)
+        self.assertEqual(saved["api_key_status"], "malformed")
+        self.assertFalse(saved["api_key_configured"])
+        self.assertNotIn(bad, text)
 
 
 class CollectorSmokeTest(QuietTestCase):

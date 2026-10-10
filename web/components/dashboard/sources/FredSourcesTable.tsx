@@ -111,16 +111,33 @@ export function FredSourcesTable() {
     );
   }
 
-  const { series, api_key_configured: keyOn, generated_at: generatedAt } = catalog.data;
+  const { series, api_key_configured: keyOn, api_key_status: keyStatus, generated_at: generatedAt } = catalog.data;
   const counts = series.reduce<Record<string, number>>((acc, s) => ({ ...acc, [s.via ?? "none"]: (acc[s.via ?? "none"] ?? 0) + 1 }), {});
   const withMeta = series.filter((s) => s.meta).length;
 
   return (
     <>
-      {!keyOn && (
+      {!keyOn && keyStatus === "malformed" && (
+        <CCallout color="danger" className="mt-0 mb-3">
+          <strong>FRED_API_KEY는 워크플로우에 전달됐지만 값 형식이 맞지 않아 fdr 경로로 받고 있습니다.</strong>{" "}
+          <span className="text-body-secondary">
+            FRED 키는 32자리 영문 소문자+숫자입니다. Secret 값을 따옴표·공백·줄바꿈 없이 키만 다시 넣어 주세요
+            (수집 로그의 <code>[WARN] FRED_API_KEY 형식</code> 줄에 받은 길이가 찍힙니다).
+          </span>
+        </CCallout>
+      )}
+      {!keyOn && keyStatus !== "malformed" && (
         <CCallout color="warning" className="mt-0 mb-3">
-          <strong>FRED_API_KEY가 설정되지 않아 FRED 시리즈를 fdr(fredgraph.csv) 경로로 받고 있습니다.</strong>{" "}
-          <span className="text-body-secondary">값은 같은 FRED 원본이지만, 키를 넣으면 공식 API로 받고 시리즈 메타데이터(단위·갱신 시각)도 함께 기록합니다.</span>
+          <strong>
+            {keyStatus === "missing"
+              ? "FRED_API_KEY가 수집 워크플로우에 전달되지 않아 FRED 시리즈를 fdr(fredgraph.csv) 경로로 받고 있습니다."
+              : "FRED_API_KEY가 설정되지 않아 FRED 시리즈를 fdr(fredgraph.csv) 경로로 받고 있습니다."}
+          </strong>{" "}
+          <span className="text-body-secondary">
+            이미 넣었다면 위치·이름을 확인하세요 — <strong>Settings → Secrets and variables → Actions</strong>의{" "}
+            <strong>Repository secrets</strong>(또는 Variables)에 이름이 정확히 <code>FRED_API_KEY</code>여야 합니다.
+            Environment secrets·Codespaces·Dependabot 쪽에 넣으면 수집 워크플로우가 읽지 못합니다.
+          </span>
           <div className="mt-2"><KeySetup /></div>
         </CCallout>
       )}

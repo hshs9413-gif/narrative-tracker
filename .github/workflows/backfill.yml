@@ -42,7 +42,7 @@ jobs:
       - name: Run backfill
         env:
           # 있으면 FRED 시리즈를 공식 API로 받는다 (없으면 fdr 경로 — README 'FRED API 키' 참고)
-          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY || vars.FRED_API_KEY }}
           INPUT_MERGE: ${{ github.event.inputs.merge }}
           INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |

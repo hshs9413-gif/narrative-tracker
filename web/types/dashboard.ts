@@ -213,5 +213,7 @@ export interface FredCatalogEntry {
 export interface FredCatalog {
   generated_at: string;
   api_key_configured: boolean;
+  /** missing = 워크플로우에 Secret이 전달 안 됨, malformed = 값 형식 오류. 예전 파일엔 없음 */
+  api_key_status?: "ok" | "missing" | "malformed";
   series: FredCatalogEntry[];
 }

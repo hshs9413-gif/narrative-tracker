@@ -45,19 +45,35 @@ class FredError(Exception):
     """FRED API 호출 실패 — 메시지에 API 키가 절대 들어가지 않게 만든다."""
 
 
+def _raw_key():
+    # Secret에 붙여 넣을 때 섞이기 쉬운 앞뒤 공백·따옴표는 걷어낸다
+    return (os.environ.get("FRED_API_KEY") or "").strip().strip("'\"").strip()
+
+
+def key_status():
+    """'ok' | 'missing'(환경변수 없음 = 워크플로우에 Secret이 안 넘어옴) | 'malformed'(값 형식이 틀림).
+
+    키 값 자체는 어디에도 남기지 않고, 진단용으로 상태만 돌려준다 (fred_series.json에 기록됨).
+    """
+    key = _raw_key()
+    if not key:
+        return "missing"
+    return "ok" if KEY_PATTERN.match(key) else "malformed"
+
+
 def api_key():
     """환경변수의 키. 없거나 형식이 틀리면 None (형식 오류는 한 번만 경고)."""
     global _warned_bad_key
-    key = (os.environ.get("FRED_API_KEY") or "").strip()
-    if not key:
+    status = key_status()
+    if status == "missing":
         return None
-    if not KEY_PATTERN.match(key):
+    if status == "malformed":
         if not _warned_bad_key:
-            print("[WARN] FRED_API_KEY 형식이 올바르지 않습니다 (32자리 영문 소문자+숫자) — fdr 경로로 수집합니다.",
-                  file=sys.stderr)
+            print(f"[WARN] FRED_API_KEY 형식이 올바르지 않습니다 (길이 {len(_raw_key())}, 기대: 32자리 영문 소문자+숫자) "
+                  "— fdr 경로로 수집합니다.", file=sys.stderr)
             _warned_bad_key = True
         return None
-    return key
+    return _raw_key()
 
 
 def _scrub(text, key):

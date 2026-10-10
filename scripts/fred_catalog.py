@@ -15,6 +15,7 @@ market_snapshot.csv의 FRED 컬럼마다 ① 이번 수집이 실제로 어느 �
 import datetime
 import json
 import os
+import re
 import sys
 
 import fred_api
@@ -24,12 +25,19 @@ CATALOG_PATH = os.path.join(BASE, "..", "docs", "data", "fred_series.json")
 
 # 화면에서 단위를 환산하는 유동성 시리즈의 기본 단위 (web/lib/liquidity.ts의 FALLBACK_UNITS와 같게 유지).
 # FRED API 메타데이터가 있으면 화면은 메타데이터 단위를 우선 쓴다 — 여기 값은 키가 없을 때의 기본값이자 검증 기준.
+# 2026-10-10 FRED API 메타데이터로 확인한 값 (fred_check.py) — WRESBAL은 백만 달러, RRPONTSYD는 'US'(마침표 없음) 표기.
 EXPECTED_UNITS = {
     "WALCL": "Millions of U.S. Dollars",
     "WTREGEN": "Millions of U.S. Dollars",
-    "WRESBAL": "Billions of U.S. Dollars",
-    "RRPONTSYD": "Billions of U.S. Dollars",
+    "WRESBAL": "Millions of U.S. Dollars",
+    "RRPONTSYD": "Billions of US Dollars",
 }
+
+
+def same_units(a, b):
+    """'U.S.'와 'US'처럼 표기만 다른 단위는 같은 것으로 본다."""
+    norm = lambda u: re.sub(r"[^a-z]", "", (u or "").lower())  # noqa: E731
+    return norm(a) == norm(b)
 
 
 def load_catalog(path=CATALOG_PATH):
@@ -43,7 +51,7 @@ def load_catalog(path=CATALOG_PATH):
         return {}
 
 
-def build_catalog(symbols, sources, previous, fetch_info=None, now=None):
+def build_catalog(symbols, sources, previous, fetch_info=None, now=None, key_status=None):
     """symbols: {컬럼: 'FRED:ID' | 기타}, sources: {심볼: 'fred_api'|'fdr'|'failed'} (이번 실행 기록).
 
     fetch_info(series_id) -> dict 를 주면 메타데이터를 새로 받고, 실패하거나 없으면 이전 값을 유지한다.
@@ -77,7 +85,7 @@ def build_catalog(symbols, sources, previous, fetch_info=None, now=None):
 
         expected = EXPECTED_UNITS.get(series_id)
         units = (entry["meta"] or {}).get("units")
-        if expected and units and units != expected:
+        if expected and units and not same_units(units, expected):
             print(f"[WARN] {series_id} 단위가 '{units}'로 기본값 '{expected}'와 다릅니다 — "
                   f"화면은 메타데이터 단위로 환산합니다. fred_catalog.EXPECTED_UNITS·web/lib/liquidity.ts도 맞추세요.",
                   file=sys.stderr)
@@ -86,6 +94,8 @@ def build_catalog(symbols, sources, previous, fetch_info=None, now=None):
     catalog = {
         "generated_at": now.isoformat(timespec="seconds"),
         "api_key_configured": fetch_info is not None,
+        # 'ok' | 'missing'(Secret이 워크플로우에 전달 안 됨) | 'malformed'(값 형식 오류) — 키 값은 기록하지 않음
+        "api_key_status": key_status or ("ok" if fetch_info is not None else "missing"),
         "series": out,
     }
     return catalog, meta_ok, meta_failed
@@ -95,7 +105,7 @@ def update_catalog(symbols, sources, path=CATALOG_PATH):
     """수집 스크립트 끝에서 부른다. 실패해도 수집 결과에 영향을 주지 않게 호출 쪽에서 예외를 삼킨다."""
     key = fred_api.api_key()
     fetch_info = (lambda sid: fred_api.series_info(sid, key=key)) if key else None
-    catalog, ok, failed = build_catalog(symbols, sources, load_catalog(path), fetch_info)
+    catalog, ok, failed = build_catalog(symbols, sources, load_catalog(path), fetch_info, key_status=fred_api.key_status())
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(catalog, f, ensure_ascii=False, indent=2)
@@ -103,7 +113,8 @@ def update_catalog(symbols, sources, path=CATALOG_PATH):
     via = {}
     for s in catalog["series"]:
         via[s["via"]] = via.get(s["via"], 0) + 1
-    meta_note = f"메타데이터 {ok}건 갱신" + (f", {failed}건 실패" if failed else "") if key else "키 없음 — 메타데이터 유지"
+    meta_note = (f"메타데이터 {ok}건 갱신" + (f", {failed}건 실패" if failed else "") if key
+                 else f"키 상태 {catalog['api_key_status']} — 메타데이터 유지")
     print(f"[INFO] fred_series.json 저장 — 시리즈 {len(catalog['series'])}개, 수집 경로 {via}, {meta_note}")
 
 
