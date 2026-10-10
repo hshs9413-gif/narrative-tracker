@@ -14,7 +14,7 @@ import { useChartTheme } from "@/lib/hooks/use-chart-theme";
 import {
   FINANCIALS_WORKFLOW_URL, axisUnit, bases, fmtBzno, fmtCrno, formatKrw, numberKind, pct, ratio, searchCompanies, yoy,
 } from "@/lib/financials";
-import type { AccountRow, CompanyFinancials as CompanyData, SummaryRow } from "@/types/dashboard";
+import type { AccountRow, CompanyFinancials as CompanyData, CompanyProfile, SummaryRow } from "@/types/dashboard";
 
 // 금융위원회_기업 재무정보 — Actions(Company Financials)가 받아 둔 기업만 보여준다. API 키를 브라우저에 둘 수 없어서다.
 
@@ -28,7 +28,6 @@ function HowToAdd({ query }: { query?: string }) {
       → <strong>Run workflow</strong> → <code>number</code>에{" "}
       {kind === "bzno" ? <>사업자등록번호 <code>{fmtBzno(query)}</code></> : kind === "crno" ? <>법인등록번호 <code>{fmtCrno(query)}</code></> : "사업자등록번호(10자리) 또는 법인등록번호(13자리)"}
       을 넣고 실행하면 1~2분 뒤 여기에 나타납니다.
-      {kind !== "crno" && <> 사업자등록번호로 찾을 때는 <code>name</code>에 회사명도 넣는 것이 확실합니다.</>}
     </div>
   );
 }
@@ -164,7 +163,7 @@ function CompanyView({ crno }: { crno: string }) {
                 {latest?.as_of && <> · 최근 결산 {latest.as_of.slice(0, 4)}.{latest.as_of.slice(4, 6)}</>}
               </div>
             </CCol>
-            <CCol md={5} className="d-flex justify-content-md-end">
+            <CCol md={5} className="d-flex justify-content-md-end align-self-start">
               <CButtonGroup role="group" aria-label="연결·별도">
                 {options.map((o) => (
                   <CButton key={o} color="outline-secondary" active={o === b} aria-pressed={o === b} onClick={() => setBasis(o)}>
@@ -174,6 +173,7 @@ function CompanyView({ crno }: { crno: string }) {
               </CButtonGroup>
             </CCol>
           </CRow>
+          {data.profile && <Profile p={data.profile} />}
         </CCardBody>
       </CCard>
 
@@ -191,6 +191,44 @@ function CompanyView({ crno }: { crno: string }) {
         출처: {data.source} · 수집 {new Date(data.fetched_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })} · 금액 단위 원(조·억으로 줄여 표시)
       </p>
     </>
+  );
+}
+
+const ymd = (v: string | null) => (v && /^\d{8}$/.test(v) ? `${v.slice(0, 4)}.${v.slice(4, 6)}.${v.slice(6)}` : v);
+
+/** 기업기본정보 개요 — 값이 있는 항목만 */
+function Profile({ p }: { p: CompanyProfile }) {
+  const listed = p.krx_listed ? `유가증권 ${ymd(p.krx_listed)}` : p.kosdaq_listed ? `코스닥 ${ymd(p.kosdaq_listed)}` : null;
+  const items: [string, string | null][] = [
+    ["대표자", p.ceo],
+    ["설립일", ymd(p.established)],
+    ["업종", p.industry],
+    ["주요사업", p.main_business],
+    ["시장 · 상장", [p.market, listed].filter(Boolean).join(" · ") || null],
+    ["종업원", p.employees ? `${p.employees.toLocaleString("ko-KR")}명` : null],
+    ["결산월", p.fiscal_month ? `${Number(p.fiscal_month)}월` : null],
+    ["중소기업", p.sme === "Y" ? "예" : p.sme === "N" ? "아니오" : null],
+    ["감사인 · 의견", [p.auditor, p.audit_opinion].filter(Boolean).join(" · ") || null],
+    ["주소", [p.address, p.address_detail].filter(Boolean).join(" ") || null],
+  ];
+  const shown = items.filter(([, v]) => v);
+  if (!shown.length && !p.homepage) return null;
+  const href = p.homepage ? (/^https?:\/\//.test(p.homepage) ? p.homepage : `http://${p.homepage}`) : null;
+  return (
+    <dl className="row small mb-0 mt-3 pt-3 border-top nt-profile">
+      {shown.map(([k, v]) => (
+        <div key={k} className="col-12 col-sm-6 col-xl-4 d-flex gap-2 mb-1">
+          <dt className="text-body-secondary fw-normal text-nowrap">{k}</dt>
+          <dd className="mb-0">{v}</dd>
+        </div>
+      ))}
+      {href && (
+        <div className="col-12 col-sm-6 col-xl-4 d-flex gap-2 mb-1">
+          <dt className="text-body-secondary fw-normal">홈페이지</dt>
+          <dd className="mb-0 text-truncate"><a href={href} target="_blank" rel="noopener noreferrer">{p.homepage}</a></dd>
+        </div>
+      )}
+    </dl>
   );
 }
 

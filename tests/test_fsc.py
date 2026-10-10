@@ -209,8 +209,11 @@ class CollectTest(Quiet):
                     return [SUMM_ROW, {**SUMM_ROW, "bizYear": "2024"}]
                 return [{"fnclDcd": "PL_ifrs-full_SeparateMember", "acitNm": "매출액", "crtmAcitAmt": "1"}]
 
+            outline = {"crno": "1301110006246", "bzno": "1248100998", "corpNm": "삼성전자(주)", "enpRprFnm": "대표",
+                       "enpEmpeCnt": "125000", "fssCorpChgDtm": "20260901"}
             with mock.patch.object(cf, "CONFIG_PATH", cfg), mock.patch.object(cf, "OUT_DIR", out), \
                     mock.patch.object(fsc_api, "call_all", side_effect=fake_call_all), \
+                    mock.patch.object(fsc_api, "call", return_value=([outline], 1)), \
                     mock.patch.dict(os.environ, {"DATA_GO_KR_KEY": KEY}), \
                     mock.patch.object(sys, "argv", ["collect_financials.py"]):
                 code = cf.main()
@@ -221,8 +224,27 @@ class CollectTest(Quiet):
         self.assertEqual(code, 1)  # 한 곳 실패
         self.assertEqual({c["crno"] for c in index["companies"]}, {"1301110006246", "1111111111111"})
         self.assertEqual(data["balance_sheet"]["year"], "2025")
+        self.assertEqual(data["profile"]["ceo"], "대표")
+        self.assertEqual(data["profile"]["employees"], 125000)
         self.assertEqual(len(data["summary"]), 2)
         self.assertIn("::warning", self.out.getvalue())
+
+
+class ProfileTest(Quiet):
+    def test_latest_row_and_fields(self):
+        old = {"crno": "1301110006246", "bzno": "1248100998", "corpNm": "삼성전자(주)", "enpRprFnm": "옛대표",
+               "fssCorpChgDtm": "20240101"}
+        new = {**old, "enpRprFnm": "새대표", "fssCorpChgDtm": "20260901", "enpEmpeCnt": "0", "enpHmpgUrl": ""}
+        other = {**new, "crno": "9999999999999", "enpRprFnm": "남"}
+        with mock.patch.object(fsc_api, "call", return_value=([old, new, other], 3)):
+            p = cf.fetch_profile("1301110006246")
+        self.assertEqual(p["ceo"], "새대표")
+        self.assertEqual(p["bzno"], "1248100998")
+        self.assertIsNone(p["homepage"])  # 빈 문자열은 None
+
+    def test_profile_failure_is_soft(self):
+        with mock.patch.object(fsc_api, "call", side_effect=fsc_api.FscError("HTTP 500")):
+            self.assertIsNone(cf.fetch_profile("1301110006246"))
 
 
 class ResyncTest(unittest.TestCase):
