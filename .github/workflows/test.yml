@@ -1,0 +1,34 @@
+name: Python Tests
+
+# 수집 스크립트를 고친 PR이 실제 수집(매일 07:30 KST)에서 처음 깨지지 않도록, 네트워크 없이 도는 테스트만 실행한다.
+on:
+  pull_request:
+    paths:
+      - "scripts/**"
+      - "tests/**"
+      - "requirements.txt"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "tests/**"
+      - "requirements.txt"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v

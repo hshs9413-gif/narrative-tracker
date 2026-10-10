@@ -36,7 +36,7 @@
 
 | 단계 | 대상 | 주체 | 주기 |
 |---|---|---|---|
-| 수집 | 정량 지표 (VIX·달러·금·WTI·금리) | Actions + FRED/Stooq | 매일 07:30 KST |
+| 수집 | 정량 지표 (VIX·달러·금·WTI·금리·신용·유동성) | Actions + FRED API(키 있을 때)/fdr/Stooq | 매일 07:30 KST |
 | 수집 | 내러티브 언급량 (기사 수) | Actions + Google News RSS | 매일 07:30 KST |
 | 판정 | 반감기·휴면·강도 **자동 계산** | `propose_updates.py` (결정론적 코드) | 매주 월 07:00 KST |
 | 검증 | 웹 대조 + 신규 내러티브 탐지 | Gemini API + Google 검색 그라운딩 | 매주 월 07:00 KST |
@@ -81,6 +81,27 @@
 LLM이 지어낸 내용인지 직접 확인할 수 있습니다.
 
 키가 없으면 웹 검증 단계만 건너뛰고 정량 신호 리포트는 정상 생성됩니다.
+
+### FRED API 키 설정 (선택 — 없어도 수집은 동작)
+
+FRED 시리즈(VIX·금리·스프레드·BEI·연준 대차대조표 등 `FRED:` 심볼 전부)는 키가 있으면 **FRED 공식 API**
+(`api.stlouisfed.org`)로, 없으면 지금처럼 FinanceDataReader가 감싼 `fredgraph.csv`로 받습니다. 값은 같은
+FRED 원본이고, 공식 API를 쓰면 다음이 달라집니다.
+
+- 시리즈 메타데이터(제목·단위·주기·마지막 관측일·**FRED 최종 갱신 시각**)를 매일 `docs/data/fred_series.json`에 기록
+  → 대시보드 **데이터 소스 — FRED** 표에 시리즈별 수집 경로(FRED API / fdr)와 함께 표시
+- 연준 유동성 카드가 단위(백만/십억 달러)를 메타데이터로 확인해 환산 (키가 없으면 기본 단위로 가정하고 '단위 가정' 배지)
+- 오류가 HTTP 코드·FRED 오류 메시지로 로그에 남음. API가 실패한 시리즈만 fdr로 자동 재시도
+
+1. https://fredaccount.stlouisfed.org/apikeys 에서 무료 API 키 발급 (32자리 영문 소문자+숫자)
+2. 저장소 **Settings → Secrets and variables → Actions → New repository secret**
+3. Name: `FRED_API_KEY` / Secret: 발급받은 키 → **Add secret**
+4. **Actions → Collect Market Data → Run workflow** 로 확인 — 로그에 `via FRED API`가 찍히고
+   대시보드 표의 수집 경로가 `FRED API`로 바뀝니다
+
+`collect.yml`·`backfill.yml`이 이 Secret을 환경변수로 넘깁니다. 키는 로그·오류 메시지에서 `***`로 가려집니다.
+로컬 실행은 `FRED_API_KEY=... python scripts/collect_market_data.py`. 메타데이터만 다시 받으려면
+`FRED_API_KEY=... python scripts/fred_catalog.py`.
 
 ## 4. 과거 데이터 채우기 (최초 1회 권장)
 
@@ -201,7 +222,9 @@ narrative-tracker/
 ├── requirements.txt
 ├── scripts/
 │   ├── collect_market_data.py       # 일일 시장 지표 수집
-│   ├── backfill_market_data.py      # 과거 데이터 일괄 소급 (최초 1회)
+│   ├── backfill_market_data.py      # 과거 데이터 일괄 소급 (최초 1회) · 수집 심볼 목록(FDR_SYMBOLS)
+│   ├── fred_api.py                  # FRED 공식 API 클라이언트 (FRED_API_KEY 있을 때)
+│   ├── fred_catalog.py              # 시리즈별 수집 경로·FRED 메타데이터 → fred_series.json
 │   ├── collect_news.py              # 일일 뉴스 언급량 수집
 │   ├── compute_regime.py            # 레짐 판정 → regime_state.json + regime_log.csv
 │   ├── push_to_sheets.py            # 확정된 행을 구글 시트로 누적 (선택)
@@ -211,9 +234,12 @@ narrative-tracker/
 │   ├── collect.yml                  # 매일 자동 실행 (수집 + 레짐 판정)
 │   ├── backfill.yml                 # 수동 실행 (과거 데이터 소급)
 │   ├── deploy_web.yml               # web/ 변경 시 자동 빌드 후 docs/에 병합
+│   ├── test.yml                     # scripts/·tests/ 변경 시 파이썬 테스트
 │   └── weekly_review.yml            # 매주 자동 실행
 ├── config/
 │   └── regime_thresholds.json       # 레짐 판정 임계값 (locked:false 첫 초안)
+├── tests/
+│   └── test_fred.py                 # FRED API 경로 테스트 (python -m unittest discover -s tests)
 ├── web/                              # Next.js 대시보드 소스 — CoreUI 기반 (web/README.md 참고)
 └── docs/                            # GitHub Pages 배포 폴더 — web/ 빌드 결과가 여기 들어감
     ├── index.html                   # web/의 next build 결과 (deploy_web.py가 병합)
@@ -223,23 +249,22 @@ narrative-tracker/
         ├── market_snapshot.csv      # 자동 수집되는 정량 지표
         ├── manual_inputs.json       # ISM PMI 등 수동 갱신값
         ├── regime_state.json        # compute_regime.py 출력 (오늘의 레짐 판정)
-        └── regime_log.csv           # 레짐 판정 이력 (데이터 기준일 한 줄씩)
+        ├── regime_log.csv           # 레짐 판정 이력 (데이터 기준일 한 줄씩)
+        └── fred_series.json         # FRED 시리즈별 수집 경로·메타데이터 (fred_catalog.py)
 ```
 
 > `docs/` 안에서 `data/`만 파이썬 스크립트가 쓰는 실데이터라 절대 안 건드림.
 > 나머지(`index.html`, `_next/` 등)는 `web/`을 빌드할 때마다 통째로 교체됨 —
 > 직접 편집하지 말 것(다음 배포 때 사라짐). 화면을 고치려면 `web/` 소스를 고칠 것.
 
-## 7. 데이터 소스 (전부 무료, API 키 불필요 · FinanceDataReader 하나로 통일)
+## 7. 데이터 소스 (전부 무료 · FRED는 API 키가 있으면 공식 API, 없으면 fdr)
 
-| 지표 | 심볼 (fdr에 전달) | 설명 |
+| 지표 | 심볼 (`FRED:`는 FRED API/fdr, 나머지는 fdr) | 설명 |
 |---|---|---|
 | VIX | `FRED:VIXCLS` | CBOE 변동성지수 |
 | 달러(DXY) | Stooq `dx.f` | **ICE 달러인덱스** — 6개 통화(유로 약 58%), 1973 = 100. 뉴스에서 말하는 '달러인덱스'. 99~105 대역. |
 | 달러(광의) | `FRED:DTWEXBGS` | **연준 광의 달러지수** — 26개 통화, 2006.1 = 100. 원화·위안 포함. 118~122 대역. |
 
-> 두 지수는 **서로 다른 지표**입니다. 2026년 4월 기준 광의 118.9 vs DXY 98.9로 20p 넘게 차이 납니다.
-> 헤드라인 대조용은 DXY, 한국 매크로 분석용은 원화·위안이 반영된 광의지수가 적합합니다.
 | WTI 원유 | `FRED:DCOILWTICO` | WTI 현물 가격 |
 | 美 10년물 금리 | `FRED:DGS10` | 국채 10년물 수익률 |
 | **연준 기준금리** | `FRED:DFEDTARU` | 연방기금금리 목표 상단 — FOMC 결정 시에만 값이 바뀌는 계단형 시계열 |
@@ -256,7 +281,10 @@ narrative-tracker/
 | 美 30년물 · 실질 10년 · 기간프리미엄 | `FRED:DGS30` `DFII10` `THREEFYTP10` → `us30y` `real10y` `term_premium10y` | 일간 |
 | 신용 | `FRED:BAMLC0A0CM` `BAMLH0A3HYC` → `ig_oas` `ccc_oas` | 투자등급 OAS · CCC 이하 OAS (일간) |
 | 단기자금 | `FRED:SOFR` `IORB` `RRPONTSYD` → `sofr` `iorb` `rrp` | SOFR·역레포 일간, **IORB는 FOMC 때만 바뀌는 계단형(ffill)** |
-| 연준 대차대조표 | `FRED:WALCL` `WRESBAL` `WTREGEN` → `fed_assets` `reserves` `tga` | **주간(수요일)이라 ffill**. 단위는 FRED 원본 그대로(시리즈마다 백만/십억 달러) |
+| 연준 대차대조표 | `FRED:WALCL` `WRESBAL` `WTREGEN` → `fed_assets` `reserves` `tga` | **주간(수요일)이라 ffill**. 단위는 FRED 원본 그대로(시리즈마다 백만/십억 달러) — 대시보드가 십억 달러로 환산 |
+
+> 두 지수는 **서로 다른 지표**입니다. 2026년 4월 기준 광의 118.9 vs DXY 98.9로 20p 넘게 차이 납니다.
+> 헤드라인 대조용은 DXY, 한국 매크로 분석용은 원화·위안이 반영된 광의지수가 적합합니다.
 
 일간 시리즈(`us30y`·`ig_oas`·`sofr`·`rrp` 등)는 발표가 며칠 늦을 뿐 값이 매일 바뀌므로 채우지 않고 빈칸으로 두면
 14일 재수집 창이 나중에 채웁니다. 주간·계단형(`STEP_COLUMNS`)만 앞의 값으로 이어 채웁니다. 한국 시장 값
@@ -272,8 +300,15 @@ narrative-tracker/
 안 쓰임): `wti_front_4w`(WTI 근월물 최신값 vs 28일 전, 그날이 휴장이면 직전 거래일)와 `breakeven_3m`(인플레
 판정과 같은 식의 BEI 3개월 변화 — PMI가 만료돼 판정이 '미확인'이어도 계속 나옴).
 
-`fdr.DataReader('FRED:시리즈ID', start, end)` 형태로 FRED 데이터를 키 없이 그대로 감싸서
-제공하므로, 별도 requests 코드 없이 하나의 라이브러리·인터페이스로 전부 수집합니다.
+`FRED:` 심볼은 `FRED_API_KEY`가 있으면 `scripts/fred_api.py`가 `fred/series/observations`로 받고,
+키가 없거나 그 시리즈의 API 호출이 실패하면 `fdr.DataReader('FRED:시리즈ID', start, end)`(키 없이 fredgraph.csv를
+감싼 것)로 받습니다. 시리즈마다 실제로 어느 경로를 탔는지는 `docs/data/fred_series.json`의 `via`와 대시보드
+'데이터 소스' 표에서 확인합니다.
+
+**연준 유동성 카드** — `순유동성 = 총자산(WALCL) − TGA(WTREGEN) − 역레포(RRPONTSYD)`를 십억 달러로 맞춰 그리는
+화면 전용 계산입니다(레짐 판정에는 안 씀). 단위 환산은 `fred_series.json`의 FRED 메타데이터 단위를 우선 쓰고,
+없으면 기본값(`scripts/fred_catalog.py`의 `EXPECTED_UNITS` = `web/lib/liquidity.ts`의 `FALLBACK_UNITS`)을 씁니다.
+메타데이터 단위가 기본값과 다르면 수집 로그에 `[WARN] … 단위가 …` 가 찍힙니다.
 
 대시보드 차트에서 연준 기준금리는 계단형(stepped) 라인으로 표시되어, FOMC 회의마다
 금리가 바뀌는 시점을 시각적으로 바로 확인할 수 있습니다.

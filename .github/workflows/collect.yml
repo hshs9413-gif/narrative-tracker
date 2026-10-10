@@ -30,6 +30,10 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run market collector
+        env:
+          # 있으면 FRED 시리즈를 공식 API로 받고 메타데이터(docs/data/fred_series.json)도 갱신한다.
+          # 없으면 지금처럼 fdr(fredgraph.csv)로 받는다 — README 'FRED API 키' 참고
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python scripts/collect_market_data.py
 
       - name: Compute regime state

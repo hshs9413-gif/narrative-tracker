@@ -18,6 +18,9 @@ docs/data/market_snapshot.csv 를 채웁니다. 처음 설치했을 때 한 번�
   - 뉴스 언급량(attention.csv)은 소급 불가입니다. Google News RSS가 과거 데이터를
     제공하지 않기 때문이며, 오늘부터 쌓입니다.
 
+FRED 시리즈('FRED:' 심볼)는 환경변수 FRED_API_KEY가 있으면 FRED 공식 API(fred_api.py)로 받고,
+키가 없거나 API 호출이 실패하면 기존처럼 fdr(fredgraph.csv)로 받습니다. 어느 경로든 값은 같은 FRED 원본입니다.
+
 의존성: FinanceDataReader, pandas, requests
 """
 
@@ -31,6 +34,8 @@ import sys
 import pandas as pd
 import requests
 import FinanceDataReader as fdr
+
+import fred_api
 
 BASE = os.path.dirname(__file__)
 OUT_PATH = os.path.join(BASE, "..", "docs", "data", "market_snapshot.csv")
@@ -85,7 +90,33 @@ STEP_COLUMNS = ["fedrate", "nfci", "stlfsi4", "iorb", "fed_assets", "reserves", 
 ROW_OPTIONAL_COLUMNS = STEP_COLUMNS + ["usdkrw", "kospi"]
 
 
+# 이번 실행에서 심볼별로 실제 어느 경로로 받았는지 — "fred_api" | "fdr" | "failed".
+# collect_market_data.py가 docs/data/fred_series.json에 기록해 화면에서 확인할 수 있게 한다.
+SOURCES = {}
+
+
 def fetch_series(symbol, start, end):
+    """시계열 하나를 가져와 Series(index=date)로 반환.
+
+    'FRED:' 심볼은 FRED_API_KEY가 있으면 공식 API로 먼저 받고, 실패하거나 키가 없으면 fdr(fredgraph.csv)로 받는다.
+    """
+    if symbol.startswith("FRED:") and fred_api.api_key():
+        series_id = symbol.split(":", 1)[1]
+        try:
+            s = fred_api.observations(series_id, start, end)
+            if len(s):
+                print(f"[INFO] {symbol} via FRED API: {len(s)}건 ({s.index.min()} ~ {s.index.max()})")
+                SOURCES[symbol] = "fred_api"
+                return s
+            print(f"[WARN] {symbol} via FRED API: 기간 내 0건 — fdr로 재시도", file=sys.stderr)
+        except fred_api.FredError as e:
+            print(f"[WARN] {symbol} via FRED API 실패: {e} — fdr로 재시도", file=sys.stderr)
+    s = _fetch_series_fdr(symbol, start, end)
+    SOURCES[symbol] = "fdr" if s is not None else "failed"
+    return s
+
+
+def _fetch_series_fdr(symbol, start, end):
     """fdr로 시계열 하나를 가져와 Series(index=date)로 반환."""
     try:
         df = fdr.DataReader(symbol, start, end)
