@@ -1,15 +1,134 @@
 [
   {
-    "id": "fed-politicization-2026",
-    "name": "연준 정치화 (트럼프-워시 갈등)",
-    "layer": "political",
+    "id": "global-bond-selloff-2026",
+    "name": "글로벌 채권 매도·美10년물 5%",
+    "layer": "structural",
     "layer_secondary": "cyclical",
     "phase": "shock",
+    "status": "active",
+    "intensity": "high",
+    "trigger_date": "2026-09-15",
+    "peak_date": null,
+    "half_life_date": null,
+    "assets": [
+      "us10y",
+      "bonds",
+      "dollar"
+    ],
+    "keywords": [
+      "국채금리 급등",
+      "미국채 10년물 5%",
+      "채권 매도"
+    ],
+    "reignition_triggers": [
+      "국채 입찰 부진",
+      "재정적자 확대 발표"
+    ],
+    "notes": "미·일·영·독 국채 동반 약세. 美10년물 9/15 5.00% 첫 돌파(FRED DGS10), 10/5 5.31%로 2007년 이후 최고권.",
+    "last_auto": null,
+    "added_by": "claude",
+    "added_on": "2026-10-11"
+  },
+  {
+    "id": "kospi-semis-leverage-2026",
+    "name": "코스피 반도체 레버리지 급등락",
+    "layer": "cyclical",
+    "layer_secondary": "structural",
+    "phase": "correction",
+    "status": "active",
+    "intensity": "mid",
+    "trigger_date": "2026-07-28",
+    "peak_date": "2026-07-28",
+    "half_life_date": null,
+    "assets": [
+      "kospi",
+      "semiconductor",
+      "krw"
+    ],
+    "keywords": [
+      "코스피 반도체",
+      "반대매매",
+      "신용융자 잔고"
+    ],
+    "reignition_triggers": [
+      "반도체 실적 쇼크",
+      "신용융자 반대매매 급증"
+    ],
+    "notes": "6/22 사상 최고 9,114 → 7/28 -10.84%(서킷브레이커) → 7/31 +17.91%. 10/8 6,625.93. 2026년 코스피 20일 실현변동성 중앙값 57%(2023~25년 14~18%).",
+    "last_auto": null,
+    "added_by": "claude",
+    "added_on": "2026-10-11"
+  },
+  {
+    "id": "boj-normalization-2026",
+    "name": "BOJ 금리 정상화·일본 재정 확대",
+    "layer": "structural",
+    "layer_secondary": "cyclical",
+    "phase": "shock",
+    "status": "active",
+    "intensity": "mid",
+    "trigger_date": "2026-09-18",
+    "peak_date": null,
+    "half_life_date": null,
+    "assets": [
+      "yen",
+      "bonds"
+    ],
+    "keywords": [
+      "일본은행 금리인상",
+      "일본 국채금리",
+      "엔캐리 청산"
+    ],
+    "reignition_triggers": [
+      "BOJ 추가 인상",
+      "엔화 급등"
+    ],
+    "notes": "9/18 BOJ 정책금리 1.25%(31년 만의 최고), JGB 10년물 약 3%. 7월 말 미·일 공동 개입, 9월 엔 강세 속 캐리 약화 논의.",
+    "last_auto": null,
+    "added_by": "claude",
+    "added_on": "2026-10-11"
+  },
+  {
+    "id": "us-labor-cooling-2026",
+    "name": "美 고용 급랭·스태그플레이션 우려",
+    "layer": "cyclical",
+    "layer_secondary": null,
+    "phase": "shock",
+    "status": "active",
+    "intensity": "mid",
+    "trigger_date": "2026-10-02",
+    "peak_date": null,
+    "half_life_date": null,
+    "assets": [
+      "us10y",
+      "dollar",
+      "equity"
+    ],
+    "keywords": [
+      "미국 고용 쇼크",
+      "비농업 고용",
+      "스태그플레이션"
+    ],
+    "reignition_triggers": [
+      "10월 고용지표 부진",
+      "CPI 서프라이즈"
+    ],
+    "notes": "9월 비농업 +2.9만(예상 8.9만), 실업률 4.2%. ISM 가격지수 77.9로 물가 압력은 지속 — 인상 사이클과 경기 둔화가 겹침.",
+    "last_auto": null,
+    "added_by": "claude",
+    "added_on": "2026-10-11"
+  },
+  {
+    "id": "fed-politicization-2026",
+    "name": "연준 정치화 (트럼프 vs 연준 이사회)",
+    "layer": "political",
+    "layer_secondary": "cyclical",
+    "phase": "correction",
     "trigger_date": "2026-06-01",
     "peak_date": null,
     "half_life_date": null,
     "status": "active",
-    "intensity": "mid",
+    "intensity": "low",
     "assets": [
       "dollar",
       "us10y",
@@ -25,18 +144,22 @@
       "이사회 인사 강제 교체",
       "워시 의장 사임/해임설"
     ],
-    "notes": "7/29 FOMC 동결(9:3), 3인 동일방향 반대(2016년 이후 최초). 경기순환+정치제도 층 중첩 국면."
+    "notes": "7/29 FOMC 동결(9:3), 3인 동일방향 반대(2016년 이후 최초). 경기순환+정치제도 층 중첩 국면.\n[10-11 검증] 워시 의장 5/15 취임. 9/16 FOMC 만장일치 25bp 인상(3.75~4.00%) — 연준이 독립성을 보여 충격 국면은 지남. 트럼프는 '정치적 이사회'를 비판, 리사 쿡 해임은 대법원이 6/29 보류.",
+    "last_review": {
+      "date": "2026-10-11",
+      "by": "claude"
+    }
   },
   {
     "id": "iran-war-2026",
     "name": "이란 전쟁",
     "layer": "political",
-    "phase": "correction",
+    "phase": "shock",
     "trigger_date": "2026-02-28",
-    "peak_date": "2026-03-21",
+    "peak_date": "2026-03-31",
     "half_life_date": null,
     "status": "active",
-    "intensity": "low",
+    "intensity": "high",
     "assets": [
       "oil",
       "gold",
@@ -53,10 +176,14 @@
       "정유시설 직접 타격",
       "이스라엘-이란 직접 충돌 재점화"
     ],
-    "notes": "2/28 미-이스라엘 공습으로 발발. 백테스트: T+5 유가 +39.4%, VIX +58.3%. VIX 반감 3거래일, 고변동 21거래일 지속.",
+    "notes": "2/28 미-이스라엘 공습으로 발발. 백테스트: T+5 유가(WTI 근월) +35.6%, VIX +48.5% (10/11 FRED 기준 재계산, T0=전일 종가). VIX 반감 3거래일, 고변동 21거래일 지속.\n[10-11 검증] 4/8 휴전 → 7/8 트럼프 휴전 종료 선언으로 재격화. 9/8 미군 IRGC 연계 유조선 타격, 10월 호르무즈 유조선 공격 급증. 브렌트 근월 10/8 104.28달러(연초 60.75 대비 +72%), 종가 고점은 3/31 118.35.",
     "last_auto": {
       "date": "2026-08-04",
       "change": "dormant->active"
+    },
+    "last_review": {
+      "date": "2026-10-11",
+      "by": "claude"
     }
   },
   {
@@ -68,23 +195,26 @@
     "peak_date": null,
     "half_life_date": null,
     "status": "active",
-    "intensity": "mid",
+    "intensity": "high",
     "assets": [
       "equity_bigtech",
       "semiconductor",
       "power_infra"
     ],
     "keywords": [
-      "AI 밸류에이션",
-      "데이터센터 투자",
-      "GPU 공급",
-      "전력수요 급증"
+      "AI 버블",
+      "AI 거품",
+      "하이퍼스케일러 투자"
     ],
     "reignition_triggers": [
       "대형 실적 서프라이즈/쇼크",
       "규제 이슈"
     ],
-    "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대."
+    "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대.\n[10-11 검증] 빅테크 4사 2026 설비투자 전망 약 7,250억 달러, 엔비디아 10월 첫 주 사상 최고가 후 조정, 버블 경고 확산. 7/28 코스피 반도체 레버리지 붕괴(-10.84%). 키워드는 언급량이 66일 중 57일 100건 포화라 더 좁힘.",
+    "last_review": {
+      "date": "2026-10-11",
+      "by": "claude"
+    }
   },
   {
     "id": "tariff-shock-2025",
@@ -109,10 +239,14 @@
       "대규모 관세 재부과",
       "주요국 보복관세 발표"
     ],
-    "notes": "백테스트: T+5 VIX +89.3%(3년 내 최대 충격), 유가 -16%. 고변동 22거래일(달력 33일) — 정치층 통상기간과 정합. 이후 협상 국면으로 완화.",
+    "notes": "백테스트: T+5 VIX +56.3%(3년 내 최대급 충격), 유가(WTI 근월) -13.1% (10/11 FRED 기준 재계산, T0=전일 종가). 고변동 22거래일(달력 33일) — 정치층 통상기간과 정합. 이후 협상 국면으로 완화.\n[10-11 검증] 2/20 대법원이 IEEPA 관세 무효 → 섹션122 10%(2/24~7/24) → 7/24부터 섹션301 관세(10~12.5%)로 대체. 시장 영향은 작아 correction/low 유지.",
     "last_auto": {
       "date": "2026-08-05",
       "change": "dormant->active"
+    },
+    "last_review": {
+      "date": "2026-10-11",
+      "by": "claude"
     }
   },
   {
@@ -131,7 +265,7 @@
     ],
     "keywords": [],
     "reignition_triggers": [],
-    "notes": "백테스트: T+5 유가 +10.2%, VIX +14.4%. 빠른 휴전으로 고변동 단 2거래일(달력 6일) — 정치층 최단 소멸 사례."
+    "notes": "백테스트: T+5 유가(WTI 근월) +10.1%, VIX +23.0% (10/11 FRED 기준 재계산). 빠른 휴전으로 고변동 단 2거래일(달력 6일) — 정치층 최단 소멸 사례."
   },
   {
     "id": "us-election-2024",

@@ -40,6 +40,10 @@ PEAK_FLOOR = 10             # 정점이 이보다 작으면 판정 보류 (노�
 REACTIVATE_RATIO = 0.50     # 재점화: 정점 대비 이 비율 이상이
 REACTIVATE_STREAK = 3       # 이만큼 연속이고
 REACTIVATE_FLOOR = 10       # 최근값이 이 이상이면 활성 복귀
+REACTIVATE_MIN_DAYS = 14    # 재점화 판정 최소 관측일 — 수집 첫 며칠은 정점이 곧 최근값이라 무조건 재점화되던 문제
+                            # (2026-08-02 수집 시작 직후 8/4·8/5에 이란·관세가 그렇게 켜졌음, 2026-10-11 검증)
+REVIEW_GRACE_DAYS = 7       # Gemini가 최근에 판단한 내러티브는 이 기간 동안 규칙으로 되돌리지 않음
+LOG_PATH = os.path.join(BASE, "..", "docs", "data", "narrative_log.json")
 
 
 def load_series():
@@ -70,6 +74,11 @@ def evaluate(event, series):
         return None, {"사유": "auto_lock 설정으로 제외"}
     if event.get("status") == "ended":
         return None, {"사유": "종료 이벤트"}
+    review = event.get("last_review") or {}
+    if review.get("date"):
+        age = (datetime.date.today() - datetime.date.fromisoformat(review["date"])).days
+        if age < REVIEW_GRACE_DAYS:
+            return None, {"사유": f"{review.get('by', '사람')}가 {age}일 전 판단 — {REVIEW_GRACE_DAYS}일간 규칙 전환 보류"}
 
     dates = [d for d, _ in series]
     counts = [c for _, c in series]
@@ -103,6 +112,9 @@ def evaluate(event, series):
         return None, evidence
 
     if status == "dormant":
+        if n < REACTIVATE_MIN_DAYS:
+            evidence["사유"] = f"관측 {n}일 < {REACTIVATE_MIN_DAYS}일 — 재점화 판정 보류"
+            return None, evidence
         recent = counts[-REACTIVATE_STREAK:]
         if (len(recent) == REACTIVATE_STREAK
                 and all(c >= peak * REACTIVATE_RATIO for c in recent)
@@ -162,6 +174,20 @@ def main():
     with open(EVENTS_PATH, "w", encoding="utf-8") as f:
         json.dump(events, f, ensure_ascii=False, indent=2)
     print(f"[INFO] events.json 갱신 ({len(changes)}건 전환).")
+
+    # 대시보드 '갱신 기록'에 함께 보이도록 내러티브 변경 기록에 남긴다
+    try:
+        with open(LOG_PATH, encoding="utf-8") as f:
+            log = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        log = []
+    today = datetime.date.today().isoformat()
+    for c in changes:
+        log.append({"date": today, "by": "rule", "event_id": c["event"]["id"], "kind": "update", "status": "applied",
+                    "changes": {"status": [c["old"], c["new"]]}, "reason": c["evidence"].get("사유", "")})
+    with open(LOG_PATH, "w", encoding="utf-8") as f:
+        json.dump(log[-400:], f, ensure_ascii=False, indent=2)
+        f.write("\n")
 
 
 if __name__ == "__main__":
