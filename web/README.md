@@ -27,6 +27,10 @@
 | 내러티브 언급량 | attention.csv | `narrative/AttentionCharts` |
 | 정량 지표 추이 (기간 필터) | market_snapshot.csv | `charts/MarketIndicatorsChart` |
 
+레짐 종합점수(`composite_score`)는 화면에서 뺐다 — 대시보드로만 쓰므로 라벨·근거 수치·기준일만 보여준다.
+`compute_regime.py`는 계속 계산해 `regime_state.json`·`regime_log.csv`(`score`·`deductions` 열)에 기록하며,
+웹 타입에서는 선택값(`composite_score?`)으로 둔다.
+
 ### 숫자를 믿고 써도 되는지 보여주는 장치
 
 값만 보여주면 어느 날짜 값인지, 이상한 값인지 알 수 없어서 아래를 화면에 드러낸다 (`lib/freshness.ts`,

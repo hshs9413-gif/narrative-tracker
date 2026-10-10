@@ -1,6 +1,6 @@
 "use client";
 
-import { CAlert, CBadge, CCard, CCardBody, CCardHeader, CCol, CPlaceholder, CRow } from "@coreui/react";
+import { CAlert, CCard, CCardBody, CCardHeader, CCol, CPlaceholder, CRow } from "@coreui/react";
 import { useRegimeState } from "@/lib/hooks/use-dashboard-data";
 import { RegimeBadge } from "./RegimeBadge";
 import { CREDIT_STRESS_COLOR, GROWTH_INFLATION_COLOR, POLICY_STANCE_COLOR, formatDate, formatShortDate, toBasisPoints } from "@/lib/formatters";
@@ -105,9 +105,8 @@ function RegimeSkeleton() {
   );
 }
 
-// 종합점수는 일부러 게이지·도넛·진행바로 안 그린다 — 원형/막대 진행률은 "퍼센트/확률"로 즉시 읽히는데,
-// regime_state.json 쪽 원칙이 "확률 아님, 규정기반 감점 점수"라서 그 오독을 만드는 은유는 피했다.
-// 숫자 + 감점사유 텍스트로만 보여준다.
+// 종합점수(composite_score)는 화면에서 뺐다 — 대시보드로만 쓰므로 판정 근거(항목별 라벨·수치·기준일)만 보여준다.
+// regime_state.json·regime_log.csv에는 계속 기록된다.
 
 export function RegimeCard() {
   const { data, loading, error } = useRegimeState();
@@ -121,88 +120,64 @@ export function RegimeCard() {
     );
   }
 
-  const { growth_inflation, credit_stress, policy_stance, composite_score, thresholds_locked } = data;
+  const { growth_inflation, credit_stress, policy_stance, thresholds_locked } = data;
   const unknown = growth_inflation.label === "미확인";
 
   return (
-    <CRow xs={{ gutter: 4 }} className="mb-4">
-      <CCol lg={5}>
-        <CCard className="h-100">
-          <CCardHeader className="d-flex justify-content-between align-items-center">
-            <span className="fw-semibold">현재 레짐</span>
-            <span className="small text-body-secondary" title="판정 스크립트가 실행된 시각">{formatDate(data.generated_at)} 판정</span>
-          </CCardHeader>
-          <CCardBody>
-            <h3 className={`mb-3 ${unknown ? "text-body-secondary" : ""}`}>{growth_inflation.label}</h3>
-            {unknown && growth_inflation.reason && <p className="small text-body-secondary">{growth_inflation.reason}</p>}
+    <CCard className="mb-4">
+      <CCardHeader className="d-flex justify-content-between align-items-center">
+        <span className="fw-semibold">현재 레짐</span>
+        <span className="small text-body-secondary" title="판정 스크립트가 실행된 시각">{formatDate(data.generated_at)} 판정</span>
+      </CCardHeader>
+      <CCardBody>
+        <div className="d-flex flex-wrap align-items-center gap-2 mb-3" style={{ columnGap: "1.5rem" }}>
+          <h3 className={`mb-0 ${unknown ? "text-body-secondary" : ""}`}>{growth_inflation.label}</h3>
+          <div className="d-flex flex-wrap gap-2">
+            <RegimeBadge caption="신용" label={credit_stress.label} colorMap={CREDIT_STRESS_COLOR} />
+            <RegimeBadge caption="정책" label={policy_stance.label} colorMap={POLICY_STANCE_COLOR} />
+          </div>
+        </div>
+        {unknown && growth_inflation.reason && <p className="small text-body-secondary">{growth_inflation.reason}</p>}
 
-            <div className="d-flex flex-wrap gap-2 mb-4">
-              <RegimeBadge caption="신용" label={credit_stress.label} colorMap={CREDIT_STRESS_COLOR} />
-              <RegimeBadge caption="정책" label={policy_stance.label} colorMap={POLICY_STANCE_COLOR} />
-            </div>
+        {!thresholds_locked && (
+          <CAlert color="warning" className="small mb-3 py-2">
+            임계값 초안 상태(locked: false) — 최종 판정으로 쓰지 말 것
+          </CAlert>
+        )}
 
-            <div className="border-top pt-3">
-              <div className="d-flex align-items-baseline gap-2">
-                <span className="display-6 fw-semibold tnum">{composite_score.score}</span>
-                <span className="small text-body-secondary">/ 100 · 확률 아님, 규정기반 감점 점수</span>
+        {/* 표 대신 그리드 — 좁은 화면에서는 항목·판정·근거가 세로로 쌓인다 */}
+        <div className="small fw-semibold text-body-secondary mt-4 mb-1">판정 근거 · 값의 기준일</div>
+        <div className="nt-evidence" role="table" aria-label="레짐 판정 근거">
+          <div className="nt-evidence-row nt-evidence-head small text-body-secondary" role="row">
+            <span role="columnheader">항목</span>
+            <span role="columnheader">판정</span>
+            <span role="columnheader">근거 수치</span>
+          </div>
+          {evidenceRows(data).map((row) => (
+            <div key={row.axis} className="nt-evidence-row" role="row">
+              <div className="fw-semibold" role="cell">{row.axis}</div>
+              <div role="cell">
+                {row.verdict ? <RegimeBadge label={row.verdict.label} colorMap={row.verdict.map ?? {}} /> : <span className="text-body-secondary">—</span>}
               </div>
-              {composite_score.deductions[0] !== "없음" && (
-                <div className="d-flex flex-wrap gap-1 mt-2">
-                  {composite_score.deductions.map((d) => (
-                    <CBadge key={d} color="secondary" shape="rounded-pill">− {d}</CBadge>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {!thresholds_locked && (
-              <CAlert color="warning" className="small mt-4 mb-0 py-2">
-                임계값 초안 상태(locked: false) — 최종 판정으로 쓰지 말 것
-              </CAlert>
-            )}
-          </CCardBody>
-        </CCard>
-      </CCol>
-
-      <CCol lg={7}>
-        <CCard className="h-100">
-          <CCardHeader className="fw-semibold">판정 근거 · 값의 기준일</CCardHeader>
-          <CCardBody className="pb-2">
-            {/* 표 대신 그리드 — 좁은 화면에서는 항목·판정·근거가 세로로 쌓인다 */}
-            <div className="nt-evidence mb-3" role="table" aria-label="레짐 판정 근거">
-              <div className="nt-evidence-row nt-evidence-head small text-body-secondary" role="row">
-                <span role="columnheader">항목</span>
-                <span role="columnheader">판정</span>
-                <span role="columnheader">근거 수치</span>
+              <div className="small" role="cell">
+                {row.lines.map((line) => (
+                  <div key={line}>{line}</div>
+                ))}
+                {row.asOf && <div className="text-body-secondary">기준 {formatShortDate(row.asOf)}</div>}
               </div>
-              {evidenceRows(data).map((row) => (
-                <div key={row.axis} className="nt-evidence-row" role="row">
-                  <div className="fw-semibold" role="cell">{row.axis}</div>
-                  <div role="cell">
-                    {row.verdict ? <RegimeBadge label={row.verdict.label} colorMap={row.verdict.map ?? {}} /> : <span className="text-body-secondary">—</span>}
-                  </div>
-                  <div className="small" role="cell">
-                    {row.lines.map((line) => (
-                      <div key={line}>{line}</div>
-                    ))}
-                    {row.asOf && <div className="text-body-secondary">기준 {formatShortDate(row.asOf)}</div>}
-                  </div>
-                </div>
-              ))}
             </div>
+          ))}
+        </div>
 
-            {data.report_crosscheck && (
-              <div className="border-top pt-3 pb-1">
-                <div className="small fw-semibold mb-2">
-                  리포트 교차확인 <span className="fw-normal text-body-secondary">· 판정에는 쓰이지 않는 참고 수치</span>
-                </div>
-                <CrossCheckPanel data={data.report_crosscheck} />
-              </div>
-            )}
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </CRow>
+        {data.report_crosscheck && (
+          <div className="border-top pt-3 mt-1">
+            <div className="small fw-semibold mb-2">
+              리포트 교차확인 <span className="fw-normal text-body-secondary">· 판정에는 쓰이지 않는 참고 수치</span>
+            </div>
+            <CrossCheckPanel data={data.report_crosscheck} />
+          </div>
+        )}
+      </CCardBody>
+    </CCard>
   );
 }
-
