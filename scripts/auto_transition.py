@@ -1,8 +1,9 @@
 """
 이벤트 상태 자동 전환기 (매일 수집 워크플로우에서 실행)
 
-명백한 케이스만 규칙으로 자동 전환하고, 전환 시 GitHub Issue로 통보한다.
-LLM을 사용하지 않는 순수 정량 판정이므로 Gemini 없이도 동작한다.
+명백한 케이스만 규칙으로 자동 전환한다. LLM을 쓰지 않는 순수 정량 판정이다.
+전환 내역은 이벤트의 "last_auto" 필드와 git 이력에 남는다 (GitHub Issue 알림은 2026-10에 없앰 —
+처리되지 않은 Issue만 쌓였기 때문).
 
 [전환 규칙 — 보수적으로 설계]
   active → dormant (휴면 전환):
@@ -15,10 +16,10 @@ LLM을 사용하지 않는 순수 정량 판정이므로 Gemini 없이도 동작
 
 [사용자 통제]
   - events.json에서 "auto_lock": true 를 추가하면 해당 이벤트는 자동 전환에서 제외
-  - 전환이 잘못됐다면 status를 되돌리고 auto_lock을 켜면 된다 (이슈에 안내 포함)
+  - 전환이 잘못됐다면 status를 되돌리고 auto_lock을 켜면 된다
   - 자동 전환 이력은 "last_auto" 필드에 기록
 
-애매한 구간(정점 대비 15~50%)은 건드리지 않고 주간 리뷰의 '제안'으로만 남는다.
+애매한 구간(정점 대비 15~50%)은 건드리지 않는다 — 대시보드 언급량 차트로 보고 사람이 판단한다.
 """
 
 import csv
@@ -26,10 +27,7 @@ import datetime
 import json
 import os
 import statistics
-import sys
 from collections import defaultdict
-
-import requests
 
 BASE = os.path.dirname(__file__)
 EVENTS_PATH = os.path.join(BASE, "..", "docs", "data", "events.json")
@@ -127,45 +125,6 @@ def first_half_life_date(dates, peaks, peak):
     return datetime.date.today().isoformat()
 
 
-def create_issue(changes):
-    token = os.environ.get("GITHUB_TOKEN")
-    repo = os.environ.get("GITHUB_REPOSITORY")
-    today = datetime.date.today().isoformat()
-
-    L = [f"자동 상태 전환 알림 — {today}", "",
-         "정량 규칙에 따라 아래 이벤트의 상태가 자동 변경되었습니다.", ""]
-    for c in changes:
-        e, new, ev = c["event"], c["new"], c["evidence"]
-        arrow = f"`{c['old']}` → **`{new}`**"
-        L += [f"## {e['name']}", "",
-              f"- 상태: {arrow}",
-              f"- 근거: {ev.get('사유','')}",
-              f"- 관측 {ev.get('관측일수')}일 · 정점 {ev.get('정점7일평균')}건/일"
-              f" ({ev.get('정점일')}) · 최근 7일 {ev.get('최근7일')}", ""]
-    L += ["---", "",
-          "### 이 전환이 잘못되었다면", "",
-          "1. `docs/data/events.json`에서 해당 이벤트의 `status`를 원래 값으로 되돌리고",
-          "2. 같은 이벤트에 `\"auto_lock\": true` 를 추가하세요 — 이후 자동 전환에서 제외됩니다.", "",
-          "애매한 구간(정점 대비 15~50%)은 자동 전환하지 않고 주간 리뷰에서 제안만 합니다."]
-    body = "\n".join(L)
-
-    if not token or not repo:
-        print("[INFO] GitHub 환경변수 없음 — 콘솔 출력.\n" + body)
-        return
-    try:
-        r = requests.post(
-            f"https://api.github.com/repos/{repo}/issues",
-            headers={"Authorization": f"Bearer {token}",
-                     "Accept": "application/vnd.github+json"},
-            json={"title": f"자동 상태 전환 — {today}", "body": body},
-            timeout=30,
-        )
-        r.raise_for_status()
-        print(f"[INFO] 전환 알림 이슈 생성: {r.json().get('html_url')}")
-    except Exception as e:  # noqa: BLE001
-        print(f"[WARN] 이슈 생성 실패: {e}\n{body}", file=sys.stderr)
-
-
 def main():
     with open(EVENTS_PATH, encoding="utf-8") as f:
         events = json.load(f)
@@ -203,8 +162,6 @@ def main():
     with open(EVENTS_PATH, "w", encoding="utf-8") as f:
         json.dump(events, f, ensure_ascii=False, indent=2)
     print(f"[INFO] events.json 갱신 ({len(changes)}건 전환).")
-
-    create_issue(changes)
 
 
 if __name__ == "__main__":
