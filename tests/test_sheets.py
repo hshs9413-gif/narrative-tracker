@@ -1,0 +1,39 @@
+"""구글 시트 전송(push_to_sheets) 설정 오류 확인 — 네트워크 없이 돈다.
+
+실행: python -m unittest discover -s tests -v
+"""
+
+import io
+import os
+import sys
+import unittest
+from contextlib import redirect_stdout
+from unittest import mock
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
+
+import push_to_sheets  # noqa: E402
+
+DEPLOY_ID = "AKfycb" + "x" * 66  # 웹 앱 배포 ID 모양 (72자)
+
+
+class TokenCheckTest(unittest.TestCase):
+    def run_main(self, url, token):
+        out = io.StringIO()
+        with mock.patch.dict(os.environ, {"SHEETS_WEBAPP_URL": url, "SHEETS_TOKEN": token}), \
+                mock.patch.object(push_to_sheets.requests, "post") as post, redirect_stdout(out), \
+                self.assertRaises(SystemExit):
+            push_to_sheets.main()
+        post.assert_not_called()  # 잘못된 토큰이면 보내지 않는다
+        return out.getvalue()
+
+    def test_deploy_id_as_token_is_reported_as_annotation(self):
+        url = f"https://script.google.com/macros/s/{DEPLOY_ID}/exec"
+        self.assertIn("::error title=Google Sheets 전송 실패::", self.run_main(url, DEPLOY_ID))
+        # 다른 배포의 ID를 넣은 경우도 같은 안내
+        other = "AKfycb" + "y" * 66
+        self.assertIn("스크립트 속성의 TOKEN", self.run_main(url, other))
+
+
+if __name__ == "__main__":
+    unittest.main()
