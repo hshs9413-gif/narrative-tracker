@@ -8,10 +8,12 @@ import { THEME_STORAGE_KEY } from "@/lib/theme";
 // 기존 사이트와 동일한 CDN으로 Pretendard 로드 (한글 가독성 — CoreUI 기본 폰트 스택 앞에 둔다).
 const PRETENDARD_CSS =
   "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css";
+// 판정 문장·섹션 제목용 명조 — 아침 신문 1면처럼 읽히도록 (본문·숫자는 Pretendard)
+const MYEONGJO_CSS = "https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap";
 
 export const metadata: Metadata = {
-  title: "내러티브 레짐 트래커",
-  description: "Macro Narrative / Regime Tracker",
+  title: "레짐 트래커",
+  description: "매일 아침 거시경제 레짐 판정과 그 근거, 지금 시장을 움직이는 내러티브",
 };
 
 // 첫 페인트 전에 저장된 테마(없으면 OS 설정)를 <html>에 적용해 깜빡임을 막는다.
@@ -27,6 +29,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link rel="stylesheet" href={PRETENDARD_CSS} crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href={MYEONGJO_CSS} />
       </head>
       <body>
         <AppShell>{children}</AppShell>

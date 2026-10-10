@@ -1,4 +1,4 @@
-import type { AttentionRow, MarketSnapshotRow } from "@/types/dashboard";
+import type { AttentionRow, MarketSnapshotRow, RegimeLogRow } from "@/types/dashboard";
 
 // 수집 스크립트가 쓰는 CSV 전용 — 모든 컬럼이 숫자·날짜·id라 따옴표/이스케이프 콤마는 지원 안 함.
 function parseCsv(text: string): Record<string, string>[] {
@@ -29,4 +29,8 @@ export function parseMarketSnapshotCsv(text: string): MarketSnapshotRow[] {
 
 export function parseAttentionCsv(text: string): AttentionRow[] {
   return parseCsv(text).map((raw) => ({ date: raw.date, event_id: raw.event_id, count: toNumber(raw.count) }));
+}
+
+export function parseRegimeLogCsv(text: string): RegimeLogRow[] {
+  return parseCsv(text);
 }

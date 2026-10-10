@@ -27,8 +27,8 @@ export function NarrativeSections() {
   if (loading) {
     return (
       <>
-        <Section id="timeline" title="지층 단면 — 내러티브 타임라인"><Placeholder height={240} /></Section>
-        <Section id="matrix" title="지속기간 · 시장영향 매트릭스"><Placeholder height={180} /></Section>
+        <Section id="timeline" title="지층 단면"><Placeholder height={240} /></Section>
+        <Section id="matrix" title="지속기간과 시장 영향"><Placeholder height={180} /></Section>
       </>
     );
   }
@@ -52,7 +52,7 @@ export function NarrativeSections() {
 
   return (
     <>
-      <Section id="timeline" title="지층 단면 — 내러티브 타임라인">
+      <Section id="timeline" title="지층 단면" lede="내러티브가 언제 시작해 얼마나 이어졌는지 세 지층에 나눠 그렸습니다. 정치/제도 층의 충격은 아래 지층을 뚫고 올라와 다른 두 층의 흐름을 비틉니다.">
         <CCard>
           <CCardBody>
             <NarrativeStrata events={metrics.map((m) => m.event)} />
@@ -62,7 +62,7 @@ export function NarrativeSections() {
 
       <Section
         id="matrix"
-        title="지속기간 · 시장영향 매트릭스"
+        title="지속기간과 시장 영향"
         note={
           <>
             시장영향은 각 이벤트의 <strong>트리거일 전후 실제 자산 변동</strong>을 계산한 값입니다. 전체 시장 지표가 아니라 이벤트별로 따로
@@ -78,7 +78,7 @@ export function NarrativeSections() {
         </CCard>
       </Section>
 
-      <Section id="events" title="활성 · 휴면 이벤트">
+      <Section id="events" title="내러티브 세부" lede="진행 중이거나 잠잠한 내러티브의 경과 일수, 반감기, 트리거 전후 자산 변동입니다.">
         {cards.length === 0 ? (
           <p className="text-body-secondary">활성·휴면 상태인 내러티브가 없습니다.</p>
         ) : (
@@ -94,7 +94,8 @@ export function NarrativeSections() {
 
       <Section
         id="attention"
-        title="내러티브 언급량 (Google News 기사 수)"
+        title="뉴스 언급량"
+        lede="내러티브별 검색어로 센 Google News 일일 기사 수입니다."
         note="선은 기사 수의 7일 평균입니다. 점선은 정점 대비 50%(반감기)·25%(휴면 검토) 참고선이고, 자동 휴면 전환은 최근 7개 관측이 모두 정점의 15% 미만일 때만 일어납니다(auto_transition.py). RSS 특성상 약 100건 부근에서 포화되므로 절대량보다 추이를 보세요."
       >
         <AttentionCharts metrics={metrics} />
