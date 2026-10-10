@@ -50,6 +50,9 @@ jobs:
       # 이름과 '값이 FRED 키 형식인지'만 출력하고 값은 출력하지 않는다.
       - name: Locate FRED key secret (candidate names, no values)
         env:
+          S_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          S_SHEETS_WEBAPP_URL: ${{ secrets.SHEETS_WEBAPP_URL }}
+          S_SHEETS_TOKEN: ${{ secrets.SHEETS_TOKEN }}
           S_FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           V_FRED_API_KEY: ${{ vars.FRED_API_KEY }}
           S_FRED_KEY: ${{ secrets.FRED_KEY }}
