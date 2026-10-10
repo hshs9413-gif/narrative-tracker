@@ -1,0 +1,24 @@
+name: Google Sheets Sync
+
+# 매일 07:30 수집(collect.yml) 마지막 단계와 같은 시트 전송을 지금 바로 한 번 돌린다 — 데이터 수집·커밋은 하지 않는다.
+# 시트 설정(웹 앱 주소·토큰)을 고친 뒤나 새 열이 생겼을 때 확인용. 결과는 실행 요약의 'Google Sheets 확인' 주석에 나온다.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Push settled rows to Google Sheets
+        env:
+          SHEETS_WEBAPP_URL: ${{ secrets.SHEETS_WEBAPP_URL }}
+          SHEETS_TOKEN: ${{ secrets.SHEETS_TOKEN }}
+        run: python scripts/push_to_sheets.py
