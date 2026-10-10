@@ -178,3 +178,6 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* 고정 헤더 아래로 가려지지 않게 — 기업 재무에서 선택한 기업으로 스크롤할 때 */
+.nt-scroll-anchor { scroll-margin-top: 7rem; }

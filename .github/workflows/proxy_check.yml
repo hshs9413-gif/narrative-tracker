@@ -1,0 +1,25 @@
+name: Apps Script Proxy Check
+
+# 배포된 기업 재무 조회 웹 앱(docs/data/app_config.json의 fsc_proxy_url)을 실제로 불러 응답·CORS를 확인한다.
+# 웹 앱 실행 기록에 남으므로 주소나 프록시 코드가 바뀔 때와 수동 실행 때만 돈다.
+on:
+  workflow_dispatch: {}
+  pull_request:
+    paths:
+      - "docs/data/app_config.json"
+      - "scripts/fsc_proxy.gs"
+  push:
+    branches: [main]
+    paths:
+      - "docs/data/app_config.json"
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ping deployed Apps Script proxy
+        run: node tests/gas/proxy_ping.mjs
