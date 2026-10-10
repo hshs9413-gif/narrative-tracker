@@ -105,14 +105,19 @@ def webapp_url(value):
 
 
 VERIFY_COLUMNS = {"market_snapshot": ["vix", "hy_oas", "us10y", "breakeven10y", "fedrate", "nfci"],
-                  "regime_log": ["vix", "score"]}  # 보낸 뒤 다시 읽어 칸 단위로 맞춰 보는 열 (FRED 핵심 지표·판정)
+                  "regime_log": ["vix", "score", "vix_asof"]}  # 보낸 뒤 다시 읽어 칸 단위로 맞춰 보는 열 (FRED 핵심 지표·판정)
 
 
 def _num(v):
+    """비교용 정규화 — 숫자는 소수 6자리, 시트가 날짜로 바꿔 보여준 값('2026. 9. 28', '2026/09/28')은 ISO 날짜로."""
+    text = str(v).strip()
+    m = re.fullmatch(r"(\d{4})[./-]\s?(\d{1,2})[./-]\s?(\d{1,2})\.?", text)
+    if m:
+        return "%s-%02d-%02d" % (m.group(1), int(m.group(2)), int(m.group(3)))
     try:
-        return round(float(str(v).replace(",", "")), 6)
+        return round(float(text.replace(",", "")), 6)
     except ValueError:
-        return str(v).strip()
+        return text
 
 
 def check_sheet(url, tables, get=None):
@@ -138,6 +143,9 @@ def check_sheet(url, tables, get=None):
             problems.append(f"{tab}: 시트에서 읽지 못함 ({got.get('error')})")
             continue
         s_head, *s_rows = got["rows"]
+        missing_cols = [c for c in header if c not in s_head]
+        if missing_cols:
+            problems.append(f"{tab}: 시트에 없는 열 {', '.join(missing_cols)} (머리글 앞부분이 CSV와 달라 새 열을 붙이지 못했을 수 있음)")
         k = 2 if tab in ("attention", "watchlist_attention") else 1
         key = lambda r: "|".join(str(x) for x in r[:k])
         sheet_by_key = {key(r): r for r in s_rows}
@@ -152,7 +160,7 @@ def check_sheet(url, tables, get=None):
                 if sr is not None and _num(sr[j]) != _num(r[i]):
                     diffs.append(f"{key(r)} {col} 시트 {sr[j] or '빈칸'}/CSV {r[i] if r[i] != '' else '빈칸'}")
         last = s_rows[-1][0] if s_rows else "-"
-        lines.append(f"{tab} {len(s_rows)}행 (마지막 {last})" + (f" · 대조 {', '.join(VERIFY_COLUMNS[tab])} 다른 칸 {len(diffs)}" if tab in VERIFY_COLUMNS else ""))
+        lines.append(f"{tab} {len(s_rows)}행 (마지막 {last}) · 열 {len(s_head)}개" + (f" · 대조 {', '.join(VERIFY_COLUMNS[tab])} 다른 칸 {len(diffs)}" if tab in VERIFY_COLUMNS else ""))
         if missing:
             problems.append(f"{tab}: 보낸 {len(rows)}행 중 {len(missing)}행이 시트에 없음 (예: {', '.join(missing[:3])})")
         if diffs:
