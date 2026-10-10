@@ -242,8 +242,9 @@ def _evidence(ids, heads):
 
 def recent_changes(log, today, days=COOLDOWN_DAYS):
     since = (today - datetime.timedelta(days=days)).isoformat()
-    # Gemini 자신의 변경뿐 아니라 사람·검증(claude)이 최근 손본 내러티브도 쉬게 둔다 (규칙 전환은 제외)
-    return {x["event_id"] for x in log if x.get("by") in ("gemini", "claude", "human") and x.get("status") == "applied"
+    # Gemini 자신의 변경과 사람이 직접 고친 내러티브만 쉬게 둔다 — 출처를 붙인 검증(claude)·규칙 전환은 막지 않음
+    # (10/11: 검증 수정까지 막았더니 모든 내러티브가 사흘간 메모 말고는 못 바뀌어 '그대로'로 보였음)
+    return {x["event_id"] for x in log if x.get("by") in ("gemini", "human") and x.get("status") == "applied"
             and x.get("date", "") > since and x.get("event_id")}
 
 
@@ -439,6 +440,11 @@ def main():
     log = load_json(LOG_PATH, [])
     manual = load_json(MANUAL_PATH, {})
     new_entries, notes = [], []
+    # 하루 한 번만 — 수동 실행 뒤 예약 실행이 또 돌아도 같은 날 메모가 겹치지 않게 (GEMINI_FORCE=1이면 다시)
+    if not DRY_RUN and os.environ.get("GEMINI_FORCE") != "1" and any(
+            x.get("by") == "gemini" and x.get("kind") == "summary" and x.get("date") == today.isoformat() for x in log):
+        print(f"::notice title=Gemini 관리::오늘({today}) 이미 검토함 — 건너뜀")
+        return
 
     heads = gather_headlines(events)
     if len(heads) < 5:

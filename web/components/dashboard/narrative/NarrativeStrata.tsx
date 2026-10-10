@@ -3,127 +3,107 @@ import type { NarrativeEvent } from "@/types/dashboard";
 import { INTENSITY_LABEL, LAYER_COLOR, LAYER_LABEL, LAYER_ORDER, STATUS_LABEL } from "@/lib/formatters";
 import { dayDiff, toDate } from "@/lib/narrative-metrics";
 
-// 기존 대시보드의 '지층 단면'을 옮긴 것 — 층별 행에 트리거일~반감기(없으면 오늘)를 막대로.
-// 레이아웃은 globals.css의 .nt-strata-* 클래스, 색은 CoreUI 팔레트(--nt-*).
+// 지층 단면 — 최근 12개월만 그린다. 층마다 옅은 띠 안에 내러티브 한 줄씩, 막대 = 시작~반감기(없으면 오늘).
+// 표시 기간 전에 끝난 내러티브는 그림에서 빼고 아래 한 줄로만 남긴다 (예전엔 3년치를 다 그려 막대가 점처럼 뭉개졌음).
 
-const WINDOW_MONTHS = 18; // 최소 표시 기간
-const WINDOW_CAP = 40; // 최대 소급 — 이보다 오래된 이벤트는 좌측을 잘라 점선으로 표시
+const WINDOW_MONTHS = 12;
+const AHEAD_DAYS = 12;
+const STATUS_RANK: Record<string, number> = { active: 0, dormant: 1, ended: 2 };
 
-const monthsAgo = (d: Date, n: number) => {
+const addMonths = (d: Date, n: number) => {
   const x = new Date(d);
-  x.setUTCMonth(x.getUTCMonth() - n);
+  x.setUTCMonth(x.getUTCMonth() + n);
   return x;
 };
 
-const INTENSITY_OPACITY: Record<string, number> = { high: 1, mid: 0.82, low: 0.58 };
-
-function barStyle(e: NarrativeEvent, clipped: boolean): CSSProperties {
-  const color = LAYER_COLOR[e.layer];
-  const style: CSSProperties = { background: color, opacity: INTENSITY_OPACITY[e.intensity] ?? 1 };
-  if (e.intensity === "high") style.boxShadow = "0 0 0 1px rgba(255,255,255,.3)";
-  if (e.status === "active") style.boxShadow = "inset -3px 0 0 rgba(255,255,255,.55)"; // 오늘까지 이어짐
-  if (e.status === "ended") style.opacity = 0.6;
-  if (e.status === "dormant") {
-    style.background = "transparent";
-    style.boxShadow = `inset 0 0 0 1.5px ${color}`;
-  }
-  if (clipped) {
-    style.borderTopLeftRadius = 0;
-    style.borderBottomLeftRadius = 0;
-    style.borderLeft = "2px dotted var(--cui-secondary-color)";
-  }
-  return style;
-}
-
 export function NarrativeStrata({ events, today = new Date() }: { events: NarrativeEvent[]; today?: Date }) {
-  const windowEnd = new Date(today.getTime() + 10 * 86_400_000);
-  const earliest = events.reduce((min, e) => Math.min(min, toDate(e.trigger_date).getTime()), today.getTime());
-  const windowStart = new Date(Math.max(+monthsAgo(today, WINDOW_CAP), Math.min(earliest, +monthsAgo(today, WINDOW_MONTHS))));
-  const span = windowEnd.getTime() - windowStart.getTime();
-  const pct = (d: Date) => ((d.getTime() - windowStart.getTime()) / span) * 100;
+  const start = addMonths(today, -WINDOW_MONTHS);
+  const end = new Date(today.getTime() + AHEAD_DAYS * 86_400_000);
+  const span = end.getTime() - start.getTime();
+  const pct = (d: Date) => Math.min(100, Math.max(0, ((d.getTime() - start.getTime()) / span) * 100));
+  const endOf = (e: NarrativeEvent) => (e.half_life_date ? toDate(e.half_life_date) : today);
 
-  const stepMonths = span / (30.44 * 86_400_000) > 28 ? 6 : 3;
+  // 두 달 간격 눈금 — 매월 1일
   const ticks: { p: number; label: string }[] = [];
-  const tick = new Date(Date.UTC(windowStart.getUTCFullYear(), Math.floor(windowStart.getUTCMonth() / 3) * 3, 1));
-  while (tick <= windowEnd) {
-    const p = pct(tick);
-    if (p >= 0 && p <= 93) {
-      ticks.push({ p, label: `${String(tick.getUTCFullYear()).slice(2)}.${Math.floor(tick.getUTCMonth() / 3) + 1}Q` });
+  const t = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + 1, 1));
+  while (t < end) {
+    if (t.getUTCMonth() % 2 === 0) {
+      const p = pct(t);
+      if (p > 3 && p < 92) ticks.push({ p, label: t.getUTCMonth() === 0 ? `${t.getUTCFullYear()}년 1월` : `${t.getUTCMonth() + 1}월` });
     }
-    tick.setUTCMonth(tick.getUTCMonth() + stepMonths);
+    t.setUTCMonth(t.getUTCMonth() + 1);
   }
   const todayPct = pct(today);
 
+  const shown = events.filter((e) => endOf(e) >= start);
+  const past = events.filter((e) => endOf(e) < start).sort((a, b) => b.trigger_date.localeCompare(a.trigger_date));
+
   return (
-    <div>
-      <div className="nt-strata-axis tnum">
-        {ticks.map((t, i) => (
-          <span key={t.label} className={i % 2 ? "nt-tick-alt" : ""} style={{ left: `${t.p}%` }}>
-            {t.label}
+    <div className="nt-s2" style={{ "--t": todayPct / 100 } as CSSProperties}>
+      <div className="nt-s2-axis tnum" aria-hidden="true">
+        {ticks.map((k, i) => (
+          <span key={k.label} className={i % 2 ? "nt-s2-alt" : undefined} style={{ left: `${k.p}%` }}>
+            {k.label}
           </span>
         ))}
-        {todayPct > 4 && todayPct < 97 && (
-          <span className="fw-semibold text-danger" style={{ left: `${todayPct}%` }}>
-            오늘
-          </span>
-        )}
+        <span className="nt-s2-today-label" style={{ left: `${todayPct}%` }}>
+          오늘
+        </span>
       </div>
 
+      <div className="nt-s2-body">
+        {ticks.map((k) => (
+          <span key={k.label} className="nt-s2-grid" style={{ "--g": k.p / 100 } as CSSProperties} aria-hidden="true" />
+        ))}
       {LAYER_ORDER.map((layer) => {
-        const items = events
+        const items = shown
           .filter((e) => e.layer === layer)
-          .filter((e) => (e.half_life_date ? toDate(e.half_life_date) : today) >= windowStart)
-          .sort((a, b) => a.trigger_date.localeCompare(b.trigger_date));
-
+          .sort((a, b) => (STATUS_RANK[a.status] ?? 3) - (STATUS_RANK[b.status] ?? 3) || a.trigger_date.localeCompare(b.trigger_date));
+        if (!items.length) return null;
         return (
-          <div key={layer} className="nt-strata-layer">
-            <div className="nt-strata-layer-title" style={{ "--layer-color": LAYER_COLOR[layer] } as CSSProperties}>
-              {LAYER_LABEL[layer]}
-            </div>
-            {items.length === 0 && <p className="small text-body-secondary py-1 mb-0">기록된 이벤트 없음</p>}
+          <section key={layer} className="nt-s2-layer" style={{ "--layer-color": LAYER_COLOR[layer] } as CSSProperties}>
+            <h4 className="nt-s2-layer-name">{LAYER_LABEL[layer]}</h4>
             {items.map((e) => {
-              const start = toDate(e.trigger_date);
-              const end = e.half_life_date ? toDate(e.half_life_date) : today;
-              const clipped = start < windowStart;
-              const left = Math.max(pct(clipped ? windowStart : start), 0);
-              const right = Math.min(pct(end > windowEnd ? windowEnd : end), 100);
-              const isOver = e.status === "dormant" || e.status === "ended";
+              const s = toDate(e.trigger_date);
+              const f = endOf(e);
+              const clipped = s < start;
+              const left = pct(s);
+              const width = Math.max(pct(f) - left, 0.8);
+              const days = dayDiff(s, e.status === "active" ? today : f);
               return (
-                <div key={e.id} className="nt-strata-row">
-                  <div className="nt-strata-name" title={e.notes}>
-                    <span className="nt-dot" style={{ background: LAYER_COLOR[layer] }} />
+                <div key={e.id} className="nt-s2-row">
+                  <span className="nt-s2-name" title={e.name}>
                     {e.name}
-                    <small>{isOver ? `${dayDiff(start, end)}일간 활성` : `${dayDiff(start, today)}일차`}</small>
-                  </div>
-                  <div className="nt-strata-track">
-                    {todayPct > 1 && todayPct < 99.5 && <span className="nt-strata-today" style={{ left: `${todayPct}%` }} />}
-                    <div
-                      className="nt-strata-bar"
-                      style={{ left: `${left}%`, width: `${Math.max(right - left, 0.6)}%`, ...barStyle(e, clipped) }}
-                      title={`${e.name} — ${STATUS_LABEL[e.status] ?? e.status} / 강도 ${INTENSITY_LABEL[e.intensity] ?? e.intensity}`}
+                    {clipped && <small> {s.getUTCFullYear()}년부터</small>}
+                  </span>
+                  <span className="nt-s2-track">
+                    <i
+                      className="nt-s2-bar"
+                      data-status={e.status}
+                      data-intensity={e.intensity}
+                      data-clipped={clipped || undefined}
+                      style={{ left: `${left}%`, width: `${width}%` }}
+                      title={`${e.name}: ${STATUS_LABEL[e.status] ?? e.status}, 강도 ${INTENSITY_LABEL[e.intensity] ?? e.intensity}, ${days}일`}
                     />
-                  </div>
+                  </span>
                 </div>
               );
             })}
-          </div>
+          </section>
         );
       })}
-
-      <div className="nt-strata-legend">
-        {LAYER_ORDER.map((layer) => (
-          <span key={layer}>
-            <span className="nt-swatch" style={{ background: LAYER_COLOR[layer] }} />
-            {LAYER_LABEL[layer]}
-          </span>
-        ))}
-        <span>진하기 = 강도(상/중/하)</span>
-        <span>
-          <span className="nt-swatch" style={{ boxShadow: "inset 0 0 0 1.5px var(--cui-secondary-color)" }} />
-          휴면
-        </span>
-        <span>◁ 점선 = 표시 기간 이전부터 지속</span>
       </div>
+
+      <p className="nt-s2-legend">
+        <span><i data-status="active" data-intensity="high" />진행 중(진할수록 강함)</span>
+        <span><i data-status="dormant" />잠잠</span>
+        <span><i data-status="ended" />끝남</span>
+      </p>
+      {past.length > 0 && (
+        <p className="nt-s2-past">
+          1년 전에 끝난 내러티브: {past.map((e) => `${e.name}(${e.trigger_date.slice(0, 4)})`).join(", ")}
+        </p>
+      )}
     </div>
   );
 }

@@ -84,7 +84,7 @@ class UpdateRulesTest(unittest.TestCase):
         self.assertEqual(ev[0]["intensity"], "low")
         self.assertIn("유조선 공격 지속", ev[0]["notes"])
         # 사람·검증이 손본 것도 쉬게 두고, 규칙 전환은 막지 않는다
-        for by, blocked in (("claude", True), ("rule", False)):
+        for by, blocked in (("human", True), ("claude", False), ("rule", False)):
             log = [{"date": "2026-10-11", "by": by, "status": "applied", "event_id": "iran-war-2026"}]
             _, n = gm.apply_proposal({"updates": [{"id": "iran-war-2026", "intensity": "mid", "evidence": ["h1"]}]},
                                      events(), heads(), log, TODAY, "m")

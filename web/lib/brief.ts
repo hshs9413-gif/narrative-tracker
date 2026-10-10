@@ -81,7 +81,7 @@ const FIELD_WORD: Record<string, (a: unknown, b: unknown) => string> = {
   intensity: (a, b) => `강도 ${INTENSITY_WORD[String(a)] ?? a}에서 ${INTENSITY_WORD[String(b)] ?? b}로`,
   peak_date: (a, b) => `고점일 ${a ? monthDay(String(a)) : "없음"}에서 ${monthDay(String(b))}로`,
   keywords: (_a, b) => `검색어를 ${(b as string[]).join(", ")}로 교체`,
-  notes: () => "메모 추가",
+  notes: (_a, b) => (typeof b === "string" && b !== "…" ? `메모: ${b}` : "메모 추가"),
   name: (_a, b) => `이름을 '${b}'로`,
   ism_pmi: (a, b) => `${a}에서 ${b}로`,
 };

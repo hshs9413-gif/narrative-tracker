@@ -78,6 +78,14 @@ jobs:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: python scripts/gemini_check.py
 
+      # 내러티브 검색어가 기사를 제대로 잡는지(포화·0건) + Google Trends 호출 가능 여부
+      - name: Check news keywords and Google Trends
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        run: |
+          pip install -q pytrends || true
+          python scripts/news_check.py
+
       # 실제 기사·Gemini로 하루치 관리를 돌려 보되 파일은 쓰지 않는다 — 제안과 규칙 검사 결과를 실행 요약에 남김
       - name: Gemini narrative review (dry run)
         if: ${{ !cancelled() }}

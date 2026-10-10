@@ -52,7 +52,7 @@ export function NarrativeSections() {
 
   return (
     <>
-      <Section id="timeline" title="지층 단면" lede="내러티브가 언제 시작해 얼마나 이어졌는지 세 지층에 나눠 그렸습니다. 정치/제도 층의 충격은 아래 지층을 뚫고 올라와 다른 두 층의 흐름을 비틉니다.">
+      <Section id="timeline" title="지층 단면" lede="최근 1년 동안 어떤 내러티브가 언제 시작해 얼마나 이어졌는지 세 지층으로 나눠 그렸습니다. 막대는 시작부터 반감기(없으면 오늘)까지입니다.">
         <CCard>
           <CCardBody>
             <NarrativeStrata events={metrics.map((m) => m.event)} />
