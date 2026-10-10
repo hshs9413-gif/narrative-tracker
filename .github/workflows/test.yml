@@ -50,3 +50,46 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY || vars.FRED_API_KEY }}
         run: python scripts/fred_check.py
+
+      - name: Compare CSV FRED columns with FRED API (dry run)
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY || vars.FRED_API_KEY }}
+        run: python scripts/resync_fred.py --all-fred --dry-run
+
+  # 공공데이터포털 금융위원회 API(기업기본정보·기업 재무정보) 점검 — 키 인식, 응답 필드, 사업자등록번호 검색 가능 여부.
+  fsc-api-check:
+    runs-on: ubuntu-latest
+    # 외부 공공 API 상태(점검·접속 지연)에 따라 결과가 흔들리므로 참고용 — 실패해도 PR을 막지 않는다
+    continue-on-error: true
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+
+      - name: Check FSC APIs with repository secret
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY || vars.DATA_GO_KR_KEY }}
+          C_DATA_GO_KR_API_KEY: ${{ secrets.DATA_GO_KR_API_KEY || vars.DATA_GO_KR_API_KEY }}
+          C_DATA_GO_KR: ${{ secrets.DATA_GO_KR || vars.DATA_GO_KR }}
+          C_DATAGOKR_KEY: ${{ secrets.DATAGOKR_KEY || vars.DATAGOKR_KEY }}
+          C_DATA_GO_KEY: ${{ secrets.DATA_GO_KEY || vars.DATA_GO_KEY }}
+          C_DATA_API_KEY: ${{ secrets.DATA_API_KEY || vars.DATA_API_KEY }}
+          C_PUBLIC_DATA_KEY: ${{ secrets.PUBLIC_DATA_KEY || vars.PUBLIC_DATA_KEY }}
+          C_PUBLIC_DATA_API_KEY: ${{ secrets.PUBLIC_DATA_API_KEY || vars.PUBLIC_DATA_API_KEY }}
+          C_SERVICE_KEY: ${{ secrets.SERVICE_KEY || vars.SERVICE_KEY }}
+          C_SERVICEKEY: ${{ secrets.SERVICEKEY || vars.SERVICEKEY }}
+          C_OPENAPI_KEY: ${{ secrets.OPENAPI_KEY || vars.OPENAPI_KEY }}
+          C_OPEN_API_KEY: ${{ secrets.OPEN_API_KEY || vars.OPEN_API_KEY }}
+          C_FSC_API_KEY: ${{ secrets.FSC_API_KEY || vars.FSC_API_KEY }}
+          C_FSC_KEY: ${{ secrets.FSC_KEY || vars.FSC_KEY }}
+          C_CORP_FIN_API_KEY: ${{ secrets.CORP_FIN_API_KEY || vars.CORP_FIN_API_KEY }}
+          C_FINANCE_API_KEY: ${{ secrets.FINANCE_API_KEY || vars.FINANCE_API_KEY }}
+          C_GOV_API_KEY: ${{ secrets.GOV_API_KEY || vars.GOV_API_KEY }}
+          C_DATA_KEY: ${{ secrets.DATA_KEY || vars.DATA_KEY }}
+          C_API_KEY: ${{ secrets.API_KEY || vars.API_KEY }}
+        run: python scripts/fsc_check.py

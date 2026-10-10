@@ -38,6 +38,8 @@
 |---|---|---|---|
 | 수집 | 정량 지표 (VIX·달러·금·WTI·금리·신용·유동성) | Actions + FRED API(키 있을 때)/fdr/Stooq | 매일 07:30 KST |
 | 수집 | 내러티브 언급량 (기사 수) | Actions + Google News RSS | 매일 07:30 KST |
+| 갱신 | 정량 지표 다시 받기 (FRED가 밤에 올리는 전일 값 반영) | `fred_refresh.yml` | 매일 23:30 KST |
+| 수집 | 기업 재무 (요약재무제표·재무상태표·손익계산서) | Actions + 금융위원회 API | 매주 월 06:45 KST · 수동 추가 |
 | 판정 | 레짐(성장·물가 / 신용 / 정책) | `compute_regime.py` (규칙 기반) | 매일 07:30 KST |
 | 자동 전환 | 이벤트 상태 active ↔ dormant (명백한 경우만) | `auto_transition.py` (규칙 기반) | 매일 07:30 KST |
 | 기록 | 내러티브 이벤트 추가·수정·강도 | **사용자** — `events.json` 직접 편집 | 필요할 때 |
@@ -79,6 +81,34 @@ FRED 원본이고, 공식 API를 쓰면 다음이 달라집니다.
 `collect.yml`·`backfill.yml`이 이 Secret을 환경변수로 넘깁니다. 키는 로그·오류 메시지에서 `***`로 가려집니다.
 로컬 실행은 `FRED_API_KEY=... python scripts/collect_market_data.py`. 메타데이터만 다시 받으려면
 `FRED_API_KEY=... python scripts/fred_catalog.py`.
+
+**FRED 원본과 대조·재동기화** — `scripts/resync_fred.py`가 CSV의 FRED 컬럼을 FRED API 값과 날짜별로 비교합니다.
+PR마다 `test.yml`이 전체 컬럼을 dry-run으로 대조해 결과를 주석으로 남기고, 맞추려면 **Actions → Backfill Market
+History → `resync_columns`**에 `vix`(또는 `all`)를 넣어 실행합니다. 기존 행만 다루며(행 추가·삭제 없음), FRED 값이 있는
+날은 FRED 값으로, FRED에 관측이 없는 날(미국 휴장일)에 남아 있던 값은 비웁니다. 주간 지수(NFCI·STLFSI4)는 FRED가
+과거 값을 매주 수정하므로 최신 수정값으로 바뀝니다.
+
+**VIX 기준일** — VIX는 FRED `VIXCLS`(CBOE 종가)입니다. FRED는 미국 장 마감 다음 날 아침(한국시간 22~23시)에
+올리므로, 아침 수집(07:30 KST)에서는 하루 전 종가가 최신이고 `fred_refresh.yml`(23:30 KST)이 그날 밤 반영합니다.
+아침 뉴스의 'VIX 종가'와 하루 차이가 나는 것은 이 발표 시차 때문입니다 — 카드의 '기준' 날짜를 확인하세요.
+
+### 기업 재무 (금융위원회 API — 선택)
+
+공공데이터포털 **금융위원회_기업 재무정보**로 요약재무제표(연도별 매출·영업이익·순이익·자산·부채·자본·부채비율,
+연결/별도)와 최신 연도 재무상태표·손익계산서를 받아 대시보드 **기업 재무**에 표·차트로 보여줍니다.
+
+1. data.go.kr에서 활용신청: **금융위원회_기업 재무정보**(필수), **금융위원회_기업기본정보**(사업자등록번호로 찾을 때·회사명 표시용)
+2. 저장소 Secret `DATA_GO_KR_KEY` = 마이페이지의 일반 인증키 (Encoding·Decoding 어느 쪽이든 됨)
+3. 기업 추가: **Actions → Company Financials → Run workflow**
+   - `number`: 법인등록번호 13자리 또는 사업자등록번호 10자리 (하이픈 무관, 쉼표로 여러 개)
+   - `name`: 회사명 (선택) — 사업자등록번호로 찾을 때 함께 넣으면 확실합니다
+4. 1~2분 뒤 대시보드 기업 재무에서 회사명·사업자등록번호·법인등록번호로 검색
+
+재무정보 API는 **법인등록번호로만** 조회됩니다. 사업자등록번호는 기업기본정보 API로 법인등록번호를 찾아 바꾸는데,
+이 API의 공식 검색 조건이 법인등록번호·회사명이라 사업자등록번호로 바로 안 걸리면 회사명으로 찾은 결과에서
+사업자등록번호가 같은 법인을 고릅니다. 개인사업자는 법인등록번호가 없어 대상이 아닙니다.
+목록은 `config/companies.json`, 결과는 `docs/data/financials/`에 쌓입니다. 키·응답 필드 점검은 `scripts/fsc_check.py`
+(`test.yml`의 `fsc-api-check` 잡)가 실제 API로 합니다.
 
 ## 4. 과거 데이터 채우기 (최초 1회 권장)
 
@@ -202,6 +232,11 @@ narrative-tracker/
 │   ├── backfill_market_data.py      # 과거 데이터 일괄 소급 (최초 1회) · 수집 심볼 목록(FDR_SYMBOLS)
 │   ├── fred_api.py                  # FRED 공식 API 클라이언트 (FRED_API_KEY 있을 때)
 │   ├── fred_catalog.py              # 시리즈별 수집 경로·FRED 메타데이터 → fred_series.json
+│   ├── fred_check.py                # FRED API 점검 (CI)
+│   ├── resync_fred.py               # CSV의 FRED 컬럼을 FRED 원본과 대조·재동기화
+│   ├── fsc_api.py                   # 공공데이터포털 금융위원회 API 클라이언트 (DATA_GO_KR_KEY)
+│   ├── fsc_check.py                 # 금융위원회 API 점검 (CI)
+│   ├── collect_financials.py        # 기업 재무 수집 → docs/data/financials/
 │   ├── collect_news.py              # 일일 뉴스 언급량 수집
 │   ├── auto_transition.py           # 언급량 규칙으로 이벤트 상태 자동 전환 (명백한 경우만)
 │   ├── compute_regime.py            # 레짐 판정 → regime_state.json + regime_log.csv
@@ -210,12 +245,16 @@ narrative-tracker/
 ├── .github/workflows/
 │   ├── collect.yml                  # 매일 자동 실행 (수집 + 레짐 판정)
 │   ├── backfill.yml                 # 수동 실행 (과거 데이터 소급)
+│   ├── fred_refresh.yml             # 매일 밤 시장 지표·레짐만 다시 갱신 (FRED 전일 값 반영)
+│   ├── financials.yml               # 기업 재무 수집 (주 1회 + 수동 추가)
 │   ├── deploy_web.yml               # web/ 변경 시 자동 빌드 후 docs/에 병합
-│   └── test.yml                     # scripts/·tests/ 변경 시 파이썬 테스트 + FRED API 점검
+│   └── test.yml                     # scripts/·tests/ 변경 시 파이썬 테스트 + FRED·금융위 API 점검
 ├── config/
-│   └── regime_thresholds.json       # 레짐 판정 임계값 (locked:false 첫 초안)
-├── tests/
-│   └── test_fred.py                 # FRED API 경로 테스트 (python -m unittest discover -s tests)
+│   ├── regime_thresholds.json       # 레짐 판정 임계값 (locked:false 첫 초안)
+│   └── companies.json               # 기업 재무 조회 목록 (법인번호·사업자번호·회사명)
+├── tests/                           # python -m unittest discover -s tests
+│   ├── test_fred.py                 # FRED API 경로
+│   └── test_fsc.py                  # 금융위원회 API·기업 재무 수집·FRED 재동기화
 ├── web/                              # Next.js 대시보드 소스 — CoreUI 기반 (web/README.md 참고)
 └── docs/                            # GitHub Pages 배포 폴더 — web/ 빌드 결과가 여기 들어감
     ├── index.html                   # web/의 next build 결과 (deploy_web.py가 병합)
@@ -226,7 +265,8 @@ narrative-tracker/
         ├── manual_inputs.json       # ISM PMI 등 수동 갱신값
         ├── regime_state.json        # compute_regime.py 출력 (오늘의 레짐 판정)
         ├── regime_log.csv           # 레짐 판정 이력 (데이터 기준일 한 줄씩)
-        └── fred_series.json         # FRED 시리즈별 수집 경로·메타데이터 (fred_catalog.py)
+        ├── fred_series.json         # FRED 시리즈별 수집 경로·메타데이터 (fred_catalog.py)
+        └── financials/              # 기업 재무 (index.json + 법인번호별 JSON)
 ```
 
 > `docs/` 안에서 `data/`만 파이썬 스크립트가 쓰는 실데이터라 절대 안 건드림.

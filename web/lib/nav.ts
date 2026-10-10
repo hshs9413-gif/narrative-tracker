@@ -1,4 +1,6 @@
-import { cilBalanceScale, cilBank, cilBolt, cilChartLine, cilHistory, cilLayers, cilNewspaper, cilSpeedometer, cilStorage } from "@coreui/icons";
+import {
+  cilBalanceScale, cilBank, cilBolt, cilBuilding, cilChartLine, cilHistory, cilLayers, cilNewspaper, cilSpeedometer, cilStorage,
+} from "@coreui/icons";
 
 // 사이드바 메뉴와 스크롤 스파이가 같이 쓰는 섹션 목록 — id는 각 섹션 요소의 id와 같다.
 export interface NavSection {
@@ -36,6 +38,10 @@ export const NAV_GROUPS: NavGroup[] = [
       { id: "liquidity", label: "연준 유동성", icon: cilBank },
       { id: "sources", label: "데이터 소스 (FRED)", icon: cilStorage },
     ],
+  },
+  {
+    title: "기업",
+    items: [{ id: "financials", label: "기업 재무", icon: cilBuilding }],
   },
 ];
 
