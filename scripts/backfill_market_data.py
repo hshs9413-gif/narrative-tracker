@@ -57,7 +57,7 @@ FDR_SYMBOLS = {
     "wti_front": "CL=F",              # WTI 근월물 선물 (wti = FRED 현물, 교차확인용으로 유지)
     "brent_front": "BZ=F",            # 브렌트 근월물 선물
     "usdkrw": "USD/KRW",              # 원/달러 (야후 KRW=X)
-    "kospi": "KS11",
+    "kospi": "^KS11",                 # 코스피 (야후) — fdr의 KS11 경로는 2026-09-18부터 0건(2026-10-11 확인)
     "usdkrw_fred": "FRED:DEXKOUS",    # 연준 H.10 원/달러 — 야후와 교차확인, 발표 지연 있음
     "us30y": "FRED:DGS30",
     "real10y": "FRED:DFII10",         # 10년 TIPS 실질금리
@@ -90,6 +90,9 @@ STEP_COLUMNS = ["fedrate", "nfci", "stlfsi4", "iorb", "fed_assets", "reserves", 
 ROW_OPTIONAL_COLUMNS = STEP_COLUMNS + ["usdkrw", "kospi"]
 
 
+# 1차 심볼이 비거나 실패하면 차례로 시도할 대체 심볼 (같은 지표를 다른 원천에서)
+SYMBOL_FALLBACKS = {"^KS11": ["KS11"], "USD/KRW": ["KRW=X"]}
+
 # 이번 실행에서 심볼별로 실제 어느 경로로 받았는지 — "fred_api" | "fdr" | "failed".
 # collect_market_data.py가 docs/data/fred_series.json에 기록해 화면에서 확인할 수 있게 한다.
 SOURCES = {}
@@ -112,6 +115,11 @@ def fetch_series(symbol, start, end):
         except fred_api.FredError as e:
             print(f"[WARN] {symbol} via FRED API 실패: {e} — fdr로 재시도", file=sys.stderr)
     s = _fetch_series_fdr(symbol, start, end)
+    for alt in SYMBOL_FALLBACKS.get(symbol, []) if s is None or not len(s) else []:
+        s = _fetch_series_fdr(alt, start, end)
+        if s is not None and len(s):
+            print(f"[INFO] {symbol} 대신 {alt}로 받음")
+            break
     SOURCES[symbol] = "fdr" if s is not None else "failed"
     return s
 

@@ -1,0 +1,280 @@
+[
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "fed-politicization-2026",
+    "changes": {
+      "name": [
+        "연준 정치화 (트럼프-워시 갈등)",
+        "연준 정치화 (트럼프 vs 연준 이사회)"
+      ],
+      "phase": [
+        "shock",
+        "correction"
+      ],
+      "intensity": [
+        "mid",
+        "low"
+      ]
+    },
+    "reason": "갈등 구도가 트럼프-워시가 아니라 트럼프-이사회이고, 9월 만장일치 인상으로 정치화 충격은 진정",
+    "evidence": [
+      {
+        "title": "FOMC statement September 2026",
+        "source": "J.P. Morgan AM",
+        "date": "",
+        "url": "https://am.jpmorgan.com/us/en/asset-management/institutional/insights/portfolio-insights/fixed-income/fixed-income-perspectives/fomc-statement-september-2026/"
+      },
+      {
+        "title": "Trump says he doesn't blame Warsh for rate hike",
+        "source": "roic.ai",
+        "date": "",
+        "url": "https://www.roic.ai/news/trump-says-he-doesnt-blame-warsh-for-rate-hike-faults-political-fed-board-10-01-2026"
+      },
+      {
+        "title": "Supreme Court and Lisa Cook",
+        "source": "Axios",
+        "date": "",
+        "url": "https://www.axios.com/2026/06/29/trump-supreme-court-fed-lisa-cook"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "iran-war-2026",
+    "changes": {
+      "phase": [
+        "correction",
+        "shock"
+      ],
+      "intensity": [
+        "low",
+        "high"
+      ],
+      "peak_date": [
+        "2026-03-21",
+        "2026-03-31"
+      ]
+    },
+    "reason": "7월 휴전 붕괴 후 재격화·유가 100달러 재돌파 — 진정(correction/low) 판정이 3개월째 틀려 있었음",
+    "evidence": [
+      {
+        "title": "US-Iran ceasefire ends as Strait of Hormuz dispute triggers fresh escalation",
+        "source": "Angel One",
+        "date": "",
+        "url": "https://www.angelone.in/news/global-market/us-iran-ceasefire-ends-as-strait-of-hormuz-dispute-triggers-fresh-military-escalation"
+      },
+      {
+        "title": "Iran war live updates — Strait of Hormuz, oil prices",
+        "source": "CBS News",
+        "date": "",
+        "url": "https://www.cbsnews.com/live-updates/iran-war-us-strait-of-hormuz-oil-gas-price-strikes/"
+      },
+      {
+        "title": "Oil surges as Iran tanker attacks escalate",
+        "source": "Rigzone",
+        "date": "",
+        "url": "https://www.rigzone.com/news/wire/oil_surges_as_iran_tanker_attacks_escalate-08-oct-2026-184807-article/"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "ai-valuation-2024",
+    "changes": {
+      "intensity": [
+        "mid",
+        "high"
+      ],
+      "keywords": [
+        [
+          "AI 밸류에이션",
+          "데이터센터 투자",
+          "GPU 공급",
+          "전력수요 급증"
+        ],
+        [
+          "AI 버블",
+          "AI 거품",
+          "하이퍼스케일러 투자"
+        ]
+      ]
+    },
+    "reason": "설비투자·버블 논쟁이 시장 핵심 화두로 커짐, 기존 키워드는 언급량이 늘 포화돼 추이를 못 봄",
+    "evidence": [
+      {
+        "title": "Nvidia stock slowly forms a risky pattern as experts warn of an AI bubble",
+        "source": "Invezz",
+        "date": "",
+        "url": "https://invezz.com/news/2026/10/09/nvidia-stock-slowly-forms-a-risky-pattern-as-experts-warn-of-an-ai-bubble/"
+      },
+      {
+        "title": "Amazon, Meta, Microsoft AI earnings surge",
+        "source": "Crypto Briefing",
+        "date": "",
+        "url": "https://cryptobriefing.com/amazon-meta-microsoft-ai-earnings-surge/"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "tariff-shock-2025",
+    "changes": {
+      "notes": [
+        "…",
+        "관세 근거 법 변경 경과 추가·백테스트 수치 재계산"
+      ]
+    },
+    "reason": "상태는 맞음 — 근거 법 변경 경과만 보강",
+    "evidence": [
+      {
+        "title": "A tale of tariff substitution",
+        "source": "Kroll",
+        "date": "",
+        "url": "https://www.kroll.com/en/publications/a-tale-of-tariff-substitution"
+      },
+      {
+        "title": "From IEEPA to Section 122",
+        "source": "Global Trade Alert",
+        "date": "",
+        "url": "https://globaltradealert.org/blog/from-ieepa-to-section-122"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "new",
+    "status": "applied",
+    "event_id": "us-labor-cooling-2026",
+    "name": "美 고용 급랭·스태그플레이션 우려",
+    "changes": {},
+    "reason": "검증 중 트래커에 없던 시장 핵심 내러티브",
+    "evidence": [
+      {
+        "title": "Jobs report: employment September 2026",
+        "source": "Advisor Perspectives",
+        "date": "",
+        "url": "https://www.advisorperspectives.com/dshort/updates/2026/10/05/jobs-report-employment-september-2026"
+      },
+      {
+        "title": "The Fed was unanimous about raising rates in September; economic signals have since changed",
+        "source": "Yahoo Finance",
+        "date": "",
+        "url": "https://finance.yahoo.com/economy/policy/article/the-fed-was-unanimous-about-raising-rates-in-september-economic-signals-have-since-changed-184839972.html"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "new",
+    "status": "applied",
+    "event_id": "boj-normalization-2026",
+    "name": "BOJ 금리 정상화·일본 재정 확대",
+    "changes": {},
+    "reason": "검증 중 트래커에 없던 시장 핵심 내러티브",
+    "evidence": [
+      {
+        "title": "BOJ raises rates to 1.25%",
+        "source": "Nation Thailand",
+        "date": "",
+        "url": "https://www.nationthailand.com/news/world/40071184"
+      },
+      {
+        "title": "Japanese yen carry unwind boosts gains against US dollar",
+        "source": "FXStreet",
+        "date": "",
+        "url": "https://www.fxstreet.com/news/japanese-yen-carry-unwind-boosts-gains-against-us-dollar-dbs-202609081417"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "new",
+    "status": "applied",
+    "event_id": "kospi-semis-leverage-2026",
+    "name": "코스피 반도체 레버리지 급등락",
+    "changes": {},
+    "reason": "검증 중 트래커에 없던 시장 핵심 내러티브",
+    "evidence": [
+      {
+        "title": "KOSPI crash and rebound",
+        "source": "KED Global",
+        "date": "",
+        "url": "https://www.kedglobal.com/korean-stock-market/newsView/ked202607310001"
+      },
+      {
+        "title": "KOSPI closes down, continues slide to third day",
+        "source": "Korea JoongAng Daily",
+        "date": "",
+        "url": "https://www.koreajoongangdaily.com/business/kospi-closes-down-262-to-continue-slide-to-third-day-on-inflation-worries/12911756"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "new",
+    "status": "applied",
+    "event_id": "global-bond-selloff-2026",
+    "name": "글로벌 채권 매도·美10년물 5%",
+    "changes": {},
+    "reason": "검증 중 트래커에 없던 시장 핵심 내러티브",
+    "evidence": [
+      {
+        "title": "10-year Treasury yield holds near 5.17% as global bond selloff continues",
+        "source": "Invezz",
+        "date": "",
+        "url": "https://invezz.com/news/2026/09/25/10-year-treasury-yield-holds-near-5-17-as-global-bond-selloff-continues/"
+      },
+      {
+        "title": "Global bond selloff sends 10-year Treasury yields to cusp of 5%",
+        "source": "Bloomberg",
+        "date": "",
+        "url": "https://www.bloomberg.com/news/articles/2026-09-11/global-bond-selloff-sends-10-year-treasury-yields-to-cusp-of-5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "pmi",
+    "status": "applied",
+    "event_id": null,
+    "changes": {
+      "ism_pmi": [
+        54.6,
+        54.5
+      ]
+    },
+    "reason": "2026-09 ISM 제조업 PMI 54.5 (10/1 발표) — 8월 54.6에서 갱신",
+    "evidence": [
+      {
+        "title": "Manufacturing PMI at 54.5%; September 2026 ISM Manufacturing PMI Report",
+        "source": "PR Newswire",
+        "date": "2026-10-01",
+        "url": "https://www.prnewswire.com/news-releases/manufacturing-pmi-at-54-5-september-2026-ism-manufacturing-pmi-report-302894520.html"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "summary",
+    "status": "info",
+    "reason": "레짐 리스트 실제 대조(10/11): 이란 전쟁 재격화 반영, 연준 정치화 진정, AI 강도 상향, 신규 4건(채권 매도·코스피 레버리지·BOJ·美 고용 급랭) 추가. 이후 관리는 Gemini가 매일 07:30 수집 때 맡음."
+  }
+]

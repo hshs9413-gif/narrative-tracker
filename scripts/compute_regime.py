@@ -24,7 +24,9 @@ docs/data/regime_state.json을 새로 쓰고, 같은 판정을 docs/data/regime_
 import csv
 import datetime
 import json
+import math
 import os
+import statistics
 
 BASE = os.path.dirname(__file__)
 MARKET_CSV = os.path.join(BASE, "..", "docs", "data", "market_snapshot.csv")
@@ -40,12 +42,13 @@ LOG_FIELDS = [
     # 판정에 쓴 값의 실제 날짜 — FRED가 하루 늦게 올리므로 'date'(데이터 기준일)보다 1~2거래일 앞서는 게 보통.
     # 새 열은 끝에만 붙인다 (구글 시트는 머리글 앞부분이 같아야 새 열을 이어 붙이고 과거 행 빈칸을 채움)
     "vix_asof", "hy_oas_asof", "breakeven_asof",
+    "kospi_vol", "kospi_rv20",  # 2026-10-11 추가 — 국내 변동성 축 (코스피 20일 실현변동성)
 ]
 
 NUMERIC_COLUMNS = [
     "vix", "dxy_ice", "dxy_broad", "gold", "wti", "us10y",
     "fedrate", "us2y", "hy_oas", "breakeven10y", "nfci", "stlfsi4",
-    "wti_front",
+    "wti_front", "kospi",
 ]
 WTI_CHANGE_DAYS = 28  # 리포트 물가축과 맞추는 WTI 변화 기간 (4주)
 
@@ -147,6 +150,42 @@ def compute_growth_inflation(manual_inputs, rows, cfg, today):
     }
 
 
+def credit_levels(rows, cfg):
+    """행마다 그날까지의 HY OAS·VIX(앞 값 이어 쓰기)로 밴드 레벨을 계산한 원본 레벨 목록 [(날짜, 레벨)]."""
+    hy = vix = None
+    out = []
+    for r in rows:
+        observed = r.get("hy_oas") is not None or r.get("vix") is not None
+        hy = r["hy_oas"] if r.get("hy_oas") is not None else hy
+        vix = r["vix"] if r.get("vix") is not None else vix
+        if observed and hy is not None and vix is not None:
+            out.append((r["date"], max(band_lookup(hy, cfg["hy_oas_bands"])["level_index"],
+                                       band_lookup(vix, cfg["vix_bands"])["level_index"])))
+    return out
+
+
+def confirmed_level(levels, confirm_days, immediate_level):
+    """밴드 경계에서 라벨이 매일 뒤집히지 않게 — 새 레벨이 confirm_days 관측 연속일 때만 바꾼다.
+    단 immediate_level 이상으로 악화되면(경색·위기) 바로 반영한다. 반환: (확정 레벨, 그 레벨이 시작된 날짜)"""
+    cur = since = cand = None
+    cnt = 0
+    for d, lv in levels:
+        if cur is None:
+            cur, since = lv, d
+            continue
+        if lv == cur:
+            cand, cnt = None, 0
+            continue
+        if lv > cur and lv >= immediate_level:
+            cur, since, cand, cnt = lv, d, None, 0
+            continue
+        cnt = cnt + 1 if lv == cand else 1
+        cand = lv
+        if cnt >= confirm_days:
+            cur, since, cand, cnt = lv, d, None, 0
+    return cur, since
+
+
 def compute_credit_stress(rows, cfg):
     hy_oas, hy_oas_date = latest_value(rows, "hy_oas")
     vix, vix_date = latest_value(rows, "vix")
@@ -164,7 +203,13 @@ def compute_credit_stress(rows, cfg):
 
     hy_band = band_lookup(hy_oas, cfg["hy_oas_bands"])
     vix_band = band_lookup(vix, cfg["vix_bands"])
-    worse = hy_band if hy_band["level_index"] >= vix_band["level_index"] else vix_band
+    raw = hy_band if hy_band["level_index"] >= vix_band["level_index"] else vix_band
+
+    # 확정 레벨 — 2026-10-11 실효성 검증: 하루 단위 라벨은 연 25회 뒤집혀(VIX 20 근처 왕복) 3일 확인을 넣음(연 9회)
+    confirm_days = cfg.get("confirm_days", 1)
+    level, since = confirmed_level(credit_levels(rows, cfg), confirm_days, cfg.get("immediate_level", 99))
+    labels = {b["level_index"]: b["label"] for b in cfg["hy_oas_bands"]}
+    level = raw["level_index"] if level is None else level
 
     if us10y is not None and us2y is not None:
         curve_value = round(us10y - us2y, 3)
@@ -173,14 +218,37 @@ def compute_credit_stress(rows, cfg):
         curve = {"status": "no_data"}
 
     return {
-        "label": worse["label"],
-        "level_index": worse["level_index"],
+        "label": labels[level],
+        "level_index": level,
+        "since": since,
+        "raw_label": raw["label"],
+        "confirm_days": confirm_days,
         "detail": {
             "hy_oas_pct": {"value": hy_oas, "as_of": hy_oas_date, "band": hy_band["label"]},
             "vix_level": {"value": vix, "as_of": vix_date, "band": vix_band["label"]},
             "curve_2s10y": curve,
         },
     }
+
+
+def compute_kospi_vol(rows, cfg, today):
+    """국내 변동성 — 코스피 20거래일 실현변동성(연율, %). 미국 신용·VIX 축이 2026년 코스피 급락 5번 중 4번을
+    '평상'으로 지나친 것(2026-10-11 검증)을 보완하는 국내 축. 데이터가 오래되면 판정하지 않는다."""
+    if not cfg:
+        return {"label": "미확인", "reason": "임계값 없음"}
+    window = cfg.get("window", 20)
+    obs = [(r["date"], r["kospi"]) for r in rows if r.get("kospi") is not None]
+    if len(obs) < window + 1:
+        return {"label": "미확인", "reason": f"코스피 관측 {len(obs)}일 — {window + 1}일 필요"}
+    last_date = obs[-1][0]
+    age = (today - datetime.date.fromisoformat(last_date)).days
+    if age > cfg.get("max_age_days", 10):
+        return {"label": "미확인", "reason": f"코스피 마지막 값이 {last_date}({age}일 전) — 수집 확인 필요", "as_of": last_date}
+    rets = [math.log(obs[i][1] / obs[i - 1][1]) for i in range(len(obs) - window, len(obs))]
+    rv = round(statistics.pstdev(rets) * math.sqrt(252) * 100, 1)
+    band = band_lookup(rv, cfg["bands"])
+    return {"label": band["label"], "level_index": band["level_index"], "rv20": rv, "as_of": last_date,
+            "value": obs[-1][1]}
 
 
 def compute_policy_stance(rows, anchor_date, cfg):
@@ -297,7 +365,7 @@ def compute_report_crosscheck(rows, growth_cfg):
     return result
 
 
-def compute_composite_score(growth_inflation, credit_stress, policy_stance, cfg):
+def compute_composite_score(growth_inflation, credit_stress, policy_stance, cfg, kospi_vol=None):
     deductions_cfg = cfg["deductions"]
     score = cfg["start"]
     deductions = []
@@ -329,6 +397,12 @@ def compute_composite_score(growth_inflation, credit_stress, policy_stance, cfg)
         score -= deductions_cfg["curve_inverted"]
         deductions.append("장단기금리 역전")
 
+    kv_level = (kospi_vol or {}).get("level_index")
+    kv_cut = deductions_cfg.get("kospi_vol_levels", [0, 0, 0, 0])
+    if kv_level and kv_level < len(kv_cut) and kv_cut[kv_level]:
+        score -= kv_cut[kv_level]
+        deductions.append(f"국내 변동성 {kospi_vol['label']}")
+
     return {
         "score": max(0, score),
         "deductions": deductions or ["없음"],
@@ -358,6 +432,8 @@ def upsert_log(day, state, thresholds):
         "vix_asof": detail.get("vix_level", {}).get("as_of", ""),
         "hy_oas_asof": detail.get("hy_oas_pct", {}).get("as_of", ""),
         "breakeven_asof": gi.get("breakeven_date", "") or "",
+        "kospi_vol": (state.get("kospi_vol") or {}).get("label", ""),
+        "kospi_rv20": (state.get("kospi_vol") or {}).get("rv20", ""),
     }
 
     log = {}
@@ -391,8 +467,9 @@ def main() -> None:
     credit_stress = compute_credit_stress(rows, thresholds["credit_stress"])
     policy_stance = compute_policy_stance(rows, anchor_date, thresholds["policy_stance"])
     cross_check = compute_cross_check(rows)
+    kospi_vol = compute_kospi_vol(rows, thresholds.get("kospi_vol"), datetime.date.today())
     composite_score = compute_composite_score(
-        growth_inflation, credit_stress, policy_stance, thresholds["composite_score"]
+        growth_inflation, credit_stress, policy_stance, thresholds["composite_score"], kospi_vol
     )
     report_crosscheck = compute_report_crosscheck(rows, thresholds["growth_inflation"])
 
@@ -402,6 +479,7 @@ def main() -> None:
         "growth_inflation": growth_inflation,
         "credit_stress": credit_stress,
         "policy_stance": policy_stance,
+        "kospi_vol": kospi_vol,
         "cross_check": cross_check,
         "composite_score": composite_score,
         "report_crosscheck": report_crosscheck,

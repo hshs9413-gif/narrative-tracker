@@ -1,8 +1,11 @@
-"""Gemini API(무료 등급) 최소 클라이언트 — 모델 자동 선택, 검색 그라운딩, 429·5xx 재시도.
+"""Gemini API(무료 등급) 최소 클라이언트 — 모델 자동 선택, 429·5xx 재시도.
 
 키는 GEMINI_API_KEY 환경변수(저장소 Secret)에서 읽고 오류 메시지에 남기지 않는다.
-모델은 GEMINI_MODEL(선택) → API가 알려 주는 flash 계열 중 최신 순으로 시도한다.
+모델은 GEMINI_MODEL(선택) → 무료 등급에서 동작을 확인한 모델 → API가 알려 주는 나머지 flash 계열 순으로 시도한다.
 무료 등급은 분당·일일 호출 수 제한이 있어 한 번 실행에 몇 번만 부르도록 설계한다.
+
+2026-10-11 확인(gemini_check.py): 3.6-flash·3.5-flash·3.1-flash-lite는 무료로 응답, 3.8/3.7-flash는 혼잡(503)·시간 초과,
+Google 검색 그라운딩은 모든 모델에서 429(무료 쿼터 없음) — 그래서 기사는 news_feed.py로 직접 받아 넘긴다.
 """
 
 import json
@@ -14,8 +17,8 @@ import requests
 
 BASE = "https://generativelanguage.googleapis.com/v1beta"
 TIMEOUT = 180
-# API 목록을 못 받을 때 쓰는 기본 후보 (2026-08 실제 응답 기준: 2.5 계열은 신규 계정에 막힘)
-FALLBACK_MODELS = ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.1-flash-lite"]
+# 무료 등급에서 응답을 확인한 모델 — 이 순서로 먼저 시도 (2.5 계열은 신규 계정에 막힘)
+PREFERRED_MODELS = ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.1-flash-lite"]
 
 
 class GeminiError(Exception):
@@ -72,13 +75,15 @@ def list_flash_models(session=None):
     return sorted(set(names), key=_version_key)
 
 
-def candidates(session=None):
-    preferred = [os.environ.get("GEMINI_MODEL", "").strip()]
+def candidates(session=None, extra=2):
+    """GEMINI_MODEL → 검증된 무료 모델 → 목록의 다른 안정판 flash 몇 개 (쿼터를 아끼려고 최대 5개)."""
+    first = [os.environ.get("GEMINI_MODEL", "").strip()]
     try:
-        listed = [m for m in list_flash_models(session) if "preview" not in m and "exp" not in m] or list_flash_models(session)
+        listed = [m for m in list_flash_models(session)
+                  if not any(x in m for x in ("preview", "exp", "latest", "omni")) and m not in PREFERRED_MODELS]
     except (GeminiError, requests.RequestException):
         listed = []
-    return list(dict.fromkeys(m for m in preferred + listed + FALLBACK_MODELS if m))
+    return list(dict.fromkeys(m for m in first + PREFERRED_MODELS + listed[:extra] if m))[:5]
 
 
 def _body(prompt, search, max_tokens, thinking_off):
@@ -91,7 +96,7 @@ def _body(prompt, search, max_tokens, thinking_off):
     return body
 
 
-def generate(prompt, search=True, max_tokens=8192, session=None, models=None, retries=2):
+def generate(prompt, search=False, max_tokens=8192, session=None, models=None, retries=1, json_mode=False):
     """첫 번째로 성공한 모델의 결과를 돌려준다: {model, text, sources[{title, uri}], queries[]}"""
     s = session or requests
     errors = []
@@ -99,15 +104,19 @@ def generate(prompt, search=True, max_tokens=8192, session=None, models=None, re
         for thinking_off in (True, False):  # thinkingConfig를 거부하는 모델 대비
             for attempt in range(retries + 1):
                 try:
+                    body = _body(prompt, search, max_tokens, thinking_off)
+                    if json_mode and not search:  # 검색 도구와는 같이 못 씀
+                        body["generationConfig"]["responseMimeType"] = "application/json"
                     resp = s.post(f"{BASE}/models/{model}:generateContent", headers=_headers(),
-                                  json=_body(prompt, search, max_tokens, thinking_off), timeout=TIMEOUT)
+                                  json=body, timeout=TIMEOUT)
                 except requests.RequestException as e:
                     errors.append(f"{model}: {type(e).__name__}")
+                    resp = None
                     break
                 if resp.status_code == 200:
                     return _parse(model, resp.json())
                 if resp.status_code in (429, 500, 503) and attempt < retries:
-                    time.sleep(20 * (attempt + 1))
+                    time.sleep(15 * (attempt + 1))
                     continue
                 errors.append(f"{model}{'' if thinking_off else '(thinking 기본)'}: HTTP {resp.status_code} {_scrub(_err_msg(resp))[:140]}")
                 break
