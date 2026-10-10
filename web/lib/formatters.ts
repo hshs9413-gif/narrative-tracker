@@ -25,24 +25,38 @@ export function formatShortDate(iso: string): string {
   return `${y.slice(2)}.${m}.${d}`;
 }
 
-/** regime_state.json의 label별 CSS 변수 색상 매핑 — credit_stress/policy_stance 배지용. */
+/** regime_state.json의 label별 색 — globals.css의 --nt-* (CoreUI 팔레트) 변수. credit_stress/policy_stance 배지용. */
 export const CREDIT_STRESS_COLOR: Record<string, string> = {
-  "평상": "var(--color-credit-normal)",
-  "경계": "var(--color-credit-watch)",
-  "경색": "var(--color-credit-crunch)",
-  "시스템위기": "var(--color-credit-crisis)",
+  "평상": "var(--nt-credit-0)",
+  "경계": "var(--nt-credit-1)",
+  "경색": "var(--nt-credit-2)",
+  "시스템위기": "var(--nt-credit-3)",
+};
+
+export const GROWTH_INFLATION_COLOR: Record<string, string> = {
+  "골디락스": "var(--cui-success)",
+  "인플레이션 레짐": "var(--cui-warning)",
+  "스태그플레이션": "var(--cui-danger)",
+  "청산·디플레충격": "var(--cui-info)",
 };
 
 export const POLICY_STANCE_COLOR: Record<string, string> = {
-  "완화": "var(--color-policy-easing)",
-  "중립": "var(--color-policy-neutral)",
-  "긴축": "var(--color-policy-tightening)",
+  "완화": "var(--nt-policy-easing)",
+  "중립": "var(--nt-policy-neutral)",
+  "긴축": "var(--nt-policy-tightening)",
 };
 
 export const LAYER_COLOR: Record<string, string> = {
-  structural: "var(--color-layer-structural)",
-  cyclical: "var(--color-layer-cyclical)",
-  political: "var(--color-layer-political)",
+  structural: "var(--nt-structural)",
+  cyclical: "var(--nt-cyclical)",
+  political: "var(--nt-political)",
+};
+
+/** CoreUI 컴포넌트(CProgress·CBadge 등)의 color prop용 이름 — LAYER_COLOR와 같은 색. */
+export const LAYER_COLOR_NAME: Record<string, "warning" | "info" | "danger"> = {
+  structural: "warning",
+  cyclical: "info",
+  political: "danger",
 };
 
 // 용어는 기존 대시보드·README와 통일 (경기순환 / 구조테마 / 정치제도).

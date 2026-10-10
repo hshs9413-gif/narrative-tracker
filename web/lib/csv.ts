@@ -15,6 +15,8 @@ const toNumber = (raw: string | undefined) => (raw ? Number(raw) : null);
 const MARKET_COLUMNS = [
   "vix", "dxy_ice", "dxy_broad", "gold", "wti", "us10y",
   "fedrate", "us2y", "hy_oas", "breakeven10y", "nfci", "stlfsi4",
+  "wti_front", "brent_front", "usdkrw", "kospi", "usdkrw_fred", "us30y", "real10y",
+  "term_premium10y", "ig_oas", "ccc_oas", "sofr", "iorb", "fed_assets", "reserves", "rrp", "tga",
 ] as const;
 
 export function parseMarketSnapshotCsv(text: string): MarketSnapshotRow[] {

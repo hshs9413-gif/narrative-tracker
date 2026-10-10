@@ -8,6 +8,8 @@ GitHub Actions에서 매일 실행되어 docs/data/market_snapshot.csv를 갱신
 영영 채워지지 않았습니다. 창 안의 날짜는 backfill_market_data.py와 같은 방식으로 채웁니다.
 
 수집 지표와 출처는 backfill_market_data.py의 FDR_SYMBOLS 한 곳에서만 관리합니다.
+FRED 시리즈는 FRED_API_KEY가 있으면 FRED 공식 API로, 없으면 fdr로 받습니다 (fred_api.py).
+실행이 끝나면 시리즈별 수집 경로·FRED 메타데이터를 docs/data/fred_series.json에 적습니다 (fred_catalog.py).
 의존성: FinanceDataReader, pandas, requests (requirements.txt 참고)
 """
 
@@ -18,7 +20,10 @@ import sys
 
 import pandas as pd
 
-from backfill_market_data import COLUMNS, FDR_SYMBOLS, STEP_COLUMNS, fetch_dxy_ice, fetch_series
+from backfill_market_data import (
+    COLUMNS, FDR_SYMBOLS, ROW_OPTIONAL_COLUMNS, SOURCES, STEP_COLUMNS, fetch_dxy_ice, fetch_series,
+)
+from fred_catalog import update_catalog
 
 CSV_PATH = os.path.join(os.path.dirname(__file__), "..", "docs", "data", "market_snapshot.csv")
 WINDOW_DAYS = 14  # FRED 발표 지연(수일)과 예약 실행 누락을 흡수할 만큼
@@ -65,10 +70,13 @@ def main() -> None:
             df.loc[df.index[0], col] = float(seed)
         df[col] = df[col].ffill()
 
-    # 모든 지표가 비어 있는 날(주말·공휴일)은 행을 만들지 않음
-    value_cols = [c for c in df.columns if c not in STEP_COLUMNS]
+    # 모든 지표가 비어 있는 날(주말·공휴일)은 행을 만들지 않음. 계단형·한국 시장 값만 있는 날도 마찬가지
+    # (ROW_OPTIONAL_COLUMNS 주석 참고). 그런 컬럼만 조회된 날(다른 원천이 전부 실패)에는 기존 행에만 반영한다.
+    value_cols = [c for c in df.columns if c not in ROW_OPTIONAL_COLUMNS]
     if value_cols:
         df = df.dropna(subset=value_cols, how="all")
+    else:
+        df = df[[d.isoformat() in rows for d in df.index]]
     df = df.round(2)
 
     changed = []
@@ -96,6 +104,12 @@ def main() -> None:
     if missing:
         print(f"[WARN] 조회 실패로 기존 값을 유지한 컬럼: {missing}", file=sys.stderr)
     print(f"[INFO] {start}~{end} 창 갱신 — 바뀐 날짜 {len(changed)}개: {changed}")
+
+    # 수집 경로·FRED 메타데이터 기록은 부가 정보라, 실패해도 위에서 쓴 CSV에는 영향이 없게 한다.
+    try:
+        update_catalog(FDR_SYMBOLS, SOURCES)
+    except Exception as e:  # noqa: BLE001
+        print(f"[WARN] fred_series.json 갱신 실패: {e}", file=sys.stderr)
 
 
 if __name__ == "__main__":

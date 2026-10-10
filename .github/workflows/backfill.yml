@@ -11,6 +11,14 @@ on:
         description: "시작일 YYYY-MM-DD (입력 시 years보다 우선)"
         required: false
         default: ""
+      merge:
+        description: "true면 덮어쓰지 않고 이력 없는 컬럼의 빈칸만 과거치로 채움 (years·start 무시)"
+        type: boolean
+        default: false
+      dry_run:
+        description: "merge일 때 파일을 쓰지 않고 채울 개수만 로그에 출력 (먼저 이걸로 확인)"
+        type: boolean
+        default: false
 
 concurrency:
   group: data-commit
@@ -32,8 +40,19 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Run backfill
+        env:
+          # 있으면 FRED 시리즈를 공식 API로 받는다 (없으면 fdr 경로 — README 'FRED API 키' 참고)
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          INPUT_MERGE: ${{ github.event.inputs.merge }}
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
-          if [ -n "${{ github.event.inputs.start }}" ]; then
+          if [ "$INPUT_MERGE" = "true" ]; then
+            if [ "$INPUT_DRY_RUN" = "true" ]; then
+              python scripts/backfill_market_data.py --merge --dry-run
+            else
+              python scripts/backfill_market_data.py --merge
+            fi
+          elif [ -n "${{ github.event.inputs.start }}" ]; then
             python scripts/backfill_market_data.py --start "${{ github.event.inputs.start }}"
           else
             python scripts/backfill_market_data.py --years "${{ github.event.inputs.years }}"

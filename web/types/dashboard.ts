@@ -18,7 +18,8 @@ export interface RegimeState {
   credit_stress: CreditStress;
   policy_stance: PolicyStance;
   cross_check: CrossCheck;
-  composite_score: CompositeScore;
+  composite_score?: CompositeScore; // 화면에서는 쓰지 않는다 (compute_regime.py는 계속 기록)
+  report_crosscheck?: ReportCrossCheck; // 외부 리포트 물가축과 맞춰 볼 입력값 — 판정에는 안 쓰는 출력 전용
 }
 
 export interface GrowthInflation {
@@ -63,6 +64,18 @@ export interface CrossCheck {
   status?: string; // 데이터 없을 때만
   nfci?: { value: number; as_of: string; interpretation: string };
   stlfsi4?: { value: number; as_of: string; interpretation: string };
+}
+
+export type NoData = { status: "no_data" };
+
+export interface ReportCrossCheck {
+  wti_front_4w: NoData | {
+    value: number; as_of: string; base_value: number; base_date: string;
+    lookback_days: number; change: number; change_pct: number;
+  };
+  breakeven_3m: NoData | {
+    value: number; as_of: string; window_days: number; lookback_days: number; change: number;
+  };
 }
 
 export interface CompositeScore {
@@ -139,6 +152,23 @@ export interface MarketSnapshotRow {
   breakeven10y: number | null;
   nfci: number | null;
   stlfsi4: number | null;
+  // 2026-10 추가 — 리포트 소스 맞추기·한국·장기금리/신용/유동성. 아직 화면에는 안 쓰고 값만 읽어둔다.
+  wti_front: number | null;
+  brent_front: number | null;
+  usdkrw: number | null;
+  kospi: number | null;
+  usdkrw_fred: number | null;
+  us30y: number | null;
+  real10y: number | null;
+  term_premium10y: number | null;
+  ig_oas: number | null;
+  ccc_oas: number | null;
+  sofr: number | null;
+  iorb: number | null;
+  fed_assets: number | null;
+  reserves: number | null;
+  rrp: number | null;
+  tga: number | null;
 }
 
 // ────────────────────── manual_inputs.json ──────────────────────
@@ -150,4 +180,38 @@ export interface ManualInputs {
     source: string;
     note: string;
   };
+}
+
+// ────────────────────── fred_series.json ──────────────────────
+// scripts/fred_catalog.py가 매일 수집 끝에 쓴다. meta는 FRED API(fred/series) 응답에서 고른 필드 —
+// FRED_API_KEY가 한 번도 없었으면 null이다.
+
+export type FredVia = "fred_api" | "fdr" | "failed";
+
+export interface FredSeriesMeta {
+  id: string;
+  title: string;
+  units: string;
+  units_short: string;
+  frequency: string;
+  frequency_short: string;
+  seasonal_adjustment_short: string;
+  observation_start: string;
+  observation_end: string;
+  /** FRED 형식 "2026-10-08 15:31:02-05" (미 중부시간 오프셋) */
+  last_updated: string;
+}
+
+export interface FredCatalogEntry {
+  column: string;
+  id: string;
+  via: FredVia | null;
+  meta: FredSeriesMeta | null;
+  meta_fetched_at: string | null;
+}
+
+export interface FredCatalog {
+  generated_at: string;
+  api_key_configured: boolean;
+  series: FredCatalogEntry[];
 }

@@ -3,24 +3,61 @@
 `docs/index.html`(기존 정적 페이지)을 대체하는 프런트엔드. `output: 'export'`로
 빌드해 `docs/`에 넣고 GitHub Pages(브랜치 main)로 서빙한다.
 
+## 디자인
+
+화면 틀은 **CoreUI 무료 React 대시보드**를 따른다 — 좌측 사이드바(섹션 메뉴·스크롤 스파이),
+상단 헤더(데이터 기준일·테마 전환)와 브레드크럼, 색 카드 위젯 + 스파크라인, 카드·표·배지·진행바.
+`@coreui/coreui`(CSS)·`@coreui/react`(컴포넌트)·`@coreui/react-chartjs`(Chart.js 래퍼)를 그대로 쓰고,
+색은 전부 `--cui-*` 변수라 라이트/다크가 같이 바뀐다(헤더의 테마 버튼, 선택은 localStorage 저장).
+앱 전용 스타일은 `app/globals.css` 한 곳 — 도메인 색 매핑(`--nt-*`)과 타임라인·매트릭스 레이아웃.
+(예전 Tailwind 다크 단일 팔레트는 걷어냈다.)
+
 ## 화면 구성
 
-기존 페이지의 섹션·순서·계산 로직을 그대로 옮기고, 레짐 카드만 새로 추가했다.
+기존 페이지의 섹션·순서·계산 로직을 따르고, 레짐 카드와 '데이터 상태' 안내가 새로 추가됐다.
 
 | 섹션 | 데이터 | 컴포넌트 |
 |---|---|---|
-| 상단 지표 티커 (7개) | market_snapshot.csv | `kpi/MarketTicker` |
-| 현재 레짐 + 판정 근거 | regime_state.json | `kpi/RegimeCard` |
+| 데이터 상태 (기준일 범위·수집 중단·PMI 만료 경고) | market_snapshot.csv + regime_state.json | `kpi/DataStatus` |
+| 상단 위젯 8개 (값·등락·기준일·스파크라인) | market_snapshot.csv | `kpi/MarketWidgets` |
+| 현재 레짐 + 판정 근거(항목별 기준일) + 리포트 교차확인 | regime_state.json | `kpi/RegimeCard` |
 | 지층 단면 — 내러티브 타임라인 | events.json | `narrative/NarrativeStrata` |
 | 지속기간 · 시장영향 매트릭스 (+종료 아카이브) | events.json + market_snapshot.csv + attention.csv | `narrative/NarrativeMatrix` |
 | 활성 · 휴면 이벤트 | 위와 동일 | `narrative/NarrativeEventCard` |
 | 내러티브 언급량 | attention.csv | `narrative/AttentionCharts` |
 | 정량 지표 추이 (기간 필터) | market_snapshot.csv | `charts/MarketIndicatorsChart` |
+| 연준 유동성 — 총자산·지준·TGA·역레포·순유동성 (CoreUI 메인 차트 카드 + 진행바 통계) | market_snapshot.csv + fred_series.json(단위) | `liquidity/LiquidityCard` |
+| 데이터 소스 — FRED 시리즈별 수집 경로·단위·마지막 관측·FRED 갱신 시각 | fred_series.json + market_snapshot.csv | `sources/FredSourcesTable` |
+
+레짐 종합점수(`composite_score`)는 화면에서 뺐다 — 대시보드로만 쓰므로 라벨·근거 수치·기준일만 보여준다.
+`compute_regime.py`는 계속 계산해 `regime_state.json`·`regime_log.csv`(`score`·`deductions` 열)에 기록하며,
+웹 타입에서는 선택값(`composite_score?`)으로 둔다.
+
+### 숫자를 믿고 써도 되는지 보여주는 장치
+
+값만 보여주면 어느 날짜 값인지, 이상한 값인지 알 수 없어서 아래를 화면에 드러낸다 (`lib/freshness.ts`,
+`lib/series.ts`, 지표별 기준은 `lib/indicators.ts`). 데이터를 고치지는 않고 보여주기만 한다.
+
+- **지표별 기준일** — 위젯·차트 카드마다 '기준 26.10.07 · 2일 늦음'. FRED는 지표마다 발표가 달라 한 화면의 값 날짜가
+  제각각이다. 지표별 허용 지연(`staleAfterDays`)을 넘으면 '지연' 배지. 상단에 기준일 범위와 3일 넘게 뒤처진 지표 목록.
+- **수집 중단 감지** — 데이터 기준일이 오늘보다 4일 넘게 앞서 있으면 헤더 배지와 상단 안내가 경고색으로 바뀐다.
+- **급변 표시** — 직전 관측 대비 지표별 임계값(`jump`)을 넘게 움직인 점을 차트에 빨간 점, 위젯에 '급변' 배지로.
+  실제 급변일 수도 수집 오류일 수도 있어 '원본 확인용'이다. 임계값은 3년치 전일 대비 변동 분포를 보고 잡았다.
+- **PMI 만료 임박/초과** — ISM PMI는 수동 입력이라 `pmi_max_age_days`(75일, `PMI_MAX_AGE_DAYS`로 미러링 —
+  `config/regime_thresholds.json`과 같이 바꿀 것)를 넘기면 성장·물가 판정이 '미확인'이 된다. 14일 전부터 안내한다.
+- **결측 처리** — 차트는 값이 있는 관측일만 이어 그리고, 관측 사이가 7일을 넘게 비면 선을 끊는다(값을 보간하지 않음).
+- 새로 수집하는 컬럼(`wti_front`·`kospi` 등)은 값이 한 번도 없으면 차트 카드가 자동으로 빠지고, 쌓이면 나타난다.
 
 이벤트별 지표(트리거 전후 5일 자산 변동, 층별 통상 지속기간 대비 지속성, 관심도×영향
 사분면)는 `lib/narrative-metrics.ts`에 있다 — 기존 페이지 JS를 타입만 붙여 옮긴 것.
 
+시장영향은 자산별로 **트리거일 직전 마지막 관측 → 트리거일 이후 첫 관측(T)에서 5번째 뒤 관측(T+5)**의 변동률이다.
+예전 계산(트리거일에 가장 가까운 *행*의 인덱스 ±)은 CSV에 끼어 있는 월말 주말 행(HY OAS 등 FRED 월말 값만 있고
+VIX·금·WTI가 빈 행)을 만나면 영향이 통째로 사라지고(연준 정치화·AI 밸류에이션이 '측정중'이던 원인), 주말 트리거(이란 전쟁·
+하마스)는 기준일이 어긋났다. 평일 트리거(관세 충격·이스라엘-이란·대선·엔캐리)는 두 방식의 값이 같다.
+
 기존 페이지와 의도적으로 다르게 한 것:
+- 시장영향 계산: 위처럼 행 인덱스 대신 자산별 관측일 기준
 - 언급량 차트: 한 차트에 '층 색'으로 겹쳐 그려 같은 층 내러티브끼리 구분이 안 됐음 →
   내러티브별 작은 차트 + 반감기(50%)·휴면(25%) 기준선
 - 정량 지표 차트: y축 3개짜리 차트 하나 → 지표별 작은 차트, 기간 필터 하나가 전부에 적용
@@ -57,6 +94,17 @@ npm run build   # web/out/ 생성 확인, TypeScript·정적 생성 에러 0건
 `docs/data/*`를 앱 재배포 없이 그대로 반영하기 위해서다. 여러 섹션이 같은 파일을
 쓰므로 `lib/hooks/use-static-data.ts`가 경로별로 한 번만 받아 공유한다.
 
+### FRED API 연동 화면
+
+- `fred_series.json`은 `scripts/fred_catalog.py`가 매일 수집 끝에 쓴다. `via`(이번 수집이 FRED API / fdr 중 어느 경로였는지)와
+  `meta`(FRED API `fred/series` 응답: 제목·단위·주기·마지막 관측일·`last_updated`)가 들어 있다. `FRED_API_KEY`가 한 번도
+  없었으면 `meta`는 null이고, 표는 키 등록 안내를 띄운다. 파일이 아예 없으면(첫 수집 전) 같은 안내만 보인다.
+- 'FRED 갱신 (KST)'는 FRED가 그 시리즈를 마지막으로 고친 시각(`last_updated`, 미 중부시간 오프셋)을 한국시간으로 바꾼 것.
+  '마지막 관측'이 CSV보다 앞서 있으면(FRED에는 나왔는데 아직 수집 전) 노란 'CSV 날짜' 배지가 붙는다.
+- 연준 유동성 카드는 CSV의 FRED 원본 단위를 십억 달러로 환산한다 (`lib/liquidity.ts`). 메타데이터 단위가 있으면 그걸,
+  없으면 `FALLBACK_UNITS`(= `scripts/fred_catalog.py`의 `EXPECTED_UNITS`)를 쓰고 '단위 가정' 배지를 붙인다.
+  순유동성 = 총자산 − TGA − 역레포, 세 값이 모두 있는 날만 계산. 판정에는 쓰지 않는 화면 전용 값.
+
 ## 레짐 백엔드 (`scripts/compute_regime.py`, `config/regime_thresholds.json`)
 
 이 프런트엔드가 처음 가정했던 `regime_state.json`은 원래 저장소에 없었어서 같이 만들었다.
@@ -86,9 +134,12 @@ cd .. && python scripts/deploy_web.py   # docs/ 미리보기 (git add 전에 dif
 - 정량 지표 차트의 표 형태 뷰 — 지금은 호버 툴팁 + 끝값 + 기간 저/고로만 값에 접근 가능
 - regime_history.json (레짐 전환 이력) — 계획만 있고 생성 스크립트 없음
 - regime_thresholds.json 검증 후 `locked: true` 전환
-- events.json notes의 백테스트 수치 중 일부(이란 전쟁 'VIX +58.3%', 하마스 '유가 +4.6%')가
-  대시보드 계산(트리거 직전 행 → 5행 뒤, 기존 페이지와 동일)과 다름. 대시보드는 각각
-  +48.5%, +6.5%로 나오며 데이터 재소급 전후 CSV 모두 같은 값 — 노트 쪽 계산 기준 확인 필요
+- events.json notes의 백테스트 수치 중 이란 전쟁('VIX +58.3%', '유가 +39.4%')은 CSV로 재현되지 않는다 — 같은 정의
+  (T-1 → T+5)로 계산하면 VIX +28.4%, WTI +41.4%. 하마스 '유가 +4.6%'는 이 정의로 정확히 재현된다(+4.6%).
+  평일 트리거 이벤트(관세 +89.3%, 대선 -31.6% 등)는 노트·대시보드·재계산이 모두 일치. 이란 전쟁 노트는
+  다른 데이터·기준으로 쓴 것으로 보이니 노트 쪽 계산 근거를 확인할 것 (events.json은 직접 수정하지 않는다)
+- 한 달 말일이 주말이면 CSV에 그 날짜 행이 생긴다 (FRED 하이일드 등 월말 값) — 다른 지표는 비어 있다. 지금은
+  화면 계산이 이 행에 흔들리지 않게 해뒀지만, 수집 쪽에서 막을지는 결정이 필요하다
 
 ## 알아둘 것 — `trailingSlash: true`
 
