@@ -43,7 +43,7 @@ def load_catalog(path=CATALOG_PATH):
         return {}
 
 
-def build_catalog(symbols, sources, previous, fetch_info=None, now=None):
+def build_catalog(symbols, sources, previous, fetch_info=None, now=None, key_status=None):
     """symbols: {컬럼: 'FRED:ID' | 기타}, sources: {심볼: 'fred_api'|'fdr'|'failed'} (이번 실행 기록).
 
     fetch_info(series_id) -> dict 를 주면 메타데이터를 새로 받고, 실패하거나 없으면 이전 값을 유지한다.
@@ -86,6 +86,8 @@ def build_catalog(symbols, sources, previous, fetch_info=None, now=None):
     catalog = {
         "generated_at": now.isoformat(timespec="seconds"),
         "api_key_configured": fetch_info is not None,
+        # 'ok' | 'missing'(Secret이 워크플로우에 전달 안 됨) | 'malformed'(값 형식 오류) — 키 값은 기록하지 않음
+        "api_key_status": key_status or ("ok" if fetch_info is not None else "missing"),
         "series": out,
     }
     return catalog, meta_ok, meta_failed
@@ -95,7 +97,7 @@ def update_catalog(symbols, sources, path=CATALOG_PATH):
     """수집 스크립트 끝에서 부른다. 실패해도 수집 결과에 영향을 주지 않게 호출 쪽에서 예외를 삼킨다."""
     key = fred_api.api_key()
     fetch_info = (lambda sid: fred_api.series_info(sid, key=key)) if key else None
-    catalog, ok, failed = build_catalog(symbols, sources, load_catalog(path), fetch_info)
+    catalog, ok, failed = build_catalog(symbols, sources, load_catalog(path), fetch_info, key_status=fred_api.key_status())
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(catalog, f, ensure_ascii=False, indent=2)
@@ -103,7 +105,8 @@ def update_catalog(symbols, sources, path=CATALOG_PATH):
     via = {}
     for s in catalog["series"]:
         via[s["via"]] = via.get(s["via"], 0) + 1
-    meta_note = f"메타데이터 {ok}건 갱신" + (f", {failed}건 실패" if failed else "") if key else "키 없음 — 메타데이터 유지"
+    meta_note = (f"메타데이터 {ok}건 갱신" + (f", {failed}건 실패" if failed else "") if key
+                 else f"키 상태 {catalog['api_key_status']} — 메타데이터 유지")
     print(f"[INFO] fred_series.json 저장 — 시리즈 {len(catalog['series'])}개, 수집 경로 {via}, {meta_note}")
 
 

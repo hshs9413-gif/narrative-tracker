@@ -16,10 +16,16 @@ from fred_catalog import EXPECTED_UNITS
 
 
 def main():
-    key = fred_api.api_key()
-    if not key:
-        print("::error::FRED_API_KEY가 없거나 형식이 틀립니다 (Secret 이름이 정확히 FRED_API_KEY인지, 값이 32자리 영문 소문자+숫자인지 확인)")
+    status = fred_api.key_status()
+    if status == "missing":
+        print("::error::FRED_API_KEY가 워크플로우에 전달되지 않았습니다 — Settings → Secrets and variables → Actions의 "
+              "Repository secrets(또는 Variables)에 이름이 정확히 FRED_API_KEY인지 확인")
         return 1
+    if status == "malformed":
+        print(f"::error::FRED_API_KEY는 전달됐지만 형식이 틀립니다 — 길이 {len(fred_api._raw_key())}, "
+              "기대값은 32자리 영문 소문자+숫자 (따옴표·공백·줄바꿈 없이)")
+        return 1
+    key = fred_api.api_key()
     print(f"[OK] FRED_API_KEY 인식 (길이 {len(key)})")
 
     end = datetime.date.today()
