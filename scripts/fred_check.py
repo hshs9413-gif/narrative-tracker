@@ -12,7 +12,7 @@ import sys
 
 import fred_api
 from backfill_market_data import FDR_SYMBOLS
-from fred_catalog import EXPECTED_UNITS
+from fred_catalog import EXPECTED_UNITS, same_units
 
 
 def main():
@@ -46,8 +46,9 @@ def main():
         note = ""
         expected = EXPECTED_UNITS.get(sid)
         if expected:
-            note = " | 단위 기본값과 일치" if info["units"] == expected else f" | ⚠ 단위 기본값과 다름(기본값 {expected})"
-            if info["units"] != expected:
+            matches = same_units(info["units"], expected)
+            note = " | 단위 기본값과 일치" if matches else f" | ⚠ 단위 기본값과 다름(기본값 {expected})"
+            if not matches:
                 print(f"::warning::{sid} 단위 '{info['units']}' ≠ 기본값 '{expected}'")
         print(f"[OK] {sid:<13} {column:<16} {len(obs):>2}건, 마지막 {last} | {info['units']} | {info['frequency_short']} | "
               f"FRED 갱신 {info['last_updated']}{note}")

@@ -15,6 +15,7 @@ market_snapshot.csv의 FRED 컬럼마다 ① 이번 수집이 실제로 어느 �
 import datetime
 import json
 import os
+import re
 import sys
 
 import fred_api
@@ -24,12 +25,19 @@ CATALOG_PATH = os.path.join(BASE, "..", "docs", "data", "fred_series.json")
 
 # 화면에서 단위를 환산하는 유동성 시리즈의 기본 단위 (web/lib/liquidity.ts의 FALLBACK_UNITS와 같게 유지).
 # FRED API 메타데이터가 있으면 화면은 메타데이터 단위를 우선 쓴다 — 여기 값은 키가 없을 때의 기본값이자 검증 기준.
+# 2026-10-10 FRED API 메타데이터로 확인한 값 (fred_check.py) — WRESBAL은 백만 달러, RRPONTSYD는 'US'(마침표 없음) 표기.
 EXPECTED_UNITS = {
     "WALCL": "Millions of U.S. Dollars",
     "WTREGEN": "Millions of U.S. Dollars",
-    "WRESBAL": "Billions of U.S. Dollars",
-    "RRPONTSYD": "Billions of U.S. Dollars",
+    "WRESBAL": "Millions of U.S. Dollars",
+    "RRPONTSYD": "Billions of US Dollars",
 }
+
+
+def same_units(a, b):
+    """'U.S.'와 'US'처럼 표기만 다른 단위는 같은 것으로 본다."""
+    norm = lambda u: re.sub(r"[^a-z]", "", (u or "").lower())  # noqa: E731
+    return norm(a) == norm(b)
 
 
 def load_catalog(path=CATALOG_PATH):
@@ -77,7 +85,7 @@ def build_catalog(symbols, sources, previous, fetch_info=None, now=None, key_sta
 
         expected = EXPECTED_UNITS.get(series_id)
         units = (entry["meta"] or {}).get("units")
-        if expected and units and units != expected:
+        if expected and units and not same_units(units, expected):
             print(f"[WARN] {series_id} 단위가 '{units}'로 기본값 '{expected}'와 다릅니다 — "
                   f"화면은 메타데이터 단위로 환산합니다. fred_catalog.EXPECTED_UNITS·web/lib/liquidity.ts도 맞추세요.",
                   file=sys.stderr)

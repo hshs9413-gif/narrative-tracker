@@ -19,12 +19,13 @@ export const LIQUIDITY_SERIES: Record<LiquidityKey, { id: string; label: string;
   rrp: { id: "RRPONTSYD", label: "역레포", description: "연준 익일물 역레포 잔액 — 일간. 늘면 유동성을 흡수 (FRED: RRPONTSYD)" },
 };
 
-/** scripts/fred_catalog.py의 EXPECTED_UNITS와 같게 유지 — FRED API 메타데이터가 없을 때의 기본값. */
+/** scripts/fred_catalog.py의 EXPECTED_UNITS와 같게 유지 — FRED API 메타데이터가 없을 때의 기본값.
+ *  2026-10-10 FRED API 메타데이터로 확인 (WRESBAL은 백만 달러). */
 export const FALLBACK_UNITS: Record<string, string> = {
   WALCL: "Millions of U.S. Dollars",
   WTREGEN: "Millions of U.S. Dollars",
-  WRESBAL: "Billions of U.S. Dollars",
-  RRPONTSYD: "Billions of U.S. Dollars",
+  WRESBAL: "Millions of U.S. Dollars",
+  RRPONTSYD: "Billions of US Dollars",
 };
 
 /** FRED 단위 문자열 → 십억 달러 환산 계수. 달러 금액이 아니거나 모르는 단위면 null. */

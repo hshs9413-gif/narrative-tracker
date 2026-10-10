@@ -265,6 +265,11 @@ class CatalogTest(QuietTestCase):
         catalog, _, _ = fred_catalog.build_catalog({"vix": "FRED:VIXCLS"}, {}, previous, None, self.NOW)
         self.assertIsNone(catalog["series"][0]["meta"])
 
+    def test_unit_spelling_variants_are_not_mismatches(self):
+        fetch = lambda sid: {"id": sid, "units": "Billions of U.S. Dollars"}  # noqa: E731
+        fred_catalog.build_catalog({"rrp": "FRED:RRPONTSYD"}, {}, {}, fetch, self.NOW)
+        self.assertNotIn("단위", self.err.getvalue())
+
     def test_warns_on_unit_mismatch(self):
         fetch = lambda sid: {"id": sid, "units": "Billions of U.S. Dollars"}  # noqa: E731
         fred_catalog.build_catalog({"fed_assets": "FRED:WALCL"}, {}, {}, fetch, self.NOW)
