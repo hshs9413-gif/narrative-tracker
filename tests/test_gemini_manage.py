@@ -76,6 +76,12 @@ class UpdateRulesTest(unittest.TestCase):
                                        events(), heads(), log, TODAY, "m")
         self.assertEqual(n, 0)
         self.assertIn("이미 바꿈", entries[0]["reject_reason"])
+        # 사람·검증이 손본 것도 쉬게 두고, 규칙 전환은 막지 않는다
+        for by, blocked in (("claude", True), ("rule", False)):
+            log = [{"date": "2026-10-11", "by": by, "status": "applied", "event_id": "iran-war-2026"}]
+            _, n = gm.apply_proposal({"updates": [{"id": "iran-war-2026", "intensity": "mid", "evidence": ["h1"]}]},
+                                     events(), heads(), log, TODAY, "m")
+            self.assertEqual(n, 0 if blocked else 1, by)
 
     def test_note_keeps_last_three_gemini_entries(self):
         note = "기본"

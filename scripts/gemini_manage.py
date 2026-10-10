@@ -169,6 +169,7 @@ PROMPT = """당신은 거시경제 내러티브 트래커의 관리자입니다.
    - status·phase를 바꾸려면 서로 다른 매체 기사 2개 이상을 근거로.
    - intensity는 한 단계씩만(low↔mid↔high).
    - keywords: 언급량이 매일 100에 가깝게 포화되거나 0에 가까우면 더 구체적인 한국어 검색어 2~4개로 교체 제안.
+     몇 주 이상 쓸 수 있는 일반 표현으로(특정 인물 발언·하루짜리 사건 이름 금지).
    - notes_append: 이번에 새로 확인한 사실 한 문장(200자 이내, 날짜 포함).
 2. 목록에 없는데 여러 매체가 며칠째 다루고 자산 가격도 반응한 새 내러티브가 있으면 new_events에(최대 2개).
    근거 기사 3개 이상(매체 2곳 이상). 일회성 뉴스는 넣지 마세요.
@@ -238,7 +239,8 @@ def _evidence(ids, heads):
 
 def recent_changes(log, today, days=COOLDOWN_DAYS):
     since = (today - datetime.timedelta(days=days)).isoformat()
-    return {x["event_id"] for x in log if x.get("by") == "gemini" and x.get("status") == "applied"
+    # Gemini 자신의 변경뿐 아니라 사람·검증(claude)이 최근 손본 내러티브도 쉬게 둔다 (규칙 전환은 제외)
+    return {x["event_id"] for x in log if x.get("by") in ("gemini", "claude", "human") and x.get("status") == "applied"
             and x.get("date", "") > since and x.get("event_id")}
 
 
