@@ -96,13 +96,23 @@ def fail(msg):
     sys.exit(msg)
 
 
+def webapp_url(value):
+    """SHEETS_WEBAPP_URL — 웹 앱 URL 전체 대신 '배포 ID'(AKfycb…)만 넣어도 URL로 바꿔 쓴다."""
+    value = value.strip()
+    if value and not value.startswith("http") and re.fullmatch(r"[A-Za-z0-9_-]{20,}", value):
+        return f"https://script.google.com/macros/s/{value}/exec"
+    return value
+
+
 def main():
     # 붙여넣을 때 딸려 온 공백·줄바꿈이 있으면 주소·토큰이 달라진다
-    url = os.environ.get("SHEETS_WEBAPP_URL", "").strip()
+    url = webapp_url(os.environ.get("SHEETS_WEBAPP_URL", ""))
     token = os.environ.get("SHEETS_TOKEN", "").strip()
     if not url or not token:
         print("[INFO] SHEETS_WEBAPP_URL / SHEETS_TOKEN 미설정 — 시트 전송 건너뜀")
         return
+    if not url.startswith("https://"):
+        fail("[ERROR] SHEETS_WEBAPP_URL이 웹 앱 주소가 아님 — Apps Script 배포 관리의 '웹 앱 URL'(https://script.google.com/macros/s/…/exec)을 넣어야 함")
     if token in url or token.startswith("AKfycb"):
         fail("[ERROR] SHEETS_TOKEN에 웹 앱 배포 ID(주소 속 AKfycb… 값)가 들어 있음 — "
              "Apps Script 프로젝트 설정 → 스크립트 속성의 TOKEN 값을 넣어야 함")
