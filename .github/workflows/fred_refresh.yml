@@ -1,0 +1,51 @@
+name: Evening FRED Refresh
+
+# FRED는 미국 장 마감 다음 날 아침(미 중부시간 8~9시 = 한국시간 22~23시)에 VIX 등 일간 값을 올린다.
+# 아침 07:30 KST 수집만으로는 하루 늦은 값이 하루 종일 남으므로, 밤에 시장 지표와 레짐 판정만 한 번 더 갱신한다.
+# 뉴스 언급량은 하루 한 번 표본이 기준이라 여기서는 수집하지 않는다.
+on:
+  schedule:
+    - cron: "30 14 * * *"   # 매일 23:30 KST
+  workflow_dispatch: {}
+
+concurrency:
+  group: data-commit
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+
+      - name: Refresh market data
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY || vars.FRED_API_KEY }}
+        run: python scripts/collect_market_data.py
+
+      - name: Compute regime state
+        run: python scripts/compute_regime.py
+        continue-on-error: true
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "narrative-tracker-bot"
+          git config user.email "actions@github.com"
+          git add docs/data
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: evening FRED refresh $(date -u +%Y-%m-%d)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "push 재시도 $i..."
+            sleep 5
+          done
+          echo "push 실패"; exit 1

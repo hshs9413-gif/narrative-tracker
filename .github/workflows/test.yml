@@ -51,10 +51,10 @@ jobs:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY || vars.FRED_API_KEY }}
         run: python scripts/fred_check.py
 
-      - name: Compare CSV VIX with FRED VIXCLS (dry run)
+      - name: Compare CSV FRED columns with FRED API (dry run)
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY || vars.FRED_API_KEY }}
-        run: python scripts/resync_fred.py --columns vix --dry-run
+        run: python scripts/resync_fred.py --all-fred --dry-run
 
   # 공공데이터포털 금융위원회 API(기업기본정보·기업 재무정보) 점검 — 키 인식, 응답 필드, 사업자등록번호 검색 가능 여부.
   fsc-api-check:

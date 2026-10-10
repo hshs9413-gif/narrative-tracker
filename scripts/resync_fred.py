@@ -52,10 +52,15 @@ def compare(rows, column, fred):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--columns", required=True, type=lambda v: [c for c in v.split(",") if c])
+    ap.add_argument("--columns", type=lambda v: [c for c in v.split(",") if c], default=[])
+    ap.add_argument("--all-fred", action="store_true", help="FDR_SYMBOLS의 FRED 컬럼 전부")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--csv", default=OUT_PATH)
     args = ap.parse_args()
+    if args.all_fred:
+        args.columns = [c for c, sym in FDR_SYMBOLS.items() if sym.startswith("FRED:")]
+    if not args.columns:
+        ap.error("--columns 또는 --all-fred가 필요합니다")
 
     if not fred_api.api_key():
         sys.exit("[ERROR] FRED_API_KEY가 없습니다.")
@@ -69,6 +74,7 @@ def main():
     start = datetime.date.fromisoformat(rows[0]["date"])
     end = datetime.date.today()
     total_changes = 0
+    summaries = []
     for column in args.columns:
         symbol = FDR_SYMBOLS.get(column, "")
         if not symbol.startswith("FRED:"):
@@ -83,13 +89,16 @@ def main():
                f"일치 {stats['same']} · 값 다름 {stats['differ']} · 빈칸 채움 {stats['filled']} · "
                f"FRED에 없는 날 값 {stats['cleared']}" + (f"\n예: {sample}" if sample else ""))
         print(msg)
-        notice(f"resync-{column}", ("[dry-run] " if args.dry_run else "") + msg)
+        summaries.append(msg if len(args.columns) == 1 else msg.split("\n")[0])
         if not args.dry_run:
             for d, _, new in changes:
                 for r in rows:
                     if r["date"] == d:
                         r[column] = "" if new == "" else str(float(new))
                         break
+
+    # 주석은 단계당 개수 제한이 있어 한 건으로 모은다
+    notice("resync-fred", ("[dry-run] " if args.dry_run else "") + "\n".join(summaries))
 
     if args.dry_run or not total_changes:
         print("[INFO] 파일을 쓰지 않았습니다." if args.dry_run else "[INFO] 바꿀 값이 없습니다.")

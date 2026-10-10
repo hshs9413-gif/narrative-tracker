@@ -32,7 +32,7 @@ const WEEKLY = 10; // 주간(H.10 등) 지표
 const DEFINITIONS = {
   vix: {
     label: "VIX", value: col("vix"), format: (v) => v.toFixed(1), staleAfterDays: DAILY,
-    description: "CBOE 변동성지수 (FRED: VIXCLS)", jump: { kind: "pct", threshold: 40 },
+    description: "CBOE 변동성지수 종가 (FRED: VIXCLS). FRED는 미국 장 마감 다음 날 밤(한국시간 22~23시)에 반영 — 그 전에는 하루 전 종가", jump: { kind: "pct", threshold: 40 },
   },
   fedrate: {
     label: "연준 기준금리", value: col("fedrate"), format: pct2, stepped: true, staleAfterDays: DAILY,

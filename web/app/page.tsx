@@ -5,6 +5,7 @@ import { NarrativeSections } from "@/components/dashboard/narrative/NarrativeSec
 import { MarketIndicatorsChart } from "@/components/dashboard/charts/MarketIndicatorsChart";
 import { LiquidityCard } from "@/components/dashboard/liquidity/LiquidityCard";
 import { FredSourcesTable } from "@/components/dashboard/sources/FredSourcesTable";
+import { CompanyFinancials } from "@/components/dashboard/financials/CompanyFinancials";
 import { Section } from "@/components/dashboard/Section";
 
 // 섹션 구성·순서는 기존 docs/index.html을 따르고, 레짐 카드·데이터 상태 안내가 더해졌다.
@@ -43,6 +44,14 @@ export default function Home() {
         note="FRED 시리즈는 FRED_API_KEY가 있으면 공식 API로, 없거나 실패하면 FinanceDataReader(fredgraph.csv)로 받습니다. 어느 경로든 값은 같은 FRED 원본입니다. 금(GC=F)·DXY(ICE)·원유 선물·원/달러·KOSPI는 FRED가 아닌 시장 데이터라 이 표에 없습니다."
       >
         <FredSourcesTable />
+      </Section>
+
+      <Section
+        id="financials"
+        title="기업 재무 — 금융위원회 기업 재무정보"
+        note="금융위원회_기업 재무정보(공공데이터포털) 연간 자료입니다. 분기 실적은 없고, 사업보고서가 반영된 뒤 갱신됩니다. 사업자등록번호로 추가하려면 '금융위원회_기업기본정보' API 활용신청이 함께 필요합니다."
+      >
+        <CompanyFinancials />
       </Section>
     </>
   );

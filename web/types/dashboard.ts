@@ -217,3 +217,63 @@ export interface FredCatalog {
   api_key_status?: "ok" | "missing" | "malformed";
   series: FredCatalogEntry[];
 }
+
+// ────────────────────── financials/*.json ──────────────────────
+// scripts/collect_financials.py 출력 — 금융위원회_기업 재무정보 API. 금액은 원(KRW), debt_ratio는 %.
+
+export interface FinancialsIndexEntry {
+  crno: string;
+  bzno: string | null;
+  name: string;
+  years: [string, string];
+  fetched_at?: string;
+}
+
+export interface FinancialsIndex {
+  generated_at: string;
+  companies: FinancialsIndexEntry[];
+}
+
+export interface SummaryRow {
+  year: string;
+  /** "연결" | "별도" (그 밖이면 원문 이름) */
+  basis: string;
+  basis_name: string | null;
+  as_of: string | null;
+  currency: string | null;
+  revenue: number | null;
+  operating_income: number | null;
+  net_income: number | null;
+  comprehensive_income: number | null;
+  assets: number | null;
+  liabilities: number | null;
+  equity: number | null;
+  capital: number | null;
+  debt_ratio: number | null;
+}
+
+export interface AccountRow {
+  basis: string;
+  account_id: string | null;
+  account: string | null;
+  current: number | null;
+  previous: number | null;
+  before_previous: number | null;
+}
+
+export interface StatementBlock {
+  year: string;
+  items: AccountRow[];
+  error?: string;
+}
+
+export interface CompanyFinancials {
+  crno: string;
+  bzno: string | null;
+  name: string;
+  fetched_at: string;
+  source: string;
+  summary: SummaryRow[];
+  balance_sheet: StatementBlock;
+  income_statement: StatementBlock;
+}
