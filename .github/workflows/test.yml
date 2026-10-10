@@ -7,6 +7,7 @@ on:
       - "scripts/**"
       - "tests/**"
       - "requirements.txt"
+      - ".github/workflows/test.yml"
   push:
     branches: [main]
     paths:
@@ -93,3 +94,12 @@ jobs:
           C_DATA_KEY: ${{ secrets.DATA_KEY || vars.DATA_KEY }}
           C_API_KEY: ${{ secrets.API_KEY || vars.API_KEY }}
         run: python scripts/fsc_check.py
+
+      # Apps Script 프록시(scripts/fsc_proxy.gs) 로직: 단위 테스트 + 실제 API로 한 번 돌려 보기
+      - name: Test Apps Script proxy
+        run: node --test tests/gas/fsc_proxy.test.mjs
+
+      - name: Live-check Apps Script proxy logic
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY || vars.DATA_GO_KR_KEY }}
+        run: node tests/gas/live_check.mjs
