@@ -1,6 +1,6 @@
 import type { AttentionRow, MarketSnapshotRow, NarrativeEvent, NarrativeLayer } from "@/types/dashboard";
 
-// 기존 docs/index.html의 계산 그대로 — 영향은 전체 지표가 아니라 트리거일 전후 변동으로 이벤트마다 낸다.
+// 기존 docs/index.html의 계산을 따르되(영향은 전체 지표가 아니라 트리거일 전후 변동으로 이벤트마다 낸다), 시장영향의 기준·종료 시점은 자산별 관측일로 잡는다(아래 computeImpact).
 
 const DAY_MS = 86_400_000;
 
@@ -49,31 +49,38 @@ export interface NarrativeMetrics {
 export const toDate = (iso: string) => new Date(`${iso.slice(0, 10)}T00:00:00Z`);
 export const dayDiff = (a: Date, b: Date) => Math.round((b.getTime() - a.getTime()) / DAY_MS);
 
-/** 기준일에 가장 가까운 행 — 10일 넘게 떨어지면 무효(-1). */
-function rowIndexNear(rows: MarketSnapshotRow[], iso: string): number {
-  const t = toDate(iso).getTime();
-  let best = -1;
-  let bestGap = Infinity;
-  rows.forEach((r, i) => {
-    const gap = Math.abs(toDate(r.date).getTime() - t);
-    if (gap < bestGap) {
-      bestGap = gap;
-      best = i;
-    }
-  });
-  return bestGap <= 10 * DAY_MS ? best : -1;
-}
+/** 트리거일 전후로 이 일수를 넘게 떨어진 관측은 '그 시점 값'으로 인정하지 않는다 (데이터 공백 방어). */
+const MAX_GAP_DAYS = 10;
+/** 트리거 이후 몇 번째 관측까지를 반응 구간으로 볼지 — 노트의 'T+5'. */
+const AFTER_OBSERVATIONS = 5;
 
-/** 트리거 직전 행 → 5행 뒤 변동률. */
+/**
+ * 자산별로 '값이 있는 관측일'만 놓고 계산한다: 트리거일 직전 마지막 관측(T-1) → 트리거일 이후 첫 관측(T)에서
+ * 5번째 뒤 관측(T+5)의 변동률.
+ *
+ * 예전에는 '트리거일에 가장 가까운 행의 인덱스 ±'로 계산했는데, CSV에는 월말 주말처럼 VIX·금·WTI가 비어 있는 행이
+ * 끼어 있어서 직전 행이 그런 행이면 영향이 통째로 사라지고(연준 정치화·AI 밸류에이션이 '측정중'), 주말 트리거(이란 전쟁·
+ * 하마스)는 기준일이 하루씩 어긋났다. 평일 트리거는 두 방식의 결과가 같다.
+ */
 function computeImpact(rows: MarketSnapshotRow[], iso: string): Impact | null {
-  const i = rowIndexNear(rows, iso);
-  if (i < 1) return null;
-  const before = rows[i - 1];
-  const after = rows[Math.min(i + 5, rows.length - 1)];
+  const trigger = toDate(iso).getTime();
   const moves = IMPACT_ASSETS.flatMap(([col, label]) => {
-    const a = before[col];
-    const b = after[col];
-    return a === null || b === null || a === 0 ? [] : [{ label, pct: (b / a - 1) * 100 }];
+    let base: { value: number; at: number } | null = null;
+    const after: { value: number; at: number }[] = [];
+    for (const row of rows) {
+      const value = row[col];
+      if (value === null) continue;
+      const at = toDate(row.date).getTime();
+      if (at < trigger) base = { value, at };
+      else {
+        after.push({ value, at });
+        if (after.length > AFTER_OBSERVATIONS) break;
+      }
+    }
+    if (!base || base.value === 0 || after.length < 2) return [];
+    if (trigger - base.at > MAX_GAP_DAYS * DAY_MS || after[0].at - trigger > MAX_GAP_DAYS * DAY_MS) return [];
+    const end = after[Math.min(AFTER_OBSERVATIONS, after.length - 1)]; // 아직 T+5까지 안 쌓였으면 가장 최근 관측
+    return [{ label, pct: (end.value / base.value - 1) * 100 }];
   });
   if (!moves.length) return null;
   moves.sort((x, y) => Math.abs(y.pct) - Math.abs(x.pct));
