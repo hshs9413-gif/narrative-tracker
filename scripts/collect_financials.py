@@ -9,14 +9,16 @@
 
 번호 → 기업 식별
   - 재무정보 API는 법인등록번호(crno)로만 조회된다.
-  - 사업자등록번호(bzno)는 기업기본정보 API(getCorpOutline_V2)로 법인등록번호를 찾는다. 이 API는 공식 문서상
-    법인등록번호·회사명으로 검색하므로, bzno로 바로 안 찾아지면 회사명(--name)으로 검색한 결과에서 bzno가 같은 것을 고른다.
+  - 사업자등록번호(bzno)는 기업기본정보 API(getCorpOutline_V2)로 법인등록번호를 찾는다. 공식 문서의 검색 조건은
+    법인등록번호·회사명뿐이지만 bzno 조건도 실제로 걸러진다(2026-10-10 확인). 혹시 안 걸리면 회사명(--name)으로 검색한
+    결과에서 bzno가 같은 것을 고른다.
   - 기업기본정보 API는 공공데이터포털에서 '금융위원회_기업기본정보'를 따로 활용신청해야 한다 (같은 인증키 사용).
     신청 전에는 법인등록번호로만 추가할 수 있고, 회사명은 --name 또는 번호로 표시된다.
 
 출력
   docs/data/financials/index.json        목록 (회사명·법인번호·사업자번호·연도 범위·갱신 시각)
-  docs/data/financials/<법인번호>.json    요약재무제표(연도별·연결/별도) + 최신 연도 재무상태표·손익계산서 계정
+  docs/data/financials/<법인번호>.json    기업 개요(대표자·설립일·업종·주소 등) + 요약재무제표(연도별·연결/별도)
+                                          + 최신 연도 재무상태표·손익계산서 계정
 
 키: 환경변수 DATA_GO_KR_KEY (저장소 Secret). 의존성: requests
 """
@@ -100,7 +102,8 @@ def resolve(number, name=None):
         except FscError as e:
             fsc_api.log(f"[WARN] 기업기본정보 조회 실패({e}) — 법인등록번호만으로 진행")
             items = []
-        match = next((i for i in items if digits(i.get("crno")) == d), None)
+        matches = [i for i in items if digits(i.get("crno")) == d]
+        match = latest_outline(matches) if matches else None
         if match:
             info["bzno"] = digits(match.get("bzno")) or None
             info["name"] = name or match.get("corpNm")
@@ -113,11 +116,11 @@ def resolve(number, name=None):
             items = outline_by({"bzno": d})
         except FscError as e:
             raise FscError(f"사업자등록번호로 찾으려면 '금융위원회_기업기본정보' 활용신청이 필요합니다 ({e})") from None
-        match = next((i for i in items if digits(i.get("bzno")) == d), None)
+        hits = [i for i in items if digits(i.get("bzno")) == d]
         # 2) 회사명으로 검색해 bzno가 같은 것
-        if not match and name:
-            items = outline_by({"corpNm": name})
-            match = next((i for i in items if digits(i.get("bzno")) == d), None)
+        if not hits and name:
+            hits = [i for i in outline_by({"corpNm": name}) if digits(i.get("bzno")) == d]
+        match = latest_outline(hits) if hits else None
         if not match:
             hint = "" if name else " — 회사명(name)도 함께 입력해 다시 실행하세요"
             raise FscError(f"사업자등록번호 {fsc_api.fmt_bzno(d)}에 해당하는 법인을 찾지 못했습니다{hint}")
@@ -161,6 +164,51 @@ def fetch_accounts(operation, crno, year):
     ]
 
 
+# 기업기본정보(getCorpOutline_V2) 응답 → 화면에 보일 기업 개요 (2026-10-10 실제 응답 필드로 확인)
+PROFILE_FIELDS = {
+    "corpNm": "name",
+    "enpRprFnm": "ceo",               # 대표자
+    "enpEstbDt": "established",       # 설립일 YYYYMMDD
+    "corpDcdNm": "corp_type",         # 법인구분
+    "sicNm": "industry",              # 표준산업분류명
+    "enpMainBizNm": "main_business",  # 주요사업
+    "enpBsadr": "address",            # 기본주소
+    "enpDtadr": "address_detail",     # 상세주소
+    "enpHmpgUrl": "homepage",
+    "enpTlno": "phone",
+    "enpEmpeCnt": "employees",
+    "corpRegMrktDcdNm": "market",     # 법인등록시장구분 (유가증권·코스닥·기타 등)
+    "enpKrxLstgDt": "krx_listed",     # 유가증권시장 상장일
+    "enpKosdaqLstgDt": "kosdaq_listed",
+    "smenpYn": "sme",                 # 중소기업 여부
+    "enpStacMm": "fiscal_month",      # 결산월
+    "actnAudpnNm": "auditor",         # 감사인
+    "audtRptOpnnCtt": "audit_opinion",  # 감사의견
+    "fssCorpChgDtm": "changed_at",
+}
+
+
+def latest_outline(items):
+    """같은 법인이 여러 행(변경 이력)으로 오면 가장 최근 변경분."""
+    return max(items, key=lambda i: (str(i.get("fssCorpChgDtm") or ""), str(i.get("lastOpegDt") or "")))
+
+
+def fetch_profile(crno):
+    try:
+        items = [i for i in outline_by({"crno": crno}) if digits(i.get("crno")) == crno]
+    except FscError as e:
+        fsc_api.log(f"[WARN] 기업기본정보 조회 실패({e}) — 개요 없이 진행")
+        return None
+    if not items:
+        return None
+    row = latest_outline(items)
+    profile = {dst: (row.get(src) or None) for src, dst in PROFILE_FIELDS.items()}
+    profile["bzno"] = digits(row.get("bzno")) or None
+    if profile.get("employees") is not None:
+        profile["employees"] = to_number(profile["employees"])
+    return profile
+
+
 def collect(company):
     crno = company["crno"]
     summary = fetch_summary(crno)
@@ -174,10 +222,15 @@ def collect(company):
         except FscError as e:
             fsc_api.log(f"[WARN] {company.get('name') or crno} {op} 실패: {e}")
             statements[key] = {"year": latest, "items": [], "error": str(e)}
+    profile = fetch_profile(crno)
+    if profile:  # 목록에 사업자번호·회사명이 비어 있으면 기업기본정보로 채운다
+        company["bzno"] = company.get("bzno") or profile.get("bzno")
+        company["name"] = company.get("name") or profile.get("name")
     return {
         "crno": crno,
         "bzno": company.get("bzno"),
         "name": company.get("name") or f"법인 {fsc_api.fmt_crno(crno)}",
+        "profile": profile,
         "fetched_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
         "source": "금융위원회_기업 재무정보 (공공데이터포털 GetFinaStatInfoService_V2)",
         "summary": summary,

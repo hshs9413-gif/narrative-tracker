@@ -267,10 +267,35 @@ export interface StatementBlock {
   error?: string;
 }
 
+/** 금융위원회_기업기본정보(getCorpOutline_V2) 중 화면에 쓰는 항목 — 기업기본정보 활용신청 전 수집분은 null */
+export interface CompanyProfile {
+  name: string | null;
+  bzno: string | null;
+  ceo: string | null;
+  established: string | null; // YYYYMMDD
+  corp_type: string | null;
+  industry: string | null;
+  main_business: string | null;
+  address: string | null;
+  address_detail: string | null;
+  homepage: string | null;
+  phone: string | null;
+  employees: number | null;
+  market: string | null;
+  krx_listed: string | null;
+  kosdaq_listed: string | null;
+  sme: string | null;
+  fiscal_month: string | null;
+  auditor: string | null;
+  audit_opinion: string | null;
+  changed_at: string | null;
+}
+
 export interface CompanyFinancials {
   crno: string;
   bzno: string | null;
   name: string;
+  profile?: CompanyProfile | null;
   fetched_at: string;
   source: string;
   summary: SummaryRow[];
