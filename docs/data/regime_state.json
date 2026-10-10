@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T01:51:59.053231+00:00",
+  "generated_at": "2026-10-10T03:56:57.926006+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -56,5 +56,17 @@
       "정책 긴축기조"
     ],
     "note": "이건 확률이 아니라 규정기반 감점 점수입니다."
+  },
+  "report_crosscheck": {
+    "wti_front_4w": {
+      "status": "no_data"
+    },
+    "breakeven_3m": {
+      "value": 2.33,
+      "as_of": "2026-10-09",
+      "window_days": 28,
+      "lookback_days": 91,
+      "change": 0.11
+    }
   }
 }

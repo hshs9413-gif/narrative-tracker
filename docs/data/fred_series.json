@@ -1,158 +1,158 @@
 {
-  "generated_at": "2026-10-10T01:23:32+00:00",
+  "generated_at": "2026-10-10T03:56:57+00:00",
   "api_key_configured": false,
   "series": [
     {
       "column": "vix",
       "id": "VIXCLS",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "dxy_broad",
       "id": "DTWEXBGS",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "wti",
       "id": "DCOILWTICO",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "us10y",
       "id": "DGS10",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "fedrate",
       "id": "DFEDTARU",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "us2y",
       "id": "DGS2",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "hy_oas",
       "id": "BAMLH0A0HYM2",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "breakeven10y",
       "id": "T10YIE",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "nfci",
       "id": "NFCI",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "stlfsi4",
       "id": "STLFSI4",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "usdkrw_fred",
       "id": "DEXKOUS",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "us30y",
       "id": "DGS30",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "real10y",
       "id": "DFII10",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "term_premium10y",
       "id": "THREEFYTP10",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "ig_oas",
       "id": "BAMLC0A0CM",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "ccc_oas",
       "id": "BAMLH0A3HYC",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "sofr",
       "id": "SOFR",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "iorb",
       "id": "IORB",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "fed_assets",
       "id": "WALCL",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "reserves",
       "id": "WRESBAL",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "rrp",
       "id": "RRPONTSYD",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     },
     {
       "column": "tga",
       "id": "WTREGEN",
-      "via": null,
+      "via": "fdr",
       "meta": null,
       "meta_fetched_at": null
     }
