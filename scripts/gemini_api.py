@@ -86,25 +86,32 @@ def candidates(session=None, extra=2):
     return list(dict.fromkeys(m for m in first + PREFERRED_MODELS + listed[:extra] if m))[:5]
 
 
-def _body(prompt, search, max_tokens, thinking_off):
+def _body(prompt, search, max_tokens, thinking):
+    """thinking = 생각(추론) 토큰 예산. None이면 설정을 넣지 않아 모델 기본값을 쓴다.
+    생각 토큰은 maxOutputTokens 안에서 쓰이므로, 예산을 주면 출력 상한도 그만큼 키워야 본문이 잘리지 않는다."""
     gen = {"temperature": 0.2, "maxOutputTokens": max_tokens}
-    if thinking_off:
-        gen["thinkingConfig"] = {"thinkingBudget": 0}
+    if thinking is not None:
+        gen["thinkingConfig"] = {"thinkingBudget": thinking}
     body = {"contents": [{"parts": [{"text": prompt}]}], "generationConfig": gen}
     if search:
         body["tools"] = [{"google_search": {}}]  # 검색 도구는 다른 도구와 같이 못 씀
     return body
 
 
-def generate(prompt, search=False, max_tokens=8192, session=None, models=None, retries=1, json_mode=False):
-    """첫 번째로 성공한 모델의 결과를 돌려준다: {model, text, sources[{title, uri}], queries[]}"""
+def generate(prompt, search=False, max_tokens=8192, session=None, models=None, retries=1, json_mode=False,
+             thinking_budget=0):
+    """첫 번째로 성공한 모델의 결과를 돌려준다: {model, text, sources, queries, finish, usage}
+
+    thinking_budget: 0 = 생각 끔(빠르고 싸다), 양수 = 그만큼 추론 후 답, None = 모델 기본값.
+    모델이 thinkingConfig를 거부(400)하면 설정 없이 한 번 더 시도한다."""
     s = session or requests
     errors = []
     for model in models or candidates(session):
-        for thinking_off in (True, False):  # thinkingConfig를 거부하는 모델 대비
+        for thinking in dict.fromkeys((thinking_budget, None)):  # thinkingConfig를 거부하는 모델 대비
+            resp = None
             for attempt in range(retries + 1):
                 try:
-                    body = _body(prompt, search, max_tokens, thinking_off)
+                    body = _body(prompt, search, max_tokens + (thinking or 0), thinking)
                     if json_mode and not search:  # 검색 도구와는 같이 못 씀
                         body["generationConfig"]["responseMimeType"] = "application/json"
                     resp = s.post(f"{BASE}/models/{model}:generateContent", headers=_headers(),
@@ -118,10 +125,8 @@ def generate(prompt, search=False, max_tokens=8192, session=None, models=None, r
                 if resp.status_code in (429, 500, 503) and attempt < retries:
                     time.sleep(15 * (attempt + 1))
                     continue
-                errors.append(f"{model}{'' if thinking_off else '(thinking 기본)'}: HTTP {resp.status_code} {_scrub(_err_msg(resp))[:140]}")
+                errors.append(f"{model}(thinking {thinking}): HTTP {resp.status_code} {_scrub(_err_msg(resp))[:140]}")
                 break
-            else:
-                continue
             if resp is not None and resp.status_code in (401, 403):
                 raise GeminiError("키가 거부됨 (HTTP %d) — GEMINI_API_KEY 확인" % resp.status_code)
             if resp is None or resp.status_code != 400:
@@ -145,8 +150,18 @@ def _parse(model, data):
         web = ch.get("web") or {}
         if web.get("uri"):
             sources.append({"title": web.get("title") or "", "uri": web["uri"]})
+    u = data.get("usageMetadata") or {}
+    usage = {"prompt": u.get("promptTokenCount"), "output": u.get("candidatesTokenCount"),
+             "thoughts": u.get("thoughtsTokenCount") or 0, "total": u.get("totalTokenCount")}
     return {"model": model, "text": text, "sources": sources, "queries": meta.get("webSearchQueries") or [],
-            "finish": cand.get("finishReason")}
+            "finish": cand.get("finishReason"), "usage": usage}
+
+
+def usage_line(r):
+    """'입력 9,812 · 생각 3,104 · 출력 1,206 토큰 (STOP)' — 실행 요약에 남기는 한 줄"""
+    u = r.get("usage") or {}
+    f = lambda v: f"{v:,}" if isinstance(v, int) else "?"
+    return f"입력 {f(u.get('prompt'))} · 생각 {f(u.get('thoughts'))} · 출력 {f(u.get('output'))} 토큰 ({r.get('finish')})"
 
 
 def extract_json(text):
