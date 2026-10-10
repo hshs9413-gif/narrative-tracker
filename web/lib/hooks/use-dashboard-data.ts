@@ -2,10 +2,10 @@
 
 import { useMemo } from "react";
 import { useStaticData } from "./use-static-data";
-import { parseAttentionCsv, parseMarketSnapshotCsv } from "@/lib/csv";
+import { parseAttentionCsv, parseMarketSnapshotCsv, parseRegimeLogCsv } from "@/lib/csv";
 import { computeMetrics } from "@/lib/narrative-metrics";
 import type {
-  AppConfig, AttentionRow, FredCatalog, MarketSnapshotRow, NarrativeEvent, RegimeState,
+  AppConfig, AttentionRow, FredCatalog, MarketSnapshotRow, NarrativeEvent, NarrativeLogEntry, RegimeLogRow, RegimeState,
 } from "@/types/dashboard";
 
 // parse 함수는 모듈 레벨에 둬야 useEffect 의존성이 렌더마다 바뀌지 않는다.
@@ -16,6 +16,8 @@ const parseMarket = (res: Response) => res.text().then(parseMarketSnapshotCsv);
 const parseAttention = (res: Response) => res.text().then(parseAttentionCsv);
 const parseFredCatalog = (res: Response) => json<FredCatalog>(res);
 const parseAppConfig = (res: Response) => json<AppConfig>(res);
+const parseRegimeLog = (res: Response) => res.text().then(parseRegimeLogCsv);
+const parseNarrativeLog = (res: Response) => json<NarrativeLogEntry[]>(res);
 
 export const useRegimeState = () => useStaticData<RegimeState>("data/regime_state.json", parseRegime);
 export const useNarrativeEvents = () => useStaticData<NarrativeEvent[]>("data/events.json", parseEvents);
@@ -25,6 +27,9 @@ export const useAttention = () => useStaticData<AttentionRow[]>("data/attention.
 export const useFredCatalog = () => useStaticData<FredCatalog>("data/fred_series.json", parseFredCatalog);
 // 화면 설정 — 기업 재무 실시간 조회용 Apps Script 웹 앱 주소 등 (공개 값만)
 export const useAppConfig = () => useStaticData<AppConfig>("data/app_config.json", parseAppConfig);
+export const useRegimeLog = () => useStaticData<RegimeLogRow[]>("data/regime_log.csv", parseRegimeLog);
+// Gemini·규칙·검증이 내러티브 목록을 바꾼 기록 — 파일이 아직 없으면(첫 실행 전) 빈 기록으로 본다
+export const useNarrativeLog = () => useStaticData<NarrativeLogEntry[]>("data/narrative_log.json", parseNarrativeLog);
 
 // 시장·언급량 파일이 없어도 이벤트만 있으면 계산한다 (해당 칸만 '측정중') — 기존 대시보드와 동일.
 export function useNarrativeMetrics() {

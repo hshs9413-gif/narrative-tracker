@@ -18,7 +18,8 @@ export interface RegimeState {
   credit_stress: CreditStress;
   policy_stance: PolicyStance;
   cross_check: CrossCheck;
-  composite_score?: CompositeScore; // 화면에서는 쓰지 않는다 (compute_regime.py는 계속 기록)
+  composite_score?: CompositeScore; // 규정기반 감점 점수 — 확률 아님
+  kospi_vol?: KospiVol; // 2026-10-11 추가 — 국내 변동성 축
   report_crosscheck?: ReportCrossCheck; // 외부 리포트 물가축과 맞춰 볼 입력값 — 판정에는 안 쓰는 출력 전용
 }
 
@@ -37,6 +38,9 @@ export interface CreditStress {
   label: string; // "평상" | "경계" | "경색" | "시스템위기" | "미확인"
   reason?: string;
   level_index?: 0 | 1 | 2 | 3;
+  since?: string; // 확정 레벨이 시작된 날 (3일 확인 규칙)
+  raw_label?: string; // 오늘 값만으로 본 라벨 — 확정 라벨과 다르면 전환 대기 중
+  confirm_days?: number;
   detail?: {
     hy_oas_pct: IndicatorReading | { status: "no_data" };
     vix_level: IndicatorReading | { status: "no_data" };
@@ -76,6 +80,33 @@ export interface ReportCrossCheck {
   breakeven_3m: NoData | {
     value: number; as_of: string; window_days: number; lookback_days: number; change: number;
   };
+}
+
+export interface KospiVol {
+  label: string; // "평상" | "경계" | "고변동" | "극단" | "미확인"
+  reason?: string;
+  level_index?: 0 | 1 | 2 | 3;
+  rv20?: number; // 코스피 20거래일 실현변동성(연율, %)
+  as_of?: string;
+  value?: number;
+}
+
+/** regime_log.csv 한 줄 — 판정 기록 (숫자 칸은 문자열 그대로) */
+export type RegimeLogRow = Record<string, string>;
+
+/** narrative_log.json — 내러티브 목록 변경 기록 (Gemini·규칙·검증) */
+export interface NarrativeLogEntry {
+  date: string;
+  by: "gemini" | "rule" | "claude" | "human";
+  model?: string;
+  kind: "update" | "new" | "pmi" | "summary";
+  status: "applied" | "rejected" | "info";
+  event_id?: string | null;
+  name?: string | null;
+  changes?: Record<string, [unknown, unknown]>;
+  reason?: string;
+  reject_reason?: string;
+  evidence?: { title: string; source: string; date: string; url: string }[];
 }
 
 export interface CompositeScore {
@@ -123,7 +154,11 @@ export interface NarrativeEvent {
   keywords: string[];
   reignition_triggers: string[];
   notes: string;
-  last_auto?: { date: string; change: string };
+  last_auto?: { date: string; change: string } | null;
+  last_review?: { date: string; by: string };
+  auto_lock?: boolean;
+  added_by?: string;
+  added_on?: string;
 }
 
 // ────────────────────── attention.csv ──────────────────────

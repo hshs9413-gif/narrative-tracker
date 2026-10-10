@@ -1,12 +1,13 @@
 import type { ReactNode } from "react";
 
-// 카드 묶음 위에 붙는 섹션 제목 — id는 사이드바 메뉴·스크롤 스파이와 연결된다.
-export function Section({ id, title, note, children }: { id: string; title: string; note?: ReactNode; children: ReactNode }) {
+// 브리핑 아래 깊은 섹션 — 제목, 한두 문장 안내(lede), 본문, 덧붙임(note). id는 목차·스크롤 스파이와 연결된다.
+export function Section({ id, title, lede, note, children }: { id: string; title: string; lede?: ReactNode; note?: ReactNode; children: ReactNode }) {
   return (
-    <section id={id}>
-      <h2 className="nt-section-title">{title}</h2>
+    <section id={id} className="nt-block">
+      <h2 className="nt-h2">{title}</h2>
+      {lede && <p className="nt-lede">{lede}</p>}
       {children}
-      {note && <p className="small text-body-secondary mt-3 mb-0">{note}</p>}
+      {note && <p className="nt-note">{note}</p>}
     </section>
   );
 }
