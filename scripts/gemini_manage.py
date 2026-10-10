@@ -147,7 +147,7 @@ def gather_headlines(events, session=None):
     for e in events:
         if e.get("status") == "ended" or not e.get("keywords"):
             continue
-        add(e["id"], news_feed.headlines(news_feed.or_query(e["keywords"]), "ko", days=7, limit=6, session=session))
+        add(e["id"], news_feed.headlines(news_feed.or_query(e["keywords"]), "ko", days=7, limit=8, session=session))
     for kw in rising_watchlist():
         add(f"watch:{kw['id']}", news_feed.headlines(kw["query"], "en", days=7, limit=5, session=session))
     add("market:ko", news_feed.headlines("증시 OR 환율 OR 국채금리 OR 유가", "ko", days=3, limit=10, session=session))
@@ -257,9 +257,13 @@ def check_update(u, events_by_id, heads, cooled, today):
         return None, "끝난 내러티브는 바꾸지 않음"
     if e.get("auto_lock"):
         return None, "auto_lock으로 잠김"
-    if eid in cooled:
-        return None, f"최근 {COOLDOWN_DAYS}일 안에 이미 바꿈"
     ev, n_src = _evidence(u.get("evidence"), heads)
+    if eid in cooled:
+        # 쿨다운 중엔 상태·단계·강도·검색어는 그대로 두고, 새로 확인된 사실 메모만 받는다
+        note = (u.get("notes_append") or "").strip()
+        if note and ev:
+            return {"change": {"notes_append": note[:NOTE_MAX]}, "evidence": ev}, None
+        return None, f"최근 {COOLDOWN_DAYS}일 안에 이미 바꿈"
     if not ev:
         return None, "근거 기사 없음"
     change = {}
