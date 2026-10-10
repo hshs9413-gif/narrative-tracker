@@ -65,7 +65,12 @@ def load_json(path, default):
         return default
 
 
+DRY_RUN = os.environ.get("GEMINI_DRY_RUN") == "1"  # PR 점검용 — 제안·검사 결과만 출력하고 파일은 안 씀
+
+
 def save_json(path, data):
+    if DRY_RUN:
+        return
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
@@ -451,7 +456,7 @@ def main():
     except gemini_api.GeminiError as e:
         print(f"::warning title=Gemini 내러티브 관리 실패::{e}")
 
-    if pmi_due(manual, today):
+    if pmi_due(manual, today) or os.environ.get("GEMINI_FORCE_PMI") == "1":
         pmi_heads = {f"h{i + 1}": {**a, "group": "pmi"} for i, a in enumerate(
             news_feed.headlines("ISM manufacturing PMI", "en", days=10, limit=10)
             + news_feed.headlines("ISM 제조업 PMI", "ko", days=10, limit=5))}
@@ -480,7 +485,10 @@ def main():
     detail = "%0A".join(
         [f"반영 · {x.get('event_id') or x.get('kind')}: {x.get('changes') or x.get('name') or ''}" for x in applied]
         + [f"거절 · {x.get('event_id') or x.get('kind')}: {x.get('reject_reason')}" for x in rejected])
-    print(f"::notice title=Gemini 관리::{' · '.join(notes) or '호출 없음'}" + (f"%0A{detail}" if detail else ""))
+    title = "Gemini 관리 (dry-run, 파일 안 씀)" if DRY_RUN else "Gemini 관리"
+    summary = next((x["reason"] for x in new_entries if x.get("kind") == "summary"), "")
+    print(f"::notice title={title}::{' · '.join(notes) or '호출 없음'}" + (f"%0A요약: {summary}" if summary else "")
+          + (f"%0A{detail}" if detail else ""))
 
 
 if __name__ == "__main__":
