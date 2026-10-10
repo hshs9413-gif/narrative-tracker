@@ -1,47 +1,39 @@
 import type { ReactNode } from "react";
-import { LAYER_COLOR, LAYER_LABEL, PHASE_LABEL } from "@/lib/formatters";
+import { CBadge, CProgress } from "@coreui/react";
+import { LAYER_COLOR, LAYER_COLOR_NAME, LAYER_LABEL, PHASE_LABEL } from "@/lib/formatters";
 import type { Impact, NarrativeMetrics, Quadrant } from "@/lib/narrative-metrics";
 
-// 기존 대시보드의 '지속기간 · 시장영향 매트릭스' — 넓은 화면은 표, 모바일은 카드처럼 쌓인다.
-
-const COLS = "md:grid md:grid-cols-[1.5fr_1.3fr_1.4fr_1fr_1fr] md:gap-4";
-const ARCHIVE_COLS = "md:grid md:grid-cols-[1.5fr_1.3fr_1.4fr] md:gap-4";
+// 기존 대시보드의 '지속기간 · 시장영향 매트릭스' — 넓은 화면은 표처럼, 좁은 화면은 항목마다 라벨이 붙은 카드처럼 쌓인다.
+// 표(table) 대신 그리드를 쓰는 이유: 이름 열이 좁은 화면에서 글자 단위로 찌그러지는 것을 막기 위해서다.
 
 const QUADRANT_TAG: Partial<Record<Quadrant, string>> = {
-  "지배 내러티브": "bg-layer-political/20 text-signal-hot",
-  "소음 (이미 반영)": "bg-text-muted/15 text-text-muted",
-  "저평가 리스크": "bg-layer-structural/20 text-signal-warm",
+  "지배 내러티브": "bg-danger-subtle text-danger-emphasis",
+  "소음 (이미 반영)": "bg-secondary-subtle text-secondary-emphasis",
+  "저평가 리스크": "bg-warning-subtle text-warning-emphasis",
 };
 
 const byImpact = (a: NarrativeMetrics, b: NarrativeMetrics) => (b.impact?.peak ?? 0) - (a.impact?.peak ?? 0);
 const signed = (v: number) => `${v >= 0 ? "+" : ""}${v.toFixed(1)}%`;
 
+/** 좁은 화면에서만 보이는 항목 라벨 */
 function Cell({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div>
-      <span className="mb-0.5 block text-[11px] text-text-muted md:hidden">{label}</span>
+    <div role="cell">
+      <span className="nt-cell-label">{label}</span>
       {children}
     </div>
-  );
-}
-
-function Bar({ width, color }: { width: number; color: string }) {
-  return (
-    <span className="relative mt-1.5 block h-1 rounded-sm bg-grid">
-      <i className="absolute inset-y-0 left-0 rounded-sm" style={{ width: `${Math.min(width, 100)}%`, background: color }} />
-    </span>
   );
 }
 
 function NameCell({ m, withPhase }: { m: NarrativeMetrics; withPhase?: boolean }) {
   const e = m.event;
   return (
-    <div>
-      <div className="font-semibold">
-        <span className="mr-1.5 inline-block h-[7px] w-[7px] rounded-full align-middle" style={{ background: LAYER_COLOR[e.layer] }} />
+    <div role="cell">
+      <div className="fw-semibold">
+        <span className="nt-dot" style={{ background: LAYER_COLOR[e.layer] }} />
         {e.name}
       </div>
-      <div className="text-[11px] text-text-muted">
+      <div className="small text-body-secondary">
         {LAYER_LABEL[e.layer]}
         {withPhase && e.phase ? ` · ${PHASE_LABEL[e.phase] ?? e.phase}` : ""}
       </div>
@@ -50,7 +42,7 @@ function NameCell({ m, withPhase }: { m: NarrativeMetrics; withPhase?: boolean }
 }
 
 function ImpactValue({ impact }: { impact: Impact }) {
-  return <span className="whitespace-nowrap font-mono tabular-nums">{signed(impact.top.pct)}</span>;
+  return <span className="text-nowrap tnum fw-semibold">{signed(impact.top.pct)}</span>;
 }
 
 export function NarrativeMatrix({ metrics }: { metrics: NarrativeMetrics[] }) {
@@ -58,90 +50,97 @@ export function NarrativeMatrix({ metrics }: { metrics: NarrativeMetrics[] }) {
   const archived = metrics.filter((m) => m.event.status === "ended").sort(byImpact);
 
   return (
-    <div className="rounded-xl border border-grid bg-surface px-4 py-3 text-[13px] sm:px-5">
+    <div className="nt-matrix">
       {live.length === 0 ? (
-        <p className="py-2 text-xs text-text-muted">활성·휴면 내러티브가 없습니다.</p>
+        <p className="text-body-secondary mb-0">활성·휴면 내러티브가 없습니다.</p>
       ) : (
-        <>
-          <div className={`hidden border-b border-grid pb-2 text-[11px] text-text-muted ${COLS}`}>
-            <span>내러티브</span><span>지속기간</span><span>시장영향 (트리거 전후 5일)</span><span>언급량</span><span>사분면</span>
+        <div role="table" aria-label="활성·휴면 내러티브의 지속기간과 시장영향">
+          <div className="nt-matrix-row nt-matrix-head small text-body-secondary" role="row">
+            <span role="columnheader">내러티브</span>
+            <span role="columnheader">지속기간</span>
+            <span role="columnheader">시장영향 (트리거 전후 5일)</span>
+            <span role="columnheader">언급량</span>
+            <span role="columnheader">사분면</span>
           </div>
           {live.map((m) => {
             const ratio = m.judgeSpan / m.typical;
             const longRun = ratio >= 1;
             const att = m.attention;
             return (
-              <div key={m.event.id} className={`space-y-2 border-b border-grid py-3 last:border-0 md:space-y-0 ${COLS}`}>
+              <div key={m.event.id} className="nt-matrix-row" role="row">
                 <NameCell m={m} withPhase />
                 <Cell label="지속기간">
-                  <span className="whitespace-nowrap font-mono tabular-nums">{m.durationLabel}</span>
-                  <Bar width={ratio * 100} color={longRun ? "var(--color-layer-structural)" : "var(--color-text-muted)"} />
-                  <span className={`text-[11px] ${longRun ? "text-signal-warm" : "text-text-muted"}`}>
+                  <span className="text-nowrap tnum">{m.durationLabel}</span>
+                  <CProgress className="mt-1" height={4} color={longRun ? "warning" : "secondary"} value={Math.min(ratio * 100, 100)} />
+                  <span className={`small ${longRun ? "text-warning-emphasis" : "text-body-secondary"}`}>
                     {m.persistence} · 층 통상 {m.typical}일
                   </span>
                 </Cell>
                 <Cell label="시장영향">
                   {m.impact ? (
                     <>
-                      <ImpactValue impact={m.impact} /> <span className="text-[11px] text-text-muted">{m.impact.top.label}</span>
-                      <Bar width={m.impact.peak * 8} color={LAYER_COLOR[m.event.layer]} />
-                      <span className="text-[11px] text-text-muted">{m.impact.strong}개 자산 3%+ 반응</span>
+                      <ImpactValue impact={m.impact} /> <span className="small text-body-secondary">{m.impact.top.label}</span>
+                      <CProgress className="mt-1" height={4} color={LAYER_COLOR_NAME[m.event.layer]} value={Math.min(m.impact.peak * 8, 100)} />
+                      <span className="small text-body-secondary">{m.impact.strong}개 자산 3%+ 반응</span>
                     </>
                   ) : (
-                    <span className="text-[11px] text-text-muted">트리거일 시장데이터 없음</span>
+                    <span className="small text-body-secondary">트리거일 시장데이터 없음</span>
                   )}
                 </Cell>
                 <Cell label="언급량">
                   {att.days === 0 ? (
-                    <span className="text-[11px] text-text-muted">수집 전</span>
+                    <span className="small text-body-secondary">수집 전</span>
                   ) : att.recentAvg === null ? (
-                    <span className="text-[11px] text-text-muted">{att.days}일차 측정중</span>
+                    <span className="small text-body-secondary">{att.days}일차 측정중</span>
                   ) : (
                     <>
-                      <span className="block whitespace-nowrap font-mono tabular-nums">{Math.round(att.recentAvg)}건/일</span>
-                      <span className="text-[11px] text-text-muted">7일 평균 · 정점 대비 {Math.round((att.ratio ?? 0) * 100)}%</span>
+                      <div className="text-nowrap tnum fw-semibold">{Math.round(att.recentAvg)}건/일</div>
+                      <div className="small text-body-secondary">7일 평균 · 정점 대비 {Math.round((att.ratio ?? 0) * 100)}%</div>
                     </>
                   )}
                 </Cell>
                 <Cell label="사분면">
-                  <span className={`inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-[10.5px] ${QUADRANT_TAG[m.quadrant] ?? "bg-surface-raised text-text-muted"}`}>
+                  <CBadge className={`text-nowrap ${QUADRANT_TAG[m.quadrant] ?? "bg-body-secondary text-body-secondary"}`} shape="rounded-pill">
                     {m.quadrant}
-                  </span>
+                  </CBadge>
                 </Cell>
               </div>
             );
           })}
-        </>
+        </div>
       )}
 
       {archived.length > 0 && (
-        <details className="group mt-3 border-t border-grid pt-2">
-          <summary className="cursor-pointer select-none py-2 text-xs text-text-muted hover:text-text-primary">
+        <details className="mt-3 border-top pt-2">
+          <summary className="small text-body-secondary py-2" style={{ cursor: "pointer" }}>
             종료된 내러티브 {archived.length}건 — 과거 영향 기록 보기
           </summary>
-          {archived.map((m) => (
-            <div key={m.event.id} className={`space-y-2 border-b border-grid py-3 opacity-85 last:border-0 md:space-y-0 ${ARCHIVE_COLS}`}>
-              <NameCell m={m} />
-              <Cell label="활성기간">
-                <span className="block font-mono tabular-nums">{m.activeSpan}일</span>
-                <span className="text-[11px] text-text-muted">
-                  {m.event.trigger_date} ~ {m.event.half_life_date ?? ""}
-                </span>
-              </Cell>
-              <Cell label="시장영향">
-                {m.impact ? (
-                  <>
-                    <ImpactValue impact={m.impact} />
-                    <span className="block text-[11px] text-text-muted">
-                      {m.impact.top.label} · {m.impact.strong}개 자산 3%+
-                    </span>
-                  </>
-                ) : (
-                  <span className="text-[11px] text-text-muted">—</span>
-                )}
-              </Cell>
+          <div role="table" aria-label="종료된 내러티브의 활성기간과 시장영향">
+            <div className="nt-matrix-row nt-matrix-archived nt-matrix-head small text-body-secondary" role="row">
+              <span role="columnheader">내러티브</span>
+              <span role="columnheader">활성기간</span>
+              <span role="columnheader">시장영향</span>
             </div>
-          ))}
+            {archived.map((m) => (
+              <div key={m.event.id} className="nt-matrix-row nt-matrix-archived" role="row">
+                <NameCell m={m} />
+                <Cell label="활성기간">
+                  <span className="tnum">{m.activeSpan}일</span>
+                  <div className="small text-body-secondary">{m.event.trigger_date} ~ {m.event.half_life_date ?? ""}</div>
+                </Cell>
+                <Cell label="시장영향">
+                  {m.impact ? (
+                    <>
+                      <ImpactValue impact={m.impact} />
+                      <div className="small text-body-secondary">{m.impact.top.label} · {m.impact.strong}개 자산 3%+</div>
+                    </>
+                  ) : (
+                    <span className="small text-body-secondary">—</span>
+                  )}
+                </Cell>
+              </div>
+            ))}
+          </div>
         </details>
       )}
     </div>

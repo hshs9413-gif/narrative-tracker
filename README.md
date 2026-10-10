@@ -214,7 +214,7 @@ narrative-tracker/
 │   └── weekly_review.yml            # 매주 자동 실행
 ├── config/
 │   └── regime_thresholds.json       # 레짐 판정 임계값 (locked:false 첫 초안)
-├── web/                              # Next.js 대시보드 소스 (web/README.md 참고)
+├── web/                              # Next.js 대시보드 소스 — CoreUI 기반 (web/README.md 참고)
 └── docs/                            # GitHub Pages 배포 폴더 — web/ 빌드 결과가 여기 들어감
     ├── index.html                   # web/의 next build 결과 (deploy_web.py가 병합)
     ├── _next/                       # 위와 동일
