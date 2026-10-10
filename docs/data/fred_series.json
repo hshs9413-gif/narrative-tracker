@@ -1,160 +1,403 @@
 {
-  "generated_at": "2026-10-10T03:56:57+00:00",
-  "api_key_configured": false,
+  "generated_at": "2026-10-10T10:53:15+00:00",
+  "api_key_configured": true,
+  "api_key_status": "ok",
   "series": [
     {
       "column": "vix",
       "id": "VIXCLS",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "VIXCLS",
+        "title": "CBOE Volatility Index: VIX",
+        "units": "Index",
+        "units_short": "Index",
+        "frequency": "Daily, Close",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "1990-01-02",
+        "observation_end": "2026-10-08",
+        "last_updated": "2026-10-09 08:38:33-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "dxy_broad",
       "id": "DTWEXBGS",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "DTWEXBGS",
+        "title": "Nominal Broad U.S. Dollar Index",
+        "units": "Index Jan 2006=100",
+        "units_short": "Index Jan 2006=100",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2006-01-02",
+        "observation_end": "2026-10-02",
+        "last_updated": "2026-10-05 15:16:53-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "wti",
       "id": "DCOILWTICO",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "DCOILWTICO",
+        "title": "Crude Oil Prices: West Texas Intermediate (WTI) - Cushing, Oklahoma",
+        "units": "Dollars per Barrel",
+        "units_short": "$ per Barrel",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "1986-01-02",
+        "observation_end": "2026-10-06",
+        "last_updated": "2026-10-07 12:17:24-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "us10y",
       "id": "DGS10",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "DGS10",
+        "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "1962-01-02",
+        "observation_end": "2026-10-08",
+        "last_updated": "2026-10-09 15:16:34-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "fedrate",
       "id": "DFEDTARU",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "DFEDTARU",
+        "title": "Federal Funds Target Range - Upper Limit",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily, 7-Day",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2008-12-16",
+        "observation_end": "2026-10-09",
+        "last_updated": "2026-10-09 07:01:29-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "us2y",
       "id": "DGS2",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "DGS2",
+        "title": "Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity, Quoted on an Investment Basis",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "1976-06-01",
+        "observation_end": "2026-10-08",
+        "last_updated": "2026-10-09 15:16:36-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "hy_oas",
       "id": "BAMLH0A0HYM2",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "BAMLH0A0HYM2",
+        "title": "ICE BofA US High Yield Index Option-Adjusted Spread",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily, Close",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2023-10-10",
+        "observation_end": "2026-10-08",
+        "last_updated": "2026-10-09 08:08:04-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "breakeven10y",
       "id": "T10YIE",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "T10YIE",
+        "title": "10-Year Breakeven Inflation Rate",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2003-01-02",
+        "observation_end": "2026-10-09",
+        "last_updated": "2026-10-09 16:03:38-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "nfci",
       "id": "NFCI",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "NFCI",
+        "title": "Chicago Fed National Financial Conditions Index",
+        "units": "Index",
+        "units_short": "Index",
+        "frequency": "Weekly, Ending Friday",
+        "frequency_short": "W",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "1971-01-08",
+        "observation_end": "2026-10-02",
+        "last_updated": "2026-10-07 07:36:35-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "stlfsi4",
       "id": "STLFSI4",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "STLFSI4",
+        "title": "St. Louis Fed Financial Stress Index",
+        "units": "Index",
+        "units_short": "Index",
+        "frequency": "Weekly, Ending Friday",
+        "frequency_short": "W",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "1993-12-31",
+        "observation_end": "2026-10-02",
+        "last_updated": "2026-10-07 10:25:28-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "usdkrw_fred",
       "id": "DEXKOUS",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "DEXKOUS",
+        "title": "South Korean Won to U.S. Dollar Spot Exchange Rate",
+        "units": "South Korean Won to One U.S. Dollar",
+        "units_short": "South Korean Won to  1 U.S. $",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "1981-04-13",
+        "observation_end": "2026-10-02",
+        "last_updated": "2026-10-05 15:16:37-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "us30y",
       "id": "DGS30",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "DGS30",
+        "title": "Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted on an Investment Basis",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "1977-02-15",
+        "observation_end": "2026-10-08",
+        "last_updated": "2026-10-09 15:16:38-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "real10y",
       "id": "DFII10",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "DFII10",
+        "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis, Inflation-Indexed",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2003-01-02",
+        "observation_end": "2026-10-08",
+        "last_updated": "2026-10-09 15:16:34-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "term_premium10y",
       "id": "THREEFYTP10",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "THREEFYTP10",
+        "title": "Term Premium on a 10 Year Zero Coupon Bond",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "1990-01-02",
+        "observation_end": "2026-10-02",
+        "last_updated": "2026-10-06 14:03:32-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "ig_oas",
       "id": "BAMLC0A0CM",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "BAMLC0A0CM",
+        "title": "ICE BofA US Corporate Index Option-Adjusted Spread",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily, Close",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2023-10-10",
+        "observation_end": "2026-10-08",
+        "last_updated": "2026-10-09 08:08:12-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "ccc_oas",
       "id": "BAMLH0A3HYC",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "BAMLH0A3HYC",
+        "title": "ICE BofA CCC & Lower US High Yield Index Option-Adjusted Spread",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily, Close",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2023-10-10",
+        "observation_end": "2026-10-08",
+        "last_updated": "2026-10-09 08:09:09-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "sofr",
       "id": "SOFR",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "SOFR",
+        "title": "Secured Overnight Financing Rate",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2018-04-03",
+        "observation_end": "2026-10-08",
+        "last_updated": "2026-10-09 07:02:22-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "iorb",
       "id": "IORB",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "IORB",
+        "title": "Interest Rate on Reserve Balances (IORB Rate)",
+        "units": "Percent",
+        "units_short": "%",
+        "frequency": "Daily, 7-Day",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2021-07-29",
+        "observation_end": "2026-10-13",
+        "last_updated": "2026-10-09 15:31:32-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "fed_assets",
       "id": "WALCL",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "WALCL",
+        "title": "Assets: Total Assets: Total Assets (Less Eliminations from Consolidation): Wednesday Level",
+        "units": "Millions of U.S. Dollars",
+        "units_short": "Mil. of U.S. $",
+        "frequency": "Weekly, As of Wednesday",
+        "frequency_short": "W",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2002-12-18",
+        "observation_end": "2026-10-07",
+        "last_updated": "2026-10-08 15:32:30-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "reserves",
       "id": "WRESBAL",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "WRESBAL",
+        "title": "Liabilities and Capital: Other Factors Draining Reserve Balances: Reserve Balances with Federal Reserve Banks: Week Average",
+        "units": "Millions of U.S. Dollars",
+        "units_short": "Mil. of U.S. $",
+        "frequency": "Weekly, Ending Wednesday",
+        "frequency_short": "W",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2002-12-18",
+        "observation_end": "2026-10-07",
+        "last_updated": "2026-10-08 15:32:08-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "rrp",
       "id": "RRPONTSYD",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "RRPONTSYD",
+        "title": "Overnight Reverse Repurchase Agreements: Treasury Securities Sold by the Federal Reserve in the Temporary Open Market Operations",
+        "units": "Billions of US Dollars",
+        "units_short": "Bil. of US $",
+        "frequency": "Daily",
+        "frequency_short": "D",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2003-02-07",
+        "observation_end": "2026-10-09",
+        "last_updated": "2026-10-09 13:02:29-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     },
     {
       "column": "tga",
       "id": "WTREGEN",
-      "via": "fdr",
-      "meta": null,
-      "meta_fetched_at": null
+      "via": "fred_api",
+      "meta": {
+        "id": "WTREGEN",
+        "title": "Liabilities and Capital: Liabilities: Deposits with F.R. Banks, Other Than Reserve Balances: U.S. Treasury, General Account: Week Average",
+        "units": "Millions of U.S. Dollars",
+        "units_short": "Mil. of U.S. $",
+        "frequency": "Weekly, Ending Wednesday",
+        "frequency_short": "W",
+        "seasonal_adjustment_short": "NSA",
+        "observation_start": "2002-12-18",
+        "observation_end": "2026-10-07",
+        "last_updated": "2026-10-08 15:32:16-05"
+      },
+      "meta_fetched_at": "2026-10-10T10:53:15+00:00"
     }
   ]
 }
