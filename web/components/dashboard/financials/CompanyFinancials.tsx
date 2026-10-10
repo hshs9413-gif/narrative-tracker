@@ -81,11 +81,17 @@ function LiveFinancials({ proxy }: { proxy: string }) {
   // 주소에 ?crno=가 있으면 그 기업을 바로 연다 (공유·즐겨찾기용). 이 컴포넌트는 설정 파일을 받은 뒤에만
   // 브라우저에서 그려지므로 window를 바로 읽어도 서버 렌더와 어긋나지 않는다.
   const [crno, setCrno] = useState<string | null>(readCrnoFromUrl);
+  // 기업을 고르면 검색 목록은 접고 재무만 보여준다 — 목록은 '다시 보기'로 펼친다
+  const [showList, setShowList] = useState(false);
   const seq = useRef(0);
+  const companyRef = useRef<HTMLDivElement>(null);
 
   function open(next: string | null) {
     setCrno(next);
+    setShowList(false);
     writeCrnoToUrl(next);
+    // 목록이 접히며 위치가 바뀌므로 다음 그리기 뒤에 기업 화면 머리로 옮긴다
+    requestAnimationFrame(() => companyRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }
 
   async function run(e?: FormEvent) {
@@ -99,6 +105,7 @@ function LiveFinancials({ proxy }: { proxy: string }) {
       if (my !== seq.current) return;
       setSearch({ status: "done", query: q, data });
       if (data.results.length === 1) open(data.results[0].crno);
+      else setShowList(true);
     } catch (err) {
       if (my !== seq.current) return;
       setSearch({ status: "error", query: q, error: err instanceof Error ? err.message : String(err) });
@@ -131,11 +138,21 @@ function LiveFinancials({ proxy }: { proxy: string }) {
           {search.status === "error" && (
             <CCallout color="danger" className="mt-3 mb-0">검색하지 못했습니다 — {search.error}</CCallout>
           )}
-          {search.status === "done" && <SearchResults res={search.data} selected={crno} onPick={open} />}
+          {search.status === "done" && (showList || !crno) && <SearchResults res={search.data} selected={crno} onPick={open} />}
+          {search.status === "done" && !showList && crno && search.data.results.length > 1 && (
+            <div className="small text-body-secondary mt-3">
+              &lsquo;{search.query}&rsquo; 검색 결과 {search.data.total}곳{" "}
+              <CButton color="link" size="sm" className="p-0 align-baseline" onClick={() => setShowList(true)}>
+                목록 다시 보기
+              </CButton>
+            </div>
+          )}
         </CCardBody>
       </CCard>
 
-      {crno && <LiveCompany key={crno} proxy={proxy} crno={crno} />}
+      <div ref={companyRef} className="nt-scroll-anchor">
+        {crno && <LiveCompany key={crno} proxy={proxy} crno={crno} />}
+      </div>
     </>
   );
 }
