@@ -38,49 +38,26 @@
 |---|---|---|---|
 | 수집 | 정량 지표 (VIX·달러·금·WTI·금리·신용·유동성) | Actions + FRED API(키 있을 때)/fdr/Stooq | 매일 07:30 KST |
 | 수집 | 내러티브 언급량 (기사 수) | Actions + Google News RSS | 매일 07:30 KST |
-| 판정 | 반감기·휴면·강도 **자동 계산** | `propose_updates.py` (결정론적 코드) | 매주 월 07:00 KST |
-| 검증 | 웹 대조 + 신규 내러티브 탐지 | Gemini API + Google 검색 그라운딩 | 매주 월 07:00 KST |
-| **승인** | `events.json` 실제 반영 | **사용자** | 이슈 확인 후 |
+| 판정 | 레짐(성장·물가 / 신용 / 정책) | `compute_regime.py` (규칙 기반) | 매일 07:30 KST |
+| 자동 전환 | 이벤트 상태 active ↔ dormant (명백한 경우만) | `auto_transition.py` (규칙 기반) | 매일 07:30 KST |
+| 기록 | 내러티브 이벤트 추가·수정·강도 | **사용자** — `events.json` 직접 편집 | 필요할 때 |
 
-**핵심 설계**: 스크립트는 `events.json`을 절대 직접 수정하지 않습니다. 매주 GitHub Issue로
-제안만 올리고, 사람이 확인 후 반영합니다. 자동 분류를 그대로 반영하면 오탐이 쌓여
-트래커 자체를 신뢰할 수 없게 되기 때문입니다.
+**설계**: 매주 GitHub Issue로 제안(Gemini 웹 대조·신규 내러티브 탐지)을 올리고 사람이 승인하던 주간 리뷰는
+2026-10에 없앴습니다 — 제안을 사람이 일일이 정리해야 해서 처리되지 않은 Issue만 쌓였기 때문입니다.
+이제 이벤트 상태는 아래 규칙에 걸리는 명백한 경우만 `auto_transition.py`가 바꾸고(Issue 알림 없음 — 바뀐 내역은
+이벤트의 `last_auto` 필드와 git 이력에 남음), 새 내러티브 추가와 강도 판단은 `events.json`을 직접 고칩니다.
 
-### 자동 판정 로직 (코드가 계산 — LLM 판단 아님)
+### 자동 상태 전환 규칙 (`auto_transition.py` — 코드가 계산, LLM 판단 아님)
 
-**반감기·휴면** — 기사 수 7일 이동평균 기준
-| 정점 대비 | 판정 |
+기사 수 7일 이동평균의 역대 정점 대비로 판정하며, 보수적으로 잡아 애매한 구간은 건드리지 않습니다.
+
+| 전환 | 조건 |
 |---|---|
-| 50% 이상 | active 유지 |
-| 25~50% | 반감기 도달 (강도 하향 검토) |
-| 25% 미만 | dormant 전환 제안 |
+| active → dormant | 관측 10일 이상 · 정점 ≥ 10건/일 · 최근 7개 관측 모두 정점의 15% 미만 |
+| dormant → active (재점화) | 최근 3개 관측 모두 정점의 50% 이상 · 최근값 ≥ 10건/일 |
 
-**강도** — 시장 지표 1일 변동폭 기준
-| 조건 | 판정 |
-|---|---|
-| VIX +15% 이상 또는 2개 이상 자산군 5%+ 변동 | high (상) |
-| VIX ±5% 이상 또는 1개 자산군 5%+ 변동 | mid (중) |
-| 그 외 | low (하) |
-
-관측일수 3일 미만이면 "데이터 부족"으로 표시되며 상태 변경을 제안하지 않습니다.
-
-### Gemini API 설정 (선택 — 없어도 정량 판정은 동작)
-
-무료 티어로 충분합니다. Gemini 3 모델 기준 월 5,000건의 검색 그라운딩 프롬프트가 무료이며,
-이 트래커는 주 1회만 호출합니다.
-
-1. https://aistudio.google.com/apikey 접속 → **Create API key**
-2. 저장소 **Settings → Secrets and variables → Actions → New repository secret**
-3. Name: `GEMINI_API_KEY` / Secret: 발급받은 키 → **Add secret**
-
-모델을 바꾸려면 같은 화면의 **Variables** 탭에서 `GEMINI_MODEL` 변수를 추가하세요
-(미설정 시 `gemini-3.6-flash` 사용).
-
-**검색 그라운딩이란**: Gemini가 답변 전에 실제로 Google 검색을 실행하고, 사용한 검색어와
-출처 URL을 함께 반환합니다. 생성된 Issue의 7번 항목에 검색 기록이 그대로 실리므로
-LLM이 지어낸 내용인지 직접 확인할 수 있습니다.
-
-키가 없으면 웹 검증 단계만 건너뛰고 정량 신호 리포트는 정상 생성됩니다.
+- 잘못 전환됐으면 `events.json`에서 `status`를 되돌리고 그 이벤트에 `"auto_lock": true`를 넣으면 이후 제외됩니다.
+- 대시보드 언급량 차트의 점선(정점 대비 50% 반감기 · 25% 휴면 검토선)은 눈으로 보는 참고선이고 자동 전환에는 쓰지 않습니다.
 
 ### FRED API 키 설정 (선택 — 없어도 수집은 동작)
 
@@ -226,16 +203,15 @@ narrative-tracker/
 │   ├── fred_api.py                  # FRED 공식 API 클라이언트 (FRED_API_KEY 있을 때)
 │   ├── fred_catalog.py              # 시리즈별 수집 경로·FRED 메타데이터 → fred_series.json
 │   ├── collect_news.py              # 일일 뉴스 언급량 수집
+│   ├── auto_transition.py           # 언급량 규칙으로 이벤트 상태 자동 전환 (명백한 경우만)
 │   ├── compute_regime.py            # 레짐 판정 → regime_state.json + regime_log.csv
 │   ├── push_to_sheets.py            # 확정된 행을 구글 시트로 누적 (선택)
-│   ├── deploy_web.py                # web/out/ → docs/ 병합 (docs/data/는 보존)
-│   └── propose_updates.py           # 주간 리뷰 제안 (Gemini 검증)
+│   └── deploy_web.py                # web/out/ → docs/ 병합 (docs/data/는 보존)
 ├── .github/workflows/
 │   ├── collect.yml                  # 매일 자동 실행 (수집 + 레짐 판정)
 │   ├── backfill.yml                 # 수동 실행 (과거 데이터 소급)
 │   ├── deploy_web.yml               # web/ 변경 시 자동 빌드 후 docs/에 병합
-│   ├── test.yml                     # scripts/·tests/ 변경 시 파이썬 테스트
-│   └── weekly_review.yml            # 매주 자동 실행
+│   └── test.yml                     # scripts/·tests/ 변경 시 파이썬 테스트 + FRED API 점검
 ├── config/
 │   └── regime_thresholds.json       # 레짐 판정 임계값 (locked:false 첫 초안)
 ├── tests/

@@ -90,7 +90,7 @@ function computeImpact(rows: MarketSnapshotRow[], iso: string): Impact | null {
   return { top: moves[0], peak, strong, grade };
 }
 
-// propose_updates.py와 같은 식(최근 7개 평균 ÷ 7일 이동평균 최대, 3일 미만 판정 안 함) — 하루치로 재면 주간 리뷰와 어긋난다.
+// 최근 7개 평균 ÷ 7일 이동평균 최대, 3일 미만은 판정 안 함. 정점은 auto_transition.py와 같은 7일 이동평균 최대값 — 하루치로 재면 들쭉날쭉하다.
 export function summarizeAttention(rows: AttentionRow[], eventId: string): AttentionSummary {
   const raw = rows
     .filter((r) => r.event_id === eventId && r.count !== null)
