@@ -241,53 +241,79 @@ body {
   text-wrap: balance;
 }
 .nt-hero-lede { max-width: var(--nt-measure); margin: 1.5rem 0 0; font-size: 1.08rem; color: var(--nt-ink-2); }
-.nt-axes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
-  gap: 0 1.5rem;
-  max-width: 62rem;
-  margin: 2.25rem 0 0;
-}
-.nt-axis { padding-top: 0.6rem; border-top: 4px solid var(--nt-lna); }
-.nt-axis[data-level="0"] { border-top-color: var(--nt-l0); }
-.nt-axis[data-level="1"] { border-top-color: var(--nt-l1); }
-.nt-axis[data-level="2"] { border-top-color: var(--nt-l2); }
-.nt-axis[data-level="3"] { border-top-color: var(--nt-l3); }
-.nt-axis:last-child[data-level="na"] { border-top-color: var(--nt-ink); }
-.nt-axis dt { font-weight: 400; font-size: 0.85rem; color: var(--nt-ink-2); }
-.nt-axis dd { margin: 0.1rem 0 1rem; font-size: 1.15rem; font-weight: 700; }
 .nt-hero-foot { max-width: var(--nt-measure); margin: 0.5rem 0 0; font-size: 0.875rem; color: var(--nt-ink-3); }
 
 .nt-status { max-width: var(--nt-measure); margin-top: 1.5rem; }
 .nt-status p { margin: 0 0 0.5rem; padding-left: 0.85rem; border-left: 3px solid var(--nt-rule); font-size: 0.9rem; color: var(--nt-ink-2); }
 .nt-status p[data-tone="warn"] { border-left-color: var(--nt-l2); color: var(--nt-ink); }
 
-/* ───────── 근거 ───────── */
-.nt-ev-row {
+/* 평소와 다른 지표 — 첫 화면 목록 */
+.nt-notable { display: grid; gap: 0; max-width: 60rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.nt-notable li {
   display: grid;
-  grid-template-columns: 10rem minmax(0, 1fr) 13rem minmax(0, 15rem);
-  gap: 1.5rem;
-  align-items: start;
-  padding: 1.25rem 0;
+  grid-template-columns: 11rem 8rem minmax(0, 1fr);
+  gap: 0.25rem 1.25rem;
+  align-items: baseline;
+  padding: 0.7rem 0;
   border-top: 1px solid var(--nt-rule);
 }
-.nt-ev-row:last-child { border-bottom: 1px solid var(--nt-rule); }
-.nt-ev-axis h3 { margin: 0; font-size: 1rem; font-weight: 700; }
-.nt-ev-verdict { margin: 0.15rem 0 0; font-weight: 600; color: var(--nt-lna); }
-.nt-ev-verdict::before { content: ""; display: inline-block; width: 0.6rem; height: 0.6rem; margin-right: 0.4rem; background: currentColor; vertical-align: 0.05rem; }
-.nt-ev-verdict[data-level="0"] { color: var(--nt-l0); }
-.nt-ev-verdict[data-level="1"] { color: var(--nt-l1); }
-.nt-ev-verdict[data-level="2"] { color: var(--nt-l2); }
-.nt-ev-verdict[data-level="3"] { color: var(--nt-l3); }
-.nt-ev-readings p { margin: 0 0 0.2rem; }
-.nt-ev-readings b { font-weight: 650; }
-.nt-ev-readings span { color: var(--nt-ink-2); font-size: 0.9rem; }
-.nt-ev-note { color: var(--nt-ink-2); font-size: 0.9rem; }
-.nt-ev-chart { padding-top: 0.2rem; }
-.nt-ev-pair { display: grid; gap: 0.35rem; }
-.nt-ev-pair figure { display: flex; align-items: center; gap: 0.5rem; margin: 0; }
-.nt-ev-pair figcaption { flex: none; width: 3.2rem; font-size: 0.75rem; color: var(--nt-ink-3); }
-.nt-ev-pair .nt-spark { min-width: 0; }
+.nt-notable li:last-child { border-bottom: 1px solid var(--nt-rule); }
+.nt-notable-name { font-weight: 700; }
+.nt-notable-value { font-size: 1.25rem; font-weight: 700; }
+.nt-notable-why { color: var(--nt-ink-2); }
+.nt-notable-why b { color: var(--nt-ink); font-weight: 650; }
+.nt-notable-why em { font-style: normal; color: var(--nt-ink-3); }
+@media (max-width: 600px) {
+  .nt-notable li { grid-template-columns: minmax(0, 1fr) auto; }
+  .nt-notable-why { grid-column: 1 / -1; font-size: 0.92rem; }
+}
+
+/* ───────── 주요 지표 표 ───────── */
+.nt-board { border-bottom: 1px solid var(--nt-rule); }
+.nt-board ul { margin: 0; padding: 0; list-style: none; }
+.nt-board-row {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1.3fr) 8.5rem 6.5rem minmax(10rem, 1.3fr) 9rem;
+  gap: 0.25rem 1.25rem;
+  align-items: center;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--nt-rule);
+}
+.nt-board-head { padding: 0 0 0.4rem; border-top: 0; font-size: 0.8rem; color: var(--nt-ink-3); }
+.nt-board-group h3 { margin: 1.1rem 0 0.25rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; color: var(--nt-ink-3); }
+.nt-board-row[data-notable] { background: linear-gradient(90deg, color-mix(in srgb, var(--nt-l2) 9%, transparent), transparent 70%); }
+.nt-board-row[data-notable] .nt-board-name { font-weight: 700; }
+.nt-board-name { display: flex; flex-direction: column; line-height: 1.35; }
+.nt-board-name small, .nt-board-value small { font-size: 0.75rem; font-weight: 400; color: var(--nt-ink-3); }
+.nt-board-value { display: flex; align-items: baseline; gap: 0.45rem; }
+.nt-board-value b { font-size: 1.05rem; font-weight: 700; }
+.nt-board-chg { font-size: 0.92rem; color: var(--nt-ink-2); }
+.nt-board-chg[data-big] { font-weight: 700; color: var(--nt-l2); }
+.nt-board-spark .nt-spark { color: var(--nt-ink-2); }
+.nt-pos { display: flex; align-items: center; gap: 0.6rem; }
+.nt-pos-track { position: relative; flex: 0 0 5.5rem; height: 4px; border-radius: 2px; background: var(--nt-rule); }
+.nt-pos-track i { position: absolute; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: var(--nt-ink); }
+.nt-pos-words { font-size: 0.85rem; color: var(--nt-ink-2); white-space: nowrap; }
+@media (max-width: 860px) {
+  .nt-board-row { grid-template-columns: minmax(0, 1fr) auto auto; grid-template-areas: "name value chg" "pos pos pos"; }
+  .nt-board-head { display: none; }
+  .nt-board-name { grid-area: name; }
+  .nt-board-value { grid-area: value; }
+  .nt-board-chg { grid-area: chg; min-width: 4.5rem; text-align: right; }
+  .nt-board-pos { grid-area: pos; }
+  .nt-board-spark { display: none; }
+}
+
+/* 접어 둔 섹션 */
+.nt-fold details > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem; cursor: pointer; list-style: none; }
+.nt-fold details > summary::-webkit-details-marker { display: none; }
+.nt-fold details > summary .nt-h2 { margin: 0; }
+.nt-fold details > summary .nt-h2::after { content: " +"; color: var(--nt-ink-3); font-weight: 400; }
+.nt-fold details[open] > summary .nt-h2::after { content: " −"; }
+.nt-fold-lede { font-size: 0.9rem; color: var(--nt-ink-3); }
+.nt-fold-body { margin-top: 1.25rem; }
+
+.nt-spark { min-width: 0; }
 .nt-ev-pair .nt-spark { height: 28px; }
 .nt-ev-rule { margin: 0; font-size: 0.85rem; line-height: 1.55; color: var(--nt-ink-3); }
 
@@ -305,11 +331,6 @@ body {
 .nt-spark-dot { fill: currentColor; }
 .nt-spark-guide { stroke: var(--nt-ink-3); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0.7; vector-effect: non-scaling-stroke; }
 .nt-spark-empty { font-size: 0.8rem; color: var(--nt-ink-3); }
-
-.nt-cross { max-width: 52rem; margin-top: 2rem; }
-.nt-cross dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0.75rem 2rem; margin: 0; }
-.nt-cross dt { font-weight: 400; font-size: 0.85rem; color: var(--nt-ink-2); }
-.nt-cross dd { margin: 0; }
 
 /* ───────── 내러티브 — 한 줄에 하나, 실제 기사 제목으로 ───────── */
 .nt-meter { display: inline-flex; gap: 2px; }
@@ -370,16 +391,6 @@ body {
 .nt-nt-changes time { color: var(--nt-ink-3); }
 .nt-nt-changes .nt-by { margin-left: 0.4rem; font-size: 0.8rem; color: var(--nt-ink-3); }
 .nt-nt-changes a { margin-left: 0.4rem; font-size: 0.8rem; color: var(--cui-link-color); }
-
-/* ───────── 시장 지표 숫자 ───────── */
-.nt-figs { display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: 1.5rem 2rem; }
-.nt-fig { padding-top: 0.6rem; border-top: 1px solid var(--nt-rule); }
-.nt-fig-label { margin: 0; font-size: 0.9rem; color: var(--nt-ink-2); }
-.nt-fig-value { margin: 0.1rem 0 0; font-size: 1.55rem; font-weight: 700; line-height: 1.2; }
-.nt-fig-meta { margin: 0.15rem 0 0.4rem; font-size: 0.82rem; color: var(--nt-ink-3); }
-.nt-fig-meta [data-dir="1"] { color: var(--nt-l2); }
-.nt-fig-meta [data-dir="-1"] { color: var(--nt-cyclical); }
-.nt-flag { margin-left: 0.35rem; padding: 0 0.3rem; border: 1px solid var(--nt-l2); color: var(--nt-l2); font-size: 0.75rem; }
 
 /* ───────── CoreUI 컴포넌트에 같은 옷 입히기 ───────── */
 .card {

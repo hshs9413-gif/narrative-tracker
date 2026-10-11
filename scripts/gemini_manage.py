@@ -53,7 +53,6 @@ ATTENTION_PATH = os.path.join(DATA, "attention.csv")
 WATCH_PATH = os.path.join(DATA, "watchlist_attention.csv")
 SCAN_PATH = os.path.join(DATA, "scan_keywords.json")
 MARKET_PATH = os.path.join(DATA, "market_snapshot.csv")
-REGIME_PATH = os.path.join(DATA, "regime_state.json")
 
 STATUS = ("active", "dormant", "ended")
 PHASE = ("shock", "overshoot", "correction")
@@ -287,9 +286,6 @@ new_events로 올리고 from_candidate에 그 후보 이름을 쓰세요.
  "candidates": [{{"name": "한국어 이름(30자 이내)", "why": "한 문장", "evidence": ["h40"]}}],
  "summary": "오늘 정리 요약 한두 문장"}}
 
-[현재 레짐 판정]
-{regime}
-
 [시장 지표]
 {market}
 
@@ -349,11 +345,9 @@ def format_headlines(heads, groups=None):
 
 
 def build_prompt(today, events, heads, fade, cands):
-    regime = load_json(REGIME_PATH, {})
+    # 규칙 판정 라벨('신용 평상' 등)은 넣지 않는다 — 예측력이 없고 10/11처럼 실제와 다른 인상을 줄 수 있어 화면에서도 뺐음
     return PROMPT.format(
         today=today.isoformat(), assets=", ".join(ASSETS), end_after=END_AFTER_DORMANT, fresh=FRESH_DAYS,
-        regime=json.dumps({k: (regime.get(k) or {}).get("label") for k in ("growth_inflation", "credit_stress", "policy_stance")},
-                          ensure_ascii=False),
         market=json.dumps(market_summary(), ensure_ascii=False),
         events="\n".join(json.dumps(r, ensure_ascii=False) for r in compact_events(events, fade)),
         ended=ended_brief(events, today),

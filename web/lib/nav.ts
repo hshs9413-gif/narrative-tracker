@@ -5,13 +5,12 @@ export interface NavSection {
 }
 
 export const NAV: NavSection[] = [
-  { id: "verdict", label: "판정" },
-  { id: "evidence", label: "근거" },
+  { id: "today", label: "오늘" },
+  { id: "indicators", label: "지표" },
   { id: "narratives", label: "내러티브" },
-  { id: "indicators", label: "시장 지표" },
-  { id: "liquidity", label: "유동성" },
-  { id: "sources", label: "데이터 출처" },
   { id: "financials", label: "기업 재무" },
+  { id: "charts", label: "차트" },
+  { id: "sources", label: "출처" },
 ];
 
 export const SECTION_IDS = NAV.map((n) => n.id);
