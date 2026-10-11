@@ -5,7 +5,7 @@ import { useStaticData } from "./use-static-data";
 import { parseAttentionCsv, parseKoreaCsv, parseMarketSnapshotCsv, parseRegimeLogCsv } from "@/lib/csv";
 import { computeMetrics } from "@/lib/narrative-metrics";
 import type {
-  AppConfig, AttentionRow, FredCatalog, KoreaRow, MarketSnapshotRow, NarrativeCandidate, NarrativeEvent, NarrativeHeadlines, NarrativeLogEntry,
+  AppConfig, AttentionRow, FredCatalog, KoreaRow, KoreaSeriesMeta, MarketSnapshotRow, NarrativeCandidate, NarrativeEvent, NarrativeHeadlines, NarrativeLogEntry,
   RegimeLogRow, RegimeState,
 } from "@/types/dashboard";
 
@@ -22,6 +22,7 @@ const parseNarrativeLog = (res: Response) => json<NarrativeLogEntry[]>(res);
 const parseCandidates = (res: Response) => json<NarrativeCandidate[]>(res);
 const parseHeadlines = (res: Response) => json<NarrativeHeadlines>(res);
 const parseKorea = (res: Response) => res.text().then(parseKoreaCsv);
+const parseKoreaMeta = (res: Response) => json<KoreaSeriesMeta>(res);
 
 export const useRegimeState = () => useStaticData<RegimeState>("data/regime_state.json", parseRegime);
 export const useNarrativeEvents = () => useStaticData<NarrativeEvent[]>("data/events.json", parseEvents);
@@ -38,6 +39,7 @@ export const useNarrativeLog = () => useStaticData<NarrativeLogEntry[]>("data/na
 export const useNarrativeCandidates = () => useStaticData<NarrativeCandidate[]>("data/narrative_candidates.json", parseCandidates);
 // 한국 지표(한국은행 ECOS) — ECOS 키를 등록하고 수집이 한 번 돌기 전에는 파일이 없다(그 줄들만 빠짐)
 export const useKoreaSnapshot = () => useStaticData<KoreaRow[]>("data/korea_snapshot.csv", parseKorea);
+export const useKoreaSeries = () => useStaticData<KoreaSeriesMeta>("data/korea_series.json", parseKoreaMeta);
 // 내러티브별 최근 기사 제목 — 수집이 처음 돌기 전에는 파일이 없다
 export const useNarrativeHeadlines = () => useStaticData<NarrativeHeadlines>("data/narrative_headlines.json", parseHeadlines);
 

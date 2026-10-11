@@ -16,6 +16,7 @@
 
 import csv
 import datetime
+import json
 import os
 import sys
 
@@ -23,9 +24,11 @@ import requests
 
 BASE = "https://ecos.bok.or.kr/api"
 OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "docs", "data", "korea_snapshot.csv")
+META_PATH = os.path.join(os.path.dirname(__file__), "..", "docs", "data", "korea_series.json")  # 화면 '데이터 출처'용
 START = "20230101"
 TIMEOUT = 30
 
+LABELS = {"bok_rate": "한국은행 기준금리", "ktb3y": "국고채 3년", "ktb10y": "국고채 10년", "foreign_net": "외국인 순매수(유가증권시장)"}
 # (컬럼, 통계표, 주기, 항목 이름에 모두 들어 있어야 할 낱말, 이름으로 못 찾을 때 쓸 코드)
 SERIES = [
     ("bok_rate", "722Y001", "D", ["기준금리"], "0101000"),
@@ -78,9 +81,12 @@ def pick_item(items, words, cycle, fallback=None, prefer=("유가증권", "KOSPI
 
 
 def search(stat, cycle, item, start=START, end=None, session=None):
+    """(시계열, 첫 행의 통계표·항목·단위 이름)"""
     end = end or datetime.date.today().strftime("%Y%m%d")
     data = _get(f"StatisticSearch/{_key()}/json/kr/1/10000/{stat}/{cycle}/{start}/{end}/{item}", session)
-    return parse_rows(data.get("StatisticSearch", {}).get("row", []))
+    rows = data.get("StatisticSearch", {}).get("row", [])
+    first = rows[0] if rows else {}
+    return parse_rows(rows), {"stat_name": first.get("STAT_NAME", ""), "unit": first.get("UNIT_NAME", "")}
 
 
 def parse_rows(rows):
@@ -129,7 +135,7 @@ def main():
               "ECOS_API_KEY로 한국은행 ECOS 인증키 등록")
         return
     session = requests.Session()
-    fetched, notes, items_cache = {}, [], {}
+    fetched, notes, items_cache, meta = {}, [], {}, []
     for col, stat, cycle, words, fallback in SERIES:
         try:
             if stat not in items_cache:
@@ -138,12 +144,15 @@ def main():
             if not item:
                 notes.append(f"{col}: {stat}에서 '{' '.join(words)}' 항목을 못 찾음")
                 continue
-            series = search(stat, cycle, item["ITEM_CODE"], session=session)
+            series, info = search(stat, cycle, item["ITEM_CODE"], session=session)
             if not series:
                 notes.append(f"{col}: {item['ITEM_NAME']} — 값 없음")
                 continue
             fetched[col] = series
             d, v = series[-1]
+            meta.append({"column": col, "label": LABELS.get(col, col), "stat_code": stat, "stat_name": info["stat_name"],
+                         "item_code": item["ITEM_CODE"], "item_name": item["ITEM_NAME"], "cycle": cycle, "unit": info["unit"],
+                         "first": series[0][0], "last": d, "count": len(series)})
             notes.append(f"{col}: {item['ITEM_NAME']}({item['ITEM_CODE']}) {len(series)}일, 마지막 {d} {v:g}")
         except (requests.RequestException, EcosError, ValueError) as e:
             notes.append(f"{col}: 실패 — {type(e).__name__} {_scrub(e)[:120]}")
@@ -151,6 +160,10 @@ def main():
         print("::warning title=한국 지표 실패::" + " · ".join(notes))
         sys.exit(0)
     write(merge(load_existing(), fetched))
+    with open(META_PATH, "w", encoding="utf-8") as f:
+        json.dump({"fetched_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+                   "source": "한국은행 ECOS Open API", "series": meta}, f, ensure_ascii=False, indent=2)
+        f.write("\n")
     print("::notice title=한국 지표(ECOS)::" + "%0A".join(notes))
 
 
