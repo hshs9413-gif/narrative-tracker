@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from "react";
 import { CBadge, CButton, CButtonGroup, CCard, CCardBody, CCol, CPlaceholder, CRow } from "@coreui/react";
-import { useMarketSnapshot } from "@/lib/hooks/use-dashboard-data";
+import { useKoreaSnapshot, useMarketSnapshot } from "@/lib/hooks/use-dashboard-data";
+import type { MarketRowWithKorea } from "@/types/dashboard";
 import { INDICATORS, type IndicatorId } from "@/lib/indicators";
 import { formatDelta, statusOf } from "@/lib/freshness";
 import { formatShortDate } from "@/lib/formatters";
@@ -36,9 +37,14 @@ const GROUPS: { title: string; ids: { id: IndicatorId; color: Color }[] }[] = [
     ],
   },
   {
-    title: "원자재 선물 · 한국 시장",
+    title: "원자재 선물",
+    ids: [{ id: "wti_front", color: "warning" }, { id: "brent_front", color: "warning" }],
+  },
+  {
+    title: "한국 (한국은행 ECOS · 시장)",
     ids: [
-      { id: "wti_front", color: "warning" }, { id: "brent_front", color: "warning" }, { id: "usdkrw", color: "success" }, { id: "kospi", color: "success" },
+      { id: "bok_rate", color: "success" }, { id: "ktb3y", color: "success" }, { id: "ktb10y", color: "success" },
+      { id: "usdkrw", color: "success" }, { id: "kospi", color: "success" },
     ],
   },
   {
@@ -51,7 +57,18 @@ const GROUPS: { title: string; ids: { id: IndicatorId; color: Color }[] }[] = [
 ];
 
 export function MarketIndicatorsChart() {
-  const { data, loading, error } = useMarketSnapshot();
+  const market = useMarketSnapshot();
+  const korea = useKoreaSnapshot();
+  const { loading, error } = market;
+  // 시장 행에 같은 날짜의 한국은행 지표를 붙인다 — 미국 휴장일에만 있는 한국 값은 빠지고, 한국 휴장일은 빈칸
+  const data = useMemo<MarketRowWithKorea[] | null>(() => {
+    if (!market.data) return null;
+    const byDate = new Map((korea.data ?? []).map((k) => [k.date, k]));
+    return market.data.map((r) => {
+      const k = byDate.get(r.date);
+      return k ? { ...r, bok_rate: k.bok_rate, ktb3y: k.ktb3y, ktb10y: k.ktb10y } : r;
+    });
+  }, [market.data, korea.data]);
   const [days, setDays] = useState<number>(365);
 
   // 기간은 오늘이 아니라 마지막 데이터 날짜 기준 — 수집이 며칠 멈춰도 창이 비지 않게.

@@ -1,4 +1,4 @@
-import type { MarketSnapshotRow } from "@/types/dashboard";
+import type { MarketRowWithKorea, MarketSnapshotRow } from "@/types/dashboard";
 import { formatNumber, toBasisPoints } from "./formatters";
 
 // 위젯·추이 차트가 공유하는 지표 정의. 설명은 기존 대시보드 티커의 툴팁 문구를 그대로 옮겼다.
@@ -120,6 +120,20 @@ const DEFINITIONS = {
   iorb: {
     label: "지준금리(IORB)", value: col("iorb"), format: pct2, stepped: true, staleAfterDays: DAILY,
     description: "지급준비금 이자율 (FRED: IORB) — FOMC 때만 바뀌는 계단형",
+  },
+
+  // ── 한국은행 ECOS (korea_snapshot.csv) — 큰 차트가 시장 행에 같은 날짜 값을 붙여 넘긴다 ──
+  bok_rate: {
+    label: "한국은행 기준금리", value: (r) => (r as MarketRowWithKorea).bok_rate ?? null, format: pct2, stepped: true, staleAfterDays: DAILY,
+    description: "한국은행 기준금리 (ECOS 722Y001)",
+  },
+  ktb3y: {
+    label: "국고채 3년", value: (r) => (r as MarketRowWithKorea).ktb3y ?? null, format: (v) => `${v.toFixed(3)}%`, staleAfterDays: DAILY,
+    description: "국고채 3년 수익률 (ECOS 817Y002)", jump: { kind: "abs", threshold: 0.2 },
+  },
+  ktb10y: {
+    label: "국고채 10년", value: (r) => (r as MarketRowWithKorea).ktb10y ?? null, format: (v) => `${v.toFixed(3)}%`, staleAfterDays: DAILY,
+    description: "국고채 10년 수익률 (ECOS 817Y002)", jump: { kind: "abs", threshold: 0.2 },
   },
 } satisfies Record<string, Indicator>;
 

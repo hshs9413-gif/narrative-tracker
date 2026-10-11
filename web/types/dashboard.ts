@@ -132,6 +132,19 @@ export interface KoreaRow {
   foreign_net: number | null;
 }
 
+/** korea_series.json — 한국은행 ECOS 시리즈 정보(화면 '데이터 출처'용) */
+export interface KoreaSeriesMeta {
+  fetched_at: string;
+  source: string;
+  series: {
+    column: string; label: string; stat_code: string; stat_name: string; item_code: string; item_name: string;
+    cycle: string; unit: string; first: string; last: string; count: number;
+  }[];
+}
+
+/** 큰 차트용 — 시장 행에 같은 날짜의 한국 지표를 붙인 것 */
+export type MarketRowWithKorea = MarketSnapshotRow & Partial<Omit<KoreaRow, "date">>;
+
 // ────────────────────── narrative_headlines.json ──────────────────────
 // collect_news.py가 매일 내러티브별 최근 기사 제목(검색어가 제목에 든 것) 3개를 남긴다 — 대표 기사가 없을 때 쓴다.
 export interface NarrativeHeadlines {

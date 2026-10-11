@@ -4,6 +4,7 @@ import { NarrativesNow } from "@/components/brief/NarrativesNow";
 import { MarketIndicatorsChart } from "@/components/dashboard/charts/MarketIndicatorsChart";
 import { LiquidityCard } from "@/components/dashboard/liquidity/LiquidityCard";
 import { FredSourcesTable } from "@/components/dashboard/sources/FredSourcesTable";
+import { KoreaSourcesTable } from "@/components/dashboard/sources/KoreaSourcesTable";
 import { CompanyFinancials } from "@/components/dashboard/financials/CompanyFinancials";
 import { Section } from "@/components/dashboard/Section";
 import { Fold } from "@/components/dashboard/Fold";
@@ -37,10 +38,12 @@ export default function Home() {
           <LiquidityCard />
         </Fold>
 
-        <Fold id="sources" title="데이터 출처" lede="FRED 시리즈 목록, 마지막 관측일, 수집 경로.">
+        <Fold id="sources" title="데이터 출처" lede="FRED·한국은행 ECOS 시리즈 목록, 마지막 관측일, 수집 경로.">
           <p className="nt-lede">FRED 시리즈는 공식 API로 받고, 실패하면 같은 FRED 원본(fredgraph.csv)으로 받습니다.</p>
           <FredSourcesTable />
-          <p className="nt-note">금(GC=F), 달러인덱스(ICE), 원유 선물, 원/달러, 코스피는 FRED가 아닌 시장 데이터라 이 표에 없습니다.</p>
+          <p className="nt-lede">한국은행 기준금리·국고채·외국인 순매수는 한국은행 ECOS Open API로 매일 받습니다.</p>
+          <KoreaSourcesTable />
+          <p className="nt-note">금(GC=F), 달러인덱스(ICE), 원유 선물, 원/달러, 코스피는 FRED·ECOS가 아닌 시장 데이터라 이 표들에 없습니다.</p>
         </Fold>
       </div>
     </>
