@@ -393,5 +393,158 @@
     },
     "reason": "검색어 점검(10/11): '이사회 dissent'가 Google News에서 하루 0건이라 기사를 못 잡음 — 더 흔히 쓰는 표현으로 교체",
     "evidence": []
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "global-bond-selloff-2026",
+    "kind": "update",
+    "reason": "국채금리 급등세가 지속되며 시장의 주요 변동성 요인으로 작용 중.",
+    "status": "applied",
+    "changes": {
+      "notes": [
+        "…",
+        "10/10 미 국채금리 사상 최고치 경신 및 분기 상승 폭 32년 만에 최고 기록."
+      ]
+    },
+    "evidence": [
+      {
+        "title": "\"미국 국채금리 사상 최고치\"…미국 국채금리 급등이 바꿀 경제 흐름",
+        "source": "뉴시스",
+        "date": "2026-10-10",
+        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1BcUUzbngzbFpHMUsyTkNhaW9wMndwaU1malI1YnZKWnVsMmtTOWVZai1rY0ZTNktmcTZaSVE3RkNZSzVGRTdhSW1LODhaX18xYkIzYWVFWHdFVll1YnFJMtIBeEFVX3lxTFBVX3NtTkxBTmo2RXNWRzVDdG5JMlVoajY1Y0g4UFR4ek41NVg4UEUtT3puVE1GQWVHNTlvSXNZLW81RzIwOEpqMmhveXJLOGYwUm80T0k1aHRERk5MVjQ2aWlGTk15VEVoNFhHNWx2RWhCUml2UkVhcA?oc=5"
+      },
+      {
+        "title": "우방국까지 매도 행진…미 국채 금리, 분기 상승 폭 32년 만에 최고",
+        "source": "조선일보",
+        "date": "2026-10-05",
+        "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNemt4R3lHQ1ZJazhtb2pJWUJYZFo1UTZKdHc3d1ZtTk1GWlBldHIxZmNONjk4QlhNb3lvX25LMlYtd3RubTcwTkhzQ1ByLXJfT3pYQVVqMXktdmRjUTVfN2hlWUphY3pHd20xUkdSNmxWeDZpRHJNeTl1S0ZwU09hM2VsSUU1SFNzdlVCcUl3?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "kospi-semis-leverage-2026",
+    "kind": "update",
+    "reason": "빚투 관련 규제와 시장 변동성 대응이 구체화됨.",
+    "status": "applied",
+    "changes": {
+      "notes": [
+        "…",
+        "10/7 대형 증권사 신용융자 한도 축소 및 10/9 정부 F4 회동 등 빚투 규제 강화 움직임."
+      ]
+    },
+    "evidence": [
+      {
+        "title": "‘빚투 38조’ 주가 10%↓ 8조 증발할 수도...정부 F4 회동",
+        "source": "쿠키뉴스",
+        "date": "2026-10-09",
+        "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1TNm91b3V6WWhPUDlFbnBISWpRTVNWVDdUM1FqQVd6amZVQldaTUtvbU5FX1ZXT25ZMXl0WmI4eG9aUlBSRWhaNHNmWktYcjd1NzM5TGpxdTliUF9qTkV1YUtJTQ?oc=5"
+      },
+      {
+        "title": "두 달 새 6조 뛴 ‘빚투’…대형 증권사, 신용융자 한도 90%로 죈다",
+        "source": "브릿지경제",
+        "date": "2026-10-07",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9TRDRsbFFUdDVtUi04NFFEQzJBejl5NDhteUZBU216cV9taG1qRG9LMzhkY2tXcWNQQWlPWjdEY1NDM2NqdGxUSVBHRzJlXy1GYkZNMEoxYWJSZw?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "iran-war-2026",
+    "kind": "update",
+    "reason": "지정학적 리스크가 실물 경제와 유가에 지속적인 영향을 미치고 있음.",
+    "status": "applied",
+    "changes": {
+      "notes": [
+        "…",
+        "10/7 후티 반군 사우디 정유시설 타격 및 10/9 트럼프의 중간선거 전 이란 공격 자제 발언으로 긴장 지속."
+      ]
+    },
+    "evidence": [
+      {
+        "title": "트럼프 “11월 3일 중간선거 전까지 이란 공격 안해···호르무즈 봉쇄는 유지”",
+        "source": "주간경향",
+        "date": "2026-10-09",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE4yNHVXby1IYXBTTDlyci1aVmNxemJJWHhaWlpWVDdPOEFHVnM2ME1jSGtqMzI4bHJCOHpCSExWd0JBTUlsV1p1dEthaUt4TVg3NnVlaHdIaGtDalJ6b1E?oc=5"
+      },
+      {
+        "title": "거센 반격 후티, 사우디 공항·정유시설 타격…한국 기업 인근도 피격",
+        "source": "KBS 뉴스",
+        "date": "2026-10-07",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFAxakpkQXlDNnc2VlJLLXJKRHB1b0g4TDdkbzNocUNpS3lLbEY0U09JTHRrZnZpU2NvWUNaMGl0cVJkUlplVDg5ejVyaEdPYmNEWmEwaV9peFNVSjVrNGNlUVpGZVVMdw?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "reason": "AI 밸류에이션에 대한 시장의 경계감이 고조됨.",
+    "status": "applied",
+    "changes": {
+      "notes": [
+        "…",
+        "10/9 레이 달리오 등 월가 거물들의 AI 거품 붕괴 경고 확산."
+      ]
+    },
+    "evidence": [
+      {
+        "title": "\"AI 거품 터질 때 가까워졌다\"…월가 전설 달리오의 경고",
+        "source": "조선일보",
+        "date": "2026-10-09",
+        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZWRGSkplUjdKWFotUmZUdjRfNkhNMjdIN2pDdkJGVGNLWHF2amVsOWtSc3phY1Z2R3ZOdG9qMGhqZUh2azZWLU1ERmtMd3FCMjZuSEx1M0dCb2NDcFktNjg5cktuQ3pudHVLMVdEblZHLXNONDF3eFg2ZFpINkkwLQ?oc=5"
+      },
+      {
+        "title": "달리오 \"AI 거품 터질 시점에 접근해 있다\" 경고",
+        "source": "연합뉴스",
+        "date": "2026-10-07",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE84T1A4X1QzS05GRFBDOTh0a3pIN1VPaE1hanpTRHluYWVLbzdaZDdGVF9VZGpNanBUM0dIQUI0VXpnUi1xbjRKNEI0cmQxdERuNnhTX3l5ZEpZSm_SAWBBVV95cUxNbGlXcXM5d3Z0WDh3QjlvdXM1b1Z5R3ZjNG91QnhkcXVEc1g4TFlBNDZSc0loanoxSXVRUktUNzRfNHpYS01CYl9CYzljRVNZTjZhTzRKcWdoSmNFTHJFLVM?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "tariff-shock-2025",
+    "kind": "update",
+    "reason": "관세 정책이 인플레이션에 미치는 영향이 구체적인 데이터로 확인됨.",
+    "status": "applied",
+    "changes": {
+      "notes": [
+        "…",
+        "10/8 뉴욕연은 보고서에서 트럼프 관세가 미국 소비재 물가를 2.9%p 인상한다고 분석."
+      ]
+    },
+    "evidence": [
+      {
+        "title": "트럼프 관세, 美소비재 물가 2.9%p 올려…뉴욕연은 보고서",
+        "source": "연합뉴스",
+        "date": "2026-10-08",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBWMk1VR0pmVlBGM3IxQzFRMXlGRUNiMkw1a1h1QnQ0UTZ0SHZraE5nWnJObWItcGV1YTVxRUEyb0Joa2F4UVl6WGljR080Z3ZOQ2RIOUJ6d2xFXzjSAWBBVV95cUxNZWxUVWlWajZxdFJzX3R0WkJUZzBTWFRpRGJNLVdyUFc5NVplVVc0YS1EM0V1RTh4N1JtdUpQNFNja3RFS3VNUFYzY3hNV29mLWdJekhiUkpMeG85X3RZN0Q?oc=5"
+      },
+      {
+        "title": "트럼프 관세에 美 소비재 가격 2.9%p 상승…물가 부담 2027년까지 지속 전망",
+        "source": "폴리뉴스 Polinews",
+        "date": "2026-10-09",
+        "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9YMDVPcXdNY3cxRHR4eXIxVEFYZHdRSmlNU2hQYXVoWkVDM2ZmOTlCS1BjWWRMXzlYUUo4TlpfTktZN2psV0plMG5Lc0hiNmVNUGVIT1Y0blNidWV5eElzSXFobXJvQjhxRi1rcEtB?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미 국채금리 급등이 시장 전반의 변동성을 주도하는 가운데, AI 거품론과 빚투 규제, 중동 지정학적 리스크가 복합적으로 작용하고 있음."
   }
 ]
