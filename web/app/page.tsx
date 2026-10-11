@@ -1,17 +1,15 @@
 import { VerdictHero } from "@/components/brief/VerdictHero";
 import { Evidence } from "@/components/brief/Evidence";
 import { NarrativesNow } from "@/components/brief/NarrativesNow";
-import { ChangeLog } from "@/components/brief/ChangeLog";
 import { DataStatus } from "@/components/dashboard/kpi/DataStatus";
 import { MarketWidgets } from "@/components/dashboard/kpi/MarketWidgets";
-import { NarrativeSections } from "@/components/dashboard/narrative/NarrativeSections";
 import { MarketIndicatorsChart } from "@/components/dashboard/charts/MarketIndicatorsChart";
 import { LiquidityCard } from "@/components/dashboard/liquidity/LiquidityCard";
 import { FredSourcesTable } from "@/components/dashboard/sources/FredSourcesTable";
 import { CompanyFinancials } from "@/components/dashboard/financials/CompanyFinancials";
 import { Section } from "@/components/dashboard/Section";
 
-// 아침 브리핑 순서: 오늘의 판정 → 근거 → 지금 움직이는 내러티브 → 갱신 기록, 그 아래에 깊게 볼 자료.
+// 아침 브리핑 순서: 오늘의 판정 → 근거 → 내러티브(표·1년 흐름·최근 변경 한 곳), 그 아래에 깊게 볼 자료.
 
 export default function Home() {
   return (
@@ -20,11 +18,8 @@ export default function Home() {
       <DataStatus />
       <Evidence />
       <NarrativesNow />
-      <ChangeLog />
 
       <div className="nt-deep">
-        <NarrativeSections />
-
         <Section id="indicators" title="시장 지표" lede="판정에 쓰는 지표와 달러·금·원유를 한곳에 모았습니다. 값 옆 날짜는 그 값이 나온 날입니다.">
           <MarketWidgets />
           <div className="nt-panel">

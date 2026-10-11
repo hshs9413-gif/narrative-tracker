@@ -19,9 +19,9 @@ TODAY = datetime.date(2026, 10, 11)
 
 def heads():
     return {
-        "h1": {"title": "이란, 호르무즈 유조선 공격 확대", "source": "연합뉴스", "date": "2026-10-09", "url": "u1", "group": "iran"},
-        "h2": {"title": "유가 100달러 돌파… 중동 확전 우려", "source": "한국경제", "date": "2026-10-08", "url": "u2", "group": "iran"},
-        "h3": {"title": "브렌트유 급등", "source": "연합뉴스", "date": "2026-10-08", "url": "u3", "group": "iran"},
+        "h1": {"title": "이란, 호르무즈 유조선 공격 확대", "source": "연합뉴스", "date": "2026-10-09", "url": "u1", "group": "iran-war-2026"},
+        "h2": {"title": "유가 100달러 돌파… 중동 확전 우려", "source": "한국경제", "date": "2026-10-08", "url": "u2", "group": "iran-war-2026"},
+        "h3": {"title": "브렌트유 급등", "source": "연합뉴스", "date": "2026-10-08", "url": "u3", "group": "iran-war-2026"},
         "h4": {"title": "Manufacturing PMI at 54.5%; September 2026 ISM Report", "source": "PR Newswire",
                "date": "2026-10-01", "url": "u4", "group": "pmi"},
         "h5": {"title": "美 국채 10년물 5% 돌파", "source": "매일경제", "date": "2026-10-05", "url": "u5", "group": "market"},
@@ -43,12 +43,12 @@ class UpdateRulesTest(unittest.TestCase):
     def test_valid_update_applied_with_note_and_log(self):
         ev = events()
         prop = {"updates": [{"id": "iran-war-2026", "phase": "shock", "intensity": "mid", "peak_date": "2026-04-30",
-                             "notes_append": "10월 유조선 공격 확대", "reason": "재격화", "evidence": ["h1", "h2"]}]}
+                             "notes_append": "Gemini 메모는 더 받지 않음", "reason": "재격화", "evidence": ["h1", "h2"]}]}
         entries, n = gm.apply_proposal(prop, ev, heads(), [], TODAY, "m")
         self.assertEqual(n, 1)
         e = ev[0]
         self.assertEqual((e["phase"], e["intensity"], e["peak_date"]), ("shock", "mid", "2026-04-30"))
-        self.assertIn("[10-11 Gemini] 10월 유조선 공격 확대", e["notes"])
+        self.assertEqual(e["notes"], "기존")  # 메모는 받지 않는다
         self.assertEqual(e["last_review"], {"date": "2026-10-11", "by": "gemini", "verdict": "갱신", "reason": "재격화"})
         self.assertEqual(entries[0]["changes"]["phase"], ["correction", "shock"])
         self.assertEqual([x["url"] for x in entries[0]["evidence"]], ["u1", "u2"])
@@ -70,14 +70,6 @@ class UpdateRulesTest(unittest.TestCase):
             self.assertEqual(n, 0, prop)
             self.assertIn(why, entries[0]["reject_reason"], prop)
 
-    def test_notes_only_updates_are_not_capped_and_ids_are_stripped(self):
-        self.assertEqual(gm.clean_note("5.31%를 기록함(h5, h8)."), "5.31%를 기록함.")
-        ev = events() + [dict(events()[0], id=f"x{i}") for i in range(4)]
-        props = [{"id": f"x{i}", "notes_append": f"메모{i} [h1]", "evidence": ["h1"]} for i in range(4)]
-        entries, n = gm.apply_proposal({"updates": props}, ev, heads(), [], TODAY, "m")
-        self.assertEqual(n, 4)
-        self.assertTrue(all("[h1]" not in e["notes"] for e in ev))
-
     def test_field_words_become_korean_with_matching_particles(self):
         self.assertEqual(gm.clean_note("제안은 dormant였으나 active 상태를 유지 (h3, h9)."), "제안은 잠잠이었으나 진행 중 상태를 유지.")
         self.assertEqual(gm.clean_note("ended로 정리, 단계는 correction"), "끝남으로 정리, 단계는 진정")
@@ -95,13 +87,6 @@ class UpdateRulesTest(unittest.TestCase):
                                        events(), heads(), log, TODAY, "m")
         self.assertEqual(n, 0)
         self.assertIn("이미 바꿈", entries[0]["reject_reason"])
-        # 쿨다운 중이어도 메모만은 받는다 (강도 변경은 버림)
-        ev = events()
-        entries, n = gm.apply_proposal({"updates": [{"id": "iran-war-2026", "intensity": "mid", "notes_append": "유조선 공격 지속",
-                                                     "evidence": ["h1"]}]}, ev, heads(), log, TODAY, "m")
-        self.assertEqual(n, 1)
-        self.assertEqual(ev[0]["intensity"], "low")
-        self.assertIn("유조선 공격 지속", ev[0]["notes"])
         # 사람·검증이 손본 것도 쉬게 두고, 규칙 전환은 막지 않는다
         for by, blocked in (("human", True), ("claude", False), ("rule", False)):
             log = [{"date": "2026-10-11", "by": by, "status": "applied", "event_id": "iran-war-2026",
@@ -110,27 +95,16 @@ class UpdateRulesTest(unittest.TestCase):
                                      events(), heads(), log, TODAY, "m")
             self.assertEqual(n, 0 if blocked else 1, by)
 
+    def test_clean_note_strips_ids(self):
+        self.assertEqual(gm.clean_note("5.31%를 기록함(h5, h8)."), "5.31%를 기록함.")
+        self.assertEqual(gm.strip_gemini_notes("기본\n[10-11 검증] 확인\n[10-11 Gemini] 과장"), "기본\n[10-11 검증] 확인")
+
     def test_note_only_changes_do_not_start_cooldown(self):
         log = [{"date": "2026-10-11", "by": "gemini", "status": "applied", "event_id": "iran-war-2026",
                 "changes": {"notes": ["…", "메모"]}}]
         _, n = gm.apply_proposal({"updates": [{"id": "iran-war-2026", "intensity": "mid", "evidence": ["h1"]}]},
                                  events(), heads(), log, TODAY, "m")
         self.assertEqual(n, 1)
-
-    def test_same_day_note_is_replaced(self):
-        note = gm.append_note("기본", "아침 메모", TODAY)
-        note = gm.append_note(note, "다시 돌린 메모", TODAY)
-        self.assertNotIn("아침 메모", note)
-        self.assertEqual(note.count("[10-11 Gemini]"), 1)
-
-    def test_note_keeps_last_three_gemini_entries(self):
-        note = "기본"
-        for i in range(5):
-            note = gm.append_note(note, f"메모{i}", TODAY + datetime.timedelta(days=i))
-        self.assertTrue(note.startswith("기본"))
-        self.assertNotIn("메모1", note)
-        self.assertIn("메모4", note)
-
 
 class NewEventRulesTest(unittest.TestCase):
     NEW = {"id": "bond-selloff-2026", "name": "글로벌 채권 매도", "layer": "structural", "phase": "shock",
@@ -171,6 +145,13 @@ class ReviewVerdictTest(unittest.TestCase):
         ev = ev or self.lineup()
         entries, n = gm.apply_proposal({"reviews": reviews}, ev, heads(), log or [], TODAY, "m", fade or {})
         return ev, {e["id"]: e for e in ev}, entries, n
+
+    def test_headline_must_come_from_own_group(self):
+        _, by, entries, n = self.run_reviews([{"id": "iran-war-2026", "verdict": "keep", "reason": "r", "headline": "h2"},
+                                              {"id": "bond-2026", "verdict": "keep", "reason": "r", "headline": "h1"}])
+        self.assertEqual(by["iran-war-2026"]["headline"]["url"], "u2")
+        self.assertNotIn("headline", by["bond-2026"])  # h1은 이란 묶음 기사라 채권 내러티브 대표로 안 받음
+        self.assertEqual((n, entries), (0, []))
 
     def test_keep_records_review_without_log_line(self):
         ev, by, entries, n = self.run_reviews([{"id": "iran-war-2026", "verdict": "keep", "reason": "흐름 그대로", "evidence": []}])
@@ -213,7 +194,6 @@ class ReviewVerdictTest(unittest.TestCase):
         _, by, entries, n = self.run_reviews([{"id": "quiet-2026", "verdict": "merge", "merge_into": "bond-2026",
                                                "reason": "같은 이야기", "evidence": ["h5"]}])
         self.assertEqual((n, by["quiet-2026"]["status"], by["quiet-2026"]["merged_into"]), (1, "ended", "bond-2026"))
-        self.assertIn("'식은 것' 내러티브를 여기로 합침", by["bond-2026"]["notes"])
         _, _, entries, n = self.run_reviews([{"id": "quiet-2026", "verdict": "merge", "merge_into": "old-2024", "reason": "r",
                                               "evidence": ["h5"]}])
         self.assertIn("merge_into", entries[0]["reject_reason"])
@@ -277,18 +257,6 @@ class ReviewVerdictTest(unittest.TestCase):
         fade["quiet-2026"] = {"식음": True, "제안": "end"}
         _, by, _, n = self.run_reviews([], fade=fade)  # 열린 3개 중 3개 → 보류
         self.assertEqual((n, by["iran-war-2026"]["status"]), (0, "active"))
-
-    def test_stale_or_repeated_notes_are_dropped(self):
-        old = "기존\n[10-10 Gemini] 10/8 뉴욕연은 보고서에서 트럼프 관세가 미국 소비재 물가를 2.9%p 인상한다고 분석."
-        self.assertEqual(gm.note_problem("10/8 뉴욕연은 보고서, 트럼프 관세가 미국 소비재 물가를 2.9%p 인상한다고 분석.", old, TODAY),
-                         "이미 있는 내용")
-        self.assertIn("넘은 사실", gm.note_problem("9/16 FOMC 만장일치 금리 인상으로 독립성 확인", "기존", TODAY))
-        self.assertIsNone(gm.note_problem("10/10 호르무즈 유조선 폭발 사고 발생", old, TODAY))
-        self.assertIsNone(gm.note_problem("12/30 연말 유동성 경색", "기존", datetime.date(2027, 1, 2)))
-        ev, by, entries, n = self.run_reviews([{"id": "iran-war-2026", "verdict": "keep", "reason": "r", "evidence": ["h1"],
-                                                "note": "9/2 유조선 공격"}])
-        self.assertEqual((n, by["iran-war-2026"]["notes"]), (0, "기존"))
-
 
 class CandidateTest(unittest.TestCase):
     def test_candidates_accumulate_by_day_and_expire(self):

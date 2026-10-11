@@ -113,6 +113,20 @@ export interface NarrativeLogEntry {
   candidates?: string[]; // summary 줄: 그날 지켜보는 후보 이름
 }
 
+export interface Headline {
+  title: string;
+  source: string;
+  date: string;
+  url: string;
+}
+
+// ────────────────────── narrative_headlines.json ──────────────────────
+// collect_news.py가 매일 내러티브별 최근 기사 제목(검색어가 제목에 든 것) 3개를 남긴다 — 대표 기사가 없을 때 쓴다.
+export interface NarrativeHeadlines {
+  updated: string;
+  items: Record<string, Headline[]>;
+}
+
 // ────────────────────── narrative_candidates.json ──────────────────────
 // Gemini가 아직 기준엔 못 미치지만 지켜보는 새 이슈 후보 — 이틀 넘게 이어지면 새 내러티브로 올라간다.
 export interface NarrativeCandidate {
@@ -176,6 +190,7 @@ export interface NarrativeEvent {
   ended_on?: string;
   merged_into?: string;
   candidate_since?: string;
+  headline?: Headline; // Gemini가 고른 대표 기사 — 실제 제목 그대로
   auto_lock?: boolean;
   added_by?: string;
   added_on?: string;
