@@ -109,7 +109,7 @@ class UpdateRulesTest(unittest.TestCase):
 class NewEventRulesTest(unittest.TestCase):
     NEW = {"id": "bond-selloff-2026", "name": "글로벌 채권 매도", "layer": "structural", "phase": "shock",
            "intensity": "mid", "trigger_date": "2026-09-15", "assets": ["us10y", "bonds", "nonsense"],
-           "keywords": ["국채금리 급등", "채권 매도"], "notes": "10년물 5% 돌파", "evidence": ["h5", "h2", "h1"]}
+           "keywords": ["국채금리 급등", "채권 매도"], "notes": "10년물 5% 돌파", "evidence": ["h5", "h2", "h1", "h3"]}
 
     def test_new_event_added_active_with_filtered_assets(self):
         ev = events()
@@ -121,7 +121,8 @@ class NewEventRulesTest(unittest.TestCase):
         self.assertEqual(ev[0]["added_by"], "gemini")
 
     def test_new_event_rejections(self):
-        for patch, why in (({"evidence": ["h1", "h2"]}, "3개 이상"), ({"id": "Bad Id"}, "id 형식"),
+        for patch, why in (({"evidence": ["h1", "h2", "h3"]}, "4개 이상"), ({"evidence": ["h5", "h4", "h1", "h3"]}, "최근 3일"),
+                           ({"id": "Bad Id"}, "id 형식"),
                            ({"id": "iran-war-2026"}, "이미 있는"), ({"trigger_date": "2025-01-01"}, "최근"),
                            ({"layer": "other"}, "layer")):
             entries, n = gm.apply_proposal({"new_events": [{**self.NEW, **patch}]}, events(), heads(), [], TODAY, "m")

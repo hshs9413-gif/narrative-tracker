@@ -731,5 +731,20 @@
     "candidates": [
       "금융권 AI 해킹 사고"
     ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "event_id": "russia-plague-2026",
+    "kind": "update",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "candidate"
+      ]
+    },
+    "reason": "근거 기사가 10/4~10/6 세 건뿐이고 최근 3일 기사·시장 반응이 없어 진행 중 내러티브로 보기 이름 — 후보로 되돌리고 새 내러티브 기준을 높임(기사 4개·매체 3곳·최근 3일 2곳)",
+    "name": "러시아 페스트 확산 우려"
   }
 ]

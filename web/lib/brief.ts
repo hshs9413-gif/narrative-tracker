@@ -63,7 +63,7 @@ export const PHASE_WORD: Record<string, string> = {
   correction: "진정",
 };
 export const INTENSITY_WORD: Record<string, string> = { high: "강", mid: "중", low: "약" };
-export const STATUS_WORD: Record<string, string> = { active: "진행", dormant: "잠잠", ended: "끝남" };
+export const STATUS_WORD: Record<string, string> = { active: "진행", dormant: "잠잠", ended: "끝남", candidate: "후보" };
 
 export const ACTOR: Record<string, string> = { gemini: "Gemini", rule: "규칙", claude: "검증", human: "직접 수정" };
 
