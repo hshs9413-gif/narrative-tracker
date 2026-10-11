@@ -78,6 +78,11 @@ class UpdateRulesTest(unittest.TestCase):
         self.assertEqual(n, 4)
         self.assertTrue(all("[h1]" not in e["notes"] for e in ev))
 
+    def test_field_words_become_korean_with_matching_particles(self):
+        self.assertEqual(gm.clean_note("제안은 dormant였으나 active 상태를 유지 (h3, h9)."), "제안은 잠잠이었으나 진행 중 상태를 유지.")
+        self.assertEqual(gm.clean_note("ended로 정리, 단계는 correction"), "끝남으로 정리, 단계는 진정")
+        self.assertEqual(gm.clean_note("AI active learning, markets in shock"), "AI active learning, markets in shock")
+
     def test_evidence_ids_in_other_formats(self):
         for ev in (["1", 2], "h1, h2", ["[h1]", "h2"]):
             ids, n_src = gm._evidence(ev, heads())
