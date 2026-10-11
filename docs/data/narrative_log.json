@@ -576,7 +576,7 @@
     "event_id": "fed-politicization-2026",
     "kind": "update",
     "verdict": "keep",
-    "reason": "제안은 dormant였으나, 최근 3일간 다수의 매체에서 연준의 독립성과 정치적 압박을 다루고 있어 active 상태를 유지합니다.",
+    "reason": "제안은 잠잠이었으나, 최근 3일간 다수의 매체에서 연준의 독립성과 정치적 압박을 다루고 있어 진행 중 상태를 유지합니다.",
     "status": "applied",
     "changes": {
       "notes": [

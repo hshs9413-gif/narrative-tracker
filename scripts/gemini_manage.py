@@ -261,6 +261,7 @@ verdict는 다음 중 하나:
 선택: phase(바뀔 때, 매체 2곳 근거), keywords(기사_7일이 0~2건이거나 언급이 늘 포화일 때, 몇 주 쓸 한국어 검색어 2~4개),
 note(최근 며칠 새로 생긴 사실 한 문장, 날짜 포함 — notes에 이미 있는 사실이면 빈 문자열. 근거 기사 제목에 있는
 사실만, '사상 최고'·'최초' 같은 표현이나 수치는 제목에 그대로 있을 때만). reason은 필수(왜 그 판정인지 한 문장).
+reason·note·summary는 독자가 읽는 한국어 문장입니다 — dormant·active 같은 필드 값이나 h번호 대신 잠잠·진행 중처럼 쓰세요.
 
 ## 2. new_events — 목록에 없는데 여러 매체가 다루고 자산 가격도 반응한 새 이야기 (최대 2개)
 주로 [목록 밖 주요 기사]에서 찾으세요. 근거 기사 3개 이상·매체 2곳 이상(지켜보는 후보에 이틀 이상 오른 주제는 2개).
@@ -359,9 +360,34 @@ def build_prompt(today, events, heads, fade, cands):
 
 # ───────────────────────────── 규칙 검사
 
+PLAIN = {"dormant": "잠잠", "active": "진행 중", "ended": "끝남", "keep": "유지", "reignite": "재점화", "merge": "병합",
+         "shock": "충격", "overshoot": "과열", "correction": "진정", "intensity": "강도", "status": "상태", "phase": "단계"}
+
+
+JOSA = {"였": "이었", "로": "으로", "가": "이", "는": "은", "를": "을", "와": "과", "라": "이라", "다": "이다", "야": "이야"}
+
+
+def plain(text):
+    """독자에게 보이는 문장에 섞인 필드 값(dormant·active…)을 한국어로 — 10/11 '제안은 dormant였으나 … active 상태를' 같은 문장.
+    앞뒤가 영어 낱말이면('AI active learning') 영어 문장 속 낱말이라 두고, 한국어 사이에 낀 것만 바꾼다. 조사는 받침에 맞춘다."""
+    text = str(text or "")
+
+    def swap(m):
+        before, after = text[:m.start()].rstrip()[-1:], text[m.end(1):].lstrip()[:1]
+        if re.fullmatch(r"[A-Za-z]", before or "") or re.fullmatch(r"[A-Za-z]", after or ""):
+            return m.group(0)
+        ko, josa = PLAIN[m.group(1).lower()], m.group(2) or ""
+        jong = (ord(ko[-1]) - 0xAC00) % 28
+        if josa and jong and not (josa == "로" and jong == 8):
+            josa = JOSA[josa]
+        return ko + josa
+
+    return re.sub(r"(?<![A-Za-z])(" + "|".join(PLAIN) + r")(?![A-Za-z])(였|로|가|는|를|와|라|다|야)?", swap, text, flags=re.I)
+
+
 def clean_note(text):
     """메모에 섞여 들어온 기사 번호 '(h5, h8)'·'[h3]'는 독자에게 뜻이 없어 지운다 — 근거는 기록에 링크로 남는다."""
-    text = re.sub(r"\s*[\(\[]\s*h\d+(?:\s*[,·]\s*h\d+)*\s*[\)\]]", "", str(text or ""))
+    text = re.sub(r"\s*[\(\[]\s*h\d+(?:\s*[,·]\s*h\d+)*\s*[\)\]]", "", plain(text))
     return re.sub(r"\s{2,}", " ", text).strip()
 
 
@@ -645,7 +671,7 @@ def apply_proposal(proposal, events, heads, log, today, model, fade=None, candid
             continue
         eid = u.get("id")
         entry = {"date": stamp, "by": "gemini", "model": model, "event_id": eid, "kind": "update",
-                 "verdict": _verdict(u), "reason": str(u.get("reason", ""))[:200]}
+                 "verdict": _verdict(u), "reason": clean_note(u.get("reason", ""))[:200]}
         if eid not in seen and entry["verdict"] in (None, "keep", "up", "down", "reignite"):
             ev_ids, _ = _evidence(u.get("evidence"), heads)
             rebutted[eid] = _fresh_sources(ev_ids, heads, today) >= 2
@@ -717,7 +743,7 @@ def apply_proposal(proposal, events, heads, log, today, model, fade=None, candid
         res, why = check_new(n, by_id, heads, open_count, today, candidates) if isinstance(n, dict) else (None, "형식 오류")
         entry = {"date": stamp, "by": "gemini", "model": model, "event_id": (n or {}).get("id") if isinstance(n, dict) else None,
                  "kind": "new", "name": (n or {}).get("name") if isinstance(n, dict) else None,
-                 "reason": str((n or {}).get("reason", ""))[:200] if isinstance(n, dict) else ""}
+                 "reason": clean_note((n or {}).get("reason", ""))[:200] if isinstance(n, dict) else ""}
         if res and added >= MAX_NEW:
             res, why = None, f"새 내러티브는 한 번에 {MAX_NEW}개까지만"
         if res is None:
@@ -755,7 +781,7 @@ def update_candidates(cands, proposed, heads, today):
             cur = cands[key] = {"key": key, "name": name, "first_seen": today.isoformat(), "days_seen": 0, "last_seen": ""}
         if cur["last_seen"] != today.isoformat():
             cur["days_seen"] += 1
-        cur.update(last_seen=today.isoformat(), why=str(c.get("why", ""))[:160], evidence=_evi_detail(ev[:3], heads))
+        cur.update(last_seen=today.isoformat(), why=clean_note(c.get("why", ""))[:160], evidence=_evi_detail(ev[:3], heads))
     for k in [k for k, c in cands.items() if (today - _date(c["last_seen"])).days > CANDIDATE_TTL]:
         cands.pop(k)
     ranked = sorted(cands.values(), key=lambda c: (c["last_seen"], c["days_seen"]), reverse=True)[:MAX_CANDIDATES]
@@ -835,7 +861,7 @@ def review_narratives(today, events, log, notes):
                  f" · 판정 {dict(tally)} · 반영 {n}건 · 후보 {len(ranked)}개" + (f" · 판정 빠짐 {missing}" if missing else ""))
     if proposal.get("summary") or reviewed:
         entries.append({"date": today.isoformat(), "by": "gemini", "model": r["model"], "kind": "summary", "status": "info",
-                        "reason": str(proposal.get("summary") or "")[:300], "reviews": reviewed,
+                        "reason": clean_note(proposal.get("summary") or "")[:300], "reviews": reviewed,
                         "candidates": [c["name"] for c in ranked]})
     if reviewed or n:
         save_json(EVENTS_PATH, events)
