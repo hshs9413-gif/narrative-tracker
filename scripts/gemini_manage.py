@@ -21,6 +21,10 @@
      그대로 있을 때만 manual_inputs.json에 반영한다.
   6) 기록 — 모든 변경·거절을 docs/data/narrative_log.json에, 내러티브별 마지막 판정을 events.json last_review에 남긴다.
 
+Gemini는 글을 쓰지 않는다 — 판정(상태·단계·강도)과 기사 번호만 고르고, 화면에는 그 기사의 실제 제목이 실린다
+(events.json headline). 10/11까지는 매일 메모를 쓰게 했는데 '2007년 이후 최고치 경신'처럼 기사에 없는 과장·
+날짜가 지난 사실이 섞여 들어와 그만뒀다. 판정 이유(reason)는 갱신 기록에만 남는다.
+
 실패해도(키 없음·쿼터·응답 이상) 경고만 남기고 0으로 끝난다 — 수집·커밋을 막지 않는다.
 사람이 막고 싶은 이벤트는 events.json에서 "auto_lock": true 로 두면 Gemini도 건드리지 않는다.
 """
@@ -67,7 +71,6 @@ MAX_NEW = 2              # 한 번에 추가할 수 있는 새 내러티브 수
 MAX_OPEN = 12            # active+dormant 상한
 COOLDOWN_DAYS = 3        # 같은 내러티브를 Gemini가 구조적으로 다시 바꾸기까지 최소 간격
 NEW_EVENT_MAX_AGE = 180  # 새 내러티브 trigger_date는 최근 180일 안
-NOTE_MAX = 220
 FADE_RATIO = 0.35        # 언급량 7일 평균이 정점의 이 비율 이하면 '식음'
 FADE_MIN_OBS = 14        # 그 판정에 필요한 최소 관측일
 QUIET_HEADLINES = 2      # 내러티브 검색어로 7일 기사가 이 수 이하면 '식음'
@@ -76,8 +79,6 @@ CANDIDATE_TTL = 10       # 후보가 이 일수 동안 다시 안 보이면 지�
 MAX_CANDIDATES = 8
 RECENT_ENDED_DAYS = 120  # 프롬프트에 '최근 끝난 것'으로 보여줄 기간 (같은 이야기를 새로 만들지 않게)
 FRESH_DAYS = 3           # 식은 내러티브를 '유지'하려면 이 일수 안의 기사(서로 다른 매체 2곳)를 대야 한다
-NOTE_DUP = 0.5           # 새 메모 글자쌍의 이 비율 이상이 기존 메모 한 줄에 이미 있으면 같은 내용으로 보고 버림
-NOTE_STALE_DAYS = 7      # 메모 속 날짜(M/D)가 모두 이보다 오래됐으면 새 사실이 아니라 보고 버림
 # 판단 전에 생각할 토큰 예산 — 0이면 기사 77건을 훑고 바로 답해 근거 부족으로 아무것도 안 바꾸는 경향(10/11 확인).
 # 무료 등급 한도(분당 토큰)에 비해 작아 하루 1회 호출엔 부담이 없다. GEMINI_THINKING 변수로 조정.
 THINKING_BUDGET = int(os.environ.get("GEMINI_THINKING", "4096") or 0)
@@ -258,14 +259,15 @@ verdict는 다음 중 하나:
 - reignite: 잠잠하던 것이 다시 여러 매체에 (서로 다른 매체 기사 2개 이상)
 - end: 사건이 해소됨(합의·종전·철회·정상화 완료 등, 서로 다른 매체 기사 2개 이상), 또는 잠잠_일수가 {end_after}일을 넘었고 식음이 true
 - merge: 다른 진행 중 내러티브와 사실상 같은 이야기 — merge_into에 남길 쪽 id
-선택: phase(바뀔 때, 매체 2곳 근거), keywords(기사_7일이 0~2건이거나 언급이 늘 포화일 때, 몇 주 쓸 한국어 검색어 2~4개),
-note(최근 며칠 새로 생긴 사실 한 문장, 날짜 포함 — notes에 이미 있는 사실이면 빈 문자열. 근거 기사 제목에 있는
-사실만, '사상 최고'·'최초' 같은 표현이나 수치는 제목에 그대로 있을 때만). reason은 필수(왜 그 판정인지 한 문장).
-reason·note·summary는 독자가 읽는 한국어 문장입니다 — dormant·active 같은 필드 값이나 h번호 대신 잠잠·진행 중처럼 쓰세요.
+headline은 필수 — 이 내러티브의 지금 상황을 가장 잘 보여 주는 [기사] 하나의 번호(되도록 최근 3일, 그 내러티브 묶음에서).
+화면에는 이 기사 제목이 그대로 실리므로, 다른 이야기를 다룬 기사는 고르지 마세요. 맞는 기사가 없으면 null.
+선택: phase(바뀔 때, 매체 2곳 근거), keywords(기사_7일이 0~2건이거나 언급이 늘 포화일 때, 몇 주 쓸 한국어 검색어 2~4개).
+reason은 필수 — 왜 그 판정인지 한 문장. 기사 제목에 있는 사실만 쓰고 수치·'최고'·'최초'는 제목에 그대로 있을 때만.
+dormant·active 같은 필드 값이나 h번호 대신 잠잠·진행 중처럼 한국어로.
 
 ## 2. new_events — 목록에 없는데 여러 매체가 다루고 자산 가격도 반응한 새 이야기 (최대 2개)
 주로 [목록 밖 주요 기사]에서 찾으세요. 근거 기사 3개 이상·매체 2곳 이상(지켜보는 후보에 이틀 이상 오른 주제는 2개).
-기존 내러티브의 일부라면 새로 만들지 말고 그 내러티브 note로. [끝난 내러티브]와 같은 이야기도 새로 만들지 마세요.
+기존 내러티브의 일부라면 새로 만들지 마세요. [끝난 내러티브]와 같은 이야기도 새로 만들지 마세요.
 일회성 뉴스(기업 실적 하나, 하루짜리 사건)는 넣지 마세요.
 
 ## 3. candidates — 아직 기준엔 못 미치지만 내일도 지켜볼 주제 (최대 3개, 근거 기사 1개 이상)
@@ -275,11 +277,11 @@ new_events로 올리고 from_candidate에 그 후보 이름을 쓰세요.
 근거가 약하면 keep으로 두세요. 다만 이미 식은 이야기를 진행 중으로 남겨 두는 것도 목록을 틀리게 만드는 오류입니다.
 
 ## 출력 (JSON만)
-{{"reviews": [{{"id": "기존 id", "verdict": "keep", "phase": null, "keywords": null, "note": "", "merge_into": null,
+{{"reviews": [{{"id": "기존 id", "verdict": "keep", "headline": "h3", "phase": null, "keywords": null, "merge_into": null,
    "reason": "한 문장", "evidence": ["h3"]}}],
  "new_events": [{{"id": "english-kebab-2026", "name": "한국어 이름(30자 이내)", "layer": "...", "phase": "...",
    "intensity": "...", "trigger_date": "YYYY-MM-DD", "assets": ["..."], "keywords": ["한국어 검색어 2~4개"],
-   "notes": "한 문장", "reason": "한 문장", "evidence": ["h1", "h2", "h5"], "from_candidate": null}}],
+   "reason": "한 문장", "evidence": ["h1", "h2", "h5"], "from_candidate": null}}],
  "candidates": [{{"name": "한국어 이름(30자 이내)", "why": "한 문장", "evidence": ["h40"]}}],
  "summary": "오늘 정리 요약 한두 문장"}}
 
@@ -321,7 +323,7 @@ def compact_events(events, fade=None):
         if not is_open(e):
             continue
         row = {k: e.get(k) for k in keep}
-        row["notes"] = (e.get("notes") or "")[-240:]
+        row["notes"] = strip_gemini_notes(e.get("notes"))[-240:]
         row.update((fade or {}).get(e["id"], {}))
         out.append(row)
     return out
@@ -416,28 +418,9 @@ def _fresh_sources(ids, heads, today):
                 if _date(heads[i].get("date") or "") and (today - _date(heads[i]["date"])).days <= FRESH_DAYS})
 
 
-def _bigrams(t):
-    t = re.sub(r"\s+", "", t)
-    return {t[i:i + 2] for i in range(len(t) - 1)}
-
-
-def note_problem(note, old_notes, today):
-    """새 메모가 버릴 것이면 이유 — 기존 메모 한 줄과 거의 같거나, 적힌 날짜가 모두 오래됐을 때
-    (10/11 dry-run: flash-lite가 모든 내러티브에 전날 메모나 9월 사실을 다시 적었음)"""
-    a = _bigrams(note)
-    lines = [ln.split("]", 1)[-1] for ln in (old_notes or "").split("\n") if ln.strip()]
-    if a and any(len(a & _bigrams(ln)) / len(a) >= NOTE_DUP for ln in lines):
-        return "이미 있는 내용"
-    dates = []
-    for m, d in re.findall(r"(?<![\d.])(\d{1,2})/(\d{1,2})(?![\d])", note):
-        try:
-            x = datetime.date(today.year, int(m), int(d))
-        except ValueError:
-            continue
-        dates.append(x if x <= today + datetime.timedelta(days=1) else x.replace(year=today.year - 1))
-    if dates and (today - max(dates)).days > NOTE_STALE_DAYS:
-        return f"{NOTE_STALE_DAYS}일 넘은 사실"
-    return None
+def strip_gemini_notes(notes):
+    """notes에서 Gemini가 덧붙였던 '[MM-DD Gemini] …' 줄을 뺀다 — 10/11까지 쓰던 메모는 부정확한 게 있어 더 쓰지 않음"""
+    return "\n".join(ln for ln in str(notes or "").split("\n") if not re.match(r"\[\d{2}-\d{2} Gemini\]", ln.strip())).strip()
 
 
 def _structural(changes):
@@ -553,24 +536,16 @@ def check_update(u, events_by_id, heads, cooled, today, fade=None, retire_left=M
     except _Reject as why:
         return None, str(why)
 
-    note = clean_note(u.get("note") or u.get("notes_append"))
-    if note and ev:  # 메모는 근거 기사가 있고, 새 사실일 때만
-        why = note_problem(note, e.get("notes"), today)
-        if why:
-            dropped.append(f"note({why})")
-        else:
-            change["notes_append"] = note[:NOTE_MAX]
-    elif note and strict and not change:
-        return None, "근거 기사 없음"
+    # 대표 기사 — 화면에 제목이 그대로 실린다. 그 내러티브 묶음의 기사만 받는다(다른 이야기 기사가 걸리지 않게)
+    hl = _evidence(u.get("headline"), heads)[0][:1] if u.get("headline") else []
+    headline = hl[0] if hl and heads[hl[0]].get("group") == eid else None
 
     if eid in cooled and _structural(change):
-        # 최근에 구조적으로 바꾼 내러티브는 사흘간 메모만 받는다
-        change = {k: v for k, v in change.items() if k == "notes_append"}
-        if not change:
-            return None, f"최근 {COOLDOWN_DAYS}일 안에 이미 바꿈"
+        return None, f"최근 {COOLDOWN_DAYS}일 안에 이미 바꿈"
     if not change and strict:
         return None, "바뀐 내용 없음"
-    return {"verdict": verdict or "update", "change": change, "evidence": ev, "merge_into": target, "dropped": dropped}, None
+    return {"verdict": verdict or "update", "change": change, "evidence": ev, "merge_into": target, "dropped": dropped,
+            "headline": headline}, None
 
 
 def _overlap(kws, events, today):
@@ -618,22 +593,13 @@ def check_new(n, events_by_id, heads, open_count, today, candidates=None):
     event = {"id": nid, "name": name, "layer": n["layer"], "layer_secondary": None, "phase": n["phase"],
              "status": "active", "intensity": n["intensity"], "trigger_date": trig.isoformat(), "peak_date": None,
              "half_life_date": None, "assets": assets, "keywords": kws, "reignition_triggers": [],
-             "notes": clean_note(n.get("notes"))[:NOTE_MAX], "last_auto": None,
+             "notes": "", "last_auto": None,
              "added_by": "gemini", "added_on": today.isoformat()}
     if cand:
         event["candidate_since"] = cand.get("first_seen")
+    latest = max(ev, key=lambda i: heads[i].get("date") or "")
+    event["headline"] = {k: heads[latest][k] for k in ("title", "source", "date", "url")}
     return {"event": event, "evidence": ev, "candidate": cand_key(n.get("from_candidate") or "") if cand else None}, None
-
-
-def append_note(old, text, today):
-    """notes 끝에 '[MM-DD Gemini] …'를 붙이고, 덧붙인 메모는 최근 3개만 남긴다. 같은 날 다시 돌면 그날 메모를 바꾼다."""
-    base, *tagged = (old or "").split("\n[")
-    tagged = ["[" + g for g in tagged]
-    tag = f"[{today.strftime('%m-%d')} Gemini]"
-    if tagged and tagged[-1].startswith(tag):
-        tagged.pop()
-    tagged.append(f"{tag} {text}")
-    return "\n".join([base] + tagged[-3:]).strip()
 
 
 def _evi_detail(ids, heads):
@@ -689,22 +655,18 @@ def apply_proposal(proposal, events, heads, log, today, model, fade=None, candid
         verdict = res["verdict"]
         e["last_review"] = {"date": stamp, "by": "gemini", "verdict": VERDICT.get(verdict, "갱신"),
                             "reason": entry["reason"][:160]}
+        if res.get("headline"):
+            e["headline"] = _evi_detail([res["headline"]], heads)[0]
         if not res["change"]:
             continue  # 유지 — 기록 줄은 만들지 않고 last_review만
         fields = {}
         for k, v in res["change"].items():
-            if k == "notes_append":
-                fields["notes"] = ["…", v]
-                e["notes"] = append_note(e.get("notes"), v, today)
-            elif k == "status":
+            if k == "status":
                 fields[k] = [e.get(k), v]
                 _set_status(e, v, today)
             else:
                 fields[k] = [e.get(k), v]
                 e[k] = v
-        if res["merge_into"]:
-            t = by_id[res["merge_into"]]
-            t["notes"] = append_note(t.get("notes"), f"'{e.get('name')}' 내러티브를 여기로 합침", today)
         cooled.add(eid)
         if res["change"].get("status") == "ended":
             retired += 1

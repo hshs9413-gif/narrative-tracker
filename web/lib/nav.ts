@@ -8,8 +8,6 @@ export const NAV: NavSection[] = [
   { id: "verdict", label: "판정" },
   { id: "evidence", label: "근거" },
   { id: "narratives", label: "내러티브" },
-  { id: "log", label: "갱신 기록" },
-  { id: "timeline", label: "지층" },
   { id: "indicators", label: "시장 지표" },
   { id: "liquidity", label: "유동성" },
   { id: "sources", label: "데이터 출처" },

@@ -34,6 +34,7 @@ EVENTS_PATH = os.path.join(BASE, "..", "docs", "data", "events.json")
 OUT_PATH = os.path.join(BASE, "..", "docs", "data", "attention.csv")
 SCAN_PATH = os.path.join(BASE, "..", "docs", "data", "scan_keywords.json")
 WATCHLIST_OUT = os.path.join(BASE, "..", "docs", "data", "watchlist_attention.csv")
+HEADLINES_OUT = os.path.join(BASE, "..", "docs", "data", "narrative_headlines.json")
 
 RSS_KR = "https://news.google.com/rss/search?q={q}&hl=ko&gl=KR&ceid=KR:ko"
 RSS_GLOBAL = "https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
@@ -183,6 +184,34 @@ def scan_watchlist() -> None:
         print("[INFO] 워치리스트 신규 기록 없음.")
 
 
+def save_headlines() -> None:
+    """진행 중 내러티브마다 최근 기사 제목 3개 — 화면 '최근 기사' 칸의 기본값(Gemini가 고른 기사가 없을 때).
+    검색어가 제목에 실제로 들어 있는 기사만 고른다 — 검색 결과에는 본문에만 걸린 다른 이야기 기사도 섞여 있어서."""
+    sys.path.insert(0, BASE)
+    import news_feed  # noqa: E402
+
+    with open(EVENTS_PATH, encoding="utf-8") as f:
+        events = json.load(f)
+    items = {}
+    for e in events:
+        if e.get("status") == "ended" or not e.get("keywords"):
+            continue
+        arts = news_feed.headlines(news_feed.or_query(e["keywords"], n=4), "ko", days=7, limit=20)
+        hits = [a for a in arts if news_feed.matches(a["title"], e["keywords"])]
+        hits.sort(key=lambda a: a["date"], reverse=True)
+        if hits:
+            items[e["id"]] = hits[:3]
+        time.sleep(1.0)
+    if not items:
+        print("[WARN] 최근 기사 제목을 하나도 못 받음 — narrative_headlines.json 그대로 둠")
+        return
+    with open(HEADLINES_OUT, "w", encoding="utf-8") as f:
+        json.dump({"updated": datetime.date.today().isoformat(), "items": items}, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"[INFO] 최근 기사 제목 {len(items)}개 내러티브 저장.")
+
+
 if __name__ == "__main__":
     collect_events()
     scan_watchlist()
+    save_headlines()

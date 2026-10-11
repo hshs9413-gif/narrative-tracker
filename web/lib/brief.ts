@@ -1,4 +1,4 @@
-import type { NarrativeEvent, NarrativeLogEntry, RegimeState } from "@/types/dashboard";
+import type { NarrativeLogEntry, RegimeState } from "@/types/dashboard";
 
 // 아침 브리핑 화면(판정 문장·근거·내러티브·갱신 기록)이 쓰는 문구와 단계 계산.
 
@@ -65,14 +65,6 @@ export const PHASE_WORD: Record<string, string> = {
 export const INTENSITY_WORD: Record<string, string> = { high: "강", mid: "중", low: "약" };
 export const STATUS_WORD: Record<string, string> = { active: "진행", dormant: "잠잠", ended: "끝남" };
 
-/** notes에서 가장 최근 메모 한 줄 — '[10-11 Gemini] …' 같은 덧붙임이 있으면 그것, 없으면 첫 문장 */
-export function latestNote(e: NarrativeEvent): string {
-  const lines = (e.notes || "").split("\n").map((l) => l.trim()).filter(Boolean);
-  const tagged = lines.filter((l) => l.startsWith("["));
-  const pick = tagged.length ? tagged[tagged.length - 1].replace(/^\[[^\]]*\]\s*/, "") : lines[0] ?? "";
-  return pick.length > 140 ? `${pick.slice(0, 138)}…` : pick;
-}
-
 export const ACTOR: Record<string, string> = { gemini: "Gemini", rule: "규칙", claude: "검증", human: "직접 수정" };
 
 /** 받침에 맞춘 '로/으로' — '끝남으로', '진행으로', '강로'가 아니라 '강으로' */
@@ -100,17 +92,6 @@ const FIELD_WORD: Record<string, (a: unknown, b: unknown, names: Names) => strin
 export function describeChanges(entry: NarrativeLogEntry, names: Names = {}): string[] {
   if (entry.kind === "new") return [`새 내러티브 추가`];
   return Object.entries(entry.changes ?? {}).map(([k, [a, b]]) => (FIELD_WORD[k] ? FIELD_WORD[k](a, b, names) : `${k} 변경`));
-}
-
-/** 그날 판정 집계 — '유지 5 · 잠잠 1 · 종료 1' */
-export function verdictTally(reviews: Record<string, string> | undefined): string {
-  const order = ["추가", "강화", "약화", "재점화", "잠잠", "종료", "병합", "유지", "갱신"];
-  const count: Record<string, number> = {};
-  for (const v of Object.values(reviews ?? {})) count[v] = (count[v] ?? 0) + 1;
-  return Object.entries(count)
-    .sort(([a], [b]) => order.indexOf(a) - order.indexOf(b))
-    .map(([v, n]) => `${v} ${n}`)
-    .join(" · ");
 }
 
 /** 근거 링크에 보여줄 이름 — 매체명이 없으면 주소의 도메인 */
