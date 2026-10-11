@@ -3,7 +3,7 @@
 import {
   useNarrativeCandidates, useNarrativeEvents, useNarrativeHeadlines, useNarrativeLog,
 } from "@/lib/hooks/use-dashboard-data";
-import { ACTOR, INTENSITY_WORD, PHASE_WORD, describeChanges, monthDay, sourceName } from "@/lib/brief";
+import { ACTOR, INTENSITY_WORD, PHASE_WORD, describeChanges, monthDay, sourceName, verdictTally } from "@/lib/brief";
 import { INTENSITY_RANK, LAYER_LABEL } from "@/lib/formatters";
 import { NarrativeStrata } from "@/components/dashboard/narrative/NarrativeStrata";
 import type { Headline, NarrativeEvent, NarrativeLogEntry } from "@/types/dashboard";
@@ -34,6 +34,32 @@ function Meter({ intensity }: { intensity: string }) {
 function isStructural(x: NarrativeLogEntry) {
   if (x.status !== "applied" || !x.event_id) return false;
   return x.kind === "new" || Object.keys(x.changes ?? {}).some((k) => STRUCTURAL.has(k));
+}
+
+/** 마지막 Gemini 점검 한 줄 — 매일 돌았는지, 무엇을 판정했는지. 바뀐 게 없는 날도 '돌았다'는 게 보이게 */
+function ReviewStatus({ log, asOf }: { log: NarrativeLogEntry[]; asOf: string }) {
+  const last = [...log].reverse().find((x) => x.by === "gemini" && x.kind === "summary");
+  if (!last) return <p className="nt-nt-status" data-tone="warn">아직 Gemini 점검 기록이 없습니다.</p>;
+  const when = `${monthDay(last.date)}${last.at ? ` ${last.at.slice(11, 16)}` : ""}`;
+  const how = last.trigger === "schedule" ? "예약 실행" : last.trigger === "workflow_dispatch" ? "수동 실행" : null;
+  const stale = asOf && age(last.date, asOf) >= 2;
+  if (last.status === "error") {
+    return (
+      <p className="nt-nt-status" data-tone="warn">
+        마지막 Gemini 점검 {when}{how && ` (${how})`} — 실패: {last.reason}. 다음 실행에서 다시 시도합니다.
+      </p>
+    );
+  }
+  const n = Object.keys(last.reviews ?? {}).length;
+  return (
+    <p className="nt-nt-status" data-tone={stale ? "warn" : undefined}>
+      <b>마지막 Gemini 점검</b> {when}
+      {how && ` (${how})`} · Gemini{last.model ? `(${last.model.replace(/^gemini-/, "")})` : ""}가 {n}개 판정
+      {n > 0 && ` — ${verdictTally(last.reviews)}`}
+      {last.candidates?.length ? ` · 후보 ${last.candidates.length}개` : ""}
+      {stale && ` · ${age(last.date, asOf)}일째 새 점검이 없습니다`}
+    </p>
+  );
 }
 
 function startLabel(iso: string, asOf: string) {
@@ -90,6 +116,7 @@ export function NarrativesNow() {
         지금 시장을 움직이는 이야기입니다. 국면과 영향은 Gemini가 매일 기사로 판정하고 코드가 근거를 확인해 반영합니다.
         오른쪽은 요약이 아니라 실제 기사 제목입니다.
       </p>
+      <ReviewStatus log={log.data ?? []} asOf={asOf} />
 
       <ul className="nt-nt">
         <li className="nt-nt-row nt-nt-head" aria-hidden="true">

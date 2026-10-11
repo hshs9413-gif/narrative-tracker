@@ -259,6 +259,17 @@ class ReviewVerdictTest(unittest.TestCase):
         _, by, _, n = self.run_reviews([], fade=fade)  # 열린 3개 중 3개 → 보류
         self.assertEqual((n, by["iran-war-2026"]["status"]), (0, "active"))
 
+class RunStampTest(unittest.TestCase):
+    def test_stamp_has_kst_time_and_trigger(self):
+        os.environ["GITHUB_EVENT_NAME"] = "schedule"
+        try:
+            st = gm.run_stamp()
+        finally:
+            del os.environ["GITHUB_EVENT_NAME"]
+        self.assertEqual(st["trigger"], "schedule")
+        self.assertTrue(st["at"].endswith("+09:00"))
+
+
 class CandidateTest(unittest.TestCase):
     def test_candidates_accumulate_by_day_and_expire(self):
         cands = {}

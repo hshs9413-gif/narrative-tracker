@@ -337,6 +337,9 @@ body {
 .nt-meter i { width: 6px; height: 13px; background: var(--nt-rule); }
 .nt-meter i[data-on="true"] { background: var(--nt-ink); }
 
+.nt-nt-status { max-width: var(--nt-measure); margin: -0.75rem 0 1.5rem; padding-left: 0.75rem; border-left: 3px solid var(--nt-l0); font-size: 0.88rem; color: var(--nt-ink-2); }
+.nt-nt-status b { font-weight: 650; color: var(--nt-ink); }
+.nt-nt-status[data-tone="warn"] { border-left-color: var(--nt-l2); color: var(--nt-ink); }
 .nt-nt { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--nt-rule); }
 .nt-nt-row {
   display: grid;

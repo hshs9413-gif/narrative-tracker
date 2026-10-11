@@ -791,6 +791,15 @@ def check_pmi(p, heads, manual, today):
 
 # ───────────────────────────── 실행
 
+KST = datetime.timezone(datetime.timedelta(hours=9))
+
+
+def run_stamp():
+    """언제·어떻게 돌았나 — 화면 '마지막 자동 점검' 줄용. trigger: schedule(예약) · workflow_dispatch(수동) · local"""
+    return {"at": datetime.datetime.now(KST).isoformat(timespec="minutes"),
+            "trigger": os.environ.get("GITHUB_EVENT_NAME") or "local"}
+
+
 def review_narratives(today, events, log, notes):
     """내러티브 정리 한 번 — 반환: 새 로그 항목들 (events·후보 파일은 제자리 수정·저장)"""
     heads, head_counts = gather_headlines(events)
@@ -823,7 +832,7 @@ def review_narratives(today, events, log, notes):
     if proposal.get("summary") or reviewed:
         entries.append({"date": today.isoformat(), "by": "gemini", "model": r["model"], "kind": "summary", "status": "info",
                         "reason": clean_note(proposal.get("summary") or "")[:300], "reviews": reviewed,
-                        "candidates": [c["name"] for c in ranked]})
+                        "candidates": [c["name"] for c in ranked], **run_stamp()})
     if reviewed or n:
         save_json(EVENTS_PATH, events)
     save_json(CANDIDATES_PATH, ranked)
@@ -839,9 +848,11 @@ def main():
     log = load_json(LOG_PATH, [])
     manual = load_json(MANUAL_PATH, {})
     new_entries, notes = [], []
-    # 하루 한 번만 — 수동 실행 뒤 예약 실행이 또 돌아도 같은 날 메모가 겹치지 않게 (GEMINI_FORCE=1이면 다시)
+    # 하루 한 번만 — 수동 실행 뒤 예약 실행이 또 돌아도 같은 날 판정이 겹치지 않게 (GEMINI_FORCE=1이면 다시).
+    # 실패 기록(status=error)은 세지 않는다 — 쿼터 등으로 실패했으면 같은 날 다음 실행이 다시 시도한다
     if not DRY_RUN and os.environ.get("GEMINI_FORCE") != "1" and any(
-            x.get("by") == "gemini" and x.get("kind") == "summary" and x.get("date") == today.isoformat() for x in log):
+            x.get("by") == "gemini" and x.get("kind") == "summary" and x.get("status") == "info"
+            and x.get("date") == today.isoformat() for x in log):
         print(f"::notice title=Gemini 관리::오늘({today}) 이미 검토함 — 건너뜀")
         return
 
@@ -849,6 +860,10 @@ def main():
         new_entries += review_narratives(today, events, log, notes)
     except gemini_api.GeminiError as e:
         print(f"::warning title=Gemini 내러티브 관리 실패::{e}")
+        # 화면 '마지막 자동 점검' 줄에 실패도 보이게 — 이유는 짧게(모델 이름·HTTP 코드 정도)
+        new_entries.append({"date": today.isoformat(), "by": "gemini", "kind": "summary", "status": "error",
+                            "reason": "Gemini 호출 실패 — " + ("하루 한도 소진" if "한도" in str(e) or "429" in str(e) else str(e)[:120]),
+                            **run_stamp()})
 
     if pmi_due(manual, today) or os.environ.get("GEMINI_FORCE_PMI") == "1":
         pmi_heads = {f"h{i + 1}": {**a, "group": "pmi"} for i, a in enumerate(
