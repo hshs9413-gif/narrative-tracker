@@ -1,44 +1,5 @@
 [
   {
-    "id": "russia-plague-2026",
-    "name": "러시아 페스트 확산 우려",
-    "layer": "structural",
-    "layer_secondary": null,
-    "phase": "shock",
-    "status": "active",
-    "intensity": "mid",
-    "trigger_date": "2026-10-11",
-    "peak_date": null,
-    "half_life_date": null,
-    "assets": [
-      "equity",
-      "vix"
-    ],
-    "keywords": [
-      "러시아 페스트",
-      "WHO 모니터링",
-      "보건 리스크"
-    ],
-    "reignition_triggers": [],
-    "notes": "",
-    "last_auto": null,
-    "added_by": "gemini",
-    "added_on": "2026-10-11",
-    "candidate_since": "2026-10-11",
-    "headline": {
-      "title": "Russian plague scare — what we know so far",
-      "source": "CNN",
-      "date": "2026-10-06",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTXJWbllycW45ZjRWMGs2UEV0NVBpcnBJTjZjMVluZ0o5UWh2MThzVDhiRzlWVjNWQlhiYnJCU1dwSXdfV3lObEJ1dmxZczROb093SjF0dG9JNWdma0otcWgtdVJqNkt6OFRIQ1Y5dDlRTTF2eXVFajhQMHc5d3RZSHhVeHY?oc=5"
-    },
-    "last_review": {
-      "date": "2026-10-11",
-      "by": "gemini",
-      "verdict": "추가",
-      "reason": "러시아 내 페스트 의심 사례 발생 및 WHO의 모니터링이 시작되며 글로벌 보건 리스크로 부상함."
-    }
-  },
-  {
     "id": "global-bond-selloff-2026",
     "name": "글로벌 채권 매도·美10년물 5%",
     "layer": "structural",

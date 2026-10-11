@@ -260,13 +260,15 @@ verdict는 다음 중 하나:
 - end: 사건이 해소됨(합의·종전·철회·정상화 완료 등, 서로 다른 매체 기사 2개 이상), 또는 잠잠_일수가 {end_after}일을 넘었고 식음이 true
 - merge: 다른 진행 중 내러티브와 사실상 같은 이야기 — merge_into에 남길 쪽 id
 headline은 필수 — 이 내러티브의 지금 상황을 가장 잘 보여 주는 [기사] 하나의 번호(되도록 최근 3일, 그 내러티브 묶음에서).
-화면에는 이 기사 제목이 그대로 실리므로, 다른 이야기를 다룬 기사는 고르지 마세요. 맞는 기사가 없으면 null.
+화면에는 이 기사 제목이 그대로 실리므로, 다른 이야기를 다룬 기사나 제목이 과장된 칼럼·의견 기사('사상 최고' 등)보다
+사실을 전하는 보도 기사를 고르세요. 맞는 기사가 없으면 null.
 선택: phase(바뀔 때, 매체 2곳 근거), keywords(기사_7일이 0~2건이거나 언급이 늘 포화일 때, 몇 주 쓸 한국어 검색어 2~4개).
 reason은 필수 — 왜 그 판정인지 한 문장. 기사 제목에 있는 사실만 쓰고 수치·'최고'·'최초'는 제목에 그대로 있을 때만.
 dormant·active 같은 필드 값이나 h번호 대신 잠잠·진행 중처럼 한국어로.
 
 ## 2. new_events — 목록에 없는데 여러 매체가 다루고 자산 가격도 반응한 새 이야기 (최대 2개)
-주로 [목록 밖 주요 기사]에서 찾으세요. 근거 기사 3개 이상·매체 2곳 이상(지켜보는 후보에 이틀 이상 오른 주제는 2개).
+주로 [목록 밖 주요 기사]에서 찾으세요. 근거 기사 4개 이상·매체 3곳 이상이고 그중 2곳은 최근 {fresh}일 기사여야 합니다.
+그보다 약하면 candidates에 두세요 — 이틀 넘게 이어진 후보는 기사 2개(최근 {fresh}일 기사 1개 포함)로 올릴 수 있습니다.
 기존 내러티브의 일부라면 새로 만들지 마세요. [끝난 내러티브]와 같은 이야기도 새로 만들지 마세요.
 일회성 뉴스(기업 실적 하나, 하루짜리 사건)는 넣지 마세요.
 
@@ -583,11 +585,14 @@ def check_new(n, events_by_id, heads, open_count, today, candidates=None):
     dup = _overlap(kws, events_by_id.values(), today)
     if dup:
         return None, f"'{dup.get('name')}'와 검색어가 겹침 — 새로 만들지 말고 그 내러티브를 갱신"
+    # 바로 추가하려면 근거가 넉넉하고 최근 3일 기사가 있어야 한다 — 이틀 넘게 이어진 후보는 기준을 낮춘다
+    # (10/11: 10/4~10/6 기사 3건만으로 하루짜리 후보 '러시아 페스트'가 바로 진행 중 내러티브로 들어갔음)
     cand = (candidates or {}).get(cand_key(n.get("from_candidate") or ""))
-    need = 2 if cand and cand.get("days_seen", 0) >= 2 else 3
+    need, src, fresh = (2, 2, 1) if cand and cand.get("days_seen", 0) >= 2 else (4, 3, 2)
     ev, n_src = _evidence(n.get("evidence"), heads)
-    if len(ev) < need or n_src < 2:
-        return None, f"새 내러티브는 기사 {need}개 이상·매체 2곳 이상 필요"
+    if len(ev) < need or n_src < src or _fresh_sources(ev, heads, today) < fresh:
+        return None, (f"새 내러티브는 기사 {need}개 이상·매체 {src}곳 이상, 그중 최근 {FRESH_DAYS}일 기사 매체 {fresh}곳 이상 필요"
+                      " — 못 미치면 후보로")
     if open_count >= MAX_OPEN:
         return None, f"진행 중 내러티브가 이미 {MAX_OPEN}개"
     event = {"id": nid, "name": name, "layer": n["layer"], "layer_secondary": None, "phase": n["phase"],
