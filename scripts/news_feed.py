@@ -55,6 +55,29 @@ def headlines(query, lang="ko", days=7, limit=8, session=None):
         return []
 
 
+TOP = {
+    "ko": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ko&gl=KR&ceid=KR:ko",
+    "en": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US:en",
+}
+
+
+def top_stories(lang="ko", limit=30, session=None):
+    """구글 뉴스 '경제' 주요 기사 — 검색어 없이 지금 많이 다뤄지는 기사. 목록에 없는 새 이슈를 찾는 데 쓴다."""
+    s = session or requests
+    try:
+        resp = s.get(TOP[lang], headers=HEADERS, timeout=20)
+        resp.raise_for_status()
+        return parse_rss(resp.content, limit)
+    except Exception:  # noqa: BLE001
+        return []
+
+
+def matches(title, keywords):
+    """제목이 검색어 중 하나에 걸리는지 — 검색어 안의 낱말이 모두 제목에 있으면 걸린 것으로 본다."""
+    t = title.replace(" ", "")
+    return any(k and all(w in t for w in k.split()) for k in keywords)
+
+
 def or_query(keywords, n=3):
     """키워드 여러 개를 OR로 묶는다 — 공백이 든 키워드는 따옴표로."""
     terms = [f'"{k}"' if re.search(r"\s", k) else k for k in keywords[:n] if k]

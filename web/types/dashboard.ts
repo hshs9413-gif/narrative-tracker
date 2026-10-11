@@ -107,6 +107,22 @@ export interface NarrativeLogEntry {
   reason?: string;
   reject_reason?: string;
   evidence?: { title: string; source: string; date: string; url: string }[];
+  verdict?: string | null; // Gemini 판정(keep·up·down·dormant·reignite·end·merge)
+  dropped?: string[]; // 판정은 받되 규칙에 안 맞아 뺀 선택 필드
+  reviews?: Record<string, string>; // summary 줄: 그날 내러티브별 판정(한국어)
+  candidates?: string[]; // summary 줄: 그날 지켜보는 후보 이름
+}
+
+// ────────────────────── narrative_candidates.json ──────────────────────
+// Gemini가 아직 기준엔 못 미치지만 지켜보는 새 이슈 후보 — 이틀 넘게 이어지면 새 내러티브로 올라간다.
+export interface NarrativeCandidate {
+  key: string;
+  name: string;
+  first_seen: string;
+  last_seen: string;
+  days_seen: number;
+  why?: string;
+  evidence?: { title: string; source: string; date: string; url: string }[];
 }
 
 export interface CompositeScore {
@@ -155,7 +171,11 @@ export interface NarrativeEvent {
   reignition_triggers: string[];
   notes: string;
   last_auto?: { date: string; change: string } | null;
-  last_review?: { date: string; by: string };
+  last_review?: { date: string; by: string; verdict?: string; reason?: string };
+  dormant_since?: string;
+  ended_on?: string;
+  merged_into?: string;
+  candidate_since?: string;
   auto_lock?: boolean;
   added_by?: string;
   added_on?: string;

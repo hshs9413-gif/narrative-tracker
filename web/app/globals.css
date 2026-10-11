@@ -328,6 +328,23 @@ body {
 .nt-narr-spark { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.5rem; font-size: 0.8rem; color: var(--nt-ink-3); }
 .nt-narr-spark .nt-spark { color: var(--nt-ink-2); }
 .nt-dormant { max-width: var(--nt-measure); margin: 2rem 0 0; color: var(--nt-ink-2); font-size: 0.95rem; }
+/* 마지막 판정 한 줄 — 누가·언제·판정은 작게, 이유는 본문 톤으로 */
+.nt-narr-review { display: flex; flex-wrap: wrap; gap: 0.15rem 0.5rem; max-width: 36rem; margin: 0.45rem 0 0; font-size: 0.85rem; color: var(--nt-ink-2); }
+.nt-narr-review-who { flex: none; color: var(--nt-ink-3); }
+.nt-narr-review-who b { margin-left: 0.35rem; padding: 0 0.3rem; border: 1px solid var(--nt-rule); border-radius: 3px; font-weight: 600; color: var(--nt-ink); }
+.nt-narr-review[data-verdict="강화"] b, .nt-narr-review[data-verdict="추가"] b, .nt-narr-review[data-verdict="재점화"] b { border-color: var(--nt-l2); }
+.nt-narr-review[data-verdict="약화"] b { border-color: var(--nt-l0); }
+
+/* 잠잠·최근 정리·후보 — 본 목록 아래 세 칸 */
+.nt-aside { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1.5rem 3rem; margin-top: 2.75rem; padding-top: 1.25rem; border-top: 1px solid var(--nt-rule); }
+.nt-aside-h { margin: 0 0 0.2rem; font-size: 0.95rem; font-weight: 700; }
+.nt-aside-lede { margin: 0 0 0.6rem; font-size: 0.82rem; color: var(--nt-ink-3); }
+.nt-quiet, .nt-cands { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; font-size: 0.9rem; }
+.nt-quiet li, .nt-cands li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 0.5rem; }
+.nt-quiet li > span:not(.nt-quiet-why), .nt-cands-days { font-size: 0.82rem; color: var(--nt-ink-3); }
+.nt-quiet-why, .nt-cands-why { flex-basis: 100%; font-size: 0.85rem; color: var(--nt-ink-2); }
+.nt-cands-src { flex-basis: 100%; font-size: 0.8rem; }
+.nt-cands-src a { margin-right: 0.6rem; color: var(--cui-link-color); }
 
 /* ───────── 갱신 기록 ───────── */
 .nt-log-summary { max-width: var(--nt-measure); margin: 0 0 1.75rem; padding: 0.25rem 0 0.25rem 1rem; border-left: 2px solid var(--nt-ink-3); }

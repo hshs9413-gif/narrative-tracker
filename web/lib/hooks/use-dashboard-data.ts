@@ -5,7 +5,8 @@ import { useStaticData } from "./use-static-data";
 import { parseAttentionCsv, parseMarketSnapshotCsv, parseRegimeLogCsv } from "@/lib/csv";
 import { computeMetrics } from "@/lib/narrative-metrics";
 import type {
-  AppConfig, AttentionRow, FredCatalog, MarketSnapshotRow, NarrativeEvent, NarrativeLogEntry, RegimeLogRow, RegimeState,
+  AppConfig, AttentionRow, FredCatalog, MarketSnapshotRow, NarrativeCandidate, NarrativeEvent, NarrativeLogEntry, RegimeLogRow,
+  RegimeState,
 } from "@/types/dashboard";
 
 // parse 함수는 모듈 레벨에 둬야 useEffect 의존성이 렌더마다 바뀌지 않는다.
@@ -18,6 +19,7 @@ const parseFredCatalog = (res: Response) => json<FredCatalog>(res);
 const parseAppConfig = (res: Response) => json<AppConfig>(res);
 const parseRegimeLog = (res: Response) => res.text().then(parseRegimeLogCsv);
 const parseNarrativeLog = (res: Response) => json<NarrativeLogEntry[]>(res);
+const parseCandidates = (res: Response) => json<NarrativeCandidate[]>(res);
 
 export const useRegimeState = () => useStaticData<RegimeState>("data/regime_state.json", parseRegime);
 export const useNarrativeEvents = () => useStaticData<NarrativeEvent[]>("data/events.json", parseEvents);
@@ -30,6 +32,8 @@ export const useAppConfig = () => useStaticData<AppConfig>("data/app_config.json
 export const useRegimeLog = () => useStaticData<RegimeLogRow[]>("data/regime_log.csv", parseRegimeLog);
 // Gemini·규칙·검증이 내러티브 목록을 바꾼 기록 — 파일이 아직 없으면(첫 실행 전) 빈 기록으로 본다
 export const useNarrativeLog = () => useStaticData<NarrativeLogEntry[]>("data/narrative_log.json", parseNarrativeLog);
+// Gemini가 지켜보는 새 이슈 후보 — 첫 정리 전에는 파일이 없다
+export const useNarrativeCandidates = () => useStaticData<NarrativeCandidate[]>("data/narrative_candidates.json", parseCandidates);
 
 // 시장·언급량 파일이 없어도 이벤트만 있으면 계산한다 (해당 칸만 '측정중') — 기존 대시보드와 동일.
 export function useNarrativeMetrics() {
