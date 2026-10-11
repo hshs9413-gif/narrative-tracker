@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useMarketSnapshot, useRegimeState } from "@/lib/hooks/use-dashboard-data";
+import { useKoreaSnapshot, useMarketSnapshot, useRegimeState } from "@/lib/hooks/use-dashboard-data";
 import { BOARD, readBoard, formatChange, positionWords, type Reading } from "@/lib/board";
 import { notability } from "@/lib/positions";
 import { monthDay } from "@/lib/brief";
@@ -56,7 +56,8 @@ function Row({ r }: { r: Reading }) {
 export function IndicatorTable() {
   const market = useMarketSnapshot();
   const regime = useRegimeState();
-  const readings = useMemo(() => (market.data ? readBoard(market.data) : []), [market.data]);
+  const korea = useKoreaSnapshot();
+  const readings = useMemo(() => (market.data ? readBoard({ market: market.data, korea: korea.data ?? [] }) : []), [market.data, korea.data]);
   if (!market.data?.length) return null;
   const byId = Object.fromEntries(readings.map((r) => [r.row.id, r]));
   const gi = regime.data?.growth_inflation;

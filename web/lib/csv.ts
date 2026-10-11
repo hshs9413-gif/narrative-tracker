@@ -1,4 +1,4 @@
-import type { AttentionRow, MarketSnapshotRow, RegimeLogRow } from "@/types/dashboard";
+import type { AttentionRow, KoreaRow, MarketSnapshotRow, RegimeLogRow } from "@/types/dashboard";
 
 // 수집 스크립트가 쓰는 CSV 전용 — 모든 컬럼이 숫자·날짜·id라 따옴표/이스케이프 콤마는 지원 안 함.
 function parseCsv(text: string): Record<string, string>[] {
@@ -25,6 +25,14 @@ export function parseMarketSnapshotCsv(text: string): MarketSnapshotRow[] {
     for (const key of MARKET_COLUMNS) row[key] = toNumber(raw[key]);
     return row as unknown as MarketSnapshotRow;
   });
+}
+
+/** korea_snapshot.csv (collect_korea.py, 한국은행 ECOS) — 날짜 + 숫자 컬럼 */
+export function parseKoreaCsv(text: string): KoreaRow[] {
+  return parseCsv(text).map((raw) => ({
+    date: raw.date, bok_rate: toNumber(raw.bok_rate), ktb3y: toNumber(raw.ktb3y), ktb10y: toNumber(raw.ktb10y),
+    foreign_net: toNumber(raw.foreign_net),
+  }));
 }
 
 export function parseAttentionCsv(text: string): AttentionRow[] {
