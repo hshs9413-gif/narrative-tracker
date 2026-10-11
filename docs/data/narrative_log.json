@@ -546,5 +546,27 @@
     "kind": "summary",
     "status": "info",
     "reason": "미 국채금리 급등이 시장 전반의 변동성을 주도하는 가운데, AI 거품론과 빚투 규제, 중동 지정학적 리스크가 복합적으로 작용하고 있음."
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "global-bond-selloff-2026",
+    "changes": {
+      "notes": [
+        "…",
+        "美10년물 5.2~5.3%로 2007년 이후 최고권(FRED DGS10), 분기 상승 폭은 32년 만에 최고(10/5 조선일보)."
+      ]
+    },
+    "reason": "Gemini 메모의 '사상 최고치'는 칼럼 제목을 옮긴 것 — FRED 기준 2007년 이후 최고라 바로잡음",
+    "evidence": [
+      {
+        "title": "10-Year Treasury Constant Maturity Rate",
+        "source": "FRED",
+        "date": "2026-10-08",
+        "url": "https://fred.stlouisfed.org/series/DGS10"
+      }
+    ]
   }
 ]
