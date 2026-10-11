@@ -1,5 +1,44 @@
 [
   {
+    "id": "russia-plague-2026",
+    "name": "러시아 페스트 확산 우려",
+    "layer": "structural",
+    "layer_secondary": null,
+    "phase": "shock",
+    "status": "active",
+    "intensity": "mid",
+    "trigger_date": "2026-10-11",
+    "peak_date": null,
+    "half_life_date": null,
+    "assets": [
+      "equity",
+      "vix"
+    ],
+    "keywords": [
+      "러시아 페스트",
+      "WHO 모니터링",
+      "보건 리스크"
+    ],
+    "reignition_triggers": [],
+    "notes": "",
+    "last_auto": null,
+    "added_by": "gemini",
+    "added_on": "2026-10-11",
+    "candidate_since": "2026-10-11",
+    "headline": {
+      "title": "Russian plague scare — what we know so far",
+      "source": "CNN",
+      "date": "2026-10-06",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTXJWbllycW45ZjRWMGs2UEV0NVBpcnBJTjZjMVluZ0o5UWh2MThzVDhiRzlWVjNWQlhiYnJCU1dwSXdfV3lObEJ1dmxZczROb093SjF0dG9JNWdma0otcWgtdVJqNkt6OFRIQ1Y5dDlRTTF2eXVFajhQMHc5d3RZSHhVeHY?oc=5"
+    },
+    "last_review": {
+      "date": "2026-10-11",
+      "by": "gemini",
+      "verdict": "추가",
+      "reason": "러시아 내 페스트 의심 사례 발생 및 WHO의 모니터링이 시작되며 글로벌 보건 리스크로 부상함."
+    }
+  },
+  {
     "id": "global-bond-selloff-2026",
     "name": "글로벌 채권 매도·美10년물 5%",
     "layer": "structural",
@@ -32,7 +71,13 @@
       "date": "2026-10-11",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미 10년물 금리가 5.2~5.3%로 2007년 이후 최고치를 경신하며 시장의 주요 하락 요인으로 지속 작용 중입니다."
+      "reason": "미 국채금리가 5%를 상회하며 시장 전반의 변동성을 지속적으로 자극하고 있음."
+    },
+    "headline": {
+      "title": "\"미국 국채금리 사상 최고치\"…미국 국채금리 급등이 바꿀 경제 흐름",
+      "source": "뉴시스",
+      "date": "2026-10-10",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1BcUUzbngzbFpHMUsyTkNhaW9wMndwaU1malI1YnZKWnVsMmtTOWVZai1rY0ZTNktmcTZaSVE3RkNZSzVGRTdhSW1LODhaX18xYkIzYWVFWHdFVll1YnFJMtIBeEFVX3lxTFBVX3NtTkxBTmo2RXNWRzVDdG5JMlVoajY1Y0g4UFR4ek41NVg4UEUtT3puVE1GQWVHNTlvSXNZLW81RzIwOEpqMmhveXJLOGYwUm80T0k1aHRERk5MVjQ2aWlGTk15VEVoNFhHNWx2RWhCUml2UkVhcA?oc=5"
     }
   },
   {
@@ -68,7 +113,13 @@
       "date": "2026-10-11",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "정부의 F4 회동 및 증권사 신용융자 한도 축소 등 빚투 규제 움직임이 구체화되며 시장 변동성을 자극하고 있습니다."
+      "reason": "반도체 관련 빚투 규모가 여전히 높고 정부의 규제 움직임이 이어지며 변동성이 지속됨."
+    },
+    "headline": {
+      "title": "‘빚투 38조’ 주가 10%↓ 8조 증발할 수도...정부 F4 회동",
+      "source": "쿠키뉴스",
+      "date": "2026-10-09",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1TNm91b3V6WWhPUDlFbnBISWpRTVNWVDdUM1FqQVd6amZVQldaTUtvbU5FX1ZXT25ZMXl0WmI4eG9aUlBSRWhaNHNmWktYcjd1NzM5TGpxdTliUF9qTkV1YUtJTQ?oc=5"
     }
   },
   {
@@ -103,7 +154,13 @@
       "date": "2026-10-11",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본 국채금리 인상과 엔화 강세 흐름이 지속되며 글로벌 자금 흐름에 영향을 주고 있습니다."
+      "reason": "일본 국채금리 상승과 엔화 강세 기조가 유지되며 글로벌 자금 흐름에 영향을 주고 있음."
+    },
+    "headline": {
+      "title": "日, 10년물 국채 표면금리 3.1%로 인상…30년 만에 최고",
+      "source": "연합뉴스",
+      "date": "2026-10-06",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5BRmJxMl91bWtvUVgxVTVudmFqdVNiWERWN3lSV0tEOHcycTdNbHpkeGZ5TVc2ZHdhdzlDX0htYVhvZXI1d015cTZfMDg3WGJwa3lrcFJkejVpSXPSAWBBVV95cUxOMEd6bVRRbUFral9tRFVEd0ZJbDBsV1NVX2stTV9YdnB3bWlrcUNHTjdWZnJrRXFPUFRQUVlHOHhvNHg4VnllYkpDRTU4Tk9DZ2otSi0wRVBxM05EWmo1Yno?oc=5"
     }
   },
   {
@@ -139,7 +196,13 @@
       "date": "2026-10-11",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "9월 고용 지표 부진 이후 스태그플레이션 우려가 시장의 주요 경계감으로 자리 잡고 있습니다."
+      "reason": "고용 지표 둔화가 확인되면서 연준의 정책 경로에 대한 시장의 경계감이 지속됨."
+    },
+    "headline": {
+      "title": "미국 고용은 무너지고 있는가? 9월 고용보고서가 보여준 진짜 변화",
+      "source": "네이버 프리미엄콘텐츠",
+      "date": "2026-10-06",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNTklCR09FemZnMnI3SVFzcllZSE5Wdl9FdDJoRWZqYVZWaXE5b3diclRPMWxJbURUTHdoSUNWM29MVXVGQ3hSelVseGJkNlRlRzdLT2g2R1hoODNoQWNGWlBPZDl0elg2ZGRfS2V1Y2hJczJwVlhYZXZrTFZGcnlUbWVoNlkxblgwYVFMam1hNk40Zw?oc=5"
     }
   },
   {
@@ -150,8 +213,8 @@
     "phase": "correction",
     "trigger_date": "2026-06-01",
     "peak_date": null,
-    "half_life_date": null,
-    "status": "active",
+    "half_life_date": "2026-10-11",
+    "status": "dormant",
     "intensity": "low",
     "assets": [
       "dollar",
@@ -172,9 +235,16 @@
     "last_review": {
       "date": "2026-10-11",
       "by": "gemini",
-      "verdict": "유지",
-      "reason": "제안은 잠잠이었으나, 최근 3일간 다수의 매체에서 연준의 독립성과 정치적 압박을 다루고 있어 진행 중 상태를 유지합니다."
-    }
+      "verdict": "잠잠",
+      "reason": "9월 FOMC 만장일치 인상으로 연준의 독립성이 확인되어 정치적 불확실성 충격이 진정됨."
+    },
+    "headline": {
+      "title": "케빈 워시 연준 의장이 던진 열 단어, 시장의 금리 기대 바꿀까",
+      "source": "글로벌이코노믹",
+      "date": "2026-10-10",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOanpPUmNkanJTem1VTnR6dU9mSnVNX2ZkdndVSGtuSEtPYUlCSHZpOHR6M2tYcEpIbEtsbUVldW9rbWpaOFRKcnkxVW9rVk1tb2tWUTJoX1lMR3pDWnRpNU5EU1hIcTNBWFZYcnVQZFdZQWVqb1RfcDl4ZWc0Z3hfa1lWWFRqWHM?oc=5"
+    },
+    "dormant_since": "2026-10-11"
   },
   {
     "id": "iran-war-2026",
@@ -211,7 +281,13 @@
       "date": "2026-10-11",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "중동 확전 우려와 유가 변동성이 여전히 시장의 고위험 요인으로 작용하고 있습니다."
+      "reason": "호르무즈 해협 내 유조선 공격과 확전 우려가 지속되며 유가 및 지정학적 리스크를 고조시킴."
+    },
+    "headline": {
+      "title": "거센 반격 후티, 사우디 공항·정유시설 타격…한국 기업 인근도 피격",
+      "source": "KBS 뉴스",
+      "date": "2026-10-07",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFAxakpkQXlDNnc2VlJLLXJKRHB1b0g4TDdkbzNocUNpS3lLbEY0U09JTHRrZnZpU2NvWUNaMGl0cVJkUlplVDg5ejVyaEdPYmNEWmEwaV9peFNVSjVrNGNlUVpGZVVMdw?oc=5"
     }
   },
   {
@@ -243,7 +319,13 @@
       "date": "2026-10-11",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "레이 달리오 등 월가 거물들의 AI 거품 경고가 확산되며 투자 심리에 지속적인 부담을 주고 있습니다."
+      "reason": "월가 거물들의 버블 경고와 IPO 철회 사례가 나오며 밸류에이션 과열 논란이 심화됨."
+    },
+    "headline": {
+      "title": "\"AI 거품 터질 때 가까워졌다\"…월가 전설 달리오의 경고",
+      "source": "조선일보",
+      "date": "2026-10-09",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZWRGSkplUjdKWFotUmZUdjRfNkhNMjdIN2pDdkJGVGNLWHF2amVsOWtSc3phY1Z2R3ZOdG9qMGhqZUh2azZWLU1ERmtMd3FCMjZuSEx1M0dCb2NDcFktNjg5cktuQ3pudHVLMVdEblZHLXNONDF3eFg2ZFpINkkwLQ?oc=5"
     }
   },
   {
@@ -278,7 +360,13 @@
       "date": "2026-10-11",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "관세 정책이 물가 상방 압력으로 작용한다는 분석이 지속적으로 제기되고 있습니다."
+      "reason": "상호관세 정책이 미국 내 물가 상승 압력으로 작용하며 경제적 부담이 지속되고 있음."
+    },
+    "headline": {
+      "title": "트럼프 관세, 美소비재 물가 2.9%p 올려…뉴욕연은 보고서",
+      "source": "연합뉴스",
+      "date": "2026-10-08",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBWMk1VR0pmVlBGM3IxQzFRMXlGRUNiMkw1a1h1QnQ0UTZ0SHZraE5nWnJObWItcGV1YTVxRUEyb0Joa2F4UVl6WGljR080Z3ZOQ2RIOUJ6d2xFXzjSAWBBVV95cUxNZWxUVWlWajZxdFJzX3R0WkJUZzBTWFRpRGJNLVdyUFc5NVplVVc0YS1EM0V1RTh4N1JtdUpQNFNja3RFS3VNUFYzY3hNV29mLWdJekhiUkpMeG85X3RZN0Q?oc=5"
     }
   },
   {

@@ -649,5 +649,87 @@
     "candidates": [
       "러시아 페스트 확산 우려"
     ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "fed-politicization-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "9월 FOMC 만장일치 인상으로 연준의 독립성이 확인되어 정치적 불확실성 충격이 진정됨.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "케빈 워시 연준 의장이 던진 열 단어, 시장의 금리 기대 바꿀까",
+        "source": "글로벌이코노믹",
+        "date": "2026-10-10",
+        "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOanpPUmNkanJTem1VTnR6dU9mSnVNX2ZkdndVSGtuSEtPYUlCSHZpOHR6M2tYcEpIbEtsbUVldW9rbWpaOFRKcnkxVW9rVk1tb2tWUTJoX1lMR3pDWnRpNU5EU1hIcTNBWFZYcnVQZFdZQWVqb1RfcDl4ZWc0Z3hfa1lWWFRqWHM?oc=5"
+      },
+      {
+        "title": "美, 2연속 금리 인상? 연준 인사들은 신중론 - 조선비즈",
+        "source": "Chosunbiz",
+        "date": "2026-10-09",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPT0VzelhaRXNqTnZ6NHBuUFRfLXpEbFNhRVlVZXAwUkJoWVQxUnJaMFRGZFg5OTdlanZibFpjT2s5cUJ0U2VnWk9sM3UySDRqcEZJYUR3OXRyOVhDZDB3Y1dETEtLRkhPVFNoTzk1Wl9LZW1KMkQwVjlkNVA5andlVjB2RlJGZVla0gGcAUFVX3lxTE1iYTBaZVg3WVdvem5DdVd2dVQ2alp3a2JfVFRvcXhpekNYd0dLaEd6VThWQXV6UHAyYVMzUHZxQjVpRDhNRmZfV3hhRUhhZlpzRm1SVVRyTWxBTjFzZ3RzdjdaOFJfbW1DaGFQUE9SWnBZb1hWbk1qQ0FxUGxWRjI3dXVaVXhrZTJCZkg5RlNXWGJfTy1qcVdfUmU3Sg?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "russia-plague-2026",
+    "kind": "new",
+    "name": "러시아 페스트 확산 우려",
+    "reason": "러시아 내 페스트 의심 사례 발생 및 WHO의 모니터링이 시작되며 글로벌 보건 리스크로 부상함.",
+    "status": "applied",
+    "evidence": [
+      {
+        "title": "Russian lab worker dies of suspected plague as 200 enter medical observation",
+        "source": "NBC News",
+        "date": "2026-10-05",
+        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbmdUdVpKNGpYM3p3Y2xCeE5zZzZHUHE1YzR2Mzk1QXNrbzhkNWZFaTJEc1E1cVEtM09oZGpHTXNiMVFma19ObkpHVFVoY2k5MS14eU5YUGppZU5pWVc4YjUtblBLMHRUQk1JQVd2M3VyZ3daMEpVNWxYOVN5RGNZbzFiUzB3bFQ0eVR4MmJ1MlhNWTFPYW1lcmZuSUJwd3FMOTUtTjJrVHl0Q25UM3RiSw?oc=5"
+      },
+      {
+        "title": "Scoop: White House monitors suspected plague outbreak in Russia",
+        "source": "Axios",
+        "date": "2026-10-04",
+        "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5XOWV5amNoaTYwcjNNS1liVl8ySTBaX2tmNzNac2JZNGpDN0ZkQ1dRZ2txa2JuVXRyZkNkaWZhYzJIQk8yVmZ6YXc3aGFQcnMyX0IwN3QwanlTVm9qY1RCWVhLQi1UQ3VLNE45Zi1DREVKMmY1RDNKNURB?oc=5"
+      },
+      {
+        "title": "Russian plague scare — what we know so far",
+        "source": "CNN",
+        "date": "2026-10-06",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTXJWbllycW45ZjRWMGs2UEV0NVBpcnBJTjZjMVluZ0o5UWh2MThzVDhiRzlWVjNWQlhiYnJCU1dwSXdfV3lObEJ1dmxZczROb093SjF0dG9JNWdma0otcWgtdVJqNkt6OFRIQ1Y5dDlRTTF2eXVFajhQMHc5d3RZSHhVeHY?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미 국채금리 급등과 중동 지정학적 리스크가 시장을 압박하는 가운데, 연준 정치화 내러티브는 독립성 확인으로 잠잠해졌습니다. 러시아 페스트 확산 우려가 새로운 구조적 리스크로 부상하며 시장의 경계감을 높이고 있습니다.",
+    "reviews": {
+      "russia-plague-2026": "추가",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "fed-politicization-2026": "잠잠",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "금융권 AI 해킹 사고"
+    ]
   }
 ]
