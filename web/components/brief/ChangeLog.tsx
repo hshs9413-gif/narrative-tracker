@@ -1,7 +1,7 @@
 "use client";
 
 import { useNarrativeEvents, useNarrativeLog } from "@/lib/hooks/use-dashboard-data";
-import { ACTOR, describeChanges, monthDay, sourceName } from "@/lib/brief";
+import { ACTOR, describeChanges, monthDay, sourceName, verdictTally } from "@/lib/brief";
 import type { NarrativeLogEntry } from "@/types/dashboard";
 
 const SHOW = 12;
@@ -16,7 +16,7 @@ function Entry({ x, names }: { x: NarrativeLogEntry; names: Record<string, strin
       </p>
       <div className="nt-log-body">
         <p className="nt-log-what">
-          <b>{subject}</b> {describeChanges(x).join(", ")}
+          <b>{subject}</b> {describeChanges(x, names).join(", ")}
         </p>
         {x.reason && <p className="nt-log-why">{x.reason}</p>}
         {!!x.evidence?.length && (
@@ -47,18 +47,20 @@ export function ChangeLog() {
     <section id="log" className="nt-block">
       <h2 className="nt-h2">갱신 기록</h2>
       <p className="nt-lede">
-        내러티브 목록을 누가, 무엇을 근거로 바꿨는지입니다. Gemini 제안은 코드가 근거 기사 수·매체 수·변경 폭을 검사해 통과한 것만 반영합니다.
+        내러티브 목록을 누가, 무엇을 근거로 바꿨는지입니다. Gemini는 매일 모든 내러티브를 다시 판정하고, 코드가 근거 기사 수·매체 수·변경 폭·언급
+        감소를 검사해 통과한 것만 반영합니다. &lsquo;유지&rsquo; 판정은 기록 대신 각 내러티브 아래에 남습니다.
       </p>
       {summary && (
         <blockquote className="nt-log-summary">
           <p>{summary.reason}</p>
           <footer>
             {ACTOR[summary.by] ?? summary.by}, {monthDay(summary.date)}
+            {summary.reviews && Object.keys(summary.reviews).length > 0 && <> — 내러티브 {Object.keys(summary.reviews).length}개 판정: {verdictTally(summary.reviews)}</>}
           </footer>
         </blockquote>
       )}
       {log.loading ? null : applied.length === 0 ? (
-        <p className="nt-empty">아직 기록이 없습니다. 매일 07:30 수집 때 Gemini가 처음 검토하면 여기에 쌓입니다.</p>
+        <p className="nt-empty">아직 기록이 없습니다. 매일 아침 수집 때 Gemini가 처음 검토하면 여기에 쌓입니다.</p>
       ) : (
         <ol className="nt-log">
           {applied.slice(0, SHOW).map((x, i) => (

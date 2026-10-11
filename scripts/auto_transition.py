@@ -13,6 +13,9 @@
   dormant → active (재점화):
     - 최근 3개 관측치가 모두 정점의 50% 이상
     - 최근값 ≥ 10건/일
+  dormant → ended (오래 잠잠하면 정리, 2026-10 추가 — Gemini가 쿼터 등으로 며칠 못 돌아도 목록이 쌓이지 않게):
+    - 잠잠해진 지 60일 이상
+    - 최근 14개 관측치가 모두 정점의 15% 미만
 
 [사용자 통제]
   - events.json에서 "auto_lock": true 를 추가하면 해당 이벤트는 자동 전환에서 제외
@@ -42,6 +45,8 @@ REACTIVATE_STREAK = 3       # 이만큼 연속이고
 REACTIVATE_FLOOR = 10       # 최근값이 이 이상이면 활성 복귀
 REACTIVATE_MIN_DAYS = 14    # 재점화 판정 최소 관측일 — 수집 첫 며칠은 정점이 곧 최근값이라 무조건 재점화되던 문제
                             # (2026-08-02 수집 시작 직후 8/4·8/5에 이란·관세가 그렇게 켜졌음, 2026-10-11 검증)
+END_AFTER_DORMANT_DAYS = 60  # 잠잠한 채 이만큼 지나고
+END_STREAK = 14              # 최근 이만큼 모두 정점의 DORMANT_RATIO 미만이면 종료
 REVIEW_GRACE_DAYS = 7       # Gemini가 최근에 판단한 내러티브는 이 기간 동안 규칙으로 되돌리지 않음
 LOG_PATH = os.path.join(BASE, "..", "docs", "data", "narrative_log.json")
 
@@ -115,6 +120,13 @@ def evaluate(event, series):
         if n < REACTIVATE_MIN_DAYS:
             evidence["사유"] = f"관측 {n}일 < {REACTIVATE_MIN_DAYS}일 — 재점화 판정 보류"
             return None, evidence
+        since = e_dormant_since(event)
+        tail = counts[-END_STREAK:]
+        if (since and (datetime.date.today() - since).days >= END_AFTER_DORMANT_DAYS
+                and len(tail) == END_STREAK and all(c < peak * DORMANT_RATIO for c in tail)):
+            evidence["사유"] = (f"잠잠한 지 {(datetime.date.today() - since).days}일, 최근 {END_STREAK}일 모두 정점의 "
+                              f"{DORMANT_RATIO:.0%} 미만 → 종료")
+            return "ended", evidence
         recent = counts[-REACTIVATE_STREAK:]
         if (len(recent) == REACTIVATE_STREAK
                 and all(c >= peak * REACTIVATE_RATIO for c in recent)
@@ -126,6 +138,18 @@ def evaluate(event, series):
         return None, evidence
 
     return None, evidence
+
+
+def e_dormant_since(e):
+    """잠잠해진 날 — dormant_since, 없으면 규칙 전환 기록(last_auto)에서"""
+    d = e.get("dormant_since")
+    if not d:
+        auto = e.get("last_auto") or {}
+        d = auto.get("date") if str(auto.get("change", "")).endswith("->dormant") else None
+    try:
+        return datetime.date.fromisoformat(d) if d else None
+    except ValueError:
+        return None
 
 
 def first_half_life_date(dates, peaks, peak):
@@ -161,8 +185,14 @@ def main():
             counts = [c for _, c in series]
             peak, _, peaks = rolling7_peak(counts)
             e["half_life_date"] = first_half_life_date(dates, peaks, peak)
+        if new_status == "dormant":
+            e["dormant_since"] = datetime.date.today().isoformat()
         if new_status == "active":
             e["half_life_date"] = None   # 재점화 시 반감기 초기화
+            e.pop("dormant_since", None)
+        if new_status == "ended":
+            e["ended_on"] = datetime.date.today().isoformat()
+            e.pop("dormant_since", None)
 
         print(f"[CHANGE] {label} → {new_status} ({evidence.get('사유','')})")
         changes.append({"event": e, "old": old, "new": new_status, "evidence": evidence})

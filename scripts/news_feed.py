@@ -43,8 +43,9 @@ def parse_rss(xml_bytes, limit):
     return out
 
 
-def headlines(query, lang="ko", days=7, limit=8, session=None):
-    """검색어의 최근 N일 기사 제목 목록 (최신순은 구글 정렬 그대로). 실패하면 빈 목록."""
+def headlines(query, lang="ko", days=7, limit=8, session=None, strict=False):
+    """검색어의 최근 N일 기사 제목 목록 (최신순은 구글 정렬 그대로). 실패하면 빈 목록 — strict면 None
+    ('기사 0건'과 '못 받음'을 구분해야 하는 곳용: 0건은 식었다는 근거지만 못 받은 건 아니다)."""
     s = session or requests
     q = urllib.parse.quote(f"{query} when:{days}d")
     try:
@@ -52,7 +53,30 @@ def headlines(query, lang="ko", days=7, limit=8, session=None):
         resp.raise_for_status()
         return parse_rss(resp.content, limit)
     except Exception:  # noqa: BLE001 — 헤드라인은 보조 자료라 실패해도 진행
+        return None if strict else []
+
+
+TOP = {
+    "ko": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ko&gl=KR&ceid=KR:ko",
+    "en": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US:en",
+}
+
+
+def top_stories(lang="ko", limit=30, session=None):
+    """구글 뉴스 '경제' 주요 기사 — 검색어 없이 지금 많이 다뤄지는 기사. 목록에 없는 새 이슈를 찾는 데 쓴다."""
+    s = session or requests
+    try:
+        resp = s.get(TOP[lang], headers=HEADERS, timeout=20)
+        resp.raise_for_status()
+        return parse_rss(resp.content, limit)
+    except Exception:  # noqa: BLE001
         return []
+
+
+def matches(title, keywords):
+    """제목이 검색어 중 하나에 걸리는지 — 검색어 안의 낱말이 모두 제목에 있으면 걸린 것으로 본다."""
+    t = title.replace(" ", "")
+    return any(k and all(w in t for w in k.split()) for k in keywords)
 
 
 def or_query(keywords, n=3):
