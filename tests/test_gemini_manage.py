@@ -70,6 +70,11 @@ class UpdateRulesTest(unittest.TestCase):
             self.assertEqual(n, 0, prop)
             self.assertIn(why, entries[0]["reject_reason"], prop)
 
+    def test_evidence_ids_in_other_formats(self):
+        for ev in (["1", 2], "h1, h2", ["[h1]", "h2"]):
+            ids, n_src = gm._evidence(ev, heads())
+            self.assertEqual((ids, n_src), (["h1", "h2"], 2), ev)
+
     def test_cooldown_and_limit(self):
         log = [{"date": "2026-10-10", "by": "gemini", "status": "applied", "event_id": "iran-war-2026"}]
         entries, n = gm.apply_proposal({"updates": [{"id": "iran-war-2026", "intensity": "mid", "evidence": ["h1"]}]},

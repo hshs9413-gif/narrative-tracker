@@ -237,7 +237,15 @@ def _date(s):
 
 
 def _evidence(ids, heads):
-    ok = [i for i in dict.fromkeys(ids or []) if i in heads]
+    """근거 기사 번호 — 모델마다 'h3'·'3'·3·'[h3]'·'h3, h7'처럼 다르게 써서 숫자만 뽑아 h번호로 맞춘다
+    (10/11: flash-lite가 번호 형식을 바꿔 제안 5건이 모두 '근거 없음'으로 거절됐음)."""
+    if isinstance(ids, (str, int)):
+        ids = [ids]
+    norm = []
+    for raw in ids or []:
+        for n in re.findall(r"\d+", str(raw)):
+            norm.append(f"h{int(n)}")
+    ok = [i for i in dict.fromkeys(norm) if i in heads]
     return ok, len({heads[i]["source"] or heads[i]["url"] for i in ok})
 
 
