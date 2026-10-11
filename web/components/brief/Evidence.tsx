@@ -176,7 +176,7 @@ function rows(s: RegimeState, m: MarketSnapshotRow[]): RowProps[] {
         </>
       ),
       chart: <Sparkline values={series(m, "nfci")} guides={[0]} label="NFCI 최근 6개월, 0 기준선" />,
-      rule: "점수에는 넣지 않고 신용 판정과 같은 방향인지 맞춰 보는 용도입니다. 0보다 작으면 평균보다 느슨합니다.",
+      rule: "판정에는 넣지 않고 신용 판정과 같은 방향인지 맞춰 보는 용도입니다. 0보다 작으면 평균보다 느슨합니다.",
     });
   }
   return out;
