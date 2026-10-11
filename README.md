@@ -90,6 +90,13 @@ Issue만 쌓였기 때문입니다. 지금은 Gemini가 매일 목록을 직접 
 - 잘못 전환됐으면 `events.json`에서 `status`를 되돌리고 그 이벤트에 `"auto_lock": true`를 넣으면 이후 제외됩니다.
 - 언급량(`attention.csv`)은 화면에 따로 그리지 않고 자동 전환·식음 판정에만 씁니다 (2026-10-11 화면 정리 때 차트를 뺐음).
 
+### 한국은행 ECOS 키 (한국 지표용 — 없으면 그 줄만 빠짐)
+
+한국은행 기준금리·국고채 3년/10년·외국인 순매수(유가증권시장)는 한국은행 ECOS Open API에서 받습니다(`scripts/collect_korea.py` →
+`docs/data/korea_snapshot.csv`). https://ecos.bok.or.kr/api/ 에서 인증키(무료)를 받아 저장소 **Settings → Secrets and variables →
+Actions → New repository secret**에 이름 `ECOS_API_KEY`로 넣으세요. 등록 확인은 **Actions → Korea Check → Run workflow**
+(키 값은 보이지 않고, 어느 이름으로 등록됐는지와 받은 마지막 값만 나옵니다).
+
 ### FRED API 키 설정 (선택 — 없어도 수집은 동작)
 
 FRED 시리즈(VIX·금리·스프레드·BEI·연준 대차대조표 등 `FRED:` 심볼 전부)는 키가 있으면 **FRED 공식 API**

@@ -120,6 +120,16 @@ export interface Headline {
   url: string;
 }
 
+// ────────────────────── korea_snapshot.csv ──────────────────────
+// collect_korea.py가 한국은행 ECOS에서 받는 한국 지표. foreign_net = 외국인 유가증권시장 순매수(억원, 일별)
+export interface KoreaRow {
+  date: string;
+  bok_rate: number | null;
+  ktb3y: number | null;
+  ktb10y: number | null;
+  foreign_net: number | null;
+}
+
 // ────────────────────── narrative_headlines.json ──────────────────────
 // collect_news.py가 매일 내러티브별 최근 기사 제목(검색어가 제목에 든 것) 3개를 남긴다 — 대표 기사가 없을 때 쓴다.
 export interface NarrativeHeadlines {

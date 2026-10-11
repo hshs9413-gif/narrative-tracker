@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useMarketSnapshot } from "@/lib/hooks/use-dashboard-data";
+import { useKoreaSnapshot, useMarketSnapshot } from "@/lib/hooks/use-dashboard-data";
 import { readBoard, formatChange, positionWords, type Reading } from "@/lib/board";
 import { notability } from "@/lib/positions";
 import { dataAnchor } from "@/lib/freshness";
@@ -23,7 +23,8 @@ function direction(r: Reading): string | null {
 
 export function Notable() {
   const market = useMarketSnapshot();
-  const readings = useMemo(() => (market.data ? readBoard(market.data) : []), [market.data]);
+  const korea = useKoreaSnapshot();
+  const readings = useMemo(() => (market.data ? readBoard({ market: market.data, korea: korea.data ?? [] }) : []), [market.data, korea.data]);
 
   if (market.loading) {
     return (

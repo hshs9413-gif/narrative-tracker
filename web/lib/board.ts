@@ -1,18 +1,24 @@
-import type { MarketSnapshotRow } from "@/types/dashboard";
+import type { KoreaRow, MarketSnapshotRow } from "@/types/dashboard";
 import { formatNumber } from "./formatters";
 import { position, realizedVol, type Point, type Position } from "./positions";
 
 // 첫 화면 지표 표의 줄 — 묶음마다 몇 개씩. 같은 값이 여러 곳에 반복되던 것(판정 근거·숫자 타일·차트)을 이 표 하나로 모았다.
-// change: 4주 변화를 어떻게 읽을지 — pct(%) · pp(%포인트) · bp(베이시스포인트) · pt(지수 포인트)
+// change: 4주 변화를 어떻게 읽을지 — pct(%) · pp(%포인트) · bp(베이시스포인트) · pt(지수 포인트) · none(안 보임, 수급처럼 누적값)
 // up/down: 값이 오르거나 내릴 때의 뜻 — 좋고 나쁨이 아니라 방향 설명이다.
 
-export type ChangeUnit = "pct" | "pp" | "bp" | "pt";
+export type ChangeUnit = "pct" | "pp" | "bp" | "pt" | "none";
+
+/** 표가 읽는 원자료 — 시장(market_snapshot.csv)과 한국(korea_snapshot.csv, 한국은행 ECOS) */
+export interface BoardData {
+  market: MarketSnapshotRow[];
+  korea: KoreaRow[];
+}
 
 export interface BoardRow {
   id: string;
   label: string;
   source: string;
-  series: (rows: MarketSnapshotRow[]) => Point[];
+  series: (d: BoardData) => Point[];
   format: (v: number) => string;
   change: ChangeUnit;
   stepped?: boolean;
@@ -25,8 +31,26 @@ export interface BoardGroup {
   rows: BoardRow[];
 }
 
-const col = (key: Exclude<keyof MarketSnapshotRow, "date">) => (rows: MarketSnapshotRow[]): Point[] =>
-  rows.flatMap((r) => (r[key] === null || r[key] === undefined || !Number.isFinite(r[key] as number) ? [] : [{ date: r.date, value: r[key] as number }]));
+function points<T extends { date: string }>(rows: T[], key: keyof T): Point[] {
+  return rows.flatMap((r) => {
+    const v = r[key] as unknown;
+    return typeof v === "number" && Number.isFinite(v) ? [{ date: r.date, value: v }] : [];
+  });
+}
+const col = (key: Exclude<keyof MarketSnapshotRow, "date">) => (d: BoardData) => points(d.market, key);
+const kcol = (key: Exclude<keyof KoreaRow, "date">) => (d: BoardData) => points(d.korea, key);
+
+/** 최근 n관측 합 — 외국인 순매수처럼 하루 값이 들쭉날쭉한 수급은 20거래일 누적으로 본다 */
+function rollingSum(ps: Point[], n = 20): Point[] {
+  const out: Point[] = [];
+  let sum = 0;
+  ps.forEach((p, i) => {
+    sum += p.value;
+    if (i >= n) sum -= ps[i - n].value;
+    if (i >= n - 1) out.push({ date: p.date, value: sum });
+  });
+  return out;
+}
 
 const pct2 = (v: number) => `${v.toFixed(2)}%`;
 const bp = (v: number) => `${formatNumber(Math.round(v * 100), 0)}bp`;
@@ -53,10 +77,6 @@ export const BOARD: BoardGroup[] = [
     name: "변동성",
     rows: [
       { id: "vix", label: "VIX (미국 주식)", source: "FRED VIXCLS", series: col("vix"), format: (v) => v.toFixed(1), change: "pt", up: "불안 커짐", down: "안정" },
-      {
-        id: "kospi_rv20", label: "코스피 20일 변동성", source: "코스피 일간 수익률로 계산(연율)",
-        series: (rows) => realizedVol(col("kospi")(rows)), format: (v) => `${v.toFixed(0)}%`, change: "pp", up: "출렁임 커짐", down: "안정",
-      },
     ],
   },
   {
@@ -68,7 +88,6 @@ export const BOARD: BoardGroup[] = [
   {
     name: "환율·원자재",
     rows: [
-      { id: "usdkrw", label: "원/달러", source: "시장 환율(KRW=X)", series: col("usdkrw"), format: (v) => formatNumber(v, 1), change: "pct", up: "원화 약세", down: "원화 강세" },
       { id: "dxy_ice", label: "달러인덱스", source: "ICE DXY", series: col("dxy_ice"), format: (v) => v.toFixed(2), change: "pct", up: "달러 강세", down: "달러 약세" },
       { id: "gold", label: "금", source: "금 선물(GC=F)", series: col("gold"), format: (v) => formatNumber(v, 0), change: "pct" },
       { id: "wti_front", label: "WTI 원유", source: "근월물 선물(CL=F)", series: col("wti_front"), format: (v) => v.toFixed(2), change: "pct" },
@@ -76,9 +95,23 @@ export const BOARD: BoardGroup[] = [
     ],
   },
   {
-    name: "주식",
+    // 한국은행 ECOS(기준금리·국고채·외국인 순매수)는 키가 등록돼 수집이 돈 뒤부터 보인다 — 그 전에는 그 줄만 빠진다
+    name: "한국",
     rows: [
+      { id: "bok_rate", label: "한국은행 기준금리", source: "한국은행 ECOS 722Y001", series: kcol("bok_rate"), format: pct2, change: "bp", stepped: true },
+      { id: "ktb3y", label: "국고채 3년", source: "한국은행 ECOS 817Y002", series: kcol("ktb3y"), format: (v) => `${v.toFixed(3)}%`, change: "bp" },
+      { id: "ktb10y", label: "국고채 10년", source: "한국은행 ECOS 817Y002", series: kcol("ktb10y"), format: (v) => `${v.toFixed(3)}%`, change: "bp" },
+      { id: "usdkrw", label: "원/달러", source: "시장 환율(KRW=X)", series: col("usdkrw"), format: (v) => formatNumber(v, 1), change: "pct", up: "원화 약세", down: "원화 강세" },
       { id: "kospi", label: "코스피", source: "KS11", series: col("kospi"), format: (v) => formatNumber(v, 0), change: "pct" },
+      {
+        id: "kospi_rv20", label: "코스피 20일 변동성", source: "코스피 일간 수익률로 계산(연율)",
+        series: (d) => realizedVol(col("kospi")(d)), format: (v) => `${v.toFixed(0)}%`, change: "pp", up: "출렁임 커짐", down: "안정",
+      },
+      {
+        id: "foreign_net20", label: "외국인 순매수 20일 누적", source: "한국은행 ECOS 802Y001, 유가증권시장",
+        series: (d) => rollingSum(kcol("foreign_net")(d)), change: "none", up: "외국인 매수", down: "외국인 매도",
+        format: (v) => `${v >= 0 ? "+" : "−"}${formatNumber(Math.abs(v) / 10000, 1)}조원`,
+      },
     ],
   },
 ];
@@ -91,16 +124,18 @@ export interface Reading {
   pos: Position | null;
 }
 
-export function readBoard(rows: MarketSnapshotRow[]): Reading[] {
+export function readBoard(d: BoardData): Reading[] {
   return BOARD_ROWS.map((row) => {
-    const points = row.series(rows);
-    return { row, points, pos: position(points) };
+    const pts = row.series(d);
+    const pos = position(pts);
+    // 누적 수급은 '4주 변화'가 뜻이 없어 빼고, 3년 중 위치(역대급 순매도·순매수인지)만 본다
+    return { row, points: pts, pos: pos && row.change === "none" ? { ...pos, change4w: null, change4wPct: null, z4w: null } : pos };
   });
 }
 
 /** 4주 변화를 단위에 맞춰 — '+0.45%p'가 아니라 하이일드는 '+45bp', 코스피는 '-5.3%' */
 export function formatChange(r: BoardRow, p: Position): string | null {
-  if (p.change4w === null) return null;
+  if (p.change4w === null || r.change === "none") return null;
   const s = (v: number, d = 0) => `${v > 0 ? "+" : v < 0 ? "−" : "±"}${Math.abs(v).toFixed(d)}`;
   switch (r.change) {
     case "pct":
@@ -111,6 +146,8 @@ export function formatChange(r: BoardRow, p: Position): string | null {
       return `${s(p.change4w, 0)}%p`;
     case "pt":
       return s(p.change4w, 1);
+    default:
+      return null;
   }
 }
 

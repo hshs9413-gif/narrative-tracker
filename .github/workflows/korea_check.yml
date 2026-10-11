@@ -1,0 +1,41 @@
+name: Korea Check
+
+# 한국은행 ECOS 수집 점검 — 수집 코드가 바뀐 PR과 수동 실행 때만. 파일은 커밋하지 않고 받은 값만 보여 준다.
+on:
+  pull_request:
+    paths:
+      - "scripts/collect_korea.py"
+      - ".github/workflows/korea_check.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  korea-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Which secret name holds the ECOS key (names only, never values)
+        env:
+          A: ${{ secrets.ECOS_API_KEY != '' }}
+          B: ${{ secrets.BOK_API_KEY != '' }}
+          C: ${{ secrets.ECOS_KEY != '' }}
+          D: ${{ secrets.BOK_ECOS_API_KEY != '' }}
+          E: ${{ secrets.BOK_KEY != '' }}
+          F: ${{ secrets.ECOS != '' }}
+          G: ${{ secrets.BOK != '' }}
+          H: ${{ vars.ECOS_API_KEY != '' }}
+        run: echo "::notice title=ECOS 키 이름::ECOS_API_KEY=$A BOK_API_KEY=$B ECOS_KEY=$C BOK_ECOS_API_KEY=$D BOK_KEY=$E ECOS=$F BOK=$G vars.ECOS_API_KEY=$H"
+      - name: Collect Korea series (not committed)
+        env:
+          ECOS_API_KEY: ${{ secrets.ECOS_API_KEY || secrets.BOK_API_KEY || secrets.ECOS_KEY || secrets.BOK_ECOS_API_KEY || secrets.BOK_KEY || secrets.ECOS || secrets.BOK || vars.ECOS_API_KEY }}
+        run: |
+          python scripts/collect_korea.py
+          if [ -f docs/data/korea_snapshot.csv ]; then
+            echo "::notice title=korea_snapshot.csv 마지막 5줄::$(tail -5 docs/data/korea_snapshot.csv | tr '\n' ' ')"
+          fi
