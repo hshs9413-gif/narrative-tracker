@@ -40,6 +40,13 @@ jobs:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY || vars.FRED_API_KEY }}
         run: python scripts/collect_market_data.py
 
+      # 한국 지표(한국은행 기준금리·국고채·외국인 순매수) — 한국은행 ECOS. 키 이름이 달라도 받도록 흔한 이름을 차례로 본다
+      - name: Run Korea collector (ECOS)
+        env:
+          ECOS_API_KEY: ${{ secrets.ECOS_API_KEY || secrets.BOK_API_KEY || secrets.ECOS_KEY || secrets.BOK_ECOS_API_KEY || secrets.BOK_KEY || secrets.ECOS || secrets.BOK || vars.ECOS_API_KEY }}
+        run: python scripts/collect_korea.py
+        continue-on-error: true
+
       - name: Compute regime state
         run: python scripts/compute_regime.py
         # 레짐 판정이 실패해도 그날 시장 데이터 커밋은 반드시 진행되어야 한다
