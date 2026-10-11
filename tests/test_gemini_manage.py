@@ -70,6 +70,19 @@ class UpdateRulesTest(unittest.TestCase):
             self.assertEqual(n, 0, prop)
             self.assertIn(why, entries[0]["reject_reason"], prop)
 
+    def test_notes_only_updates_are_not_capped_and_ids_are_stripped(self):
+        self.assertEqual(gm.clean_note("5.31%를 기록함(h5, h8)."), "5.31%를 기록함.")
+        ev = events() + [dict(events()[0], id=f"x{i}") for i in range(4)]
+        props = [{"id": f"x{i}", "notes_append": f"메모{i} [h1]", "evidence": ["h1"]} for i in range(4)]
+        entries, n = gm.apply_proposal({"updates": props}, ev, heads(), [], TODAY, "m")
+        self.assertEqual(n, 4)
+        self.assertTrue(all("[h1]" not in e["notes"] for e in ev))
+
+    def test_evidence_ids_in_other_formats(self):
+        for ev in (["1", 2], "h1, h2", ["[h1]", "h2"]):
+            ids, n_src = gm._evidence(ev, heads())
+            self.assertEqual((ids, n_src), (["h1", "h2"], 2), ev)
+
     def test_cooldown_and_limit(self):
         log = [{"date": "2026-10-10", "by": "gemini", "status": "applied", "event_id": "iran-war-2026"}]
         entries, n = gm.apply_proposal({"updates": [{"id": "iran-war-2026", "intensity": "mid", "evidence": ["h1"]}]},
@@ -84,7 +97,7 @@ class UpdateRulesTest(unittest.TestCase):
         self.assertEqual(ev[0]["intensity"], "low")
         self.assertIn("유조선 공격 지속", ev[0]["notes"])
         # 사람·검증이 손본 것도 쉬게 두고, 규칙 전환은 막지 않는다
-        for by, blocked in (("claude", True), ("rule", False)):
+        for by, blocked in (("human", True), ("claude", False), ("rule", False)):
             log = [{"date": "2026-10-11", "by": by, "status": "applied", "event_id": "iran-war-2026"}]
             _, n = gm.apply_proposal({"updates": [{"id": "iran-war-2026", "intensity": "mid", "evidence": ["h1"]}]},
                                      events(), heads(), log, TODAY, "m")

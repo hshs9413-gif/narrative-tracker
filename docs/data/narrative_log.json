@@ -276,5 +276,122 @@
     "kind": "summary",
     "status": "info",
     "reason": "레짐 리스트 실제 대조(10/11): 이란 전쟁 재격화 반영, 연준 정치화 진정, AI 강도 상향, 신규 4건(채권 매도·코스피 레버리지·BOJ·美 고용 급랭) 추가. 이후 관리는 Gemini가 매일 07:30 수집 때 맡음."
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "global-bond-selloff-2026",
+    "changes": {
+      "keywords": [
+        [
+          "국채금리 급등",
+          "미국채 10년물 5%",
+          "채권 매도"
+        ],
+        [
+          "국채금리 급등",
+          "미 국채 금리",
+          "채권 매도"
+        ]
+      ]
+    },
+    "reason": "검색어 점검(10/11): '미국채 10년물 5%'가 Google News에서 하루 0건이라 기사를 못 잡음 — 더 흔히 쓰는 표현으로 교체",
+    "evidence": []
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "kospi-semis-leverage-2026",
+    "changes": {
+      "keywords": [
+        [
+          "코스피 반도체",
+          "반대매매",
+          "신용융자 잔고"
+        ],
+        [
+          "코스피 반도체",
+          "빚투",
+          "코스피 변동성"
+        ]
+      ]
+    },
+    "reason": "검색어 점검(10/11): '반대매매, 신용융자 잔고'가 Google News에서 하루 0건이라 기사를 못 잡음 — 더 흔히 쓰는 표현으로 교체",
+    "evidence": []
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "boj-normalization-2026",
+    "changes": {
+      "keywords": [
+        [
+          "일본은행 금리인상",
+          "일본 국채금리",
+          "엔캐리 청산"
+        ],
+        [
+          "일본은행 금리인상",
+          "일본 국채금리",
+          "엔화 강세"
+        ]
+      ]
+    },
+    "reason": "검색어 점검(10/11): '엔캐리 청산'가 Google News에서 하루 0건이라 기사를 못 잡음 — 더 흔히 쓰는 표현으로 교체",
+    "evidence": []
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "us-labor-cooling-2026",
+    "changes": {
+      "keywords": [
+        [
+          "미국 고용 쇼크",
+          "비농업 고용",
+          "스태그플레이션"
+        ],
+        [
+          "미국 고용",
+          "비농업 고용",
+          "미국 실업률"
+        ]
+      ]
+    },
+    "reason": "검색어 점검(10/11): '미국 고용 쇼크'가 Google News에서 하루 0건이라 기사를 못 잡음 — 더 흔히 쓰는 표현으로 교체",
+    "evidence": []
+  },
+  {
+    "date": "2026-10-11",
+    "by": "claude",
+    "kind": "update",
+    "status": "applied",
+    "event_id": "fed-politicization-2026",
+    "changes": {
+      "keywords": [
+        [
+          "금리인하 압박",
+          "케빈 워시",
+          "이사회 dissent",
+          "연준 독립성"
+        ],
+        [
+          "금리인하 압박",
+          "케빈 워시",
+          "연준 이사회",
+          "연준 독립성"
+        ]
+      ]
+    },
+    "reason": "검색어 점검(10/11): '이사회 dissent'가 Google News에서 하루 0건이라 기사를 못 잡음 — 더 흔히 쓰는 표현으로 교체",
+    "evidence": []
   }
 ]

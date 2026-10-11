@@ -173,7 +173,8 @@ PROMPT = """당신은 거시경제 내러티브 트래커의 관리자입니다.
    - intensity는 한 단계씩만(low↔mid↔high).
    - keywords: 언급량이 매일 100에 가깝게 포화되거나 0에 가까우면 더 구체적인 한국어 검색어 2~4개로 교체 제안.
      몇 주 이상 쓸 수 있는 일반 표현으로(특정 인물 발언·하루짜리 사건 이름 금지).
-   - notes_append: 이번에 새로 확인한 사실 한 문장(200자 이내, 날짜 포함).
+   - notes_append: 이번에 새로 확인한 사실 한 문장(200자 이내, 날짜 포함). 근거 기사 제목에 있는 사실만 쓰고,
+     '사상 최고'·'최초' 같은 표현이나 수치는 제목에 그대로 있을 때만 쓰세요. 추측·과장 금지.
 2. 목록에 없는데 여러 매체가 며칠째 다루고 자산 가격도 반응한 새 내러티브가 있으면 new_events에(최대 2개).
    근거 기사 3개 이상(매체 2곳 이상). 일회성 뉴스는 넣지 마세요.
 3. 확실하지 않으면 넣지 마세요 — 잘못 바꾸는 것이 안 바꾸는 것보다 해롭습니다.
@@ -235,15 +236,30 @@ def _date(s):
         return None
 
 
+def clean_note(text):
+    """메모에 섞여 들어온 기사 번호 '(h5, h8)'·'[h3]'는 독자에게 뜻이 없어 지운다 — 근거는 기록에 링크로 남는다."""
+    text = re.sub(r"\s*[\(\[]\s*h\d+(?:\s*[,·]\s*h\d+)*\s*[\)\]]", "", str(text or ""))
+    return re.sub(r"\s{2,}", " ", text).strip()
+
+
 def _evidence(ids, heads):
-    ok = [i for i in dict.fromkeys(ids or []) if i in heads]
+    """근거 기사 번호 — 모델마다 'h3'·'3'·3·'[h3]'·'h3, h7'처럼 다르게 써서 숫자만 뽑아 h번호로 맞춘다
+    (10/11: flash-lite가 번호 형식을 바꿔 제안 5건이 모두 '근거 없음'으로 거절됐음)."""
+    if isinstance(ids, (str, int)):
+        ids = [ids]
+    norm = []
+    for raw in ids or []:
+        for n in re.findall(r"\d+", str(raw)):
+            norm.append(f"h{int(n)}")
+    ok = [i for i in dict.fromkeys(norm) if i in heads]
     return ok, len({heads[i]["source"] or heads[i]["url"] for i in ok})
 
 
 def recent_changes(log, today, days=COOLDOWN_DAYS):
     since = (today - datetime.timedelta(days=days)).isoformat()
-    # Gemini 자신의 변경뿐 아니라 사람·검증(claude)이 최근 손본 내러티브도 쉬게 둔다 (규칙 전환은 제외)
-    return {x["event_id"] for x in log if x.get("by") in ("gemini", "claude", "human") and x.get("status") == "applied"
+    # Gemini 자신의 변경과 사람이 직접 고친 내러티브만 쉬게 둔다 — 출처를 붙인 검증(claude)·규칙 전환은 막지 않음
+    # (10/11: 검증 수정까지 막았더니 모든 내러티브가 사흘간 메모 말고는 못 바뀌어 '그대로'로 보였음)
+    return {x["event_id"] for x in log if x.get("by") in ("gemini", "human") and x.get("status") == "applied"
             and x.get("date", "") > since and x.get("event_id")}
 
 
@@ -260,7 +276,7 @@ def check_update(u, events_by_id, heads, cooled, today):
     ev, n_src = _evidence(u.get("evidence"), heads)
     if eid in cooled:
         # 쿨다운 중엔 상태·단계·강도·검색어는 그대로 두고, 새로 확인된 사실 메모만 받는다
-        note = (u.get("notes_append") or "").strip()
+        note = clean_note(u.get("notes_append"))
         if note and ev:
             return {"change": {"notes_append": note[:NOTE_MAX]}, "evidence": ev}, None
         return None, f"최근 {COOLDOWN_DAYS}일 안에 이미 바꿈"
@@ -290,7 +306,7 @@ def check_update(u, events_by_id, heads, cooled, today):
             return None, "keywords는 2~5개(각 2~20자)"
         if kws != e.get("keywords"):
             change["keywords"] = kws
-    note = (u.get("notes_append") or "").strip()
+    note = clean_note(u.get("notes_append"))
     if note:
         change["notes_append"] = note[:NOTE_MAX]
     if not change:
@@ -345,14 +361,15 @@ def apply_proposal(proposal, events, heads, log, today, model):
     """검사를 통과한 것만 events에 반영. 반환: (새 로그 항목들, 반영 수)"""
     by_id = {e["id"]: e for e in events}
     cooled = recent_changes(log, today)
-    entries, applied = [], 0
+    entries, applied, noted = [], 0, 0  # applied = 구조 변경 수(상한 대상), noted = 반영된 모든 갱신 수
     stamp = today.isoformat()
 
     for u in (proposal.get("updates") or [])[: MAX_UPDATES * 2]:
         res, why = check_update(u, by_id, heads, cooled, today) if isinstance(u, dict) else (None, "형식 오류")
         entry = {"date": stamp, "by": "gemini", "model": model, "event_id": (u or {}).get("id") if isinstance(u, dict) else None,
                  "kind": "update", "reason": str((u or {}).get("reason", ""))[:200] if isinstance(u, dict) else ""}
-        if res and applied >= MAX_UPDATES:
+        structural = bool(res) and any(k != "notes_append" for k in res["change"])
+        if res and structural and applied >= MAX_UPDATES:  # 메모만 덧붙이는 건 개수 제한 없음
             res, why = None, f"한 번에 {MAX_UPDATES}개까지만"
         if res is None:
             entries.append({**entry, "status": "rejected", "reject_reason": why})
@@ -368,7 +385,8 @@ def apply_proposal(proposal, events, heads, log, today, model):
                 e[k] = v
         e["last_review"] = {"date": stamp, "by": "gemini"}
         cooled.add(e["id"])
-        applied += 1
+        applied += structural
+        noted += 1
         entries.append({**entry, "status": "applied", "changes": fields, "evidence": _evi_detail(res["evidence"], heads)})
 
     open_count = sum(e.get("status") in ("active", "dormant") for e in events)
@@ -388,7 +406,7 @@ def apply_proposal(proposal, events, heads, log, today, model):
         open_count += 1
         added += 1
         entries.append({**entry, "status": "applied", "evidence": _evi_detail(res["evidence"], heads)})
-    return entries, applied + added
+    return entries, noted + added
 
 
 # ───────────────────────────── PMI
@@ -439,6 +457,11 @@ def main():
     log = load_json(LOG_PATH, [])
     manual = load_json(MANUAL_PATH, {})
     new_entries, notes = [], []
+    # 하루 한 번만 — 수동 실행 뒤 예약 실행이 또 돌아도 같은 날 메모가 겹치지 않게 (GEMINI_FORCE=1이면 다시)
+    if not DRY_RUN and os.environ.get("GEMINI_FORCE") != "1" and any(
+            x.get("by") == "gemini" and x.get("kind") == "summary" and x.get("date") == today.isoformat() for x in log):
+        print(f"::notice title=Gemini 관리::오늘({today}) 이미 검토함 — 건너뜀")
+        return
 
     heads = gather_headlines(events)
     if len(heads) < 5:
@@ -455,6 +478,8 @@ def main():
         r = gemini_api.generate(prompt, max_tokens=8192, json_mode=True, thinking_budget=THINKING_BUDGET)
         proposal = gemini_api.extract_json(r["text"])
         notes.append(gemini_api.usage_line(r))
+        if r.get("fallbacks"):
+            notes.append("앞 모델 실패: " + " | ".join(x[:90] for x in r["fallbacks"][-2:]))
         if proposal is None:
             why = "출력 토큰 한도에 걸려 답이 잘림" if r.get("finish") == "MAX_TOKENS" else "JSON이 아닌 답"
             print(f"::warning title=Gemini 응답 해석 실패::{why} — {gemini_api.usage_line(r)}; 앞부분 {r['text'][:200]!r}")

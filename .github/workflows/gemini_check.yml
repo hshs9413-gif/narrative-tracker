@@ -1,0 +1,46 @@
+name: Gemini Check
+
+# Gemini 관리 코드·내러티브 목록이 바뀐 PR과 수동 실행 때만 — 무료 등급 하루 호출 수를 아끼려고 다른 PR에선 돌지 않는다.
+# ① 키·모델 응답 ② 내러티브 검색어가 기사를 잡는지(포화·0건) + Google Trends 호출 가능 여부 ③ 하루치 관리 dry-run(파일 안 씀)
+on:
+  pull_request:
+    paths:
+      - "scripts/gemini_*.py"
+      - "scripts/news_feed.py"
+      - "scripts/news_check.py"
+      - "scripts/collect_news.py"
+      - "docs/data/events.json"
+      - ".github/workflows/gemini_check.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  gemini-check:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Check Gemini API with repository secret
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: python scripts/gemini_check.py
+      - name: Check news keywords and Google Trends
+        if: ${{ !cancelled() }}
+        run: |
+          # pytrends는 urllib3 2.x와 맞지 않아 이 단계에서만 1.x로 — 수집에는 쓰지 않는 점검용
+          pip install -q pytrends "urllib3<2" || true
+          python scripts/news_check.py
+      - name: Gemini narrative review (dry run)
+        if: ${{ !cancelled() }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GEMINI_DRY_RUN: "1"
+        run: python scripts/gemini_manage.py
