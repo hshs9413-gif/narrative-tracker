@@ -100,7 +100,7 @@ export interface NarrativeLogEntry {
   by: "gemini" | "rule" | "claude" | "human";
   model?: string;
   kind: "update" | "new" | "pmi" | "summary";
-  status: "applied" | "rejected" | "info";
+  status: "applied" | "rejected" | "info" | "error";
   event_id?: string | null;
   name?: string | null;
   changes?: Record<string, [unknown, unknown]>;
@@ -111,6 +111,8 @@ export interface NarrativeLogEntry {
   dropped?: string[]; // 판정은 받되 규칙에 안 맞아 뺀 선택 필드
   reviews?: Record<string, string>; // summary 줄: 그날 내러티브별 판정(한국어)
   candidates?: string[]; // summary 줄: 그날 지켜보는 후보 이름
+  at?: string; // summary 줄: 실행 시각(KST, ISO)
+  trigger?: string; // summary 줄: schedule(예약) · workflow_dispatch(수동) · local
 }
 
 export interface Headline {

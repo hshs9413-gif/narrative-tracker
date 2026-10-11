@@ -48,6 +48,17 @@ export function describeChanges(entry: NarrativeLogEntry, names: Names = {}): st
   return Object.entries(entry.changes ?? {}).map(([k, [a, b]]) => (FIELD_WORD[k] ? FIELD_WORD[k](a, b, names) : `${k} 변경`));
 }
 
+/** 그날 판정 집계 — '유지 7 · 잠잠 1' */
+export function verdictTally(reviews: Record<string, string> | undefined): string {
+  const order = ["추가", "강화", "약화", "재점화", "잠잠", "종료", "병합", "유지", "갱신"];
+  const count: Record<string, number> = {};
+  for (const v of Object.values(reviews ?? {})) count[v] = (count[v] ?? 0) + 1;
+  return Object.entries(count)
+    .sort(([a], [b]) => order.indexOf(a) - order.indexOf(b))
+    .map(([v, n]) => `${v} ${n}`)
+    .join(" · ");
+}
+
 /** 근거 링크에 보여줄 이름 — 매체명이 없으면 주소의 도메인 */
 export function sourceName(ev: { source: string; url: string }): string {
   if (ev.source) return ev.source;
