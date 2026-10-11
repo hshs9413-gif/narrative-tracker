@@ -4,7 +4,7 @@ import { INTENSITY_LABEL, LAYER_COLOR, LAYER_LABEL, LAYER_ORDER, STATUS_LABEL } 
 import { dayDiff, toDate } from "@/lib/narrative-metrics";
 
 // 지층 단면 — 최근 12개월만 그린다. 층마다 옅은 띠 안에 내러티브 한 줄씩, 막대 = 시작~반감기(없으면 오늘).
-// 표시 기간 전에 끝난 내러티브는 그림에서 빼고 아래 한 줄로만 남긴다 (예전엔 3년치를 다 그려 막대가 점처럼 뭉개졌음).
+// 표시 기간 전에 끝난 내러티브는 그림에서 뺀다 — 끝난 것 전체는 내러티브 섹션의 '끝난 내러티브' 목록에 있다.
 
 const WINDOW_MONTHS = 12;
 const AHEAD_DAYS = 12;
@@ -36,7 +36,6 @@ export function NarrativeStrata({ events, today = new Date() }: { events: Narrat
   const todayPct = pct(today);
 
   const shown = events.filter((e) => endOf(e) >= start);
-  const past = events.filter((e) => endOf(e) < start).sort((a, b) => b.trigger_date.localeCompare(a.trigger_date));
 
   return (
     <div className="nt-s2" style={{ "--t": todayPct / 100 } as CSSProperties}>
@@ -99,11 +98,6 @@ export function NarrativeStrata({ events, today = new Date() }: { events: Narrat
         <span><i data-status="dormant" />잠잠</span>
         <span><i data-status="ended" />끝남</span>
       </p>
-      {past.length > 0 && (
-        <p className="nt-s2-past">
-          1년 전에 끝난 내러티브: {past.map((e) => `${e.name}(${e.trigger_date.slice(0, 4)})`).join(", ")}
-        </p>
-      )}
     </div>
   );
 }

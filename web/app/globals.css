@@ -355,6 +355,15 @@ body {
 .nt-nt-more a { color: var(--cui-link-color); }
 @media (max-width: 600px) { .nt-nt-more { grid-template-columns: 1fr; gap: 0.1rem; } .nt-nt-more dd { margin-bottom: 0.5rem; } }
 
+/* 끝난 내러티브 — 접힌 목록 */
+.nt-ended { margin-top: 1.25rem; font-size: 0.9rem; }
+.nt-ended summary { cursor: pointer; color: var(--nt-ink-2); }
+.nt-ended summary span { margin-left: 0.25rem; color: var(--nt-ink-3); }
+.nt-ended ul { margin: 0.6rem 0 0; padding: 0; list-style: none; }
+.nt-ended li { display: flex; flex-wrap: wrap; gap: 0.1rem 0.75rem; padding: 0.4rem 0; border-top: 1px solid var(--nt-rule); color: var(--nt-ink-2); }
+.nt-ended li b { color: var(--nt-ink); font-weight: 600; }
+.nt-ended li span { font-size: 0.85rem; color: var(--nt-ink-3); }
+
 .nt-nt-sub { margin: 2.5rem 0 0.6rem; font-size: 1rem; font-weight: 700; }
 .nt-nt-changes { margin: 0; padding: 0; list-style: none; font-size: 0.9rem; }
 .nt-nt-changes li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 0.75rem; padding: 0.35rem 0; border-top: 1px solid var(--nt-rule); }
@@ -484,7 +493,6 @@ body {
 .nt-s2-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--nt-ink-2); }
 .nt-s2-legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
 .nt-s2-legend i { position: static; display: inline-block; width: 22px; --layer-color: var(--nt-ink-2); }
-.nt-s2-past { margin: 0.4rem 0 0; font-size: 0.8rem; color: var(--nt-ink-3); }
 @media (max-width: 720px) {
   .nt-s2 { --name: 8.5rem; }
   .nt-s2-name { padding-right: 0.4rem; font-size: 0.8rem; }

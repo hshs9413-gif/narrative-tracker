@@ -14,7 +14,6 @@ import type { Headline, NarrativeEvent, NarrativeLogEntry } from "@/types/dashbo
 
 const DAY = 86_400_000;
 const FRESH_DAYS = 7; // 이보다 오래된 기사는 '최근 기사'로 안 씀
-const ENDED_DAYS = 60;
 const CHANGES = 6;
 const STRUCTURAL = new Set(["status", "phase", "intensity", "merged_into"]);
 
@@ -78,9 +77,9 @@ export function NarrativesNow() {
     (INTENSITY_RANK[b.intensity] ?? 0) - (INTENSITY_RANK[a.intensity] ?? 0) || b.trigger_date.localeCompare(a.trigger_date);
   const active = all.filter((e) => e.status === "active").sort(order);
   const dormant = all.filter((e) => e.status === "dormant").sort(order);
-  const ended = all
-    .filter((e) => e.status === "ended" && e.ended_on && age(e.ended_on, asOf) <= ENDED_DAYS)
-    .sort((a, b) => (b.ended_on ?? "").localeCompare(a.ended_on ?? ""));
+  // 끝난 내러티브는 따로 한 목록 — 지운 게 아니라 옮겨 둔 것. 끝난 날은 ended_on(정리한 날), 없으면 반감기
+  const endDate = (e: NarrativeEvent) => e.ended_on ?? e.half_life_date ?? e.trigger_date;
+  const ended = all.filter((e) => e.status === "ended").sort((a, b) => endDate(b).localeCompare(endDate(a)));
   const cands = candidates.data ?? [];
   const recent = [...changes].reverse().slice(0, CHANGES);
 
@@ -117,7 +116,7 @@ export function NarrativesNow() {
         })}
       </ul>
 
-      {(dormant.length > 0 || ended.length > 0 || cands.length > 0) && (
+      {(dormant.length > 0 || cands.length > 0) && (
         <dl className="nt-nt-more">
           {dormant.length > 0 && (
             <>
@@ -125,18 +124,6 @@ export function NarrativesNow() {
               <dd>
                 {dormant.map((e) => (
                   <span key={e.id}>{e.name}</span>
-                ))}
-              </dd>
-            </>
-          )}
-          {ended.length > 0 && (
-            <>
-              <dt>최근 정리</dt>
-              <dd>
-                {ended.map((e) => (
-                  <span key={e.id}>
-                    {e.name} ({monthDay(e.ended_on)} {e.merged_into ? `'${names[e.merged_into] ?? e.merged_into}'에 합침` : "끝남"})
-                  </span>
                 ))}
               </dd>
             </>
@@ -163,6 +150,26 @@ export function NarrativesNow() {
             </>
           )}
         </dl>
+      )}
+
+      {ended.length > 0 && (
+        <details className="nt-ended">
+          <summary>
+            끝난 내러티브 <span className="tnum">{ended.length}</span>
+          </summary>
+          <ul>
+            {ended.map((e) => (
+              <li key={e.id}>
+                <b>{e.name}</b>
+                <span className="tnum">
+                  {startLabel(e.trigger_date, "")} ~ {startLabel(endDate(e), "")}, {age(e.trigger_date, endDate(e))}일
+                </span>
+                {e.merged_into && <span>&lsquo;{names[e.merged_into] ?? e.merged_into}&rsquo;에 합침</span>}
+                {e.ended_on && <span>{monthDay(e.ended_on)} 정리</span>}
+              </li>
+            ))}
+          </ul>
+        </details>
       )}
 
       <h3 className="nt-nt-sub">최근 1년 흐름</h3>
