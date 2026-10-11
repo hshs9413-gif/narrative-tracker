@@ -2,6 +2,8 @@ name: Gemini Check
 
 # Gemini 관리 코드·내러티브 목록이 바뀐 PR과 수동 실행 때만 — 무료 등급 하루 호출 수를 아끼려고 다른 PR에선 돌지 않는다.
 # ① 키·모델 응답 ② 내러티브 검색어가 기사를 잡는지(포화·0건) + Google Trends 호출 가능 여부 ③ 하루치 관리 dry-run(파일 안 씀)
+# 점검은 가벼운 모델(flash-lite)로만 — 매일 아침 실제 정리에 쓰는 상위 모델(3.6·3.5-flash)의 하루 한도를 쓰지 않게
+# (10/11: PR 점검·수동 실행 20번이 상위 모델 한도를 다 써서 429 오류가 100건 넘게 났음)
 on:
   pull_request:
     paths:
@@ -30,6 +32,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GEMINI_MODELS: gemini-3.1-flash-lite
         run: python scripts/gemini_check.py
       - name: Check news keywords and Google Trends
         if: ${{ !cancelled() }}
@@ -42,5 +45,6 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GEMINI_MODELS: gemini-3.1-flash-lite
           GEMINI_DRY_RUN: "1"
         run: python scripts/gemini_manage.py
