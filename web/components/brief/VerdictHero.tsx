@@ -3,7 +3,6 @@
 import { useMarketSnapshot, useRegimeLog, useRegimeState } from "@/lib/hooks/use-dashboard-data";
 import { axisLevel, briefStamp, monthDay, verdictSentence } from "@/lib/brief";
 import { dataAnchor, pipelineLagDays } from "@/lib/freshness";
-import type { RegimeState } from "@/types/dashboard";
 
 function AxisChip({ name, value, level }: { name: string; value: string; level: number | null }) {
   return (
@@ -12,17 +11,6 @@ function AxisChip({ name, value, level }: { name: string; value: string; level: 
       <dd>{value}</dd>
     </div>
   );
-}
-
-function scoreLine(state: RegimeState, prevScore: number | null): string {
-  const cs = state.composite_score;
-  if (!cs) return "";
-  const cuts = cs.deductions.filter((d) => d !== "없음");
-  const base = cuts.length ? `100점에서 ${cuts.join(", ")} 항목을 빼 ${cs.score}점입니다.` : `감점 항목이 없어 ${cs.score}점입니다.`;
-  if (prevScore === null) return `규칙 점수는 ${base}`;
-  const diff = cs.score - prevScore;
-  const vs = diff === 0 ? "직전 판정과 같습니다." : `직전 판정보다 ${Math.abs(diff)}점 ${diff > 0 ? "올랐습니다" : "내렸습니다"}.`;
-  return `규칙 점수는 ${base} ${vs}`;
 }
 
 export function VerdictHero() {
@@ -50,7 +38,6 @@ export function VerdictHero() {
 
   const rows = log.data ?? [];
   const last = rows[rows.length - 1];
-  const prev = rows.length > 1 ? Number(rows[rows.length - 2].score) : null;
   const anchor = market.data ? dataAnchor(market.data) : last?.date ?? null;
   const lag = anchor ? pipelineLagDays(anchor) : 0;
   const kv = s.kospi_vol;
@@ -62,7 +49,7 @@ export function VerdictHero() {
       <p className="nt-hero-stamp">{briefStamp(s.generated_at)} 판정</p>
       <h1 className="nt-verdict">{verdictSentence(s)}</h1>
       <p className="nt-hero-lede">
-        {scoreLine(s, Number.isFinite(prev) ? prev : null)}
+        아래 네 가지 판정은 지금 시장 상태를 요약한 것이지, 앞으로 오를지 내릴지 맞히는 예측이 아닙니다.
         {kv && kv.label === "미확인" && " 국내 변동성은 코스피 데이터가 오래돼 이번 판정에서 빠졌습니다."}
         {pending && ` 오늘 값만 보면 신용은 '${cs.raw_label}'이지만, 3거래일 연속이어야 판정을 바꿉니다.`}
       </p>
@@ -72,7 +59,6 @@ export function VerdictHero() {
         <AxisChip name="신용" value={cs.label} level={axisLevel("credit", s)} />
         <AxisChip name="정책" value={s.policy_stance.label} level={axisLevel("policy", s)} />
         <AxisChip name="국내 변동성" value={kv?.label ?? "미확인"} level={axisLevel("kospi", s)} />
-        {s.composite_score && <AxisChip name="규칙 점수" value={`${s.composite_score.score}`} level={null} />}
       </dl>
 
       <p className="nt-hero-foot">
