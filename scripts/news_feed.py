@@ -43,8 +43,9 @@ def parse_rss(xml_bytes, limit):
     return out
 
 
-def headlines(query, lang="ko", days=7, limit=8, session=None):
-    """검색어의 최근 N일 기사 제목 목록 (최신순은 구글 정렬 그대로). 실패하면 빈 목록."""
+def headlines(query, lang="ko", days=7, limit=8, session=None, strict=False):
+    """검색어의 최근 N일 기사 제목 목록 (최신순은 구글 정렬 그대로). 실패하면 빈 목록 — strict면 None
+    ('기사 0건'과 '못 받음'을 구분해야 하는 곳용: 0건은 식었다는 근거지만 못 받은 건 아니다)."""
     s = session or requests
     q = urllib.parse.quote(f"{query} when:{days}d")
     try:
@@ -52,7 +53,7 @@ def headlines(query, lang="ko", days=7, limit=8, session=None):
         resp.raise_for_status()
         return parse_rss(resp.content, limit)
     except Exception:  # noqa: BLE001 — 헤드라인은 보조 자료라 실패해도 진행
-        return []
+        return None if strict else []
 
 
 TOP = {

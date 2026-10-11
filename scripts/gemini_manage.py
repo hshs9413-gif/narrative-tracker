@@ -75,6 +75,9 @@ END_AFTER_DORMANT = 14   # 잠잠한 채 이 일수가 지나고 계속 식어 �
 CANDIDATE_TTL = 10       # 후보가 이 일수 동안 다시 안 보이면 지움
 MAX_CANDIDATES = 8
 RECENT_ENDED_DAYS = 120  # 프롬프트에 '최근 끝난 것'으로 보여줄 기간 (같은 이야기를 새로 만들지 않게)
+FRESH_DAYS = 3           # 식은 내러티브를 '유지'하려면 이 일수 안의 기사(서로 다른 매체 2곳)를 대야 한다
+NOTE_DUP = 0.5           # 새 메모 글자쌍의 이 비율 이상이 기존 메모 한 줄에 이미 있으면 같은 내용으로 보고 버림
+NOTE_STALE_DAYS = 7      # 메모 속 날짜(M/D)가 모두 이보다 오래됐으면 새 사실이 아니라 보고 버림
 # 판단 전에 생각할 토큰 예산 — 0이면 기사 77건을 훑고 바로 답해 근거 부족으로 아무것도 안 바꾸는 경향(10/11 확인).
 # 무료 등급 한도(분당 토큰)에 비해 작아 하루 1회 호출엔 부담이 없다. GEMINI_THINKING 변수로 조정.
 THINKING_BUDGET = int(os.environ.get("GEMINI_THINKING", "4096") or 0)
@@ -157,12 +160,13 @@ def fade_stats(events, head_counts, today, series=None):
                 ratio = round(roll[-1] / max(roll), 2)
         n7 = head_counts.get(e["id"])
         since = dormant_since(e)
-        out[e["id"]] = {
-            "기사_7일": n7,
-            "언급_정점대비": ratio,
-            "잠잠_일수": (today - since).days if since else None,
-            "식음": bool((n7 is not None and n7 <= QUIET_HEADLINES) or (ratio is not None and ratio <= FADE_RATIO)),
-        }
+        days = (today - since).days if since else None
+        faded = bool((n7 is not None and n7 <= QUIET_HEADLINES) or (ratio is not None and ratio <= FADE_RATIO))
+        # 제안 — 지표로 본 기본 판정. Gemini가 최근 기사로 반박하지 못하면 이대로 반영한다 (apply_proposal)
+        suggest = None
+        if faded and not e.get("auto_lock"):
+            suggest = "dormant" if e.get("status") == "active" else "end" if (days or 0) >= END_AFTER_DORMANT else None
+        out[e["id"]] = {"기사_7일": n7, "언급_정점대비": ratio, "잠잠_일수": days, "식음": faded, "제안": suggest}
     return out
 
 
@@ -215,9 +219,10 @@ def gather_headlines(events, session=None):
 
     open_events = [e for e in events if is_open(e) and e.get("keywords")]
     for e in open_events:
-        arts = news_feed.headlines(news_feed.or_query(e["keywords"]), "ko", days=7, limit=8, session=session)
-        counts[e["id"]] = len(arts)  # 중복 제거 전 수 — 다른 묶음과 겹쳐도 그 내러티브 기사는 있었던 것
-        add(e["id"], arts)
+        arts = news_feed.headlines(news_feed.or_query(e["keywords"]), "ko", days=7, limit=8, session=session, strict=True)
+        # 중복 제거 전 수 — 다른 묶음과 겹쳐도 그 내러티브 기사는 있었던 것. 못 받았으면 None(식었다는 근거로 안 씀)
+        counts[e["id"]] = None if arts is None else len(arts)
+        add(e["id"], arts or [])
     # 새 이슈 찾기 — 기존 검색어에 걸리는 기사는 이미 목록에 있는 이야기라 뺀다
     known = [k for e in events if is_open(e) for k in e.get("keywords") or []]
     for lang, limit in (("ko", 30), ("en", 20)):
@@ -241,7 +246,9 @@ PROMPT = """당신은 거시경제 내러티브 트래커의 편집자입니다.
 - layer: cyclical(경기·금리 순환) | structural(수년 단위 구조 테마) | political(정치·지정학)
 - assets 허용값: {assets}
 - 언급 지표: 기사_7일 = 그 내러티브 검색어로 찾은 최근 7일 기사 수(최대 8), 언급_정점대비 = 하루 기사 수 7일 평균이
-  정점의 몇 배인지(1이면 정점), 잠잠_일수 = dormant가 된 뒤 지난 날, 식음 = 위 지표로 본 코드 판단
+  정점의 몇 배인지(1이면 정점), 잠잠_일수 = dormant가 된 뒤 지난 날, 식음 = 위 지표로 본 코드 판단,
+  제안 = 지표로 낸 기본 판정(dormant·end). 제안이 있으면 그대로 따르거나, 다르게 판정하려면 최근 {fresh}일 안의
+  서로 다른 매체 기사 2개를 evidence로 대세요 — 대지 못하면 제안대로 반영됩니다.
 
 ## 1. reviews — [진행 중 목록]의 내러티브 하나하나에 빠짐없이 한 항목씩
 verdict는 다음 중 하나:
@@ -252,8 +259,8 @@ verdict는 다음 중 하나:
 - end: 사건이 해소됨(합의·종전·철회·정상화 완료 등, 서로 다른 매체 기사 2개 이상), 또는 잠잠_일수가 {end_after}일을 넘었고 식음이 true
 - merge: 다른 진행 중 내러티브와 사실상 같은 이야기 — merge_into에 남길 쪽 id
 선택: phase(바뀔 때, 매체 2곳 근거), keywords(기사_7일이 0~2건이거나 언급이 늘 포화일 때, 몇 주 쓸 한국어 검색어 2~4개),
-note(이번에 새로 확인한 사실 한 문장, 날짜 포함 — 근거 기사 제목에 있는 사실만, '사상 최고'·'최초' 같은 표현이나 수치는
-제목에 그대로 있을 때만). reason은 필수(왜 그 판정인지 한 문장).
+note(최근 며칠 새로 생긴 사실 한 문장, 날짜 포함 — notes에 이미 있는 사실이면 빈 문자열. 근거 기사 제목에 있는
+사실만, '사상 최고'·'최초' 같은 표현이나 수치는 제목에 그대로 있을 때만). reason은 필수(왜 그 판정인지 한 문장).
 
 ## 2. new_events — 목록에 없는데 여러 매체가 다루고 자산 가격도 반응한 새 이야기 (최대 2개)
 주로 [목록 밖 주요 기사]에서 찾으세요. 근거 기사 3개 이상·매체 2곳 이상(지켜보는 후보에 이틀 이상 오른 주제는 2개).
@@ -339,7 +346,7 @@ def format_headlines(heads, groups=None):
 def build_prompt(today, events, heads, fade, cands):
     regime = load_json(REGIME_PATH, {})
     return PROMPT.format(
-        today=today.isoformat(), assets=", ".join(ASSETS), end_after=END_AFTER_DORMANT,
+        today=today.isoformat(), assets=", ".join(ASSETS), end_after=END_AFTER_DORMANT, fresh=FRESH_DAYS,
         regime=json.dumps({k: (regime.get(k) or {}).get("label") for k in ("growth_inflation", "credit_stress", "policy_stance")},
                           ensure_ascii=False),
         market=json.dumps(market_summary(), ensure_ascii=False),
@@ -369,6 +376,42 @@ def _evidence(ids, heads):
             norm.append(f"h{int(n)}")
     ok = [i for i in dict.fromkeys(norm) if i in heads]
     return ok, len({heads[i]["source"] or heads[i]["url"] for i in ok})
+
+
+def _ro(word):
+    """받침에 맞춘 '로/으로'"""
+    c = ord(word[-1]) - 0xAC00
+    return f"{word}로" if not 0 <= c <= 11171 or c % 28 in (0, 8) else f"{word}으로"
+
+
+def _fresh_sources(ids, heads, today):
+    """근거 중 최근 FRESH_DAYS일 안 기사의 서로 다른 매체 수"""
+    return len({heads[i]["source"] or heads[i]["url"] for i in ids
+                if _date(heads[i].get("date") or "") and (today - _date(heads[i]["date"])).days <= FRESH_DAYS})
+
+
+def _bigrams(t):
+    t = re.sub(r"\s+", "", t)
+    return {t[i:i + 2] for i in range(len(t) - 1)}
+
+
+def note_problem(note, old_notes, today):
+    """새 메모가 버릴 것이면 이유 — 기존 메모 한 줄과 거의 같거나, 적힌 날짜가 모두 오래됐을 때
+    (10/11 dry-run: flash-lite가 모든 내러티브에 전날 메모나 9월 사실을 다시 적었음)"""
+    a = _bigrams(note)
+    lines = [ln.split("]", 1)[-1] for ln in (old_notes or "").split("\n") if ln.strip()]
+    if a and any(len(a & _bigrams(ln)) / len(a) >= NOTE_DUP for ln in lines):
+        return "이미 있는 내용"
+    dates = []
+    for m, d in re.findall(r"(?<![\d.])(\d{1,2})/(\d{1,2})(?![\d])", note):
+        try:
+            x = datetime.date(today.year, int(m), int(d))
+        except ValueError:
+            continue
+        dates.append(x if x <= today + datetime.timedelta(days=1) else x.replace(year=today.year - 1))
+    if dates and (today - max(dates)).days > NOTE_STALE_DAYS:
+        return f"{NOTE_STALE_DAYS}일 넘은 사실"
+    return None
 
 
 def _structural(changes):
@@ -485,8 +528,12 @@ def check_update(u, events_by_id, heads, cooled, today, fade=None, retire_left=M
         return None, str(why)
 
     note = clean_note(u.get("note") or u.get("notes_append"))
-    if note and ev:  # 메모는 근거 기사가 있을 때만
-        change["notes_append"] = note[:NOTE_MAX]
+    if note and ev:  # 메모는 근거 기사가 있고, 새 사실일 때만
+        why = note_problem(note, e.get("notes"), today)
+        if why:
+            dropped.append(f"note({why})")
+        else:
+            change["notes_append"] = note[:NOTE_MAX]
     elif note and strict and not change:
         return None, "근거 기사 없음"
 
@@ -586,7 +633,7 @@ def apply_proposal(proposal, events, heads, log, today, model, fade=None, candid
     판정마다 events[i]["last_review"]에 날짜·판정·이유를 남긴다 — 바꾼 게 없어도 '오늘 봤고 유지'가 화면에 보이게."""
     by_id = {e["id"]: e for e in events}
     cooled = recent_changes(log, today)
-    entries, applied, retired, noted, seen = [], 0, 0, 0, set()
+    entries, applied, retired, noted, seen, rebutted = [], 0, 0, 0, set(), {}
     stamp = today.isoformat()
     items = [u for u in (proposal.get("reviews") or []) + (proposal.get("updates") or [])]
     n_open = sum(is_open(e) for e in events)
@@ -599,6 +646,9 @@ def apply_proposal(proposal, events, heads, log, today, model, fade=None, candid
         eid = u.get("id")
         entry = {"date": stamp, "by": "gemini", "model": model, "event_id": eid, "kind": "update",
                  "verdict": _verdict(u), "reason": str(u.get("reason", ""))[:200]}
+        if eid not in seen and entry["verdict"] in (None, "keep", "up", "down", "reignite"):
+            ev_ids, _ = _evidence(u.get("evidence"), heads)
+            rebutted[eid] = _fresh_sources(ev_ids, heads, today) >= 2
         if eid in seen:
             entries.append({**entry, "status": "rejected", "reject_reason": "같은 내러티브 중복 판정"})
             continue
@@ -637,6 +687,29 @@ def apply_proposal(proposal, events, heads, log, today, model, fade=None, candid
         noted += 1
         entries.append({**entry, "status": "applied", "changes": fields, "evidence": _evi_detail(res["evidence"], heads),
                         **({"dropped": res["dropped"]} if res["dropped"] else {})})
+
+    # 지표가 '식었다'고 본 내러티브를 Gemini가 최근 기사로 반박하지 못했으면 제안대로 — 판정을 안 냈어도 마찬가지.
+    # 한 번에 절반 넘게 식었다고 나오면 지표 쪽(기사 수집) 문제일 가능성이 커서 이번엔 적용하지 않는다
+    suggested = [k for k, f in (fade or {}).items() if f.get("제안")]
+    if len(suggested) > max(2, n_open // 2):
+        print(f"::warning title=식음 제안 보류::{len(suggested)}/{n_open}개가 한꺼번에 식었다고 나옴 — 기사 수집 이상 가능성, 이번엔 제안 미적용")
+        fade = {}
+    for eid, f in (fade or {}).items():
+        sug, e = f.get("제안"), by_id.get(eid)
+        if not sug or e is None or e.get("auto_lock") or not is_open(e) or eid in cooled or rebutted.get(eid):
+            continue
+        new = "dormant" if sug == "dormant" else "ended"
+        if e["status"] == new or (new == "ended" and retired >= MAX_RETIRE):
+            continue
+        reason = (f"언급이 줄었는데(7일 기사 {f.get('기사_7일')}건, 정점 대비 {f.get('언급_정점대비')}) Gemini가 이어진다는 "
+                  f"최근 {FRESH_DAYS}일 기사(매체 2곳)를 대지 않아 {_ro(VERDICT[sug])}")
+        old = e["status"]
+        _set_status(e, new, today)
+        e["last_review"] = {"date": stamp, "by": "rule", "verdict": VERDICT[sug], "reason": reason[:160]}
+        entries.append({"date": stamp, "by": "rule", "event_id": eid, "kind": "update", "verdict": sug, "status": "applied",
+                        "reason": reason, "changes": {"status": [old, new]}})
+        retired += new == "ended"
+        noted += 1
 
     open_count = sum(is_open(e) for e in events)
     added = 0
@@ -753,7 +826,7 @@ def review_narratives(today, events, log, notes):
     entries, n = apply_proposal(proposal, events, heads, log, today, r["model"], fade, cands)
     ranked = update_candidates(cands, proposal.get("candidates"), heads, today)
     reviewed = {e["id"]: (e.get("last_review") or {}).get("verdict") for e in events
-                if (e.get("last_review") or {}).get("date") == today.isoformat() and (e.get("last_review") or {}).get("by") == "gemini"}
+                if (e.get("last_review") or {}).get("date") == today.isoformat() and (e.get("last_review") or {}).get("by") in ("gemini", "rule")}
     missing = [e["id"] for e in events if is_open(e) and e["id"] not in reviewed and not e.get("auto_lock")]
     tally = defaultdict(int)
     for v in reviewed.values():

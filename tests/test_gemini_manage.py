@@ -243,6 +243,46 @@ class ReviewVerdictTest(unittest.TestCase):
         self.assertEqual(f["quiet-2026"]["잠잠_일수"], 40)
         self.assertFalse(f["quiet-2026"]["식음"])
         self.assertNotIn("old-2024", f)
+        self.assertEqual((f["iran-war-2026"]["제안"], f["quiet-2026"]["제안"]), ("dormant", None))
+        self.assertNotIn("locked-2026", [k for k, v in f.items() if v["제안"]])
+        f = gm.fade_stats(ev, {"quiet-2026": 0}, TODAY, {})
+        self.assertEqual(f["quiet-2026"]["제안"], "end")
+
+    def test_suggestion_applies_unless_rebutted_with_fresh_articles(self):
+        fade = {"iran-war-2026": {"식음": True, "기사_7일": 2, "언급_정점대비": 0.2, "제안": "dormant"}}
+        # 유지라고만 하고 최근 기사를 못 대면 → 규칙이 잠잠으로
+        ev, by, entries, n = self.run_reviews([{"id": "iran-war-2026", "verdict": "keep", "reason": "긴장 지속", "evidence": ["h1"]}],
+                                              fade=fade)
+        e = by["iran-war-2026"]
+        self.assertEqual((n, e["status"], e["last_review"]["by"], e["last_review"]["verdict"]), (1, "dormant", "rule", "잠잠"))
+        self.assertIn("잠잠으로", entries[-1]["reason"])
+        # 판정을 아예 안 냈어도 제안대로
+        _, by, _, _ = self.run_reviews([], fade=fade)
+        self.assertEqual(by["iran-war-2026"]["status"], "dormant")
+        # 최근 3일 안 서로 다른 매체 2곳으로 반박하면 그대로
+        _, by, _, n = self.run_reviews([{"id": "iran-war-2026", "verdict": "keep", "reason": "r", "evidence": ["h1", "h2"]}], fade=fade)
+        self.assertEqual((n, by["iran-war-2026"]["status"]), (0, "active"))
+        # 끝내자는 제안도 같은 방식 (잠잠한 지 오래된 것)
+        _, by, entries, _ = self.run_reviews([], fade={"quiet-2026": {"식음": True, "제안": "end"}})
+        self.assertEqual(by["quiet-2026"]["status"], "ended")
+        self.assertIn("종료로", entries[-1]["reason"])
+
+    def test_mass_suggestion_is_held_back(self):
+        fade = {i: {"식음": True, "제안": "dormant"} for i in ("iran-war-2026", "bond-2026")}
+        fade["quiet-2026"] = {"식음": True, "제안": "end"}
+        _, by, _, n = self.run_reviews([], fade=fade)  # 열린 3개 중 3개 → 보류
+        self.assertEqual((n, by["iran-war-2026"]["status"]), (0, "active"))
+
+    def test_stale_or_repeated_notes_are_dropped(self):
+        old = "기존\n[10-10 Gemini] 10/8 뉴욕연은 보고서에서 트럼프 관세가 미국 소비재 물가를 2.9%p 인상한다고 분석."
+        self.assertEqual(gm.note_problem("10/8 뉴욕연은 보고서, 트럼프 관세가 미국 소비재 물가를 2.9%p 인상한다고 분석.", old, TODAY),
+                         "이미 있는 내용")
+        self.assertIn("넘은 사실", gm.note_problem("9/16 FOMC 만장일치 금리 인상으로 독립성 확인", "기존", TODAY))
+        self.assertIsNone(gm.note_problem("10/10 호르무즈 유조선 폭발 사고 발생", old, TODAY))
+        self.assertIsNone(gm.note_problem("12/30 연말 유동성 경색", "기존", datetime.date(2027, 1, 2)))
+        ev, by, entries, n = self.run_reviews([{"id": "iran-war-2026", "verdict": "keep", "reason": "r", "evidence": ["h1"],
+                                                "note": "9/2 유조선 공격"}])
+        self.assertEqual((n, by["iran-war-2026"]["notes"]), (0, "기존"))
 
 
 class CandidateTest(unittest.TestCase):
