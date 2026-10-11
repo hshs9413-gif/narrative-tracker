@@ -25,6 +25,21 @@ class GeminiError(Exception):
     pass
 
 
+# 하루 한도를 다 쓴 모델 — 같은 실행 안에서는 다시 부르지 않는다 (PMI 확인처럼 두 번째 호출이 있을 때)
+EXHAUSTED = set()
+
+
+def _daily_quota(resp):
+    """429가 '하루 한도 소진'인지 — 그렇다면 15초 뒤 재시도해도 소용없다.
+    (10/11: 하루 한도가 찬 3.6·3.5-flash를 호출마다 두 번씩 다시 불러 하루 오류 429가 100건 넘게 쌓였음)"""
+    try:
+        err = resp.json().get("error", {})
+    except ValueError:
+        return False
+    text = json.dumps(err, ensure_ascii=False)
+    return "PerDay" in text or "per day" in text.lower()
+
+
 def _raw_key():
     return (os.environ.get("GEMINI_API_KEY") or "").strip().strip('"').strip("'")
 
@@ -76,7 +91,11 @@ def list_flash_models(session=None):
 
 
 def candidates(session=None, extra=2):
-    """GEMINI_MODEL → 검증된 무료 모델 → 목록의 다른 안정판 flash 몇 개 (쿼터를 아끼려고 최대 5개)."""
+    """GEMINI_MODEL → 검증된 무료 모델 → 목록의 다른 안정판 flash 몇 개 (쿼터를 아끼려고 최대 5개).
+    GEMINI_MODELS(쉼표 목록)가 있으면 그 모델만 쓴다 — PR 점검이 실제 운영용 상위 모델 한도를 쓰지 않게."""
+    only = [m.strip() for m in os.environ.get("GEMINI_MODELS", "").split(",") if m.strip()]
+    if only:
+        return only
     first = [os.environ.get("GEMINI_MODEL", "").strip()]
     try:
         listed = [m for m in list_flash_models(session)
@@ -107,6 +126,9 @@ def generate(prompt, search=False, max_tokens=8192, session=None, models=None, r
     s = session or requests
     errors = []
     for model in models or candidates(session):
+        if model in EXHAUSTED:
+            errors.append(f"{model}: 오늘 한도 소진(건너뜀)")
+            continue
         for thinking in dict.fromkeys((thinking_budget, None)):  # thinkingConfig를 거부하는 모델 대비
             resp = None
             for attempt in range(retries + 1):
@@ -124,6 +146,10 @@ def generate(prompt, search=False, max_tokens=8192, session=None, models=None, r
                     out = _parse(model, resp.json())
                     out["fallbacks"] = errors[:]  # 앞 모델이 실패해 넘어온 경우 그 이유
                     return out
+                if resp.status_code == 429 and _daily_quota(resp):
+                    EXHAUSTED.add(model)
+                    errors.append(f"{model}: 오늘 한도 소진")
+                    break
                 if resp.status_code in (429, 500, 503) and attempt < retries:
                     time.sleep(15 * (attempt + 1))
                     continue
