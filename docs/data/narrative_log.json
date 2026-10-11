@@ -568,5 +568,86 @@
         "url": "https://fred.stlouisfed.org/series/DGS10"
       }
     ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "fed-politicization-2026",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "제안은 dormant였으나, 최근 3일간 다수의 매체에서 연준의 독립성과 정치적 압박을 다루고 있어 active 상태를 유지합니다.",
+    "status": "applied",
+    "changes": {
+      "notes": [
+        "…",
+        "10/10 케빈 워시 의장의 발언과 트럼프의 연준 비판이 이어지며 정치적 갈등이 지속되고 있습니다."
+      ]
+    },
+    "evidence": [
+      {
+        "title": "트럼프 \"연준 이사회, 나라가 잘못되길 바라는 것 같다\"",
+        "source": "뉴스핌",
+        "date": "2026-10-07",
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5FQTc2NFdoSDVVZFgzY2lncEgzTnhtVDE4X21vQjNpWDdnc1hvWXpUWUtCY3R1UV9rZU53cHRKN2dtSWJFNnFzRmotSjVsNFpacFh0aGRUSjc2M1pL?oc=5"
+      },
+      {
+        "title": "케빈 워시 연준 의장이 던진 열 단어, 시장의 금리 기대 바꿀까",
+        "source": "글로벌이코노믹",
+        "date": "2026-10-10",
+        "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOanpPUmNkanJTem1VTnR6dU9mSnVNX2ZkdndVSGtuSEtPYUlCSHZpOHR6M2tYcEpIbEtsbUVldW9rbWpaOFRKcnkxVW9rVk1tb2tWUTJoX1lMR3pDWnRpNU5EU1hIcTNBWFZYcnVQZFdZQWVqb1RfcDl4ZWc0Z3hfa1lWWFRqWHM?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "iran-war-2026",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "중동 확전 우려와 유가 변동성이 여전히 시장의 고위험 요인으로 작용하고 있습니다.",
+    "status": "applied",
+    "changes": {
+      "notes": [
+        "…",
+        "10/10 이란 혁명수비대의 유조선 폭발 언급으로 호르무즈 해협 긴장이 재고조되었습니다."
+      ]
+    },
+    "evidence": [
+      {
+        "title": "이란 혁명수비대 \"호르무즈 지나던 유조선, 기뢰 건드려 폭발\"",
+        "source": "YTN",
+        "date": "2026-10-10",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1FaHpnNjBmUWpHZDZ5cHFlX3N5YnZCYUl2T1hobmJoTVBBYVp1WENmaEQzYjliaWtWbjdBcWd2RW5JU0Uxc1ZjNGY4U3NjYnlFWXlZdVAzaXJLdVBTbXc?oc=5"
+      },
+      {
+        "title": "거센 반격 후티, 사우디 공항·정유시설 타격…한국 기업 인근도 피격",
+        "source": "KBS 뉴스",
+        "date": "2026-10-07",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFAxakpkQXlDNnc2VlJLLXJKRHB1b0g4TDdkbzNocUNpS3lLbEY0U09JTHRrZnZpU2NvWUNaMGl0cVJkUlplVDg5ejVyaEdPYmNEWmEwaV9peFNVSjVrNGNlUVpGZVVMdw?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미 국채금리 급등과 AI 거품 경고가 시장의 주요 하락 압력으로 작용하는 가운데, 중동 긴장 재고조와 국내 빚투 규제 이슈가 시장 변동성을 키우고 있습니다.",
+    "reviews": {
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "fed-politicization-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "러시아 페스트 확산 우려"
+    ]
   }
 ]

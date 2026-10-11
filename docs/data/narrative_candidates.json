@@ -1,0 +1,30 @@
+[
+  {
+    "key": "러시아페스트확산우려",
+    "name": "러시아 페스트 확산 우려",
+    "first_seen": "2026-10-11",
+    "days_seen": 1,
+    "last_seen": "2026-10-11",
+    "why": "러시아 내 페스트 의심 사례 발생 및 WHO의 모니터링이 시작되어 보건 이슈로 부상 중입니다.",
+    "evidence": [
+      {
+        "title": "Russian lab worker dies of suspected plague as 200 enter medical observation",
+        "source": "NBC News",
+        "date": "2026-10-05",
+        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbmdUdVpKNGpYM3p3Y2xCeE5zZzZHUHE1YzR2Mzk1QXNrbzhkNWZFaTJEc1E1cVEtM09oZGpHTXNiMVFma19ObkpHVFVoY2k5MS14eU5YUGppZU5pWVc4YjUtblBLMHRUQk1JQVd2M3VyZ3daMEpVNWxYOVN5RGNZbzFiUzB3bFQ0eVR4MmJ1MlhNWTFPYW1lcmZuSUJwd3FMOTUtTjJrVHl0Q25UM3RiSw?oc=5"
+      },
+      {
+        "title": "Scoop: White House monitors suspected plague outbreak in Russia",
+        "source": "Axios",
+        "date": "2026-10-04",
+        "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5XOWV5amNoaTYwcjNNS1liVl8ySTBaX2tmNzNac2JZNGpDN0ZkQ1dRZ2txa2JuVXRyZkNkaWZhYzJIQk8yVmZ6YXc3aGFQcnMyX0IwN3QwanlTVm9qY1RCWVhLQi1UQ3VLNE45Zi1DREVKMmY1RDNKNURB?oc=5"
+      },
+      {
+        "title": "Russian plague scare — what we know so far",
+        "source": "CNN",
+        "date": "2026-10-06",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTXJWbllycW45ZjRWMGs2UEV0NVBpcnBJTjZjMVluZ0o5UWh2MThzVDhiRzlWVjNWQlhiYnJCU1dwSXdfV3lObEJ1dmxZczROb093SjF0dG9JNWdma0otcWgtdVJqNkt6OFRIQ1Y5dDlRTTF2eXVFajhQMHc5d3RZSHhVeHY?oc=5"
+      }
+    ]
+  }
+]
