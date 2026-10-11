@@ -70,6 +70,14 @@ class UpdateRulesTest(unittest.TestCase):
             self.assertEqual(n, 0, prop)
             self.assertIn(why, entries[0]["reject_reason"], prop)
 
+    def test_notes_only_updates_are_not_capped_and_ids_are_stripped(self):
+        self.assertEqual(gm.clean_note("5.31%를 기록함(h5, h8)."), "5.31%를 기록함.")
+        ev = events() + [dict(events()[0], id=f"x{i}") for i in range(4)]
+        props = [{"id": f"x{i}", "notes_append": f"메모{i} [h1]", "evidence": ["h1"]} for i in range(4)]
+        entries, n = gm.apply_proposal({"updates": props}, ev, heads(), [], TODAY, "m")
+        self.assertEqual(n, 4)
+        self.assertTrue(all("[h1]" not in e["notes"] for e in ev))
+
     def test_evidence_ids_in_other_formats(self):
         for ev in (["1", 2], "h1, h2", ["[h1]", "h2"]):
             ids, n_src = gm._evidence(ev, heads())

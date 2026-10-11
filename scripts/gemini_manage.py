@@ -236,6 +236,12 @@ def _date(s):
         return None
 
 
+def clean_note(text):
+    """메모에 섞여 들어온 기사 번호 '(h5, h8)'·'[h3]'는 독자에게 뜻이 없어 지운다 — 근거는 기록에 링크로 남는다."""
+    text = re.sub(r"\s*[\(\[]\s*h\d+(?:\s*[,·]\s*h\d+)*\s*[\)\]]", "", str(text or ""))
+    return re.sub(r"\s{2,}", " ", text).strip()
+
+
 def _evidence(ids, heads):
     """근거 기사 번호 — 모델마다 'h3'·'3'·3·'[h3]'·'h3, h7'처럼 다르게 써서 숫자만 뽑아 h번호로 맞춘다
     (10/11: flash-lite가 번호 형식을 바꿔 제안 5건이 모두 '근거 없음'으로 거절됐음)."""
@@ -270,7 +276,7 @@ def check_update(u, events_by_id, heads, cooled, today):
     ev, n_src = _evidence(u.get("evidence"), heads)
     if eid in cooled:
         # 쿨다운 중엔 상태·단계·강도·검색어는 그대로 두고, 새로 확인된 사실 메모만 받는다
-        note = (u.get("notes_append") or "").strip()
+        note = clean_note(u.get("notes_append"))
         if note and ev:
             return {"change": {"notes_append": note[:NOTE_MAX]}, "evidence": ev}, None
         return None, f"최근 {COOLDOWN_DAYS}일 안에 이미 바꿈"
@@ -300,7 +306,7 @@ def check_update(u, events_by_id, heads, cooled, today):
             return None, "keywords는 2~5개(각 2~20자)"
         if kws != e.get("keywords"):
             change["keywords"] = kws
-    note = (u.get("notes_append") or "").strip()
+    note = clean_note(u.get("notes_append"))
     if note:
         change["notes_append"] = note[:NOTE_MAX]
     if not change:
@@ -355,14 +361,15 @@ def apply_proposal(proposal, events, heads, log, today, model):
     """검사를 통과한 것만 events에 반영. 반환: (새 로그 항목들, 반영 수)"""
     by_id = {e["id"]: e for e in events}
     cooled = recent_changes(log, today)
-    entries, applied = [], 0
+    entries, applied, noted = [], 0, 0  # applied = 구조 변경 수(상한 대상), noted = 반영된 모든 갱신 수
     stamp = today.isoformat()
 
     for u in (proposal.get("updates") or [])[: MAX_UPDATES * 2]:
         res, why = check_update(u, by_id, heads, cooled, today) if isinstance(u, dict) else (None, "형식 오류")
         entry = {"date": stamp, "by": "gemini", "model": model, "event_id": (u or {}).get("id") if isinstance(u, dict) else None,
                  "kind": "update", "reason": str((u or {}).get("reason", ""))[:200] if isinstance(u, dict) else ""}
-        if res and applied >= MAX_UPDATES:
+        structural = bool(res) and any(k != "notes_append" for k in res["change"])
+        if res and structural and applied >= MAX_UPDATES:  # 메모만 덧붙이는 건 개수 제한 없음
             res, why = None, f"한 번에 {MAX_UPDATES}개까지만"
         if res is None:
             entries.append({**entry, "status": "rejected", "reject_reason": why})
@@ -378,7 +385,8 @@ def apply_proposal(proposal, events, heads, log, today, model):
                 e[k] = v
         e["last_review"] = {"date": stamp, "by": "gemini"}
         cooled.add(e["id"])
-        applied += 1
+        applied += structural
+        noted += 1
         entries.append({**entry, "status": "applied", "changes": fields, "evidence": _evi_detail(res["evidence"], heads)})
 
     open_count = sum(e.get("status") in ("active", "dormant") for e in events)
@@ -398,7 +406,7 @@ def apply_proposal(proposal, events, heads, log, today, model):
         open_count += 1
         added += 1
         entries.append({**entry, "status": "applied", "evidence": _evi_detail(res["evidence"], heads)})
-    return entries, applied + added
+    return entries, noted + added
 
 
 # ───────────────────────────── PMI
