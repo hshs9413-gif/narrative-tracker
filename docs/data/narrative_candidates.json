@@ -3,27 +3,21 @@
     "key": "러시아페스트확산우려",
     "name": "러시아 페스트 확산 우려",
     "first_seen": "2026-10-11",
-    "days_seen": 1,
-    "last_seen": "2026-10-11",
-    "why": "러시아 연구소 직원 페스트 의심 사망·200명 관찰 보도(10/4~10/6) — 최근 3일 기사와 시장 반응이 아직 없음",
+    "days_seen": 2,
+    "last_seen": "2026-10-12",
+    "why": "러시아 연구원 사망 보도 및 전염병 관련 세계적 동향 보도가 지속되고 있어 모니터링이 필요합니다.",
     "evidence": [
       {
-        "title": "Russian lab worker dies of suspected plague as 200 enter medical observation",
-        "source": "NBC News",
+        "title": "Siberian Anti-Plague Institute Staff Isolated After Worker's Death",
+        "source": "Radio Free Europe/Radio Liberty",
         "date": "2026-10-05",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbmdUdVpKNGpYM3p3Y2xCeE5zZzZHUHE1YzR2Mzk1QXNrbzhkNWZFaTJEc1E1cVEtM09oZGpHTXNiMVFma19ObkpHVFVoY2k5MS14eU5YUGppZU5pWVc4YjUtblBLMHRUQk1JQVd2M3VyZ3daMEpVNWxYOVN5RGNZbzFiUzB3bFQ0eVR4MmJ1MlhNWTFPYW1lcmZuSUJwd3FMOTUtTjJrVHl0Q25UM3RiSw?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPSEx6d3VxR1QtNUVfV3J4cDE1cl9mSlc2WFFNbjdxZjVzTWw5MTJiS0h3MGt4dVVRNkZPVUFKQ0hQZE1JeXAtMHJEZGs3TG9ZUEExb0w2NTNuSTNVNmFqQmRIY0RGNnNVa0pIekR5VzNwSzc3dTdCQThELWFUazQyRjV0TkJrSlFMX3paSHVYc9IBkgFBVV95cUxPT0E5MkJQUXRWLW9UU0lLamdFU0ZOeEI4WldMa2F5eHFXUi1tVXVMa19JUzhaWFd1M1Jab3o1TkNZeTNwbHJ0RWN2bXJSWUNKV2I5dnplLXdFX1J2X2dZdjZxelRDbndyYnppcVQ5Uk8tSGF6NzJxN2NfU2NVTWdmcnFXQzMyZi1xT0lHZGZPdnladw?oc=5"
       },
       {
-        "title": "Scoop: White House monitors suspected plague outbreak in Russia",
-        "source": "Axios",
-        "date": "2026-10-04",
-        "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5XOWV5amNoaTYwcjNNS1liVl8ySTBaX2tmNzNac2JZNGpDN0ZkQ1dRZ2txa2JuVXRyZkNkaWZhYzJIQk8yVmZ6YXc3aGFQcnMyX0IwN3QwanlTVm9qY1RCWVhLQi1UQ3VLNE45Zi1DREVKMmY1RDNKNURB?oc=5"
-      },
-      {
-        "title": "Russian plague scare — what we know so far",
-        "source": "CNN",
-        "date": "2026-10-06",
-        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTXJWbllycW45ZjRWMGs2UEV0NVBpcnBJTjZjMVluZ0o5UWh2MThzVDhiRzlWVjNWQlhiYnJCU1dwSXdfV3lObEJ1dmxZczROb093SjF0dG9JNWdma0otcWgtdVJqNkt6OFRIQ1Y5dDlRTTF2eXVFajhQMHc5d3RZSHhVeHY?oc=5"
+        "title": "WHO says suspected hantavirus cluster 'is not the start of a COVID pandemic'",
+        "source": "ABC News - Breaking News, Latest News and Videos",
+        "date": "2026-10-11",
+        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOanBya3VnenlXNEprVzFhcGNBN1MwQ0VCSE9rU1dSRHp6THlLTElCZThJb0VvMW9xbVk3cnhYNUFBVTBPWHpkWDM1clBkaTRiNVIyQm0xLUhsYzh2X0x3dXBMN0xPVUtpa3FDQWgyZHFUc1ZNVUtMM0JiVW52OW1tS2ZaeEROeUVxYS1OX2NYcW1JVzBFbVU2X0lsMTNzdUp5azJLNUp1Y3FJNWvSAbABQVVfeXFMUFFXRG5FYW9leWxiQmVtVWlSY1FLd1kxWnFnS0NCMm1Ra0lsUnlxRmVoVmFJazVfSnNzQVctcEYwM0JhQVNBRnNMLUZrRkIwcFh2ZTlNeGxoYU9ic1BLemd0Q3hrMVpzQk42UUlkbENhaTFfZDJhYTRMVHYtbzhlVFdiUWhNNFoxekpOOUJDcGJkYW1oeGo0RW85bl9WZzBaeGpvejV6VGNnbVFKSS1OZlI?oc=5"
       }
     ]
   },
@@ -31,21 +25,21 @@
     "key": "금융권ai해킹사고",
     "name": "금융권 AI 해킹 사고",
     "first_seen": "2026-10-11",
-    "days_seen": 1,
-    "last_seen": "2026-10-11",
-    "why": "금융권 내 AI 에이전트 공격 경고와 실제 침해 사고가 발생하며 보안 리스크가 부각됨.",
+    "days_seen": 2,
+    "last_seen": "2026-10-12",
+    "why": "금융권 및 주요 기술 기업에 대한 사이버 보안 위협 및 해킹 리스크 부각 여부를 지켜봅니다.",
     "evidence": [
       {
-        "title": "AI 해킹 경고 있었는데…금융권, 2주 뒤 연쇄 침해사고",
-        "source": "연합뉴스TV",
+        "title": "SK쉴더스 \"아르텍스, 기존 공격 고도화\"...API 보안 대응책 제시",
+        "source": "지디넷코리아",
         "date": "2026-10-11",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB3MWswZTh0M2xJXzNvTGNDUFBnS19rVWlCNEEteFhDTFZRV2s0aGc2bUtfWHE0VEdVVlk4NzFRVlc3VU9jaWwwSmR4ci1UM3BjNUpOWUtZTnhmYlBTd2tQV2hrVTlqLWM?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5JdVlOYk5ESHJVVHNKOFpCM2NwbUpSbHdEb2hSVDBoeUJiV1RGOFJ0bjJwaVRnNVhmLVNQQTdFYzlvYUtxMVNRN0ZqMm9oVzVTbzBzaGR3?oc=5"
       },
       {
-        "title": "\"금융보안원, 해킹 2주전 AI 에이전트 공격 경고\"",
-        "source": "YTN",
+        "title": "Canadian ransomware negotiator arrested on federal charges amid FBI hacking probe",
+        "source": "Fox Business",
         "date": "2026-10-11",
-        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1uVnNqVTk1SmJpd08xNFdIbUFHVmlwTjd5NVZ4bDdvcEN2TExEbEROYjVRN0NpQ0JjNE5IWExXbHRVcmg4ZVhCdU9aWVZKdXR1X1hrMHJCM1I5UmVhMFE?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQmZmaUZ4QWMwWkdBUmF3OW1rUHM4b1NITDhwbGdlcGVRYVpSaVVBT2NSWGdXY1ZFVlh6aUtYblJaVkNSdmpPNFlIbTg1UXg2MHJ3c0diajdkNFR1YWxhQ3RHemV5UE5vMXIxV1hTQzY0andZUy1rTk1SaFJvRVlsYnVrc19rVXZuSzRtTlN3cV8tTWxmMHp2STNGZkl1UWtmVU1ZN01NNmlUXzlEZ0pUelpUNGQ2X2xTTXQta9IBwgFBVV95cUxONHdsNUY4OVRmdlpNM0E4T2p4QjFOM2k1bTltNTRPWVRacTRKYUljRERDWW1mY3ZKSzR5UkJoaGlxdzRuUm95TkxaN0U1U0lGS0Z2eFdmckdieVA0d2JmX3QxZGdpRkZnVWwwZ2lCcm54TERObDFSRFRvLUJlMFZWS2ZHWXRTM21CWVllNTVFUmxYaFNZenBUbzRFWTFtOHlaNkhEa2tmR2pacnNneERtWlhKRVZHaE5IRjE0Ym1zWFgxZw?oc=5"
       }
     ]
   }

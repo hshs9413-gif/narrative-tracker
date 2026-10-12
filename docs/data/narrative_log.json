@@ -746,5 +746,29 @@
     },
     "reason": "근거 기사가 10/4~10/6 세 건뿐이고 최근 3일 기사·시장 반응이 없어 진행 중 내러티브로 보기 이름 — 후보로 되돌리고 새 내러티브 기준을 높임(기사 4개·매체 3곳·최근 3일 2곳)",
     "name": "러시아 페스트 확산 우려"
+  },
+  {
+    "date": "2026-10-12",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "기존 진행 중인 8개 주요 내러티브의 시장 영향력이 유지되어 모두 상태를 유지(유지)하였으며, 조건을 충족하는 신규 대형 이벤트가 없어 후보 목록을 유지했습니다.",
+    "reviews": {
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "fed-politicization-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "러시아 페스트 확산 우려",
+      "금융권 AI 해킹 사고"
+    ],
+    "at": "2026-10-12T10:37+09:00",
+    "trigger": "schedule"
   }
 ]
