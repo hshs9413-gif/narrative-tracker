@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T01:37:01.909017+00:00",
+  "generated_at": "2026-10-12T22:12:51.362217+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -23,8 +23,8 @@
         "band": "평상"
       },
       "vix_level": {
-        "value": 15.41,
-        "as_of": "2026-10-08",
+        "value": 14.84,
+        "as_of": "2026-10-09",
         "band": "평상"
       },
       "curve_2s10y": {
