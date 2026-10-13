@@ -331,5 +331,21 @@ class CollectorSmokeTest(QuietTestCase):
         self.assertTrue(all(s["via"] == "fred_api" for s in catalog["series"]))
 
 
+class WindowEndTest(unittest.TestCase):
+    """미국 장 마감 전후로 조회 끝 날짜가 바뀌는지 — 새벽 예약 실행에 그날 종가가 빠지거나 밤 갱신에 장중 값이 들어가지 않게"""
+
+    def test_cutoff(self):
+        import datetime as dt
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
+        import collect_market_data as cmd
+        utc = dt.timezone.utc
+        # 06:47 KST 10/14 = 21:47Z 10/13 (뉴욕 17:47, 10/13 장 마감 뒤) → 10/13 장 포함(끝=10/14 0시)
+        self.assertEqual(cmd.window_end(dt.datetime(2026, 10, 13, 21, 47, tzinfo=utc)), dt.date(2026, 10, 14))
+        # 23:47 KST 10/14 = 14:47Z 10/14 (뉴욕 10:47, 장중) → 10/14 장 제외(끝=10/14 0시)
+        self.assertEqual(cmd.window_end(dt.datetime(2026, 10, 14, 14, 47, tzinfo=utc)), dt.date(2026, 10, 14))
+        # 겨울(동부 표준시) 06:47 KST 12/2 = 21:47Z 12/1 (뉴욕 16:47, 마감 뒤) → 12/1 장 포함
+        self.assertEqual(cmd.window_end(dt.datetime(2026, 12, 1, 21, 47, tzinfo=utc)), dt.date(2026, 12, 2))
+
+
 if __name__ == "__main__":
     unittest.main()

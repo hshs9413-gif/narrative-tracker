@@ -840,7 +840,8 @@ def review_narratives(today, events, log, notes):
 
 
 def main():
-    today = datetime.date.today()
+    # 한국 날짜 — 예약 실행이 한국시간 새벽~오전에 흩어져 돌아도(UTC로는 날짜가 바뀌기도 함) 하루 한 번만 정리하게
+    today = datetime.datetime.now(KST).date()
     if gemini_api.key_status() != "ok":
         print("::warning title=Gemini 관리 건너뜀::GEMINI_API_KEY가 없음 — 저장소 Settings → Secrets and variables → Actions에 등록")
         return

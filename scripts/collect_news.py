@@ -36,6 +36,11 @@ SCAN_PATH = os.path.join(BASE, "..", "docs", "data", "scan_keywords.json")
 WATCHLIST_OUT = os.path.join(BASE, "..", "docs", "data", "watchlist_attention.csv")
 HEADLINES_OUT = os.path.join(BASE, "..", "docs", "data", "narrative_headlines.json")
 
+def kst_today():
+    """한국 날짜 — 예약 실행이 한국시간 새벽~오전 사이에 돌아 UTC 날짜와 엇갈려도 하루 한 줄만 쌓이게"""
+    return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date()
+
+
 RSS_KR = "https://news.google.com/rss/search?q={q}&hl=ko&gl=KR&ceid=KR:ko"
 RSS_GLOBAL = "https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
 HEADERS = {"User-Agent": "Mozilla/5.0 (narrative-tracker)"}
@@ -114,7 +119,7 @@ def append_rows(path, fieldnames, rows):
 
 
 def collect_events() -> None:
-    today = datetime.date.today().isoformat()
+    today = kst_today().isoformat()
     with open(EVENTS_PATH, encoding="utf-8") as f:
         events = json.load(f)
 
@@ -157,7 +162,7 @@ def scan_watchlist() -> None:
         print("[INFO] scan_keywords.json 구형식 — 워치리스트 생략.")
         return
 
-    today = datetime.date.today().isoformat()
+    today = kst_today().isoformat()
     migrate_csv(WATCHLIST_OUT, WL_FIELDNAMES)
 
     existing = set()
@@ -206,7 +211,7 @@ def save_headlines() -> None:
         print("[WARN] 최근 기사 제목을 하나도 못 받음 — narrative_headlines.json 그대로 둠")
         return
     with open(HEADLINES_OUT, "w", encoding="utf-8") as f:
-        json.dump({"updated": datetime.date.today().isoformat(), "items": items}, f, ensure_ascii=False, indent=2)
+        json.dump({"updated": kst_today().isoformat(), "items": items}, f, ensure_ascii=False, indent=2)
         f.write("\n")
     print(f"[INFO] 최근 기사 제목 {len(items)}개 내러티브 저장.")
 

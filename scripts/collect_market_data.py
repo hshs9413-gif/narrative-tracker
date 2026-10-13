@@ -49,8 +49,25 @@ def fetch_window(start, end):
     return series
 
 
+def window_end(now=None) -> datetime.date:
+    """조회 끝 날짜 — 마감한 미국 장까지만 들어가게.
+
+    fdr의 Yahoo 조회는 end 날짜 0시(UTC)까지만 받는다(그날 장은 빠짐). 예전처럼 date.today()(UTC)를 쓰면
+    한국시간 새벽 예약 실행(UTC로는 아직 미국 장 마감일)에 그날 종가가 빠지고, 하루를 무조건 더하면 밤 갱신
+    (한국시간 23시대 = 미국 장중)에 장중 값이 종가처럼 들어간다. 그래서 뉴욕 시각으로 16:30이 지났으면 그날까지,
+    아니면 전날까지 받는다.
+    """
+    try:
+        from zoneinfo import ZoneInfo
+        ny = ZoneInfo("America/New_York")
+    except Exception:  # noqa: BLE001 — tz 데이터가 없는 환경이면 동부 표준시로
+        ny = datetime.timezone(datetime.timedelta(hours=-5))
+    now = (now or datetime.datetime.now(datetime.timezone.utc)).astimezone(ny)
+    return (now - datetime.timedelta(hours=16, minutes=30)).date() + datetime.timedelta(days=1)
+
+
 def main() -> None:
-    end = datetime.date.today()
+    end = window_end()
     start = end - datetime.timedelta(days=WINDOW_DAYS)
     rows = load_rows()
 
