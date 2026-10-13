@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useKoreaSnapshot, useMarketSnapshot } from "@/lib/hooks/use-dashboard-data";
-import { readBoard, formatChange, positionWords, type Reading } from "@/lib/board";
+import { readBoard, formatChange, formatDayChange, positionWords, type Reading } from "@/lib/board";
 import { notability } from "@/lib/positions";
 import { dataAnchor } from "@/lib/freshness";
 import { monthDay } from "@/lib/brief";
@@ -59,6 +59,7 @@ export function Notable() {
           {notable.map((r) => {
             const p = r.pos!;
             const chg = formatChange(r.row, p);
+            const day = formatDayChange(r.row, p);
             const big = p.z4w !== null && Math.abs(p.z4w) >= 2;
             const dir = direction(r);
             return (
@@ -69,9 +70,14 @@ export function Notable() {
                   {positionWords(p)}
                   {chg && (
                     <>
-                      , 4주 <b className="tnum">{chg}</b>
+                      , 4주 전보다 <b className="tnum">{chg}</b>
                       {big && ` (평소 4주 변동의 ${Math.abs(p.z4w!).toFixed(1)}배)`}
                     </>
+                  )}
+                  {day && p.prev && (
+                    <span className="nt-notable-day" title={`${monthDay(p.prev.date)} → ${monthDay(p.latest.date)}`}>
+                      {" "}· 전일 대비 <span className="tnum">{day}</span>
+                    </span>
                   )}
                   {dir && <em> — {dir} 쪽</em>}
                 </span>

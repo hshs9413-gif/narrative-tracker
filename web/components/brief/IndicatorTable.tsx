@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useKoreaSnapshot, useMarketSnapshot, useRegimeState } from "@/lib/hooks/use-dashboard-data";
-import { BOARD, readBoard, formatChange, positionWords, type Reading } from "@/lib/board";
+import { BOARD, readBoard, formatChange, formatDayChange, positionWords, type Reading } from "@/lib/board";
 import { notability } from "@/lib/positions";
 import { monthDay } from "@/lib/brief";
 import { Sparkline } from "./Sparkline";
@@ -31,6 +31,7 @@ function Row({ r }: { r: Reading }) {
   const latest = p?.latest ?? r.points.at(-1);
   if (!latest) return null;
   const chg = p ? formatChange(r.row, p) : null;
+  const day = p ? formatDayChange(r.row, p) : null;
   const big = p?.z4w != null && Math.abs(p.z4w) >= 2;
   return (
     <li className="nt-board-row" data-notable={p && notability(p) > 0 ? "" : undefined}>
@@ -42,8 +43,12 @@ function Row({ r }: { r: Reading }) {
         <b className="tnum">{r.row.format(latest.value)}</b>
         <small>{monthDay(latest.date)}</small>
       </span>
-      <span className="nt-board-chg tnum" data-big={big ? "" : undefined} title={big ? `평소 4주 변동의 ${Math.abs(p!.z4w!).toFixed(1)}배` : undefined}>
-        {chg ?? "—"}
+      <span className="nt-board-chg tnum" title={big ? `평소 4주 변동의 ${Math.abs(p!.z4w!).toFixed(1)}배` : undefined}>
+        <span data-big={big ? "" : undefined}>
+          <small>4주 </small>
+          {chg ?? "—"}
+        </span>
+        {day && p?.prev && <small title={`${monthDay(p.prev.date)} → ${monthDay(p.latest.date)}`}>전일 {day}</small>}
       </span>
       <span className="nt-board-pos">{p ? <Bar r={r} /> : <span className="nt-pos-words">기록 부족</span>}</span>
       <span className="nt-board-spark">
@@ -67,13 +72,14 @@ export function IndicatorTable() {
       <h2 className="nt-h2">주요 지표</h2>
       <p className="nt-lede">
         값 옆 날짜는 그 값이 나온 날입니다. 막대의 점은 최근 3년 관측 중 지금 값의 위치(왼쪽이 낮음), 선은 최근 6개월 흐름입니다.
-        색이 깔린 줄은 위의 &lsquo;평소와 다른 지표&rsquo;이고, 붉은 4주 변화는 평소 4주 변동 폭의 2배를 넘은 것입니다.
+        변화는 4주 전 값과 전 거래일 값에 견준 것입니다. 색이 깔린 줄은 위의 &lsquo;평소와 다른 지표&rsquo;이고, 붉은 4주 변화는
+        평소 4주 변동 폭의 2배를 넘은 것입니다.
       </p>
       <div className="nt-board">
         <div className="nt-board-row nt-board-head" aria-hidden="true">
           <span>지표</span>
           <span>값</span>
-          <span>4주 변화</span>
+          <span>변화</span>
           <span>최근 3년 중 위치</span>
           <span>6개월</span>
         </div>

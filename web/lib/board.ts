@@ -129,23 +129,39 @@ export function readBoard(d: BoardData): Reading[] {
     const pts = row.series(d);
     const pos = position(pts);
     // 누적 수급은 '4주 변화'가 뜻이 없어 빼고, 3년 중 위치(역대급 순매도·순매수인지)만 본다
-    return { row, points: pts, pos: pos && row.change === "none" ? { ...pos, change4w: null, change4wPct: null, z4w: null } : pos };
+    return {
+      row,
+      points: pts,
+      pos: pos && row.change === "none" ? { ...pos, change4w: null, change4wPct: null, z4w: null, change1d: null, change1dPct: null } : pos,
+    };
   });
 }
 
 /** 4주 변화를 단위에 맞춰 — '+0.45%p'가 아니라 하이일드는 '+45bp', 코스피는 '-5.3%' */
 export function formatChange(r: BoardRow, p: Position): string | null {
-  if (p.change4w === null || r.change === "none") return null;
-  const s = (v: number, d = 0) => `${v > 0 ? "+" : v < 0 ? "−" : "±"}${Math.abs(v).toFixed(d)}`;
+  return formatDelta(r, p.change4w, p.change4wPct);
+}
+
+/** 전 거래일 대비 변화 — 계단형(주간·정책금리)은 매일 같은 값이 이어져 뜻이 없어 뺀다 */
+export function formatDayChange(r: BoardRow, p: Position): string | null {
+  return r.stepped ? null : formatDelta(r, p.change1d, p.change1dPct);
+}
+
+function formatDelta(r: BoardRow, abs: number | null, pct: number | null): string | null {
+  if (abs === null || r.change === "none") return null;
+  const s = (v: number, d = 0) => {
+    const t = Math.abs(v).toFixed(d);
+    return `${Number(t) === 0 ? "±" : v > 0 ? "+" : "−"}${t}`;
+  };
   switch (r.change) {
     case "pct":
-      return p.change4wPct === null ? null : `${s(p.change4wPct, 1)}%`;
+      return pct === null ? null : `${s(pct, 1)}%`;
     case "bp":
-      return `${s(p.change4w * 100)}bp`;
+      return `${s(abs * 100)}bp`;
     case "pp":
-      return `${s(p.change4w, 0)}%p`;
+      return `${s(abs, 0)}%p`;
     case "pt":
-      return s(p.change4w, 1);
+      return s(abs, 1);
     default:
       return null;
   }
