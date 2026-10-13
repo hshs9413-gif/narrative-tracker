@@ -1,45 +1,45 @@
 [
   {
-    "key": "러시아페스트확산우려",
-    "name": "러시아 페스트 확산 우려",
+    "key": "금융권ai해킹사고",
+    "name": "금융권 AI 해킹 사고",
     "first_seen": "2026-10-11",
-    "days_seen": 2,
-    "last_seen": "2026-10-12",
-    "why": "러시아 연구원 사망 보도 및 전염병 관련 세계적 동향 보도가 지속되고 있어 모니터링이 필요합니다.",
+    "days_seen": 3,
+    "last_seen": "2026-10-13",
+    "why": "금융사 보안 미비 및 해킹 사례가 보고되며 사이버 보안 리스크가 부각되고 있습니다.",
     "evidence": [
       {
-        "title": "Siberian Anti-Plague Institute Staff Isolated After Worker's Death",
-        "source": "Radio Free Europe/Radio Liberty",
-        "date": "2026-10-05",
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPSEx6d3VxR1QtNUVfV3J4cDE1cl9mSlc2WFFNbjdxZjVzTWw5MTJiS0h3MGt4dVVRNkZPVUFKQ0hQZE1JeXAtMHJEZGs3TG9ZUEExb0w2NTNuSTNVNmFqQmRIY0RGNnNVa0pIekR5VzNwSzc3dTdCQThELWFUazQyRjV0TkJrSlFMX3paSHVYc9IBkgFBVV95cUxPT0E5MkJQUXRWLW9UU0lLamdFU0ZOeEI4WldMa2F5eHFXUi1tVXVMa19JUzhaWFd1M1Jab3o1TkNZeTNwbHJ0RWN2bXJSWUNKV2I5dnplLXdFX1J2X2dZdjZxelRDbndyYnppcVQ5Uk8tSGF6NzJxN2NfU2NVTWdmcnFXQzMyZi1xT0lHZGZPdnladw?oc=5"
+        "title": "[단독]망분리 완화 금융사 10곳, 보안계획만 세우고 이행 안해···내부망 해킹 노출될 뻔",
+        "source": "경향신문",
+        "date": "2026-10-12",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5IT2RzRnhNZmloc0luUTFHMi1iTnpuZWdra0NXdlFOdFBReEpLUFJtdkdOMV9reGJnaDZmTmJNVEdrbjZvbjczVndMZWhfajR5N201NF80bVZsUdIBX0FVX3lxTE1OclA5Q2EwWDN3b3paSUYwck9BRE5HM0doUE9ZWFladzduUlNuQVRNSExWWVgwR3dxbjVsR2tfZ1pKTEdUcEs5T1RTUTBKNHJ6X1gtTk54dTkzalI1SkZF?oc=5"
       },
       {
-        "title": "WHO says suspected hantavirus cluster 'is not the start of a COVID pandemic'",
-        "source": "ABC News - Breaking News, Latest News and Videos",
-        "date": "2026-10-11",
-        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOanBya3VnenlXNEprVzFhcGNBN1MwQ0VCSE9rU1dSRHp6THlLTElCZThJb0VvMW9xbVk3cnhYNUFBVTBPWHpkWDM1clBkaTRiNVIyQm0xLUhsYzh2X0x3dXBMN0xPVUtpa3FDQWgyZHFUc1ZNVUtMM0JiVW52OW1tS2ZaeEROeUVxYS1OX2NYcW1JVzBFbVU2X0lsMTNzdUp5azJLNUp1Y3FJNWvSAbABQVVfeXFMUFFXRG5FYW9leWxiQmVtVWlSY1FLd1kxWnFnS0NCMm1Ra0lsUnlxRmVoVmFJazVfSnNzQVctcEYwM0JhQVNBRnNMLUZrRkIwcFh2ZTlNeGxoYU9ic1BLemd0Q3hrMVpzQk42UUlkbENhaTFfZDJhYTRMVHYtbzhlVFdiUWhNNFoxekpOOUJDcGJkYW1oeGo0RW85bl9WZzBaeGpvejV6VGNnbVFKSS1OZlI?oc=5"
+        "title": "Hackers heat French supermarket fridges, sparking fires and spoiling food",
+        "source": "CNN",
+        "date": "2026-10-12",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPT0VxclQ3YkdFbHZiM1Q3czZ2b3BhQzFSOW8xZkw2dGZiSmF1UDhid1ZUVmlMZ0R4cTk0LVJPVlJFUlFaSFdjQ0dKc3lkZWc4Y0w5bTJ0NmNNQ1dhVW9lZThqMFh6czFpWFFjWHdRWlRsVVZ5ZUEyaTVxOUVBVHY5RndsQjZPVTJ6?oc=5"
       }
     ]
   },
   {
-    "key": "금융권ai해킹사고",
-    "name": "금융권 AI 해킹 사고",
-    "first_seen": "2026-10-11",
-    "days_seen": 2,
-    "last_seen": "2026-10-12",
-    "why": "금융권 및 주요 기술 기업에 대한 사이버 보안 위협 및 해킹 리스크 부각 여부를 지켜봅니다.",
+    "key": "한국경제성장률둔화",
+    "name": "한국 경제 성장률 둔화",
+    "first_seen": "2026-10-13",
+    "days_seen": 1,
+    "last_seen": "2026-10-13",
+    "why": "IMF의 한국 경제 성장률 전망치 하향 조정 등 저성장 우려가 제기되고 있습니다.",
     "evidence": [
       {
-        "title": "SK쉴더스 \"아르텍스, 기존 공격 고도화\"...API 보안 대응책 제시",
-        "source": "지디넷코리아",
-        "date": "2026-10-11",
-        "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5JdVlOYk5ESHJVVHNKOFpCM2NwbUpSbHdEb2hSVDBoeUJiV1RGOFJ0bjJwaVRnNVhmLVNQQTdFYzlvYUtxMVNRN0ZqMm9oVzVTbzBzaGR3?oc=5"
+        "title": "속보 IMF \"올해 한국 경제 3.3% 성장...내년은 2.8%\"",
+        "source": "YTN",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE4wSWtCYVVNbmpoOGpCSDRGX1JaejRZUWtRMTJNOVhsc0VQcUZ2c1UwY1cxQWhybW81TVpQaVFraXVfekhiY1NFWXIzeWpCNGVENWp1ZlBVTWZZMTlQSkE?oc=5"
       },
       {
-        "title": "Canadian ransomware negotiator arrested on federal charges amid FBI hacking probe",
-        "source": "Fox Business",
-        "date": "2026-10-11",
-        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQmZmaUZ4QWMwWkdBUmF3OW1rUHM4b1NITDhwbGdlcGVRYVpSaVVBT2NSWGdXY1ZFVlh6aUtYblJaVkNSdmpPNFlIbTg1UXg2MHJ3c0diajdkNFR1YWxhQ3RHemV5UE5vMXIxV1hTQzY0andZUy1rTk1SaFJvRVlsYnVrc19rVXZuSzRtTlN3cV8tTWxmMHp2STNGZkl1UWtmVU1ZN01NNmlUXzlEZ0pUelpUNGQ2X2xTTXQta9IBwgFBVV95cUxONHdsNUY4OVRmdlpNM0E4T2p4QjFOM2k1bTltNTRPWVRacTRKYUljRERDWW1mY3ZKSzR5UkJoaGlxdzRuUm95TkxaN0U1U0lGS0Z2eFdmckdieVA0d2JmX3QxZGdpRkZnVWwwZ2lCcm54TERObDFSRFRvLUJlMFZWS2ZHWXRTM21CWVllNTVFUmxYaFNZenBUbzRFWTFtOHlaNkhEa2tmR2pacnNneERtWlhKRVZHaE5IRjE0Ym1zWFgxZw?oc=5"
+        "title": "\"반도체 제외하면 이미 정체\"…한국경제 저성장 해법은",
+        "source": "한국무역협회-KITA.NET",
+        "date": "2026-10-12",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVzNndzlfS3BCOVZmcnJQOG9uR0k3Y1BuOTBIbF9oTjIzWHE2MWRoSi0wWW9RcGFnVS12SEFTVHBWM2FwejM3X0I5SUJ6YjZiTVpnYWgxZUd3SlB3alFncjZ5bG1HbTg4enNTczRBeFNYYnlPNVV5cklveTZkVmVwVkh6YVdOcHBTQjlfMHVLTDE3VXRQZWl5dlZIYUFjbDhPNE4zcUZfajdKMUpwYWhDSm80Y1IzX25fZHRzNFJPUWhQSlZmeW9STW5kNW5tLWtCbFpPaHRR?oc=5"
       }
     ]
   }

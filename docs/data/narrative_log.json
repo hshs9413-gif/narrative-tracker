@@ -770,5 +770,72 @@
     ],
     "at": "2026-10-12T10:37+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-13",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "pandemic-risk-2026",
+    "kind": "new",
+    "name": "러시아 페스트 및 전염병 확산 우려",
+    "reason": "러시아 연구원 사망 및 전염병 관련 국제기구의 경고가 잇따르며 보건 리스크가 부각되고 있습니다.",
+    "status": "applied",
+    "evidence": [
+      {
+        "title": "Measles Cases and Outbreaks",
+        "source": "Centers for Disease Control and Prevention | CDC (.gov)",
+        "date": "2026-10-09",
+        "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9kU2puTzAxZ3ktbE1vNzU0RU9xZTlMYzIyb3JRaENuSnJJdnllQUJDeWs3TElwZmJmYU84dkFsc1ZKaEw0N2dTUHFVSlktVE91ejM0TG10YkRVellCcXo2X3VR?oc=5"
+      },
+      {
+        "title": "Epidemic and emerging disease alerts in the Pacific as of 06 October 2026",
+        "source": "ReliefWeb",
+        "date": "2026-10-06",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQc1JTOWkyTFV2TThESVotNjdiRURRX20yT3ZFaTBfZUd3WDJnZ1lUeWUzQXl0NUZPVFZ1QTJHTmtaR3pIcHhZWUxxUkRQejRELW9hSWMzU3dIZlBPdWFmZGNnaEp6Vm04NjRZLW9yQVhnei1ObXQ3UVI1NEx0QmVBZjJKY0VFakUwYmxGdjBmNnpSbElaWWg4?oc=5"
+      },
+      {
+        "title": "Ebola disease caused by Bundibugyo virus - Democratic Republic of the Congo",
+        "source": "World Health Organization (WHO)",
+        "date": "2026-10-09",
+        "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsUmxZRlVlQTRnN2k5bVdZUkpVZ1d6Y0dOLXZUa2t4aVVaYzFwNTlPLUVJSEk0eW1qQWQyUE1uUWlkODZNM3RwamhyWVhjSklmRVJHend2ZGtxd2FLTWdMRGE0MkpfY2ZwQXJ3MVp3VXZRSHZmaDZnRVNn?oc=5"
+      },
+      {
+        "title": "WHO says suspected hantavirus cluster 'is not the start of a COVID pandemic'",
+        "source": "ABC News - Breaking News, Latest News and Videos",
+        "date": "2026-10-11",
+        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOanBya3VnenlXNEprVzFhcGNBN1MwQ0VCSE9rU1dSRHp6THlLTElCZThJb0VvMW9xbVk3cnhYNUFBVTBPWHpkWDM1clBkaTRiNVIyQm0xLUhsYzh2X0x3dXBMN0xPVUtpa3FDQWgyZHFUc1ZNVUtMM0JiVW52OW1tS2ZaeEROeUVxYS1OX2NYcW1JVzBFbVU2X0lsMTNzdUp5azJLNUp1Y3FJNWvSAbABQVVfeXFMUFFXRG5FYW9leWxiQmVtVWlSY1FLd1kxWnFnS0NCMm1Ra0lsUnlxRmVoVmFJazVfSnNzQVctcEYwM0JhQVNBRnNMLUZrRkIwcFh2ZTlNeGxoYU9ic1BLemd0Q3hrMVpzQk42UUlkbENhaTFfZDJhYTRMVHYtbzhlVFdiUWhNNFoxekpOOUJDcGJkYW1oeGo0RW85bl9WZzBaeGpvejV6VGNnbVFKSS1OZlI?oc=5"
+      },
+      {
+        "title": "Russian plague scare — what we know so far",
+        "source": "CNN",
+        "date": "2026-10-06",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTXJWbllycW45ZjRWMGs2UEV0NVBpcnBJTjZjMVluZ0o5UWh2MThzVDhiRzlWVjNWQlhiYnJCU1dwSXdfV3lObEJ1dmxZczROb093SjF0dG9JNWdma0otcWgtdVJqNkt6OFRIQ1Y5dDlRTTF2eXVFajhQMHc5d3RZSHhVeHY?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-13",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "글로벌 채권 금리 급등과 중동 지정학적 리스크가 시장을 압박하는 가운데, 러시아발 전염병 우려가 새로운 구조적 변수로 등장했습니다.",
+    "reviews": {
+      "pandemic-risk-2026": "추가",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "fed-politicization-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "금융권 AI 해킹 사고",
+      "한국 경제 성장률 둔화"
+    ],
+    "at": "2026-10-13T12:10+09:00",
+    "trigger": "schedule"
   }
 ]
