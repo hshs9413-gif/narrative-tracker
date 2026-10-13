@@ -38,9 +38,13 @@
 
 ## 2. 자동 수집 확인
 
-- `.github/workflows/collect.yml` 이 매일 UTC 22:30(한국시간 07:30)에 실행되어
+- `.github/workflows/collect.yml` 이 매일 한국시간 06:47(예비 08:17)에 실행되어
   `docs/data/market_snapshot.csv` 의 최근 14일 치를 데이터 기준일로 갱신하고,
   레짐 판정을 `regime_log.csv` 에 한 줄 쌓은 뒤 자동 커밋합니다.
+- GitHub 예약 실행은 붐빌 때 몇 시간씩 늦게 시작됩니다(정각·30분이 특히 붐빔). 07:30으로 걸었을 때 실제로는
+  10~12시에 돌아서(2026-10) 덜 붐비는 분(:47, :17)으로 옮기고 예비 실행을 하나 더 걸었습니다. 같은 날 두 번 돌아도
+  언급량·Gemini 정리는 한국 날짜 기준 하루 한 번만 기록되고, 시장 지표는 최근 14일을 다시 받아 덮어쓸 뿐입니다.
+- 실행 기록(언제 돌았는지·성공 여부)은 Actions 탭 → Collect Market Data 에서 볼 수 있습니다.
 - 이어서 7일이 지나 값이 확정된 행을 구글 시트로 보냅니다 (아래 "구글 시트 사본" 참고).
 - 바로 테스트하려면: 저장소 **Actions 탭 → Collect Market Data → Run workflow** 로 수동 실행
 
@@ -48,12 +52,12 @@
 
 | 단계 | 대상 | 주체 | 주기 |
 |---|---|---|---|
-| 수집 | 정량 지표 (VIX·달러·금·WTI·금리·신용·유동성) | Actions + FRED API(키 있을 때)/fdr/Stooq | 매일 07:30 KST |
-| 수집 | 내러티브 언급량 (기사 수) | Actions + Google News RSS | 매일 07:30 KST |
-| 갱신 | 정량 지표 다시 받기 (FRED가 밤에 올리는 전일 값 반영) | `fred_refresh.yml` | 매일 23:30 KST |
+| 수집 | 정량 지표 (VIX·달러·금·WTI·금리·신용·유동성) | Actions + FRED API(키 있을 때)/fdr/Stooq | 매일 06:47 KST |
+| 수집 | 내러티브 언급량 (기사 수) | Actions + Google News RSS | 매일 06:47 KST |
+| 갱신 | 정량 지표 다시 받기 (FRED가 밤에 올리는 전일 값 반영) | `fred_refresh.yml` | 매일 23:47 KST |
 | 조회 | 기업 재무 (개요·요약재무제표·재무상태표·손익계산서) | 대시보드 → Apps Script 웹 앱 → 금융위원회 API (저장 안 함) | 검색할 때마다 |
-| 판정 | 레짐(성장·물가 / 신용 / 정책) | `compute_regime.py` (규칙 기반) | 매일 07:30 KST |
-| 자동 전환 | 이벤트 상태 active ↔ dormant, 60일 넘게 잠잠하면 ended (명백한 경우만) | `auto_transition.py` (규칙 기반) | 매일 07:30 KST |
+| 판정 | 레짐(성장·물가 / 신용 / 정책) | `compute_regime.py` (규칙 기반) | 매일 06:47 KST |
+| 자동 전환 | 이벤트 상태 active ↔ dormant, 60일 넘게 잠잠하면 ended (명백한 경우만) | `auto_transition.py` (규칙 기반) | 매일 06:47 KST |
 | 정리 | 내러티브 목록 — 모든 항목 재판정(유지·강약·잠잠·재점화·종료·병합), 새 내러티브·후보 | `gemini_manage.py` (Gemini 무료 모델 + 코드 검사) | 매일 수집 때 1회 |
 | 기록 | 위에서 놓친 것 바로잡기 | 사용자 — `events.json` 직접 편집, `"auto_lock": true`로 고정 | 필요할 때 |
 
@@ -125,7 +129,7 @@ History → `resync_columns`**에 `vix`(또는 `all`)를 넣어 실행합니다.
 과거 값을 매주 수정하므로 최신 수정값으로 바뀝니다.
 
 **VIX 기준일** — VIX는 FRED `VIXCLS`(CBOE 종가)입니다. FRED는 미국 장 마감 다음 날 아침(한국시간 22~23시)에
-올리므로, 아침 수집(07:30 KST)에서는 하루 전 종가가 최신이고 `fred_refresh.yml`(23:30 KST)이 그날 밤 반영합니다.
+올리므로, 아침 수집(06:47 KST)에서는 하루 전 종가가 최신이고 `fred_refresh.yml`(23:47 KST)이 그날 밤 반영합니다.
 아침 뉴스의 'VIX 종가'와 하루 차이가 나는 것은 이 발표 시차 때문입니다 — 카드의 '기준' 날짜를 확인하세요.
 
 ### 기업 재무 — 실시간 조회 (금융위원회 API · 선택)

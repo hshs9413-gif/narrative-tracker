@@ -27,7 +27,7 @@ function KeySetup() {
         에서 무료 API 키 발급 (32자리)
       </li>
       <li>저장소 <strong>Settings → Secrets and variables → Actions → New repository secret</strong> — 이름 <code>FRED_API_KEY</code></li>
-      <li><strong>Actions → Collect Market Data → Run workflow</strong>로 바로 확인 (아니면 다음 날 07:30 KST 자동 실행)</li>
+      <li><strong>Actions → Collect Market Data → Run workflow</strong>로 바로 확인 (아니면 다음 아침 자동 실행)</li>
     </ol>
   );
 }

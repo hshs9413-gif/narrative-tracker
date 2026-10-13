@@ -81,7 +81,7 @@ def evaluate(event, series):
         return None, {"사유": "종료 이벤트"}
     review = event.get("last_review") or {}
     if review.get("date"):
-        age = (datetime.date.today() - datetime.date.fromisoformat(review["date"])).days
+        age = (kst_today() - datetime.date.fromisoformat(review["date"])).days
         if age < REVIEW_GRACE_DAYS:
             return None, {"사유": f"{review.get('by', '사람')}가 {age}일 전 판단 — {REVIEW_GRACE_DAYS}일간 규칙 전환 보류"}
 
@@ -122,9 +122,9 @@ def evaluate(event, series):
             return None, evidence
         since = e_dormant_since(event)
         tail = counts[-END_STREAK:]
-        if (since and (datetime.date.today() - since).days >= END_AFTER_DORMANT_DAYS
+        if (since and (kst_today() - since).days >= END_AFTER_DORMANT_DAYS
                 and len(tail) == END_STREAK and all(c < peak * DORMANT_RATIO for c in tail)):
-            evidence["사유"] = (f"잠잠한 지 {(datetime.date.today() - since).days}일, 최근 {END_STREAK}일 모두 정점의 "
+            evidence["사유"] = (f"잠잠한 지 {(kst_today() - since).days}일, 최근 {END_STREAK}일 모두 정점의 "
                               f"{DORMANT_RATIO:.0%} 미만 → 종료")
             return "ended", evidence
         recent = counts[-REACTIVATE_STREAK:]
@@ -152,13 +152,19 @@ def e_dormant_since(e):
         return None
 
 
+
+def kst_today():
+    """한국 날짜 — Gemini 정리 기록(gemini_manage.py)과 같은 날짜로 남게. 예약 실행이 한국시간 새벽(UTC로는 전날)에 돈다"""
+    return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date()
+
+
 def first_half_life_date(dates, peaks, peak):
     """7일 평균이 정점의 50% 아래로 처음 내려간 날 (반감기)."""
     peak_i = peaks.index(peak)
     for i in range(peak_i + 1, len(peaks)):
         if peaks[i] < peak * 0.5:
             return dates[i]
-    return datetime.date.today().isoformat()
+    return kst_today().isoformat()
 
 
 def main():
@@ -178,7 +184,7 @@ def main():
 
         old = e["status"]
         e["status"] = new_status
-        e["last_auto"] = {"date": datetime.date.today().isoformat(),
+        e["last_auto"] = {"date": kst_today().isoformat(),
                           "change": f"{old}->{new_status}"}
         if new_status == "dormant" and not e.get("half_life_date"):
             dates = [d for d, _ in series]
@@ -186,12 +192,12 @@ def main():
             peak, _, peaks = rolling7_peak(counts)
             e["half_life_date"] = first_half_life_date(dates, peaks, peak)
         if new_status == "dormant":
-            e["dormant_since"] = datetime.date.today().isoformat()
+            e["dormant_since"] = kst_today().isoformat()
         if new_status == "active":
             e["half_life_date"] = None   # 재점화 시 반감기 초기화
             e.pop("dormant_since", None)
         if new_status == "ended":
-            e["ended_on"] = datetime.date.today().isoformat()
+            e["ended_on"] = kst_today().isoformat()
             e.pop("dormant_since", None)
 
         print(f"[CHANGE] {label} → {new_status} ({evidence.get('사유','')})")
@@ -211,7 +217,7 @@ def main():
             log = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         log = []
-    today = datetime.date.today().isoformat()
+    today = kst_today().isoformat()
     for c in changes:
         log.append({"date": today, "by": "rule", "event_id": c["event"]["id"], "kind": "update", "status": "applied",
                     "changes": {"status": [c["old"], c["new"]]}, "reason": c["evidence"].get("사유", "")})
