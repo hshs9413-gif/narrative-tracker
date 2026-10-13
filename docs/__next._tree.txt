@@ -2,4 +2,4 @@
 :HL["/narrative-tracker/_next/static/chunks/12zlcrq1w7mk9.css","style"]
 :HL["https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css","style",{"crossOrigin":"anonymous"}]
 :HL["https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"42r4HvF3mxqGKlGG0c0_c"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"eSU3Q14Yh2jrdEMgh3WaQ"}
