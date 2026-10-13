@@ -263,6 +263,7 @@ body {
 .nt-notable-why { color: var(--nt-ink-2); }
 .nt-notable-why b { color: var(--nt-ink); font-weight: 650; }
 .nt-notable-why em { font-style: normal; color: var(--nt-ink-3); }
+.nt-notable-day { color: var(--nt-ink-3); white-space: nowrap; }
 @media (max-width: 600px) {
   .nt-notable li { grid-template-columns: minmax(0, 1fr) auto; }
   .nt-notable-why { grid-column: 1 / -1; font-size: 0.92rem; }
@@ -287,8 +288,9 @@ body {
 .nt-board-name small, .nt-board-value small { font-size: 0.75rem; font-weight: 400; color: var(--nt-ink-3); }
 .nt-board-value { display: flex; align-items: baseline; gap: 0.45rem; }
 .nt-board-value b { font-size: 1.05rem; font-weight: 700; }
-.nt-board-chg { font-size: 0.92rem; color: var(--nt-ink-2); }
-.nt-board-chg[data-big] { font-weight: 700; color: var(--nt-l2); }
+.nt-board-chg { display: flex; flex-direction: column; font-size: 0.92rem; color: var(--nt-ink-2); line-height: 1.3; }
+.nt-board-chg small { font-size: 0.78rem; color: var(--nt-ink-3); font-weight: 400; }
+.nt-board-chg [data-big] { font-weight: 700; color: var(--nt-l2); }
 .nt-board-spark .nt-spark { color: var(--nt-ink-2); }
 .nt-pos { display: flex; align-items: center; gap: 0.6rem; }
 .nt-pos-track { position: relative; flex: 0 0 5.5rem; height: 4px; border-radius: 2px; background: var(--nt-rule); }
@@ -299,7 +301,7 @@ body {
   .nt-board-head { display: none; }
   .nt-board-name { grid-area: name; }
   .nt-board-value { grid-area: value; }
-  .nt-board-chg { grid-area: chg; min-width: 4.5rem; text-align: right; }
+  .nt-board-chg { grid-area: chg; min-width: 4.5rem; text-align: right; align-items: flex-end; }
   .nt-board-pos { grid-area: pos; }
   .nt-board-spark { display: none; }
 }

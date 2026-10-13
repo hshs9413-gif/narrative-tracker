@@ -11,6 +11,11 @@ export interface Point {
 
 export interface Position {
   latest: Point;
+  /** 직전 관측(전 거래일) — 4주 변화만 있으면 '오늘 또 올랐다'로 읽히기 쉬워 하루 변화도 같이 보여 준다 */
+  prev: Point | null;
+  /** 직전 관측과의 차이 */
+  change1d: number | null;
+  change1dPct: number | null;
   /** 28일 전 값과의 차이 (단위는 원래 값 그대로) */
   change4w: number | null;
   /** 28일 전 값 대비 비율(%) */
@@ -66,8 +71,12 @@ export function position(points: Point[], years = 3): Position | null {
   const mean = changes.reduce((a, b) => a + b, 0) / (changes.length || 1);
   const sd = Math.sqrt(changes.reduce((a, b) => a + (b - mean) ** 2, 0) / (changes.length || 1));
 
+  const prev = points.length > 1 ? points[points.length - 2] : null;
   return {
     latest,
+    prev,
+    change1d: prev ? latest.value - prev.value : null,
+    change1dPct: prev && prev.value ? ((latest.value - prev.value) / Math.abs(prev.value)) * 100 : null,
     change4w,
     change4wPct: base ? (change4w! / Math.abs(base)) * 100 : null,
     pct3y: (below / values.length) * 100,
