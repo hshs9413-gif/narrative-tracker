@@ -837,5 +837,111 @@
     ],
     "at": "2026-10-13T12:10+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-14",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "kospi-semis-leverage-2026",
+    "kind": "update",
+    "verdict": "up",
+    "reason": "코스피 급락과 함께 '빚투' 규모가 3개월 만에 최대치를 기록하며 반대매매 우려가 시장 하방 압력을 키우고 있음.",
+    "status": "applied",
+    "changes": {
+      "intensity": [
+        "mid",
+        "high"
+      ],
+      "phase": [
+        "correction",
+        "shock"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "'6천피'도 위태로운데…'빚투'는 3개월만에 최대",
+        "source": "매일경제 마켓",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE02U3V6SzBVeVZPN3pUd2d4Y1lQRi1pN0IzX1dnUHVlSkJreFBpNDVwQ0JlNVE2WW1NR0ZqUzBMa0p2UXQyamYwVHJKSExPZmRhUHc?oc=5"
+      },
+      {
+        "title": "거침없는 외인 매도...반도체 역대급 실적에도 급락, 왜?",
+        "source": "YTN",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE84MU9jNnEweUVaeWZ5emd5RFNjQmdEd3N2RDUweDViQnBKTVJsbnJXWGlHaDQ1TmY2VzFyMm1aUkFoLVktTUJFY0pLcXlIREtSQ1dveEwxYVpUNDdiZWc?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-14",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "up",
+    "reason": "반도체 주식의 급락세가 이어지며 AI 거품 붕괴 우려가 시장의 핵심 테마로 급부상함.",
+    "status": "rejected",
+    "reject_reason": "이미 가장 강함"
+  },
+  {
+    "date": "2026-10-14",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "korea-growth-slowdown-2026",
+    "kind": "new",
+    "name": "한국 경제 저성장 및 구조적 리스크",
+    "reason": "IMF의 한국 경제 성장률 전망 하향과 반도체 의존도에 대한 구조적 우려가 제기되며 시장의 저성장 공포가 확산됨.",
+    "status": "applied",
+    "evidence": [
+      {
+        "title": "IMF, 올해 韓 1인당 GDP 4만弗 돌파 전망…명목 GDP 2.2조달러 관측",
+        "source": "연합인포맥스",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1sTGQ3OGV4TW55VElfaEZWN0FWak8tLTVXZHpOY0VKTVZkTzNCOXNHcEIzejFEYWYyVnU0d2dBQURsMlBIYWdKZ21ZenkwQlNCT0g0NkJLNGx3LVAxWWo5VERwZUJvTGtRcG5RYXd3SVg?oc=5"
+      },
+      {
+        "title": "\"반도체 제외하면 이미 정체\"…한국경제 저성장 해법은",
+        "source": "한국무역협회-KITA.NET",
+        "date": "2026-10-12",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVzNndzlfS3BCOVZmcnJQOG9uR0k3Y1BuOTBIbF9oTjIzWHE2MWRoSi0wWW9RcGFnVS12SEFTVHBWM2FwejM3X0I5SUJ6YjZiTVpnYWgxZUd3SlB3alFncjZ5bG1HbTg4enNTczRBeFNYYnlPNVV5cklveTZkVmVwVkh6YVdOcHBTQjlfMHVLTDE3VXRQZWl5dlZIYUFjbDhPNE4zcUZfajdKMUpwYWhDSm80Y1IzX25fZHRzNFJPUWhQSlZmeW9STW5kNW5tLWtCbFpPaHRR?oc=5"
+      },
+      {
+        "title": "IMF raises its forecast for world growth this year but warns of risks from AI boom and debt",
+        "source": "AP News",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOMzZQN3BqRGdtMG5KMzFoQkx5V3BKcVdxcm1kNXVBXzRIYzJDVzRhdVF1eDl2ZWl2VkRncGc0dldHQVRjQ1pZQUFXWklGNlJOam8yUmVKNnVpdUJnUklDWlhra3ZVQ1NvS3M1enB1SEZiRmtDZGR3R0J3QlpObUJUVkNaSnRjRG55azN3VzBUaURBc1E?oc=5"
+      },
+      {
+        "title": "파랗게 질린 ‘삼전닉스’…“AI 붐 가장 큰 문제는 자금 조달”",
+        "source": "농민신문",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1VeDBYQURmMW9VS1dHNWJRN2M2S1VTOVgwSG4tbWw3QlVMZXBVOHE0SFVQaWgwMUxvSU5zUzlpZFRHQVdVdkNYd2V3dFIteXVhZzlndDlIVnhVZw?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-14",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "AI 거품 붕괴 우려와 반도체 주식 급락이 시장의 핵심 충격으로 작용하며 코스피 등 관련 자산의 변동성을 키우고 있습니다. 동시에 한국 경제의 저성장 구조에 대한 우려가 IMF 전망을 계기로 새롭게 부각되고 있습니다.",
+    "reviews": {
+      "korea-growth-slowdown-2026": "추가",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "강화",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "fed-politicization-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "금융권 AI 해킹 및 보안 리스크",
+      "금융권 AI 해킹 사고"
+    ],
+    "at": "2026-10-14T07:16+09:00",
+    "trigger": "workflow_dispatch"
   }
 ]

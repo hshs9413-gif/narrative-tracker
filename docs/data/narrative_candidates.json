@@ -1,5 +1,33 @@
 [
   {
+    "key": "금융권ai해킹및보안리스크",
+    "name": "금융권 AI 해킹 및 보안 리스크",
+    "first_seen": "2026-10-14",
+    "days_seen": 1,
+    "last_seen": "2026-10-14",
+    "why": "금융사 망분리 완화 이후 정보 유출 사고가 잇따르며 사이버 보안 리스크가 시장의 새로운 불안 요소로 부각됨.",
+    "evidence": [
+      {
+        "title": "[단독]망분리 완화 금융사 10곳, 보안계획만 세우고 이행 안해···내부망 해킹 노출될 뻔",
+        "source": "경향신문",
+        "date": "2026-10-12",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5IT2RzRnhNZmloc0luUTFHMi1iTnpuZWdra0NXdlFOdFBReEpLUFJtdkdOMV9reGJnaDZmTmJNVEdrbjZvbjczVndMZWhfajR5N201NF80bVZsUdIBX0FVX3lxTE1OclA5Q2EwWDN3b3paSUYwck9BRE5HM0doUE9ZWFladzduUlNuQVRNSExWWVgwR3dxbjVsR2tfZ1pKTEdUcEs5T1RTUTBKNHJ6X1gtTk54dTkzalI1SkZF?oc=5"
+      },
+      {
+        "title": "계좌·주민번호·잔액·이름 털렸다…새마을금고 400명대 고객정보 유출",
+        "source": "JTBC",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9hV2ZEdmlWMDF6TmU4d0FQLVFwZnZtVHBtcS1aY3ZrdURaV21vZHlQNTNqLTFNQXF0TEJ1OFdDaVgxRVFRTDhwelJhSHFCWkNLR2ZmOQ?oc=5"
+      },
+      {
+        "title": "French supermarkets face millions in losses after cyberattack hits refrigerators nationwide",
+        "source": "Fox News",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZXVyc25Na3BNSjJ2T3BQQ2VfcGFCS2Fsd042Rnh0MldobUJGVm10SktyUEktaGh0V21QdURYRDhWYVV2elpSZ2Y4VktHdTJFYUV5dEI4OG9MLWlrN0V2WVp4SGJsNUQ2OHJwSEtCUXBlTXlXZ3ZQN01QV185SXA1Um9vUUpGTEp1MjZkaHBBSVNmay14TEtuU05oVjN6UFBxWUp0cmxaNkd0djZrQ1NfcNIBtgFBVV95cUxPamJnNXh3WFpfTV9UVEh4LXlkZ2tlUHhjSzdNYnlacXR6YlhBV0xvNFRNZi03d3ZfMDAxQjVOamtSdEdHalFDdFFJLVN2T05WRkpyWHdvZGFhempUREN4QUx0RjVaMkpFZjhFUGd1RzFwODVaZW1MY1pIRE1ZOWc2UUR2MUl2cUZCRFZSMlVLeTFFNGh5eU8yRXAyUWVSU0FTMHJzbURZMkhSTHl3ZXN2VmtCUHRaZw?oc=5"
+      }
+    ]
+  },
+  {
     "key": "금융권ai해킹사고",
     "name": "금융권 AI 해킹 사고",
     "first_seen": "2026-10-11",
@@ -18,28 +46,6 @@
         "source": "CNN",
         "date": "2026-10-12",
         "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPT0VxclQ3YkdFbHZiM1Q3czZ2b3BhQzFSOW8xZkw2dGZiSmF1UDhid1ZUVmlMZ0R4cTk0LVJPVlJFUlFaSFdjQ0dKc3lkZWc4Y0w5bTJ0NmNNQ1dhVW9lZThqMFh6czFpWFFjWHdRWlRsVVZ5ZUEyaTVxOUVBVHY5RndsQjZPVTJ6?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "한국경제성장률둔화",
-    "name": "한국 경제 성장률 둔화",
-    "first_seen": "2026-10-13",
-    "days_seen": 1,
-    "last_seen": "2026-10-13",
-    "why": "IMF의 한국 경제 성장률 전망치 하향 조정 등 저성장 우려가 제기되고 있습니다.",
-    "evidence": [
-      {
-        "title": "속보 IMF \"올해 한국 경제 3.3% 성장...내년은 2.8%\"",
-        "source": "YTN",
-        "date": "2026-10-13",
-        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE4wSWtCYVVNbmpoOGpCSDRGX1JaejRZUWtRMTJNOVhsc0VQcUZ2c1UwY1cxQWhybW81TVpQaVFraXVfekhiY1NFWXIzeWpCNGVENWp1ZlBVTWZZMTlQSkE?oc=5"
-      },
-      {
-        "title": "\"반도체 제외하면 이미 정체\"…한국경제 저성장 해법은",
-        "source": "한국무역협회-KITA.NET",
-        "date": "2026-10-12",
-        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVzNndzlfS3BCOVZmcnJQOG9uR0k3Y1BuOTBIbF9oTjIzWHE2MWRoSi0wWW9RcGFnVS12SEFTVHBWM2FwejM3X0I5SUJ6YjZiTVpnYWgxZUd3SlB3alFncjZ5bG1HbTg4enNTczRBeFNYYnlPNVV5cklveTZkVmVwVkh6YVdOcHBTQjlfMHVLTDE3VXRQZWl5dlZIYUFjbDhPNE4zcUZfajdKMUpwYWhDSm80Y1IzX25fZHRzNFJPUWhQSlZmeW9STW5kNW5tLWtCbFpPaHRR?oc=5"
       }
     ]
   }

@@ -1,5 +1,44 @@
 [
   {
+    "id": "korea-growth-slowdown-2026",
+    "name": "한국 경제 저성장 및 구조적 리스크",
+    "layer": "structural",
+    "layer_secondary": null,
+    "phase": "shock",
+    "status": "active",
+    "intensity": "mid",
+    "trigger_date": "2026-10-13",
+    "peak_date": null,
+    "half_life_date": null,
+    "assets": [
+      "kospi",
+      "krw"
+    ],
+    "keywords": [
+      "한국 경제 성장률",
+      "저성장 우려",
+      "IMF 전망"
+    ],
+    "reignition_triggers": [],
+    "notes": "",
+    "last_auto": null,
+    "added_by": "gemini",
+    "added_on": "2026-10-14",
+    "candidate_since": "2026-10-13",
+    "headline": {
+      "title": "IMF, 올해 韓 1인당 GDP 4만弗 돌파 전망…명목 GDP 2.2조달러 관측",
+      "source": "연합인포맥스",
+      "date": "2026-10-13",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1sTGQ3OGV4TW55VElfaEZWN0FWak8tLTVXZHpOY0VKTVZkTzNCOXNHcEIzejFEYWYyVnU0d2dBQURsMlBIYWdKZ21ZenkwQlNCT0g0NkJLNGx3LVAxWWo5VERwZUJvTGtRcG5RYXd3SVg?oc=5"
+    },
+    "last_review": {
+      "date": "2026-10-14",
+      "by": "gemini",
+      "verdict": "추가",
+      "reason": "IMF의 한국 경제 성장률 전망 하향과 반도체 의존도에 대한 구조적 우려가 제기되며 시장의 저성장 공포가 확산됨."
+    }
+  },
+  {
     "id": "pandemic-risk-2026",
     "name": "러시아 페스트 및 전염병 확산 우려",
     "layer": "structural",
@@ -25,16 +64,16 @@
     "added_on": "2026-10-13",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "WHO says suspected hantavirus cluster 'is not the start of a COVID pandemic'",
-      "source": "ABC News - Breaking News, Latest News and Videos",
-      "date": "2026-10-11",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOanBya3VnenlXNEprVzFhcGNBN1MwQ0VCSE9rU1dSRHp6THlLTElCZThJb0VvMW9xbVk3cnhYNUFBVTBPWHpkWDM1clBkaTRiNVIyQm0xLUhsYzh2X0x3dXBMN0xPVUtpa3FDQWgyZHFUc1ZNVUtMM0JiVW52OW1tS2ZaeEROeUVxYS1OX2NYcW1JVzBFbVU2X0lsMTNzdUp5azJLNUp1Y3FJNWvSAbABQVVfeXFMUFFXRG5FYW9leWxiQmVtVWlSY1FLd1kxWnFnS0NCMm1Ra0lsUnlxRmVoVmFJazVfSnNzQVctcEYwM0JhQVNBRnNMLUZrRkIwcFh2ZTlNeGxoYU9ic1BLemd0Q3hrMVpzQk42UUlkbENhaTFfZDJhYTRMVHYtbzhlVFdiUWhNNFoxekpOOUJDcGJkYW1oeGo0RW85bl9WZzBaeGpvejV6VGNnbVFKSS1OZlI?oc=5"
+      "title": "러시아 ’페스트’ 의혹에 질병청 “유입 가능성 매우 낮아“",
+      "source": "연합뉴스TV",
+      "date": "2026-10-12",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE45b1NSRlRFZlljOU0wOTVWZ0EtRXJyMzNoUTB1Zl9jOXFUSXB5anJYVVJmYWkyYnBQci1jc3QtaWlfTWRRV3lLRnZUdTM2V29EMUVTLVh5bGFTd2s4b21XOG5NNlRQUWs?oc=5"
     },
     "last_review": {
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "by": "gemini",
-      "verdict": "추가",
-      "reason": "러시아 연구원 사망 및 전염병 관련 국제기구의 경고가 잇따르며 보건 리스크가 부각되고 있습니다."
+      "verdict": "유지",
+      "reason": "러시아 페스트 의혹이 지속되고 있으나 질병청의 국내 유입 가능성 낮다는 발표로 시장 영향은 제한적임."
     }
   },
   {
@@ -67,10 +106,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미 국채 금리 급등세가 지속되며 글로벌 증시와 채권 시장에 하방 압력을 가하고 있습니다."
+      "reason": "미 국채 금리 급등이 글로벌 증시 하락의 주요 원인으로 지목되며 시장 변동성을 지속적으로 자극하고 있음."
     },
     "headline": {
       "title": "중앙은행 '금리 딜레마'…고유가에 인상 압박·국채금리 급등에 부담",
@@ -84,9 +123,9 @@
     "name": "코스피 반도체 레버리지 급등락",
     "layer": "cyclical",
     "layer_secondary": "structural",
-    "phase": "correction",
+    "phase": "shock",
     "status": "active",
-    "intensity": "mid",
+    "intensity": "high",
     "trigger_date": "2026-07-28",
     "peak_date": "2026-07-28",
     "half_life_date": null,
@@ -109,16 +148,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "by": "gemini",
-      "verdict": "유지",
-      "reason": "반도체 관련 빚투 규모가 여전히 높고 코스피 변동성이 확대되는 등 시장 불안이 이어지고 있습니다."
+      "verdict": "강화",
+      "reason": "코스피 급락과 함께 '빚투' 규모가 3개월 만에 최대치를 기록하며 반대매매 우려가 시장 하방 압력을 키우고 있음."
     },
     "headline": {
-      "title": "코스피, 반도체 호실적에도 역부족…6400선 붕괴",
-      "source": "팍스경제TV",
-      "date": "2026-10-12",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBCLWdZOFA4VzgtYW5BMks5c2R4V2plUEdBTTJJWjhHa0R6dzVTa01hN3Y1ckVROWJZdXFnbW1STzhLczdXc1N1NW1oT1UwZ292bldHTDRTenVuMzVvYk5sSkhOakFhNnlS?oc=5"
+      "title": "'6천피'도 위태로운데…'빚투'는 3개월만에 최대",
+      "source": "매일경제 마켓",
+      "date": "2026-10-13",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE02U3V6SzBVeVZPN3pUd2d4Y1lQRi1pN0IzX1dnUHVlSkJreFBpNDVwQ0JlNVE2WW1NR0ZqUzBMa0p2UXQyamYwVHJKSExPZmRhUHc?oc=5"
     }
   },
   {
@@ -150,10 +189,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본은행의 금리 정상화 기조와 엔화 강세가 지속되며 일본 경제 지표에 영향을 주고 있습니다."
+      "reason": "엔화 강세와 일본 물가 지표 둔화가 맞물리며 BOJ 정책 정상화 경로에 대한 시장의 관망세가 이어짐."
     },
     "headline": {
       "title": "엔화 강세·유가 하락으로 일본 9월 PPI 예상 밖 둔화",
@@ -192,16 +231,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "고용 지표 둔화와 경기 확장세에 대한 엇갈린 전망이 공존하며 시장의 경계감이 유지되고 있습니다."
+      "reason": "미국 고용 둔화 지표가 확인되면서 스태그플레이션 우려와 연준의 금리 정책 경로에 대한 논쟁이 지속됨."
     },
     "headline": {
-      "title": "美 리서치 \"미국 경제, 고용부진에도 탄탄…경기확장 78개월째\"",
-      "source": "KB Think",
-      "date": "2026-10-07",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1hQ0RhYUdyUUpGeldEc3FhTmk3TF81eG4tSGw4SGkxYk9uc1JQeTRra05ha1J2YkxWZGRiZW1EckhONi1FTHZPQzc0UkQ2WjN0cTVGMG9LTDJKNWlLWDV0RloxVXJqM3JVNUlYWFd3RXBRdw?oc=5"
+      "title": "미국 9월 비농업 고용 둔화, 실업률 상승",
+      "source": "KDI 경제교육·정보센터",
+      "date": "2026-10-13",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPVVhZMG9nQ3dEaGhIRHBiNFhiRVBkbTJvcVJHQTAyMzVLdnFVU3BBdi1HV0VwYktURFo1WkVaWDdSakgxTDNfcWd5cTJPcHI2b1E2Um1tc3ZNMmNHMERqVzM5elh0ZWlBVW9wUDNRZlhrUWpDdkdITGtyNTFiQkdZRg?oc=5"
     }
   },
   {
@@ -232,10 +271,10 @@
     ],
     "notes": "7/29 FOMC 동결(9:3), 3인 동일방향 반대(2016년 이후 최초). 경기순환+정치제도 층 중첩 국면.\n[10-11 검증] 워시 의장 5/15 취임. 9/16 FOMC 만장일치 25bp 인상(3.75~4.00%) — 연준이 독립성을 보여 충격 국면은 지남. 트럼프는 '정치적 이사회'를 비판, 리사 쿡 해임은 대법원이 6/29 보류.",
     "last_review": {
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "연준의 독립성에 대한 정치적 논란이 잠잠해진 상태이나, 주요 발언 시마다 시장의 주목을 받고 있습니다."
+      "reason": "연준의 독립성 논란은 잠잠해졌으나, 향후 금리 결정 과정에서 정치적 압박 가능성은 여전히 잠재적 변수로 남아있음."
     },
     "headline": {
       "title": "[뉴욕증시-주간전망] 실적 시즌 본격화…워시 발언·美 인플레 지표 '주목'",
@@ -277,16 +316,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "중동 내 확전 우려와 호르무즈 해협 긴장이 지속되며 유가 및 에너지 가격 변동성을 자극하고 있습니다."
+      "reason": "호르무즈 해협 긴장 고조와 후티 반군의 공격으로 유가 변동성이 확대되며 지정학적 리스크가 시장을 압박함."
     },
     "headline": {
-      "title": "후티 공습에 사우디 '최악의 피해'‥트럼프 '확전 딜레마'",
-      "source": "MBC 뉴스",
-      "date": "2026-10-11",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5VR2xYYjlxVklWdzBDTUszQUZBM0wwZlo4MGJSVEhHS1NaUU5ZSWFCRW5KbVRSWnBmcEhxUklkVkZPMWNKRUkwOXBRM1FnYXlaYTJmS0VnSHVZS2ZuVjJiMnJncE9tZWVaLThlRzVWSFpJNjFid28zSdIBeEFVX3lxTE83X3dXOGVLemFYTlgyQ0I5SEFxTEhYZGstWlBydFZIZ1JLc0pLSDVyZmg5dldMZFhMZlN3Uk1HUzBZbnA2WFU2UldJR3doeGdxRkkzX1ZEMGpUOV96R2NGZy04cjhnSWxPeFpGc3oxcVplbzZ2cGFUdQ?oc=5"
+      "title": "후티, 사우디 공항 공격 ‘12명 사망’…미국, 확전 우려 속 개입 딜레마",
+      "source": "한겨레",
+      "date": "2026-10-12",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNajh6Xy1YdVJQS2FILVVEZUpfWkpTeTFqZkxlTjlTZWhJaFJzTmszTjFmOUh5c282c0hPTFZkTC1XOFY4eWFzN0tvUmJITExqX21mOUxoRDRkSFpDSkRsMDZWQmZNeHdFWWxIYXNQMjF3cjJjbzBhOXVJcTdEZVlGOHlB?oc=5"
     }
   },
   {
@@ -356,16 +395,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "상호관세로 인한 소비재 물가 상승 부담이 2027년까지 지속될 것이라는 전망이 나오고 있습니다."
+      "reason": "관세 인상에 따른 물가 상승 부담이 지속되고 있으나 시장은 이미 이를 반영하며 진정 국면을 유지 중."
     },
     "headline": {
-      "title": "트럼프 관세에 美 소비재 가격 2.9%p 상승…물가 부담 2027년까지 지속 전망",
-      "source": "폴리뉴스 Polinews",
-      "date": "2026-10-09",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9YMDVPcXdNY3cxRHR4eXIxVEFYZHdRSmlNU2hQYXVoWkVDM2ZmOTlCS1BjWWRMXzlYUUo4TlpfTktZN2psV0plMG5Lc0hiNmVNUGVIT1Y0blNidWV5eElzSXFobXJvQjhxRi1rcEtB?oc=5"
+      "title": "[뉴욕환시] 달러, '상호관세 충격' 후 최고…오늘도 사우디 때린 후티",
+      "source": "연합인포맥스",
+      "date": "2026-10-12",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBBQ1UxNHF3ZGtVd0huSGlWd3RmZkY5djdFczhiTXNLZGZrZHFoYnkxVVlvSWpzS3NzZUVkV2h5TGg1cHg5Ymg4aW1TNFRqaGF4bmpicEhTcWtCV2JoQUVLOURpTXEyeFVZR04yUDJsVFA?oc=5"
     }
   },
   {
