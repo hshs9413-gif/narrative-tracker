@@ -1,6 +1,26 @@
 {
   "updated": "2026-10-14",
   "items": {
+    "korea-growth-slowdown-2026": [
+      {
+        "title": "IMF 올해 한국경제 성장률 대폭 상향 - 카드/한컷 | 멀티미디어",
+        "source": "정책브리핑",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE53VUd2QUw5LUxZVUNxb1VDRUdhbWNBWkJ5QVlTWjJqdUNQdGV2clVjLWFkQzd1VXh4LWYzSkN0TF9SSU9pckJRU3BEWFdha2lVbVdDRHlVSGNoUm1PeVRvOTQ5UkxhTlU2RTRvSE93?oc=5"
+      },
+      {
+        "title": "IMF, 올해 한국 경제성장률 3.3%로 상향",
+        "source": "연합뉴스",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE41MFB3WHlxZDBiRGxNdzJjcUZkMVotZER1Nmlfcl9IcS1tbW55UnJWX3o3MkNvWkpIbVdmNWVMSFQwQnRNeDZsUy0tWGJTQlMtZVpQUTF4UW5vck43UEtoWtIBYEFVX3lxTE41MFB3WHlxZDBiRGxNdzJjcUZkMVotZER1Nmlfcl9IcS1tbW55UnJWX3o3MkNvWkpIbVdmNWVMSFQwQnRNeDZsUy0tWGJTQlMtZVpQUTF4UW5vck43UEtoWg?oc=5"
+      },
+      {
+        "title": "IMF, 올해 한국 경제성장률 3.3%로 상향",
+        "source": "연합뉴스TV",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9mbTlVU0d0UHFCMzdub0hDcnhkUnhvT1pIaGtJM0tjRjFPRFpGVVVSa3hXSTZmUHBRSkNXOWR3NFVkYzNpOEF0Z1pWT0pxVkIwNDFfQnZqd3FVR0MtRmZlek9ERTVIeG8?oc=5"
+      }
+    ],
     "pandemic-risk-2026": [
       {
         "title": "[특징주] 국제약품, 러시아 페스트 의심 사건에 강세…항생제 테마 수급 유입",
@@ -23,6 +43,12 @@
     ],
     "global-bond-selloff-2026": [
       {
+        "title": "NYT \"성장 때문 아니다\"…美국채금리 급등 이끈 '재정적자 경고'",
+        "source": "KB Think",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE95NERta0Qxa1EtYVJZTkVEdTR4Mk94VXI5a3pXZ2oxMTNOdkJ5YXoxUHBFVV85bFlCMjZPbEttUXZMTWJvM0x4cWNMVnQtWGd0LWFiUml6elNpaU1VLUswc3NXSDhYYm1ha0thTjZiRzNYUQ?oc=5"
+      },
+      {
         "title": "IMF \"인플레·부채·AI차입에 국채금리 급등 위험\"",
         "source": "연합인포맥스",
         "date": "2026-10-13",
@@ -33,32 +59,26 @@
         "source": "뉴스1",
         "date": "2026-10-12",
         "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1GQmRyVzEyQ25DVWwwTzVGeWV1Y1ZxRzJHSFk2enMzZUlDS0dUVFpvUEhCUWNSQktoNlV4b3dNMkl4NlUxZWNSSmszWHRjOVdLWDBpM0ZuajYxNFJBSzFySlJIdzVtQkk?oc=5"
-      },
-      {
-        "title": "\"미국 국채금리 사상 최고치\"…미국 국채금리 급등이 바꿀 경제 흐름",
-        "source": "뉴시스",
-        "date": "2026-10-10",
-        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1BcUUzbngzbFpHMUsyTkNhaW9wMndwaU1malI1YnZKWnVsMmtTOWVZai1rY0ZTNktmcTZaSVE3RkNZSzVGRTdhSW1LODhaX18xYkIzYWVFWHdFVll1YnFJMtIBeEFVX3lxTFBVX3NtTkxBTmo2RXNWRzVDdG5JMlVoajY1Y0g4UFR4ek41NVg4UEUtT3puVE1GQWVHNTlvSXNZLW81RzIwOEpqMmhveXJLOGYwUm80T0k1aHRERk5MVjQ2aWlGTk15VEVoNFhHNWx2RWhCUml2UkVhcA?oc=5"
       }
     ],
     "kospi-semis-leverage-2026": [
+      {
+        "title": "코스피, 반도체 반발매수에 0.8% 상승…삼전닉스 반등",
+        "source": "연합인포맥스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB6MDlCLTAwMGE1NGp4SFh2d1BRTFhGdXBRdWpYUlhQNnlBakdDTlhDcmExTlpFVWo2bXo0aFpaQzlHMnRKdGpSdExlcnF0bUd2RHZDWHBlMTFuMGlONF9yYy1UZ3FOS0Jfa0NYU0luMEk?oc=5"
+      },
+      {
+        "title": "“현금 부족하지만 반등 노리고 ‘빚투’”...개인 신용거래융자 3개월만에 34조원 돌파 - 조선비즈",
+        "source": "Chosunbiz",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZnlOcUdGSWh3U3huTURfRzFYWFUyeEJPRWREOG91a0dyM3RPdVdRR2lkcXpkRkRKa2MwV2RoLTVpMmNmTHYwajlya2h3T2xySFZGWTk2aGF4VW16QkRFRHBQek9vUm94WUFwd1NDTDgxbktvQmVrbFhMV0pRNTBVV2ozQUE5aUlp0gGcAUFVX3lxTE82TXFJWGZQUUQ0aUpXZ1NDZF9KOC1fdGp4eU42SVAwMWlDbG1Fc19ueGFOSGx6LXN4OGZ0cS1rWkpjZkhaSXRxV1Q3YkltaVVNTTRnUUI5UjBvWmhFZTI0RVRZaG51X2p2Z3dsU0NhT0RtMi1IaTFHTXdWblRsWW92WWpPT2w0QWdydGcyS29JMWJ4Zzlha011ZWR1SA?oc=5"
+      },
       {
         "title": "증시 급락에 저가 매수 나섰나...'빚투' 3개월 만에 최대",
         "source": "KBC광주방송",
         "date": "2026-10-13",
         "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBRUVBSMGNSQlViSml4eDQ4YnJfbkN5SnM3WnVCNXJXTEt4Ym05N2VDLXN1YnRrY0Z1V2phbHU0THpfSGdaWGdhMzgycW51OWZYakdKS3Q2SjdXMEczNjg4NA?oc=5"
-      },
-      {
-        "title": "두 달 새 '빚투' 4.7조 급증…급락장에 반대매매 하방 압력↑",
-        "source": "뉴스핌",
-        "date": "2026-10-13",
-        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE80dld0SEVvV2hDeEU3ejZibGhVQ0F1RWR0enRZR2stNE5JSDBMdGdtMGpaMzdybWFjS05mVmJOTU5VQjhnYnNTRnlwSXkwb2t1Vnh4WDFLd1ZySGpq?oc=5"
-      },
-      {
-        "title": "'6천피'도 위태로운데…'빚투'는 3개월만에 최대",
-        "source": "매일경제 마켓",
-        "date": "2026-10-13",
-        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE02U3V6SzBVeVZPN3pUd2d4Y1lQRi1pN0IzX1dnUHVlSkJreFBpNDVwQ0JlNVE2WW1NR0ZqUzBMa0p2UXQyamYwVHJKSExPZmRhUHc?oc=5"
       }
     ],
     "boj-normalization-2026": [
@@ -81,12 +101,6 @@
         "source": "KDI 경제교육·정보센터",
         "date": "2026-10-13",
         "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPVVhZMG9nQ3dEaGhIRHBiNFhiRVBkbTJvcVJHQTAyMzVLdnFVU3BBdi1HV0VwYktURFo1WkVaWDdSakgxTDNfcWd5cTJPcHI2b1E2Um1tc3ZNMmNHMERqVzM5elh0ZWlBVW9wUDNRZlhrUWpDdkdITGtyNTFiQkdZRg?oc=5"
-      },
-      {
-        "title": "美 리서치 \"미국 경제, 고용부진에도 탄탄…경기확장 78개월째\"",
-        "source": "KB Think",
-        "date": "2026-10-07",
-        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1hQ0RhYUdyUUpGeldEc3FhTmk3TF81eG4tSGw4SGkxYk9uc1JQeTRra05ha1J2YkxWZGRiZW1EckhONi1FTHZPQzc0UkQ2WjN0cTVGMG9LTDJKNWlLWDV0RloxVXJqM3JVNUlYWFd3RXBRdw?oc=5"
       }
     ],
     "fed-politicization-2026": [
@@ -117,19 +131,25 @@
         "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFB0LWpXTnZnTjRiVUlWQWd0MXJKcUEySkZLMTZQaklwNXRqNTdLSURCTjhjUWZPdGdDX3J1UTJaVXZGTUdqUE5hdmwtU1Z3MlQxR294czFVSHJSQlE3YUpEV3V4OURubS1lSGc?oc=5"
       },
       {
-        "title": "‘정권 교체’ 압박 속 러시아 정유시설 타격 명분 확보한 젤렌스키",
-        "source": "월간조선",
-        "date": "2026-10-13",
-        "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5UWnRLaks0TGNiTjU3NUFPTjM0dlVFd1NTUzA3bHM2YzBPM3lRRGVpa0kySGlYSHlMR2FWbW9FbkFQLU9WMTdvbHNsMGNodl92WG5HUkY0T2hsenRpTkZmcU5mNFNzaU9aS3BIaA?oc=5"
-      },
-      {
         "title": "[쇼츠] 장갑차 '펑펑' 공항 또 '쾅쾅'…후티, 사우디 공격에 확전 불길",
         "source": "연합뉴스",
         "date": "2026-10-13",
         "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBwZjg5VDJYblZ6NXRKRUdEaUhUbEI3aUZpSHV1d2lsZFhoaVhvUUpVamVPQlM1T0dHeGFKR2FBd1UtU2RhS1F2VS1Zakt2TDg3VlhmMnBHRktDNWvSAWBBVV95cUxQdmtRVnlYYVpmeG9vWDFkWHpKbEtXVlRKTUN6eWFaa2Z5TWpJUHhYb1JrdW5rTzJ2SVRZUzVRV1VkMkJ3WXBSN19ZVDNBSVRpVm5TRGRWQ0hHdElndVJ4T1I?oc=5"
+      },
+      {
+        "title": "‘정권 교체’ 압박 속 러시아 정유시설 타격 명분 확보한 젤렌스키",
+        "source": "월간조선",
+        "date": "2026-10-13",
+        "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5UWnRLaks0TGNiTjU3NUFPTjM0dlVFd1NTUzA3bHM2YzBPM3lRRGVpa0kySGlYSHlMR2FWbW9FbkFQLU9WMTdvbHNsMGNodl92WG5HUkY0T2hsenRpTkZmcU5mNFNzaU9aS3BIaA?oc=5"
       }
     ],
     "ai-valuation-2024": [
+      {
+        "title": "\"메모리 등 공급망 차질이 AI 거품 붕괴 촉발할 수 있다\"",
+        "source": "연합인포맥스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE13ekNNallRNXlzVk9jdUJHaHBGRUNJUDlWRnBsM3ZUX0xlOV8xMGVPSHhRRnlEcUVHaDVucmRNMExQT05VUmJVZ0RZUFB0dDFuNU1MNGFQWHJOSkh5Z3ljeHZIY0E3ZU94Q21XQWJzNnQ?oc=5"
+      },
       {
         "title": "AI 거품이 떠받치는 트럼프 경제",
         "source": "참세상",
@@ -141,12 +161,6 @@
         "source": "헬로티",
         "date": "2026-10-13",
         "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFByZy15YzZxZUs1dndpekhvY0cyTGxTRFNpbk9acmtha1FYUWJxams1WXlQeXl3aEh4NHFpQmE0N2stbE0wNGl0OGxNdUtPaFBoSmZta2thRkFYVnR2Y1BF?oc=5"
-      },
-      {
-        "title": "S&P500 CAPE 지수 역대 3위 과열…\"AI 거품·조정 경고\"",
-        "source": "연합인포맥스",
-        "date": "2026-10-13",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5ubVBhOTc2eWhJRDFOYkl0c052VlZWMWw1XzBReGViUVV5cU5pSC1rUFB6MnBwRGZaQ182cVg1RVFsV2V0eUpjZDZWVktjcWNFakM5WTZkSW5ZUVJZNjJSVDNGa3VXTm01cUxaeGhVTE4?oc=5"
       }
     ],
     "tariff-shock-2025": [
