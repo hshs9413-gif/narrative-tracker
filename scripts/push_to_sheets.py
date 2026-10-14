@@ -31,6 +31,12 @@ TABLES = {  # 시트 탭 이름: 파일 (탭별 중복 판단 키는 Apps Script
     # 20거래일 뒤 실제 값·적중(after·inside)은 나중에 CSV에 채워지고, 시트 쪽 빈칸 채우기(fillBlanks)로 따라온다.
     "range_log": "range_log.csv",
 }
+# 확정 대기 없이 바로 보내는 탭 — 그날 계산한 결과 기록(compute_regression.py)이라 값이 나중에 채워지지 않는다.
+# 첫 열 key가 '기준일 …'이라 같은 줄은 시트가 다시 쓰지 않고, 새 기준일 줄만 아래에 쌓인다(맨 아래가 최신).
+FRESH_TABLES = {
+    "회귀분석_민감도": "regression_sensitivity.csv",
+    "회귀분석_예측검증": "regression_forecast.csv",
+}
 EVENT_COLUMNS = [  # events 탭 열 순서 — 여기 없는 필드가 events.json에 생기면 뒤에 덧붙임
     "id", "name", "layer", "layer_secondary", "phase", "status", "intensity",
     "trigger_date", "peak_date", "half_life_date", "assets", "keywords",
@@ -186,6 +192,7 @@ def main():
 
     cutoff = (datetime.date.today() - datetime.timedelta(days=SETTLE_DAYS)).isoformat()
     tables = {tab: t for tab, name in TABLES.items() if (t := load_table(name, cutoff))}
+    tables.update({tab: t for tab, name in FRESH_TABLES.items() if (t := load_table(name, "9999"))})
     if events := load_events():  # 확정 대기 없이 항상 현재 상태 그대로
         tables["events"] = events
     print(f"[INFO] {cutoff} 이전 확정 행 전송: " + ", ".join(f"{k} {len(v) - 1}행" for k, v in tables.items()),
