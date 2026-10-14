@@ -83,6 +83,11 @@ jobs:
         run: python scripts/compute_ranges.py
         continue-on-error: true
 
+      # 회귀분석(민감도·예측 검증) — 구글 시트 '회귀분석_민감도'·'회귀분석_예측검증' 탭으로 감 (scripts/compute_regression.py)
+      - name: Regression for sheet
+        run: python scripts/compute_regression.py
+        continue-on-error: true
+
       - name: Commit and push if changed
         run: |
           git config user.name "narrative-tracker-bot"
