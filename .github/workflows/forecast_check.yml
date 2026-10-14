@@ -6,6 +6,8 @@ on:
     paths:
       - "scripts/compute_forecast.py"
       - "scripts/compute_regression.py"
+      - "scripts/compute_correlation.py"
+      - "requirements.txt"
       - ".github/workflows/forecast_check.yml"
   workflow_dispatch: {}
 
@@ -31,3 +33,6 @@ jobs:
           python scripts/compute_forecast.py | tee /tmp/fc.txt
           echo "::notice title=예측 결과::$(tr '\n' ' ' < /tmp/fc.txt | cut -c1-3000)"
           echo "::notice title=overnight_us.csv::$(wc -l < docs/data/overnight_us.csv)줄, 마지막 3줄 $(tail -3 docs/data/overnight_us.csv | tr '\n' ' ')"
+          echo "::notice title=모델 경쟁::$(python -c "import json;d=json.load(open('docs/data/forecast_latest.json'));print([(x['name'],x.get('model'),x.get('board')) for x in d['next']])")"
+          python scripts/compute_correlation.py | tee /tmp/cc.txt
+          echo "::notice title=상관관계::$(tr '\n' ' ' < /tmp/cc.txt | cut -c1-2000)"

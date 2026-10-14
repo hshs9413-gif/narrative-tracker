@@ -327,6 +327,22 @@ body {
 .nt-outlook-dir[data-dir="flat"] { color: var(--nt-ink-2); }
 .nt-outlook-when { color: var(--nt-ink-3); font-size: 0.9rem; white-space: nowrap; }
 .nt-outlook-why { margin-top: 0.15rem !important; font-size: 0.85rem; line-height: 1.5; color: var(--nt-ink-3); }
+.nt-outlook-model[data-chosen] { font-weight: 700; color: var(--nt-ink-2); }
+/* 한 달 뒤 오르내릴 폭 — 이름 | 아래·위 퍼센트(크게, 색) | 값·금액 */
+.nt-outlook li.nt-or { display: grid; grid-template-columns: 6.5rem 11rem minmax(0, 1fr); gap: 0.15rem 1rem; align-items: baseline; }
+.nt-or-name { font-weight: 700; }
+.nt-or-pct { font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
+.nt-or-pct [data-dir="down"] { color: var(--nt-down); }
+.nt-or-pct [data-dir="up"] { color: var(--nt-up); }
+.nt-or-sep { color: var(--nt-ink-3); font-weight: 400; }
+.nt-or-detail { font-size: 0.85rem; color: var(--nt-ink-3); }
+.nt-outlook-note { max-width: var(--nt-measure); margin: 0.75rem 0 0.25rem; font-size: 0.9rem; line-height: 1.55; color: var(--nt-ink-2); }
+.nt-outlook-note b { color: var(--nt-ink); }
+.nt-outlook-rel { font-size: 0.95rem; line-height: 1.55; }
+@media (max-width: 600px) {
+  .nt-outlook li.nt-or { grid-template-columns: minmax(0, 1fr) auto; }
+  .nt-or-detail { grid-column: 1 / -1; }
+}
 
 /* 접어 둔 섹션 */
 .nt-fold details > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem; cursor: pointer; list-style: none; }

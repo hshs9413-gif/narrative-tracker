@@ -93,6 +93,12 @@ jobs:
       - name: Forecast for sheet
         run: python scripts/compute_forecast.py
         continue-on-error: true
+        timeout-minutes: 10
+
+      # 자산끼리 상관(주간, 최근 6개월 vs 2년) — 대시보드 두 줄, 시트 '상관계수' 탭 (scripts/compute_correlation.py)
+      - name: Correlations
+        run: python scripts/compute_correlation.py
+        continue-on-error: true
 
       - name: Commit and push if changed
         run: |

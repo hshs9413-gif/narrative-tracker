@@ -44,7 +44,26 @@ MODELS = [
 ]
 
 LOG_COLUMNS = ["key", "기준일", "맞힐_대상", "맞힐_날", "지금_지표", "예측", "예측_90%_아래", "예측_90%_위", "단위",
-               "과거_미리맞히기_R2", "과거_방향적중률", "읽는법", "실제", "범위_안", "방향_맞음"]
+               "과거_미리맞히기_R2", "과거_방향적중률", "읽는법", "실제", "범위_안", "방향_맞음", "모델"]
+
+# 모델 경쟁 — 같은 입력으로 여러 모델을 지난 기록에 미리 맞혀 보고(최근 SCORE_DAYS일), 지금 모델(선형회귀)을 MARGIN 넘게
+# 이긴 모델이 있을 때만 그 모델로 예측한다. 2026-10-14 시험(로컬 자료, 다음 한국 장 코스피)에서는 선형회귀 14.6% >
+# 랜덤포레스트 7.2% > 부스팅 3.0% — 1년치로 학습하면 복잡한 모델이 우연한 패턴까지 외워서 오히려 나빴다.
+INCUMBENT = "선형회귀"
+MARGIN = 0.02        # 미리 맞히기 설명력 2%p 넘게 앞서야 바꾼다
+SCORE_DAYS = 250     # 성적을 매기는 최근 미리 맞히기 날 수
+REFIT_EVERY = 5      # 지난 기록을 되짚을 때 며칠마다 다시 학습하나(속도) — 오늘 예측은 늘 오늘까지로 새로 학습
+
+
+def candidates():
+    from sklearn.ensemble import HistGradientBoostingRegressor, RandomForestRegressor
+    from sklearn.linear_model import LinearRegression, Ridge
+    return {
+        "선형회귀": LinearRegression,
+        "릿지": lambda: Ridge(alpha=1.0),
+        "랜덤포레스트": lambda: RandomForestRegressor(n_estimators=150, min_samples_leaf=10, random_state=0, n_jobs=-1),
+        "부스팅": lambda: HistGradientBoostingRegressor(max_depth=3, learning_rate=0.05, max_iter=150, random_state=0),
+    }
 
 
 # ───────────────────────── 미국 장 값 (야후) ─────────────────────────
@@ -129,20 +148,41 @@ def overnight_inputs(y_levels, us, xs):
     return latest, out, fresh
 
 
-def rolling_record(df, xs, train=TRAIN):
-    """지난 기록을 하루씩 — 그 전 train일로 세운 식으로 맞혀 본 성적 (미리맞히기 R², 방향 적중률, 시도 수)."""
+def walk_forward(df, xs, make, train=TRAIN, every=REFIT_EVERY):
+    """지난 기록을 미리 맞혀 본다 — i일은 그 전 train일로 학습한 모델로(every일마다 다시 학습).
+    반환: (예측, 실제, 그때의 과거 평균) 배열 — 모두 train일째부터."""
     X, Y = df[xs].values, df["dy"].values
-    em = e0 = 0.0
-    hit = tried = 0
+    preds, base = np.full(len(Y), np.nan), np.full(len(Y), np.nan)
+    model = None
     for i in range(train, len(Y)):
-        b, _, _ = cg.ols(X[i - train:i], Y[i - train:i])
-        p = b[0] + X[i] @ b[1:]
-        em += (Y[i] - p) ** 2
-        e0 += (Y[i] - Y[i - train:i].mean()) ** 2
-        if p != 0 and Y[i] != 0:
-            tried += 1
-            hit += int(np.sign(p) == np.sign(Y[i]))
-    return (1 - em / e0 if e0 else float("nan")), (hit / tried if tried else float("nan")), tried
+        if model is None or (i - train) % every == 0:
+            model = make().fit(X[i - train:i], Y[i - train:i])
+            mean = Y[i - train:i].mean()
+        preds[i] = model.predict(X[i:i + 1])[0]
+        base[i] = mean
+    return preds[train:], Y[train:], base[train:]
+
+
+def score_record(pred, actual, base, days=SCORE_DAYS):
+    """최근 days일 미리 맞히기 성적 — (설명력: 과거 평균보다 얼마나 나았나, 방향 적중률, 시도 수, 빗나간 폭의 표준편차)."""
+    p, y, b = pred[-days:], actual[-days:], base[-days:]
+    e0 = ((y - b) ** 2).sum()
+    r2 = 1 - ((y - p) ** 2).sum() / e0 if e0 else float("nan")
+    nz = (p != 0) & (y != 0)
+    rate = float((np.sign(p[nz]) == np.sign(y[nz])).mean()) if nz.any() else float("nan")
+    return float(r2), rate, int(nz.sum()), float(np.std(y - p, ddof=1))
+
+
+def compete(df, xs, makers=None):
+    """후보 모델마다 최근 성적을 매기고 쓸 모델을 고른다 — 지금 모델을 MARGIN 넘게 이긴 모델이 있을 때만 바꾼다."""
+    makers = makers or candidates()
+    board = {}
+    for name, make in makers.items():
+        r2, rate, n, sd = score_record(*walk_forward(df, xs, make))
+        board[name] = {"oos": r2, "dir": rate, "n": n, "sd": sd}
+    best = max(board, key=lambda k: board[k]["oos"])
+    chosen = best if board[best]["oos"] - board[INCUMBENT]["oos"] > MARGIN else INCUMBENT
+    return chosen, board, makers
 
 
 def next_weekday(d):
@@ -165,17 +205,16 @@ def overnight_rows(levels, us):
         df = overnight_frame(y, us, xs)
         if len(df) < TRAIN + 20:
             continue
-        b, _, _ = cg.ols(df[xs].values[-TRAIN:], df["dy"].values[-TRAIN:])
-        resid = df["dy"].values[-TRAIN:] - (b[0] + df[xs].values[-TRAIN:] @ b[1:])
-        sd = float(np.std(resid, ddof=len(xs) + 1))
         us_date, inp, fresh = overnight_inputs(y, us, xs)
         if us_date is None or not fresh:
             # 마지막 한국 장 뒤에 끝난 미국 장이 없으면(미국 휴장 등) 새로 알 게 없어 예측을 남기지 않는다
             print(f"[INFO] {yname}: 마지막 한국 장({y.index[-1].date()}) 뒤 끝난 미국 장 없음 — 다음 한국 장 예측 건너뜀")
             continue
-        x_now = np.array([inp[x] for x in xs])
-        pred = float(b[0] + x_now @ b[1:])
-        oos, dir_rate, tried = rolling_record(df, xs)
+        x_now = np.array([[inp[x] for x in xs]])
+        chosen, board, makers = compete(df, xs)
+        model = makers[chosen]().fit(df[xs].values[-TRAIN:], df["dy"].values[-TRAIN:])
+        pred = float(model.predict(x_now)[0])
+        oos, dir_rate, tried, sd = (board[chosen][k] for k in ("oos", "dir", "n", "sd"))  # 범위는 미리 맞혔을 때 빗나간 폭으로
         unit = cg.UNIT[cg.KIND[ycol]]
         now_txt = f"어젯밤({us_date.month}/{us_date.day}) 미국 장 " + " · ".join(
             f"{US_LABEL[x]} {fmt_move(inp[x], US_KIND[x])}" for x in xs)
@@ -188,9 +227,10 @@ def overnight_rows(levels, us):
             "예측": round(pred, 3), "예측_90%_아래": round(lo, 3), "예측_90%_위": round(hi, 3), "단위": unit,
             "과거_미리맞히기_R2": round(oos, 3), "과거_방향적중률": round(dir_rate, 3),
             "읽는법": (f"{yname} 평균 {pred:+.2f}{unit} 예상, 열 번 중 아홉 번은 {lo:+.2f}~{hi:+.2f}{unit} — "
-                     f"지난 {tried}거래일 미리 맞히기 설명력 {oos * 100:.0f}%, 방향 {dir_rate * 100:.0f}%"
+                     f"최근 {tried}거래일 미리 맞히기({chosen}) 설명력 {oos * 100:.0f}%, 방향 {dir_rate * 100:.0f}%"
                      + ("" if oos > 0.05 else " (설명력이 낮아 참고만)")),
-            "실제": "", "범위_안": "", "방향_맞음": "", "_kind": "next", "_ycol": ycol,
+            "실제": "", "범위_안": "", "방향_맞음": "", "모델": chosen,
+            "_kind": "next", "_ycol": ycol, "_board": board, "_chosen": chosen,
         })
     return rows
 
@@ -310,12 +350,13 @@ def write_log(rows, path=LOG_PATH):
 
 def _num(v):
     try:
-        return float(v)
+        f = float(v)
     except (TypeError, ValueError):
         return None
+    return None if f != f else f  # nan은 JSON에 못 넣는다
 
 
-def latest_summary(log):
+def latest_summary(log, boards=None):
     """대시보드가 글로 보여 줄 것 — 대상마다 가장 최근 다음 한국 장 예측, 그리고 지금까지 미리 낸 예측의 채점 결과."""
     items = []
     for _, _, name, _ in MODELS:
@@ -332,6 +373,8 @@ def latest_summary(log):
             "scored": r is not None and _num(r.get("실제")) is not None, "actual": _num(r.get("실제")),
             "live": {"n": len(scored), "in_range": sum(1 for x in scored if str(x["범위_안"]).startswith("1")),
                      "dir_tried": len(dirs), "dir_hits": sum(1 for x in dirs if str(x["방향_맞음"]).startswith("1"))},
+            "model": r.get("모델") or INCUMBENT,
+            "board": (boards or {}).get(name),
         })
     return {"next": items}
 
@@ -367,7 +410,15 @@ def main(fetch=True):
     log += added
     filled = sum(score(r, levels) for r in log)
     write_log(log)
-    write_latest(latest_summary(log))
+    boards = {r["key"].split("다음 한국 장 ")[-1]: [{"name": k, "oos": _num(round(v["oos"], 3)), "dir": _num(round(v["dir"], 3))}
+                                                  for k, v in r["_board"].items()]
+              for r in new if r.get("_board")}
+    old = {}
+    if os.path.exists(LATEST_PATH):  # 오늘 새 예측이 없으면(미국 휴장 등) 지난 경쟁 성적을 그대로 둔다
+        import json
+        with open(LATEST_PATH, encoding="utf-8") as f:
+            old = {x["name"]: x.get("board") for x in json.load(f).get("next", [])}
+    write_latest(latest_summary(log, {**old, **boards}))
     print(f"[INFO] 예측 {len(new)}건(새로 {len(added)}), 실제 값 채움 {filled}건")
     for r in new:
         print(f"  {r['맞힐_대상']} ({r['맞힐_날']}): {r['지금_지표']}\n    → {r['읽는법']}")

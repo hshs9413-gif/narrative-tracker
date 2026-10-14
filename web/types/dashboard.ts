@@ -421,6 +421,9 @@ export interface RangeBacktest {
   rate: number | null;
   from: string | null;
   to: string | null;
+  /** 석 달 추세 방향이 한 달 뒤 방향과 같았던 비율 — 50% 근처면 방향 근거 없음 */
+  trend_hit?: number | null;
+  up_share?: number | null;
 }
 
 export interface RangeItem {
@@ -466,8 +469,34 @@ export interface NextSessionForecast {
   scored: boolean;
   actual: number | null;
   live: { n: number; in_range: number; dir_tried: number; dir_hits: number };
+  /** 이 예측에 쓴 모델과 모델 경쟁 성적(최근 1년 미리 맞히기) */
+  model?: string;
+  board?: { name: string; oos: number | null; dir: number | null }[] | null;
 }
 
 export interface ForecastLatest {
   next: NextSessionForecast[];
+}
+
+// ────────────────────── correlations.json ──────────────────────
+// compute_correlation.py — 주간 변화로 잰 자산 사이 상관(최근 26주 vs 2년)과 대시보드용 두 줄.
+export interface CorrelationPair {
+  a: string;
+  b: string;
+  recent: number;
+  long: number;
+  diff: number;
+  notable: boolean;
+  text: string;
+}
+
+export interface Correlations {
+  week: string | null;
+  recent_weeks: number;
+  long_weeks: number;
+  pairs: CorrelationPair[];
+  notable: CorrelationPair[];
+  hedges: { asset: string; r: number }[];
+  hedge_line: string;
+  change_line: string;
 }
