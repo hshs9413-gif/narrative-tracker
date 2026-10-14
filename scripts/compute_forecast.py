@@ -28,6 +28,7 @@ import compute_regression as cg
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "docs", "data")
 US_PATH = os.path.join(DATA_DIR, "overnight_us.csv")
 LOG_PATH = os.path.join(DATA_DIR, "forecast_log.csv")
+LATEST_PATH = os.path.join(DATA_DIR, "forecast_latest.json")  # 대시보드용 — 대상마다 가장 최근 '다음 한국 장' 예측과 채점 성적
 
 US_SYMBOLS = {"sp500": "^GSPC", "sox": "^SOX", "tnx": "^TNX"}
 US_LABEL = {"sp500": "S&P500", "sox": "필라델피아 반도체", "tnx": "미 10년물"}
@@ -307,6 +308,46 @@ def write_log(rows, path=LOG_PATH):
             f.write(text)
 
 
+def _num(v):
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def latest_summary(log):
+    """대시보드가 글로 보여 줄 것 — 대상마다 가장 최근 다음 한국 장 예측, 그리고 지금까지 미리 낸 예측의 채점 결과."""
+    items = []
+    for _, _, name, _ in MODELS:
+        rows = [r for r in log if r["key"].endswith(f"다음 한국 장 {name}")]
+        if not rows:
+            continue
+        r = max(rows, key=lambda r: r["기준일"])
+        scored = [x for x in rows if _num(x.get("실제")) is not None]
+        dirs = [x for x in scored if str(x.get("방향_맞음")) not in ("", "None")]
+        items.append({
+            "name": name, "base": r["기준일"], "target": r["맞힐_날"].replace(" 무렵", ""),
+            "pred": _num(r["예측"]), "lo": _num(r["예측_90%_아래"]), "hi": _num(r["예측_90%_위"]), "unit": r["단위"],
+            "inputs": r["지금_지표"], "oos": _num(r["과거_미리맞히기_R2"]), "dir_rate": _num(r["과거_방향적중률"]),
+            "scored": r is not None and _num(r.get("실제")) is not None, "actual": _num(r.get("실제")),
+            "live": {"n": len(scored), "in_range": sum(1 for x in scored if str(x["범위_안"]).startswith("1")),
+                     "dir_tried": len(dirs), "dir_hits": sum(1 for x in dirs if str(x["방향_맞음"]).startswith("1"))},
+        })
+    return {"next": items}
+
+
+def write_latest(summary, path=LATEST_PATH):
+    import json
+    text = json.dumps(summary, ensure_ascii=False, indent=2) + "\n"
+    old = None
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            old = f.read()
+    if old != text:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(text)
+
+
 def main(fetch=True):
     from collect_market_data import window_end
     # 아직 끝나지 않은 장 값은 빼고 본다(수집이 장중에 돌았던 CSV여도 기준일이 장중 값이 되지 않게)
@@ -326,6 +367,7 @@ def main(fetch=True):
     log += added
     filled = sum(score(r, levels) for r in log)
     write_log(log)
+    write_latest(latest_summary(log))
     print(f"[INFO] 예측 {len(new)}건(새로 {len(added)}), 실제 값 채움 {filled}건")
     for r in new:
         print(f"  {r['맞힐_대상']} ({r['맞힐_날']}): {r['지금_지표']}\n    → {r['읽는법']}")

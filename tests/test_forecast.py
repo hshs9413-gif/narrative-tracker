@@ -89,3 +89,22 @@ class ForecastTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LatestSummaryTest(unittest.TestCase):
+    def test_latest_per_target_and_live_record(self):
+        base = {"예측_90%_아래": "-3", "예측_90%_위": "2", "단위": "%", "지금_지표": "x", "과거_미리맞히기_R2": "0.18",
+                "과거_방향적중률": "0.67", "맞힐_날": "2026-10-15 무렵"}
+        log = [
+            {**base, "key": "2026-10-13 다음 한국 장 코스피", "기준일": "2026-10-13", "예측": "-0.5",
+             "실제": "-1.2", "범위_안": "1", "방향_맞음": "1"},
+            {**base, "key": "2026-10-14 다음 한국 장 코스피", "기준일": "2026-10-14", "예측": "0.4",
+             "실제": "", "범위_안": "", "방향_맞음": ""},
+            {**base, "key": "2026-10-14 코스피 20거래일 뒤", "기준일": "2026-10-14", "예측": "-5", "실제": ""},
+        ]
+        out = cf.latest_summary(log)["next"]
+        self.assertEqual(len(out), 1)  # 국고채 줄은 없고, 20거래일 줄은 섞이지 않음
+        k = out[0]
+        self.assertEqual((k["name"], k["base"], k["pred"], k["target"]), ("코스피", "2026-10-14", 0.4, "2026-10-15"))
+        self.assertEqual(k["live"], {"n": 1, "in_range": 1, "dir_tried": 1, "dir_hits": 1})
+        self.assertFalse(k["scored"])

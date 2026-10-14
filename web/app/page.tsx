@@ -1,6 +1,6 @@
 import { Notable } from "@/components/brief/Notable";
 import { IndicatorTable } from "@/components/brief/IndicatorTable";
-import { RangeOutlook } from "@/components/brief/RangeOutlook";
+import { Outlook } from "@/components/brief/Outlook";
 import { NarrativesNow } from "@/components/brief/NarrativesNow";
 import { MarketIndicatorsChart } from "@/components/dashboard/charts/MarketIndicatorsChart";
 import { LiquidityCard } from "@/components/dashboard/liquidity/LiquidityCard";
@@ -10,7 +10,7 @@ import { CompanyFinancials } from "@/components/dashboard/financials/CompanyFina
 import { Section } from "@/components/dashboard/Section";
 import { Fold } from "@/components/dashboard/Fold";
 
-// 읽는 순서: 평소와 다른 지표 → 주요 지표 표 → 한 달 뒤 예상 범위 → 내러티브 → 기업 재무. 큰 차트·연준 유동성·데이터 출처는 접어 둔다.
+// 읽는 순서: 평소와 다른 지표 → 주요 지표 표 → 다음 움직임 예상(글) → 내러티브 → 기업 재무. 큰 차트·연준 유동성·데이터 출처는 접어 둔다.
 // 규칙 판정(레짐 라벨·점수)은 예측력이 없어 2026-10-11에 화면에서 뺐다 — 계산은 regime_log에 계속 남는다.
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <Notable />
       <IndicatorTable />
-      <RangeOutlook />
+      <Outlook />
       <NarrativesNow />
 
       <Section

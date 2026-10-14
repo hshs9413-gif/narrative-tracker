@@ -186,7 +186,11 @@ def write_if_changed(path, text):
 
 
 def main():
-    points = load_points()
+    from collect_market_data import window_end
+    # 아직 끝나지 않은 장 값은 빼고 본다 — 장중 값이 기준값이 되면 그 범위 기록이 통째로 틀린다
+    # (2026-10-14 10:55 KST 실행: 코스피 장중 6,076을 기준으로 범위를 남겼다가 지움)
+    end = window_end().isoformat()
+    points = {c: [(d, v) for d, v in pts if d < end] for c, pts in load_points().items()}
     items = compute(points)
     log = read_log()
     update_log(log, items, points)
