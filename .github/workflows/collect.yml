@@ -78,6 +78,11 @@ jobs:
         run: python scripts/compute_regime.py
         continue-on-error: true
 
+      # 한 달 뒤 90% 범위(방향 아님)와 적중 기록 — docs/data/ranges.json, range_log.csv (scripts/compute_ranges.py)
+      - name: One-month ranges
+        run: python scripts/compute_ranges.py
+        continue-on-error: true
+
       - name: Commit and push if changed
         run: |
           git config user.name "narrative-tracker-bot"

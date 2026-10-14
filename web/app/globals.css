@@ -306,6 +306,36 @@ body {
   .nt-board-spark { display: none; }
 }
 
+/* ───────── 한 달 뒤 예상 범위 ───────── */
+.nt-range { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--nt-rule); }
+.nt-range-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.8fr) minmax(11rem, 1.3fr) minmax(10rem, 1fr) minmax(13rem, 1.3fr);
+  gap: 0.35rem 1.25rem;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--nt-rule);
+}
+.nt-range-name, .nt-range-band, .nt-range-hit { display: flex; flex-direction: column; line-height: 1.35; min-width: 0; }
+.nt-range-name { font-weight: 700; }
+.nt-range-row small { font-size: 0.78rem; font-weight: 400; color: var(--nt-ink-3); }
+.nt-range-band b { font-size: 1.02rem; font-weight: 700; }
+.nt-range-hit b { font-size: 1.02rem; font-weight: 700; }
+.nt-range-hit > span small { margin-left: 0.15rem; }
+.nt-range-sub span { white-space: nowrap; }
+.nt-range-hit[data-low] b { color: var(--nt-l2); }
+.nt-cone { display: block; width: 100%; height: 52px; overflow: visible; color: var(--nt-ink-2); }
+.nt-cone-line { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.nt-cone-band { fill: color-mix(in srgb, var(--nt-cyclical) 16%, transparent); stroke: none; }
+.nt-cone-edge { fill: none; stroke: var(--nt-cyclical); stroke-width: 1; stroke-dasharray: 3 2; vector-effect: non-scaling-stroke; }
+@media (max-width: 860px) {
+  .nt-range-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "name band" "cone cone" "hit hit"; }
+  .nt-range-name { grid-area: name; }
+  .nt-range-band { grid-area: band; text-align: right; }
+  .nt-range-cone { grid-area: cone; }
+  .nt-range-hit { grid-area: hit; }
+}
+
 /* 접어 둔 섹션 */
 .nt-fold details > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem; cursor: pointer; list-style: none; }
 .nt-fold details > summary::-webkit-details-marker { display: none; }
