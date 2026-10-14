@@ -88,6 +88,12 @@ jobs:
         run: python scripts/compute_regression.py
         continue-on-error: true
 
+      # 지금 지표 → 다음 예측(오늘 한국 장·20거래일 뒤 코스피)과 채점 — 시트 '회귀분석_예측' 탭 (scripts/compute_forecast.py)
+      # 어젯밤 미국 장 값(S&P500·반도체·10년물)은 아침에 FRED에 아직 없어 야후에서 받는다 → docs/data/overnight_us.csv
+      - name: Forecast for sheet
+        run: python scripts/compute_forecast.py
+        continue-on-error: true
+
       - name: Commit and push if changed
         run: |
           git config user.name "narrative-tracker-bot"

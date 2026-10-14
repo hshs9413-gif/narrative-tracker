@@ -66,6 +66,19 @@ def window_end(now=None) -> datetime.date:
     return (now - datetime.timedelta(hours=16, minutes=30)).date() + datetime.timedelta(days=1)
 
 
+def drop_unfinished(df, rows, end):
+    """아직 끝나지 않은 장의 값은 버린다 — 조회 결과와 기존 CSV 모두에서 end(마감한 미국 장 다음 날) 이후 날짜를 뺀다.
+
+    야후 일봉은 거래소 현지 자정으로 찍혀서(코스피 10/14 봉 = 10/13 15:00 UTC) 조회 end보다 앞으로 잡히고,
+    장중에 돌면 그날 값이 종가처럼 들어온다 (2026-10-14 10:55 KST 실행에 코스피 장중 6,076이 10/14 값으로 들어감).
+    한국 장이 끝난 오후에 돌아도 그날 코스피는 다음 아침 실행에서 받는다(그때 end가 하루 넘어감).
+    """
+    df = df[[d < end for d in df.index]]
+    for d in [d for d in rows if d >= end.isoformat()]:
+        del rows[d]
+    return df
+
+
 def main() -> None:
     end = window_end()
     start = end - datetime.timedelta(days=WINDOW_DAYS)
@@ -75,7 +88,7 @@ def main() -> None:
     if not series:
         sys.exit("[ERROR] 모든 원천 조회 실패 — CSV를 건드리지 않습니다.")
 
-    df = pd.DataFrame(series).sort_index()
+    df = drop_unfinished(pd.DataFrame(series).sort_index(), rows, end)
 
     # 계단형·주간 지표는 창 이전의 마지막 값에서 이어 채운다 (backfill과 같은 ffill)
     earlier = sorted(d for d in rows if d < start.isoformat())
