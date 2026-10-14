@@ -37,6 +37,7 @@ FRESH_TABLES = {
     "회귀분석_예측": "forecast_log.csv",   # 지금 지표 → 다음 한국 장·20거래일 뒤 예측, 실제 값은 나중에 빈칸 채우기로
     "회귀분석_민감도": "regression_sensitivity.csv",
     "회귀분석_예측검증": "regression_forecast.csv",
+    "상관계수": "correlation_log.csv",   # 주마다 자산 짝별 최근 26주·2년 상관
 }
 EVENT_COLUMNS = [  # events 탭 열 순서 — 여기 없는 필드가 events.json에 생기면 뒤에 덧붙임
     "id", "name", "layer", "layer_secondary", "phase", "status", "intensity",

@@ -96,11 +96,18 @@ def backtest(points, kind):
     values = [v for _, v in points]
     inside = above = below = 0
     first = None
+    trend_hit = trend_n = ups = 0
     for i in range(WINDOW, len(values) - HORIZON):
         sig = daily_sigma(values, i, kind)
         lo, hi = band(values[i], sig, kind)
         after = values[i + HORIZON]
         first = first or points[i][0]
+        # 방향을 맞힐 근거가 있었나 — 석 달(60거래일) 추세 방향이 한 달 뒤 방향과 같았던 비율. 50% 근처면 근거 없음
+        trend, move = values[i] - values[i - WINDOW], after - values[i]
+        if trend and move:
+            trend_n += 1
+            trend_hit += int((trend > 0) == (move > 0))
+        ups += int(move > 0)
         if after > hi:
             above += 1
         elif after < lo:
@@ -110,6 +117,8 @@ def backtest(points, kind):
     days = inside + above + below
     return {"days": days, "inside": inside, "above": above, "below": below,
             "rate": round(inside / days, 3) if days else None, "from": first,
+            "trend_hit": round(trend_hit / trend_n, 3) if trend_n else None,
+            "up_share": round(ups / days, 3) if days else None,
             "to": points[len(values) - HORIZON - 1][0] if days else None}
 
 

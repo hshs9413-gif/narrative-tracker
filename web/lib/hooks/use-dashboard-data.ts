@@ -5,7 +5,7 @@ import { useStaticData } from "./use-static-data";
 import { parseAttentionCsv, parseKoreaCsv, parseMarketSnapshotCsv, parseRegimeLogCsv } from "@/lib/csv";
 import { computeMetrics } from "@/lib/narrative-metrics";
 import type {
-  AppConfig, AttentionRow, ForecastLatest, FredCatalog, KoreaRow, KoreaSeriesMeta, MarketSnapshotRow, NarrativeCandidate, NarrativeEvent, NarrativeHeadlines, NarrativeLogEntry,
+  AppConfig, AttentionRow, Correlations, ForecastLatest, FredCatalog, KoreaRow, KoreaSeriesMeta, MarketSnapshotRow, NarrativeCandidate, NarrativeEvent, NarrativeHeadlines, NarrativeLogEntry,
   Ranges, RegimeLogRow, RegimeState,
 } from "@/types/dashboard";
 
@@ -25,6 +25,7 @@ const parseKorea = (res: Response) => res.text().then(parseKoreaCsv);
 const parseKoreaMeta = (res: Response) => json<KoreaSeriesMeta>(res);
 const parseRanges = (res: Response) => json<Ranges>(res);
 const parseForecast = (res: Response) => json<ForecastLatest>(res);
+const parseCorrelations = (res: Response) => json<Correlations>(res);
 
 export const useRegimeState = () => useStaticData<RegimeState>("data/regime_state.json", parseRegime);
 export const useNarrativeEvents = () => useStaticData<NarrativeEvent[]>("data/events.json", parseEvents);
@@ -48,6 +49,8 @@ export const useNarrativeHeadlines = () => useStaticData<NarrativeHeadlines>("da
 export const useRanges = () => useStaticData<Ranges>("data/ranges.json", parseRanges);
 // 다음 한국 장 예측 (compute_forecast.py) — 첫 아침 실행 전에는 파일이 없다
 export const useForecast = () => useStaticData<ForecastLatest>("data/forecast_latest.json", parseForecast);
+// 자산 사이 상관 (compute_correlation.py)
+export const useCorrelations = () => useStaticData<Correlations>("data/correlations.json", parseCorrelations);
 
 // 시장·언급량 파일이 없어도 이벤트만 있으면 계산한다 (해당 칸만 '측정중') — 기존 대시보드와 동일.
 export function useNarrativeMetrics() {

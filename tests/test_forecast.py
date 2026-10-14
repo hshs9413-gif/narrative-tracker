@@ -108,3 +108,26 @@ class LatestSummaryTest(unittest.TestCase):
         self.assertEqual((k["name"], k["base"], k["pred"], k["target"]), ("코스피", "2026-10-14", 0.4, "2026-10-15"))
         self.assertEqual(k["live"], {"n": 1, "in_range": 1, "dir_tried": 1, "dir_hits": 1})
         self.assertFalse(k["scored"])
+
+
+class CompeteTest(unittest.TestCase):
+    def _df(self, f, n=None):
+        n = n or cf.TRAIN + 120
+        rng = np.random.default_rng(5)
+        x = rng.normal(size=n)
+        return pd.DataFrame({"x": x, "dy": f(x) + rng.normal(scale=0.1, size=n)})
+
+    def makers(self):
+        from sklearn.linear_model import LinearRegression
+        from sklearn.tree import DecisionTreeRegressor
+        return {"선형회귀": LinearRegression, "트리": lambda: DecisionTreeRegressor(min_samples_leaf=5, random_state=0)}
+
+    def test_keeps_incumbent_when_linear_is_right(self):
+        chosen, board, _ = cf.compete(self._df(lambda x: 2 * x), ["x"], self.makers())
+        self.assertEqual(chosen, "선형회귀")
+        self.assertGreater(board["선형회귀"]["oos"], 0.9)
+
+    def test_switches_when_challenger_clearly_better(self):
+        chosen, board, _ = cf.compete(self._df(lambda x: x ** 2), ["x"], self.makers())
+        self.assertEqual(chosen, "트리")
+        self.assertGreater(board["트리"]["oos"] - board["선형회귀"]["oos"], cf.MARGIN)
