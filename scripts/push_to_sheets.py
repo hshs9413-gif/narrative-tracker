@@ -27,6 +27,9 @@ TABLES = {  # 시트 탭 이름: 파일 (탭별 중복 판단 키는 Apps Script
     "attention": "attention.csv",
     "regime_log": "regime_log.csv",
     "watchlist_attention": "watchlist_attention.csv",
+    # 한 달 뒤 범위 기록 — 첫 열(key = '기준일 지표')이 날짜로 시작해 확정 대기·중복 판단(앞 1열)이 그대로 맞는다.
+    # 20거래일 뒤 실제 값·적중(after·inside)은 나중에 CSV에 채워지고, 시트 쪽 빈칸 채우기(fillBlanks)로 따라온다.
+    "range_log": "range_log.csv",
 }
 EVENT_COLUMNS = [  # events 탭 열 순서 — 여기 없는 필드가 events.json에 생기면 뒤에 덧붙임
     "id", "name", "layer", "layer_secondary", "phase", "status", "intensity",

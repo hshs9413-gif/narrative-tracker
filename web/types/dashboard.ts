@@ -409,3 +409,41 @@ export interface CompanyFinancials {
   /** 기업기본정보 조회가 실패했을 때 사유 (재무는 그대로 보여줌) */
   profile_error?: string;
 }
+
+// ────────────────────── ranges.json ──────────────────────
+// compute_ranges.py가 매일 내는 '20거래일 뒤 90% 범위' — 방향 예측이 아니라 최근 60거래일 변동 폭이 이어진다고 본 범위.
+export interface RangeBacktest {
+  /** 되짚어 본 날 수 (겹치는 한 달 구간이라 독립 표본은 이것의 1/20쯤) */
+  days: number;
+  inside: number;
+  above: number;
+  below: number;
+  rate: number | null;
+  from: string | null;
+  to: string | null;
+}
+
+export interface RangeItem {
+  id: string;
+  label: string;
+  /** log: 가격(비율로 움직임) · bp: 금리 */
+  kind: "log" | "bp";
+  base_date: string;
+  base: number;
+  lo: number;
+  hi: number;
+  /** 20영업일 뒤(주말만 뺀 어림) */
+  due: string;
+  /** 하루 변동 폭 — log는 로그수익률, bp는 bp */
+  sigma: number;
+  backtest: RangeBacktest;
+  /** 미리 낸 범위의 실제 성적 — range_log.csv */
+  live: { n: number; inside: number; next_due: string | null };
+}
+
+export interface Ranges {
+  horizon: number;
+  window: number;
+  level: number;
+  items: RangeItem[];
+}
