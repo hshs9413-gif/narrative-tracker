@@ -447,3 +447,27 @@ export interface Ranges {
   level: number;
   items: RangeItem[];
 }
+
+// ────────────────────── forecast_latest.json ──────────────────────
+// compute_forecast.py — 어젯밤 미국 장으로 낸 '다음 한국 장' 예측(대상마다 가장 최근)과 지금까지의 채점.
+export interface NextSessionForecast {
+  name: string;
+  /** 예측에 쓴 미국 장 날짜 */
+  base: string;
+  /** 맞힐 한국 거래일(주말만 뺀 어림) */
+  target: string;
+  pred: number | null;
+  lo: number | null;
+  hi: number | null;
+  unit: string;
+  inputs: string;
+  oos: number | null;
+  dir_rate: number | null;
+  scored: boolean;
+  actual: number | null;
+  live: { n: number; in_range: number; dir_tried: number; dir_hits: number };
+}
+
+export interface ForecastLatest {
+  next: NextSessionForecast[];
+}
