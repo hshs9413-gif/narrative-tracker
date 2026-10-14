@@ -34,6 +34,7 @@ TABLES = {  # 시트 탭 이름: 파일 (탭별 중복 판단 키는 Apps Script
 # 확정 대기 없이 바로 보내는 탭 — 그날 계산한 결과 기록(compute_regression.py)이라 값이 나중에 채워지지 않는다.
 # 첫 열 key가 '기준일 …'이라 같은 줄은 시트가 다시 쓰지 않고, 새 기준일 줄만 아래에 쌓인다(맨 아래가 최신).
 FRESH_TABLES = {
+    "회귀분석_예측": "forecast_log.csv",   # 지금 지표 → 다음 한국 장·20거래일 뒤 예측, 실제 값은 나중에 빈칸 채우기로
     "회귀분석_민감도": "regression_sensitivity.csv",
     "회귀분석_예측검증": "regression_forecast.csv",
 }
