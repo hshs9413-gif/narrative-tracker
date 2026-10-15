@@ -1,5 +1,37 @@
 [
   {
+    "key": "국산비만약시장경쟁",
+    "name": "국산 비만약 시장 경쟁",
+    "first_seen": "2026-10-15",
+    "days_seen": 1,
+    "last_seen": "2026-10-15",
+    "why": "국산 비만약 출시가 가시화되며 제약·바이오 섹터의 새로운 모멘텀으로 작용할 가능성.",
+    "evidence": [
+      {
+        "title": "국산 비만약 '에페' 첫 달 13만원 전망…마운자로 반값",
+        "source": "연합뉴스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBIYmtqdEJRQmRJZTV3emxKZGpjdEZsLXFyeEtkTW5XRnFOVU5rZlduVFRLVXQzclRuTmJraHpKaWZ0X3FyaXItdnNVS3VpaUZwZERwb2xnMk81NTDSAWBBVV95cUxQLWRFdmZLX0x6X2EwMnN3U09KYU5KVDBxZzJJUGhRT3dSX2FDeUFvb3ZZODdLN1FWbzl6RzRFeDE1YWFLOTdyQ2xvOF9fbG1SWi0yZDV2QkFBdzNuTXpnSUQ?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "sk그룹웨스팅하우스지분인수",
+    "name": "SK그룹 웨스팅하우스 지분 인수",
+    "first_seen": "2026-10-15",
+    "days_seen": 1,
+    "last_seen": "2026-10-15",
+    "why": "원전 생태계 강화 및 에너지 관련 기업들의 전략적 행보가 시장의 주목을 받음.",
+    "evidence": [
+      {
+        "title": "미 웨스팅하우스 지분 인수에 SK 등 10여개 기업 참여 검토",
+        "source": "한겨레",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBFOUtCVHNGTGhLdnZKRkxVbTk2LUxURnEwTERkSG9jZ011RzJBWjFjbzd0cGt3cDZsSGNGdzJjckhjWnQ1NnVNWlJTeW0yZU1MS0w5YlRsanFWWFRsUy04YVQ0WmJoN3drTmc?oc=5"
+      }
+    ]
+  },
+  {
     "key": "금융권ai해킹및보안리스크",
     "name": "금융권 AI 해킹 및 보안 리스크",
     "first_seen": "2026-10-14",
@@ -24,28 +56,6 @@
         "source": "Fox News",
         "date": "2026-10-13",
         "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZXVyc25Na3BNSjJ2T3BQQ2VfcGFCS2Fsd042Rnh0MldobUJGVm10SktyUEktaGh0V21QdURYRDhWYVV2elpSZ2Y4VktHdTJFYUV5dEI4OG9MLWlrN0V2WVp4SGJsNUQ2OHJwSEtCUXBlTXlXZ3ZQN01QV185SXA1Um9vUUpGTEp1MjZkaHBBSVNmay14TEtuU05oVjN6UFBxWUp0cmxaNkd0djZrQ1NfcNIBtgFBVV95cUxPamJnNXh3WFpfTV9UVEh4LXlkZ2tlUHhjSzdNYnlacXR6YlhBV0xvNFRNZi03d3ZfMDAxQjVOamtSdEdHalFDdFFJLVN2T05WRkpyWHdvZGFhempUREN4QUx0RjVaMkpFZjhFUGd1RzFwODVaZW1MY1pIRE1ZOWc2UUR2MUl2cUZCRFZSMlVLeTFFNGh5eU8yRXAyUWVSU0FTMHJzbURZMkhSTHl3ZXN2VmtCUHRaZw?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "금융권ai해킹사고",
-    "name": "금융권 AI 해킹 사고",
-    "first_seen": "2026-10-11",
-    "days_seen": 3,
-    "last_seen": "2026-10-13",
-    "why": "금융사 보안 미비 및 해킹 사례가 보고되며 사이버 보안 리스크가 부각되고 있습니다.",
-    "evidence": [
-      {
-        "title": "[단독]망분리 완화 금융사 10곳, 보안계획만 세우고 이행 안해···내부망 해킹 노출될 뻔",
-        "source": "경향신문",
-        "date": "2026-10-12",
-        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5IT2RzRnhNZmloc0luUTFHMi1iTnpuZWdra0NXdlFOdFBReEpLUFJtdkdOMV9reGJnaDZmTmJNVEdrbjZvbjczVndMZWhfajR5N201NF80bVZsUdIBX0FVX3lxTE1OclA5Q2EwWDN3b3paSUYwck9BRE5HM0doUE9ZWFladzduUlNuQVRNSExWWVgwR3dxbjVsR2tfZ1pKTEdUcEs5T1RTUTBKNHJ6X1gtTk54dTkzalI1SkZF?oc=5"
-      },
-      {
-        "title": "Hackers heat French supermarket fridges, sparking fires and spoiling food",
-        "source": "CNN",
-        "date": "2026-10-12",
-        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPT0VxclQ3YkdFbHZiM1Q3czZ2b3BhQzFSOW8xZkw2dGZiSmF1UDhid1ZUVmlMZ0R4cTk0LVJPVlJFUlFaSFdjQ0dKc3lkZWc4Y0w5bTJ0NmNNQ1dhVW9lZThqMFh6czFpWFFjWHdRWlRsVVZ5ZUEyaTVxOUVBVHY5RndsQjZPVTJ6?oc=5"
       }
     ]
   }

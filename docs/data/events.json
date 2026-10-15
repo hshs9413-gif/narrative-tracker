@@ -1,5 +1,44 @@
 [
   {
+    "id": "financial-ai-security-2026",
+    "name": "금융권 AI 해킹 및 보안 리스크",
+    "layer": "structural",
+    "layer_secondary": null,
+    "phase": "shock",
+    "status": "active",
+    "intensity": "mid",
+    "trigger_date": "2026-10-14",
+    "peak_date": null,
+    "half_life_date": null,
+    "assets": [
+      "equity",
+      "credit"
+    ],
+    "keywords": [
+      "금융권 해킹",
+      "AI 보안",
+      "개인정보 유출"
+    ],
+    "reignition_triggers": [],
+    "notes": "",
+    "last_auto": null,
+    "added_by": "gemini",
+    "added_on": "2026-10-15",
+    "candidate_since": "2026-10-11",
+    "headline": {
+      "title": "[단독] 새마을금고, 해킹 이틀 지나도록 몰랐다‥이미 차단한 IP에 정보 유출",
+      "source": "MBC 뉴스",
+      "date": "2026-10-14",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5rRHhITTlHR1c5MXZyTXBxOGVxSkxBUXNqbjBSVWNrY19nT1FWTEJEaUFVLTYwS1Q3VHhlZG0wM0M4V2ltM2t1elNnekNaY3hWcVlaeWJBYnBaMy1tMERlOF84NXFrMU9MQUViRm5NR0tMQ0Z40gF0QVVfeXFMT2ZqVXNISzU1NGY3c0NHZjBJTU9VQkdTQUFudGkzNUtzZ2h4TlN0eXBaMm9lQzZzd3QtMVBnZFR5UjhVWVZaQ2wwSGdZSlBWVlRLWFlXWE4wdW1kWnNXdXVJSmdGeGlody1aWlhoMF96UjlBOXE?oc=5"
+    },
+    "last_review": {
+      "date": "2026-10-15",
+      "by": "gemini",
+      "verdict": "추가",
+      "reason": "금융사들의 AI 도입 과정에서 보안 사고가 잇따르며 사이버 보안 리스크가 시장의 새로운 불안 요소로 부각됨."
+    }
+  },
+  {
     "id": "korea-growth-slowdown-2026",
     "name": "한국 경제 저성장 및 구조적 리스크",
     "layer": "structural",
@@ -64,16 +103,16 @@
     "added_on": "2026-10-13",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "러시아 ’페스트’ 의혹에 질병청 “유입 가능성 매우 낮아“",
-      "source": "연합뉴스TV",
-      "date": "2026-10-12",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE45b1NSRlRFZlljOU0wOTVWZ0EtRXJyMzNoUTB1Zl9jOXFUSXB5anJYVVJmYWkyYnBQci1jc3QtaWlfTWRRV3lLRnZUdTM2V29EMUVTLVh5bGFTd2s4b21XOG5NNlRQUWs?oc=5"
+      "title": "러시아 페스트연구소 직원 사망 이후 공포 확산에…질병청 “국내 유입 위험성 낮아\"",
+      "source": "JTBC뉴스",
+      "date": "2026-10-13",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9FSlFmU2YxZXhFS25hZlJ2R3dHemgtQk1WMVZydXZjQWxGQnZuaVpXWU9PSDc3NFZoekN1eUJtY21takczU2NNemtJSGR3Ym8zb0hzWg?oc=5"
     },
     "last_review": {
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "러시아 페스트 의혹이 지속되고 있으나 질병청의 국내 유입 가능성 낮다는 발표로 시장 영향은 제한적임."
+      "reason": "러시아 페스트 의혹이 지속적으로 보도되나 질병청은 국내 유입 가능성을 낮게 평가함."
     }
   },
   {
@@ -95,7 +134,7 @@
     "keywords": [
       "국채금리 급등",
       "미 국채 금리",
-      "채권 매도"
+      "재정적자"
     ],
     "reignition_triggers": [
       "국채 입찰 부진",
@@ -106,16 +145,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미 국채 금리 급등이 글로벌 증시 하락의 주요 원인으로 지목되며 시장 변동성을 지속적으로 자극하고 있음."
+      "reason": "미국 국채금리 급등의 원인이 성장보다는 재정적자 우려로 지목되며 시장 불안 지속."
     },
     "headline": {
-      "title": "중앙은행 '금리 딜레마'…고유가에 인상 압박·국채금리 급등에 부담",
-      "source": "뉴스1",
-      "date": "2026-10-12",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1GQmRyVzEyQ25DVWwwTzVGeWV1Y1ZxRzJHSFk2enMzZUlDS0dUVFpvUEhCUWNSQktoNlV4b3dNMkl4NlUxZWNSSmszWHRjOVdLWDBpM0ZuajYxNFJBSzFySlJIdzVtQkk?oc=5"
+      "title": "NYT \"성장 때문 아니다\"…美국채금리 급등 이끈 '재정적자 경고'",
+      "source": "연합인포맥스",
+      "date": "2026-10-14",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5HYVFLUzVkZmlkZExvX3RLZVp1U1dpczBVakhEdmx6c2hJZGJsWEVVR0c3eEtYcXlxenVhQ1dGQVJFc1QzbEx0ZWtkZXlIQ1pMaWVYU29Bckt6NVZkZjlldmxMdm4tOThCRW1JZ29pNWzSAXRBVV95cUxONi1EdWh5YVJkR0pSWXZMWDdTRGtDSlYyU0xNUzZSU3JUYUN1NWhtM2tKOWRCd3ZkUG9ZVXFybWhTQzVYZlp1bXlqRVVRTTl4ODhGNnZ3QVNPUmUyUzFKanU1dUZENnFvUXc5d0ZseTRwQ2FwTA?oc=5"
     }
   },
   {
@@ -177,8 +216,8 @@
     ],
     "keywords": [
       "일본은행 금리인상",
-      "일본 국채금리",
-      "엔화 강세"
+      "엔화 강세",
+      "일본 국채"
     ],
     "reignition_triggers": [
       "BOJ 추가 인상",
@@ -189,16 +228,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "엔화 강세와 일본 물가 지표 둔화가 맞물리며 BOJ 정책 정상화 경로에 대한 시장의 관망세가 이어짐."
+      "reason": "일본 금융기관들이 해외 채권을 매도하고 자국 국채를 매입하는 흐름이 확인됨."
     },
     "headline": {
-      "title": "엔화 강세·유가 하락으로 일본 9월 PPI 예상 밖 둔화",
-      "source": "Investing.com 한국어",
-      "date": "2026-10-13",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1CZ3RpMEJmMC1GNDdrZlVTdXBsOEtWZEdadm9vUThtaXB0bk44a3hxZlVVbjZSQlYwRHJsWXplN19uSktUV1RaUnc3TDFDQllrZ0NuNWxCUElvRmV5M2hhcVgxVVRBVWNHLXVHaTZrd0oxYlE?oc=5"
+      "title": "일본 은행·보험, 해외채권 팔고 일본 국채 사들여",
+      "source": "연합뉴스",
+      "date": "2026-10-14",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11TEVTaTkzQmFBNTIyc3B0SHNSY1V6Tmx3WlFrVUhCNWZIdFFlQ1N6VW9DdU1lV1lmU1lMb3FOb3lOaUszdkp4ZUk1cDluOTFDV2d3RU0wMDJzWkNqcWRhWtIBYEFVX3lxTE11TEVTaTkzQmFBNTIyc3B0SHNSY1V6Tmx3WlFrVUhCNWZIdFFlQ1N6VW9DdU1lV1lmU1lMb3FOb3lOaUszdkp4ZUk1cDluOTFDV2d3RU0wMDJzWkNqcWRhWg?oc=5"
     }
   },
   {
@@ -252,7 +291,7 @@
     "trigger_date": "2026-06-01",
     "peak_date": null,
     "half_life_date": "2026-10-11",
-    "status": "dormant",
+    "status": "ended",
     "intensity": "low",
     "assets": [
       "dollar",
@@ -271,18 +310,18 @@
     ],
     "notes": "7/29 FOMC 동결(9:3), 3인 동일방향 반대(2016년 이후 최초). 경기순환+정치제도 층 중첩 국면.\n[10-11 검증] 워시 의장 5/15 취임. 9/16 FOMC 만장일치 25bp 인상(3.75~4.00%) — 연준이 독립성을 보여 충격 국면은 지남. 트럼프는 '정치적 이사회'를 비판, 리사 쿡 해임은 대법원이 6/29 보류.",
     "last_review": {
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "by": "gemini",
-      "verdict": "유지",
-      "reason": "연준의 독립성 논란은 잠잠해졌으나, 향후 금리 결정 과정에서 정치적 압박 가능성은 여전히 잠재적 변수로 남아있음."
+      "verdict": "종료",
+      "reason": "연준의 만장일치 금리 인상 결정으로 독립성 우려가 해소되었으며 잠잠한 상태가 지속됨."
     },
     "headline": {
-      "title": "[뉴욕증시-주간전망] 실적 시즌 본격화…워시 발언·美 인플레 지표 '주목'",
-      "source": "연합뉴스",
-      "date": "2026-10-10",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1rNlJfalM5ZVZ1TFB1WGMweTBiNnRfcV9mRC02aFZLcEZVR1ZkQm0wOVpMVTh5UWl3bjliSS1oRlFJUVRSTlByRnVuTkhhelZqWng4RnJqQWJTVFnSAWBBVV95cUxQU2tJZW9lSlpJQUl5dUkxU0traEE2M0FETW1Dd0k1M2owXzJfUWgwMHoyYTJibEtkS2dCTUVIZmJRYVZCWkc4WWY3SW96a3o1aDZzbFFEQlNoRTBFZVN6aUc?oc=5"
+      "title": "[조홍균의 금융경제 읽기] 올해 노벨경제학상과 케빈 워시의 말을 줄이는 통화정책",
+      "source": "KPI뉴스",
+      "date": "2026-10-14",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5XVUZjREJSOG5RakY2RE1rRDZDRWJod0w1Ykd6d2FYZDcxbFdwSDJWcHNOVTBUcUxGQUFkSnhfQnBiU1RiTU5iNm9aZ1d3VENYLV9VWDlGYw?oc=5"
     },
-    "dormant_since": "2026-10-11"
+    "ended_on": "2026-10-15"
   },
   {
     "id": "iran-war-2026",
@@ -301,9 +340,8 @@
     ],
     "keywords": [
       "호르무즈 봉쇄",
-      "정유시설 타격",
-      "확전",
-      "휴전 협상"
+      "중동 확전",
+      "유가"
     ],
     "reignition_triggers": [
       "호르무즈 재봉쇄",
@@ -316,10 +354,10 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "호르무즈 해협 긴장 고조와 후티 반군의 공격으로 유가 변동성이 확대되며 지정학적 리스크가 시장을 압박함."
+      "reason": "후티 반군의 공격과 미군의 개입 딜레마가 이어지며 지정학적 리스크가 고조됨."
     },
     "headline": {
       "title": "후티, 사우디 공항 공격 ‘12명 사망’…미국, 확전 우려 속 개입 딜레마",
@@ -345,8 +383,7 @@
     ],
     "keywords": [
       "AI 버블",
-      "AI 거품",
-      "하이퍼스케일러 투자"
+      "공급망 차질"
     ],
     "reignition_triggers": [
       "대형 실적 서프라이즈/쇼크",
@@ -354,16 +391,16 @@
     ],
     "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대.\n[10-11 검증] 빅테크 4사 2026 설비투자 전망 약 7,250억 달러, 엔비디아 10월 첫 주 사상 최고가 후 조정, 버블 경고 확산. 7/28 코스피 반도체 레버리지 붕괴(-10.84%). 키워드는 언급량이 66일 중 57일 100건 포화라 더 좁힘.",
     "last_review": {
-      "date": "2026-10-13",
+      "date": "2026-10-15",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "AI 거품론이 월가와 학계에서 지속적으로 제기되며 투자 심리에 영향을 미치고 있습니다."
+      "reason": "AI 거품론과 공급망 차질 우려가 지속적으로 제기되며 시장 변동성을 자극함."
     },
     "headline": {
-      "title": "[이슈 포커스] 'AI 거품 터질 것' 우려하면서도 투자…초부유층도 놓치기 두려운 AI 열풍",
-      "source": "헬로티",
-      "date": "2026-10-13",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFByZy15YzZxZUs1dndpekhvY0cyTGxTRFNpbk9acmtha1FYUWJxams1WXlQeXl3aEh4NHFpQmE0N2stbE0wNGl0OGxNdUtPaFBoSmZta2thRkFYVnR2Y1BF?oc=5"
+      "title": "\"메모리 등 공급망 차질이 AI 거품 붕괴 촉발할 수 있다\"",
+      "source": "연합인포맥스",
+      "date": "2026-10-14",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE13ekNNallRNXlzVk9jdUJHaHBGRUNJUDlWRnBsM3ZUX0xlOV8xMGVPSHhRRnlEcUVHaDVucmRNMExQT05VUmJVZ0RZUFB0dDFuNU1MNGFQWHJOSkh5Z3ljeHZIY0E3ZU94Q21XQWJzNnQ?oc=5"
     }
   },
   {

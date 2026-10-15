@@ -943,5 +943,278 @@
     ],
     "at": "2026-10-14T07:16+09:00",
     "trigger": "workflow_dispatch"
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "korea-growth-slowdown-2026",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "IMF가 한국 경제성장률 전망치를 3.3%로 상향 조정하며 저성장 우려가 완화됨.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "global-bond-selloff-2026",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "미국 국채금리 급등의 원인이 성장보다는 재정적자 우려로 지목되며 시장 불안 지속.",
+    "status": "applied",
+    "changes": {
+      "keywords": [
+        [
+          "국채금리 급등",
+          "미 국채 금리",
+          "채권 매도"
+        ],
+        [
+          "국채금리 급등",
+          "미 국채 금리",
+          "재정적자"
+        ]
+      ]
+    },
+    "evidence": [
+      {
+        "title": "NYT \"성장 때문 아니다\"…美국채금리 급등 이끈 '재정적자 경고'",
+        "source": "연합인포맥스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5HYVFLUzVkZmlkZExvX3RLZVp1U1dpczBVakhEdmx6c2hJZGJsWEVVR0c3eEtYcXlxenVhQ1dGQVJFc1QzbEx0ZWtkZXlIQ1pMaWVYU29Bckt6NVZkZjlldmxMdm4tOThCRW1JZ29pNWzSAXRBVV95cUxONi1EdWh5YVJkR0pSWXZMWDdTRGtDSlYyU0xNUzZSU3JUYUN1NWhtM2tKOWRCd3ZkUG9ZVXFybWhTQzVYZlp1bXlqRVVRTTl4ODhGNnZ3QVNPUmUyUzFKanU1dUZENnFvUXc5d0ZseTRwQ2FwTA?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "kospi-semis-leverage-2026",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "코스피 변동성 속에서도 '빚투' 규모가 34조 원을 돌파하며 레버리지 리스크가 여전함.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "boj-normalization-2026",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "일본 금융기관들이 해외 채권을 매도하고 자국 국채를 매입하는 흐름이 확인됨.",
+    "status": "applied",
+    "changes": {
+      "keywords": [
+        [
+          "일본은행 금리인상",
+          "일본 국채금리",
+          "엔화 강세"
+        ],
+        [
+          "일본은행 금리인상",
+          "엔화 강세",
+          "일본 국채"
+        ]
+      ]
+    },
+    "evidence": [
+      {
+        "title": "일본 은행·보험, 해외채권 팔고 일본 국채 사들여",
+        "source": "연합뉴스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11TEVTaTkzQmFBNTIyc3B0SHNSY1V6Tmx3WlFrVUhCNWZIdFFlQ1N6VW9DdU1lV1lmU1lMb3FOb3lOaUszdkp4ZUk1cDluOTFDV2d3RU0wMDJzWkNqcWRhWtIBYEFVX3lxTE11TEVTaTkzQmFBNTIyc3B0SHNSY1V6Tmx3WlFrVUhCNWZIdFFlQ1N6VW9DdU1lV1lmU1lMb3FOb3lOaUszdkp4ZUk1cDluOTFDV2d3RU0wMDJzWkNqcWRhWg?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "us-labor-cooling-2026",
+    "kind": "update",
+    "verdict": "merge",
+    "reason": "고용 둔화 내러티브가 인플레이션 재점화 이슈와 결합되어 통합 관리함.",
+    "status": "rejected",
+    "reject_reason": "merge_into가 진행 중인 다른 내러티브가 아님"
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "fed-politicization-2026",
+    "kind": "update",
+    "verdict": "end",
+    "reason": "연준의 만장일치 금리 인상 결정으로 독립성 우려가 해소되었으며 잠잠한 상태가 지속됨.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "dormant",
+        "ended"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "[조홍균의 금융경제 읽기] 올해 노벨경제학상과 케빈 워시의 말을 줄이는 통화정책",
+        "source": "KPI뉴스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5XVUZjREJSOG5RakY2RE1rRDZDRWJod0w1Ykd6d2FYZDcxbFdwSDJWcHNOVTBUcUxGQUFkSnhfQnBiU1RiTU5iNm9aZ1d3VENYLV9VWDlGYw?oc=5"
+      },
+      {
+        "title": "'매파 본성' 드러낸 美 연준…9월 금리인상 만장일치에 연내 추가 인상에도 무게",
+        "source": "더구루",
+        "date": "2026-10-08",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFB4NEd5ejF2dng4a0VfcVVHQ1k2ZjA1WERGVmo4QnpKUlVkUUVpdWJEQlM5RlFCSWFqMjZDS1dKMVNENWpBWnlmLWExT3BhbnNyNVdJNlc4MGViSENaMnc?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "iran-war-2026",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "후티 반군의 공격과 미군의 개입 딜레마가 이어지며 지정학적 리스크가 고조됨.",
+    "status": "applied",
+    "changes": {
+      "keywords": [
+        [
+          "호르무즈 봉쇄",
+          "정유시설 타격",
+          "확전",
+          "휴전 협상"
+        ],
+        [
+          "호르무즈 봉쇄",
+          "중동 확전",
+          "유가"
+        ]
+      ]
+    },
+    "evidence": [
+      {
+        "title": "후티, 사우디 공항 공격 ‘12명 사망’…미국, 확전 우려 속 개입 딜레마",
+        "source": "한겨레",
+        "date": "2026-10-12",
+        "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNajh6Xy1YdVJQS2FILVVEZUpfWkpTeTFqZkxlTjlTZWhJaFJzTmszTjFmOUh5c282c0hPTFZkTC1XOFY4eWFzN0tvUmJITExqX21mOUxoRDRkSFpDSkRsMDZWQmZNeHdFWWxIYXNQMjF3cjJjbzBhOXVJcTdEZVlGOHlB?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "AI 거품론과 공급망 차질 우려가 지속적으로 제기되며 시장 변동성을 자극함.",
+    "status": "applied",
+    "changes": {
+      "keywords": [
+        [
+          "AI 버블",
+          "AI 거품",
+          "하이퍼스케일러 투자"
+        ],
+        [
+          "AI 버블",
+          "공급망 차질"
+        ]
+      ]
+    },
+    "evidence": [
+      {
+        "title": "\"메모리 등 공급망 차질이 AI 거품 붕괴 촉발할 수 있다\"",
+        "source": "연합인포맥스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE13ekNNallRNXlzVk9jdUJHaHBGRUNJUDlWRnBsM3ZUX0xlOV8xMGVPSHhRRnlEcUVHaDVucmRNMExQT05VUmJVZ0RZUFB0dDFuNU1MNGFQWHJOSkh5Z3ljeHZIY0E3ZU94Q21XQWJzNnQ?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "tariff-shock-2025",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "트럼프 관세 정책이 미국 소비재 물가 상승 압력으로 작용하며 장기적인 부담이 됨.",
+    "status": "rejected",
+    "reject_reason": "한 번에 4개까지만"
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "financial-ai-security-2026",
+    "kind": "new",
+    "name": "금융권 AI 해킹 및 보안 리스크",
+    "reason": "금융사들의 AI 도입 과정에서 보안 사고가 잇따르며 사이버 보안 리스크가 시장의 새로운 불안 요소로 부각됨.",
+    "status": "applied",
+    "evidence": [
+      {
+        "title": "[단독] 새마을금고, 해킹 이틀 지나도록 몰랐다‥이미 차단한 IP에 정보 유출",
+        "source": "MBC 뉴스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5rRHhITTlHR1c5MXZyTXBxOGVxSkxBUXNqbjBSVWNrY19nT1FWTEJEaUFVLTYwS1Q3VHhlZG0wM0M4V2ltM2t1elNnekNaY3hWcVlaeWJBYnBaMy1tMERlOF84NXFrMU9MQUViRm5NR0tMQ0Z40gF0QVVfeXFMT2ZqVXNISzU1NGY3c0NHZjBJTU9VQkdTQUFudGkzNUtzZ2h4TlN0eXBaMm9lQzZzd3QtMVBnZFR5UjhVWVZaQ2wwSGdZSlBWVlRLWFlXWE4wdW1kWnNXdXVJSmdGeGlody1aWlhoMF96UjlBOXE?oc=5"
+      },
+      {
+        "title": "'AI 해킹'에 털린 금융권…16개사 뚫리고 개인정보 10만 건 유출",
+        "source": "KBC광주방송",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE8xWVlidzdDbDBudzJZODBGU0FhMC1mTFc4Y19HTXZ6VUF6aFFwZFdhOGZUajBxTm5ENVpyWDU3cWh3WUphMjhmcEVfN1U0SmdRTVk5N2dKT2M0Y0FTRlZiWg?oc=5"
+      },
+      {
+        "title": "Bank of America hired 1,000 contractors to patch software flaws exposed by Anthropic's Mythos",
+        "source": "CNBC",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOY1M4VExNMjhEYS1uQmpkLVNTV2wxaFppMXFXZ3FDYXZEZFM4MkpoOGx4OE0tUnZCMmE2d1hqbnhaVkxNVmFlZ0hYQlJjX1BQclBJS2VPN09oVm8xZU94R1d2ejdKLXY5a2FKRTg2aVA0WGx6YnZrNlFFV2dVWW45c19JT3laRVZv0gGOAUFVX3lxTFB6UmVsXzhCWFpMbHotRVBDY3p5WmltQjMwZ2hYc2dRaFR1SHBqTmM2WFhzSHVwVGgxT1U5X1Z0bnprVXFfYkZQWXBOMmI5VTJGbGZoUjBmblFiSW4ySl9OT0tjUUJIRXJyZnBNWF81cXpkNjJwbVZHdkJCeFM5Tlp4WWdNVDYtMlZDRkx2T2c?oc=5"
+      },
+      {
+        "title": "Fridge hack costing millions and sparking fires stemmed from poor security",
+        "source": "Ars Technica",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQdS1yR0p4RmdhTFJFeGtpa1FLMU1sUU8xczdWUmNWT254bG95M1JMU2tFMnJyVlFleFBsTS1tNzhoaS1pMlBtUnZGRzNxSGFNUXZkUldvdk9ISTBvNU54YmpmWDhLWHFnNTVVSXBkZkJ1OTNpWjJ2SnFUZlRzaTJTTjhIQk11dXdpU21OcmFlQklqYnVTb2JCNFpjVmdjakNfeU9tSElFRGFJQkJYRTBPaXBmVmMxS1U?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "watch:inflation",
+    "kind": "new",
+    "name": "미국 인플레이션 재점화",
+    "reason": "9월 소비자물가지수(CPI)가 예상치를 상회하며 인플레이션 압력이 다시 시장의 핵심 변수로 부상함.",
+    "status": "rejected",
+    "reject_reason": "id 형식(영문 소문자·숫자·하이픈) 아님"
+  },
+  {
+    "date": "2026-10-15",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미국 인플레이션 재점화와 금융권 AI 보안 리스크가 시장의 새로운 충격으로 부상했습니다. IMF의 한국 성장률 전망 상향으로 저성장 우려는 다소 진정되었으나, 고금리 기조와 지정학적 리스크는 여전히 시장을 압박하고 있습니다.",
+    "reviews": {
+      "financial-ai-security-2026": "추가",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "fed-politicization-2026": "종료",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "SK그룹 웨스팅하우스 지분 인수",
+      "금융권 AI 해킹 및 보안 리스크"
+    ],
+    "at": "2026-10-15T09:10+09:00",
+    "trigger": "schedule"
   }
 ]
