@@ -1,5 +1,45 @@
 [
   {
+    "id": "us-inflation-shock-2026",
+    "name": "미국 CPI·PPI 물가 재발작 충격",
+    "layer": "cyclical",
+    "layer_secondary": null,
+    "phase": "shock",
+    "status": "active",
+    "intensity": "high",
+    "trigger_date": "2026-10-14",
+    "peak_date": null,
+    "half_life_date": null,
+    "assets": [
+      "dollar",
+      "us10y",
+      "equity",
+      "gold"
+    ],
+    "keywords": [
+      "미국 CPI",
+      "생산자물가지수",
+      "인플레이션 쇼크"
+    ],
+    "reignition_triggers": [],
+    "notes": "",
+    "last_auto": null,
+    "added_by": "gemini",
+    "added_on": "2026-10-16",
+    "headline": {
+      "title": "미, 생산자물가도 폭등...트럼프 중간선거 '최대 악재'",
+      "source": "YTN",
+      "date": "2026-10-15",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9lZ0xvRDA0Z20wQng4bHczeFhGU1ZXUnI3VDZuY0dSWk4ydU04aW5CdzJiek10MVZaemo4Q2hsbXp4c3F4Nk84VUZkSVd5bVZzY2pGclVLVDdjMjM0bkE?oc=5"
+    },
+    "last_review": {
+      "date": "2026-10-16",
+      "by": "gemini",
+      "verdict": "추가",
+      "reason": "미국 9월 소비자물가와 생산자물가가 상방 깜짝 상승을 기록하며 글로벌 증시 급락과 금리 변동성을 유발했다."
+    }
+  },
+  {
     "id": "financial-ai-security-2026",
     "name": "금융권 AI 해킹 및 보안 리스크",
     "layer": "structural",
@@ -26,16 +66,16 @@
     "added_on": "2026-10-15",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "[단독] 새마을금고, 해킹 이틀 지나도록 몰랐다‥이미 차단한 IP에 정보 유출",
-      "source": "MBC 뉴스",
+      "title": "금융 당국 “금융사 16곳 해킹 피해… 약 10만 건 개인정보 유출\" - 조선비즈",
+      "source": "Chosunbiz",
       "date": "2026-10-14",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5rRHhITTlHR1c5MXZyTXBxOGVxSkxBUXNqbjBSVWNrY19nT1FWTEJEaUFVLTYwS1Q3VHhlZG0wM0M4V2ltM2t1elNnekNaY3hWcVlaeWJBYnBaMy1tMERlOF84NXFrMU9MQUViRm5NR0tMQ0Z40gF0QVVfeXFMT2ZqVXNISzU1NGY3c0NHZjBJTU9VQkdTQUFudGkzNUtzZ2h4TlN0eXBaMm9lQzZzd3QtMVBnZFR5UjhVWVZaQ2wwSGdZSlBWVlRLWFlXWE4wdW1kWnNXdXVJSmdGeGlody1aWlhoMF96UjlBOXE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNV3FGNVM5Qkl3clJNaUVQam83VTMzQzg3c0M2Ukdac0diazktUGtEZWlHZ2FRa0pmci04Z0o1dm0yYlg4bE12TjlGSHpPT3prLTloYWVDeEhMWVpDbEM2Q0tIWkdBckFYR01zaTZVODR2MTlkel9XZkQ1R3pEV1lmV9IBlAFBVV95cUxNS1pzZnpQZ19WVDhDMkItSHBYSURZdTlaZFctRG10ZE9QLUhjM09jUmc3NFpUMjJiclBCRWZ0VjRlY0FiVnp5c3dPU0xyOVFRX0xxbmhPS2xuTUZ5ZXBWQVlGZWJGS0JYRTJod1htTjFTZ0hQMGFfY3lvNE9hR0F0ajZGVUF6dnFVRVNuTnVLMmdOY1g2?oc=5"
     },
     "last_review": {
-      "date": "2026-10-15",
+      "date": "2026-10-16",
       "by": "gemini",
-      "verdict": "추가",
-      "reason": "금융사들의 AI 도입 과정에서 보안 사고가 잇따르며 사이버 보안 리스크가 시장의 새로운 불안 요소로 부각됨."
+      "verdict": "유지",
+      "reason": "금융 당국이 금융사 16곳의 해킹 피해와 약 10만 건의 개인정보 유출을 확인했다."
     }
   },
   {
@@ -145,10 +185,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-15",
+      "date": "2026-10-16",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 국채금리 급등의 원인이 성장보다는 재정적자 우려로 지목되며 시장 불안 지속."
+      "reason": "미국 재정적자 우려 속에 미국 국채금리 급등세가 이어지고 있다."
     },
     "headline": {
       "title": "NYT \"성장 때문 아니다\"…美국채금리 급등 이끈 '재정적자 경고'",
@@ -187,16 +227,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-14",
+      "date": "2026-10-16",
       "by": "gemini",
-      "verdict": "강화",
-      "reason": "코스피 급락과 함께 '빚투' 규모가 3개월 만에 최대치를 기록하며 반대매매 우려가 시장 하방 압력을 키우고 있음."
+      "verdict": "유지",
+      "reason": "증시 급락으로 반도체 빚투 청산 압력과 반대매매 공포가 가중되고 있다."
     },
     "headline": {
-      "title": "'6천피'도 위태로운데…'빚투'는 3개월만에 최대",
-      "source": "매일경제 마켓",
-      "date": "2026-10-13",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE02U3V6SzBVeVZPN3pUd2d4Y1lQRi1pN0IzX1dnUHVlSkJreFBpNDVwQ0JlNVE2WW1NR0ZqUzBMa0p2UXQyamYwVHJKSExPZmRhUHc?oc=5"
+      "title": "증시 급락에 '빚투' 청산 압력 가중…반대매매 900억 육박",
+      "source": "연합인포맥스",
+      "date": "2026-10-15",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9WeXFxN3l4RXJlOHpoSlI4Vm94Y1d6TTZtOWlqQXhEMDVXUmRaUTdIeHE0ekptc0J6OTlDblRZaFpEb1dWaTBEaDhRVEZRemd0UDlJOGxDRllmcEw4aGNuZjhoQ0VXQ2hZX21qdG0zMWE?oc=5"
     }
   },
   {
@@ -228,10 +268,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-15",
+      "date": "2026-10-16",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본 금융기관들이 해외 채권을 매도하고 자국 국채를 매입하는 흐름이 확인됨."
+      "reason": "일본 은행과 보험사가 해외 채권을 매도하고 자국 국채를 매입하고 있다."
     },
     "headline": {
       "title": "일본 은행·보험, 해외채권 팔고 일본 국채 사들여",
@@ -270,10 +310,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-14",
+      "date": "2026-10-16",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 고용 둔화 지표가 확인되면서 스태그플레이션 우려와 연준의 금리 정책 경로에 대한 논쟁이 지속됨."
+      "reason": "미국의 9월 비농업 고용 둔화와 실업률 상승세가 확인되었다."
     },
     "headline": {
       "title": "미국 9월 비농업 고용 둔화, 실업률 상승",
@@ -354,16 +394,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-15",
+      "date": "2026-10-16",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "후티 반군의 공격과 미군의 개입 딜레마가 이어지며 지정학적 리스크가 고조됨."
+      "reason": "호르무즈 해협 긴장 고조와 공급 경고로 국제 유가가 고공행진을 이어가고 있다."
     },
     "headline": {
-      "title": "후티, 사우디 공항 공격 ‘12명 사망’…미국, 확전 우려 속 개입 딜레마",
-      "source": "한겨레",
-      "date": "2026-10-12",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNajh6Xy1YdVJQS2FILVVEZUpfWkpTeTFqZkxlTjlTZWhJaFJzTmszTjFmOUh5c282c0hPTFZkTC1XOFY4eWFzN0tvUmJITExqX21mOUxoRDRkSFpDSkRsMDZWQmZNeHdFWWxIYXNQMjF3cjJjbzBhOXVJcTdEZVlGOHlB?oc=5"
+      "title": "다시 불붙는 호르무즈, 국제 유가 고공행진",
+      "source": "YTN",
+      "date": "2026-10-15",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE4wYk5zRktKSENJVDZoVWVjQmpZd1B6blNxbzJtZ0RYa1Q5TGJhcWNzbHpOOG9RcVZtTFN5RHlnLVp2ZERQaWhoc1lnREwyZWQ3eTNnQzkyWTBIVDMtTkE?oc=5"
     }
   },
   {
@@ -391,16 +431,16 @@
     ],
     "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대.\n[10-11 검증] 빅테크 4사 2026 설비투자 전망 약 7,250억 달러, 엔비디아 10월 첫 주 사상 최고가 후 조정, 버블 경고 확산. 7/28 코스피 반도체 레버리지 붕괴(-10.84%). 키워드는 언급량이 66일 중 57일 100건 포화라 더 좁힘.",
     "last_review": {
-      "date": "2026-10-15",
+      "date": "2026-10-16",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "AI 거품론과 공급망 차질 우려가 지속적으로 제기되며 시장 변동성을 자극함."
+      "reason": "코어위브 회사채 쇼크 등 AI 거품 경고와 시장 투매 우려가 확산되고 있다."
     },
     "headline": {
-      "title": "\"메모리 등 공급망 차질이 AI 거품 붕괴 촉발할 수 있다\"",
-      "source": "연합인포맥스",
-      "date": "2026-10-14",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE13ekNNallRNXlzVk9jdUJHaHBGRUNJUDlWRnBsM3ZUX0xlOV8xMGVPSHhRRnlEcUVHaDVucmRNMExQT05VUmJVZ0RZUFB0dDFuNU1MNGFQWHJOSkh5Z3ljeHZIY0E3ZU94Q21XQWJzNnQ?oc=5"
+      "title": "코어위브發 회사채 쇼크… 'AI 버블 붕괴'인가 '차입 모델의 경고'인가",
+      "source": "한국경제",
+      "date": "2026-10-15",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBGcmNtdWVyejJnTWhEUFNQSjFPUUVTOHZqVjZ1blhBaGctb1VJZEhGYUh4eHIxQWQ4V2NuY1JSOUIyZTZCV2NBam1EQmYyUzFkbEVWaktJVVkwQQ?oc=5"
     }
   },
   {
@@ -432,10 +472,10 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-14",
+      "date": "2026-10-16",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "관세 인상에 따른 물가 상승 부담이 지속되고 있으나 시장은 이미 이를 반영하며 진정 국면을 유지 중."
+      "reason": "상호관세 여파와 통상 비용 부담이 물가 및 외환 시장에 지속적인 영향을 주고 있다."
     },
     "headline": {
       "title": "[뉴욕환시] 달러, '상호관세 충격' 후 최고…오늘도 사우디 때린 후티",

@@ -1216,5 +1216,89 @@
     ],
     "at": "2026-10-15T09:10+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-16",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "korea-growth-slowdown-2026",
+    "kind": "update",
+    "verdict": "down",
+    "reason": "IMF가 올해 한국 경제성장률 전망을 3.3%로 상향 조정했다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-10-16",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "pandemic-risk-2026",
+    "kind": "update",
+    "verdict": "down",
+    "reason": "질병관리청이 러시아 페스트 의심 사건의 국내 유입 위험도가 낮다고 밝혔다.",
+    "status": "rejected",
+    "reject_reason": "이미 가장 약함"
+  },
+  {
+    "date": "2026-10-16",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "us-inflation-shock-2026",
+    "kind": "new",
+    "name": "미국 CPI·PPI 물가 재발작 충격",
+    "reason": "미국 9월 소비자물가와 생산자물가가 상방 깜짝 상승을 기록하며 글로벌 증시 급락과 금리 변동성을 유발했다.",
+    "status": "applied",
+    "evidence": [
+      {
+        "title": "미, 생산자물가도 폭등...트럼프 중간선거 '최대 악재'",
+        "source": "YTN",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9lZ0xvRDA0Z20wQng4bHczeFhGU1ZXUnI3VDZuY0dSWk4ydU04aW5CdzJiek10MVZaemo4Q2hsbXp4c3F4Nk84VUZkSVd5bVZzY2pGclVLVDdjMjM0bkE?oc=5"
+      },
+      {
+        "title": "Wholesale inflation reaches levels last seen in 2022",
+        "source": "AP News",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQNExzSHEyWDFGWnpSTkR2V3NndkhQTmU1dzE3M2pTWENyU3RPRTAyb0JQQXNqbENPTjJneHRsYWpMMXFPUXg3dnZfekhEM1VoSFNIRTM4U29QR1l0TGhzeVd6WkZIamdXWDkwcmdlR3k5eExLZFd3SUc0MHFQc1NoQlIwRWw5MzM5OVpndWJKa3NIZFNJRGx5YQ?oc=5"
+      },
+      {
+        "title": "Consumer prices rose 3.7% annually in September as gas prices skyrocket",
+        "source": "CNBC",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1IZEUyWDE5aTVyU1VTMEhhNW9LV3pZdUkwcFI4WVlIOEhHUzBmUTZGbUlWTDVfN05zdzhFTlR4RERqUHROMDJ2T3dCN2I0UDI2dmZhOTBVTVRIYVlIYjRKQ2RZcjdNQWdWTTkyV0owQU1Xekt4U2ZHUFc4NnPSAYIBQVVfeXFMT3U1UnZTdHN4U2tIM1lZcHlGRGZLUXNaYjhDTHl4bllqdzY3ek9XYl9ZdzNBaUdJQjNndF9HSm1yci15X3ZnMEdaazNzMjVTZ204TzJ1cFJEOE81bUF0RFBJWTR6RWF2YU9BWm1PMnhTVGNWVnc5bkxNWlRpT0RuU2t2Zw?oc=5"
+      },
+      {
+        "title": "September’s Hot CPI Report Shows Price Pressures Broadening",
+        "source": "Morningstar",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQdUxHR3BVaUowMGR1REd4MXVvMjR1c0N5ZkZnZGpkd21TdUdDS1hoSzlqSGZmLTlPOEFrMlp5WnRfXzNkOUtkTDBXamI0STZ3UzJ1QVN4dlJlRzRhOThIQXV0WEY2YVVaaWhIZy1KNWk0SmxaSGJJWWJDMHduVUR4Tmx2azNWRnV3U1BPTW5Fb0h4SkhaZkxTTC13?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-16",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미국 CPI·PPI 상방 쇼크로 인한 물가 재발 우려가 새로운 시장 충격으로 떠올랐으며, 한국 성장률 상향 및 페스트 유입 우려 완화로 일부 내러티브의 영향력은 줄어들었습니다.",
+    "reviews": {
+      "us-inflation-shock-2026": "추가",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "SK그룹 웨스팅하우스 지분 인수",
+      "금융권 AI 해킹 및 보안 리스크"
+    ],
+    "at": "2026-10-16T08:54+09:00",
+    "trigger": "schedule"
   }
 ]
