@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T18:42:41.247165+00:00",
+  "generated_at": "2026-10-15T20:23:35.691850+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -28,7 +28,7 @@
         "band": "평상"
       },
       "curve_2s10y": {
-        "value": 0.42,
+        "value": 0.37,
         "inverted": false
       }
     }
