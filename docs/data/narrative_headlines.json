@@ -1,6 +1,26 @@
 {
   "updated": "2026-10-15",
   "items": {
+    "financial-ai-security-2026": [
+      {
+        "title": "‘금융권 해킹’ 16개사서 10만여건 고객정보 유출 확인",
+        "source": "경향신문",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4tUDJmUWFIaGt5WHE3dUdUWUQ0cG14aFhLcUE4eTA1UmpMa0hfR3IyOE9fNmwydWdrSGxDU015aHZWNlgzR0FUYjNPYWZSMnR3UHU1N09Obmc0Z9IBX0FVX3lxTFBZUG1OUkdVRkRaRzViamRqa1pNRTFRWTJid05nT19fYnZRTWZwRlV1OG82V1Q5Qm1pS05JWFlIZ0lWdk5GaU9LTFRlRzF1REkwZlZ1WEtxNG5kdTE2SmpF?oc=5"
+      },
+      {
+        "title": "은행부터 코인거래소까지 ‘금융권 AI 해킹’…최소 10만건 개인정보 유출",
+        "source": "한겨레",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5PZjR3bU9tV0JTQ0NEUW1ET1hGWkx2d1hmYnhaOUhsc1VndTRDNHBrVGhsUGJTSGVkOHV2cFZ4MFNuYm1CODhUaFA5NjVmeExsSUxEd25zU2RFeTJvMGhPWXVhVzRmYmc?oc=5"
+      },
+      {
+        "title": "“16개사 뚫리고 정보 10만건 유출”...금융권 해킹, 곳곳이 ‘사각지대’",
+        "source": "에너지경제신문",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1LaDhGMUFtdnJNdUhVMTBGYlRrdXlCN1lGSWZRVmlGUEh3YmNDaGo1aXYtUXZLaVNZWTd5Q1N0cnVrODBKYnhMNzlxU1FmbHpuRVZzNGczOUNnTWs?oc=5"
+      }
+    ],
     "korea-growth-slowdown-2026": [
       {
         "title": "기업가치 평가 거시지표 제각각…한공회 “IMF 전망 보완 활용해야”",
@@ -49,16 +69,16 @@
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5HYVFLUzVkZmlkZExvX3RLZVp1U1dpczBVakhEdmx6c2hJZGJsWEVVR0c3eEtYcXlxenVhQ1dGQVJFc1QzbEx0ZWtkZXlIQ1pMaWVYU29Bckt6NVZkZjlldmxMdm4tOThCRW1JZ29pNWzSAXRBVV95cUxONi1EdWh5YVJkR0pSWXZMWDdTRGtDSlYyU0xNUzZSU3JUYUN1NWhtM2tKOWRCd3ZkUG9ZVXFybWhTQzVYZlp1bXlqRVVRTTl4ODhGNnZ3QVNPUmUyUzFKanU1dUZENnFvUXc5d0ZseTRwQ2FwTA?oc=5"
       },
       {
-        "title": "Affirm 주가, 물가 상승과 국채금리 급등에 왜 하락했나",
-        "source": "Investing.com 한국어",
-        "date": "2026-10-14",
-        "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5jaHFQbDlialpnbEhzQ0pwQlUtTWM3RnZwWGlIaG9YdDhTbWI1V1JCaHZOa3pnRk1wQmw1RkVqRENMSk5oY1dqbURuVmQ5TUVKSWJJMmE1S3ZCM2NFNWhKbW0ySFRwbWp6Y3dUTGdmTy1CMnp1WkxB?oc=5"
-      },
-      {
         "title": "IMF 총재 \"국채금리 급등에 재정 건전화 시급…부채 관리 나서야\"",
         "source": "연합인포맥스",
         "date": "2026-10-14",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5SVEhDczFXTVI4cUF3X3I3Y3JhT1I5OTZhdXFpS2JkcE16akw1YmtPOXFYbk1jRk1ZdFNGcEs0NWlmMFFOY3pxZjcxZU04V2hnalhmMXF1TkMxY09jU0U1QTBudGVfU0tlUF9jcm9ZVzE?oc=5"
+      },
+      {
+        "title": "\"국채금리 급등에 선진국 부채 75조달러 돌파…佛재정부담 심각\"",
+        "source": "뉴스1",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9aZXlsMUNIMVlCUUNsM01JU2pjWjBhMnN4YkNzQ3Y4cm1uWkJ4Q1pGNmRFRjZMS3FBNFI4ekZzWVJCTkVKUVZxMnBjQXBEa0hyX2NSaXdaclNmRm1TUThzbl80MFBCV1E?oc=5"
       }
     ],
     "kospi-semis-leverage-2026": [
@@ -83,16 +103,22 @@
     ],
     "boj-normalization-2026": [
       {
+        "title": "일본 은행·보험, 해외채권 팔고 일본 국채 사들여",
+        "source": "연합뉴스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11TEVTaTkzQmFBNTIyc3B0SHNSY1V6Tmx3WlFrVUhCNWZIdFFlQ1N6VW9DdU1lV1lmU1lMb3FOb3lOaUszdkp4ZUk1cDluOTFDV2d3RU0wMDJzWkNqcWRhWtIBYEFVX3lxTE11TEVTaTkzQmFBNTIyc3B0SHNSY1V6Tmx3WlFrVUhCNWZIdFFlQ1N6VW9DdU1lV1lmU1lMb3FOb3lOaUszdkp4ZUk1cDluOTFDV2d3RU0wMDJzWkNqcWRhWg?oc=5"
+      },
+      {
+        "title": "일본 정책금리 30년래 최고...일본 은행·보험, 해외채권 팔고 일본 국채 산다",
+        "source": "SBS Biz",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE91dGRKemtIT01ESXhua0NHVlUxSGdGUUlyTWxZMEk1aXZ4YlJxcV84Mm1hMFpDR280REFtT0pGSVV6NVhVNFN0X19xQnRXbEphbTVjS01UWU_SAVhBVV95cUxPdXRkSnprSE9NREl4bmtDR1ZVMUhnRlFJck1sWTBJNWl2eGJScXFfODJtYTBaQ0dvNERBbU9KRklVejVYVTRTdF9fcUJ0V2xKYW01Y0tNVFlP?oc=5"
+      },
+      {
         "title": "엔화 강세·유가 하락으로 일본 9월 PPI 예상 밖 둔화",
         "source": "Investing.com 한국어",
         "date": "2026-10-13",
         "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1CZ3RpMEJmMC1GNDdrZlVTdXBsOEtWZEdadm9vUThtaXB0bk44a3hxZlVVbjZSQlYwRHJsWXplN19uSktUV1RaUnc3TDFDQllrZ0NuNWxCUElvRmV5M2hhcVgxVVRBVWNHLXVHaTZrd0oxYlE?oc=5"
-      },
-      {
-        "title": "달러-원, 엔화 강세 속에 한때 1,336.30원…지난달 10일 이후 최저",
-        "source": "연합인포맥스",
-        "date": "2026-10-08",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1IZHM3OEZNZ21aWldXdkVvaVlvVVgzbmZrbEdKa0I2Q3lub1BoYUE5NzlqWlJaVEhSdWFlWl9mMWRqbDJkVDlmX0J4aWNubGZSY1RsNl9ralNzSkF2bW41bEZVMnNwMUZ2TlZnSVJlYW_SAXRBVV95cUxPTVJQamg3dGhOWHM0Xzc1VTd4UWpFbnhEcG96enA1VThDYWs5ZTBFQTltVnVBb3dpSEM5M3NsUHBrNFlESURReUlYNkU1aDlVQmNZYnE3SXVXeE1ZSnBCQUs2LUZ2dUUxZUFDdjZlZUhiU1VpUw?oc=5"
       }
     ],
     "us-labor-cooling-2026": [
@@ -103,64 +129,44 @@
         "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPVVhZMG9nQ3dEaGhIRHBiNFhiRVBkbTJvcVJHQTAyMzVLdnFVU3BBdi1HV0VwYktURFo1WkVaWDdSakgxTDNfcWd5cTJPcHI2b1E2Um1tc3ZNMmNHMERqVzM5elh0ZWlBVW9wUDNRZlhrUWpDdkdITGtyNTFiQkdZRg?oc=5"
       }
     ],
-    "fed-politicization-2026": [
-      {
-        "title": "[조홍균의 금융경제 읽기] 올해 노벨경제학상과 케빈 워시의 말을 줄이는 통화정책",
-        "source": "KPI뉴스",
-        "date": "2026-10-14",
-        "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5XVUZjREJSOG5RakY2RE1rRDZDRWJod0w1Ykd6d2FYZDcxbFdwSDJWcHNOVTBUcUxGQUFkSnhfQnBiU1RiTU5iNm9aZ1d3VENYLV9VWDlGYw?oc=5"
-      },
-      {
-        "title": "케빈 워시 연준 의장이 던진 열 단어, 시장의 금리 기대 바꿀까",
-        "source": "글로벌이코노믹",
-        "date": "2026-10-10",
-        "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOanpPUmNkanJTem1VTnR6dU9mSnVNX2ZkdndVSGtuSEtPYUlCSHZpOHR6M2tYcEpIbEtsbUVldW9rbWpaOFRKcnkxVW9rVk1tb2tWUTJoX1lMR3pDWnRpNU5EU1hIcTNBWFZYcnVQZFdZQWVqb1RfcDl4ZWc0Z3hfa1lWWFRqWHM?oc=5"
-      },
-      {
-        "title": "트럼프, 리사 쿡 연준 이사 해임 '2차전'… 연준 독립성 또다시 시험대 - 머니투데이",
-        "source": "머니투데이",
-        "date": "2026-10-09",
-        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBTOF93V2RaYWdrRENNTFV4VnBhOW5jclpCTjlIUy10UVRqTlJFd3hadmp1RFhnVndKc3JMSGJHZUFpazk3dWZ2R2R5TkdUWmN5SC1JeGg4QlhVdlBkRkNVUjZqMFI5NTNQVGhLUHY5Q1pfek1KZ2fSAXtBVV95cUxQOC11bzRWR0VOQWZ6YkJPNk9YdVc2VDFBQ2ctd0ZQR25ZdVlqdThNRHFUU2lpejYxa0ZFZkxtMGtNS2Mxa3FMdmlvS2FWa3NmYkJHM29aRDJBWFkzbXNnX3hhYVZYdWRsMFlvN09XV0VHT1E5OHV2NUxVRTg?oc=5"
-      }
-    ],
     "iran-war-2026": [
       {
-        "title": "[기고]빈살만 요청·네타냐후 제안·트럼프 선택, 중동전 확전의 새 분기점…김태준의 美·이란戰 중계",
-        "source": "문화일보",
-        "date": "2026-10-14",
-        "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9IbGFFdk1idGxpWUIwRHRwN3JsdTF1el9EbC13S2xZNkJTOUJseXJ0Y1RhV1pHZGZBYl9NNDRrTk9RNnRzcS1SUUFSZTRyVG1E?oc=5"
+        "title": "국제유가, 중동 긴장·IEA 공급 경고에 상승",
+        "source": "연합뉴스TV",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE16Z2p6a2RxWnBxVVA1QUdQR1E2RE9BM0pRQl9Vc29pZTRsdmhObkd2eGRqT2dGRlBxd0Z2UWcxa0RxN2JzTEVJRDJ6bW1fSEVwVFY0cW5jYnY2ejkyTGlLNnpqYXNoYTg?oc=5"
       },
       {
-        "title": "[쇼츠] 장갑차 '펑펑' 공항 또 '쾅쾅'…후티, 사우디 공격에 확전 불길",
+        "title": "이란, 레이더 파괴되자 '인간 레이더' 동원…미국과 '유가 전쟁'",
         "source": "연합뉴스",
-        "date": "2026-10-13",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBwZjg5VDJYblZ6NXRKRUdEaUhUbEI3aUZpSHV1d2lsZFhoaVhvUUpVamVPQlM1T0dHeGFKR2FBd1UtU2RhS1F2VS1Zakt2TDg3VlhmMnBHRktDNWvSAWBBVV95cUxQdmtRVnlYYVpmeG9vWDFkWHpKbEtXVlRKTUN6eWFaa2Z5TWpJUHhYb1JrdW5rTzJ2SVRZUzVRV1VkMkJ3WXBSN19ZVDNBSVRpVm5TRGRWQ0hHdElndVJ4T1I?oc=5"
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1yb0hLc1VWM3FkMWl4eXNqeDdLMkZqTF9SZDJ4ZEhVcGREUnZvOU1YYXI1WDBSMWMyQV9HSXczZG1HX2M3Rl93SzJxdjEyV3lXT1liTm1LSG1rQ3RkWUFmadIBYEFVX3lxTE1yb0hLc1VWM3FkMWl4eXNqeDdLMkZqTF9SZDJ4ZEhVcGREUnZvOU1YYXI1WDBSMWMyQV9HSXczZG1HX2M3Rl93SzJxdjEyV3lXT1liTm1LSG1rQ3RkWUFmaQ?oc=5"
       },
       {
-        "title": "AI 패권, 이젠 '칩·메모리·통신망·제조' 전방위 확전···美·中 경쟁 격화",
-        "source": "헬로디디",
-        "date": "2026-10-13",
-        "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFB0LWpXTnZnTjRiVUlWQWd0MXJKcUEySkZLMTZQaklwNXRqNTdLSURCTjhjUWZPdGdDX3J1UTJaVXZGTUdqUE5hdmwtU1Z3MlQxR294czFVSHJSQlE3YUpEV3V4OURubS1lSGc?oc=5"
+        "title": "[뉴욕유가] 아람코 본사까지 공격한 후티 반군…WTI 5일째↑",
+        "source": "연합인포맥스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9fZW52TkJkTnNiRmdRZFlCV2k0WnR1eHh1cUlJT3lfVjhsUmNFM1o5MGpLdkNJMG93ZGhNbS1DcEl3dGV0eHRMWnVMUXFmR3U5UjlmZjAxMjM0RVJHakl3cGxsU2FlX3ZnMmdlNXR3UW8?oc=5"
       }
     ],
     "ai-valuation-2024": [
+      {
+        "title": "AI 버블 경고 현실화하나…글로벌 주식 조정에 월가 낙관론도 주춤",
+        "source": "KB Think",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFA5bENrMVl6WFoyTHNZODRhS2Jpd0dGUE5rd0FVR1NKSXVPVk9NVFotQzNnYWp1dE9RTTBfNTc3amh4YzdMTTB0VDhhUGYyc085bmx0ck5aS1FkemYyMlpxUVJ1QzQ5TkJnTGI1bFNwS1Zzdw?oc=5"
+      },
+      {
+        "title": "코어위브發 회사채 쇼크… 'AI 버블 붕괴'인가 '차입 모델의 경고'인가",
+        "source": "한국경제",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBGcmNtdWVyejJnTWhEUFNQSjFPUUVTOHZqVjZ1blhBaGctb1VJZEhGYUh4eHIxQWQ4V2NuY1JSOUIyZTZCV2NBam1EQmYyUzFkbEVWaktJVVkwQQ?oc=5"
+      },
       {
         "title": "\"메모리 등 공급망 차질이 AI 거품 붕괴 촉발할 수 있다\"",
         "source": "연합인포맥스",
         "date": "2026-10-14",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE13ekNNallRNXlzVk9jdUJHaHBGRUNJUDlWRnBsM3ZUX0xlOV8xMGVPSHhRRnlEcUVHaDVucmRNMExQT05VUmJVZ0RZUFB0dDFuNU1MNGFQWHJOSkh5Z3ljeHZIY0E3ZU94Q21XQWJzNnQ?oc=5"
-      },
-      {
-        "title": "AI버블과 폰지금융 붕괴 [MT시평/김성재] - 머니투데이",
-        "source": "머니투데이",
-        "date": "2026-10-14",
-        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5qeVBvUU9fSEQ4MG8zbl9iNGx3LXZEUmhITE5YVHVpLVpvWTloZGdhSVhvRHVHWTNTRWkxbUtkX1RnRlFhcFNOaFRJZm5tbkt0VXFHaDlycl8zdGZENFJsTHZpTnBVanBBU2J30gFwQVVfeXFMTXZZWm1iRkNOR0pyTmlIV0hYMW9Wc0VxUll1bG1ySF9rZzUwZ1V5ZDg1aTEwOXhpd0dxWU9lOHBNQ3hDNXIwSXJBYUdQVGQ1dWo1MkVwV2RrbUFWTlplRG1lSHVGaS1kVnF6bXJHUmRlQQ?oc=5"
-      },
-      {
-        "title": "[기자수첩] AI 거품의 청구서는 누가 받나",
-        "source": "뉴스톱",
-        "date": "2026-10-14",
-        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE90NmRMX1ptRlRQLUVfc21xSl8tQnJCWFUyY2VlOGpZQmFDM21zX3Q4YkRVR19aNktKZkJ4aEpGNURsZ3E5MURILTJ4cy1PMlZZRC1Wdk1Rc1g0S0U1M0hhNjlMeTAtYmtDR2s2S3A0Yw?oc=5"
       }
     ],
     "tariff-shock-2025": [
