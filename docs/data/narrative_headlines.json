@@ -1,6 +1,26 @@
 {
   "updated": "2026-10-16",
   "items": {
+    "us-inflation-shock-2026": [
+      {
+        "title": "美 9월 생산자물가지수 전월비 1.3%↑…4년 6개월만에 최고(종합)",
+        "source": "연합인포맥스",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5SaERSbEdXWmtwMllvV3p4SmwxVEQ1VG9IMTdocTlrTHdkRVZjSVNMb1B0OHZBQVB4MW9vSHQwSDZfTTRaYkZORXBud1Z3RE94WjFYbWRFVFhCZlhSMFduU3AyM2hFS2JYaXE1NVNXRVc?oc=5"
+      },
+      {
+        "title": "미국 CPI 충격 코스피 급락부터 TSMC 호실적까지 이시각 주요뉴스",
+        "source": "연합인포맥스",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBjRHRFVW1wUUw4YjJsUDR2NTIwZnViWEhTbzlaS3RpQ2lXbktqc2JOMGtRVS0yREo4dGxUNkYzODFJQlVsdFR1VEQzdXI1c1pMbDhoZTZlbzFfUzRfZk11emJfRHdmcWRuMjVhNklqbELSAXRBVV95cUxPbzZlaUdaR2ZqUTRqRjlSM05Kd1JYcUk4V09TdmI4bkYwVDNKVnFfTHZZdWlEblI5N2NjU1Z5allyMlBpSFFNeklPbGxsbFR5UWxuT3FnUTJvckM1eWFSSk1zeE0wdVBJdzNNVWNOczBQUGxtWg?oc=5"
+      },
+      {
+        "title": "미국 PPI 생산자물가지수 발표 요약 · 2026.10.15.",
+        "source": "네이버 프리미엄콘텐츠",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPa0JDUEx4bVdhQ3FiYWRXM1BiQ1A5cGRMVC1XSm8yX1BMZTNiWGJVU2dlcUdsMjJ1VkNud0YtNFJHVjlEa1VBVi1YVHlLTjZ3d1FlMW5QTmhGTDNDM3VVUkFRX2EtLVg0azM3dEoySkhsMzFCNG9HbmNaeUo1U2lYdmxnNmVWY2Vn?oc=5"
+      }
+    ],
     "financial-ai-security-2026": [
       {
         "title": "韓 금융권 해킹, 블룸버그 ‘AI 보안 경고’ 사례로…“공격 문턱 낮췄다”",
@@ -9,16 +29,16 @@
         "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE90dklZZ1piTHE1TmhYTzB2TUZRaGFqb1FzZmRjRkQtZUJuUkkwaGR6ZHpabzVCak94Q05RMzY5OVZGN0ZjdE95V2dxU3VyZ3ptOGw2bDd4bnFzZHRJenRuYjhkTVRTVV9WMUY3V0RRaUZOS2xZcVHSAWZBVV95cUxOSHdUWHUza3J4WDBDR2ZFNnR1VUtJSFI3YTh2dzZsVEluQklRZkhYTlZDQUhSVVA3MHdSTVgzZ3JiN3ZFTWNRSUhmTTB1bzNDejhzeE94ZDZ5QVMteTZ3eXNLLWNBVGc?oc=5"
       },
       {
+        "title": "세일포인트, AI 보안도 AI에 맡긴다…자율형 에이전트 개발",
+        "source": "전자신문",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1kb0lBWC03OW4xRFlIVjB6bVBMNWo5LXBSNTE5bk5PeFBjV2lMcW02Nmk5U2piS3ZUMmk5Q2FlUzA0N1lZcFlqZDZSdmpCUQ?oc=5"
+      },
+      {
         "title": "로봇도 신분증 챙긴다...라온시큐어, 피지컬AI 보안 개발",
         "source": "디일렉",
         "date": "2026-10-15",
         "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5VR0lycEFXQmo3NzFpWEozd0FjUFZzcEhYOU93TFNSbVBpQjVBemFReExvS0VOcXl2UGtYbC1qYjJpVjRJSXdKd3lrWHpXamI1dUZzR0VSQ0w2VzBZRmZWX0xUNDBsdw?oc=5"
-      },
-      {
-        "title": "KISA \"AI 보안 위협에 선제 대응…24시간 사이버 위협 탐지\"",
-        "source": "연합뉴스",
-        "date": "2026-10-15",
-        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBkUERQdU1JMmFvS3dDaEMzUU16LXktWmRBaEIxWEJEYkVocXltZkpVTFp0N19qbGp0c0RGMnktdmJQcHBGWmU1V3dSMDFDVlNTTWpyQlFiNEpidS1KanIxVNIBYEFVX3lxTFBkUERQdU1JMmFvS3dDaEMzUU16LXktWmRBaEIxWEJEYkVocXltZkpVTFp0N19qbGp0c0RGMnktdmJQcHBGWmU1V3dSMDFDVlNTTWpyQlFiNEpidS1KanIxVA?oc=5"
       }
     ],
     "korea-growth-slowdown-2026": [
@@ -83,16 +103,16 @@
     ],
     "kospi-semis-leverage-2026": [
       {
-        "title": "[퇴근길머니] ’반대매매 급증’ 빚투 개미 어쩌나…돌아온 예금 4% 시대",
-        "source": "연합뉴스TV",
-        "date": "2026-10-15",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5vblNZQnI0NnVZRTU3d0FDaEFZWVBsWFNGeldnbTRNTXQ2bFluUEZjT25nMHJrYVpVcDl6SjVuMGtaQXZESV9jNF9IdklMaU9HdHliMnhEQlNiR2JXeFpqazVlaWpKb28?oc=5"
-      },
-      {
         "title": "반도체 ’빚투’ 10조…코스피 급락에 반대매매 경고등 By EBN",
         "source": "Investing.com 한국어",
         "date": "2026-10-15",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5ZSkRZX2tSUTliVzZMQklJVUFrM2phY1prOEZHWVZmczkyM3NlUVJyYktWZFVGZnpMWVc1aHp4TTNkZTRQbmJoYl82UmFEWkJBZjBxLWdaanFHYWoyU25pd045aGxkdVlkT0pPdEF3T2E?oc=5"
+      },
+      {
+        "title": "[퇴근길머니] ’반대매매 급증’ 빚투 개미 어쩌나…돌아온 예금 4% 시대",
+        "source": "연합뉴스TV",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5vblNZQnI0NnVZRTU3d0FDaEFZWVBsWFNGeldnbTRNTXQ2bFluUEZjT25nMHJrYVpVcDl6SjVuMGtaQXZESV9jNF9IdklMaU9HdHliMnhEQlNiR2JXeFpqazVlaWpKb28?oc=5"
       },
       {
         "title": "증시 급락에 '빚투' 청산 압력 가중…반대매매 900억 육박",
@@ -124,9 +144,9 @@
     "us-labor-cooling-2026": [
       {
         "title": "2026년 미국 고용 반등의 이면: 4억 8백만 일자리 격차와 한국 사업주가 봐야 할 세 가지 압력",
-        "source": "한국공공정책신문",
+        "source": "https://www.didimkorea.net/",
         "date": "2026-10-15",
-        "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE5MeUlZVjNZS3lTTU1RcGhxcXNTMWNuRkdBbE9pb3lkd2RQdTdGOVZ3LU1mWmc3bmlYZUxHVUJtdWtaaUk?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1ybWwtYUpNcmZHUlVrVGVlTjJhU0plTnpQWGE2NFQ5Z3pWU1hSN1RMUzg0OTI0WlJieW9nWTZxQUk4N1V4NFpwNUxIU2VwX0E?oc=5"
       },
       {
         "title": "미국 9월 비농업 고용 둔화, 실업률 상승",

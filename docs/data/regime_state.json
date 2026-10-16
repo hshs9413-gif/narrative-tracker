@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T23:54:16.116261+00:00",
+  "generated_at": "2026-10-16T01:21:46.999493+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -42,11 +42,11 @@
     "lookback_date": "2026-07-17"
   },
   "kospi_vol": {
-    "label": "경계",
-    "level_index": 1,
-    "rv20": 32.4,
-    "as_of": "2026-10-14",
-    "value": 6008.81
+    "label": "고변동",
+    "level_index": 2,
+    "rv20": 40.6,
+    "as_of": "2026-10-15",
+    "value": 5554.22
   },
   "cross_check": {
     "nfci": {
@@ -61,22 +61,22 @@
     }
   },
   "composite_score": {
-    "score": 85,
+    "score": 80,
     "deductions": [
       "정책 긴축기조",
-      "국내 변동성 경계"
+      "국내 변동성 고변동"
     ],
     "note": "이건 확률이 아니라 규정기반 감점 점수입니다."
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 96.12,
-      "as_of": "2026-10-15",
-      "base_value": 101.91,
-      "base_date": "2026-09-17",
+      "value": 95.09,
+      "as_of": "2026-10-14",
+      "base_value": 102.43,
+      "base_date": "2026-09-16",
       "lookback_days": 28,
-      "change": -5.79,
-      "change_pct": -5.68
+      "change": -7.34,
+      "change_pct": -7.17
     },
     "breakeven_3m": {
       "value": 2.32,
