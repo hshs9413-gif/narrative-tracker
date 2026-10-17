@@ -1359,5 +1359,14 @@
     ],
     "at": "2026-10-17T08:55+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-18",
+    "by": "gemini",
+    "kind": "summary",
+    "status": "error",
+    "reason": "Gemini 호출 실패 — 모든 모델 실패 — gemini-3.5-flash(thinking 4096): HTTP 503 \"This model is currently experiencing high demand. Spikes in demand",
+    "at": "2026-10-18T08:28+09:00",
+    "trigger": "schedule"
   }
 ]
