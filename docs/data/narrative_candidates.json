@@ -1,5 +1,49 @@
 [
   {
+    "key": "알래스카lng사업및통상협력",
+    "name": "알래스카 LNG 사업 및 통상 협력",
+    "first_seen": "2026-10-17",
+    "days_seen": 3,
+    "last_seen": "2026-10-19",
+    "why": "정부의 미국 알래스카 LNG 사업 재산세 감면 요청 등 통상 대응 흐름을 주시합니다.",
+    "evidence": [
+      {
+        "title": "대미 무역흑자 1000억달러…알래스카투자·보복관세 변수",
+        "source": "신아일보",
+        "date": "2026-10-18",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBDQTM2UV91QTVPUDVLcGdueDg0V3doelpjdDN6eFY5UVJieVRMNzdSeDEyOUJsTEJPOEJqTEsySTRCa0g1cUFJUHZQMmhVV01ySTZFOTdKY01nSUV3bXZ6SlFfV0Uxd2Nwb000MEwtZlE?oc=5"
+      },
+      {
+        "title": "정부, 美 알래스카 LNG 재산세 감면 요청",
+        "source": "뉴시스",
+        "date": "2026-10-16",
+        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9ONmIzRDI4NXFUaU9fSTBiRlNHY1JRdER1MVlZcDVmYzFPblh2RFU3SWhESTFvUnZuSUZnTUJsUWVoSTN4LUxMcDBtVm8tSWVBR0VFcTVpeTVYMUl4UzJSMEJSS1F2SjNvT2lTOTF5SWpFenA0dW5iedIBeEFVX3lxTE9ONmIzRDI4NXFUaU9fSTBiRlNHY1JRdER1MVlZcDVmYzFPblh2RFU3SWhESTFvUnZuSUZnTUJsUWVoSTN4LUxMcDBtVm8tSWVBR0VFcTVpeTVYMUl4UzJSMEJSS1F2SjNvT2lTOTF5SWpFenA0dW5ieQ?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "국민연금국내증시평가손실",
+    "name": "국민연금 국내 증시 평가손실",
+    "first_seen": "2026-10-19",
+    "days_seen": 1,
+    "last_seen": "2026-10-19",
+    "why": "코스피 급락세로 국민연금의 대규모 평가손실 발생이 연일 보도되며 파급 효과를 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "코스피 급락에 ‘3천억 원’ 강제 청산…국민연금은 182조 증발 [잇슈 머니]",
+        "source": "KBS 뉴스",
+        "date": "2026-10-18",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBKcFVyUGlvVU5QckltdGpYQUxyVVkzVHNjZlBDVHVEaWRjNjRiUTB2d2JTZFBQQngwVTBIcDJwOU9xZU9lbTJiNXMtQjhpZXhQeFhFRWc0N3p1TlU?oc=5"
+      },
+      {
+        "title": "국내 증시 폭락에 국민연금 ‘휘청’…3분기 182조 손실",
+        "source": "KBS 뉴스",
+        "date": "2026-10-18",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBfYzdaX3hvUGprWkVRZmZQMEVvTUdKYXNGckZjYml5bUdRMjhPUWloU192cm5aVlRvMWpKVkgwZG9yTDF3Q1BfaXNpSHkyMVNNWVJHLVg1cGZFSk0?oc=5"
+      }
+    ]
+  },
+  {
     "key": "국산비만약시장경쟁",
     "name": "국산 비만약 시장 경쟁",
     "first_seen": "2026-10-15",
@@ -12,28 +56,6 @@
         "source": "KBS 뉴스",
         "date": "2026-10-16",
         "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9oa2xzM1ZTaEl3LWUtRzVLV3hLeGlDemF3N1h3aUZkNTZucDc2dHdYZ21JS0RBamtlMG1ycks4YktGS3M3eGF1WGs2aktMZG9xbUtydWdQVi1FZzA?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "알래스카lng사업및통상협력",
-    "name": "알래스카 LNG 사업 및 통상 협력",
-    "first_seen": "2026-10-17",
-    "days_seen": 2,
-    "last_seen": "2026-10-18",
-    "why": "정부의 미국 알래스카 LNG 사업 재산세 감면 요청 등 에너지 분야 한미 통상 협력 흐름을 모니터링하고 있습니다.",
-    "evidence": [
-      {
-        "title": "정부, 美 알래스카 LNG 재산세 감면 요청",
-        "source": "뉴시스",
-        "date": "2026-10-16",
-        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9ONmIzRDI4NXFUaU9fSTBiRlNHY1JRdER1MVlZcDVmYzFPblh2RFU3SWhESTFvUnZuSUZnTUJsUWVoSTN4LUxMcDBtVm8tSWVBR0VFcTVpeTVYMUl4UzJSMEJSS1F2SjNvT2lTOTF5SWpFenA0dW5iedIBeEFVX3lxTE9ONmIzRDI4NXFUaU9fSTBiRlNHY1JRdER1MVlZcDVmYzFPblh2RFU3SWhESTFvUnZuSUZnTUJsUWVoSTN4LUxMcDBtVm8tSWVBR0VFcTVpeTVYMUl4UzJSMEJSS1F2SjNvT2lTOTF5SWpFenA0dW5ieQ?oc=5"
-      },
-      {
-        "title": "올해 북미산 LNG 수입 두배로…정부, 알래스카 사업도 고심",
-        "source": "매일경제 마켓",
-        "date": "2026-10-17",
-        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBseE5RNi1zT2pPbXFuQ3ZQenBUNy1zQjROeGxGU01FSmxHcXBYMzhPN0lPemdOU0lHZUZHMC1nUWMydFBMaWhxUzZTbGRFLUZvV2c?oc=5"
       }
     ]
   },
