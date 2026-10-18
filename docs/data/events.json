@@ -33,10 +33,10 @@
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1XYWhqVEJZOEtZVFdEZ2xuTGpYYjI1VlBMY1BMMUNxV0ctU2s0b255SVVuOF9fc01acXlvZHJQNUJER05Sajd3YUhlY2RGb0YxeDQ2eUZZS2NSZER5UVNsRFJuSE9nbUFsTGUxRHhNZDc?oc=5"
     },
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 9월 생산자물가지수 전월비 상승 폭이 커지며 물가 재발작 충격이 지속되고 있습니다."
+      "reason": "미국 9월 생산자물가지수가 전월 대비 1.3% 상승하며 물가 재발작 우려가 지속되고 있습니다."
     }
   },
   {
@@ -66,16 +66,16 @@
     "added_on": "2026-10-15",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "금융권 해킹에 등장한 '아르텍스'…중국서 유료 출시 예고",
-      "source": "연합뉴스",
-      "date": "2026-10-16",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE8takFVb2s0dUU0bFZMMVdCNUFkc2EtOXRwVjFwQjZXSkozblBNYnpnakhZMjY4UDl4UWVjNVhTb0NwbTJHWFRFNE1jU2RBam42MG5GNWtkT2xISkXSAWBBVV95cUxNV0Y3YmRjTXVreHZ5dkthYzFjcDBLdDVkcHViWnByeGRSNFRSNHU4b3p4UTN4LUd6eFctNlFyYXUyNTU3b2lsYzBUN21ZME5PUGRqMC1oSTVxWklKc0ctaUo?oc=5"
+      "title": "새마을금고 400명대 개인정보 유출... 계좌정보도 포함",
+      "source": "보안뉴스",
+      "date": "2026-10-17",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1EZ0NzVFRsRDZRMHdBb0x6TzRBLUgtd3hYZ212TXlBS04wUG9VLXhrWGpHZFdPblduS1VBUEFIc205UnJTUVRZcVkzTDZWWlJnZnd6X3QxdjJJQVlSUm83VWdwMWc1X191d2tV?oc=5"
     },
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "금융권 16개사 해킹에 이어 추가 정보 유출 사례가 확인되며 AI 보안 리스크 불안이 계속되고 있습니다."
+      "reason": "새마을금고를 비롯해 금융권 전반에서 개인정보 유출 사고 보도가 이어지고 있습니다."
     }
   },
   {
@@ -149,10 +149,10 @@
       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9JLXdpVjR4SVV1WUtkOWU4aVB1eXduaHdvbVdQejMyVmdlQm1GQUs1OGFrZ1BhUm5XeWxINWhfVFRFdndmenFneTBFcWtpc016OExhQU03M09nTTJ5ZkE?oc=5"
     },
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "러시아 페스트균 유출 의혹과 질병청의 국내 유입 위험도 평가 보도가 지속되고 있습니다."
+      "reason": "러시아 페스트균 유출 의혹과 질병청의 국내 위험 평가 관련 보도가 계속되고 있습니다."
     }
   },
   {
@@ -185,16 +185,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 재정적자 확대 경고와 국채금리 고공행진에 따른 시장 부담이 계속되고 있습니다."
+      "reason": "미국 재정적자가 2조 달러에 육박한다는 발표와 함께 국채 시장 부담이 지속되고 있습니다."
     },
     "headline": {
-      "title": "미국 올해 재정적자 2조달러 육박…\"지속불가능한 상황\"",
-      "source": "한국무역협회-KITA.NET",
-      "date": "2026-10-16",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVmlrN1JPWWJjaHNfOGVKWS1HQXZlYkJXT18tSW51dVRQOGEtLV9VNmU1UG82bnZsdGdheEUwZnVpRFFzZG9ld2xrVDdxbE5XU2VIU29qeHV1d2QtY3o5LW43SFZIT3pEdFpEN1ZKbGRpRFFCSHZveURSRFB2ZEJMWmhSNEhDa1czT2lyelpxUzgzTTZidWhBSlAxaDBadjUyTXE4anJRWVhBV0JBOEdlREdGakQ2cDlyYjA4VVZkWnVVdjdJSWZ0U01fLVhxY2JqSnRVSkdB?oc=5"
+      "title": "美 재정적자 2조달러, 2021년 이후 최대…재무부 발표",
+      "source": "연합뉴스",
+      "date": "2026-10-17",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5aalY5T05ZaW5nN3FxczFlS1ZYcU1nYUVHc2dtdmcwMU5HVXhESHNFWXBPSGcwc0lXX1Rfc1c5akNqYVF5S1RpR2NGYW9aTmRGMjB3NWIyZW5HWTTSAWBBVV95cUxQVy1ZSnFJZkFkZjVIVkVqRWhGNlZNVEowZVZ2S3hYOFpzN0d5MjVuLUxpVV9TSVl2SGtwTnp1XzRUandLazBZdmVXVzE0Z3NfVmxFRFp2TWtScVFlNlB3T0o?oc=5"
     }
   },
   {
@@ -227,16 +227,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "증시 약세 속 반도체 빚투 반대매매 우려와 높은 실현변동성이 이어지고 있습니다."
+      "reason": "코스피 하락세 지속으로 반도체주 중심의 신용융자 반대매매가 3천억 원에 육박하고 있습니다."
     },
     "headline": {
-      "title": "반도체 ’빚투’ 10조…코스피 급락에 반대매매 경고등 By EBN",
-      "source": "Investing.com 한국어",
-      "date": "2026-10-16",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5ZSkRZX2tSUTliVzZMQklJVUFrM2phY1prOEZHWVZmczkyM3NlUVJyYktWZFVGZnpMWVc1aHp4TTNkZTRQbmJoYl82UmFEWkJBZjBxLWdaanFHYWoyU25pd045aGxkdVlkT0pPdEF3T2E?oc=5"
+      "title": "코스피 7거래일 하락에 ‘빚투’ 직격탄…반대매매 3000억 육박",
+      "source": "조선일보",
+      "date": "2026-10-17",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQa2xDMW9hQWxJSlRlZVdOTVRyMURZMU9wUUJxaUlkMGlDejlxaTVnSlJwdnIzanlJd1FpNFB2aWRrdzVwZk90a0NPSXdaeEdCelUxbHRzaGMwQUhsbld3RGxicHlra2hOOWhMcXNCT0Q3YW11UVlLaFN1ZTdVR0RkaVhLeHRPMEN6TU0zMVhR?oc=5"
     }
   },
   {
@@ -268,16 +268,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본 금융기관의 자국 국채 매입 전환과 금리 정상화 행보가 시장 지표에 지속 반영되고 있습니다."
+      "reason": "위험 회피 심리 변화와 일본 금융사의 자금 이동 속에 일본 국채 수익률 움직임이 주목받고 있습니다."
     },
     "headline": {
-      "title": "日은행·보험사, 해외 채권 팔고 日국채 산다…\"엔 캐리 청산 조짐?\"",
-      "source": "뉴시스",
-      "date": "2026-10-14",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1hYTlhVGF2WDBCUlJxRThHaEZRLXJxNVdRWmNfMzVuazdCU0c3ajFRSHZsTFctNUJZaDhHZEYyQUpvOXFvSkhjeENaT2g4YXNCeGNnOWNTTmhGTkd6Z2dFS1lISGMtbl9pTGx6cW1IUmwydUl5VDV4VtIBeEFVX3lxTE1hYTlhVGF2WDBCUlJxRThHaEZRLXJxNVdRWmNfMzVuazdCU0c3ajFRSHZsTFctNUJZaDhHZEYyQUpvOXFvSkhjeENaT2g4YXNCeGNnOWNTTmhGTkd6Z2dFS1lISGMtbl9pTGx6cW1IUmwydUl5VDV4Vg?oc=5"
+      "title": "위험 회피 심리가 완화되면서 일본 국채 수익률이 반등했다",
+      "source": "TradingView",
+      "date": "2026-10-16",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFB5WVZ2Zl9SUkYyWHl2V29uVTEyMFEtY2NQOEhBNWZybm1SdnFXQWg5SW9VdFFaQkx3ODB6MG4taXg0dExYcXlKdkZjWWxlSDQ3MEh6Wjd1UGVOQ0Y5SkdYbFN0bTVNZWp1N1RrRjBQcDAyQmtDc1p3?oc=5"
     }
   },
   {
@@ -310,16 +310,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 고용 둔화와 스태그플레이션 관련 관망세가 유지되고 있습니다."
+      "reason": "미국 고용 시장의 일자리 격차 등 고용 둔화 여파에 대한 관망세가 유지되고 있습니다."
     },
     "headline": {
       "title": "2026년 미국 고용 반등의 이면: 4억 8백만 일자리 격차와 한국 사업주가 봐야 할 세 가지 압력",
-      "source": "유스연합",
+      "source": "한국공공정책신문",
       "date": "2026-10-15",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE91cDBPZVFaSmxPRVV3N2kyQy1CMXVIbG1FN0FiNlVRU3BLQ01rWVdUajJmblAtZEpJcHU0emtUQjBnT3BQcEdtTnlhUWprMHNCcFVz?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE5MeUlZVjNZS3lTTU1RcGhxcXNTMWNuRkdBbE9pb3lkd2RQdTdGOVZ3LU1mWmc3bmlYZUxHVUJtdWtaaUk?oc=5"
     }
   },
   {
@@ -394,16 +394,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "호르무즈 해협 공격과 국제유가 100달러대 고공행진으로 중동 리스크가 자산 가격을 압박하고 있습니다."
+      "reason": "중동 긴장 심화로 국제유가 WTI가 한 달 만에 다시 100달러를 돌파했습니다."
     },
     "headline": {
-      "title": "국제유가, 중동 긴장·IEA 공급 경고에 상승",
-      "source": "연합뉴스TV",
-      "date": "2026-10-15",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE16Z2p6a2RxWnBxVVA1QUdQR1E2RE9BM0pRQl9Vc29pZTRsdmhObkd2eGRqT2dGRlBxd0Z2UWcxa0RxN2JzTEVJRDJ6bW1fSEVwVFY0cW5jYnY2ejkyTGlLNnpqYXNoYTg?oc=5"
+      "title": "[뉴욕유가] 악재만 쌓인다…WTI, 한달만에 다시 100달러 돌파",
+      "source": "연합인포맥스",
+      "date": "2026-10-16",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBSOU9zQUNXdVB4d2NZSHNlRS1DSVFTeDZwR01EOGNvYk9oMXRXZjhuRFEyTVRoc0d6VkZhVUhPbVNMV1FRMUtzUzNDLUlHLUJHTjhmZnZ0eHlqQ0hiYnhoR2hGaFNZQUFrR2NiUzUzZ00?oc=5"
     }
   },
   {
@@ -431,16 +431,16 @@
     ],
     "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대.\n[10-11 검증] 빅테크 4사 2026 설비투자 전망 약 7,250억 달러, 엔비디아 10월 첫 주 사상 최고가 후 조정, 버블 경고 확산. 7/28 코스피 반도체 레버리지 붕괴(-10.84%). 키워드는 언급량이 66일 중 57일 100건 포화라 더 좁힘.",
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "코어위브 재무 리스크 등 AI 과잉 투자와 부채 우려가 데이터센터 테마 변동성을 키우고 있습니다."
+      "reason": "코어위브 회사채 이슈 등 AI 데이터센터 투자 및 차입 모델 리스크 경고가 확산되고 있습니다."
     },
     "headline": {
-      "title": "코어위브 재무 리스크가 'AI 버블 붕괴' 새 시험대, 데이터센터 투자 돈줄 마른다",
-      "source": "비즈니스포스트",
-      "date": "2026-10-16",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5BTGs0bnhUUHllWTlMX3NYOF8xampEd2pDU21MWUV5QUhRbkdlS29SNEFBbFVoVTMtMlF3TXVXQ2lsSGxYUF9fS01hY2pKSDdiYmt3ZHNUMkFwWGw3b19FU0g0NjdUa0hZUTJqcU9DVlRlRDA?oc=5"
+      "title": "코어위브發 회사채 쇼크… 'AI 버블 붕괴'인가 '차입 모델의 경고'인가",
+      "source": "한국경제",
+      "date": "2026-10-15",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBGcmNtdWVyejJnTWhEUFNQSjFPUUVTOHZqVjZ1blhBaGctb1VJZEhGYUh4eHIxQWQ4V2NuY1JSOUIyZTZCV2NBam1EQmYyUzFkbEVWaktJVVkwQQ?oc=5"
     }
   },
   {
@@ -472,16 +472,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "트럼프 관세 발언과 미 철강 가격 고공행진 등 통상 비용 부담 이슈가 계속되고 있습니다."
+      "reason": "대미 무역흑자 급증 속에서 미국 측의 투자 압박 및 통상 비용 우려가 지속되고 있습니다."
     },
     "headline": {
-      "title": "트럼프 \"한국이 470조 쏩니다!\"...합의 없는 노골적인 통보 [자막뉴스]",
-      "source": "YTN",
-      "date": "2026-10-15",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9wNlY0ZElGS1JLRmE1SFA2bldCR3dNTWtkM051RVhqZjZ5TUpXOU13UWJaV2xlSndSNTJlWWNoTHBEV0djRlJzZkVhUzFaWS10bmZzbHVuS3NwbUE4X0E?oc=5"
+      "title": "대미 무역흑자 1천억불 눈앞…트럼프 투자 압박에 난감한 정부",
+      "source": "연합뉴스",
+      "date": "2026-10-17",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1lNF9oMHNjRGJNSlV3Z01fb1Q1dFJYZnF6V2ZTRTJzUFRheFRlMFU4bHBrNzJGR1Fhc2k3M0ZtT1A5T2FTU1R1bmVXdGJpUXpuQjJXbllNQkxxOEpEZldQQdIBYEFVX3lxTE1lNF9oMHNjRGJNSlV3Z01fb1Q1dFJYZnF6V2ZTRTJzUFRheFRlMFU4bHBrNzJGR1Fhc2k3M0ZtT1A5T2FTU1R1bmVXdGJpUXpuQjJXbllNQkxxOEpEZldQQQ?oc=5"
     }
   },
   {
