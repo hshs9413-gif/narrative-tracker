@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T01:17:14.137310+00:00",
+  "generated_at": "2026-10-19T20:14:13.730318+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -18,13 +18,13 @@
     "confirm_days": 3,
     "detail": {
       "hy_oas_pct": {
-        "value": 3.23,
-        "as_of": "2026-10-15",
+        "value": 3.31,
+        "as_of": "2026-10-16",
         "band": "평상"
       },
       "vix_level": {
-        "value": 16.46,
-        "as_of": "2026-10-15",
+        "value": 19.99,
+        "as_of": "2026-10-16",
         "band": "평상"
       },
       "curve_2s10y": {
