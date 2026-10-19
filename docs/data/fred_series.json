@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T20:13:52+00:00",
+  "generated_at": "2026-10-19T21:35:14+00:00",
   "api_key_configured": true,
   "api_key_status": "ok",
   "series": [
@@ -19,7 +19,7 @@
         "observation_end": "2026-10-16",
         "last_updated": "2026-10-19 08:38:30-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "dxy_broad",
@@ -34,10 +34,10 @@
         "frequency_short": "D",
         "seasonal_adjustment_short": "NSA",
         "observation_start": "2006-01-02",
-        "observation_end": "2026-10-09",
-        "last_updated": "2026-10-13 15:17:11-05"
+        "observation_end": "2026-10-16",
+        "last_updated": "2026-10-19 15:17:07-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "wti",
@@ -55,7 +55,7 @@
         "observation_end": "2026-10-14",
         "last_updated": "2026-10-15 15:12:35-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "us10y",
@@ -70,10 +70,10 @@
         "frequency_short": "D",
         "seasonal_adjustment_short": "NSA",
         "observation_start": "1962-01-02",
-        "observation_end": "2026-10-15",
-        "last_updated": "2026-10-16 15:16:36-05"
+        "observation_end": "2026-10-16",
+        "last_updated": "2026-10-19 15:16:46-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "fedrate",
@@ -91,7 +91,7 @@
         "observation_end": "2026-10-19",
         "last_updated": "2026-10-19 07:01:30-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "us2y",
@@ -106,10 +106,10 @@
         "frequency_short": "D",
         "seasonal_adjustment_short": "NSA",
         "observation_start": "1976-06-01",
-        "observation_end": "2026-10-15",
-        "last_updated": "2026-10-16 15:16:35-05"
+        "observation_end": "2026-10-16",
+        "last_updated": "2026-10-19 15:17:02-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "hy_oas",
@@ -127,7 +127,7 @@
         "observation_end": "2026-10-16",
         "last_updated": "2026-10-19 09:09:32-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "breakeven10y",
@@ -142,10 +142,10 @@
         "frequency_short": "D",
         "seasonal_adjustment_short": "NSA",
         "observation_start": "2003-01-02",
-        "observation_end": "2026-10-16",
-        "last_updated": "2026-10-16 16:03:42-05"
+        "observation_end": "2026-10-19",
+        "last_updated": "2026-10-19 16:03:19-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "nfci",
@@ -163,7 +163,7 @@
         "observation_end": "2026-10-09",
         "last_updated": "2026-10-15 07:36:35-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "stlfsi4",
@@ -181,7 +181,7 @@
         "observation_end": "2026-10-09",
         "last_updated": "2026-10-14 11:58:33-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "usdkrw_fred",
@@ -196,10 +196,10 @@
         "frequency_short": "D",
         "seasonal_adjustment_short": "NSA",
         "observation_start": "1981-04-13",
-        "observation_end": "2026-10-09",
-        "last_updated": "2026-10-13 15:16:40-05"
+        "observation_end": "2026-10-16",
+        "last_updated": "2026-10-19 15:16:36-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "us30y",
@@ -214,10 +214,10 @@
         "frequency_short": "D",
         "seasonal_adjustment_short": "NSA",
         "observation_start": "1977-02-15",
-        "observation_end": "2026-10-15",
-        "last_updated": "2026-10-16 15:16:43-05"
+        "observation_end": "2026-10-16",
+        "last_updated": "2026-10-19 15:17:00-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "real10y",
@@ -232,10 +232,10 @@
         "frequency_short": "D",
         "seasonal_adjustment_short": "NSA",
         "observation_start": "2003-01-02",
-        "observation_end": "2026-10-15",
-        "last_updated": "2026-10-16 15:16:41-05"
+        "observation_end": "2026-10-16",
+        "last_updated": "2026-10-19 15:16:42-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "term_premium10y",
@@ -253,7 +253,7 @@
         "observation_end": "2026-10-09",
         "last_updated": "2026-10-13 14:03:36-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "ig_oas",
@@ -271,7 +271,7 @@
         "observation_end": "2026-10-16",
         "last_updated": "2026-10-19 09:09:45-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "ccc_oas",
@@ -289,7 +289,7 @@
         "observation_end": "2026-10-16",
         "last_updated": "2026-10-19 09:10:33-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "sofr",
@@ -307,7 +307,7 @@
         "observation_end": "2026-10-16",
         "last_updated": "2026-10-19 07:02:28-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "iorb",
@@ -322,10 +322,10 @@
         "frequency_short": "D",
         "seasonal_adjustment_short": "NSA",
         "observation_start": "2021-07-29",
-        "observation_end": "2026-10-19",
-        "last_updated": "2026-10-16 15:31:34-05"
+        "observation_end": "2026-10-20",
+        "last_updated": "2026-10-19 15:31:12-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "fed_assets",
@@ -343,7 +343,7 @@
         "observation_end": "2026-10-14",
         "last_updated": "2026-10-15 15:32:32-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "reserves",
@@ -361,7 +361,7 @@
         "observation_end": "2026-10-14",
         "last_updated": "2026-10-15 15:31:52-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "rrp",
@@ -379,7 +379,7 @@
         "observation_end": "2026-10-19",
         "last_updated": "2026-10-19 13:03:41-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     },
     {
       "column": "tga",
@@ -397,7 +397,7 @@
         "observation_end": "2026-10-14",
         "last_updated": "2026-10-15 15:32:01-05"
       },
-      "meta_fetched_at": "2026-10-19T20:13:52+00:00"
+      "meta_fetched_at": "2026-10-19T21:35:14+00:00"
     }
   ]
 }
