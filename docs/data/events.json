@@ -1,5 +1,44 @@
 [
   {
+    "id": "alaska-lng-trade-2026",
+    "name": "알래스카 LNG 사업 및 통상 협력",
+    "layer": "political",
+    "layer_secondary": null,
+    "phase": "shock",
+    "status": "active",
+    "intensity": "low",
+    "trigger_date": "2026-10-16",
+    "peak_date": null,
+    "half_life_date": null,
+    "assets": [
+      "power_infra",
+      "krw"
+    ],
+    "keywords": [
+      "알래스카 LNG",
+      "통상 협력",
+      "재산세 감면"
+    ],
+    "reignition_triggers": [],
+    "notes": "",
+    "last_auto": null,
+    "added_by": "gemini",
+    "added_on": "2026-10-20",
+    "candidate_since": "2026-10-17",
+    "headline": {
+      "title": "대미 무역흑자 1000억달러…알래스카투자·보복관세 변수",
+      "source": "신아일보",
+      "date": "2026-10-18",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBDQTM2UV91QTVPUDVLcGdueDg0V3doelpjdDN6eFY5UVJieVRMNzdSeDEyOUJsTEJPOEJqTEsySTRCa0g1cUFJUHZQMmhVV01ySTZFOTdKY01nSUV3bXZ6SlFfV0Uxd2Nwb000MEwtZlE?oc=5"
+    },
+    "last_review": {
+      "date": "2026-10-20",
+      "by": "gemini",
+      "verdict": "추가",
+      "reason": "정부가 미국 알래스카 LNG 사업의 재산세 감면을 요청하며 대미 통상 대응을 추진하고 있습니다."
+    }
+  },
+  {
     "id": "us-inflation-shock-2026",
     "name": "미국 CPI·PPI 물가 재발작 충격",
     "layer": "cyclical",
@@ -33,10 +72,10 @@
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE4tc2RULVJ3UWMxbktfalBTVkV5MDFBWW82LWNSVTVfRkRmYTRtWWhORFoyd09QRWFNcXFrZlRKMTBkbndWaTg5cTNnV210aEtaOUNiemdIX3lJMUstdWMxeWFBTXJrejFsMjMyNUpJWGZsYzRCYmk00gF3QVVfeXFMUEktblUxY3FGVTA1UWdRcDZ3amhySzlJaDQ1U1ozV1BodEZERlpmdUhJR2tQamp2THNQQ1VpZTZmUTNBQ2ZGSUZCc3JZU3U4R1RKTUZTZGhFWWFucWFtcmN4QlVSVlNNRlBCbmZmZnJ5ODFrTExlOVU?oc=5"
     },
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "9월 생산자물가지수 급등 등 인플레이션 압력이 지속되며 긴축 우려가 이어지고 있습니다."
+      "reason": "미국 생산자물가 급등으로 인플레이션 압력이 가중되어 진행 중 상태를 유지합니다."
     }
   },
   {
@@ -72,10 +111,10 @@
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE91RUw0aVpIal9HZ3NvNGh1S19RUmlkb2ZkSUtpWHFaNGVRM1FVTi1Wa2J3cnBwNXVfOGdZYV9jYVJJaVFPM2ZGLTVuYWhlYmpFLVBoaUZnZ1plMmM?oc=5"
     },
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "새마을금고와 OK저축은행 등 금융권 전반에서 개인정보 유출 및 보안 사고가 연이어 확인되고 있습니다."
+      "reason": "금융권 해킹 사태 및 보안 관리 강화 필요성이 지속적으로 논의되어 진행 중 상태를 유지합니다."
     }
   },
   {
@@ -105,16 +144,16 @@
     "added_on": "2026-10-14",
     "candidate_since": "2026-10-13",
     "headline": {
-      "title": "IMF, 한국 경제성장률 전망 3.3%로 '2연속 상향 조정'…6년 만에 세계 평균 넘는다",
-      "source": "아시아경제",
-      "date": "2026-10-13",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBOT0FHN2s4ZDVSaXZpRTA1eHlENF9vTUNNWUlrZlRydEJ4UG1CRWFEMENCNld1VUJjNWVpMkFobGlvbDJJTWtLSE8zTTZBMWZnNXpqMVJjM3AyVGdod1BqMQ?oc=5"
+      "title": "IMF, 올해 한국 경제성장률 3.3% 전망…7월 대비 0.7%↑",
+      "source": "정책브리핑",
+      "date": "2026-10-15",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9Jb3NvM1dDbmhWQnNTQVgxMGlHQldjMWxYXzU5UGMxVHZEWXpaU1lUU1p1NGpnNnc1QldVUkh4R0dNcVRVUWo2clI4c3YxV3g1em9QX2thM0dfZ2EzQ3VJTVEyS3ZYU2xWWEZTNA?oc=5"
     },
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "IMF의 올해 한국 경제성장률 3.3% 상향 발표 이후 관련 논의가 이어지고 있습니다."
+      "reason": "IMF가 올해 한국 경제성장률 전망치를 3.3%로 상향 조정함에 따라 기존 내러티브를 유지합니다."
     }
   },
   {
@@ -143,16 +182,16 @@
     "added_on": "2026-10-13",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "무서울 정도로 철저한 '침묵'…러시아 페스트균 유출 미스터리 '일파만파' [뉴스모아]",
-      "source": "YTN",
-      "date": "2026-10-14",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9JLXdpVjR4SVV1WUtkOWU4aVB1eXduaHdvbVdQejMyVmdlQm1GQUs1OGFrZ1BhUm5XeWxINWhfVFRFdndmenFneTBFcWtpc016OExhQU03M09nTTJ5ZkE?oc=5"
+      "title": "러시아 페스트 의심 사망에 국내 유입 점검…질병청 “위험도 낮음” - 조선비즈",
+      "source": "Chosunbiz",
+      "date": "2026-10-13",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOd256TE5uYzNBV0hPdFVzTmgzR2RoOUhXZWhhdXJKb1N0WDJkWmprSDJPSENFTkdYUmc4QnNGUWxUMURxelZ1OUM2U1h1WlhNMVVkbC1ONU5pTnZiTU1qMElHd1JTMm1FUkktRUpScl9WWkNFdk84OC11SkNnTThpVUJOb05lM0EzUEdvQkhXcHBESmNFeW9j0gGrAUFVX3lxTE1IVW1DQXl0UDhkMjJMYVZLM0lNaVBTcHo4OTM1dzQ0ZzE4c29DUGJGeE83Qkk1dDJPV2NiaFJ0dFRlY0ZVMEVyNlZiZWQtbmdvLXZlVlg0NGppMkI1U2hoYkQtVGx5cm1hdTFVZGp3c0lEY1YwU2VpY1JUZ2RZUU92LUpuU0NGWmdCejZvVXZmOWdmUF9jZm52QkFaX0xack5oWHVFWVU2UEJTVQ?oc=5"
     },
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "러시아 페스트 의혹과 관련해 보건당국이 유입 위험성을 낮게 평가했으나 경계감이 남아 있습니다."
+      "reason": "러시아 페스트 의심 사건과 관련해 질병청이 국내 유입 위험도가 낮다고 밝힘에 따라 진행 중 상태를 유지합니다."
     }
   },
   {
@@ -185,10 +224,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 재정적자가 2조 달러에 육박했다는 발표와 함께 국채 발행 부담이 지속되고 있습니다."
+      "reason": "미국 재정적자가 2조 달러에 육박하며 2021년 이후 최대를 기록해 국채금리 불안이 이어짐에 따라 진행 중 상태를 유지합니다."
     },
     "headline": {
       "title": "美 재정적자 2조달러, 2021년 이후 최대…재무부 발표",
@@ -227,10 +266,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "국내 증시 급락으로 반도체 등 신용융자 반대매매가 수천억 원 규모로 쏟아지며 변동성이 지속되고 있습니다."
+      "reason": "증시 약세 속에 반도체 빚투 반대매매 및 강제청산 우려가 계속되어 진행 중 상태를 유지합니다."
     },
     "headline": {
       "title": "“코스피 하단 5100선”…‘초단기 빚투’ 나흘 새 2563억원 강제청산",
@@ -268,16 +307,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본은행의 추가 금리 인상 움직임과 정부의 재정 지출 기조 간 이견 속에 일본 금융기관의 국채 매입이 관측되고 있습니다."
+      "reason": "일본 금융사들의 해외채권 매도 및 자국 국채 매입 동향 속에 엔 캐리 관련 관심이 유지되어 진행 중 상태를 유지합니다."
     },
     "headline": {
-      "title": "위험 회피 심리가 완화되면서 일본 국채 수익률이 반등했다",
-      "source": "TradingView",
-      "date": "2026-10-16",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFB5WVZ2Zl9SUkYyWHl2V29uVTEyMFEtY2NQOEhBNWZybm1SdnFXQWg5SW9VdFFaQkx3ODB6MG4taXg0dExYcXlKdkZjWWxlSDQ3MEh6Wjd1UGVOQ0Y5SkdYbFN0bTVNZWp1N1RrRjBQcDAyQmtDc1p3?oc=5"
+      "title": "日은행·보험사, 해외 채권 팔고 日국채 산다…\"엔 캐리 청산 조짐?\"",
+      "source": "뉴시스",
+      "date": "2026-10-14",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE80cmVuSVRqZnc3cjJfUkVOWTl1MHdWYnRoeENrR3hsTzlTdWJ0SzBLQkFrb3JXbE5meDR1OXQzb2hvSGxjbEJQMTd6MlpVSlJJRlVLTUY0WFUyM0JEejNRb9IBeEFVX3lxTE1hYTlhVGF2WDBCUlJxRThHaEZRLXJxNVdRWmNfMzVuazdCU0c3ajFRSHZsTFctNUJZaDhHZEYyQUpvOXFvSkhjeENaT2g4YXNCeGNnOWNTTmhGTkd6Z2dFS1lISGMtbl9pTGx6cW1IUmwydUl5VDV4Vg?oc=5"
     }
   },
   {
@@ -310,16 +349,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "고용 지표 둔화와 스태그플레이션 우려에 대한 관망세가 유지되고 있습니다."
+      "reason": "미국 고용시장의 취업문이 얼어붙는 등 고용 둔화 우려가 지속되어 진행 중 상태를 유지합니다."
     },
     "headline": {
-      "title": "2026년 미국 고용 반등의 이면: 4억 8백만 일자리 격차와 한국 사업주가 봐야 할 세 가지 압력",
-      "source": "한국공공정책신문",
-      "date": "2026-10-15",
-      "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE5MeUlZVjNZS3lTTU1RcGhxcXNTMWNuRkdBbE9pb3lkd2RQdTdGOVZ3LU1mWmc3bmlYZUxHVUJtdWtaaUk?oc=5"
+      "title": "프린스턴 박사도 2300곳서 퇴짜…미국 고용시장 ‘얼어붙은 취업문’",
+      "source": "www.dt.co.kr",
+      "date": "2026-10-19",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9lYVo5RXRtc2dLa0F2SkdjRTFMWDdNNmxOLVJpRTFlanJ3aTRkODhDajlnTTRaUnNoeFpCbVpoTnZMYzdCUVZMUUtQOEdUdw?oc=5"
     }
   },
   {
@@ -394,16 +433,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "호르무즈 긴장 고조로 국제유가가 100달러를 돌파하며 에너지 가격 불안이 이어지고 있습니다."
+      "reason": "중동 공급 불안으로 국제유가 변동성이 지속되어 진행 중 상태를 유지합니다."
     },
     "headline": {
-      "title": "[뉴욕유가] 악재만 쌓인다…WTI, 한달만에 다시 100달러 돌파",
-      "source": "연합인포맥스",
-      "date": "2026-10-16",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBSOU9zQUNXdVB4d2NZSHNlRS1DSVFTeDZwR01EOGNvYk9oMXRXZjhuRFEyTVRoc0d6VkZhVUhPbVNMV1FRMUtzUzNDLUlHLUJHTjhmZnZ0eHlqQ0hiYnhoR2hGaFNZQUFrR2NiUzUzZ00?oc=5"
+      "title": "국제유가, 2% 가까이 하락…러시아 제재 완화에도 중동 공급 불안 여전",
+      "source": "글로벌이코노믹",
+      "date": "2026-10-19",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOc1BQVnV1YXFLblFKYWxsSHB0MnZKYWE5bnRMU1gzdTMxRl9UdTU2R0E0TDZTZkw4dWY2SHphYVBPdWNsMXd0MUdqLVI0THpFOGh4Skp3cWpMZllSWmItRzBGS1FRZzh6OHRKSFlZWl9vWG5KcDV2dFlXR0FraHMwdFlBOGFJUXB1?oc=5"
     }
   },
   {
@@ -431,16 +470,16 @@
     ],
     "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대.\n[10-11 검증] 빅테크 4사 2026 설비투자 전망 약 7,250억 달러, 엔비디아 10월 첫 주 사상 최고가 후 조정, 버블 경고 확산. 7/28 코스피 반도체 레버리지 붕괴(-10.84%). 키워드는 언급량이 66일 중 57일 100건 포화라 더 좁힘.",
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "코어위브 부채 리스크 등 AI 인프라 투자와 데이터센터 확장에 따른 재무 건전성 우려가 커지고 있습니다."
+      "reason": "AI 버블 경고음이 월가와 증시 전반에 연일 제기되어 진행 중 상태를 유지합니다."
     },
     "headline": {
-      "title": "코어위브發 회사채 쇼크… 'AI 버블 붕괴'인가 '차입 모델의 경고'인가",
-      "source": "한국경제",
-      "date": "2026-10-15",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBGcmNtdWVyejJnTWhEUFNQSjFPUUVTOHZqVjZ1blhBaGctb1VJZEhGYUh4eHIxQWQ4V2NuY1JSOUIyZTZCV2NBam1EQmYyUzFkbEVWaktJVVkwQQ?oc=5"
+      "title": "코스피 덮친 ‘AI 버블’ 쇼크, 이번엔 다르다?…거세진 월가 경보음",
+      "source": "중앙일보",
+      "date": "2026-10-19",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBGSF90c1Zod25NNFNrendSWGRUcjZOX2pRTUt1RTU5dXJ3NG5aV3NwY0x5UDJZRVpoOWhFaTQ5LXFoenNXNDNoUnlCbFBwOGdGalNBMXBR?oc=5"
     }
   },
   {
@@ -472,16 +511,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "대미 무역흑자 1천억 달러 근접에 따른 미국의 통상 압박 우려가 부각되고 있습니다."
+      "reason": "대미 무역흑자와 통상 변수 국면 속에서 완화된 흐름이 유지되어 진행 중 상태를 유지합니다."
     },
     "headline": {
-      "title": "대미 무역흑자 1천억불 눈앞…트럼프 투자 압박에 난감한 정부",
-      "source": "연합뉴스",
-      "date": "2026-10-17",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1lNF9oMHNjRGJNSlV3Z01fb1Q1dFJYZnF6V2ZTRTJzUFRheFRlMFU4bHBrNzJGR1Fhc2k3M0ZtT1A5T2FTU1R1bmVXdGJpUXpuQjJXbllNQkxxOEpEZldQQdIBYEFVX3lxTE1lNF9oMHNjRGJNSlV3Z01fb1Q1dFJYZnF6V2ZTRTJzUFRheFRlMFU4bHBrNzJGR1Fhc2k3M0ZtT1A5T2FTU1R1bmVXdGJpUXpuQjJXbllNQkxxOEpEZldQQQ?oc=5"
+      "title": "대미 무역흑자 1000억달러…알래스카투자·보복관세 변수",
+      "source": "신아일보",
+      "date": "2026-10-18",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBDQTM2UV91QTVPUDVLcGdueDg0V3doelpjdDN6eFY5UVJieVRMNzdSeDEyOUJsTEJPOEJqTEsySTRCa0g1cUFJUHZQMmhVV01ySTZFOTdKY01nSUV3bXZ6SlFfV0Uxd2Nwb000MEwtZlE?oc=5"
     }
   },
   {

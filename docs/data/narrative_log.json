@@ -1437,5 +1437,59 @@
     ],
     "at": "2026-10-19T08:43+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-20",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "alaska-lng-trade-2026",
+    "kind": "new",
+    "name": "알래스카 LNG 사업 및 통상 협력",
+    "reason": "정부가 미국 알래스카 LNG 사업의 재산세 감면을 요청하며 대미 통상 대응을 추진하고 있습니다.",
+    "status": "applied",
+    "evidence": [
+      {
+        "title": "대미 무역흑자 1000억달러…알래스카투자·보복관세 변수",
+        "source": "신아일보",
+        "date": "2026-10-18",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBDQTM2UV91QTVPUDVLcGdueDg0V3doelpjdDN6eFY5UVJieVRMNzdSeDEyOUJsTEJPOEJqTEsySTRCa0g1cUFJUHZQMmhVV01ySTZFOTdKY01nSUV3bXZ6SlFfV0Uxd2Nwb000MEwtZlE?oc=5"
+      },
+      {
+        "title": "정부, 美 알래스카 LNG 재산세 감면 요청",
+        "source": "뉴시스",
+        "date": "2026-10-16",
+        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9ONmIzRDI4NXFUaU9fSTBiRlNHY1JRdER1MVlZcDVmYzFPblh2RFU3SWhESTFvUnZuSUZnTUJsUWVoSTN4LUxMcDBtVm8tSWVBR0VFcTVpeTVYMUl4UzJSMEJSS1F2SjNvT2lTOTF5SWpFenA0dW5iedIBeEFVX3lxTE9ONmIzRDI4NXFUaU9fSTBiRlNHY1JRdER1MVlZcDVmYzFPblh2RFU3SWhESTFvUnZuSUZnTUJsUWVoSTN4LUxMcDBtVm8tSWVBR0VFcTVpeTVYMUl4UzJSMEJSS1F2SjNvT2lTOTF5SWpFenA0dW5ieQ?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-20",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "기존 11개 내러티브는 물가, 채권 매도, AI 밸류에이션 등의 영향이 이어져 모두 진행 중 상태를 유지했으며, 관망 후보였던 알래스카 LNG 사업 이슈를 신규 내러티브로 등록했습니다.",
+    "reviews": {
+      "alaska-lng-trade-2026": "추가",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "korea-growth-slowdown-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "SK그룹 웨스팅하우스 지분 인수",
+      "국민연금 국내 증시 평가손실",
+      "금융권 AI 해킹 및 보안 리스크"
+    ],
+    "at": "2026-10-20T09:41+09:00",
+    "trigger": "schedule"
   }
 ]
