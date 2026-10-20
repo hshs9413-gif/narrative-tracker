@@ -1,6 +1,26 @@
 {
   "updated": "2026-10-20",
   "items": {
+    "alaska-lng-trade-2026": [
+      {
+        "title": "[글로컬] 알래스카 LNG 투자, '트럼프 압박' 넘어서야",
+        "source": "연합뉴스",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9UV2d6cFR3VlJzeGxWNDV2VHB1OUtRbDV6NlJJcXJULVdQV3g4Qy1BaUZpcFlwQ1FWamNSRzRSYmtTcmhDLS1udGRBMDk5ZVZhNXRsbGJ0UmM1MmPSAWBBVV95cUxNcmN4eGd0MGZSN0F1OFJWRVY4SzU5X1dQX3paekFGZzdyWE9IRXUzLWlqS2xUTF96OFhFTzNULXFNbDVabk9LdW9UejJVai1jelNVUWxjb2ZrWUpIUlotcTE?oc=5"
+      },
+      {
+        "title": "알래스카 LNG 사업 최대 연 1조원 재산세…정부, 감면요청",
+        "source": "연합뉴스TV",
+        "date": "2026-10-15",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBjNjhIRl9PdF90Sm5mcTlJVGF4cldBWTV5WEdQTUlmWWhGVHVwMGhHM3BsdWZjRGhTbkZaVzJrYUlybDkxUF9HaHJST1o2UXBpNm9vVVcwcXBiT3lwNnB0R0VHUUpfbG8?oc=5"
+      },
+      {
+        "title": "트럼프 \"대만, 알래스카 LNG 30% 구매\"…대만, 44억달러 투자 공식 확인(종합)",
+        "source": "연합인포맥스",
+        "date": "2026-10-14",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBMaklwSEFiUjdULUZkRVBpaFhBN3NzcTVDWlBpbTJ2UUl3WDRzUlZ1U0lPWmExbjlsc2Nsc0NSYnRRVklTV3ZQM0hNNDJ5dHU3ZzQ5b2czM1lFVDNTTjFDTFZMRXRVV1dVWnBDeG05ZEc?oc=5"
+      }
+    ],
     "us-inflation-shock-2026": [
       {
         "title": "美 9월 생산자물가지수 전월비 1.3%↑…4년 6개월만에 최고(상보)",
@@ -83,6 +103,12 @@
     ],
     "global-bond-selloff-2026": [
       {
+        "title": "엘 에리언 \"佛 국채금리 급등, 美까지 파급…악순환 가능성 경계\"",
+        "source": "KB Think",
+        "date": "2026-10-20",
+        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9sNG43SkE3akhTZGFHTTdrOENtQ242SVNkR2l0b3JldXlfczFLdUxINW0xRTdqSHJLWWRfMjVXRUtOYnlUaGNtclFILXQ3MDVkNjY0cFNmd3ljd1JGS05Rdk9fbjFpbm1WcjByXzdsQTRWdw?oc=5"
+      },
+      {
         "title": "마크 잔디 \"美 재정적자 2조달러 육박…국채금리 상승 압력\"",
         "source": "연합인포맥스",
         "date": "2026-10-19",
@@ -93,12 +119,6 @@
         "source": "연합뉴스TV",
         "date": "2026-10-17",
         "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1JcUpRWEd5Z2ZZUC1XRFRNLWpiMnc5WGdfRzljbHBFUDRmM01FQWRBZDdsX1FLWGVocjR5dGI2RzBvOFR0UUxfa2J6eFcxbmdPa0RORmxOTTQ1VktHT0NCNEV6MndwRVk?oc=5"
-      },
-      {
-        "title": "美 재정적자 2조달러, 2021년 이후 최대…재무부 발표",
-        "source": "연합뉴스",
-        "date": "2026-10-17",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5aalY5T05ZaW5nN3FxczFlS1ZYcU1nYUVHc2dtdmcwMU5HVXhESHNFWXBPSGcwc0lXX1Rfc1c5akNqYVF5S1RpR2NGYW9aTmRGMjB3NWIyZW5HWTTSAWBBVV95cUxQVy1ZSnFJZkFkZjVIVkVqRWhGNlZNVEowZVZ2S3hYOFpzN0d5MjVuLUxpVV9TSVl2SGtwTnp1XzRUandLazBZdmVXVzE0Z3NfVmxFRFp2TWtScVFlNlB3T0o?oc=5"
       }
     ],
     "kospi-semis-leverage-2026": [
@@ -109,10 +129,10 @@
         "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9QNjJNVC1OUnQ0M1p6MGZWbUQwcWI1ZFd6UHNfeWdNbnpaZUF3Ri1vY0k1bWlOck5yQm9oMXh1TFVFbHdlQUZoNHpLS2pRUk5LMU8tWA?oc=5"
       },
       {
-        "title": "직원 월급 떼먹고 딸 가수 데뷔…‘이수만 걸그룹’ 빚투 논란",
-        "source": "JTBC",
+        "title": "\"데뷔는 무슨 돈으로?\"...'리틀 보아' 아이찡 부모 '빚투' 논란 [앵커리포트]",
+        "source": "YTN",
         "date": "2026-10-19",
-        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBrSy1NTlJxa0h4ODJ4azZGSHZkRHZtTHpsSnl4YUxFT1VOcDdkNlZ3RHJFY01sTXgxYnlzb1hOcW9UdFN4SU1aTkJsQmtmYXpUUTh4QQ?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9ONlRlZ0NQRERJeVBfQmpxMGJ1Ym1zUWxmQmVkdUt3RlZucVpSUGcwWm1xc252eF90ckpUVkx5Yndaa1MxOXhVdndGYnQ2M2hGcG4yZk1RWUNaTUFzckE?oc=5"
       },
       {
         "title": "“코스피 하단 5100선”…‘초단기 빚투’ 나흘 새 2563억원 강제청산",
@@ -163,10 +183,10 @@
     ],
     "iran-war-2026": [
       {
-        "title": "윌리엄 블레어 \"국제유가, 대폭등 여지 있다\"",
-        "source": "연합인포맥스",
+        "title": "국제유가, 러 제재 완화·후티 공격에 혼조",
+        "source": "연합뉴스TV",
         "date": "2026-10-19",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE92a3YwVUFaNk9hdHJ0Y1FwTHIxTXpVM2N1OGpwSi1fZU8xbUp1TlN5OWItMzI3TWxhbklwVWJ3RmE4WFNCQUExbklXbHJYVHFBSlpPbWlYVE1lSUYwTWVrNkQtRl9iMGM3bVh1MnFzeEg?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1IZURRMWxDVG9pLWJXcGVyXzgzcFJZLW4xcDMzR1FVcGlLVjRmaFNmTXR6NUF6QmozNkN1ZHM5aHhfR2F3Q0ZwdVExT3ZqWFBaZzRFaXREZ1VjSmp3M0ZjWEMxcXRIRWM?oc=5"
       },
       {
         "title": "국제유가, 2% 가까이 하락…러시아 제재 완화에도 중동 공급 불안 여전",
@@ -175,10 +195,10 @@
         "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOc1BQVnV1YXFLblFKYWxsSHB0MnZKYWE5bnRMU1gzdTMxRl9UdTU2R0E0TDZTZkw4dWY2SHphYVBPdWNsMXd0MUdqLVI0THpFOGh4Skp3cWpMZllSWmItRzBGS1FRZzh6OHRKSFlZWl9vWG5KcDV2dFlXR0FraHMwdFlBOGFJUXB1?oc=5"
       },
       {
-        "title": "선거 앞두고 치솟는 유가...불안한 트럼프, 러 제재도 면제",
-        "source": "YTN",
-        "date": "2026-10-17",
-        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE12MXM3b3QyejJma0lIbG9qMVBQMEhPYVozUVkwekdQSGJjZFhPMTBDbDYxYW5kdldEV0ViR2lEc2JDUC1yMi1HeFdNb3VWNGZyaXkyX3hibHFlSEgzQU92WUg1YVFndUM1dGxfMGJKMA?oc=5"
+        "title": "윌리엄 블레어 \"국제유가, 대폭등 여지 있다\"",
+        "source": "연합인포맥스",
+        "date": "2026-10-19",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE92a3YwVUFaNk9hdHJ0Y1FwTHIxTXpVM2N1OGpwSi1fZU8xbUp1TlN5OWItMzI3TWxhbklwVWJ3RmE4WFNCQUExbklXbHJYVHFBSlpPbWlYVE1lSUYwTWVrNkQtRl9iMGM3bVh1MnFzeEg?oc=5"
       }
     ],
     "ai-valuation-2024": [
