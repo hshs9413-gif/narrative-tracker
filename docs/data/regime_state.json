@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T01:52:17.921848+00:00",
+  "generated_at": "2026-10-20T18:45:23.690711+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -18,13 +18,13 @@
     "confirm_days": 3,
     "detail": {
       "hy_oas_pct": {
-        "value": 3.31,
-        "as_of": "2026-10-16",
+        "value": 3.29,
+        "as_of": "2026-10-19",
         "band": "평상"
       },
       "vix_level": {
-        "value": 19.99,
-        "as_of": "2026-10-16",
+        "value": 18.44,
+        "as_of": "2026-10-19",
         "band": "평상"
       },
       "curve_2s10y": {
@@ -70,13 +70,13 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 98.02,
-      "as_of": "2026-10-18",
-      "base_value": 100.3,
-      "base_date": "2026-09-18",
+      "value": 103.66,
+      "as_of": "2026-10-19",
+      "base_value": 95.78,
+      "base_date": "2026-09-21",
       "lookback_days": 28,
-      "change": -2.28,
-      "change_pct": -2.27
+      "change": 7.88,
+      "change_pct": 8.23
     },
     "breakeven_3m": {
       "value": 2.35,
