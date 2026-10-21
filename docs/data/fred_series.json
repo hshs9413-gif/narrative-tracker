@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-21T01:35:59+00:00",
+  "generated_at": "2026-10-21T18:56:07+00:00",
   "api_key_configured": true,
   "api_key_status": "ok",
   "series": [
     {
       "column": "vix",
       "id": "VIXCLS",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "VIXCLS",
         "title": "CBOE Volatility Index: VIX",
@@ -24,7 +24,7 @@
     {
       "column": "dxy_broad",
       "id": "DTWEXBGS",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "DTWEXBGS",
         "title": "Nominal Broad U.S. Dollar Index",
@@ -42,7 +42,7 @@
     {
       "column": "wti",
       "id": "DCOILWTICO",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "DCOILWTICO",
         "title": "Crude Oil Prices: West Texas Intermediate (WTI) - Cushing, Oklahoma",
@@ -60,7 +60,7 @@
     {
       "column": "us10y",
       "id": "DGS10",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "DGS10",
         "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis",
@@ -78,7 +78,7 @@
     {
       "column": "fedrate",
       "id": "DFEDTARU",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "DFEDTARU",
         "title": "Federal Funds Target Range - Upper Limit",
@@ -96,7 +96,7 @@
     {
       "column": "us2y",
       "id": "DGS2",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "DGS2",
         "title": "Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity, Quoted on an Investment Basis",
@@ -114,7 +114,7 @@
     {
       "column": "hy_oas",
       "id": "BAMLH0A0HYM2",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "BAMLH0A0HYM2",
         "title": "ICE BofA US High Yield Index Option-Adjusted Spread",
@@ -132,7 +132,7 @@
     {
       "column": "breakeven10y",
       "id": "T10YIE",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "T10YIE",
         "title": "10-Year Breakeven Inflation Rate",
@@ -150,7 +150,7 @@
     {
       "column": "nfci",
       "id": "NFCI",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "NFCI",
         "title": "Chicago Fed National Financial Conditions Index",
@@ -168,7 +168,7 @@
     {
       "column": "stlfsi4",
       "id": "STLFSI4",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "STLFSI4",
         "title": "St. Louis Fed Financial Stress Index",
@@ -186,7 +186,7 @@
     {
       "column": "usdkrw_fred",
       "id": "DEXKOUS",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "DEXKOUS",
         "title": "South Korean Won to U.S. Dollar Spot Exchange Rate",
@@ -204,7 +204,7 @@
     {
       "column": "us30y",
       "id": "DGS30",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "DGS30",
         "title": "Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted on an Investment Basis",
@@ -222,7 +222,7 @@
     {
       "column": "real10y",
       "id": "DFII10",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "DFII10",
         "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis, Inflation-Indexed",
@@ -240,7 +240,7 @@
     {
       "column": "term_premium10y",
       "id": "THREEFYTP10",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "THREEFYTP10",
         "title": "Term Premium on a 10 Year Zero Coupon Bond",
@@ -258,7 +258,7 @@
     {
       "column": "ig_oas",
       "id": "BAMLC0A0CM",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "BAMLC0A0CM",
         "title": "ICE BofA US Corporate Index Option-Adjusted Spread",
@@ -276,7 +276,7 @@
     {
       "column": "ccc_oas",
       "id": "BAMLH0A3HYC",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "BAMLH0A3HYC",
         "title": "ICE BofA CCC & Lower US High Yield Index Option-Adjusted Spread",
@@ -294,7 +294,7 @@
     {
       "column": "sofr",
       "id": "SOFR",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "SOFR",
         "title": "Secured Overnight Financing Rate",
@@ -312,7 +312,7 @@
     {
       "column": "iorb",
       "id": "IORB",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "IORB",
         "title": "Interest Rate on Reserve Balances (IORB Rate)",
@@ -330,7 +330,7 @@
     {
       "column": "fed_assets",
       "id": "WALCL",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "WALCL",
         "title": "Assets: Total Assets: Total Assets (Less Eliminations from Consolidation): Wednesday Level",
@@ -348,7 +348,7 @@
     {
       "column": "reserves",
       "id": "WRESBAL",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "WRESBAL",
         "title": "Liabilities and Capital: Other Factors Draining Reserve Balances: Reserve Balances with Federal Reserve Banks: Week Average",
@@ -366,7 +366,7 @@
     {
       "column": "rrp",
       "id": "RRPONTSYD",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "RRPONTSYD",
         "title": "Overnight Reverse Repurchase Agreements: Treasury Securities Sold by the Federal Reserve in the Temporary Open Market Operations",
@@ -384,7 +384,7 @@
     {
       "column": "tga",
       "id": "WTREGEN",
-      "via": "fred_api",
+      "via": "failed",
       "meta": {
         "id": "WTREGEN",
         "title": "Liabilities and Capital: Liabilities: Deposits with F.R. Banks, Other Than Reserve Balances: U.S. Treasury, General Account: Week Average",
