@@ -1491,5 +1491,35 @@
     ],
     "at": "2026-10-20T09:41+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-21",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미국 물가 충격과 재정적자 우려가 시장을 압박하는 가운데, AI 버블 경고와 금융권 보안 리스크가 증시 변동성을 키우고 있습니다. 중동 긴장과 통상 압박 등 지정학적 리스크도 여전히 시장의 주요 하방 요인으로 작용 중입니다.",
+    "reviews": {
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "korea-growth-slowdown-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "SK그룹 웨스팅하우스 지분 인수",
+      "국민연금 국내 증시 평가손실",
+      "금융권 AI 해킹 및 보안 리스크"
+    ],
+    "at": "2026-10-21T09:11+09:00",
+    "trigger": "schedule"
   }
 ]
