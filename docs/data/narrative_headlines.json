@@ -3,6 +3,12 @@
   "items": {
     "alaska-lng-trade-2026": [
       {
+        "title": "“60조원 추산 알래스카 LNG, 사업비 최대 2배 뛸 수도”",
+        "source": "중앙일보",
+        "date": "2026-10-21",
+        "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5LdkdKb2syN3AzYnduV1MxTks2WWdoeV9FcmFzNDl0TW51QUhCdEZHYVlDdUMxRXFvWjFSVUp2UlZLcGlaUG13dXBQZXVxTE5WUUk0dGhR?oc=5"
+      },
+      {
         "title": "\"대미투자와 경제안보: 알래스카 LNG의 지정학\" 안내",
         "source": "서울대학교",
         "date": "2026-10-20",
@@ -13,12 +19,6 @@
         "source": "MBC 뉴스",
         "date": "2026-10-20",
         "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1Xb093NU5Wbk9WYmsxb1NTODNmSHZOdWIyMjFHT1N5b1RzNGFqbDdId0Z4SWNnLXUySEJtSlRpcGdNZXJGMzYtZjlCY1ZXUERwWXRYd21jTTZEcUM1T2ZjdEx1LUl5NWVKM0RGUXU0dUN5UEJE0gF0QVVfeXFMUC1JQ1dpT01sNmcxbVBuMW95M3p5Yi1zYjIzSkwxX3hxaDdNVWNUczdraHpVNm90aHc5b1Buekg0Ym9HaVRXaE1xSmdFcUtnMmU2elBGdXI2VENoNXRfcmx6WkdPQ21IQ1hLU3RGTEg3UXREQWY?oc=5"
-      },
-      {
-        "title": "\"알래스카 LNG 사업비, 검토단계 불과…비용 2배로 늘 수 있어\"",
-        "source": "연합뉴스",
-        "date": "2026-10-20",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1kaGlnQm9HdGdPVGMza1JNa1FlN1B3SklqZkY5amllU2hSSDA0X1lqcDZMVnJHdVo1NTdRdEJpOVppVElEb3lUdGNPdm5mNHI3VkhlWE90c1FWLUnSAWBBVV95cUxNeWpqY0hKaVJ6aDdBT0J3TFdxUnFuLTlCUEVXM1lXME1OTlZMWlJmX1lndmVNbWYweDNhNDR3R2xPc1g1bXc4Q0p4TVh6UDB4VDhBLUN2bjJuUW9pMEdHaVM?oc=5"
       }
     ],
     "us-inflation-shock-2026": [
@@ -63,6 +63,12 @@
     ],
     "korea-growth-slowdown-2026": [
       {
+        "title": "한국 경제 성장률 3%대 중반까지 상승 전망…가계 물가 부담도↑",
+        "source": "시사뉴스",
+        "date": "2026-10-21",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE4tMUh6TFg0QWpjRUtLbVltR3ZvV1lxRXRvYkFLaVNCUW5EU09sMHJoT2w1UmdsU3VfeHRMN0NPSC05VDJHZzI4N3hzc3UxcGdsamRjcmo1RDZIZGFuTEE?oc=5"
+      },
+      {
         "title": "IMF, 올해 한국 경제성장률 3.3%로 상향··· AI·반도체 수출 호조 영향 : 네이버 블로그",
         "source": "Naver Blog",
         "date": "2026-10-20",
@@ -73,12 +79,6 @@
         "source": "전라매일",
         "date": "2026-10-19",
         "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE03SXUwQUl5UUtBMEVfbm5NVmx0N1A4ZlV5MHJkUEZRLWJ4Unhwa2ktWC0zT3NUcGk1MEMzelNzRlFabm9xVnp0RUxOSW9wb1ZUYkE?oc=5"
-      },
-      {
-        "title": "이형일 \"반도체 호황에 올해 韓 성장률 3% 중반…IMF 전망 웃돈다\"",
-        "source": "뉴스핌",
-        "date": "2026-10-19",
-        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE55dVJuclMzTlc0R3ZQZ3c2OXkwWkgwSlBFcGlyZW94c01GcVV0SVY4RV9zUTNrN0tRSEVSYlYzcmR2aWNpeF9oYXdSQ0tBdGdfdC1BT290U3Q5cGhf?oc=5"
       }
     ],
     "pandemic-risk-2026": [
@@ -135,10 +135,10 @@
         "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBrSy1NTlJxa0h4ODJ4azZGSHZkRHZtTHpsSnl4YUxFT1VOcDdkNlZ3RHJFY01sTXgxYnlzb1hOcW9UdFN4SU1aTkJsQmtmYXpUUTh4QQ?oc=5"
       },
       {
-        "title": "\"데뷔는 무슨 돈으로?\"...'리틀 보아' 아이찡 부모 '빚투' 논란 [앵커리포트]",
-        "source": "YTN",
+        "title": "코스피 7거래일 하락에 ‘빚투’ 직격탄…반대매매 3000억 육박",
+        "source": "조선일보",
         "date": "2026-10-19",
-        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9ONlRlZ0NQRERJeVBfQmpxMGJ1Ym1zUWxmQmVkdUt3RlZucVpSUGcwWm1xc252eF90ckpUVkx5Yndaa1MxOXhVdndGYnQ2M2hGcG4yZk1RWUNaTUFzckE?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQa2xDMW9hQWxJSlRlZVdOTVRyMURZMU9wUUJxaUlkMGlDejlxaTVnSlJwdnIzanlJd1FpNFB2aWRrdzVwZk90a0NPSXdaeEdCelUxbHRzaGMwQUhsbld3RGxicHlra2hOOWhMcXNCT0Q3YW11UVlLaFN1ZTdVR0RkaVhLeHRPMEN6TU0zMVhR?oc=5"
       }
     ],
     "boj-normalization-2026": [
@@ -155,18 +155,18 @@
         "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE13RjNBMHBhc2ZLdERzSG1mOXoydFAtM2xoSGxhaFAzS0hqU1dxczBYZTRHSENncDZIVGZKYU1tRTVfc0Nxai02bUZ5MEYycWR2U0xNNTJxYlhXa29tOTZ6ZlBuYk96aThvZzlKZ1lpOTZGRk1K?oc=5"
       },
       {
-        "title": "오늘(2026년 10월 19일) 미국 달러 환율: 일본 엔화 강세로 인해 변동 없음.",
-        "source": "Vietnam.vn",
-        "date": "2026-10-19",
-        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONVgtd0kyem5IQXRKeXlNaGdNTVp1dEFqdDVRTHFxYTJaOTBLbkpYR2d5TzlBX3NXTlQwa3pPZXBRLVVzSEgxeWkwNDBpaU05NzV6X2VwSTgwaTNxakRJcFF3VDZyMzlfbEJoUzNZUVVOMGQ4emxtRFE0UnkzaWRmb0N2MjVITlg3dGlsR29QVzh1Q2hlWXc?oc=5"
+        "title": "고금리에 일본 20년물 국채 응찰서 역대 최고 수요",
+        "source": "연합뉴스",
+        "date": "2026-10-20",
+        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBib0hvanRCRDVGMjlNQzZKSHNnX2VXT0huVzlRMEVtWExRbG1Ybzl2QkpHT1BTcVhLLWk0a0tVaWtmdnZPMVZqbDZuMENTWno1NmotNG9zVVZ1Z3lNZFVrSdIBYEFVX3lxTFBib0hvanRCRDVGMjlNQzZKSHNnX2VXT0huVzlRMEVtWExRbG1Ybzl2QkpHT1BTcVhLLWk0a0tVaWtmdnZPMVZqbDZuMENTWno1NmotNG9zVVZ1Z3lNZFVrSQ?oc=5"
       }
     ],
     "us-labor-cooling-2026": [
       {
         "title": "2026년 미국 고용 반등의 이면: 4억 8백만 일자리 격차와 한국 사업주가 봐야 할 세 가지 압력",
-        "source": "한국공공정책신문",
+        "source": "투데이타임즈",
         "date": "2026-10-15",
-        "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE5MeUlZVjNZS3lTTU1RcGhxcXNTMWNuRkdBbE9pb3lkd2RQdTdGOVZ3LU1mWmc3bmlYZUxHVUJtdWtaaUk?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5aMUU0bUx1ZXQ1LVdPTVgtalNxMXU5eWJmVWxtdXluQktwZ3pZZ0pBS1NQQkpvVS1YSjNnMjBrQXFXb0d6Vk4zODRxSTIxYkcxMnc?oc=5"
       }
     ],
     "iran-war-2026": [
