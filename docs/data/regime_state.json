@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T18:44:11.631822+00:00",
+  "generated_at": "2026-10-23T20:31:14.992207+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -28,7 +28,7 @@
         "band": "평상"
       },
       "curve_2s10y": {
-        "value": 0.32,
+        "value": 0.31,
         "inverted": false
       }
     }
@@ -36,7 +36,7 @@
   "policy_stance": {
     "label": "긴축",
     "current": 4.0,
-    "current_date": "2026-10-22",
+    "current_date": "2026-10-23",
     "lookback_days": 90,
     "lookback_value": 3.75,
     "lookback_date": "2026-07-24"
@@ -51,12 +51,12 @@
   "cross_check": {
     "nfci": {
       "value": -0.5,
-      "as_of": "2026-10-22",
+      "as_of": "2026-10-23",
       "interpretation": "평균보다 완화적"
     },
     "stlfsi4": {
       "value": -0.63,
-      "as_of": "2026-10-22",
+      "as_of": "2026-10-23",
       "interpretation": "평균보다 낮음"
     }
   },
@@ -70,13 +70,13 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 99.47,
-      "as_of": "2026-10-22",
-      "base_value": 94.61,
-      "base_date": "2026-09-24",
+      "value": 103.19,
+      "as_of": "2026-10-23",
+      "base_value": 92.41,
+      "base_date": "2026-09-25",
       "lookback_days": 28,
-      "change": 4.86,
-      "change_pct": 5.14
+      "change": 10.78,
+      "change_pct": 11.67
     },
     "breakeven_3m": {
       "value": 2.32,
