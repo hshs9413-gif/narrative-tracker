@@ -1581,5 +1581,81 @@
     ],
     "at": "2026-10-22T09:16+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-23",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "up",
+    "reason": "AI 투자 회의론이 빅테크 기업의 신용 위험(CDS 급등)으로 번지며 재무 건전성 우려가 고조되었습니다.",
+    "status": "rejected",
+    "reject_reason": "이미 가장 강함"
+  },
+  {
+    "date": "2026-10-23",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "corporate-credit-stress-2026",
+    "kind": "new",
+    "name": "기업 신용 위험 및 디폴트 우려",
+    "reason": "고금리 장기화로 인해 취약 기업의 신용 스프레드가 확대되고 디폴트 우려가 시장 전반으로 확산되고 있습니다.",
+    "status": "applied",
+    "evidence": [
+      {
+        "title": "Globally, corporate defaults fell in September; rate will decline further in coming months",
+        "source": "Moody's",
+        "date": "2026-10-21",
+        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeVN5N2FQd0V5aldmeG5HU3hNRU80QVdvRVhZM0lOQThyVDI3ZUlSYUg0bktwclZIYmx0bDZ2bEJ3Ul9qTmNWZnF6NGREUjlyMEtGWVBXc0ZYX1U5LUJMZTRBNnVFUXFDLVR1UlI2bjZRTUMwYlNScWhfVk8wWVR6Y1liandBdVZteERBZnJ2WG5iZ3hJYmFxdS1ObHE0QQ?oc=5"
+      },
+      {
+        "title": "Rising rates are stressing out the riskiest companies",
+        "source": "Marketplace.org",
+        "date": "2026-10-22",
+        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQTkYtek5STGRlYjRVR0FvSDNsSXVrdWpkZnpGS2FwMDhBVFlodFJnWTB5eGZvOXdaVXVPd1lmMjFuOTZwY2d5Wm1nNkdFLUlGVDNIU2E0SFNVOTlReWlpTDVmWG4zNGQxbVFBYmotOWdNRlhnUUlIV1hTelhIeVYwWDFvemJJc2dwRjNqeVZ6djJoNnotVnVxajJJc1Q0ZWc?oc=5"
+      },
+      {
+        "title": "CoreWeave’s market confidence erodes as bond yields spike and stock sinks",
+        "source": "CNBC",
+        "date": "2026-10-21",
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPRVgxcDF1U3FhT0VtZ19VY1NvclVqTHA3ZDk5UGNFX3BodHJ2VVpRMEhpT3ZmNlRLYk5iZDBIMlU0WW51SjEwcmJsWE9EcXZsTlJBdFNKZ3dlSm9nUGRCM0g5SDFCRk9ERE03WWpPLUdndDNmVUdBZ1ZNYkNubzZsOV95Nzk4bWVKQjRrb1JHSXBkdXM3N1BwdXUybUF4di1hRTNQdEx3c0M?oc=5"
+      },
+      {
+        "title": "The AI industry’s gigantic debts are making investors nervous",
+        "source": "The Economist",
+        "date": "2026-10-18",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOQjBPZ04tUnFocVdZQlM2dkF6N3hkVk9wTDB3SWVfbHo2ZFNvcnQtanBIX2JIVVg5UXpEZGVlRDIycFFmZmlUMHdjaFlwUzNOclNlUEdzaUtQMHNPY3FkdFZQUFIyclZCQURIN09YZHlWUUdmYkhYY3B6WDlEQ2ZqbEdaai1BNUQzX3VwNC02a01abVRPWmZwdWQyMUdjbzZiaHNDVmFuMWJhZw?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-23",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "AI 투자 회의론이 빅테크 기업의 신용 위험으로 전이되며 시장 전반의 신용 스트레스가 고조되고 있습니다. 인플레이션 압력과 고용 냉각 우려가 지속되는 가운데, 기업들의 신용 건전성에 대한 경계감이 커진 하루였습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "추가",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "SK그룹 웨스팅하우스 지분 인수",
+      "국민연금 국내 증시 평가손실",
+      "금융권 AI 해킹 및 보안 리스크"
+    ],
+    "at": "2026-10-23T09:14+09:00",
+    "trigger": "schedule"
   }
 ]
