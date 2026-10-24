@@ -1657,5 +1657,36 @@
     ],
     "at": "2026-10-23T09:14+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-24",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "중동 불안으로 인한 유가 급등과 AI 투자 우려에 따른 글로벌 신용스프레드 확대가 시장 변동성을 유지시키는 가운데, 기존 진행 중인 12개 내러티브를 모두 유지 처리했습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국민연금 국내 증시 평가손실",
+      "테슬라·스페이스X 합병 구상",
+      "국산 비만약 시장 경쟁",
+      "SK그룹 웨스팅하우스 지분 인수",
+      "금융권 AI 해킹 및 보안 리스크"
+    ],
+    "at": "2026-10-24T09:04+09:00",
+    "trigger": "schedule"
   }
 ]

@@ -1,5 +1,43 @@
 [
   {
+    "key": "국민연금국내증시평가손실",
+    "name": "국민연금 국내 증시 평가손실",
+    "first_seen": "2026-10-19",
+    "days_seen": 6,
+    "last_seen": "2026-10-24",
+    "why": "코스피 급락에 따른 국민연금 대규모 평가손실 영향을 계속 주시하고 있습니다.",
+    "evidence": [
+      {
+        "title": "코스피 3% 급락에 5300선…AI 자금조달 우려, 빅테크로 번지나",
+        "source": "한겨레",
+        "date": "2026-10-23",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uMW85WFhaTl9PcVctN09ZRlpmUms4TzhrWHNia2x6Ykg3NExNc2NvOGVxYXl5d2UtYTBBblRNR3VkM1dhN01zOFktYzAwaXpNWVQyNUIwTWRKU0dadTZ5M2NLY3VuX1k?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "테슬라스페이스x합병구상",
+    "name": "테슬라·스페이스X 합병 구상",
+    "first_seen": "2026-10-24",
+    "days_seen": 1,
+    "last_seen": "2026-10-24",
+    "why": "일론 머스크의 테슬라와 스페이스X 합병 구상 보도가 나오면서 시장 관심을 끌고 있습니다.",
+    "evidence": [
+      {
+        "title": "테슬라·스페이스X 합병으로 일론 머스크 꿈 다가서나… AI 제국 완성해 화성 도시 건설 박차 - 조선비즈",
+        "source": "Chosunbiz",
+        "date": "2026-10-23",
+        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOZU9wSW1kWkxzRFFycE5vVU1aYmtmbGRIQkVpbnZtSTBpQUY2TTNmdTVsUnBNUXNNNi1LeUtHdHJndWEtNW56cmFJOTNxNkFZSU84c1o4OTYxcFVIR2JBV3ZqdTY5QTRFTXF2SU9paG8tdUlYWUhybTlMSkNiRU9kbUFCWHFuU2xLN2ZybtIBoAFBVV95cUxQUDgwemlpcWVCLXZQaC1iVktqVjNSZUVSZlpPNzM5bUxVNEZHVmkyMWk2N3J0MVdLX1l5OFg1MktEa0FhVGlIZURhdkI1ZS1wVUFYQk42aXhSMm5Ha2FzX1FKTVh5TTcxUXFYRHV1c1I3SHlSVXo5UFZCbU16RTdTY2VaU3B3Y0J1TzJ5aGFKYjVYb0FnRXFpMWlVZExOLVNE?oc=5"
+      },
+      {
+        "title": "For Musk, A SpaceX And Tesla Merger Is Likely About Power Not Personal Profits",
+        "source": "Forbes",
+        "date": "2026-10-22",
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxONW9YOU5UNk5QakhyS1F3Ym5WdUZqSVdQa1A1MEJ4MkhadFFDNk9NYktRSzh0bTE2NEdobnVMMjIybkJLZXlQRTFKd2VEVmp3NUpidGl6b1FKRWZwZlpPT0pGeEpRQ2RFQjE4di1IOUYyNk1tUVJrZ1RiZEwxY05pYUQ4SG4xWHVZcXY0Q2FsOHU5R1dyaW5ESkZoQkRRaW9oQmhFdEkwMmE2bUpyVG00Nm1YbWdoYXY5LTZISVBiRXlBTDVKclU0?oc=5"
+      }
+    ]
+  },
+  {
     "key": "국산비만약시장경쟁",
     "name": "국산 비만약 시장 경쟁",
     "first_seen": "2026-10-15",
@@ -28,22 +66,6 @@
         "source": "YTN",
         "date": "2026-10-22",
         "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5VWlR6UldQSnNhXzlBMVVOTnp0Zkc3MEJ0bEZoZHFjQXAyRWNZSjI5Z3ZuTVNncDlLbm1oeFJ5X0RtaV9oclByTXI0UVZ6TmNPMm1ELUxoVlR5RHFuRmc?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "국민연금국내증시평가손실",
-    "name": "국민연금 국내 증시 평가손실",
-    "first_seen": "2026-10-19",
-    "days_seen": 5,
-    "last_seen": "2026-10-23",
-    "why": "코스피 급락에 따른 국민연금 대규모 평가손실 영향과 증시 연계 여파를 주시하고 있습니다.",
-    "evidence": [
-      {
-        "title": "“국민연금 182조 손실? 비교 시점 부적절, 연간 실적 봐야”",
-        "source": "이투데이",
-        "date": "2026-10-22",
-        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8yNi14Qk1vaEFCci1OMWVYSW9MQW1oU05PRzB4V0VSX1Q4SnRlTlpjZjFmNVhmVXVfQzlzYlFrM0xROE55Mm9SdkU4am1HbkltUDZfMVVPQU5Bdw?oc=5"
       }
     ]
   },
