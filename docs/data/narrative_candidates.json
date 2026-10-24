@@ -3,15 +3,31 @@
     "key": "국민연금국내증시평가손실",
     "name": "국민연금 국내 증시 평가손실",
     "first_seen": "2026-10-19",
-    "days_seen": 6,
-    "last_seen": "2026-10-24",
-    "why": "코스피 급락에 따른 국민연금 대규모 평가손실 영향을 계속 주시하고 있습니다.",
+    "days_seen": 7,
+    "last_seen": "2026-10-25",
+    "why": "코스피 변동성 확대에 따른 국민연금의 대규모 평가손실 및 자금 운용 영향이 지속적으로 주목받고 있습니다.",
     "evidence": [
       {
-        "title": "코스피 3% 급락에 5300선…AI 자금조달 우려, 빅테크로 번지나",
-        "source": "한겨레",
+        "title": "장중 4% 폭락 코스피 상승 마감 원인은? 솔리다임 미 상장 중단에 하이닉스 급등 여파",
+        "source": "문화일보",
+        "date": "2026-10-24",
+        "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBydnBPTHQ3YTZMZWExbW43b2dMaUVmd3o0N3QzeWZXWVdGaHNDa3R1Y20zeF9zNFhPQUJTTXdzT2hETXF4NERQUWxkMHpmbzBQ?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "sk그룹웨스팅하우스지분인수",
+    "name": "SK그룹 웨스팅하우스 지분 인수",
+    "first_seen": "2026-10-15",
+    "days_seen": 7,
+    "last_seen": "2026-10-25",
+    "why": "원전 생태계 강화 관련 주요 에너지 기업들의 지분 인수 및 글로벌 협력 동향을 계속 주시하고 있습니다.",
+    "evidence": [
+      {
+        "title": "[단독] 책임 부담에… 석유 최고액 정산위, 감사원에 SOS",
+        "source": "조선일보",
         "date": "2026-10-23",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uMW85WFhaTl9PcVctN09ZRlpmUms4TzhrWHNia2x6Ykg3NExNc2NvOGVxYXl5d2UtYTBBblRNR3VkM1dhN01zOFktYzAwaXpNWVQyNUIwTWRKU0dadTZ5M2NLY3VuX1k?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQRlRXTUk1SURLcjdNVzA5b1dNazJjUDRrZnhjaGxIMGozdXBudVIwR1M3VFFqRkhBVnNnSkJZM09GWHU5amZ3RmxvUWI4X1hXeHBnaGluME9STUM1MTBiWktSUjNYR1ZVMUFCRVgtZG5GcVUyYS0wMllPV3VFNlpHZml5TkdxcVZ4SEtMWWVqYw?oc=5"
       }
     ]
   },
@@ -19,9 +35,9 @@
     "key": "테슬라스페이스x합병구상",
     "name": "테슬라·스페이스X 합병 구상",
     "first_seen": "2026-10-24",
-    "days_seen": 1,
-    "last_seen": "2026-10-24",
-    "why": "일론 머스크의 테슬라와 스페이스X 합병 구상 보도가 나오면서 시장 관심을 끌고 있습니다.",
+    "days_seen": 2,
+    "last_seen": "2026-10-25",
+    "why": "일론 머스크의 테슬라와 스페이스X 합병 가능성 보도가 이어지며 시장의 관심이 집중되고 있습니다.",
     "evidence": [
       {
         "title": "테슬라·스페이스X 합병으로 일론 머스크 꿈 다가서나… AI 제국 완성해 화성 도시 건설 박차 - 조선비즈",
@@ -30,10 +46,10 @@
         "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOZU9wSW1kWkxzRFFycE5vVU1aYmtmbGRIQkVpbnZtSTBpQUY2TTNmdTVsUnBNUXNNNi1LeUtHdHJndWEtNW56cmFJOTNxNkFZSU84c1o4OTYxcFVIR2JBV3ZqdTY5QTRFTXF2SU9paG8tdUlYWUhybTlMSkNiRU9kbUFCWHFuU2xLN2ZybtIBoAFBVV95cUxQUDgwemlpcWVCLXZQaC1iVktqVjNSZUVSZlpPNzM5bUxVNEZHVmkyMWk2N3J0MVdLX1l5OFg1MktEa0FhVGlIZURhdkI1ZS1wVUFYQk42aXhSMm5Ha2FzX1FKTVh5TTcxUXFYRHV1c1I3SHlSVXo5UFZCbU16RTdTY2VaU3B3Y0J1TzJ5aGFKYjVYb0FnRXFpMWlVZExOLVNE?oc=5"
       },
       {
-        "title": "For Musk, A SpaceX And Tesla Merger Is Likely About Power Not Personal Profits",
-        "source": "Forbes",
-        "date": "2026-10-22",
-        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxONW9YOU5UNk5QakhyS1F3Ym5WdUZqSVdQa1A1MEJ4MkhadFFDNk9NYktRSzh0bTE2NEdobnVMMjIybkJLZXlQRTFKd2VEVmp3NUpidGl6b1FKRWZwZlpPT0pGeEpRQ2RFQjE4di1IOUYyNk1tUVJrZ1RiZEwxY05pYUQ4SG4xWHVZcXY0Q2FsOHU5R1dyaW5ESkZoQkRRaW9oQmhFdEkwMmE2bUpyVG00Nm1YbWdoYXY5LTZISVBiRXlBTDVKclU0?oc=5"
+        "title": "Elon Musk Says a SpaceX-Tesla Merger Is a “Good Idea.” Here’s What Stands in the Way.",
+        "source": "Yahoo Finance",
+        "date": "2026-10-23",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOR3NhOGpPUDdnR1M3Q3BIeTYzUTd4Q2txX0dobDEwQlN6enVEMVVGVVo0OThUXzdYRmlPWXNCTTFyNHhjR19zdWRJUmt2YlBfZEhpSm1UMENaUS1abS1jVVFtZlF5YURaeWlPalNMUXo5d0lTR1JNcDJHYW10c29JZWlZdUZ3UlZDWFBVSWRjXzNrU3FaWWsw?oc=5"
       }
     ]
   },
@@ -50,50 +66,6 @@
         "source": "BioPharma Dive",
         "date": "2026-10-22",
         "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPY2V2WDFWZ3NTOW1YWjdtUjFKekI4WFM5cTVtSXNDR3M5M1RXaHNJd2w1R0lDZjQ3TE9objBCeEZkSFFWR0FxUVRKalFUTUluNmlzRWpYM2xURkJGeFRlVWpNeUszVmtaOXBXWGhzRXNucm1NR0ZoUXgtV2o0bU5RV3RYVzRhQ0wtYXhSVjhLNmFxa0E0Y24xcGtHX2tIUQ?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "sk그룹웨스팅하우스지분인수",
-    "name": "SK그룹 웨스팅하우스 지분 인수",
-    "first_seen": "2026-10-15",
-    "days_seen": 6,
-    "last_seen": "2026-10-23",
-    "why": "원전 생태계 강화 관련 에너지 기업들의 지분 및 협력 행보를 주시하고 있습니다.",
-    "evidence": [
-      {
-        "title": "[기업] 이재용 회장, 삼성물산 UAE 현장 방문...\"임직원 격려\"",
-        "source": "YTN",
-        "date": "2026-10-22",
-        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5VWlR6UldQSnNhXzlBMVVOTnp0Zkc3MEJ0bEZoZHFjQXAyRWNZSjI5Z3ZuTVNncDlLbm1oeFJ5X0RtaV9oclByTXI0UVZ6TmNPMm1ELUxoVlR5RHFuRmc?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "금융권ai해킹및보안리스크",
-    "name": "금융권 AI 해킹 및 보안 리스크",
-    "first_seen": "2026-10-14",
-    "days_seen": 1,
-    "last_seen": "2026-10-14",
-    "why": "금융사 망분리 완화 이후 정보 유출 사고가 잇따르며 사이버 보안 리스크가 시장의 새로운 불안 요소로 부각됨.",
-    "evidence": [
-      {
-        "title": "[단독]망분리 완화 금융사 10곳, 보안계획만 세우고 이행 안해···내부망 해킹 노출될 뻔",
-        "source": "경향신문",
-        "date": "2026-10-12",
-        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5IT2RzRnhNZmloc0luUTFHMi1iTnpuZWdra0NXdlFOdFBReEpLUFJtdkdOMV9reGJnaDZmTmJNVEdrbjZvbjczVndMZWhfajR5N201NF80bVZsUdIBX0FVX3lxTE1OclA5Q2EwWDN3b3paSUYwck9BRE5HM0doUE9ZWFladzduUlNuQVRNSExWWVgwR3dxbjVsR2tfZ1pKTEdUcEs5T1RTUTBKNHJ6X1gtTk54dTkzalI1SkZF?oc=5"
-      },
-      {
-        "title": "계좌·주민번호·잔액·이름 털렸다…새마을금고 400명대 고객정보 유출",
-        "source": "JTBC",
-        "date": "2026-10-13",
-        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9hV2ZEdmlWMDF6TmU4d0FQLVFwZnZtVHBtcS1aY3ZrdURaV21vZHlQNTNqLTFNQXF0TEJ1OFdDaVgxRVFRTDhwelJhSHFCWkNLR2ZmOQ?oc=5"
-      },
-      {
-        "title": "French supermarkets face millions in losses after cyberattack hits refrigerators nationwide",
-        "source": "Fox News",
-        "date": "2026-10-13",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZXVyc25Na3BNSjJ2T3BQQ2VfcGFCS2Fsd042Rnh0MldobUJGVm10SktyUEktaGh0V21QdURYRDhWYVV2elpSZ2Y4VktHdTJFYUV5dEI4OG9MLWlrN0V2WVp4SGJsNUQ2OHJwSEtCUXBlTXlXZ3ZQN01QV185SXA1Um9vUUpGTEp1MjZkaHBBSVNmay14TEtuU05oVjN6UFBxWUp0cmxaNkd0djZrQ1NfcNIBtgFBVV95cUxPamJnNXh3WFpfTV9UVEh4LXlkZ2tlUHhjSzdNYnlacXR6YlhBV0xvNFRNZi03d3ZfMDAxQjVOamtSdEdHalFDdFFJLVN2T05WRkpyWHdvZGFhempUREN4QUx0RjVaMkpFZjhFUGd1RzFwODVaZW1MY1pIRE1ZOWc2UUR2MUl2cUZCRFZSMlVLeTFFNGh5eU8yRXAyUWVSU0FTMHJzbURZMkhSTHl3ZXN2VmtCUHRaZw?oc=5"
       }
     ]
   }
