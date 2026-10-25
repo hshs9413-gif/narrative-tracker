@@ -1,17 +1,33 @@
 [
   {
+    "key": "국산비만약시장경쟁",
+    "name": "국산 비만약 시장 경쟁",
+    "first_seen": "2026-10-15",
+    "days_seen": 9,
+    "last_seen": "2026-10-26",
+    "why": "국내 제약·바이오 기업들의 신약 개발 및 유통 주도권 확보 움직임이 계속되고 있습니다.",
+    "evidence": [
+      {
+        "title": "반복되는 약가인하…제약사도 이제 '합쳐야 산다'",
+        "source": "약사공론",
+        "date": "2026-10-25",
+        "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB1V2ZQR19XR0xFMzdxQzZMN25KSUVsN0Rqcnk2NUJnaEJCMUJ4QUs0X1pybkVLQ2ZVQjVCdF93elAwd1hPZm1iYm9iNnlHQVpCZWh1ZTlkX0xZazExemhUUW82RG1OR0FtQjRJLQ?oc=5"
+      }
+    ]
+  },
+  {
     "key": "국민연금국내증시평가손실",
     "name": "국민연금 국내 증시 평가손실",
     "first_seen": "2026-10-19",
-    "days_seen": 7,
-    "last_seen": "2026-10-25",
-    "why": "코스피 변동성 확대에 따른 국민연금의 대규모 평가손실 및 자금 운용 영향이 지속적으로 주목받고 있습니다.",
+    "days_seen": 8,
+    "last_seen": "2026-10-26",
+    "why": "코스피 변동성 확대에 따른 국민연금의 대규모 평가손실 및 자금 운용 영향에 대한 주시가 지속되고 있습니다.",
     "evidence": [
       {
-        "title": "장중 4% 폭락 코스피 상승 마감 원인은? 솔리다임 미 상장 중단에 하이닉스 급등 여파",
-        "source": "문화일보",
-        "date": "2026-10-24",
-        "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBydnBPTHQ3YTZMZWExbW43b2dMaUVmd3o0N3QzeWZXWVdGaHNDa3R1Y20zeF9zNFhPQUJTTXdzT2hETXF4NERQUWxkMHpmbzBQ?oc=5"
+        "title": "10대 그룹, 이번달 1천100조 원 증발...증시 급락 탓",
+        "source": "YTN",
+        "date": "2026-10-25",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0wb1p4eU8tSTFFUml6bjFoVHVWVkxfWGNPRHBSYWFfTWo2VmlRZWNLWXF2SkhRSDR2dFlBZjNpeHhEdnRtUlMwd0k2VVVnNmZHRVYyTDlOYmo5bFJiYUE?oc=5"
       }
     ]
   },
@@ -19,15 +35,15 @@
     "key": "sk그룹웨스팅하우스지분인수",
     "name": "SK그룹 웨스팅하우스 지분 인수",
     "first_seen": "2026-10-15",
-    "days_seen": 7,
-    "last_seen": "2026-10-25",
+    "days_seen": 8,
+    "last_seen": "2026-10-26",
     "why": "원전 생태계 강화 관련 주요 에너지 기업들의 지분 인수 및 글로벌 협력 동향을 계속 주시하고 있습니다.",
     "evidence": [
       {
-        "title": "[단독] 책임 부담에… 석유 최고액 정산위, 감사원에 SOS",
-        "source": "조선일보",
-        "date": "2026-10-23",
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQRlRXTUk1SURLcjdNVzA5b1dNazJjUDRrZnhjaGxIMGozdXBudVIwR1M3VFFqRkhBVnNnSkJZM09GWHU5amZ3RmxvUWI4X1hXeHBnaGluME9STUM1MTBiWktSUjNYR1ZVMUFCRVgtZG5GcVUyYS0wMllPV3VFNlpHZml5TkdxcVZ4SEtMWWVqYw?oc=5"
+        "title": "“트럼프 미 조선업 부흥의 핵심 파트너”…WSJ, 한화오션 조명",
+        "source": "KBS 뉴스",
+        "date": "2026-10-25",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1wR2FhV3NHOW1NMlJJVGxpZUZRM3V5UmdPTWlVM3BoMEloVGpkS25xYWFOel9PN0pqcUFCUHRIb1NFRW9Bc0ZFRlBuN1dYbEVJWHRUaGswR3RVTVE?oc=5"
       }
     ]
   },
@@ -50,22 +66,6 @@
         "source": "Yahoo Finance",
         "date": "2026-10-23",
         "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOR3NhOGpPUDdnR1M3Q3BIeTYzUTd4Q2txX0dobDEwQlN6enVEMVVGVVo0OThUXzdYRmlPWXNCTTFyNHhjR19zdWRJUmt2YlBfZEhpSm1UMENaUS1abS1jVVFtZlF5YURaeWlPalNMUXo5d0lTR1JNcDJHYW10c29JZWlZdUZ3UlZDWFBVSWRjXzNrU3FaWWsw?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "국산비만약시장경쟁",
-    "name": "국산 비만약 시장 경쟁",
-    "first_seen": "2026-10-15",
-    "days_seen": 8,
-    "last_seen": "2026-10-23",
-    "why": "국내 제약·바이오 기업들의 비만치료제 개발 및 유통 주도권 확보 움직임이 지속되고 있습니다.",
-    "evidence": [
-      {
-        "title": "Moderna, Merck shares fall on eagerly anticipated cancer vaccine results",
-        "source": "BioPharma Dive",
-        "date": "2026-10-22",
-        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPY2V2WDFWZ3NTOW1YWjdtUjFKekI4WFM5cTVtSXNDR3M5M1RXaHNJd2w1R0lDZjQ3TE9objBCeEZkSFFWR0FxUVRKalFUTUluNmlzRWpYM2xURkJGeFRlVWpNeUszVmtaOXBXWGhzRXNucm1NR0ZoUXgtV2o0bU5RV3RYVzRhQ0wtYXhSVjhLNmFxa0E0Y24xcGtHX2tIUQ?oc=5"
       }
     ]
   }

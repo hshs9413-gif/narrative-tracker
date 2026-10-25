@@ -1718,5 +1718,46 @@
     ],
     "at": "2026-10-25T08:45+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-26",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "tesla-spacex-merger-2026",
+    "kind": "new",
+    "name": "테슬라·스페이스X 합병 구상",
+    "reason": "일론 머스크의 테슬라와 스페이스X 합병 및 연계 가능성이 제기되며 글로벌 증시와 빅테크 투자자들의 주목을 받고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-10-26",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "기존 진행 중인 12개 주요 내러티브는 유가 급등, 국채 금리 불안, AI 버블 논쟁 등이 지속됨에 따라 모두 유지 판정을 받았습니다. 후보군 중 테슬라와 스페이스X의 합병 및 연계 구상은 보도가 늘어남에 따라 신규 내러티브로 격상되었습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "SK그룹 웨스팅하우스 지분 인수",
+      "테슬라·스페이스X 합병 구상"
+    ],
+    "at": "2026-10-26T08:35+09:00",
+    "trigger": "schedule"
   }
 ]

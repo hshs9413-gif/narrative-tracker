@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-24T23:43:11+00:00",
+  "fetched_at": "2026-10-25T23:33:22+00:00",
   "source": "한국은행 ECOS Open API",
   "series": [
     {
@@ -12,8 +12,8 @@
       "cycle": "D",
       "unit": "연%",
       "first": "2023-01-01",
-      "last": "2026-10-22",
-      "count": 1391
+      "last": "2026-10-23",
+      "count": 1392
     },
     {
       "column": "ktb3y",
