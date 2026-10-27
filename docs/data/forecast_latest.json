@@ -14,32 +14,32 @@
       "scored": false,
       "actual": null,
       "live": {
-        "n": 7,
-        "in_range": 6,
-        "dir_tried": 7,
-        "dir_hits": 3
+        "n": 8,
+        "in_range": 7,
+        "dir_tried": 8,
+        "dir_hits": 4
       },
       "model": "선형회귀",
       "board": [
         {
           "name": "선형회귀",
           "oos": 0.16,
-          "dir": 0.696
+          "dir": 0.692
         },
         {
           "name": "릿지",
           "oos": 0.16,
-          "dir": 0.696
+          "dir": 0.692
         },
         {
           "name": "랜덤포레스트",
-          "oos": 0.112,
-          "dir": 0.676
+          "oos": 0.111,
+          "dir": 0.672
         },
         {
           "name": "부스팅",
-          "oos": 0.076,
-          "dir": 0.668
+          "oos": 0.075,
+          "dir": 0.664
         }
       ]
     },
@@ -57,32 +57,32 @@
       "scored": false,
       "actual": null,
       "live": {
-        "n": 7,
-        "in_range": 7,
-        "dir_tried": 7,
+        "n": 8,
+        "in_range": 8,
+        "dir_tried": 8,
         "dir_hits": 5
       },
       "model": "선형회귀",
       "board": [
         {
           "name": "선형회귀",
-          "oos": 0.122,
-          "dir": 0.612
+          "oos": 0.121,
+          "dir": 0.608
         },
         {
           "name": "릿지",
-          "oos": 0.122,
-          "dir": 0.612
+          "oos": 0.121,
+          "dir": 0.608
         },
         {
           "name": "랜덤포레스트",
-          "oos": 0.097,
-          "dir": 0.62
+          "oos": 0.094,
+          "dir": 0.616
         },
         {
           "name": "부스팅",
-          "oos": 0.086,
-          "dir": 0.624
+          "oos": 0.085,
+          "dir": 0.62
         }
       ]
     }
