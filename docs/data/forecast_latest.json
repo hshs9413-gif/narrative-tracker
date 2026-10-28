@@ -14,21 +14,21 @@
       "scored": false,
       "actual": null,
       "live": {
-        "n": 8,
-        "in_range": 7,
-        "dir_tried": 8,
-        "dir_hits": 4
+        "n": 9,
+        "in_range": 8,
+        "dir_tried": 9,
+        "dir_hits": 5
       },
       "model": "선형회귀",
       "board": [
         {
           "name": "선형회귀",
-          "oos": 0.16,
+          "oos": 0.161,
           "dir": 0.692
         },
         {
           "name": "릿지",
-          "oos": 0.16,
+          "oos": 0.161,
           "dir": 0.692
         },
         {
