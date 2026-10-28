@@ -1,5 +1,55 @@
 [
   {
+    "key": "smr및원자력기술개발",
+    "name": "SMR 및 원자력 기술 개발",
+    "first_seen": "2026-10-28",
+    "days_seen": 1,
+    "last_seen": "2026-10-28",
+    "why": "원전 수명 연장 허가와 IAEA 장관회의를 계기로 SMR 및 원전 기술 개발 동향이 주시되고 있다.",
+    "evidence": [
+      {
+        "title": "원안위, 원전 고리 3·4호기 10년 수명 연장 허가",
+        "source": "YTN",
+        "date": "2026-10-27",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE45Y1daRmhqdFo4XzBfNExRUWZTX3ZhaHduTmdOblV6ZzQxMUpjVlN6ZFpvamUwWXlRWW4tRzFGMHQ5TGZfVmhwRGVtanNndHFnMF91Q0FxQnVBMEpseFE?oc=5"
+      },
+      {
+        "title": "한국서 첫 IAEA 원자력 장관회의 개막…\"SMR 안전개발·실증 추진\"",
+        "source": "연합뉴스TV",
+        "date": "2026-10-27",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5adWt2b3JMcjJFVU1MYzFGMmNoaG5IaFAzaDgwQk1VUGR6dlFNVTJCLUJ6WG1ndDlFMzlPT1NMUGF4ZTduZmdlMzllSGpBZ3RMckU4Z3ZfbEdQOXRZY1FZbFhFMlJzeVk?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "앤트로픽대규모자금조달및상장추진",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "first_seen": "2026-10-28",
+    "days_seen": 1,
+    "last_seen": "2026-10-28",
+    "why": "앤트로픽의 대규모 부채 조달과 상장 관련 위험 고지 내용이 시장의 관심을 모으고 있다.",
+    "evidence": [
+      {
+        "title": "앤트로픽 상장 서류 보니… ‘25배 투자 대박’ SK텔레콤, 구글보다 싸게 샀다",
+        "source": "Chosunbiz",
+        "date": "2026-10-27",
+        "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdWJaMG9yTXVhZGhUenRkS3VsazFUNTI3OUVqcThORjNIclBaaUl6c0ZLSWU1NlBCblkwVmpId1Y0OUM3aEFRaTZuaVQ4aTJtMDROZmpUeUwwUlFvYWM5ajhkd1pUU2I3UDhXQTRqQWEtVVlUR0hKanNlbnRsbFljT3F30gGWAUFVX3lxTFBCb09DVm5ZQ0NDaEFEdzRkYTFOUVNEWHRHcG9ma2d1ZllFeGY4NWV3c2JJcTFpVFppbnVCV2o0Qm5vLVRUMm5HTHgyWG9hNmVJSzRaQmJ3RThPU05LZWtjb1JESmRkTVVYNnh4Rm9DLWkxYUhIalIwRi1tSkhGWk85c1hBbV9qYkxpdy1pRTQyeV9zN1JLQQ?oc=5"
+      },
+      {
+        "title": "Anthropic IPO warns its AI could blackmail people, become sentient, end humanity",
+        "source": "Ars Technica",
+        "date": "2026-10-27",
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPUTNLaEZxN01qbHhiZ3NjYWN0WHU2MmJ3Y1hWT1JHUVIyaUJCTkMxZjI2Zk05bmFLbzJxbDBSVTU2dEtobjlOdHE2VU5uQnpJVW9fMTVrUjZYc21WVUlDcEw3dHVoQ2FPQXkwYXlfajZZeDY1aWlZRlFnVG1JMFV2Z0twN3VvSlp1Um1LTzFQTXBad05iUV83dWo1Z3l3blJsd1RQRW5SS29QTXlmU0VUS212S08?oc=5"
+      },
+      {
+        "title": "Exclusive | Broadcom CEO Intervened to Seal $63 Billion Anthropic Debt Deal",
+        "source": "WSJ",
+        "date": "2026-10-27",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNbkxxMllvRjN2M1VzSVJVSU5xNnJmamxXSTA3a3dWU2VLeW1sZjhLbDhLcXoyakFIYjFCVktFMFNfM3JaenA5UjFMRTE2cEVVTXdlN3l0eUpQN2d3cXM4VUhZc3owSGdUTDF2N01pT0U2WTVIXy12bDBtRS1ZUjNob3YtYUVkUU5hVEdxVVFjaEpHMVdfVHNHY1ktOEtLa2c5?oc=5"
+      }
+    ]
+  },
+  {
     "key": "국산비만약시장경쟁",
     "name": "국산 비만약 시장 경쟁",
     "first_seen": "2026-10-15",

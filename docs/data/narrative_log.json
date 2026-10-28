@@ -1789,5 +1789,71 @@
     ],
     "at": "2026-10-27T09:53+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-28",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "pandemic-risk-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "관련 언론 보도가 현저히 줄어들고 식음 지표가 확인되어 잠잠 상태로 전환된다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": []
+  },
+  {
+    "date": "2026-10-28",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "관련 키워드의 언론 언급이 감소하고 식음 조건이 충족되어 잠잠 상태로 전환된다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": []
+  },
+  {
+    "date": "2026-10-28",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "식음 지표 조건을 충족한 '러시아 페스트 및 전염병 확산 우려'와 'AI 밸류에이션 / 데이터센터 투자' 내러티브를 잠잠(잠잠) 상태로 전환했습니다. 그 외 미국 물가, 중동 정세, 채권 금리, 금융권 보안 리스크 등 기존 주요 내러티브들은 계속 진행 중 상태를 유지합니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "잠잠",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "잠잠",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "SMR 및 원자력 기술 개발",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "SK그룹 웨스팅하우스 지분 인수",
+      "테슬라·스페이스X 합병 구상"
+    ],
+    "at": "2026-10-28T09:48+09:00",
+    "trigger": "schedule"
   }
 ]
