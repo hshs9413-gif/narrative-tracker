@@ -3,6 +3,12 @@
   "items": {
     "corporate-credit-stress-2026": [
       {
+        "title": "日 기업 신용위험 4년 만에 최대폭 상승…회사채 발행 부담에 기업 자금조달 빨간불",
+        "source": "아시아경제",
+        "date": "2026-10-29",
+        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5Jb25wU1YyYmhzWFNfVU9EUzVacjF4Q0hkRWJ2WmlLcEZqQkh5RzBZeTlPSDBPNTBLUmthMk0tWmxnMGo1LWFGQ25vT09vcU1ORVY1V2NfeHBmN2swQkVJTQ?oc=5"
+      },
+      {
         "title": "은행 대출 문턱 또 높아진다…가계·기업 신용위험 동반 상승",
         "source": "https://www.2news.co.kr/",
         "date": "2026-10-26",
@@ -13,12 +19,6 @@
         "source": "파이낸셜뉴스",
         "date": "2026-10-26",
         "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1RLXVOR0IyWlR2eUM5cE5SY2xmS0ZIZHVsUEoxYTVJNHdEWEN6TGRSYXFpZnRQZTNGeVZjNUUwMjdYRHF5UHg4aml5WmVTeXB5U0RQMjhLbEdvdw?oc=5"
-      },
-      {
-        "title": "김소영, 하나뿐인 아들 다칠까 걱정…♥오상진 “상처 나는 건 디폴트”(띵그리TV)",
-        "source": "뉴스엔",
-        "date": "2026-10-25",
-        "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9oZHd6N2M5bzg3OW9YMGRVbDlMM0l6X1BVc1ZLX2sxNFY2cW5BU3FxSG9ad281SkhBdEdGajYxM29OcUxOMjNYdFVYamE4MXhBR2IzaTVvbkdjZUxyLUM2aTI1eWtjTFcz?oc=5"
       }
     ],
     "alaska-lng-trade-2026": [
@@ -117,16 +117,16 @@
     ],
     "kospi-semis-leverage-2026": [
       {
-        "title": "코스피, 반도체 대형주 강세 지속에 상승 출발…코스닥은 약세",
-        "source": "한국경제",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBWZnQ0eWdHWHhCb3A1cDNYb01YdHlycGhvaXV6MGQxNXNZS2JjOHUtZVoxem0yUThLdkpYMVBUd0FLNllHemZnWWMzZnozdERYSWVfUE5SLURNdw?oc=5"
-      },
-      {
         "title": "코스피 반등에 투자자예탁금 90조원 회복…빚투는 30조원 하회",
         "source": "연합뉴스",
         "date": "2026-10-28",
         "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9XRWtTalYyaXpHVGtlOGFhanV4dlJreTFmeFpJSmR2a3dTQkJsSjcxWXo3ZVFpbTFQQVBmMnVTNjdkcWI4OU1KaTdUdnAtSkRNWm1LUHkzenB3Tk3SAWBBVV95cUxOdXp5UDNveWN4bnkxNXNCRDdOTzJSVDNvWEllQVd6aXpQb050S3c5bUNtRnF2MnZoRTJfbHREOUNLcGdGYWpWTHdyN2VhTUhoeHBRQ3pfSnBobEl4NkxrLWQ?oc=5"
+      },
+      {
+        "title": "투자자 2명에게 5억1000만원 상금 준 증권사···빚투·레버리지 금전 이벤트 ‘제동’",
+        "source": "경향신문",
+        "date": "2026-10-28",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1OaGtNY1lTU0xVcU9Pc002Zmt4b1dhVWdjSE56Rk4wSXA5bGpnVVlpU1NmcVlmNUt2RmFVdnVQY1dwc21ZYkRGc1VWTTNsZHpPcDFkSGtRRy1OZ9IBX0FVX3lxTE9PYlZWV2E1cW1fWnFtdnhSOW9KbUZwR3FYU3JYUVNSazFxOGVGYnFsemE3ZVhCdGYxX0VxbUNRbnNBODdwVlJfbkhpZkxCWnF4VVVDZHcxQW4zUWpHNWpF?oc=5"
       },
       {
         "title": "코스피, 반도체 훈풍에 6.6%↑…열흘 만에 6000선 회복",
@@ -136,6 +136,12 @@
       }
     ],
     "boj-normalization-2026": [
+      {
+        "title": "AI주 불안에 日·獨 국채로 몰리는 자금…일본 장기금리 2.8% 하회",
+        "source": "메디컬투데이",
+        "date": "2026-10-28",
+        "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA4Mkt3Wl9HdXlhX21lU0IzVVBacWE2X0MyY0tXY1NCbmVpUEVXdEZyNEJ4c3hKbnJXOEkxblA1bkNSaWt2dTVLQV8xczk1bHdfWXh3dmFJU2VGSG42VW1jV3lQVnJqU0NtSE9vRA?oc=5"
+      },
       {
         "title": "AI 관련주 반등으로 안전자산 수요가 줄어들면서 일본 국채 가격이 하락했다",
         "source": "TradingView",
@@ -147,12 +153,6 @@
         "source": "TradingView",
         "date": "2026-10-27",
         "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9CQ2VUaXlhUWpVY0w0b09SWlFfWlBKMmZVNmw5U0o5UndycnpINVRZaUZ5WHlXTmZzVFdQLWpuU1VvYWZUZEpBbjBRQzFDRElDWjA4SzhpTXZOM1lTODRFT1hORVgyX1NfZlA2WTVVdVBBRWpPajd1Uw?oc=5"
-      },
-      {
-        "title": "AI 관련주 반등으로 안전자산 수요가 줄어들면서 일본 국채 가격이 하락했다",
-        "source": "TradingView",
-        "date": "2026-10-27",
-        "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBTX2hRalhMcVhlSXpObGpHSTc3TUhUcG04dmJINFhvemdjR3g3ek95TjZlMVNycmxJc001dW5LMjBFYVNVTjhFYWQ1SFZITWJZZWZYWUlEbUluV3lKS0k2eHBzbUM3NEdENGFWZ0tkbnhGRnpDZG9Z?oc=5"
       }
     ],
     "us-labor-cooling-2026": [
@@ -177,22 +177,22 @@
     ],
     "iran-war-2026": [
       {
-        "title": "이스라엘 총선·美 이란 공격 가능성 주시…국제유가 상승",
-        "source": "연합뉴스",
+        "title": "이란 외교 협상과 공습 재개 우려 속 유가 하락",
+        "source": "Investing.com 한국어",
+        "date": "2026-10-29",
+        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBJdXhMS2xrd2hXY05OSmNuQjE0bWFETS1nVC1ZUk16ZWdfYkFhR1RPTHBxSmdwUHZZN3hSNTQ0RC05QWxuc3A0dWNBNG5UUk5pdDUtTkpvdm9kSGl6dHNmTHFBMGNoUG1EZmMya0JNUQ?oc=5"
+      },
+      {
+        "title": "이스라엘 총선·美 이란 공격 가능성 주시‥국제유가 상승",
+        "source": "MBC 뉴스",
         "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE84aVBrazZPeUw5QWFPdDNaS294bWloMElvRlBtUC1DRVgzZDV0RWwyYWZYVHVYSU8zcW81U0xDcHFkT1lPQll0Tkw4dmV3Mnp2N1I1MXBzMVloWVXSAWBBVV95cUxPLWVTVERPb2tEMmpBZDJDVFZkbUNwd2VlRzhnT0YwVmJwUlQ3NHpydzhEaWc1Sms5M18wUWIwdVRKZXNQc0JKdjJTQ000anRIR0JVZGhNOFBJRGhjYkZpOXc?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9sM1M1U013UnlROXd6QjM3VmZxVTF3eW54cUQ1UlBvdm5MVGUtQTZwM2I4STVlUEVJZjlnODk4TW5hOWhWSFFQTmRKU2FpX0hDMkRaVXdNN0UycU9GMnpQdzR3RVNYbGxIRlFsa2x5aUtIaXA40gF0QVVfeXFMUFVRd1FyY1JRRnhPQ0dyVzNzeUZPMEhtaUd2Smp4V29PNHNxWkhpNEY0YmQ4aDhlTHQtdXJyRnpXV3RmWXo2YWNjcHRXdUdWWjgxQkpLWVBmbHBpZkl4NlprYm8zUGhLQjMtYXVIUWlEZFZJaWc?oc=5"
       },
       {
         "title": "[뉴욕유가] 중동 불안 속 네타냐후 집권 연장 가능성…WTI 2.9% 급등",
         "source": "연합인포맥스",
         "date": "2026-10-28",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wQ1JEWkY2Vm9pYXRCRTlETVp3NDBkN3Y2THY4bE9WbGFCZnpBbXJ3OWtFTTFKM2dGaFBLN1JWczllanRZRjY1UVVFaVRyZERlZXlndkxjRWRJN0Vsb1dfTzBiUTh0WHBNZDgyZGdzaTQ?oc=5"
-      },
-      {
-        "title": "이스라엘 총선·트럼프의 이란 공격 가능성에 국제 유가 상승",
-        "source": "YTN",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBONmhXNE55bGQ4ZlRvbC1JT1JiOWZGNHJuN1doR3dkdnZ6UGFSMVk1eEJvdXFMOWNmOHY1V2Rsam1aV2JIYnFpLWVodmNsTndCaDNsYm1rb215dXFCN1E?oc=5"
       }
     ],
     "ai-valuation-2024": [
@@ -229,10 +229,10 @@
         "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9fb1dqdV9faVVmZnlTSl93QnpEdk02aUEzX0xKaHozanJ6SHBmQy0yODNWSmJzUVJ2M2oxTURtM1dPRjd3eVp3UFNsaXZsdkdWaWoyeEZYTzhiMnFIZGdKUjJFNkdGZjIwRWpTN0ZLZWppLXFNUTFJ?oc=5"
       },
       {
-        "title": "혼다 \"캐나다산 철강·자동차 미국 관세 두 배 인상은 치명적\" - 뉴스 및 통계",
-        "source": "IndexBox",
-        "date": "2026-10-27",
-        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxONXJsUl9LWHFybFg0SElUM2oxU1g5YkF4WFdpem1FLThzNzNaQ0ozbDUyZzBvOS1Qcml0NGE0V3BWWm1kWDhyQ09sLTNUVFNKYWxlZ0hnMTB0MFQyQjR0akdUc1cxUVlTUmszaVVLeEp2RndTbE1Va3Boc1YtMFVBRHZSaDJBUW1UcHFTNTNDZUtVR1hrTWR5Rkw2TVBWbXZfMTBoXzhXUExtOXdIeU1kelFrUGtHUFhJMGJ5VVllRnQ2NmpKc2JHZ0o1SVo?oc=5"
+        "title": "美 대법원 “트럼프 상호관세는 위법”…행정부 독주에 제동",
+        "source": "비즈한국",
+        "date": "2026-10-26",
+        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9NT3VfWnhGNWxXMWI4eFB3ZVllYnI0elJSOVozVWFOUHlMTW03d1NoSktzakNLaVZZQzIyV0lBTnFFc0ZRS2phWVNWbEtLY3V2MTF6OQ?oc=5"
       }
     ]
   }
