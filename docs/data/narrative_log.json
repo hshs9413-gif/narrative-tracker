@@ -1855,5 +1855,108 @@
     ],
     "at": "2026-10-28T09:48+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-29",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "us-inflation-shock-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "지표 발표 이후 관련 언론 언급량이 크게 줄어들어 잠잠해진 상태입니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "미국 CPI 3.7%, 실질임금 줄었다…연말 소비 흐름은",
+        "source": "중기이코노미",
+        "date": "2026-10-27",
+        "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1lelN2dDI3VnpvYVBrWjlCUEtoUWhIRGU2MnNoSHN0UllWQml4R21iSFd3X2NGeFMtMkppY2pVUWZqN3F6TEFUMkNQT3U5bzdKRll6dWYxa2g1OW1oRzdNUmttSW1tNFpyMXc?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-29",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "financial-ai-security-2026",
+    "kind": "update",
+    "verdict": "up",
+    "reason": "증권사와 가상자산 거래소 등으로 북한 IP 연계 해킹 및 개인정보 유출 사고가 확산되며 금융권 보안 리스크 영향이 확대되었습니다.",
+    "status": "applied",
+    "changes": {
+      "intensity": [
+        "mid",
+        "high"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "금융권 해킹 시도서 북한 IP 다수 확인…당국 \"각별 유의\"",
+        "source": "연합뉴스",
+        "date": "2026-10-28",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5lQmlIZmppMnhwZ2VsTk5YT3NUeGJ5eTFlNmpScHdDUFBwVlM3ZHg2SEJ6V1U0TUhZU0RXaE5rNnhCVnRJNTROejdmeExkZTEwYzRGYWx6UVpfTTjSAWBBVV95cUxOcXdXMHNwQy1JSDNvMktsZGdsUDY5SGR2amlkOFJLbEVMUHk2YllzMUpLbTd4TGlBaUF3TUNhTVY1dHJVaVBBamxEZDU1OGRYMnNsRkZaOHo4VU5DTjhTTFA?oc=5"
+      },
+      {
+        "title": "대신증권 3만 8000명, 미래에셋운용·빗썸도 개인정보 유출...은행권이어 금융투자업계로 해킹 사고 확산",
+        "source": "조선일보",
+        "date": "2026-10-28",
+        "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQUHhyazdRa1lqZ3RjVGlxellmcDZhYlQ4NlcxdkVqSHJNZ0lOVXMxbl9fWTVKNEx2M0Y1T1hneFNvVlRGejh3bUdndEl3OHBxYXdUOU92ZWplQ2xlSDMxYUFvLWlSQWdEbURDVF9qSWZ1cEJfaGRKYU5WYy0xUmIzR3JuR1JEM0UzZnJ2TjF3?oc=5"
+      },
+      {
+        "title": "[이슈]대신·미래운용·빗썸도 털렸다…금융권 해킹 공포 확산",
+        "source": "문화일보",
+        "date": "2026-10-28",
+        "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9yemVGbXN2RnF0RE1sOVY1b1RGTFE0QVpvQjVEN0poVG41NnVXR0pUNFJQektEYWxHN2V2SUlwMVBmMzNkVjZEUlRNVzRhY2s4?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-29",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "obesity-drug-race-2026",
+    "kind": "new",
+    "name": "국산 비만약 시장 경쟁",
+    "reason": "국내외 제약사들의 차세대 비만치료제 임상 결과 발표와 미 당국의 펩타이드 제조 허용으로 개발 및 시장 점유율 경쟁이 가열되고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-10-29",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미국 물가 내러티브는 언론 관심 감소로 잠잠 상태 전환되었으며, 금융권 해킹 및 개인정보 유출 사고 확산으로 보안 리스크 내러티브의 영향력이 상향되었습니다. 장기 주시 후보였던 국산 비만약 시장 경쟁은 관련 임상 결과 발표에 힘입어 신규 내러티브로 등록되었습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "잠잠",
+      "financial-ai-security-2026": "강화",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "테슬라·스페이스X 합병 구상",
+      "SMR 및 원자력 기술 개발",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "SK그룹 웨스팅하우스 지분 인수"
+    ],
+    "at": "2026-10-29T10:17+09:00",
+    "trigger": "schedule"
   }
 ]

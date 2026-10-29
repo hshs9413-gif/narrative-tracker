@@ -1,23 +1,33 @@
 [
   {
+    "key": "테슬라스페이스x합병구상",
+    "name": "테슬라·스페이스X 합병 구상",
+    "first_seen": "2026-10-24",
+    "days_seen": 3,
+    "last_seen": "2026-10-29",
+    "why": "일론 머스크의 기업 합병 시나리오 언급 관련 시장 관심이 지속 관망되고 있습니다.",
+    "evidence": [
+      {
+        "title": "Meet Apeiron, Virgin Galactic's 1st 'Delta-class' space plane",
+        "source": "Space",
+        "date": "2026-10-28",
+        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeWFJNjZCZ1g4NHB1UTVFRmFYa2I1ZWd2aGdFSWhyRXU0SEF1RHFfSXl1VVRyMjE1VW03TUpWQXJxU3dJQTZnMThYSXd5RTk1QjdTbTA0MXFobWNnYU9ubG5lRDk3dTc0NEc1SEtNNWNRVHUzd2RITlYzVnpUWXc3U2VGdmJ0Y3EtNHdjS1lZUFNzelk4VUJhcml4cDRaaGNxQTFteVBCa0FBVERoZzVHcDhLakFMSHVy?oc=5"
+      }
+    ]
+  },
+  {
     "key": "smr및원자력기술개발",
     "name": "SMR 및 원자력 기술 개발",
     "first_seen": "2026-10-28",
-    "days_seen": 1,
-    "last_seen": "2026-10-28",
-    "why": "원전 수명 연장 허가와 IAEA 장관회의를 계기로 SMR 및 원전 기술 개발 동향이 주시되고 있다.",
+    "days_seen": 2,
+    "last_seen": "2026-10-29",
+    "why": "체코 원전 시공 협상 결렬 등 주요 원전 사업 변수 속에서 기술 개발과 정책 방향 주시가 지속되고 있습니다.",
     "evidence": [
       {
-        "title": "원안위, 원전 고리 3·4호기 10년 수명 연장 허가",
-        "source": "YTN",
-        "date": "2026-10-27",
-        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE45Y1daRmhqdFo4XzBfNExRUWZTX3ZhaHduTmdOblV6ZzQxMUpjVlN6ZFpvamUwWXlRWW4tRzFGMHQ5TGZfVmhwRGVtanNndHFnMF91Q0FxQnVBMEpseFE?oc=5"
-      },
-      {
-        "title": "한국서 첫 IAEA 원자력 장관회의 개막…\"SMR 안전개발·실증 추진\"",
-        "source": "연합뉴스TV",
-        "date": "2026-10-27",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5adWt2b3JMcjJFVU1MYzFGMmNoaG5IaFAzaDgwQk1VUGR6dlFNVTJCLUJ6WG1ndDlFMzlPT1NMUGF4ZTduZmdlMzllSGpBZ3RMckU4Z3ZfbEdQOXRZY1FZbFhFMlJzeVk?oc=5"
+        "title": "[속보]'26조' 체코 원전 시공협상 결렬...한수원, 새 시공사 찾는다",
+        "source": "KBC광주방송",
+        "date": "2026-10-29",
+        "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9kZ1JnaWNBb1VfbGFQNjlzRGZSSVVudVYtd2NLZEJGYUU5YkExQzVwbXJOcHJMXzVIMUFSeW1odnhaNDNJMkwwSkk1RENKdmNwTWJSV3V6OU5CbnZpWjhKNkln?oc=5"
       }
     ]
   },
@@ -25,27 +35,21 @@
     "key": "앤트로픽대규모자금조달및상장추진",
     "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
     "first_seen": "2026-10-28",
-    "days_seen": 1,
-    "last_seen": "2026-10-28",
-    "why": "앤트로픽의 대규모 부채 조달과 상장 관련 위험 고지 내용이 시장의 관심을 모으고 있다.",
+    "days_seen": 2,
+    "last_seen": "2026-10-29",
+    "why": "앤트로픽의 대규모 신규 자금 조달과 상장 관련 투자 위험 고지 내역에 시장의 관심이 집중되고 있습니다.",
     "evidence": [
       {
-        "title": "앤트로픽 상장 서류 보니… ‘25배 투자 대박’ SK텔레콤, 구글보다 싸게 샀다",
-        "source": "Chosunbiz",
-        "date": "2026-10-27",
-        "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdWJaMG9yTXVhZGhUenRkS3VsazFUNTI3OUVqcThORjNIclBaaUl6c0ZLSWU1NlBCblkwVmpId1Y0OUM3aEFRaTZuaVQ4aTJtMDROZmpUeUwwUlFvYWM5ajhkd1pUU2I3UDhXQTRqQWEtVVlUR0hKanNlbnRsbFljT3F30gGWAUFVX3lxTFBCb09DVm5ZQ0NDaEFEdzRkYTFOUVNEWHRHcG9ma2d1ZllFeGY4NWV3c2JJcTFpVFppbnVCV2o0Qm5vLVRUMm5HTHgyWG9hNmVJSzRaQmJ3RThPU05LZWtjb1JESmRkTVVYNnh4Rm9DLWkxYUhIalIwRi1tSkhGWk85c1hBbV9qYkxpdy1pRTQyeV9zN1JLQQ?oc=5"
+        "title": "엔비디아·애플보다 현금많은 6년차기업…앤스로픽 176조원에 시장\"깜짝\"",
+        "source": "한국경제",
+        "date": "2026-10-28",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBnZWt0SF9kYVo5NWVlQzZkSFpNUHN6TUliam1Va2d6bDcxdmtLb1BURG5JbnRjaE5LazE3cFVLN01kWFBwTVFYQ1hYUHJ3R25fb2ZtSVRoUE02QQ?oc=5"
       },
       {
-        "title": "Anthropic IPO warns its AI could blackmail people, become sentient, end humanity",
-        "source": "Ars Technica",
-        "date": "2026-10-27",
-        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPUTNLaEZxN01qbHhiZ3NjYWN0WHU2MmJ3Y1hWT1JHUVIyaUJCTkMxZjI2Zk05bmFLbzJxbDBSVTU2dEtobjlOdHE2VU5uQnpJVW9fMTVrUjZYc21WVUlDcEw3dHVoQ2FPQXkwYXlfajZZeDY1aWlZRlFnVG1JMFV2Z0twN3VvSlp1Um1LTzFQTXBad05iUV83dWo1Z3l3blJsd1RQRW5SS29QTXlmU0VUS212S08?oc=5"
-      },
-      {
-        "title": "Exclusive | Broadcom CEO Intervened to Seal $63 Billion Anthropic Debt Deal",
-        "source": "WSJ",
-        "date": "2026-10-27",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNbkxxMllvRjN2M1VzSVJVSU5xNnJmamxXSTA3a3dWU2VLeW1sZjhLbDhLcXoyakFIYjFCVktFMFNfM3JaenA5UjFMRTE2cEVVTXdlN3l0eUpQN2d3cXM4VUhZc3owSGdUTDF2N01pT0U2WTVIXy12bDBtRS1ZUjNob3YtYUVkUU5hVEdxVVFjaEpHMVdfVHNHY1ktOEtLa2c5?oc=5"
+        "title": "What Robinhood's CFO found interesting about Anthropic's IPO prospectus",
+        "source": "Yahoo Finance",
+        "date": "2026-10-28",
+        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNYTFUYlczNE9XenRKMzF5bXotSFhzQmVveURNenRkcThsTGQ1eENhZWRPUllNUEJneldxclh3NTdIZUtjdGxpeUxhQ2FlbFZqRDNLWlZWTDhwLUFWZUNkSjhGLTQxSE9SOXJXcXB4MlYyZGlwT0N5amo0M19jdWRmVWV6UE1ZZnFuM3EtS3ROV3I1ZkxLaXdwd3pEbEJKXzNzWS1RUnJWVE1HOXdHbTdSdVc0OFd3NEt1YWdBLXlaQ0NoOUI3?oc=5"
       }
     ]
   },
@@ -94,28 +98,6 @@
         "source": "KBS 뉴스",
         "date": "2026-10-25",
         "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1wR2FhV3NHOW1NMlJJVGxpZUZRM3V5UmdPTWlVM3BoMEloVGpkS25xYWFOel9PN0pqcUFCUHRIb1NFRW9Bc0ZFRlBuN1dYbEVJWHRUaGswR3RVTVE?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "테슬라스페이스x합병구상",
-    "name": "테슬라·스페이스X 합병 구상",
-    "first_seen": "2026-10-24",
-    "days_seen": 2,
-    "last_seen": "2026-10-25",
-    "why": "일론 머스크의 테슬라와 스페이스X 합병 가능성 보도가 이어지며 시장의 관심이 집중되고 있습니다.",
-    "evidence": [
-      {
-        "title": "테슬라·스페이스X 합병으로 일론 머스크 꿈 다가서나… AI 제국 완성해 화성 도시 건설 박차 - 조선비즈",
-        "source": "Chosunbiz",
-        "date": "2026-10-23",
-        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOZU9wSW1kWkxzRFFycE5vVU1aYmtmbGRIQkVpbnZtSTBpQUY2TTNmdTVsUnBNUXNNNi1LeUtHdHJndWEtNW56cmFJOTNxNkFZSU84c1o4OTYxcFVIR2JBV3ZqdTY5QTRFTXF2SU9paG8tdUlYWUhybTlMSkNiRU9kbUFCWHFuU2xLN2ZybtIBoAFBVV95cUxQUDgwemlpcWVCLXZQaC1iVktqVjNSZUVSZlpPNzM5bUxVNEZHVmkyMWk2N3J0MVdLX1l5OFg1MktEa0FhVGlIZURhdkI1ZS1wVUFYQk42aXhSMm5Ha2FzX1FKTVh5TTcxUXFYRHV1c1I3SHlSVXo5UFZCbU16RTdTY2VaU3B3Y0J1TzJ5aGFKYjVYb0FnRXFpMWlVZExOLVNE?oc=5"
-      },
-      {
-        "title": "Elon Musk Says a SpaceX-Tesla Merger Is a “Good Idea.” Here’s What Stands in the Way.",
-        "source": "Yahoo Finance",
-        "date": "2026-10-23",
-        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOR3NhOGpPUDdnR1M3Q3BIeTYzUTd4Q2txX0dobDEwQlN6enVEMVVGVVo0OThUXzdYRmlPWXNCTTFyNHhjR19zdWRJUmt2YlBfZEhpSm1UMENaUS1abS1jVVFtZlF5YURaeWlPalNMUXo5d0lTR1JNcDJHYW10c29JZWlZdUZ3UlZDWFBVSWRjXzNrU3FaWWsw?oc=5"
       }
     ]
   }
