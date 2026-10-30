@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-10-30T19:42:58.656785+00:00",
+  "generated_at": "2026-10-30T21:33:58.249172+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
     "pmi": 54.5,
     "pmi_as_of": "2026-09-01",
-    "breakeven": 2.35,
-    "breakeven_date": "2026-10-29",
-    "breakeven_change": 0.102,
+    "breakeven": 2.34,
+    "breakeven_date": "2026-10-30",
+    "breakeven_change": 0.099,
     "breakeven_lookback_days": 91
   },
   "credit_stress": {
@@ -28,7 +28,7 @@
         "band": "평상"
       },
       "curve_2s10y": {
-        "value": 0.38,
+        "value": 0.37,
         "inverted": false
       }
     }
@@ -36,7 +36,7 @@
   "policy_stance": {
     "label": "긴축",
     "current": 4.0,
-    "current_date": "2026-10-29",
+    "current_date": "2026-10-30",
     "lookback_days": 90,
     "lookback_value": 3.75,
     "lookback_date": "2026-07-31"
@@ -51,12 +51,12 @@
   "cross_check": {
     "nfci": {
       "value": -0.49,
-      "as_of": "2026-10-29",
+      "as_of": "2026-10-30",
       "interpretation": "평균보다 완화적"
     },
     "stlfsi4": {
       "value": -0.58,
-      "as_of": "2026-10-29",
+      "as_of": "2026-10-30",
       "interpretation": "평균보다 낮음"
     }
   },
@@ -70,20 +70,20 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 102.0,
-      "as_of": "2026-10-29",
-      "base_value": 92.87,
-      "base_date": "2026-10-01",
+      "value": 102.95,
+      "as_of": "2026-10-30",
+      "base_value": 91.11,
+      "base_date": "2026-10-02",
       "lookback_days": 28,
-      "change": 9.13,
-      "change_pct": 9.83
+      "change": 11.84,
+      "change_pct": 13.0
     },
     "breakeven_3m": {
-      "value": 2.35,
-      "as_of": "2026-10-29",
+      "value": 2.34,
+      "as_of": "2026-10-30",
       "window_days": 28,
       "lookback_days": 91,
-      "change": 0.102
+      "change": 0.099
     }
   }
 }
