@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T21:52:02.931675+00:00",
+  "generated_at": "2026-10-30T01:24:14.385771+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -70,13 +70,13 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 102.86,
-      "as_of": "2026-10-29",
-      "base_value": 92.87,
-      "base_date": "2026-10-01",
+      "value": 102.78,
+      "as_of": "2026-10-28",
+      "base_value": 90.42,
+      "base_date": "2026-09-30",
       "lookback_days": 28,
-      "change": 9.99,
-      "change_pct": 10.76
+      "change": 12.36,
+      "change_pct": 13.67
     },
     "breakeven_3m": {
       "value": 2.35,

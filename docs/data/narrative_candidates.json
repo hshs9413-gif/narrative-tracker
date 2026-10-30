@@ -1,17 +1,61 @@
 [
   {
+    "key": "국산비만약시장경쟁",
+    "name": "국산 비만약 시장 경쟁",
+    "first_seen": "2026-10-15",
+    "days_seen": 11,
+    "last_seen": "2026-10-30",
+    "why": "국내외 주요 제약사들의 비만치료제 개발과 출시 관련 비용 논의가 이어지고 있습니다.",
+    "evidence": [
+      {
+        "title": "국산 비만약 '에페' 초기엔 반값…투여량 늘릴땐 '비용 역전' 따져야",
+        "source": "DongA Science",
+        "date": "2026-10-29",
+        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5xM0hEWFhZQ2oyb0pLYjg5MHJSaHFiRG5uemR6UlhFbU9HNnh3MVNSVU11b0ZKeUxhZHJxWkdUbzRQZ0hDdlNlOV93RGZVQmY0c3plUA?oc=5"
+      },
+      {
+        "title": "Lilly reports third-quarter 2026 financial results, raises full-year guidance and highlights regulatory progress across the portfolio",
+        "source": "Eli Lilly",
+        "date": "2026-10-29",
+        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPUlZheEJNa1ZUZWU4Smh4clVqdTlzUDAzbFZ4TmVVRkFlVmtLa084WGlnTjFkNjZEOFBYcnB4NVp5VWpxNldUT04tS0lnS3Jpc1NVczkwTmthdDJfdDR5Nk1LZmg5YlpJRmItQ3ZTRkRxLUk2VDVCUm5zd3J2c3dYOFEwUnJJVC11YkY1aFJHT0NzaDBrNDRaZHM3cEhteVBuRWlwQ0g5VU5iLVYxcUdULU1RbnlESm5oal9MRkVXc0hjUQ?oc=5"
+      }
+    ]
+  },
+  {
     "key": "테슬라스페이스x합병구상",
     "name": "테슬라·스페이스X 합병 구상",
     "first_seen": "2026-10-24",
-    "days_seen": 3,
-    "last_seen": "2026-10-29",
-    "why": "일론 머스크의 기업 합병 시나리오 언급 관련 시장 관심이 지속 관망되고 있습니다.",
+    "days_seen": 4,
+    "last_seen": "2026-10-30",
+    "why": "일론 머스크의 기업 합병 시나리오 관련 언급과 시장 반응을 계속 지켜보고 있습니다.",
     "evidence": [
       {
-        "title": "Meet Apeiron, Virgin Galactic's 1st 'Delta-class' space plane",
-        "source": "Space",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeWFJNjZCZ1g4NHB1UTVFRmFYa2I1ZWd2aGdFSWhyRXU0SEF1RHFfSXl1VVRyMjE1VW03TUpWQXJxU3dJQTZnMThYSXd5RTk1QjdTbTA0MXFobWNnYU9ubG5lRDk3dTc0NEc1SEtNNWNRVHUzd2RITlYzVnpUWXc3U2VGdmJ0Y3EtNHdjS1lZUFNzelk4VUJhcml4cDRaaGNxQTFteVBCa0FBVERoZzVHcDhLakFMSHVy?oc=5"
+        "title": "Wall Street ends lower as Alphabet revenue miss revives AI capex jitters",
+        "source": "Yahoo Finance",
+        "date": "2026-10-29",
+        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPd0tULWRvRHZoRUxrM1Z6NnVOUUo5LUJWRVo2Z05nbmhDSFhjRjgtb3ZJUzF1TXJzdWYxWG1Sa0EtcHl1Wmd5M09ZcWVORWpNQzNuX2FnRUoxcUVHbmlwYUNmTWtVMlQ4TC0xR1hQVmpvQU5PM2NtaG1jcmdvRE1xODdKWTFHcHplNGVKUVdXaUhtOTBLb2xIOHZUa2hJZW5EdGc?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "앤트로픽대규모자금조달및상장추진",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "first_seen": "2026-10-28",
+    "days_seen": 3,
+    "last_seen": "2026-10-30",
+    "why": "앤트로픽의 상장 추진과 대규모 투자 유치 소식에 시장 관심이 계속 이어지고 있습니다.",
+    "evidence": [
+      {
+        "title": "국내 주식 암울한 이때…상장 앞둔 ‘앤트로픽’ 나도 한주?",
+        "source": "농민신문",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9ieWJFaDVzamZoX2hDeFRaVWFmSHItTVV2MnhkSW55dVA3bUN5TXB4Ym1wSDFjRmhTRzZ2LWxGNFF5elNQekRzVW5RYlBPMGx5SEk4blNFZnphZw?oc=5"
+      },
+      {
+        "title": "Can Anthropic really become a $10 trillion company?",
+        "source": "The Verge",
+        "date": "2026-10-29",
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxON0VObUpDZ0V2eDFuVGFyb0M1SWV1VEcwQnEwZEFPQUNZNW5PYWJzRUJTYUN5ZTJib05SUUtwYV91TkZTa2lGRi03LW9hSjlaaXBMZnMxSVdOb3ZLRGFLejR3ekRScEkyNFdvT0N3ZVNVM1VnSTE4NzJGOVVxR25vS195Y1puZm11QWllTGZpeUNfT3E4SHZzdVdTdkdVbWoxWHNYdWpCRlgxU215aEFr?oc=5"
       }
     ]
   },
@@ -28,44 +72,6 @@
         "source": "KBC광주방송",
         "date": "2026-10-29",
         "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9kZ1JnaWNBb1VfbGFQNjlzRGZSSVVudVYtd2NLZEJGYUU5YkExQzVwbXJOcHJMXzVIMUFSeW1odnhaNDNJMkwwSkk1RENKdmNwTWJSV3V6OU5CbnZpWjhKNkln?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "앤트로픽대규모자금조달및상장추진",
-    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
-    "first_seen": "2026-10-28",
-    "days_seen": 2,
-    "last_seen": "2026-10-29",
-    "why": "앤트로픽의 대규모 신규 자금 조달과 상장 관련 투자 위험 고지 내역에 시장의 관심이 집중되고 있습니다.",
-    "evidence": [
-      {
-        "title": "엔비디아·애플보다 현금많은 6년차기업…앤스로픽 176조원에 시장\"깜짝\"",
-        "source": "한국경제",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBnZWt0SF9kYVo5NWVlQzZkSFpNUHN6TUliam1Va2d6bDcxdmtLb1BURG5JbnRjaE5LazE3cFVLN01kWFBwTVFYQ1hYUHJ3R25fb2ZtSVRoUE02QQ?oc=5"
-      },
-      {
-        "title": "What Robinhood's CFO found interesting about Anthropic's IPO prospectus",
-        "source": "Yahoo Finance",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNYTFUYlczNE9XenRKMzF5bXotSFhzQmVveURNenRkcThsTGQ1eENhZWRPUllNUEJneldxclh3NTdIZUtjdGxpeUxhQ2FlbFZqRDNLWlZWTDhwLUFWZUNkSjhGLTQxSE9SOXJXcXB4MlYyZGlwT0N5amo0M19jdWRmVWV6UE1ZZnFuM3EtS3ROV3I1ZkxLaXdwd3pEbEJKXzNzWS1RUnJWVE1HOXdHbTdSdVc0OFd3NEt1YWdBLXlaQ0NoOUI3?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "국산비만약시장경쟁",
-    "name": "국산 비만약 시장 경쟁",
-    "first_seen": "2026-10-15",
-    "days_seen": 10,
-    "last_seen": "2026-10-27",
-    "why": "국내외 제약사들의 비만치료제 개발 및 시장 점유율 경쟁이 계속 주시되고 있습니다.",
-    "evidence": [
-      {
-        "title": "US judge refuses to block Eli Lilly weight-loss drug ads, rules against Novo Nordisk",
-        "source": "Reuters",
-        "date": "2026-10-26",
-        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPRmpNcDhCbWpETXNLU0hDNDVmbGh6Y1l3d0NJWXAyUHJKdTNCam1RSmxmU3N5M2ExemdvTlJfYUtfaDhlQlp1RGg2Q2Y1OGpxSWF6WEV5TTdyWmlxXzBsNjVHbmhBQ0M1SUEzYWRsV28xZ05GWVE1QmFvUTVtcGw0QzhsZlViWlN3WjJhZzdvQWdldGdncWVvZTFvV3U3UDRVRTZRR0piQjZHWHNfUUhIZ3lSTFJXdw?oc=5"
       }
     ]
   },

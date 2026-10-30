@@ -1958,5 +1958,47 @@
     ],
     "at": "2026-10-29T10:17+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-30",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "빅테크 실적 발표와 함께 AI 투자 우려가 재점화되어 뉴욕증시와 코스피가 크게 하락하며 잠잠하던 내러티브가 다시 부각되었습니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-10-30",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "빅테크 실적 부진에 따른 AI 투자 우려가 재점화되면서 잠잠했던 AI 밸류에이션 내러티브가 다시 활성화되었습니다. 그 외 중동 지정학 불안과 금융권 해킹, 미국 국채금리 불안 등 기존 진행 중인 내러티브들은 흐름을 유지하고 있습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "테슬라·스페이스X 합병 구상",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "SMR 및 원자력 기술 개발",
+      "국민연금 국내 증시 평가손실",
+      "SK그룹 웨스팅하우스 지분 인수"
+    ],
+    "at": "2026-10-30T10:24+09:00",
+    "trigger": "schedule"
   }
 ]
