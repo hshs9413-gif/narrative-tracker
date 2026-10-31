@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "items": {
     "corporate-credit-stress-2026": [
       {
@@ -23,22 +23,22 @@
     ],
     "alaska-lng-trade-2026": [
       {
+        "title": "[단독] 정부, 알래스카 LNG 프로젝트 상업적 합리성 검토 착수",
+        "source": "한국경제",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5GaUw5Vl9FWnpZNVZqdjhiN2Q1RzBqQ2s4eXBzcGhic2R4NUs2ckNaZ1pVeGtab2ZPVndPa2dtOXJDMW5hZWhpTzdLZE9rRXVmS2VtS0g4Z29udw?oc=5"
+      },
+      {
+        "title": "알래스카 LNG 사업과 러시아의 비밀스러운 연계 [PADO] - 머니투데이",
+        "source": "머니투데이",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBDTFJucTM0QUlDSjBiYUZxSzJYUjJsSC1iaExRVXRxRGxnc1g3TWtOcUxUZENFNGExajlsZGM5dS1ibnktbF8tdEpvVEJCUmY2SlVSNVJBcWJaV3ZHRlY4TzQ5ZXdOa1RY0gFuQVVfeXFMT3BZZVQ0TVVaaldmYmFtTTEwNWFGcnRiakVTUTMwSVMtbjBpRHljZWhDdWhQd3J6X1pUSlIxRXl4N0U0ekZDVWRaamhwaWI4SDdwcFlTNGZGVkg5elM5X2V5ejFZcEZPZVB1NHJBQlE?oc=5"
+      },
+      {
         "title": "트럼프, 러 알래스카 LNG 투자 묻자 \"전쟁 끝나면 러와도 거래\"",
         "source": "연합뉴스TV",
         "date": "2026-10-25",
         "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB2YzZ3cDNLeDMtSmwyZUdYS3E4eUJjeGFLZEcxZ1BHZ3dHMjJmWEI1NWhya2Rvb2p5ZTFrNEtDT0VvYzJPVk4xWUNLOXhEMUp2TWh2SHZTZFloNWw2aTUtWEd4OFpXYXM?oc=5"
-      },
-      {
-        "title": "트럼프, 러 알래스카 LNG 투자 질문에 \"전쟁 끝나면 러와도 거래\"",
-        "source": "MBC 뉴스",
-        "date": "2026-10-25",
-        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9zYnZNMVRRT0lTNUVRYjgzLUhrUGE5MkhzNkZ5MXBLNTVMa1VyQjNkc0NpcWxpVndKSWdZSUxubi1PRUpNSUxMSGN2MTVmY1hwUUstY2NVOXF4c01sMC14WUFoejVxTEhNamZGT2duUGllMzdR0gF0QVVfeXFMUFU5UXZYcnNvY083VjBaQzltMzA4am15eEV0bHB0MU0yN0xpanV5MjZ2UDF1MnBySDh2a3pNQjVpbXB6Yk10Z2ZOS1JzV1FXQmN5eTJwcFRVSzFsNTlFU0FOQ212aFM2Q3NhWllfa0RfanpLaEM?oc=5"
-      },
-      {
-        "title": "트럼프 “종전 후 러·우크라 모두와 거래”…알래스카 LNG 협력 가능성 열어둬",
-        "source": "문화일보",
-        "date": "2026-10-25",
-        "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1RbF95QWpUdFF3Z2N1MUNNS2NGNGwxOHFEVGR4ZTVkOWpRTVprd01WX3NUbElnR1YybExTUVpjMmh2aHJ2dnBmbGdzdTh5T0g0?oc=5"
       }
     ],
     "us-inflation-shock-2026": [
@@ -57,22 +57,22 @@
     ],
     "financial-ai-security-2026": [
       {
-        "title": "진에어, 외부 해킹으로 1,454명 개인정보 유출",
-        "source": "연합뉴스TV",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1RRVVaclV1NUJJVFVkZUxwWXJvaVhQSUlMQno5aVl2d3I3d1BSbXBtazZWaWI1OFNYVWdZbjY2VFU4clFqazZOcmlXVWZXZ212enVSSVFNdzMzd0J1MVZQWFhZMnBlSFU?oc=5"
-      },
-      {
-        "title": "‘북한 IP’ 기반 440만 건 금융권 해킹 시도···누구 소행일까 – RFA 자유아시아방송",
-        "source": "Radio Free Asia",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPU2VHX1ZCMXJCcUlCLUNhNzFTbTM4R2l0azFDM1FGMGhZeGt0LW1UUEVQbEFpbEhDQmloUWVQbjJ1WWxyTmNiMVNoVmFXcXJBai1HTDVtcWZxQmpYRkI3b0E2alY4Z3U3bE0wbFRTZnlYZUtJUDdDNWtXckJ2a25WeVUwVkFGTldlNFpCZUdRU1pmX1hYY0V6UnBDd1B6cTVZb3V0Y1VqMW0?oc=5"
-      },
-      {
-        "title": "진에어, 1454명 개인정보 유출…“비밀번호·결제내역 등은 안전”",
+        "title": "보안 기업들, 피스콘 2026에서 AI 보안 등 제품 선보여",
         "source": "보안뉴스",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA3VjlIXzI4TFB0NVdiOVUyV0QyVXBNSUxHVjY5bEJYRnlSZVFCclRvcDFtdElic3VkX3RyUGRLT0JmTDdlSVVUazdUTWY0TzNtTGU1eVJsNnRiSDNNTS1Gb3Axb2ZjVzFrMkZJ?oc=5"
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAzRm93dzJSVGZkX0NOUTZkWHNBV2JzQnRHVFA3R3AxOFpsdnZYYTJ2cW1PQWNrNEJud1lEOGtUUWZBcnk3RnZHYzhOVjhuaDBKMmoxTTFwYmtjVV9IWTFvbS1jT3MzazhKX2E0?oc=5"
+      },
+      {
+        "title": "건설사도 해킹 피해…GS건설 일부 아파트 입주민 개인정보 유출(종합)",
+        "source": "연합뉴스",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBfaWxCZERiR1B5NkZhclQ0bnc3dzFneXUyb1ZtWWZYMXpqZVo0b0g3RnpvQUdwQ3F1WEtnazE0RUxDZVpNMGUwWlkxZGdUSFZCMmp4ZjJZWWI5TWfSAWBBVV95cUxQV1VvU1g3ZHZQWFBESlRrM2F0Y3Y0cGRwdmhzeDExSUlpSlVyMEc4TUszeUVLQ2lTTlhqakoyZzZ1c3B2THNJNVE4Z2ZHNWJocHI0dWhSLUhlUW5kS0VKYkc?oc=5"
+      },
+      {
+        "title": "(34) 개인정보 유출, 처벌이냐 개선이냐",
+        "source": "법률신문",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBiWk5EWHZZUUhUenVwcFZWX0FRQ3BlVEhoeWQ3dDM4YU5hcUMyZlE3VEViakJuRVlMWE5GVGNRcUh0NkZ0OXJCUXlDM0wxMkE5N1laR0pEYlItamlCOWxIejJIM2xhaFEyU2lfYjF0NlVIUdIBckFVX3lxTFBiWk5EWHZZUUhUenVwcFZWX0FRQ3BlVEhoeWQ3dDM4YU5hcUMyZlE3VEViakJuRVlMWE5GVGNRcUh0NkZ0OXJCUXlDM0wxMkE5N1laR0pEYlItamlCOWxIejJIM2xhaFEyU2lfYjF0NlVIUQ?oc=5"
       }
     ],
     "pandemic-risk-2026": [
@@ -97,6 +97,12 @@
     ],
     "global-bond-selloff-2026": [
       {
+        "title": "미국 올해 재정적자 2조달러 육박…\"지속불가능한 상황\"",
+        "source": "한국무역협회-KITA.NET",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVmlrN1JPWWJjaHNfOGVKWS1HQXZlYkJXT18tSW51dVRQOGEtLV9VNmU1UG82bnZsdGdheEUwZnVpRFFzZG9ld2xrVDdxbE5XU2VIU29qeHV1d2QtY3o5LW43SFZIT3pEdFpEN1ZKbGRpRFFCSHZveURSRFB2ZEJMWmhSNEhDa1czT2lyelpxUzgzTTZidWhBSlAxaDBadjUyTXE4anJRWVhBV0JBOEdlREdGakQ2cDlyYjA4VVZkWnVVdjdJSWZ0U01fLVhxY2JqSnRVSkdB?oc=5"
+      },
+      {
         "title": "[뉴욕환시] 달러 이틀째↓…구글 '실적 쇼크'에 미 국채 금리와 동반 하락",
         "source": "연합인포맥스",
         "date": "2026-10-29",
@@ -107,15 +113,15 @@
         "source": "Investing.com 한국어",
         "date": "2026-10-29",
         "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFAxUlpORnBwMjQ0cU5GV3VlTk84LWkzLTBQN3dMS3B3Rk1XM3NyZXpYLVdLSFZOUFpJaXVnQmR3LXYyeHBXMWhTZXI4T3gxVW80WnNVVDRvemJ1NEZEUHgtbW5mdmtrQm8?oc=5"
-      },
-      {
-        "title": "미 국채 금리 24년만 최고… 한은 \"물가 불안 땐 저가매수보다 손실위험 부각\"",
-        "source": "이데일리",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZm1zT0dPUjU5RlRIUlNJT3RYWVdfbV8wRmxrT3k5SDFYTFlqS3RjTGRMa1ZxT1AxWUhmQ1ZPVGNyTHBySFM0NzhYZzlzUERFX1oyRjBSQjRsNWRjZnZIbVJkWG9xZGRwa2ZselZrSDRJUTV1ODctS1U1WDZneTlnUA?oc=5"
       }
     ],
     "kospi-semis-leverage-2026": [
+      {
+        "title": "불장에 ‘빚투’도 훌쩍…금리 오르며 가계 ‘흔들’",
+        "source": "KBS 뉴스",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBLSHU0QVh0OEp5Tlp5cERrOEJXTGE2OFBXSHgteUlZWHBOdk5pS2hyNlNUSEVuZjluSDRjVmliXzI0R1JVT0pVMURYTlpFQzJJdldlUUotbTBCd3Robi1EeWFGSV91Zw?oc=5"
+      },
       {
         "title": "‘무규제 대출’의 역습…폭증한 예담대, ‘빚투’로? 증시 폭락 시 위험 눈덩이",
         "source": "중앙일보",
@@ -123,39 +129,39 @@
         "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1GVlBHYnU2WHR3RHFOR0dvcWNBY0tCcHVpSHdLc3JZX1VzUnYxcm0wSVJSNTZ0Zm5wbnZSZUJOcVJ1akNLanNPMVBTX1JGdjU0cnVyRHpn?oc=5"
       },
       {
-        "title": "코스피 반등에 투자자예탁금 90조원 회복…빚투는 30조원 하회",
-        "source": "연합뉴스",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9XRWtTalYyaXpHVGtlOGFhanV4dlJreTFmeFpJSmR2a3dTQkJsSjcxWXo3ZVFpbTFQQVBmMnVTNjdkcWI4OU1KaTdUdnAtSkRNWm1LUHkzenB3Tk3SAWBBVV95cUxOdXp5UDNveWN4bnkxNXNCRDdOTzJSVDNvWEllQVd6aXpQb050S3c5bUNtRnF2MnZoRTJfbHREOUNLcGdGYWpWTHdyN2VhTUhoeHBRQ3pfSnBobEl4NkxrLWQ?oc=5"
-      },
-      {
-        "title": "투자자 2명에게 5억1000만원 상금 준 증권사···빚투·레버리지 금전 이벤트 ‘제동’",
-        "source": "경향신문",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1OaGtNY1lTU0xVcU9Pc002Zmt4b1dhVWdjSE56Rk4wSXA5bGpnVVlpU1NmcVlmNUt2RmFVdnVQY1dwc21ZYkRGc1VWTTNsZHpPcDFkSGtRRy1OZ9IBX0FVX3lxTE9PYlZWV2E1cW1fWnFtdnhSOW9KbUZwR3FYU3JYUVNSazFxOGVGYnFsemE3ZVhCdGYxX0VxbUNRbnNBODdwVlJfbkhpZkxCWnF4VVVDZHcxQW4zUWpHNWpF?oc=5"
+        "title": "[모닝 리포트] \"美 AI 수익성 우려 속 코스피 반도체 수급 주목\"",
+        "source": "뉴스핌",
+        "date": "2026-10-29",
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5QV2MwWV9rNjkwSGxxU2wzNGczY3ZkSVd4M2RNY1dIcUduLUV2ZlRnSmVGRE9IbjZPcE55MGFKbTktOE1HTEVpei1WalBEMEpwZVU1OVEtNkppcnd4?oc=5"
       }
     ],
     "boj-normalization-2026": [
       {
-        "title": "글로벌 펀드 매니저들, 일본 국채에 더 긍정적으로 돌아서",
-        "source": "Mezha.net",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOMDNabzhXTDBfZlU3VW5aSkhvcVd6ZUhHVXpyMldpRnlBRDA5NlNDY2x1a2NGazBQUWhnZXFBMERrRk0wM2MyY081cXYwMzM2RnpRUnR1QnNWYnJKaXBJcDBPYlphT1A0X28wSDhVUHE4THh4QnRndk1uVVpwNHdJVGJDNF8tNnVYZjJoSGh5dU1zRWdPT29BZVVwMkMxUQ?oc=5"
+        "title": "일본 국채, BOJ 금리 결정 앞두고 안정세",
+        "source": "IDNFinancials",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxPUnFxLWsySEJzRVNDcGo2X1lFcEtBN3BHaFJjYkxXYy02ZlZ0MjA5bDc5NmxlSmdWSkxjQkE1Z0lIR1l1d3B1RXdnLV9tYVBFbGJBeTVzOUFoLWFMTVNMcUp1czRGNVBfeXprWXAwenFnUEcxd205ZzZVSDRKelFUVjVmcXpWM3NSU3U4QTN0dnN3RjlibHRNWlp1Q2dTWHEyaVhJc2dXTFFMUUtZYjZJZERXYy1UV0lXXzFRM0F6U1hoRkplai1lYnlMMFNDYmE0ZlgxZmlOYTdSa0JZcndWWjduVnVZbTBaMnh4TkdadnYzSVFQbTZpTWtEMWlYTVpWVENFeGFwdVl1SWM?oc=5"
       },
       {
-        "title": "AI주 불안에 日·獨 국채로 몰리는 자금…일본 장기금리 2.8% 하회",
-        "source": "메디컬투데이",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA4Mkt3Wl9HdXlhX21lU0IzVVBacWE2X0MyY0tXY1NCbmVpUEVXdEZyNEJ4c3hKbnJXOEkxblA1bkNSaWt2dTVLQV8xczk1bHdfWXh3dmFJU2VGSG42VW1jV3lQVnJqU0NtSE9vRA?oc=5"
+        "title": "일본은행 기준금리 1.25% 동결…엔화 강세 속 세계 금융시장 불안 확대",
+        "source": "시사매거진",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE50SEdaYWdKX0tUVF9wMlUxZXFPZGhqMVk5TnJFMGlCU1dhNEMyb09GQ191enFNLTQ3REx5UEpHOW1jMm1hb29yOV9fZS1PTm9JbGNBNnZ0NWZDekx6VmxoWDFB?oc=5"
       },
       {
-        "title": "AI 관련주 반등으로 안전자산 수요가 줄어들면서 일본 국채 가격이 하락했다",
-        "source": "TradingView",
-        "date": "2026-10-27",
-        "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE4yQTVzWGJlcy1SWURwYUI2cUlzQ1ZTT3l2MmdaR0tXZ0ZXdFAwb1kwaGNFdnl1emVFTFBDYndkUDlJcVdmUUpuOTVlWXN6cTE3X1JoUjNSd0xQLS1NOERUTzQ2TmhNSEltSU93cm9oS3JkMlBLRmJF?oc=5"
+        "title": "일본 국채, BOJ 금리 결정 앞두고 안정세",
+        "source": "IDNFinancials",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOT21ydkg2QlV0UUh5MXBfY2hHZ0J4Y3BNV3VHOWk4dEhVdDU1VnE4MXB0Rm9RXzhCSlMzbjJOa2hwcEgyX1JORTdDQVdDTTRBTjBZUnVQVGNobkVqZ2JWcjhRS043SW5kb2lFekhHMXZRbkJjaFlsQXNtZnV0ODhhMmpieHpyVzIwaWlCbVBVX2VRdXMzdk1TNWdyLWRxTlRmdnlpOGcySXgtSjlQanBvLUdHN1dvMlAwS3ZKQ3NkZkpLVFVsQjN1dGVzQWV6R2ZzbFBVeExUU3Q3N3B2dFlYMGdPeE9SM011d0RnTDRHRTNRVEJQaVJhZUxOaDYtM1dEVndsWHVJb0dtZUk?oc=5"
       }
     ],
     "us-labor-cooling-2026": [
+      {
+        "title": "2026년 9월 미국 고용 2만9000개 증가에 그쳐…회계·공급망 구인은 오히려 늘었다",
+        "source": "뉴스N연합",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE84YTV4cEJzemh2X2UxNFUwcnhXdE1jX0JIRnE0Y3JaeXVLYzRRYjJfT3lYTXNLcm92NlNqMjNuRHBlM3ZDTzlYZVl3?oc=5"
+      },
       {
         "title": "Sh수협은행 리스크관리그룹, '하우스 뷰' 발간… “미국 실업률 착시 효과 주의해야”",
         "source": "어업in수산",
@@ -167,52 +173,46 @@
         "source": "리드경제",
         "date": "2026-10-27",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9TZ2tqUGMwZlV0RTFYZXhVUGFIRzhUblpsb3UwRktMVklIQ3doX0l1eFNxbVAzTzZ3LVJWTEI1TTlmTWxoZW1NZjR3dlAzUU1CZ3JKRzliaXNKaDJ3SWFJYmxkdUlJWEZRRUZGRnl5SGk?oc=5"
-      },
-      {
-        "title": "Sh수협은행 “미국 실업률 하락, 고용시장 개선으로 보기 어려워”…구조적 위험 진단",
-        "source": "더퍼스트미디어",
-        "date": "2026-10-27",
-        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBFZXF1SmhFOHNTNG1yQVdtNER3OVZYZkpBMDBlTmUwcWYtNGdlelVPdDZuNnY0QzdQUmZGVTdrTmMxLTdoWGxaa2Z2eE54bGNwUHJ6OER5OXp3aXozQnhtR0hWNURRV3BVb1V6NlhVZVNiZGZG0gF0QVVfeXFMUEVlcXVKaEU4c1M0bXJBV200RHc5VlhmSkEwMGVOZTBxZi00Z2V6VU90Nm42djRDN1BSZkZVN2tOYzEtN2hYbFprZnZ4TnhsY3BQcno4RHk5endpejNCeG1HSFY1RFFXcFVvVXo2WFVlU2JkZkY?oc=5"
       }
     ],
     "iran-war-2026": [
       {
-        "title": "꼬여가는 국제유가…중동산 수출 풀려도 시장엔 공포감",
+        "title": "이란 확전 우려에 국제유가 2%대 급등…브렌트유 6개월만에 최고",
         "source": "연합뉴스",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5vbkpGN1pTd3cxMGZLMlktd2lKUXB2aWROdDNDNGdjaFpEZ3o0QlUwUTBDTmM1cFhGU3FDMXFNWFFFLVp0S3BoUUxEaWEta1ZOQWQ4VjItYWdzVE3SAWBBVV95cUxQMmZSVE5vWTA4NjRjR0ZBeGRDUUJubTdCV3dOYUs3Zl9BV2lSLXE5VWhzM2dubEpVcHNjYVpudGh3SWZ6ajhkM2JyVnBZd3VXcnc5MkYzSm5iRjVqaXVuZEQ?oc=5"
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA4UVJyWk5GMEo2OWtsWk1uX2p1Sk1za3ZfcVhyaXBxcEVTQlZyTmlqNmVfXzAxRDF0TGNGRHNLWVhrT0ZDOGZ6eVBNMDM0WUowcDgwMWNfS2tMbk3SAWBBVV95cUxPQ2EwS2hFSHVEWjBvSWFLOEhMdFlJMHh5YU9paXhqbUNDbUdrY2lTZXpsUkNMbHZidHFkM0lBY25xRjktSUZTajZnRkV2NGZxNUp3eElLMFNjbTV4ZDJ1WWs?oc=5"
       },
       {
-        "title": "이스라엘 총선·美 이란 공격 가능성 주시…국제유가 상승",
-        "source": "연합뉴스",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE84aVBrazZPeUw5QWFPdDNaS294bWloMElvRlBtUC1DRVgzZDV0RWwyYWZYVHVYSU8zcW81U0xDcHFkT1lPQll0Tkw4dmV3Mnp2N1I1MXBzMVloWVXSAWBBVV95cUxPLWVTVERPb2tEMmpBZDJDVFZkbUNwd2VlRzhnT0YwVmJwUlQ3NHpydzhEaWc1Sms5M18wUWIwdVRKZXNQc0JKdjJTQ000anRIR0JVZGhNOFBJRGhjYkZpOXc?oc=5"
-      },
-      {
-        "title": "[뉴욕유가] 중동 불안 속 네타냐후 집권 연장 가능성…WTI 2.9% 급등",
+        "title": "[뉴욕유가] 호르무즈 해협서 유조선 3척 폭발…브렌트유 6개월來 최고",
         "source": "연합인포맥스",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wQ1JEWkY2Vm9pYXRCRTlETVp3NDBkN3Y2THY4bE9WbGFCZnpBbXJ3OWtFTTFKM2dGaFBLN1JWczllanRZRjY1UVVFaVRyZERlZXlndkxjRWRJN0Vsb1dfTzBiUTh0WHBNZDgyZGdzaTQ?oc=5"
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9NWlVOLW9mbUh4eXVUMXVwNDFqaDdzRlFTdVdPWlVRME5hZTh5QW1YQkwxek1hVXZ1VXpRckJIZXNxendPR1JXb1dPVUtNRll5M29HSTJrellFaTNsUFVWa2JOdTV0bkFWajA3VHlUbU8?oc=5"
+      },
+      {
+        "title": "이란 확전 우려에 국제 유가 2%대 급등...반년 만에 최고",
+        "source": "YTN",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9hYWFFOFMtSlBWTGxONWJQMnVvQ3NFcy1NQXVMcHdnaWUzMDNlVVJTX0x3TFNQUnROMnBkUTFqUEpqQXVFalFvLVJaMFRuMm5jWUhKcjV0UlQ3OHlaSUE?oc=5"
       }
     ],
     "ai-valuation-2024": [
       {
-        "title": "SK이노베이션, 글로벌 공급망 차질 뚫고 3분기 영업이익 3조7043억 달성 ‘역대 최대’",
-        "source": "더나은미래",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yMnVoNEF2cFRON1IybGV3MExRc2VDbjFBc0RSUG80M281S3RXUzNiWEs3RzB4bmpCUlVXemFsZHBrSGNmYmNXRXlISTRWSTM2Umc?oc=5"
+        "title": "美 덮친 AI 버블 공포에 구글 알파벳·인텔·아마존 등 빅테크 호실적에도 주가 연쇄 하락",
+        "source": "서울신문",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBVWWNGU0x5dUhCdXROcjdYNlhreUxmcGh6X21BazJIdWhIUGtHQlNoOHJ0MUd6REVLYzZEZXZ2WTZ0Nkw3YUxiQVV6Y2pIZ1RCMDRvbU4ySDZjNWxqUUlURG5kbzM0RkNDM0xhQTZlaXFtZjF3dzJkUEFsVQ?oc=5"
       },
       {
-        "title": "삼성 '배당 30조' 그대로에 실망 매물 … 코스피 '음전', AI 버블 꺼지나",
-        "source": "뉴데일리",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQNzBsNGEzT1dXQVg4QUVWREh3OFA2N2VxYzk3Q0tCZGxKNnpTLTNudU5oVjdDZlFMUXdPUDVGUE1ZeGRpRFdQR3VZaTA3NEd0MDV0NVo5NFFfYjJiQk11VE1CSWh6dUxwNGY3TG9IVmttZl9VbWpvbG1MMXN5MUw2dNIBgAFBVV95cUxQNzBsNGEzT1dXQVg4QUVWREh3OFA2N2VxYzk3Q0tCZGxKNnpTLTNudU5oVjdDZlFMUXdPUDVGUE1ZeGRpRFdQR3VZaTA3NEd0MDV0NVo5NFFfYjJiQk11VE1CSWh6dUxwNGY3TG9IVmttZl9VbWpvbG1MMXN5MUw2dA?oc=5"
+        "title": "폭스콘, 오픈AI와 새로운 제휴 추진 중… “AI 버블은 없다”고 밝혀",
+        "source": "TradingView",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9Xa0s5ZzU3TlROLVN5a3JPUFZPN1pRN2MzNWl2N1BYeHhuckxUXzREMk5kYlBEOUh3NU9qYmpjQ0kxQ1prSXRhVG9Cc3gzV1NSekhCajlZVm9FOEtYQjM0UzMxMEVkNmF0aU45U3NYd0thbEJiMmJJ?oc=5"
       },
       {
-        "title": "AI 버블, 중국선 이미 꺼졌다? 수익성 악화에 中증시 40% 폭락",
-        "source": "한국일보",
-        "date": "2026-10-28",
-        "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9vRzlyZjd3TjRocWR0RzBkU2tUSDYyR2laNlRJcEprUnZKaGZ6eGNEdWVicV9oTDhHcXBuU2tvSmE4eTVZQnpzMS1fU0dBRzBGNk4wSDBocnpGbEJuVGpoN0d1Qng3LXktTUhCSkYyZVpBWlHSAXNBVV95cUxPb0c5cmY3d040aHFkdEcwZFNrVEg2MkdpWjZUSXBKa1J2SmhmenhjRHVlYnFfaEw4R3FwblNrb0phOHk1WUJ6czEtX1NHQUcwRjZOMEgwaHJ6RmxCblRqaDdHdUJ4Ny15LU1IQkpGMmVaQVpR?oc=5"
+        "title": "폭스콘, 오픈AI와 새로운 제휴 추진 중… “AI 버블은 없다”고 밝혀",
+        "source": "TradingView",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1Td2VWb3hIZUwxeE1jdkRXc3VHZXlpcVJmWW1MNXhyanAtWWs3UzNmR2d3MkxqZ0tualRrdlEzbjRtdlJQSmVpTXAtaWdGRTNCSkpGSmJ3bC1nV0t5SFFvM3pyRWlkejh5ekc3VjYxSWo4ZjloZ1htaQ?oc=5"
       }
     ],
     "tariff-shock-2025": [

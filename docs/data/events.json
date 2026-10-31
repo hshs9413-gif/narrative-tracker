@@ -32,10 +32,10 @@
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5Jb25wU1YyYmhzWFNfVU9EUzVacjF4Q0hkRWJ2WmlLcEZqQkh5RzBZeTlPSDBPNTBLUmthMk0tWmxnMGo1LWFGQ25vT09vcU1ORVY1V2NfeHBmN2swQkVJTQ?oc=5"
     },
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본 기업 신용위험이 상승하며 회사채 발행 부담과 자금조달 우려가 지속되고 있습니다."
+      "reason": "일본 기업 신용위험이 상승하며 자금조달 부담 우려가 이어지고 있다."
     }
   },
   {
@@ -65,16 +65,16 @@
     "added_on": "2026-10-20",
     "candidate_since": "2026-10-17",
     "headline": {
-      "title": "트럼프 “종전 후 러·우크라 모두와 거래”…알래스카 LNG 협력 가능성 열어둬",
-      "source": "문화일보",
-      "date": "2026-10-25",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1RbF95QWpUdFF3Z2N1MUNNS2NGNGwxOHFEVGR4ZTVkOWpRTVprd01WX3NUbElnR1YybExTUVpjMmh2aHJ2dnBmbGdzdTh5T0g0?oc=5"
+      "title": "[단독] 정부, 알래스카 LNG 프로젝트 상업적 합리성 검토 착수",
+      "source": "한국경제",
+      "date": "2026-10-30",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5GaUw5Vl9FWnpZNVZqdjhiN2Q1RzBqQ2s4eXBzcGhic2R4NUs2ckNaZ1pVeGtab2ZPVndPa2dtOXJDMW5hZWhpTzdLZE9rRXVmS2VtS0g4Z29udw?oc=5"
     },
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "트럼프 전 대통령의 종전 후 러시아 거래 가능성 언급으로 알래스카 LNG 사업 관련 동향에 대한 관심이 지속되고 있습니다."
+      "reason": "정부가 알래스카 LNG 프로젝트의 상업적 합리성 검토에 착수했다."
     }
   },
   {
@@ -111,10 +111,10 @@
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1lelN2dDI3VnpvYVBrWjlCUEtoUWhIRGU2MnNoSHN0UllWQml4R21iSFd3X2NGeFMtMkppY2pVUWZqN3F6TEFUMkNQT3U5bzdKRll6dWYxa2g1OW1oRzdNUmttSW1tNFpyMXc?oc=5"
     },
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 CPI 발표 및 물가 관련 논의가 잠잠한 상태를 이어가고 있습니다."
+      "reason": "미국 CPI 상승 및 인플레이션 여파 속에 잠잠한 흐름이 유지되고 있다."
     },
     "dormant_since": "2026-10-29"
   },
@@ -145,16 +145,16 @@
     "added_on": "2026-10-15",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "대신증권 3만 8000명, 미래에셋운용·빗썸도 개인정보 유출...은행권이어 금융투자업계로 해킹 사고 확산",
-      "source": "조선일보",
-      "date": "2026-10-28",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQUHhyazdRa1lqZ3RjVGlxellmcDZhYlQ4NlcxdkVqSHJNZ0lOVXMxbl9fWTVKNEx2M0Y1T1hneFNvVlRGejh3bUdndEl3OHBxYXdUOU92ZWplQ2xlSDMxYUFvLWlSQWdEbURDVF9qSWZ1cEJfaGRKYU5WYy0xUmIzR3JuR1JEM0UzZnJ2TjF3?oc=5"
+      "title": "대신증권, 해킹에 고객정보 3만8천여건 유출…금융권 해킹 확산(종합)",
+      "source": "연합인포맥스",
+      "date": "2026-10-27",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1QaXJTT1VhVjBYaDFCVUI5blctMmYzV09LUmZJck80Q1g3WXRFRUNUQktHVTJoUS00NVhBeTUzRzRIYk9WQ2ZxZTVWUWNBclo5S0s4WmVjbVk5U09QMTBuNWdVYWs3Z0RQWkxqUlNQUWw?oc=5"
     },
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "대신증권과 미래에셋운용 등 금융권 해킹으로 인한 개인정보 유출 우려가 계속 확산되고 있습니다."
+      "reason": "증권사 및 금융권 대상 해킹 피해와 개인정보 유출 우려가 지속되고 있다."
     }
   },
   {
@@ -223,16 +223,16 @@
     "added_on": "2026-10-13",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "동물이 아프기 전 발견, 전염병 확산 막는다… 진단 시약·장비, 80국에 수출",
-      "source": "조선일보",
-      "date": "2026-10-27",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNSWUwSlNvQjJzSVBLczViWG1abUNfNUVwb3hkbWFlLUVZVWwwdWdibnpodE4wMXRYVUxBMFhsVDBJMWdabS1mcmNwUVlURVVoU09pbzRTMnNhdWNrc2Vlcng5Z2x0YU1veWRuUEtfcWwxTF9LcXdIbWhnbUVyQmtGUEs5T1A5QXBfRC1PN0xR?oc=5"
+      "title": "연구원 숨진 러 페스트연구소…10년 넘게 안전 문제 지적받아",
+      "source": "뉴시스",
+      "date": "2026-10-30",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1vMWlfSEhNSTVFRTJFa2NOejBCUVB5QVR1b1Ixd09JcFdsREx1MXJqaW1uWlNqX1A0R2c1bXI2UmhncDNYQWRINTRWZzBsOE5zU0N0ZkJmd3VvcTRSUVM0dDA0R2NWb1d1a3YxNTlkMEFRX0RVUUZHStIBeEFVX3lxTE1vMWlfSEhNSTVFRTJFa2NOejBCUVB5QVR1b1Ixd09JcFdsREx1MXJqaW1uWlNqX1A0R2c1bXI2UmhncDNYQWRINTRWZzBsOE5zU0N0ZkJmd3VvcTRSUVM0dDA0R2NWb1d1a3YxNTlkMEFRX0RVUUZHSg?oc=5"
     },
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "전염병 확산 대비 방역체계 및 진단 장비 관련 보도가 이어지며 잠잠한 흐름을 유지하고 있습니다."
+      "reason": "러시아 페스트 연구소 관련 소식 속에서 잠잠한 상태를 유지하고 있다."
     },
     "dormant_since": "2026-10-28"
   },
@@ -266,16 +266,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 국채 시장에서 연준 금리 결정보다 AI 투자와 재정적자에 대한 불안이 지속되고 있습니다."
+      "reason": "미국 재정적자 확대 우려 속에 국채 금리 변동성이 이어지고 있다."
     },
     "headline": {
-      "title": "美국채시장, 연준보다 AI 투자·재정적자 주목…금리동결에도 불안",
-      "source": "뉴스1",
-      "date": "2026-10-28",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE94Z24wcWJqc0ZpNXlHa1hPeWdpOTdqZmM1Uk51d2g2Umd4NDV4Nkp6eEtZSHRaSzZYeDJYNGw4aGpHNy1SNGxOYXpacnMtU0tZUnRpajdVZHBiaXROTWtBNXh2WDlDbmM?oc=5"
+      "title": "미국 올해 재정적자 2조달러 육박…\"지속불가능한 상황\"",
+      "source": "한국무역협회-KITA.NET",
+      "date": "2026-10-30",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVmlrN1JPWWJjaHNfOGVKWS1HQXZlYkJXT18tSW51dVRQOGEtLV9VNmU1UG82bnZsdGdheEUwZnVpRFFzZG9ld2xrVDdxbE5XU2VIU29qeHV1d2QtY3o5LW43SFZIT3pEdFpEN1ZKbGRpRFFCSHZveURSRFB2ZEJMWmhSNEhDa1czT2lyelpxUzgzTTZidWhBSlAxaDBadjUyTXE4anJRWVhBV0JBOEdlREdGakQ2cDlyYjA4VVZkWnVVdjdJSWZ0U01fLVhxY2JqSnRVSkdB?oc=5"
     }
   },
   {
@@ -308,16 +308,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "코스피 반등 속에서 투자자예탁금 회복과 빚투 관리에 대한 당국의 주시가 계속되고 있습니다."
+      "reason": "코스피 반등 및 빚투 자금 변동으로 증시 변동성 우려가 지속되고 있다."
     },
     "headline": {
-      "title": "코스피 반등에 투자자예탁금 90조원 회복…빚투는 30조원 하회",
-      "source": "연합뉴스",
-      "date": "2026-10-28",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9XRWtTalYyaXpHVGtlOGFhanV4dlJreTFmeFpJSmR2a3dTQkJsSjcxWXo3ZVFpbTFQQVBmMnVTNjdkcWI4OU1KaTdUdnAtSkRNWm1LUHkzenB3Tk3SAWBBVV95cUxOdXp5UDNveWN4bnkxNXNCRDdOTzJSVDNvWEllQVd6aXpQb050S3c5bUNtRnF2MnZoRTJfbHREOUNLcGdGYWpWTHdyN2VhTUhoeHBRQ3pfSnBobEl4NkxrLWQ?oc=5"
+      "title": "불장에 ‘빚투’도 훌쩍…금리 오르며 가계 ‘흔들’",
+      "source": "KBS 뉴스",
+      "date": "2026-10-30",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBLSHU0QVh0OEp5Tlp5cERrOEJXTGE2OFBXSHgteUlZWHBOdk5pS2hyNlNUSEVuZjluSDRjVmliXzI0R1JVT0pVMURYTlpFQzJJdldlUUotbTBCd3Robi1EeWFGSV91Zw?oc=5"
     }
   },
   {
@@ -349,16 +349,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "엔화 강세와 월말 네고 물량 영향으로 원·달러 환율 움직임에 대한 주시가 이어지고 있습니다."
+      "reason": "일본은행의 기준금리 동결 속에서 엔화 강세 및 금융시장 동향 주시가 지속되고 있다."
     },
     "headline": {
-      "title": "원·달러 환율, 엔화 강세·월말 네고에 연저점 경신 [김혜란의 FX]",
-      "source": "서울경제",
-      "date": "2026-10-26",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1pa2o3eThWX2xUUFRPTUdfLWY1RE1pMVllY2lwRTdET1FacEI5aGV2YWdZNE9hRS1HR3dCV01aVTdyTjdIMndFRHlfMnFWZ0hIdkHSAVNBVV95cUxOLU5GQ2JDN3p6NUpWUlU4S0NWdHktZ1BXVzc5a01MQkpnNm9RRkZ0ZDdzcGN0SEkyT1BVMERKS0FzaXR2cXVLMzJrQVNzUEpOYzlNQQ?oc=5"
+      "title": "일본은행 기준금리 1.25% 동결…엔화 강세 속 세계 금융시장 불안 확대",
+      "source": "시사매거진",
+      "date": "2026-10-30",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE50SEdaYWdKX0tUVF9wMlUxZXFPZGhqMVk5TnJFMGlCU1dhNEMyb09GQ191enFNLTQ3REx5UEpHOW1jMm1hb29yOV9fZS1PTm9JbGNBNnZ0NWZDekx6VmxoWDFB?oc=5"
     }
   },
   {
@@ -391,16 +391,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 실업률 하락 착시 가능성과 고용시장 구조적 리스크 확대에 대한 우려가 진단되고 있습니다."
+      "reason": "미국 9월 비농업 고용 증가 폭 둔화로 고용시장 냉각 우려가 계속되고 있다."
     },
     "headline": {
-      "title": "수협은행 \"美실업률 개선은 착시…구조적 리스크 확대\"",
-      "source": "뉴시스",
-      "date": "2026-10-27",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1NUklfampqMFRlUUpwbEVtUFR4b0NUWEh4Z3RhX1Zkemh5RW9CeVVkX2t0cUZBcGpXaElBRnhFZW1KRWZsRXdhMXJLbGJJSmRfYWNPYW9UY18xZzNMY0JlTFNZdUwtbjRST3dCelZYcFp2ZTVaazlXTtIBeEFVX3lxTE1NUklfampqMFRlUUpwbEVtUFR4b0NUWEh4Z3RhX1Zkemh5RW9CeVVkX2t0cUZBcGpXaElBRnhFZW1KRWZsRXdhMXJLbGJJSmRfYWNPYW9UY18xZzNMY0JlTFNZdUwtbjRST3dCelZYcFp2ZTVaazlXTg?oc=5"
+      "title": "2026년 9월 미국 고용 2만9000개 증가에 그쳐…회계·공급망 구인은 오히려 늘었다",
+      "source": "뉴스N연합",
+      "date": "2026-10-30",
+      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE84YTV4cEJzemh2X2UxNFUwcnhXdE1jX0JIRnE0Y3JaeXVLYzRRYjJfT3lYTXNLcm92NlNqMjNuRHBlM3ZDTzlYZVl3?oc=5"
     }
   },
   {
@@ -475,16 +475,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "중동 불안감과 미국 대이란 공격 가능성에 유가가 급등하는 등 지정학적 리스크가 계속 반영되고 있습니다."
+      "reason": "호르무즈 해협 유조선 피격 및 확전 우려로 국제유가가 상승세를 나타냈다."
     },
     "headline": {
-      "title": "[뉴욕유가] 중동 불안 속 네타냐후 집권 연장 가능성…WTI 2.9% 급등",
+      "title": "[뉴욕유가] 호르무즈 해협서 유조선 3척 폭발…브렌트유 6개월來 최고",
       "source": "연합인포맥스",
-      "date": "2026-10-28",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wQ1JEWkY2Vm9pYXRCRTlETVp3NDBkN3Y2THY4bE9WbGFCZnpBbXJ3OWtFTTFKM2dGaFBLN1JWczllanRZRjY1UVVFaVRyZERlZXlndkxjRWRJN0Vsb1dfTzBiUTh0WHBNZDgyZGdzaTQ?oc=5"
+      "date": "2026-10-30",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9NWlVOLW9mbUh4eXVUMXVwNDFqaDdzRlFTdVdPWlVRME5hZTh5QW1YQkwxek1hVXZ1VXpRckJIZXNxendPR1JXb1dPVUtNRll5M29HSTJrellFaTNsUFVWa2JOdTV0bkFWajA3VHlUbU8?oc=5"
     }
   },
   {
@@ -494,8 +494,8 @@
     "phase": "overshoot",
     "trigger_date": "2024-01-01",
     "peak_date": null,
-    "half_life_date": "2026-10-28",
-    "status": "dormant",
+    "half_life_date": null,
+    "status": "active",
     "intensity": "high",
     "assets": [
       "equity_bigtech",
@@ -512,18 +512,17 @@
     ],
     "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대.\n[10-11 검증] 빅테크 4사 2026 설비투자 전망 약 7,250억 달러, 엔비디아 10월 첫 주 사상 최고가 후 조정, 버블 경고 확산. 7/28 코스피 반도체 레버리지 붕괴(-10.84%). 키워드는 언급량이 66일 중 57일 100건 포화라 더 좁힘.",
     "last_review": {
-      "date": "2026-10-29",
+      "date": "2026-10-31",
       "by": "gemini",
-      "verdict": "유지",
-      "reason": "빅테크 실적 발표를 앞두고 AI 버블론과 투자 성과에 대한 찬반 논쟁이 계속되며 잠잠한 상태를 유지하고 있습니다."
+      "verdict": "재점화",
+      "reason": "빅테크 실적 발표와 함께 AI 투자 비용 부담 및 버블 우려가 재부각되며 증시 하락을 유발했다."
     },
     "headline": {
-      "title": "“AI 버블 확실” vs “아직 아냐”…월가 거물들 정면충돌",
-      "source": "동아일보",
-      "date": "2026-10-24",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5rNmROX081a1l2alNmaEhUY0FXUjl0Y2pQeVBwMjZ5ZE9abF8tYUpWLU51aU1KOGIwa2ZWd1JWaG5HNEFpNWRFRTRVNk40NG9qN29QY2JlOGUwdFlYdEhGdXB5ZHZCZ1hvZGhQVEZ2dm5oeW_SAWZBVV95cUxOdTU4MHdnNmFCQ1JaZmtSRkVPUFV3cEVuVlpNQ1otdGtDbDNPSmpkTEhqNEVVS09SRFRaS2JqMUZPcDRtSjVOY3g0UzhrdWttWDVmZFZBWXBiT0hBQUdSdkNtZU5SX0E?oc=5"
-    },
-    "dormant_since": "2026-10-28"
+      "title": "美 덮친 AI 버블 공포에 구글 알파벳·인텔·아마존 등 빅테크 호실적에도 주가 연쇄 하락",
+      "source": "서울신문",
+      "date": "2026-10-30",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBVWWNGU0x5dUhCdXROcjdYNlhreUxmcGh6X21BazJIdWhIUGtHQlNoOHJ0MUd6REVLYzZEZXZ2WTZ0Nkw3YUxiQVV6Y2pIZ1RCMDRvbU4ySDZjNWxqUUlURG5kbzM0RkNDM0xhQTZlaXFtZjF3dzJkUEFsVQ?oc=5"
+    }
   },
   {
     "id": "tariff-shock-2025",
@@ -554,16 +553,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "트럼프 전 대통령의 로봇 및 산업기계 수입 안보위협 판단과 추가 관세 경고 등 통상 이슈가 계속 다루어지고 있습니다."
+      "reason": "미국 대법원의 상호관세 위법 판결 등 관세 정책 관련 공방이 계속되고 있다."
     },
     "headline": {
-      "title": "트럼프, 로봇·산업기계 수입 안보위협 판단…교역국과 협상지시",
-      "source": "연합뉴스",
-      "date": "2026-10-28",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBXQ25KOGRJakd2S0ZYMmhGd20wdEZfWk13VTlFQUoxV2tnX2lJVFBwR1lfWGJTTDVNaFJKMlBPVldvRHhXQ0xtTnJwNVJuUkNoTnhERmFjMThOMC1zTmlxMdIBYEFVX3lxTFBXQ25KOGRJakd2S0ZYMmhGd20wdEZfWk13VTlFQUoxV2tnX2lJVFBwR1lfWGJTTDVNaFJKMlBPVldvRHhXQ0xtTnJwNVJuUkNoTnhERmFjMThOMC1zTmlxMQ?oc=5"
+      "title": "美 대법원 “트럼프 상호관세는 위법”…행정부 독주에 제동",
+      "source": "비즈한국",
+      "date": "2026-10-26",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9NT3VfWnhGNWxXMWI4eFB3ZVllYnI0elJSOVozVWFOUHlMTW03d1NoSktzakNLaVZZQzIyV0lBTnFFc0ZRS2phWVNWbEtLY3V2MTF6OQ?oc=5"
     }
   },
   {

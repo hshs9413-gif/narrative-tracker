@@ -3,21 +3,37 @@
     "key": "국산비만약시장경쟁",
     "name": "국산 비만약 시장 경쟁",
     "first_seen": "2026-10-15",
-    "days_seen": 11,
-    "last_seen": "2026-10-30",
-    "why": "국내외 주요 제약사들의 비만치료제 개발과 출시 관련 비용 논의가 이어지고 있습니다.",
+    "days_seen": 12,
+    "last_seen": "2026-10-31",
+    "why": "첫 국산 비만치료제 처방 시작으로 국내 제약사 간 시장 경쟁이 가시화되고 있다.",
     "evidence": [
       {
-        "title": "국산 비만약 '에페' 초기엔 반값…투여량 늘릴땐 '비용 역전' 따져야",
-        "source": "DongA Science",
+        "title": "첫 국산 비만약 ‘에페’ 처방 시작… “마운자로 반값, 문의 잇따라”",
+        "source": "동아일보",
         "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5xM0hEWFhZQ2oyb0pLYjg5MHJSaHFiRG5uemR6UlhFbU9HNnh3MVNSVU11b0ZKeUxhZHJxWkdUbzRQZ0hDdlNlOV93RGZVQmY0c3plUA?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB4bEJSTy1ZTmpqZGVjSVZIemtjVlFmNzlEQ19QUDZ4UV9WV1l6c3NEZnJWNWJzNFRhNmNKeTktR1doNVFuT0NpNzdELXY0Z3B5WXFRME8tdW4tMHRuX21BWlVNdEVJOHRVUmVSZVRZMmphN25JV1HSAWZBVV95cUxOaTBGRWZ5RU9MVTZRM2k5LVBLMzNGelBDd2JBSHRZeHZSakpNTHpBZE1KaE5lLXBETDhTUWJhYkxsSzRuTlJZdGVZa29Zalp4RkhQcTk4ME1pbGdUbDk4LVdtTmtKZmc?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "가상자산거래소이슈및과세논의",
+    "name": "가상자산 거래소 이슈 및 과세 논의",
+    "first_seen": "2026-10-31",
+    "days_seen": 1,
+    "last_seen": "2026-10-31",
+    "why": "대규모 가상자산 해킹 소식과 함께 과세 유예 논의가 진행 중이다.",
+    "evidence": [
+      {
+        "title": "“가상자산 과세 유예 여부 1~2주 내 결정”…여야 모두 ‘유예’ 군불",
+        "source": "KBS 뉴스",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1ldS1OTDN6VkhvOUNaTWtYeGFJYmR6QUhnNFJua1hrbnJ0clJkbTg2dG9aRjE3WG1ieTFpTnZmVUZvRW10WmUzWjM2QW1FZlRqVk9mR0t0MExHMGZ3WkM2SlYtblgwUQ?oc=5"
       },
       {
-        "title": "Lilly reports third-quarter 2026 financial results, raises full-year guidance and highlights regulatory progress across the portfolio",
-        "source": "Eli Lilly",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPUlZheEJNa1ZUZWU4Smh4clVqdTlzUDAzbFZ4TmVVRkFlVmtLa084WGlnTjFkNjZEOFBYcnB4NVp5VWpxNldUT04tS0lnS3Jpc1NVczkwTmthdDJfdDR5Nk1LZmg5YlpJRmItQ3ZTRkRxLUk2VDVCUm5zd3J2c3dYOFEwUnJJVC11YkY1aFJHT0NzaDBrNDRaZHM3cEhteVBuRWlwQ0g5VU5iLVYxcUdULU1RbnlESm5oal9MRkVXc0hjUQ?oc=5"
+        "title": "Binance Cofounder Tells Musk It’s A ‘Bad Time To Troll’ After $6.3 Billion Crypto Hack",
+        "source": "Forbes",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPYXoteGhQNXJSbW5aRGRDT1Q2dXN2QXk3Z0NOeFFFYlJlVHd6ZzJyOFh6UnRsMHVjMjFIOHBoQnZtbzhuNnFpZnl0RWs0VThZYTV4aTYzdnVISTBmSHg3TExlTnZzNlE0TU9RRjU4aEJjNHdCY25EeW1ya2djSVNhR0FfR2wzeHVETEJ2cVh2ekJyV3VpRmRwcjFLYVByT1V0ZTUxbE8ySmk0U1JUcThHb08xTC1KVWhaVHVYc2EwdzdnU2Y3SFg0?oc=5"
       }
     ]
   },

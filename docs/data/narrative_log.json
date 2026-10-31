@@ -2000,5 +2000,79 @@
     ],
     "at": "2026-10-30T10:24+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-10-31",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "빅테크 실적 발표와 함께 AI 투자 비용 부담 및 버블 우려가 재부각되며 증시 하락을 유발했다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "dormant",
+        "active"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "美 덮친 AI 버블 공포에 구글 알파벳·인텔·아마존 등 빅테크 호실적에도 주가 연쇄 하락",
+        "source": "서울신문",
+        "date": "2026-10-30",
+        "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBVWWNGU0x5dUhCdXROcjdYNlhreUxmcGh6X21BazJIdWhIUGtHQlNoOHJ0MUd6REVLYzZEZXZ2WTZ0Nkw3YUxiQVV6Y2pIZ1RCMDRvbU4ySDZjNWxqUUlURG5kbzM0RkNDM0xhQTZlaXFtZjF3dzJkUEFsVQ?oc=5"
+      },
+      {
+        "title": "AI 투자 우려 재점화…뉴욕증시 일제히 하락, 알파벳 13%↓(종합)",
+        "source": "연합뉴스",
+        "date": "2026-10-29",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1Ba3ZKaGFkSlJXNUZZTHBlN1FfS1NHSE83U0t4azJpbzRQVENxREoyZEZVMmh6U19qNTBHM2JGdkRZNDQ3T0hnWVN0ZS0tOEl4RzhpWFl4cF9jbmvSAWBBVV95cUxQT2pjbGZHY2M5OEQwQzNCX3hEdlFkTTBkOWY4aFNvNzM3RlNoUmV4MlI4V0lvVV91Tlg2QUd6MDlCRTc3eG1iUEVMdDlHY3p3aFRMQ19YTDRYWjJOaHFHSGM?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-31",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "anthropic-ipo-funding-2026",
+    "kind": "new",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "reason": "앤트로픽의 상장 추진 및 대규모 자금 조달 소식에 글로벌 투자자들의 관심이 계속되고 있다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-10-31",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "빅테크 실적 발표 속 AI 투자 부담 우려가 재점화되며 AI 밸류에이션 내러티브가 다시 활성화되었고, 관찰 후보였던 앤트로픽의 상장 및 자금 조달 이슈가 신규 내러티브로 승격되었습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "재점화",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "테슬라·스페이스X 합병 구상",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "SMR 및 원자력 기술 개발",
+      "국민연금 국내 증시 평가손실",
+      "SK그룹 웨스팅하우스 지분 인수"
+    ],
+    "at": "2026-10-31T10:08+09:00",
+    "trigger": "schedule"
   }
 ]
