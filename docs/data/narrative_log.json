@@ -2074,5 +2074,59 @@
     ],
     "at": "2026-10-31T10:08+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-01",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언급 지표상 식음 조건이 충족되어 잠잠으로 전환합니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-01",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "anthropic-ipo-funding-2026",
+    "kind": "new",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "reason": "블랙스톤의 앤트로픽 신용등급 전망과 상장 절차 관련 보도가 잇따르며 관심이 확대되어 새 내러티브로 등록합니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-01",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "AI 밸류에이션 내러티브는 식음 지표에 따라 잠잠 상태로 전환했습니다. 3일 이상 주시해 온 앤트로픽 상장 및 자금 조달 이슈를 신규 내러티브로 등록했으며, 이란 전쟁과 글로벌 채권 매도 등 기존 핵심 주제는 진행 중 상태를 유지합니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국민연금 국내 증시 평가손실",
+      "테슬라·스페이스X 합병 구상",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "국산 비만약 시장 경쟁",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "SMR 및 원자력 기술 개발",
+      "SK그룹 웨스팅하우스 지분 인수"
+    ],
+    "at": "2026-11-01T09:29+09:00",
+    "trigger": "schedule"
   }
 ]
