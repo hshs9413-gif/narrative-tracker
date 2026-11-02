@@ -32,10 +32,10 @@
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5Jb25wU1YyYmhzWFNfVU9EUzVacjF4Q0hkRWJ2WmlLcEZqQkh5RzBZeTlPSDBPNTBLUmthMk0tWmxnMGo1LWFGQ25vT09vcU1ORVY1V2NfeHBmN2swQkVJTQ?oc=5"
     },
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본 기업의 신용위험이 커지고 회사채 발행 부담에 따른 자금 조달 경색 우려가 이어지며 진행 중입니다."
+      "reason": "일본 기업의 신용위험 지표가 상승하며 자금 조달 부담 우려가 이어지고 있습니다."
     }
   },
   {
@@ -71,10 +71,10 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5GaUw5Vl9FWnpZNVZqdjhiN2Q1RzBqQ2s4eXBzcGhic2R4NUs2ckNaZ1pVeGtab2ZPVndPa2dtOXJDMW5hZWhpTzdLZE9rRXVmS2VtS0g4Z29udw?oc=5"
     },
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "정부가 알래스카 LNG 프로젝트의 상업적 합리성 검토에 착수하며 진행 중입니다."
+      "reason": "정부가 알래스카 LNG 프로젝트의 상업적 합리성 검토에 착수한 가운데 관련 논의가 계속되고 있습니다."
     }
   },
   {
@@ -105,16 +105,16 @@
     "added_by": "gemini",
     "added_on": "2026-10-16",
     "headline": {
-      "title": "미국 CPI 3.7%, 실질임금 줄었다…연말 소비 흐름은",
-      "source": "중기이코노미",
-      "date": "2026-10-27",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1lelN2dDI3VnpvYVBrWjlCUEtoUWhIRGU2MnNoSHN0UllWQml4R21iSFd3X2NGeFMtMkppY2pVUWZqN3F6TEFUMkNQT3U5bzdKRll6dWYxa2g1OW1oRzdNUmttSW1tNFpyMXc?oc=5"
+      "title": "호주 3분기 PPI 전기비 1.1%↑…예상치 1.0%↑ 상회",
+      "source": "KB Think",
+      "date": "2026-10-30",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9iYTR0dE5OTjdKZzBjVmtBQmpUSDMtd3lKdG5ZeExuR1dGNWZtYXhsMXBkekxXYW1ySUE2M2kxZjBOeUJvZXJkWjhOVnFLX3dZdzZvUlc0WG9wNWhwbHdCXy1qVFpYNWtCOG5uYkR1Xzh4QQ?oc=5"
     },
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 인플레이션 관련 보도량이 줄어든 상태로 잠잠을 유지하고 있습니다."
+      "reason": "잠잠한 상태가 유지되는 가운데 글로벌 물가 지표 동향 주시가 지속되고 있습니다."
     },
     "dormant_since": "2026-10-29"
   },
@@ -145,16 +145,16 @@
     "added_on": "2026-10-15",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "GS건설 입주민 개인정보 해킹으로 유출···‘금융권 해킹’ 번져가나",
-      "source": "경향신문",
-      "date": "2026-10-30",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE96TU9hRHZhVTVFN3N2c2dlc1hGNzZ1ZXFERklkYTBjdm1pOEZIYjNNQUI4ZDQ3U0ZUOHBOc2NmN0NCVk55V1ZRdVQ0S0lJWW5fbVk3dlRPbkZaQdIBX0FVX3lxTFBIWXNxcGpjYmJKLTl0VlNjSXp4d29ZaE1Da3VEYWdWR01pZ0lHMEhnNWF3aTZCY2xYSnZadHE1d3A4Y0VUcnBuVFpyZ2JHTDU2czcxRG9WbmZUNVpjWEt3?oc=5"
+      "title": "금융권 잇단 해킹사고...금융당국, AI 보안관제 강화·점검회의 개최",
+      "source": "뉴스핌",
+      "date": "2026-11-01",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBudDI4amNCYTF2Qmo2V281TGtSVVBVcEY1UU8zMzI5OG5LcVZyM2xoN0lQbGxwT04yWHJwVnVYQVhCMjVGc0RnMzh4RUYxOVRVakpSNnFsaUZfRlhx?oc=5"
     },
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "금융권 및 주요 시설에 대한 해킹과 개인정보 유출 우려가 계속되며 진행 중입니다."
+      "reason": "금융권 잇단 해킹 사고에 따라 금융당국이 AI 보안관제 강화 점검에 나섰습니다."
     }
   },
   {
@@ -229,10 +229,10 @@
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1vMWlfSEhNSTVFRTJFa2NOejBCUVB5QVR1b1Ixd09JcFdsREx1MXJqaW1uWlNqX1A0R2c1bXI2UmhncDNYQWRINTRWZzBsOE5zU0N0ZkJmd3VvcTRSUVM0dDA0R2NWb1d1a3YxNTlkMEFRX0RVUUZHStIBeEFVX3lxTE1vMWlfSEhNSTVFRTJFa2NOejBCUVB5QVR1b1Ixd09JcFdsREx1MXJqaW1uWlNqX1A0R2c1bXI2UmhncDNYQWRINTRWZzBsOE5zU0N0ZkJmd3VvcTRSUVM0dDA0R2NWb1d1a3YxNTlkMEFRX0RVUUZHSg?oc=5"
     },
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "러시아 페스트 연구소 안전 문제 지적 보도 등 관련 언론 언급이 잠잠한 상태입니다."
+      "reason": "잠잠한 상태가 지속되고 있으며 특이 확산 동향은 나타나지 않고 있습니다."
     },
     "dormant_since": "2026-10-28"
   },
@@ -266,10 +266,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국의 연간 재정적자가 2조 달러에 육박한다는 소식 등 국채 시장 부담이 지속되며 진행 중입니다."
+      "reason": "미국 재정적자 확대 우려 속에 국채 금리 경계감이 이어지고 있습니다."
     },
     "headline": {
       "title": "미국 올해 재정적자 2조달러 육박…\"지속불가능한 상황\"",
@@ -308,10 +308,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "금리 상승 속 가계 대출 및 주식 레버리지 관련 변동성이 지속되며 진행 중입니다."
+      "reason": "코스피 변동성 및 신용공여 잔고 우려 속 당국의 리스크 관리가 계속되고 있습니다."
     },
     "headline": {
       "title": "불장에 ‘빚투’도 훌쩍…금리 오르며 가계 ‘흔들’",
@@ -349,16 +349,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본은행이 기준금리를 1.25%로 동결한 가운데 엔화 강세 및 시장 영향이 이어지며 진행 중입니다."
+      "reason": "일본은행의 연말 추가 금리 인상 전망과 엔화 강세 흐름에 대한 주시가 이어지고 있습니다."
     },
     "headline": {
-      "title": "일본은행 기준금리 1.25% 동결…엔화 강세 속 세계 금융시장 불안 확대",
-      "source": "시사매거진",
-      "date": "2026-10-30",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE50SEdaYWdKX0tUVF9wMlUxZXFPZGhqMVk5TnJFMGlCU1dhNEMyb09GQ191enFNLTQ3REx5UEpHOW1jMm1hb29yOV9fZS1PTm9JbGNBNnZ0NWZDekx6VmxoWDFB?oc=5"
+      "title": "\"일본은행, 연말 추가 금리인상 전망…엔화 강세는 제한적\"",
+      "source": "뉴스투데이",
+      "date": "2026-11-02",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9vWkZpa0hmNi1XZ1RFQnpYcTZYU29fSXZ0RUxDNEVZX1JmZldpa3h4eE1DSXdwXzdHUE9ZVjJiOEpmTjh6VFAwWTVyZDRMcEFGRWZiM3JnQ1F6cnBCWUE?oc=5"
     }
   },
   {
@@ -391,16 +391,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "9월 미국 비농업 고용이 2만 9000개 증가에 그쳐 고용 시장 둔화 우려가 진행 중입니다."
+      "reason": "미국 고용지표 발표와 중간선거를 앞두고 고용 시장 주시가 계속되고 있습니다."
     },
     "headline": {
-      "title": "2026년 9월 미국 고용 2만9000개 증가에 그쳐…회계·공급망 구인은 오히려 늘었다",
-      "source": "뉴스N연합",
+      "title": "[뉴욕증시-주간전망] 애플·AMD, 급락세에 제동걸까…고용·선거도 주시",
+      "source": "연합뉴스",
       "date": "2026-10-31",
-      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE84YTV4cEJzemh2X2UxNFUwcnhXdE1jX0JIRnE0Y3JaeXVLYzRRYjJfT3lYTXNLcm92NlNqMjNuRHBlM3ZDTzlYZVl3?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9IcXFsUFJjM0t0MUlWaV9rUGNFVjZkQkptYllQaE9OLWNOaEtZaUcxZG5GcjNOMk1nUHlGT0hiUDVpMmNFTlJZOXliR2Z5LTlaV3BpcDRBWENMaGxVSVk4edIBYEFVX3lxTE9IcXFsUFJjM0t0MUlWaV9rUGNFVjZkQkptYllQaE9OLWNOaEtZaUcxZG5GcjNOMk1nUHlGT0hiUDVpMmNFTlJZOXliR2Z5LTlaV3BpcDRBWENMaGxVSVk4eQ?oc=5"
     }
   },
   {
@@ -475,10 +475,10 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "호르무즈 해협 유조선 폭발로 브렌트유가 6개월 만에 최고치를 기록하는 등 확전 우려가 진행 중입니다."
+      "reason": "호르무즈 해협 유조선 폭발 등으로 중동 확전 우려가 지속되며 유가가 상승세를 나타내고 있습니다."
     },
     "headline": {
       "title": "[뉴욕유가] 호르무즈 해협서 유조선 3척 폭발…브렌트유 6개월來 최고",
@@ -553,16 +553,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "로봇 및 산업기계 수입 안보위협 판단 등 교역국 협상 지시와 관세 압박이 계속되며 진행 중입니다."
+      "reason": "미국 대법원의 상호관세 위법 판결 등 관세 정책 관련 후속 반응이 이어지고 있습니다."
     },
     "headline": {
-      "title": "트럼프, 로봇·산업기계 수입 안보위협 판단…교역국과 협상지시",
-      "source": "연합뉴스",
-      "date": "2026-10-28",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBXQ25KOGRJakd2S0ZYMmhGd20wdEZfWk13VTlFQUoxV2tnX2lJVFBwR1lfWGJTTDVNaFJKMlBPVldvRHhXQ0xtTnJwNVJuUkNoTnhERmFjMThOMC1zTmlxMdIBYEFVX3lxTFBXQ25KOGRJakd2S0ZYMmhGd20wdEZfWk13VTlFQUoxV2tnX2lJVFBwR1lfWGJTTDVNaFJKMlBPVldvRHhXQ0xtTnJwNVJuUkNoTnhERmFjMThOMC1zTmlxMQ?oc=5"
+      "title": "美 대법원 “트럼프 상호관세는 위법”…행정부 독주에 제동",
+      "source": "비즈한국",
+      "date": "2026-10-26",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9NT3VfWnhGNWxXMWI4eFB3ZVllYnI0elJSOVozVWFOUHlMTW03d1NoSktzakNLaVZZQzIyV0lBTnFFc0ZRS2phWVNWbEtLY3V2MTF6OQ?oc=5"
     }
   },
   {

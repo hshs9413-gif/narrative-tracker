@@ -3,15 +3,21 @@
     "key": "국민연금국내증시평가손실",
     "name": "국민연금 국내 증시 평가손실",
     "first_seen": "2026-10-19",
-    "days_seen": 9,
-    "last_seen": "2026-11-01",
-    "why": "코스피 5700선 등락 속 연기금 순매수와 평가손실 우려에 대한 보도가 지속되고 있습니다.",
+    "days_seen": 10,
+    "last_seen": "2026-11-02",
+    "why": "코스피 변동성 속 연기금 순매수와 평가손실 관련 보도가 지속되고 있습니다.",
     "evidence": [
       {
-        "title": "5700선에서 하락 멈춘 코스피...연기금 매수했지만 외국인은 여전히 ‘팔자’",
-        "source": "세계일보",
-        "date": "2026-10-31",
-        "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9FMndtc3NSbXFGT2RVUW5vZmhKV2ZxQkpZZTY1SGloMnRXU210cEdnSGEya21UVnhHellET0dOS2JtNFo5THplb1VLb0VFUndCOXdVd0RCSE8?oc=5"
+        "title": "“주식만 믿었다간 벼락거지 못면한다”…한달새 50조 몰린 이 상품",
+        "source": "매일경제",
+        "date": "2026-11-01",
+        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1Za29wZTZ1OTdSaTJacHhyaTZCeldGZ3ZaUzJXUGlqYXRfUTB2aFowaFNVLVdqTHlqSERjbFIxdHE1N3BaVXpadE5yend3MXZFX3Npdw?oc=5"
+      },
+      {
+        "title": "하나증권 \"저PBR 상장기업 공개로 주주환원 관심 부각, 관련주 현대제철 한화생명 롯데쇼핑\"",
+        "source": "비즈니스포스트",
+        "date": "2026-11-01",
+        "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1iMmhxZFVtcnRvYjI5NHAyM3ZOS3UxOFlvNkF2bDk1ZHFadDZTSjhQZExWTzF5LUNvLWRVVlpNVjE3ZHpWVVd2TFlmc2E3TmM1TEhwdkczeVFJeHJUMDgyREtsQmxacEhLRk81Q1RLd0l6Ylk?oc=5"
       }
     ]
   },
@@ -19,15 +25,43 @@
     "key": "테슬라스페이스x합병구상",
     "name": "테슬라·스페이스X 합병 구상",
     "first_seen": "2026-10-24",
-    "days_seen": 5,
-    "last_seen": "2026-11-01",
-    "why": "스페이스X 데이터센터 관련 소송 보도 등 머스크 계열사 행보에 대한 관망이 이어지고 있습니다.",
+    "days_seen": 6,
+    "last_seen": "2026-11-02",
+    "why": "데이터센터 환경 소송 등 머스크 계열사 관련 이슈 관망이 이어지고 있습니다.",
     "evidence": [
       {
         "title": "SpaceX loses bid to toss NAACP lawsuit over Memphis data center air pollution",
         "source": "CNBC",
         "date": "2026-10-31",
         "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxONWZobnlmVnlwbk9rMk1yeUVabnE1QUdtdTVEWGR6UUkwYXEzWk9weVpLMWFtRWF2Ykd6SmpNalgtelBCZ0lBdkd6Vm1xcWhNNkNVM0ZKTW43TmZyUUtMb1pYZVY2V2VuaFh5dHdBakhBYllrQjY5bUhrOHpteVNRUWNaZFrSAYoBQVVfeXFMUHFJcmV4YzZNcTZ4dk5RX2YyQm1TWDhpSS1OemxNdFRkUHhFTEFDNHpueE1QejEzMGVQYUFwQXpNV2JaVmJzdlQ2TWFJNlJOYjFkckE3TFpHVHpMSWt4YlBzMkZUX0hSa295M2tHSkx5aUFDbjMwbDkxQlNhdnp1NlhYd21VOER5ZHZn?oc=5"
+      },
+      {
+        "title": "Elon Musk says he is taking over an old Spam factory and a gun range to expand his Colossus 2 AI complex",
+        "source": "Business Insider",
+        "date": "2026-11-01",
+        "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQblNHeVNwZ3NJaDN0UmpkUnc1SzJoNnFYbkEwNWVubEpnbFQ2Sk9qQ09EXzlGdTlpUEg5bkdoWmNIZmZVa2p3M3FlSjBoa3RGbG9QcUtsTzNzWGFaOXY3QVRTZ0JCQ0s3TC1kSG8wMm9Ra0V0SUZkYTVfSDhRSThLR0FQUEd6TkpvQXc?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "앤트로픽대규모자금조달및상장추진",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "first_seen": "2026-10-28",
+    "days_seen": 4,
+    "last_seen": "2026-11-02",
+    "why": "앤트로픽의 상장 추진 및 빅테크 AI 투자 현금흐름에 대한 시장 조명이 지속되고 있습니다.",
+    "evidence": [
+      {
+        "title": "\"앤트로픽 IPO 험로…빅테크 AI 투자·현금흐름 우려\"",
+        "source": "연합인포맥스",
+        "date": "2026-11-01",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1rWUxySXdFSXNLLWNZdDVYSVFWM2UyMTR3Q0QzcUdOanh4RTJhNmlySHZHeXZOdFRSTlo2Z2VQNFRtTlJhcTdUZE9vYU1YR1E1OF9PWl92dTFVSURQd19ZaDlSUXdfeXpyNkZWOHBsLWI?oc=5"
+      },
+      {
+        "title": "Anthropic’s $2T IPO could create millionaires—but it’s asking candidates what they’d do if stock hit zero",
+        "source": "Fortune",
+        "date": "2026-11-01",
+        "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPSlBiVFRIMmt2WEVQTjRoQ21LTElPODlaUVNwWTJyUWxrNUw0amktMS12NDhEUGNYT2Q0bEE4S1lCd3ZNbFAzWEY1dDMyNjhObmJzRG51bndoNEt6ck80U1h5b0JHSF84MTAtMmJpR0dCSzRORWpLZU1EbUEyVzdiM2haTVFkelhTYXlKNU9ndEpmWXhkQS1kMXBRLUp6RDJ4LVpjVTJZYUdVY1NZd3NIYkFWN2M1RXZ5M09TY3JaRXlObURIY0VXV1lmNGJCWmFpeHdmOW52Y1d5c0ZIQ2VDY0l5Sng?oc=5"
       }
     ]
   },
@@ -72,28 +106,6 @@
         "source": "동아일보",
         "date": "2026-10-29",
         "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB4bEJSTy1ZTmpqZGVjSVZIemtjVlFmNzlEQ19QUDZ4UV9WV1l6c3NEZnJWNWJzNFRhNmNKeTktR1doNVFuT0NpNzdELXY0Z3B5WXFRME8tdW4tMHRuX21BWlVNdEVJOHRVUmVSZVRZMmphN25JV1HSAWZBVV95cUxOaTBGRWZ5RU9MVTZRM2k5LVBLMzNGelBDd2JBSHRZeHZSakpNTHpBZE1KaE5lLXBETDhTUWJhYkxsSzRuTlJZdGVZa29Zalp4RkhQcTk4ME1pbGdUbDk4LVdtTmtKZmc?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "앤트로픽대규모자금조달및상장추진",
-    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
-    "first_seen": "2026-10-28",
-    "days_seen": 3,
-    "last_seen": "2026-10-30",
-    "why": "앤트로픽의 상장 추진과 대규모 투자 유치 소식에 시장 관심이 계속 이어지고 있습니다.",
-    "evidence": [
-      {
-        "title": "국내 주식 암울한 이때…상장 앞둔 ‘앤트로픽’ 나도 한주?",
-        "source": "농민신문",
-        "date": "2026-10-30",
-        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9ieWJFaDVzamZoX2hDeFRaVWFmSHItTVV2MnhkSW55dVA3bUN5TXB4Ym1wSDFjRmhTRzZ2LWxGNFF5elNQekRzVW5RYlBPMGx5SEk4blNFZnphZw?oc=5"
-      },
-      {
-        "title": "Can Anthropic really become a $10 trillion company?",
-        "source": "The Verge",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxON0VObUpDZ0V2eDFuVGFyb0M1SWV1VEcwQnEwZEFPQUNZNW5PYWJzRUJTYUN5ZTJib05SUUtwYV91TkZTa2lGRi03LW9hSjlaaXBMZnMxSVdOb3ZLRGFLejR3ekRScEkyNFdvT0N3ZVNVM1VnSTE4NzJGOVVxR25vS195Y1puZm11QWllTGZpeUNfT3E4SHZzdVdTdkdVbWoxWHNYdWpCRlgxU215aEFr?oc=5"
       }
     ]
   },
