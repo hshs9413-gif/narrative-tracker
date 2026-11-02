@@ -2128,5 +2128,14 @@
     ],
     "at": "2026-11-01T09:29+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-02",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "pmi",
+    "event_id": null,
+    "status": "rejected",
+    "reject_reason": "수치 없음"
   }
 ]
