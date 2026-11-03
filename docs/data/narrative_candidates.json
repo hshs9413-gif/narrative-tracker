@@ -3,21 +3,71 @@
     "key": "국민연금국내증시평가손실",
     "name": "국민연금 국내 증시 평가손실",
     "first_seen": "2026-10-19",
-    "days_seen": 10,
-    "last_seen": "2026-11-02",
-    "why": "코스피 변동성 속 연기금 순매수와 평가손실 관련 보도가 지속되고 있습니다.",
+    "days_seen": 11,
+    "last_seen": "2026-11-03",
+    "why": "코스피 변동성 국면에서 국민연금의 연기금 수급 역할과 평가손실 관련 논의가 계속되고 있습니다.",
     "evidence": [
       {
-        "title": "“주식만 믿었다간 벼락거지 못면한다”…한달새 50조 몰린 이 상품",
-        "source": "매일경제",
-        "date": "2026-11-01",
-        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1Za29wZTZ1OTdSaTJacHhyaTZCeldGZ3ZaUzJXUGlqYXRfUTB2aFowaFNVLVdqTHlqSERjbFIxdHE1N3BaVXpadE5yend3MXZFX3Npdw?oc=5"
+        "title": "\"국민연금 10년 가입자의 연금액, 기초연금보다 적다\"",
+        "source": "연합뉴스TV",
+        "date": "2026-11-03",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5IcWM0OGkxZG9TM240OGhIX3JvakZva3MyTHhGLVdTam1kMmhJbGNqT1kyZ3F0SkotcTRhQnI2Z3ZPS3Q2S1Rnb05TYXJLWVBKOFczNnktVWhmTDNhTGNHMVMyNUhOcmc?oc=5"
       },
       {
-        "title": "하나증권 \"저PBR 상장기업 공개로 주주환원 관심 부각, 관련주 현대제철 한화생명 롯데쇼핑\"",
-        "source": "비즈니스포스트",
-        "date": "2026-11-01",
-        "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1iMmhxZFVtcnRvYjI5NHAyM3ZOS3UxOFlvNkF2bDk1ZHFadDZTSjhQZExWTzF5LUNvLWRVVlpNVjE3ZHpWVVd2TFlmc2E3TmM1TEhwdkczeVFJeHJUMDgyREtsQmxacEhLRk81Q1RLd0l6Ylk?oc=5"
+        "title": "[심층] ’연기금 61조 구원투수론’의 역설…데이터와 증권가가 짚어낸 국민연금 수급의 진실 By 알파경제 alphabiz",
+        "source": "Investing.com 한국어",
+        "date": "2026-11-03",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1QMnR2VE5zSGU2MnJQZDJpaDBQR1R1bGIwSXBjR1g0bFFyVlZVcURna19oOTk1ek84UVNOd0hjRGNGdXVMS0M3OUFqdXVYMnBLUXhKZ1ZwU3dBTjY2a2p5T2hTa2JDZ2s4dmpJV3JBR0Q?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "앤트로픽대규모자금조달및상장추진",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "first_seen": "2026-10-28",
+    "days_seen": 5,
+    "last_seen": "2026-11-03",
+    "why": "앤트로픽의 3분기 매출 급증과 1조 5천억 달러 기업가치 평가 논의에 관한 외신 보도가 지속되고 있습니다.",
+    "evidence": [
+      {
+        "title": "앤트로픽 3분기 매출 170억달러…작년 대비 12배 급증",
+        "source": "연합인포맥스",
+        "date": "2026-11-02",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE04RTlYaUJ3VGczRnAyX2FuNktOdlZQT0pNQVlKV1l1aGNCU09ITnNjMzM3ZDdGd05rY25hcG9WMGlmNXhnYmhvMzNNbk43SFRZNGFXNnBEcFNtUlBUai03TlhocUFLR0ZSbVdlWHoxTWg?oc=5"
+      },
+      {
+        "title": "Anthropic Investors Push for Cautious Valuation Closer to $1.5 Trillion",
+        "source": "WSJ",
+        "date": "2026-11-02",
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPTDhmTmZkVWhzazBUYVdXNUx1OTRkRDFidXNnblM1R0lFNVQ2OS1zRFV2aTFtS2drOEhOVEVSSjZzZDN0Z053X3NrMnJEVTRGQm1EOHh6aDJYWC16bTVPdlpxVk10Vkh0ZkNrdkx1YzFodGc1WVQ4NkpPanN3TnZPZjcxYmcwS0xaSk1DelBQUzM4RFpNNVdubXR5WlRZZXA2b3paamIwdkcwVEpUTWFNSDBuWGQ?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "가상자산거래소이슈및과세논의",
+    "name": "가상자산 거래소 이슈 및 과세 논의",
+    "first_seen": "2026-10-31",
+    "days_seen": 3,
+    "last_seen": "2026-11-03",
+    "why": "바이낸스 해킹 관련 북한 반응 보도와 가상자산 과세 유예 건의 등 정치권 논의가 맞물려 관심이 이어지고 있습니다.",
+    "evidence": [
+      {
+        "title": "북 김여정 “바이낸스 해킹, 우리 소행 아냐…황당무계한 낭설”",
+        "source": "채널A",
+        "date": "2026-11-02",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9nYVp5ZFd5akFrSTFvZ1lXaV96elBiMHl1Wko3SkMwVDhFZ19SSGlLNXJNeFFhQmFSZUFGb0J4OEpfSEdiejhTYzN5V0oxSTNNeVhNd3FNVzdPYjN5NGfSAWNBVV95cUxQUlJ3N2JhUUt0ZzBXTERGODl6cE54dUFSeEV5VUx2RnJiUmJQUEpOUzktRWwtMmdFUmN1V3l2NjVSYVo1bkg3VFNXeU1uWFRHNTBpRmlMekNQN3Rua0g4UVE4dlk?oc=5"
+      },
+      {
+        "title": "민주당 재경위 “‘가상자산 과세 유예’ 의견 당 지도부에 건의”",
+        "source": "KBS 뉴스",
+        "date": "2026-11-03",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1SZkhuNDBzd1lNZG1qemVEeGE4ODMtcS1IRkZSUmtKNXowR2FqNDZ5UkNaY2RNZl9LV2tleEV6dERDREhpXzdkSm45ZE1VZzJ0RkxIeFRvN2tjTHc?oc=5"
+      },
+      {
+        "title": "North Korea denies being behind record $6.3bn Binance hack",
+        "source": "BBC",
+        "date": "2026-11-03",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE10dXNzM0pMSVpsb283elB0VkotaEZVbW9QVWpwZGM1VHVkaV9VWmY2dUpKNS1ITkgyZEQ1YVBzM2x3RzVpRm5BR0F2M1hXVV9ydEhsMm9ZZldSdk0?oc=5"
       }
     ]
   },
@@ -40,56 +90,6 @@
         "source": "Business Insider",
         "date": "2026-11-01",
         "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQblNHeVNwZ3NJaDN0UmpkUnc1SzJoNnFYbkEwNWVubEpnbFQ2Sk9qQ09EXzlGdTlpUEg5bkdoWmNIZmZVa2p3M3FlSjBoa3RGbG9QcUtsTzNzWGFaOXY3QVRTZ0JCQ0s3TC1kSG8wMm9Ra0V0SUZkYTVfSDhRSThLR0FQUEd6TkpvQXc?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "앤트로픽대규모자금조달및상장추진",
-    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
-    "first_seen": "2026-10-28",
-    "days_seen": 4,
-    "last_seen": "2026-11-02",
-    "why": "앤트로픽의 상장 추진 및 빅테크 AI 투자 현금흐름에 대한 시장 조명이 지속되고 있습니다.",
-    "evidence": [
-      {
-        "title": "\"앤트로픽 IPO 험로…빅테크 AI 투자·현금흐름 우려\"",
-        "source": "연합인포맥스",
-        "date": "2026-11-01",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1rWUxySXdFSXNLLWNZdDVYSVFWM2UyMTR3Q0QzcUdOanh4RTJhNmlySHZHeXZOdFRSTlo2Z2VQNFRtTlJhcTdUZE9vYU1YR1E1OF9PWl92dTFVSURQd19ZaDlSUXdfeXpyNkZWOHBsLWI?oc=5"
-      },
-      {
-        "title": "Anthropic’s $2T IPO could create millionaires—but it’s asking candidates what they’d do if stock hit zero",
-        "source": "Fortune",
-        "date": "2026-11-01",
-        "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPSlBiVFRIMmt2WEVQTjRoQ21LTElPODlaUVNwWTJyUWxrNUw0amktMS12NDhEUGNYT2Q0bEE4S1lCd3ZNbFAzWEY1dDMyNjhObmJzRG51bndoNEt6ck80U1h5b0JHSF84MTAtMmJpR0dCSzRORWpLZU1EbUEyVzdiM2haTVFkelhTYXlKNU9ndEpmWXhkQS1kMXBRLUp6RDJ4LVpjVTJZYUdVY1NZd3NIYkFWN2M1RXZ5M09TY3JaRXlObURIY0VXV1lmNGJCWmFpeHdmOW52Y1d5c0ZIQ2VDY0l5Sng?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "가상자산거래소이슈및과세논의",
-    "name": "가상자산 거래소 이슈 및 과세 논의",
-    "first_seen": "2026-10-31",
-    "days_seen": 2,
-    "last_seen": "2026-11-01",
-    "why": "북한의 대규모 가상화폐 탈취 소식과 과세 유예 결정 요구가 맞물려 관심이 이어지고 있습니다.",
-    "evidence": [
-      {
-        "title": "미 FBI \"북한, 가상화폐 63억 달러 탈취 배후‥이더리움 전환 포착\"",
-        "source": "MBC 뉴스",
-        "date": "2026-10-31",
-        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1JUnlhUnVhYkhlN2N0VXc2UU1IbzFkRWhhaC1xRmhXSXlkSmt0M0NyMjFxMXd2cmJhQjlDRjZIeGpGZ2Q4anZnVFBoWEVyb1BEdWJsZkdaNzRXbmVNOFZ5ZUhObUxoMEQyOUNHN0E0bzE3ZWpR0gF0QVVfeXFMTmk1ZzNqR1NiWWRRVlNYVTBFRjJ5OTZHOHhudjQtMEgxbmxITFktRnpPUlNDejNMX0FDUzY1MS1XLTFIT1FZSjRkS3dJc2JpWGVBYWdEV2QxZWxDem55VDRwMU1VZzJQTmFtQzlIdGxxTnRsczQ?oc=5"
-      },
-      {
-        "title": "재경위 野 간사, 與에 \"가상자산 과세 유예 결정해야\" 압박",
-        "source": "연합뉴스TV",
-        "date": "2026-10-31",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBJNjdSNmluNnFNM3RGZW5NQ01JNV9QOXRFa2RockxRdjk1cmJXeVVLN3BMSGF1U2NnMXFBaDFIdFpnZDFsTnRjN2tRTzYxcHRESkVPNk54OXpsbWNpdEFOWC1lQUhYNVk?oc=5"
-      },
-      {
-        "title": "North Korean Hackers Stole Billions, the F.B.I. Says. It’s Not Their First Heist.",
-        "source": "The New York Times",
-        "date": "2026-10-31",
-        "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5XN3hzVndxdEtwdkhCaFBGZkJmdlVkeHdFUl9KYk1VVEo2eXA3WGRfdmhCV2NJcmxPVGZ4ckZNbkVzUzh2Q0k2REtCVFg1cVJrcVZXNWFsUHlPM0NSMm9zVWR6bjdyMHFVbWF3OXdSVnVlNlUtTjlGSFJn?oc=5"
       }
     ]
   },

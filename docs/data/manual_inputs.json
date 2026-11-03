@@ -1,11 +1,11 @@
 {
   "ism_pmi": {
-    "value": 54.5,
-    "as_of": "2026-09-01",
-    "source": "ISM Manufacturing PMI Report, released 2026-10-01 (covers September 2026) — PR Newswire",
+    "value": 55.5,
+    "as_of": "2026-10-01",
+    "source": "ISM Manufacturing PMI — PR Newswire 'Manufacturing PMI® at 55.5%; October 2026 ISM® Manufacturing PMI® Report' (2026-11-02), Gemini 추출·제목 일치 확인",
     "note": "ISM PMI는 무료 시계열이 없어 보도자료 헤드라인 숫자를 쓴다. 매달 2일 이후 Gemini가 기사 제목에서 수치를 확인해 자동 갱신(scripts/gemini_manage.py) — 제목에 숫자가 그대로 있을 때만 반영.",
-    "url": "https://www.prnewswire.com/news-releases/manufacturing-pmi-at-54-5-september-2026-ism-manufacturing-pmi-report-302894520.html",
-    "updated_by": "claude",
-    "updated_on": "2026-10-11"
+    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPeXZFdHl4Z1dCVlg3UnRpOXZQMDJlU0dGbkJGXzZDMEN3RzAxZ1hXd2VtTDc4bE5zQzdzMXZQTTlmRWNmYlRoMHVWVUNBR0NiYkw3NEVrNWhWYjRoc0pOUF9YWlRuMmxkRzlrckUtZ1Npc3l5WjBFYURtRldsaDQtN3JKZk1LWlB1ZHY1VEFpYXh1RWtNamlyWjdXLUpMMW04bHBfajJicVRDSjA3X3c2MG5sSEk5dWd6YnM0MzIxTEg?oc=5",
+    "updated_by": "gemini",
+    "updated_on": "2026-11-03"
   }
 }

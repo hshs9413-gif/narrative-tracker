@@ -2200,5 +2200,61 @@
     "event_id": null,
     "status": "rejected",
     "reject_reason": "수치 없음"
+  },
+  {
+    "date": "2026-11-03",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미국 중간선거와 고용 지표 발표를 앞두고 국채 금리, 트럼프 관세 소송, 금융권 해킹 및 이란 긴장 관련 기존 내러티브들이 유지되었습니다. AI 밸류에이션 논란은 빅테크 실적 발표와 데이터센터 이슈로 계속 보도되어 진행 중 상태를 유지합니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국민연금 국내 증시 평가손실",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "테슬라·스페이스X 합병 구상",
+      "국산 비만약 시장 경쟁",
+      "SMR 및 원자력 기술 개발",
+      "SK그룹 웨스팅하우스 지분 인수"
+    ],
+    "at": "2026-11-03T12:07+09:00",
+    "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-03",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "pmi",
+    "event_id": null,
+    "status": "applied",
+    "changes": {
+      "ism_pmi": [
+        54.5,
+        55.5
+      ]
+    },
+    "reason": "2026-10 ISM 제조업 PMI 55.5",
+    "evidence": [
+      {
+        "title": "",
+        "source": "",
+        "date": "",
+        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPeXZFdHl4Z1dCVlg3UnRpOXZQMDJlU0dGbkJGXzZDMEN3RzAxZ1hXd2VtTDc4bE5zQzdzMXZQTTlmRWNmYlRoMHVWVUNBR0NiYkw3NEVrNWhWYjRoc0pOUF9YWlRuMmxkRzlrckUtZ1Npc3l5WjBFYURtRldsaDQtN3JKZk1LWlB1ZHY1VEFpYXh1RWtNamlyWjdXLUpMMW04bHBfajJicVRDSjA3X3c2MG5sSEk5dWd6YnM0MzIxTEg?oc=5"
+      }
+    ]
   }
 ]

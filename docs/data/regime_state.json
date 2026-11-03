@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-02T23:54:48.919962+00:00",
+  "generated_at": "2026-11-03T03:07:18.315471+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
-    "pmi": 54.5,
-    "pmi_as_of": "2026-09-01",
+    "pmi": 55.5,
+    "pmi_as_of": "2026-10-01",
     "breakeven": 2.29,
     "breakeven_date": "2026-11-02",
     "breakeven_change": 0.094,
@@ -44,9 +44,9 @@
   "kospi_vol": {
     "label": "고변동",
     "level_index": 2,
-    "rv20": 52.6,
-    "as_of": "2026-10-30",
-    "value": 5730.74
+    "rv20": 52.8,
+    "as_of": "2026-11-02",
+    "value": 5859.08
   },
   "cross_check": {
     "nfci": {
@@ -70,13 +70,13 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 96.31,
-      "as_of": "2026-11-02",
-      "base_value": 89.43,
-      "base_date": "2026-10-05",
+      "value": 104.12,
+      "as_of": "2026-10-30",
+      "base_value": 91.11,
+      "base_date": "2026-10-02",
       "lookback_days": 28,
-      "change": 6.88,
-      "change_pct": 7.69
+      "change": 13.01,
+      "change_pct": 14.28
     },
     "breakeven_3m": {
       "value": 2.29,
