@@ -2256,5 +2256,114 @@
         "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPeXZFdHl4Z1dCVlg3UnRpOXZQMDJlU0dGbkJGXzZDMEN3RzAxZ1hXd2VtTDc4bE5zQzdzMXZQTTlmRWNmYlRoMHVWVUNBR0NiYkw3NEVrNWhWYjRoc0pOUF9YWlRuMmxkRzlrckUtZ1Npc3l5WjBFYURtRldsaDQtN3JKZk1LWlB1ZHY1VEFpYXh1RWtNamlyWjdXLUpMMW04bHBfajJicVRDSjA3X3c2MG5sSEk5dWd6YnM0MzIxTEg?oc=5"
       }
     ]
+  },
+  {
+    "date": "2026-11-04",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "iran-war-2026",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "미·이란 협상 및 종전 기대감이 반영되며 국제유가가 7%대 급락하는 등 지중해·중동 지정학 리스크가 진정 국면을 보이고 있습니다.",
+    "status": "applied",
+    "changes": {
+      "phase": [
+        "shock",
+        "correction"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "종전 기대감에 국제유가 이틀 연속 하락…브렌트유 한달만에 최저",
+        "source": "연합뉴스TV",
+        "date": "2026-11-03",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE85Qzd2eFFiSFBDdDhIeXpQRWIwTnUxZWxXMURqN2FCUVc3ZU93S0hMOVVENG9uNFV0YW9rcnN3OUtxSEVlb2piMUo2bXluWERwb0lLQ016ZHFhWDdlWERvTWdlUTJRSzg?oc=5"
+      },
+      {
+        "title": "[속보] 미·이란 협상 기대에 국제유가 7%대 급락…WTI 96달러선",
+        "source": "중앙일보",
+        "date": "2026-11-02",
+        "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBCcklLRTY1YXp4T2tRY3ZhelQzZUcwblp3VU1sY2hUM3ZrLUxxUHBOSnFpMUV0UGFkb2lGRGtHUFFIeXBYaG1iX3p0V1hwbVM2Vk96NG53?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-04",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "식음 지표 판단 및 제안에 따라 진행 중 내러티브를 잠잠 상태로 전환합니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "\"AI 버블 우려 커져…방어주·실물 자산 비중 확대해야\"",
+        "source": "연합인포맥스",
+        "date": "2026-11-03",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9oRkltTkdmZkNkc0N3OUlZekswTFo2S0tIS3VfYWtkSXJVYm03U3diZllKLXZ5TWMwUVBYc0J5RGxidTI4WFdCQkhhN3Q1emhvSHBFWHN4Z1dvWnppdXV1TWFIS3VHS3VESmJta2ZRSnI?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-04",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "anthropic-ipo-funding-2026",
+    "kind": "new",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "reason": "앤트로픽의 3분기 매출 급증과 상장 관련 논의가 기술주 및 월가 은행주 심리에 영향을 미치고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-04",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "crypto-exchange-tax-2026",
+    "kind": "new",
+    "name": "가상자산 거래소 이슈 및 과세 논의",
+    "reason": "대형 거래소 해킹에 따른 보안 리스크와 당정의 가상자산 과세 유예 제안이 겹치며 관련 시장 논의가 활발해졌습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-04",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "AI 밸류에이션 내러티브를 잠잠(잠잠)으로 변경하였고, 미·이란 협상 기대에 따른 유가 급락으로 이란 전쟁 내러티브의 단계를 진정(진정)으로 수정했습니다. 앤트로픽 상장 이슈와 가상자산 과세·해킹 이슈를 신규 내러티브로 등록했습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "잠잠",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "테슬라·스페이스X 합병 구상",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "SMR 및 원자력 기술 개발",
+      "SK그룹 웨스팅하우스 지분 인수"
+    ],
+    "at": "2026-11-04T10:42+09:00",
+    "trigger": "schedule"
   }
 ]

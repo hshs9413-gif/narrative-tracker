@@ -1,23 +1,49 @@
 [
   {
+    "key": "국산비만약시장경쟁",
+    "name": "국산 비만약 시장 경쟁",
+    "first_seen": "2026-10-15",
+    "days_seen": 13,
+    "last_seen": "2026-11-04",
+    "why": "첫 국산 비만치료제 출시 이후 제약업계 내 경쟁과 파이프라인 개발 보도를 주시하고 있습니다.",
+    "evidence": [
+      {
+        "title": "Pfizer CEO Says Covid Is ‘Irrelevant.’ He’s Betting on Cancer and Weight-Loss Drugs.",
+        "source": "Barron's",
+        "date": "2026-11-03",
+        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFA5NmczajA2cTJsaWxsczhaQmdrY1gyUjV1blo1Xy16WXBSX0RiNF9oM0UxSWM0RkhkeF9MZ0ZyXzhvdUMta0NuQXVXX0tHbHNRU081VldBZHFiQk40d3NUTjBuanBpRmhzOXRBTTd0QXozUnIwOTAtdw?oc=5"
+      }
+    ]
+  },
+  {
     "key": "국민연금국내증시평가손실",
     "name": "국민연금 국내 증시 평가손실",
     "first_seen": "2026-10-19",
-    "days_seen": 11,
-    "last_seen": "2026-11-03",
-    "why": "코스피 변동성 국면에서 국민연금의 연기금 수급 역할과 평가손실 관련 논의가 계속되고 있습니다.",
+    "days_seen": 12,
+    "last_seen": "2026-11-04",
+    "why": "코스피 변동성 장세 속 연기금 수급 및 평가손실에 관한 지적과 관심이 계속되고 있습니다.",
     "evidence": [
       {
-        "title": "\"국민연금 10년 가입자의 연금액, 기초연금보다 적다\"",
-        "source": "연합뉴스TV",
+        "title": "국민연금 받는 80세 이상 107만 명 육박",
+        "source": "이투데이",
         "date": "2026-11-03",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5IcWM0OGkxZG9TM240OGhIX3JvakZva3MyTHhGLVdTam1kMmhJbGNqT1kyZ3F0SkotcTRhQnI2Z3ZPS3Q2S1Rnb05TYXJLWVBKOFczNnktVWhmTDNhTGNHMVMyNUhOcmc?oc=5"
-      },
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1Oc2RPSDNNb1BBSGhpZGwxX2Rqb2l3aTVYbE9OdEZmZ3ZlLUdQcHhqUjQ1andXUEhUc3o1eVZUend3ZDJTSVRLN0xMbkRmZ3ZvdVl0YVJoZkFoUQ?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "테슬라스페이스x합병구상",
+    "name": "테슬라·스페이스X 합병 구상",
+    "first_seen": "2026-10-24",
+    "days_seen": 7,
+    "last_seen": "2026-11-04",
+    "why": "데이터센터 환경 이슈 및 머스크 계열사 관련 외신 보도가 지속되어 관망이 필요합니다.",
+    "evidence": [
       {
-        "title": "[심층] ’연기금 61조 구원투수론’의 역설…데이터와 증권가가 짚어낸 국민연금 수급의 진실 By 알파경제 alphabiz",
-        "source": "Investing.com 한국어",
-        "date": "2026-11-03",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1QMnR2VE5zSGU2MnJQZDJpaDBQR1R1bGIwSXBjR1g0bFFyVlZVcURna19oOTk1ek84UVNOd0hjRGNGdXVMS0M3OUFqdXVYMnBLUXhKZ1ZwU3dBTjY2a2p5T2hTa2JDZ2s4dmpJV3JBR0Q?oc=5"
+        "title": "주간 전망: 미국 7월 비농업 고용 지표 주목; 팔란티어(PLTR), 샌디스크, AMD(AMD), 스페이스X 실적 발표 예정",
+        "source": "TradingKey",
+        "date": "2026-11-01",
+        "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPa3NiaVV6UW5MVHFZU0dRN1I0NVEzOW5Oc0Q4M1ozYkNVSFJZYTk4M0hkLUVRRWN3bGl3V1JiUUt4b3J6VjBEQndheUZDQ05tdXN3bXRkczRUWS1iX3lmSnVXem1WNV9NOV8tZVhiaWpFbkplaGlTcUJRdXdjYkVYQTVMTXFFRy1VV19uemNncU5vTWkySGtOVFJzSUIwNkpNREJhZ2pndnFyUjZjaVNKRmota3Z4QThHMEpuaUdlWnhITVRZMUVVUVFkUnJndExHQmx4TU1ZcnhXaVpvRHJtQkhXb29VX2FscGVpci02VHNWSy1PS3QxTGJGb3ljczdRbTA0b2VlTQ?oc=5"
       }
     ]
   },
@@ -68,44 +94,6 @@
         "source": "BBC",
         "date": "2026-11-03",
         "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE10dXNzM0pMSVpsb283elB0VkotaEZVbW9QVWpwZGM1VHVkaV9VWmY2dUpKNS1ITkgyZEQ1YVBzM2x3RzVpRm5BR0F2M1hXVV9ydEhsMm9ZZldSdk0?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "테슬라스페이스x합병구상",
-    "name": "테슬라·스페이스X 합병 구상",
-    "first_seen": "2026-10-24",
-    "days_seen": 6,
-    "last_seen": "2026-11-02",
-    "why": "데이터센터 환경 소송 등 머스크 계열사 관련 이슈 관망이 이어지고 있습니다.",
-    "evidence": [
-      {
-        "title": "SpaceX loses bid to toss NAACP lawsuit over Memphis data center air pollution",
-        "source": "CNBC",
-        "date": "2026-10-31",
-        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxONWZobnlmVnlwbk9rMk1yeUVabnE1QUdtdTVEWGR6UUkwYXEzWk9weVpLMWFtRWF2Ykd6SmpNalgtelBCZ0lBdkd6Vm1xcWhNNkNVM0ZKTW43TmZyUUtMb1pYZVY2V2VuaFh5dHdBakhBYllrQjY5bUhrOHpteVNRUWNaZFrSAYoBQVVfeXFMUHFJcmV4YzZNcTZ4dk5RX2YyQm1TWDhpSS1OemxNdFRkUHhFTEFDNHpueE1QejEzMGVQYUFwQXpNV2JaVmJzdlQ2TWFJNlJOYjFkckE3TFpHVHpMSWt4YlBzMkZUX0hSa295M2tHSkx5aUFDbjMwbDkxQlNhdnp1NlhYd21VOER5ZHZn?oc=5"
-      },
-      {
-        "title": "Elon Musk says he is taking over an old Spam factory and a gun range to expand his Colossus 2 AI complex",
-        "source": "Business Insider",
-        "date": "2026-11-01",
-        "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQblNHeVNwZ3NJaDN0UmpkUnc1SzJoNnFYbkEwNWVubEpnbFQ2Sk9qQ09EXzlGdTlpUEg5bkdoWmNIZmZVa2p3M3FlSjBoa3RGbG9QcUtsTzNzWGFaOXY3QVRTZ0JCQ0s3TC1kSG8wMm9Ra0V0SUZkYTVfSDhRSThLR0FQUEd6TkpvQXc?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "국산비만약시장경쟁",
-    "name": "국산 비만약 시장 경쟁",
-    "first_seen": "2026-10-15",
-    "days_seen": 12,
-    "last_seen": "2026-10-31",
-    "why": "첫 국산 비만치료제 처방 시작으로 국내 제약사 간 시장 경쟁이 가시화되고 있다.",
-    "evidence": [
-      {
-        "title": "첫 국산 비만약 ‘에페’ 처방 시작… “마운자로 반값, 문의 잇따라”",
-        "source": "동아일보",
-        "date": "2026-10-29",
-        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB4bEJSTy1ZTmpqZGVjSVZIemtjVlFmNzlEQ19QUDZ4UV9WV1l6c3NEZnJWNWJzNFRhNmNKeTktR1doNVFuT0NpNzdELXY0Z3B5WXFRME8tdW4tMHRuX21BWlVNdEVJOHRVUmVSZVRZMmphN25JV1HSAWZBVV95cUxOaTBGRWZ5RU9MVTZRM2k5LVBLMzNGelBDd2JBSHRZeHZSakpNTHpBZE1KaE5lLXBETDhTUWJhYkxsSzRuTlJZdGVZa29Zalp4RkhQcTk4ME1pbGdUbDk4LVdtTmtKZmc?oc=5"
       }
     ]
   },
