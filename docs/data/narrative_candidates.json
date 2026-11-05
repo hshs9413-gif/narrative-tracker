@@ -1,5 +1,43 @@
 [
   {
+    "key": "테슬라스페이스x합병구상",
+    "name": "테슬라·스페이스X 합병 구상",
+    "first_seen": "2026-10-24",
+    "days_seen": 8,
+    "last_seen": "2026-11-05",
+    "why": "일론 머스크의 정치 자금 집행 보도 등 계열사 및 정책적 연관성에 대한 시장 관망이 계속되고 있습니다.",
+    "evidence": [
+      {
+        "title": "머스크, 중간선거에 6370억 베팅···‘공화당 큰손’ 의 속내는",
+        "source": "경향신문",
+        "date": "2026-11-03",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE91SzJVb0NyckxIcWd5TzhEbkllQUtqWXlIMmh5VDRXMmxfNzJBaWFoTFhEYTNCMjNGcnRhWV9PcEw5X2R2T1E1QWU3WnNKc1lDUU9pXzFLNUpjd9IBX0FVX3lxTE1nVUJCRFdWaEVvUmJvNU0xMEtseE41WlFGTVNzdGVCM2JVSUdYalh5MVJWZWlYak1jOWRjZTctUTRBSk5DaTFyZXAxT1ZSdlJwVXlDNEtCeWRFSnJCMmc0?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "가상자산거래소이슈및과세논의",
+    "name": "가상자산 거래소 이슈 및 과세 논의",
+    "first_seen": "2026-10-31",
+    "days_seen": 4,
+    "last_seen": "2026-11-05",
+    "why": "바이낸스 해킹 관련 보도와 여당의 가상자산 과세 유예 공식 제안이 맞물려 관심이 지속되고 있습니다.",
+    "evidence": [
+      {
+        "title": "바이낸스 해킹, 가짜 채용 면접서 시작…北 해커 수개월간 침투",
+        "source": "지디넷코리아",
+        "date": "2026-11-04",
+        "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE53U1huME1MVmRuNFAtRzV6T2ljQzZ6VU1vOThERm9oNXdpOWM3X3BDYWQ2ZGtlSHNVSlh3OHQ5UldYSmRWdHZWVmNnaURVeWVZMUxObHZB?oc=5"
+      },
+      {
+        "title": "[속보] 김민석, 정부에 ‘가상자산 과세 유예’ 공식 제안",
+        "source": "JTBC",
+        "date": "2026-11-04",
+        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE8xLUllQjEwTTU4clRwSlpIWUZiN01vRjJubEF0NUtxMEVyN0Uyc0xYNWVpcDM3cmhnRWd4Q2tFeDM2Y3dXZlJyMDdMNnhKX2FsbjVoUw?oc=5"
+      }
+    ]
+  },
+  {
     "key": "국산비만약시장경쟁",
     "name": "국산 비만약 시장 경쟁",
     "first_seen": "2026-10-15",
@@ -32,22 +70,6 @@
     ]
   },
   {
-    "key": "테슬라스페이스x합병구상",
-    "name": "테슬라·스페이스X 합병 구상",
-    "first_seen": "2026-10-24",
-    "days_seen": 7,
-    "last_seen": "2026-11-04",
-    "why": "데이터센터 환경 이슈 및 머스크 계열사 관련 외신 보도가 지속되어 관망이 필요합니다.",
-    "evidence": [
-      {
-        "title": "주간 전망: 미국 7월 비농업 고용 지표 주목; 팔란티어(PLTR), 샌디스크, AMD(AMD), 스페이스X 실적 발표 예정",
-        "source": "TradingKey",
-        "date": "2026-11-01",
-        "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPa3NiaVV6UW5MVHFZU0dRN1I0NVEzOW5Oc0Q4M1ozYkNVSFJZYTk4M0hkLUVRRWN3bGl3V1JiUUt4b3J6VjBEQndheUZDQ05tdXN3bXRkczRUWS1iX3lmSnVXem1WNV9NOV8tZVhiaWpFbkplaGlTcUJRdXdjYkVYQTVMTXFFRy1VV19uemNncU5vTWkySGtOVFJzSUIwNkpNREJhZ2pndnFyUjZjaVNKRmota3Z4QThHMEpuaUdlWnhITVRZMUVVUVFkUnJndExHQmx4TU1ZcnhXaVpvRHJtQkhXb29VX2FscGVpci02VHNWSy1PS3QxTGJGb3ljczdRbTA0b2VlTQ?oc=5"
-      }
-    ]
-  },
-  {
     "key": "앤트로픽대규모자금조달및상장추진",
     "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
     "first_seen": "2026-10-28",
@@ -66,34 +88,6 @@
         "source": "WSJ",
         "date": "2026-11-02",
         "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPTDhmTmZkVWhzazBUYVdXNUx1OTRkRDFidXNnblM1R0lFNVQ2OS1zRFV2aTFtS2drOEhOVEVSSjZzZDN0Z053X3NrMnJEVTRGQm1EOHh6aDJYWC16bTVPdlpxVk10Vkh0ZkNrdkx1YzFodGc1WVQ4NkpPanN3TnZPZjcxYmcwS0xaSk1DelBQUzM4RFpNNVdubXR5WlRZZXA2b3paamIwdkcwVEpUTWFNSDBuWGQ?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "가상자산거래소이슈및과세논의",
-    "name": "가상자산 거래소 이슈 및 과세 논의",
-    "first_seen": "2026-10-31",
-    "days_seen": 3,
-    "last_seen": "2026-11-03",
-    "why": "바이낸스 해킹 관련 북한 반응 보도와 가상자산 과세 유예 건의 등 정치권 논의가 맞물려 관심이 이어지고 있습니다.",
-    "evidence": [
-      {
-        "title": "북 김여정 “바이낸스 해킹, 우리 소행 아냐…황당무계한 낭설”",
-        "source": "채널A",
-        "date": "2026-11-02",
-        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9nYVp5ZFd5akFrSTFvZ1lXaV96elBiMHl1Wko3SkMwVDhFZ19SSGlLNXJNeFFhQmFSZUFGb0J4OEpfSEdiejhTYzN5V0oxSTNNeVhNd3FNVzdPYjN5NGfSAWNBVV95cUxQUlJ3N2JhUUt0ZzBXTERGODl6cE54dUFSeEV5VUx2RnJiUmJQUEpOUzktRWwtMmdFUmN1V3l2NjVSYVo1bkg3VFNXeU1uWFRHNTBpRmlMekNQN3Rua0g4UVE4dlk?oc=5"
-      },
-      {
-        "title": "민주당 재경위 “‘가상자산 과세 유예’ 의견 당 지도부에 건의”",
-        "source": "KBS 뉴스",
-        "date": "2026-11-03",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1SZkhuNDBzd1lNZG1qemVEeGE4ODMtcS1IRkZSUmtKNXowR2FqNDZ5UkNaY2RNZl9LV2tleEV6dERDREhpXzdkSm45ZE1VZzJ0RkxIeFRvN2tjTHc?oc=5"
-      },
-      {
-        "title": "North Korea denies being behind record $6.3bn Binance hack",
-        "source": "BBC",
-        "date": "2026-11-03",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE10dXNzM0pMSVpsb283elB0VkotaEZVbW9QVWpwZGM1VHVkaV9VWmY2dUpKNS1ITkgyZEQ1YVBzM2x3RzVpRm5BR0F2M1hXVV9ydEhsMm9ZZldSdk0?oc=5"
       }
     ]
   },

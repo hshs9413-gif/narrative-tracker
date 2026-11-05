@@ -2365,5 +2365,49 @@
     ],
     "at": "2026-11-04T10:42+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-05",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "us-midterm-blue-wave-2026",
+    "kind": "new",
+    "name": "미국 중간선거 민주당 승리 영향",
+    "reason": "미국 중간선거에서 민주당이 의회를 상원·하원 모두 휩쓸며 국채 금리가 급락하고 주가가 반응하는 등 시장 충격이 발생했습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-05",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미국 중간선거 민주당 승리에 따른 국채금리 급락과 시장 반응이 새 주요 이슈로 등장했으며, 중동 종전 기대감에 따른 유가 하락과 금융권 보안 점검 등이 기존 내러티브를 주도하고 있습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "테슬라·스페이스X 합병 구상",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "SMR 및 원자력 기술 개발",
+      "SK그룹 웨스팅하우스 지분 인수"
+    ],
+    "at": "2026-11-05T10:51+09:00",
+    "trigger": "schedule"
   }
 ]
