@@ -3,6 +3,12 @@
   "items": {
     "corporate-credit-stress-2026": [
       {
+        "title": "한국투자증권, 디폴트옵션 3년 수익률 100.97% 기록...퇴직연금 사업자 1위",
+        "source": "뉴스락",
+        "date": "2026-11-05",
+        "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBkLUF2QUVYb2lFSVFENEc5VzZoVGVwZDBKUzRkMGNubzRHLUxTeFk4cXROYld3WEZJOXZBeV9RQk1CbWk2QmVjVDl4ekEzUmRQLXBvWXVIZE1NQ2ZfaTFnZDRNeWxmUlFaMW5kZw?oc=5"
+      },
+      {
         "title": "한국투자증권, 디폴트옵션 3년 누적 수익률 100.97%…전체 사업자 1위",
         "source": "비즈월드",
         "date": "2026-11-05",
@@ -13,12 +19,6 @@
         "source": "머니투데이",
         "date": "2026-11-04",
         "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE50SDNaTU1GSjR1ZS1aQVF4dzh2akJUeXBiT21hRzJGb2prZnNlMlpoM01NelVrOE5lTWpTR3AwTjdYeVZ2cnd6VUpPcDdaU1NCdGpvMUotcU1QVjVLZTk3S1BRdU5JOWYw0gFuQVVfeXFMUDBpcjdxbi1UTS1Tb2FGNktJRnVLRklENllhS3YtUmthUWkwTHFDZUVYTEdtajg4X1huWlBxZDFibmU3aVM4ekx5cUdDTEFCNGR0MXNLWjlXbTJ2dlYyRG51a2h3a2p6MUF2U2lJM0E?oc=5"
-      },
-      {
-        "title": "한국투자증권, 디폴트옵션 3년 수익률 100.97%…전체 사업자 중 1위",
-        "source": "메트로신문",
-        "date": "2026-11-04",
-        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE95bkJGSkN6Qko2YUxSWHhzR1JESkcyT3NGWGNjcU9VWjBSRkZOTW5HMmFUVUdqSVJmd0RlNjAzVlljeUQ1OWZBREpoQkV5aVgwMjgzZ2dUa2ltdXFkYUhWUA?oc=5"
       }
     ],
     "alaska-lng-trade-2026": [
@@ -63,6 +63,12 @@
     ],
     "financial-ai-security-2026": [
       {
+        "title": "금융권 해킹에 ‘비상등’…금융당국, 580개사 전수점검·망분리 규제 전면해제 추진",
+        "source": "Daily NTN",
+        "date": "2026-11-05",
+        "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE93T21scUR6YV9KVDdGc245UlJEV2tpZGtJUFg1LUxsQzhUbTN4VEFzVTFCOXZ3bnZfWElpbUE3MVZmY0xyMlNmZXVodUFXWGF5TkRJLVh3YnNTMm5xb1hjZm5mSHNRQkhUbHc?oc=5"
+      },
+      {
         "title": "한양증권서도 정보 유출…금융권 해킹 확산",
         "source": "뉴스토마토",
         "date": "2026-11-03",
@@ -73,15 +79,15 @@
         "source": "YTN",
         "date": "2026-11-03",
         "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE96MEVET3dvQkVQNXpYTTZzS2ZMSmZJZy01SHJZc19hbW1GNUJjcEVHQ1BuUDhuZ3oyd1NNTmtQXzBGUWxHNXhZSURxZHpSc1IySXE0Nkw3dVBtaEhCUkE?oc=5"
-      },
-      {
-        "title": "금감원, 금융권 해킹 대응 강화… “경영진 책임 엄중히 물을 것”",
-        "source": "한국보험신문",
-        "date": "2026-11-03",
-        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE4wRm13QUdLSG5RQ0ZCTmhvcDJvbnVQdTBEdkQ5bkNkU0tvdHVNZVlrdGhEd3VCMDVSQzVqSDZSdDlHMWlDLWpXa1V5ZXJrTDJkYS0xTHkxeWhCVFlqVllLMlpnODlfUjh6NHI40gFvQVVfeXFMTUUzYmwzWFREMm9FRjJuVlpwMVJmSzFxbDFSUFFaR1R3LWxsVFYwYWZwWm44bGNwZ3VfRlp2WUJMNGowTS16WF90QzFSWDg1NjNyS2h0R29OejRPemlaUFpBNWVLaHc2R2I3Ty1sd1lZ?oc=5"
       }
     ],
     "global-bond-selloff-2026": [
+      {
+        "title": "미국 재정적자 2조달러",
+        "source": "https://www.yonhapmidas.com/",
+        "date": "2026-11-05",
+        "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE91dFpxZmxVb2xMT2VQaW00NURLZG83NXZjRE92NWVza19CVWVmeFM4X0V3MXBOR0dOMUd3NE9KQU95OENpUmtKTkFEQ1BDTWVzV3RycUxxaEZzd3NweVllZE90VjFEX0dDcUg5by13?oc=5"
+      },
       {
         "title": "피터 시프 \"미국 증시 상승세 오래가지 못할 수도…인플레·재정적자 확대 경고\"",
         "source": "블루밍비트",
@@ -93,12 +99,6 @@
         "source": "아주경제",
         "date": "2026-11-04",
         "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE94Slh1NUU5Nnh2SF91UG1ITGs3b0dLNl9NeEs2aU9FRGx0RHZWT0IxY2I4Y09QakVuZ21nTEpBVWtPR19jNEcya2NoUUFFbVpXbUF2Q0ljZ07SAVhBVV95cUxPeEpYdTVFOTZ4dkhfdVBtSExrN29HSzZfTXhLNmlPRURsdER2Vk9CMWNiOGNPUGpFbmdtZ0xKQVVrT0dfYzRHMmtjaFFBRW1aV21BdkNJY2dO?oc=5"
-      },
-      {
-        "title": "BNP파리바 \"美 중간선거 결과 어떻든 재정적자 더 늘어날 위험\"",
-        "source": "연합인포맥스",
-        "date": "2026-11-03",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8tTTZzU3IzQ0ZJWWoyOV9Ca2hEb1oyZ3JzdHBiQWdjU2Jjc0ZZVmZ3VXdaLUVlMHc4Nl83U3o3V2Q5Yk1nR05QNFNoQ25pUTlkZXI0MzFTMlB4VkI2cGVLdVlrakRtYVVUQ2RHSkdveUY?oc=5"
       }
     ],
     "kospi-semis-leverage-2026": [
@@ -115,10 +115,10 @@
         "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBpV0NrWWY5V3QtOEJac2lkbFFwejMtbXlscjVuQjVMU1hTNlpEMU1uendKWWE0amdiZUtRVTNDZDRyZDB2ZDZIQm1UaGlhUGZpTVJubWl6d3lKZkYyRFZUV1ZsMjFNTGVJS0ZUcGtZYWtCYUE?oc=5"
       },
       {
-        "title": "[개장시황] 코스피, 반도체株 급락에 5550선 후퇴…SK하이닉스 6%↓",
-        "source": "뉴스핌",
+        "title": "美 ‘블루웨이브’에 AI 규제 폭풍…코스피, 반도체 급락에 5570선 후퇴",
+        "source": "진일보 | 전남일보",
         "date": "2026-11-05",
-        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5SM2piR3dKVFcta3k0QlMzYXp4T1lCVV9hYWRVZDdnd0NWRUZkOW9NVlZDdnM2bXN3ZjN1enY4REIwR19aNUNfdUlHRHdSQnNGUDVNaXFFRVFLOHpr?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE44VEVjLVpFT1V1RHJlZXlkeWVZZDRXVGdCTl9FRzhUcUx6NkJIVENaN28tZk8xWmJkdl9yMHNZd3dkMTJsaTZ3Z2xBQVJCb3ozUTFINGQzeWJaN0ZJZmNKSGFES0M5OERtdDJ1bFV3NA?oc=5"
       }
     ],
     "boj-normalization-2026": [
@@ -149,10 +149,10 @@
         "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9KczI1MjZaTjNJNFRBeElSckFyUzgyWjdxV3Z6dXVuMmJiXy1PQUFpQjlhZjRUSzRuRXFLdENsTl8tNEVPeEdTVlNfTFRua0Qy?oc=5"
       },
       {
-        "title": "미 달러: 비농업 고용지표에 따른 안도성 매도세 가능성 – TD Securities",
-        "source": "www.tmgm.com",
+        "title": "금 가격 전망: 시장이 10월 비농업 고용지표에 주목하는 가운데 미국 중간선거 영향으로 금값 4,100달러 돌파",
+        "source": "TradingKey",
         "date": "2026-11-04",
-        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNTW84MF81enJjaGRxblVUVy04bW90ek9tYnBfc1NCZXJ0Ry00dG5mZng3aWd5OHJHZ1lXUGRxMVhtV3dSVld0Vmptb1QtbkRoRmdnWW91TndCbzEzUUhpWVpud2wxandsbURTMFBNWlZZVzhydUpmZGYtUWdCWXc4Z21KLVZWanJrR1dTRTVIeEdiYlVRZm9YQkdHR0xUeHhPWS1kV3g1SFdoNEdLcmtLWXZRcXpMNXRsOGRTYmNQZmVrenRtRU5jZEtB?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQYVgtcnhKVkRuVjE3WVhFSXkxbk1wQTNqbFljRmZLVGhsY1FuUGkxWTFnZ3VBRWV5T3lFRXpSX1IxckUzVGF5N2dRU3ZJbzgxMHQxMWh3MF9KN1dzV3VweExDRUFYalRUNFIwbUxsdGtYVE1OTG5SbDd3VTdIamQzSV8wMk1JUGxLUGIxNE1FYnAtN2E1QjBmSWVQREhvYkdpR0doWDNUX0xSbktuZ1RDVUw1NTVsamRodUtpRjhIZmpsVnRpTTRpcWY4NlBjU3E1dE8yVjR4aVM5Z2htYTZzOHE4WGZrcnhU?oc=5"
       },
       {
         "title": "예상 뛰어넘은 미국 고용지표… 노동시장 회복 신호 켜졌다",
@@ -163,22 +163,22 @@
     ],
     "iran-war-2026": [
       {
+        "title": "[중간선거] 90달러 밑으로 떨어진 유가…\"종전 기대에 추가 하락 가능성\"",
+        "source": "연합인포맥스",
+        "date": "2026-11-05",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBXeHdxMDFRMWZNUktRT25mbkFoUVpka3FIc0hVM3RmUm0xVTlQZkFBcWFtRnZCVHp1N0xIc1JBX25sOGhWZXFSTkh0TjdkcHlFdFdhM1pTSXhGRE0zbDgyS0N0Z3Y1ZUR5OTFHUGRVR3g?oc=5"
+      },
+      {
+        "title": "美 민주당 의회 장악에 종전 기대…국제유가 8%대 급락",
+        "source": "연합뉴스TV",
+        "date": "2026-11-04",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9YcllzbEZ4bk5NYzFKQWFWall0cnlvRTVCcjdqWkp1Ul9oR0RDY01lMkZFX1VJOW1BenFZNTd5MXE4dkw4RVpCTFFaakJDbmVPMHJQdDNZRlBvU0VGYnliX1R6ZG1KTlU?oc=5"
+      },
+      {
         "title": "[속보]‘전쟁 끝나겠네’…국제유가 8% 폭락, 다우 3% 급등",
         "source": "문화일보",
         "date": "2026-11-04",
         "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1RVkFHb2J3U0gza0EtTl9ZeXJVazVudlNOaElLekpaRVRLRHZfV3BEMThsdV9lZ0R6czBOTVBuZWl0dHZiZnB5QXZCSTVUSjRh?oc=5"
-      },
-      {
-        "title": "유가 소폭 상승…미 중간선거 결과·이란 전쟁 위험 주시",
-        "source": "Investing.com 한국어",
-        "date": "2026-11-04",
-        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9FRFZkdjViUTNRTWtOLVU0RWJIbk1QXzgzM1pSMmJ6Q2NsbWVZUE9HLTJ4d0hidjdaSkdvemZPekFKbU5OV2xWWFFGNDJFV0RaTUhITjNaYkpDd1NoN3JtMGZvNFBCN25Dd0hJdktaaw?oc=5"
-      },
-      {
-        "title": "[속보] 美 민주당 압승에 국제유가 8% 넘게 급락",
-        "source": "연합뉴스TV",
-        "date": "2026-11-04",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9YcllzbEZ4bk5NYzFKQWFWall0cnlvRTVCcjdqWkp1Ul9oR0RDY01lMkZFX1VJOW1BenFZNTd5MXE4dkw4RVpCTFFaakJDbmVPMHJQdDNZRlBvU0VGYnliX1R6ZG1KTlU?oc=5"
       }
     ],
     "ai-valuation-2024": [

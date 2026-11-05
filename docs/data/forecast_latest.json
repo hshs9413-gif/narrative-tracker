@@ -14,9 +14,9 @@
       "scored": false,
       "actual": null,
       "live": {
-        "n": 14,
-        "in_range": 12,
-        "dir_tried": 14,
+        "n": 15,
+        "in_range": 13,
+        "dir_tried": 15,
         "dir_hits": 7
       },
       "model": "선형회귀",
