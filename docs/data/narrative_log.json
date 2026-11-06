@@ -2409,5 +2409,58 @@
     ],
     "at": "2026-11-05T10:51+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-06",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "미 증시 기술주 급락과 AI 규제 우려 보도가 다수 분출하며 잠잠하던 내러티브가 재점화되었습니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-06",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "us-midterm-blue-wave-2026",
+    "kind": "new",
+    "name": "미 미국 중간선거 블루웨이브 충격",
+    "reason": "미국 중간선거에서 민주당이 의회를 장악하는 결과가 나오면서 글로벌 증시와 채권 시장이 크게 요동치고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-06",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미국 중간선거 민주당 승리 결과로 금융시장에 새로운 정치적 충격이 발생했으며, 미 증시 폭락과 함께 잠잠하던 AI 밸류에이션 우려가 재점화되었습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "테슬라·스페이스X 합병 구상",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "SMR 및 원자력 기술 개발"
+    ],
+    "at": "2026-11-06T10:51+09:00",
+    "trigger": "schedule"
   }
 ]
