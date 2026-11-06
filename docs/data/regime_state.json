@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T01:51:03.085298+00:00",
+  "generated_at": "2026-11-06T03:27:28.314149+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -44,9 +44,9 @@
   "kospi_vol": {
     "label": "고변동",
     "level_index": 2,
-    "rv20": 53.7,
-    "as_of": "2026-11-04",
-    "value": 5683.8
+    "rv20": 55.8,
+    "as_of": "2026-11-05",
+    "value": 5383.8
   },
   "cross_check": {
     "nfci": {
@@ -70,13 +70,13 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 88.12,
-      "as_of": "2026-11-04",
-      "base_value": 88.28,
-      "base_date": "2026-10-07",
+      "value": 90.52,
+      "as_of": "2026-11-05",
+      "base_value": 91.49,
+      "base_date": "2026-10-08",
       "lookback_days": 28,
-      "change": -0.16,
-      "change_pct": -0.18
+      "change": -0.97,
+      "change_pct": -1.06
     },
     "breakeven_3m": {
       "value": 2.24,
