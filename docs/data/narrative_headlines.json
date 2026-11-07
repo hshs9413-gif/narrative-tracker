@@ -3,12 +3,6 @@
   "items": {
     "corporate-credit-stress-2026": [
       {
-        "title": "증권사 디폴트옵션 TDF 적립금 양극화…장기 수익률은 iM증권 선두",
-        "source": "CEO스코어데일리",
-        "date": "2026-11-06",
-        "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9PdmRRWXJtWU0xZGNHakxoWHBfR3NDV093WElYZ1JaZlhHNzVBaGgwTjJKNWtYb1pkTTdaV0twM3RmMEIzc0ZOYnpja0lLeUlGS2lGVENXQkJxeUZHalpiZGZUN3BaV0Rk?oc=5"
-      },
-      {
         "title": "퇴직연금 3년 새 '두 배' 불렸다…한국투자증권, 디폴트옵션 수익률 전체 1위 달성",
         "source": "이투데이",
         "date": "2026-11-06",
@@ -19,6 +13,12 @@
         "source": "더밸류뉴스",
         "date": "2026-11-05",
         "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9WV1ZhSzhiZG9ZT0xfRHpaRGwwYWNqbEVUUnJXUWxMcHhCLXRkQmFHbEo1LVh2SHdMUTJJSzRMdFhZWkJjUWlSV28tMUdUanc?oc=5"
+      },
+      {
+        "title": "한국투자증권, 디폴트옵션 3년 누적 수익률 100.97%…전체 사업자 1위",
+        "source": "비즈월드",
+        "date": "2026-11-05",
+        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE93Y2g3WFp1UE92VURteWtjNEtVTjIzSkZUOTRXVXlYNkhiamUybmQ0TEZaVjg0NGxBWFUwdEJCZWxJT2hxcktWYk5qTlkxcllHazBRbzNzMUVpVkJ0QUdsZmE3b2hfYTVsRnVZ?oc=5"
       }
     ],
     "alaska-lng-trade-2026": [
@@ -91,6 +91,12 @@
     ],
     "global-bond-selloff-2026": [
       {
+        "title": "프랑스 재정위기 우려 확산…국채금리 급등 60만명 거리 시위",
+        "source": "서울경제",
+        "date": "2026-11-07",
+        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE53NVlDNXE2aHNQVWlIT1EzSjRHN3RjM3F3ZDgwVUZQSHJSQURTdDFWZzZkX3JfRkNlSFk1LWM4R2dpckJVaW5Bc2pSa2pzX0pTVWfSAVNBVV95cUxOYzl5TnFEc2tReHRLYU9PRW10U3FPX014Ynh1SlJoNTItdW9uOTBmVWpZZmh0emIwbVZBQk1DUHh3RDVVdGFpQk8wemRzNWpKaFpXcw?oc=5"
+      },
+      {
         "title": "미 달러화 강세…기술주 반등에 미 국채 금리와 동반 상승",
         "source": "연합인포맥스",
         "date": "2026-11-06",
@@ -101,12 +107,6 @@
         "source": "뉴시안",
         "date": "2026-11-06",
         "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAzSUZ0TjVwNU9JNmhsZU1ld0tGWDV5WHFDX1dwSEt2SHExYzhBTEFIZml1clVJMTZKUEFYbG1Bbms1RWpfTnhWTEMwQ0FTWFFZbU9WVzJJTDhhWjZEODRwWTJ0U05maGJBNWkwNw?oc=5"
-      },
-      {
-        "title": "[이종혁의 투자] 블루웨이브 美의회, 재정적자 브레이크 될까 |",
-        "source": "연합인포맥스",
-        "date": "2026-11-06",
-        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5rdW5FV0lPbkVsTmJpdlJqMHlsdWZBR3ZVWFBiWlQzSElDUlNQT24wV1E5ZFRYTjVUejdXRFdESmxwUk51b2x0Wk9xTEpxYTRnN2gxU0hHUFRHNFpfMlEwX0xTLTA4R0tpQjdXbF8yaWlTNFpn?oc=5"
       }
     ],
     "kospi-semis-leverage-2026": [
@@ -191,6 +191,12 @@
     ],
     "ai-valuation-2024": [
       {
+        "title": "Soxl 주가 40달러에 매수 : AI 버블, 금융위기 오나요? 다음주 미국증시, 국내증시 전망",
+        "source": "네이버 프리미엄콘텐츠",
+        "date": "2026-11-07",
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPbmJLLTRzYXE0MGdaa09aeEppa00wNkdldmM5TVBsdVplNFV6NElHOW5xcGtXSmlwWHBxQkRJZGhtZjI2TFRjTVRXbEM1S0pmMWp0Vm5mbEhDTFNPS3FwSHdfMlliQXlKVTFPdFlQNmdmQVNLN0NsZ2hBQ0NHUi00ZmdPZw?oc=5"
+      },
+      {
         "title": "[마켓펄스] “9개월 만에 5000포인트 증발”...AI 버블 공포에 삼전닉스 ‘급락’",
         "source": "투데이신문",
         "date": "2026-11-06",
@@ -201,12 +207,6 @@
         "source": "JTBC",
         "date": "2026-11-06",
         "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAyVmoxUzVrQmJ3ekZoamRvTllSbVFGU0s4SUhxczk0aE81cVU4dlkwdGdyQ2JQRUpzMlFmQmt4bTZTMzN0VFRqaVJPSnNCTUNxeXc?oc=5"
-      },
-      {
-        "title": "AI 버블 논란에 \"초입 불과, 꼭지 아니다\" : 경제",
-        "source": "기독일보",
-        "date": "2026-11-06",
-        "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE4za1Zfd1JPMGRsaFczVWdWbDVnc0FvNXR4Y2dmWkpSSFJiZml4QUNval93dkkxaThBdzhnTjJDbllVTGJ5cjJmX2JvYWVyc0dTZXVLSGdXaw?oc=5"
       }
     ],
     "tariff-shock-2025": [
