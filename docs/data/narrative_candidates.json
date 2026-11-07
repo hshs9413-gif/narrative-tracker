@@ -1,23 +1,55 @@
 [
   {
+    "key": "국산비만약시장경쟁",
+    "name": "국산 비만약 시장 경쟁",
+    "first_seen": "2026-10-15",
+    "days_seen": 14,
+    "last_seen": "2026-11-07",
+    "why": "국산 비만치료제 출시 이후 제약업계 내 경쟁 및 파이프라인 보도가 지속되고 있습니다.",
+    "evidence": [
+      {
+        "title": "\"안전상비약 확대보다 판매관리부터\"…약사회·소비자단체 안전성 논의",
+        "source": "약업닷컴",
+        "date": "2026-11-05",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE50OF9tNktzR0VOVlBRX3VLQl9CdUQ2UTJqNDRRRTk5akxQQlhuM3Y4TVFTXzZLS1MzUm5yTFJlVm00UmlEcGFLQ3RpUTBqWUpPaUUtdDBxTTg0VVFXRHVCODJOeFNwQQ?oc=5"
+      }
+    ]
+  },
+  {
     "key": "테슬라스페이스x합병구상",
     "name": "테슬라·스페이스X 합병 구상",
     "first_seen": "2026-10-24",
-    "days_seen": 9,
-    "last_seen": "2026-11-06",
-    "why": "미국 중간선거 이후 계열사 주가 급등락과 5G망 구축 관련 외신 보도가 이어지고 있습니다.",
+    "days_seen": 10,
+    "last_seen": "2026-11-07",
+    "why": "미국 중간선거 이후 일론 머스크 계열사의 정치 베팅 역풍과 데이터센터 인허가 관련 보도가 이어지고 있습니다.",
     "evidence": [
       {
-        "title": "안되면 직접 만든다...‘머스크식 해법’ 통할까…퀄컴과 5G망 구축",
-        "source": "조선일보",
-        "date": "2026-11-05",
-        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPdG0zNkFRdjZ1c0l2Ylo1bFlxMkNjSzRqSHgzUWJXRHNnclQyaThsYTZQWmdxblNRMDRraVJXalI2VEtKb1NtRzQtUFZBT2hnZzA4LXlNc01iTHlyZjVnTTFfSk4xOWluaG12WGxQeDRCYzBBZmlWYnB5NjNRUll6dWRuZw?oc=5"
+        "title": "[비즈톡톡] 일론 머스크, ‘6000억’ 정치 베팅 역풍에 텍사스 데이터센터 인허가 제동 가능성… 테라팹·AI 투자도 변수",
+        "source": "Chosunbiz",
+        "date": "2026-11-06",
+        "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPVFBfNTAxeDYyX2JHckZrMzhrdDYycW1tVHVZZ0tXd3dDSWlnVmcxdllYNnhpWXJlNVphdkREaVFGdEp4R2lNLWE4d25UQ05qTmxhempudVV2dkQ4X2hQNVF2Q0hzcXhuTmtuWUoybmlnaDA0cVZfeVVGaUwwZ0pOaVR30gGWAUFVX3lxTE9LUk5YMmZnLWRJYURJdGdFcXB6NWx4S1N0NlJkdEIzeWNsT1pScEliYXZMbFlONk1NeXVkNHBRRklESHRueFBLWGFpR1NaR2dXRGxuc0dvRERMcm9QU1NvZHpxZUlUbW1FTlh6R1BXTVY4b2lVNmF4ZjJ2QnFkYXJGZmJicXk4UG5EcXduY2s5bVQwdTFodw?oc=5"
       },
       {
-        "title": "Elon Musk's Tesla and SpaceX lose over $420 billion in combined market cap after midterms",
+        "title": "How Elon Musk Frittered Away Nearly $500 Million on the Midterm Elections",
+        "source": "The New York Times",
+        "date": "2026-11-06",
+        "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOT2x1ZWRGRnBiajdleDV0dGYwVEdURk9oSE9JRjhWRVV5aWVoVEdtSFBsU2dzWi1NSUktNXVTV0k5OWlTSzV4bURsNEJBc1ZhTldtamJUUDFQdUctemJPekVZeTA1d25zVl9kdzMzWjZjazNWUG04bGlIR1VNV0hMN0NHOTdUejdENkRMNG1rT0JmUQ?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "앤트로픽대규모자금조달및상장추진",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "first_seen": "2026-10-28",
+    "days_seen": 6,
+    "last_seen": "2026-11-07",
+    "why": "앤트로픽의 1조 5천억 달러 기업가치 평가에 대한 월가의 신중론과 외신 보도가 지속되고 있습니다.",
+    "evidence": [
+      {
+        "title": "Investors brace for lower Anthropic valuation, calling $1.5 trillion a 'stretch'",
         "source": "CNBC",
-        "date": "2026-11-05",
-        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbVlBX0FCZGw4ZnNTUlRoSU5wSjJRWllFQ2JTZjBHNy1CQ0VXNWZWb1Y1V2dDWXhLQWIxZC1hNG00U0xXUjZIdHV6U0FaWS1hN1BURXBNd2g4Q0RoT0lFX21qMlNrQTkwelZndmExbGpSdlhlQ24taDl4QXpTQkNmVlJZc3FaajZl0gGOAUFVX3lxTE9peU5XOFhISzIwSnNNaGtiR0Iya1JqWVNFcXgyQXVPVXNubjAyMXVYMUR2aHd1MWRnZEhmLXI1MnRONmk3SHIzUGtOZnQ1U3JFdjBkSnYxNHdsQTVSQnBGWmVwUGxSZWJIYW1JZURVYUxsa2prV1VXeUs1VW5CU0pISHRtYVUzLV9LSTNyTEE?oc=5"
+        "date": "2026-11-06",
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPc2xnRmphZ1JWMGh1OHplODE3ek1GTHFoLXBkNkY2RVlDM2NVRHJBdzBsYlNVMFlJSWdXMVpBMkV5TFRMbUxSaGsyVmN4T0pKSGhiYnhKWkg5Q1ZkZEVmUE9RVUhXTlJWSFAtOE4yM0JCbG5PdGVIbnE4VURQam9RNWcyNHFrZUFZdkdCNzlGbzJuRzhYYjBDb0JPSk91cUhlWnRaemVR?oc=5"
       }
     ]
   },
@@ -44,22 +76,6 @@
     ]
   },
   {
-    "key": "국산비만약시장경쟁",
-    "name": "국산 비만약 시장 경쟁",
-    "first_seen": "2026-10-15",
-    "days_seen": 13,
-    "last_seen": "2026-11-04",
-    "why": "첫 국산 비만치료제 출시 이후 제약업계 내 경쟁과 파이프라인 개발 보도를 주시하고 있습니다.",
-    "evidence": [
-      {
-        "title": "Pfizer CEO Says Covid Is ‘Irrelevant.’ He’s Betting on Cancer and Weight-Loss Drugs.",
-        "source": "Barron's",
-        "date": "2026-11-03",
-        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFA5NmczajA2cTJsaWxsczhaQmdrY1gyUjV1blo1Xy16WXBSX0RiNF9oM0UxSWM0RkhkeF9MZ0ZyXzhvdUMta0NuQXVXX0tHbHNRU081VldBZHFiQk40d3NUTjBuanBpRmhzOXRBTTd0QXozUnIwOTAtdw?oc=5"
-      }
-    ]
-  },
-  {
     "key": "국민연금국내증시평가손실",
     "name": "국민연금 국내 증시 평가손실",
     "first_seen": "2026-10-19",
@@ -72,28 +88,6 @@
         "source": "이투데이",
         "date": "2026-11-03",
         "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1Oc2RPSDNNb1BBSGhpZGwxX2Rqb2l3aTVYbE9OdEZmZ3ZlLUdQcHhqUjQ1andXUEhUc3o1eVZUend3ZDJTSVRLN0xMbkRmZ3ZvdVl0YVJoZkFoUQ?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "앤트로픽대규모자금조달및상장추진",
-    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
-    "first_seen": "2026-10-28",
-    "days_seen": 5,
-    "last_seen": "2026-11-03",
-    "why": "앤트로픽의 3분기 매출 급증과 1조 5천억 달러 기업가치 평가 논의에 관한 외신 보도가 지속되고 있습니다.",
-    "evidence": [
-      {
-        "title": "앤트로픽 3분기 매출 170억달러…작년 대비 12배 급증",
-        "source": "연합인포맥스",
-        "date": "2026-11-02",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE04RTlYaUJ3VGczRnAyX2FuNktOdlZQT0pNQVlKV1l1aGNCU09ITnNjMzM3ZDdGd05rY25hcG9WMGlmNXhnYmhvMzNNbk43SFRZNGFXNnBEcFNtUlBUai03TlhocUFLR0ZSbVdlWHoxTWg?oc=5"
-      },
-      {
-        "title": "Anthropic Investors Push for Cautious Valuation Closer to $1.5 Trillion",
-        "source": "WSJ",
-        "date": "2026-11-02",
-        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPTDhmTmZkVWhzazBUYVdXNUx1OTRkRDFidXNnblM1R0lFNVQ2OS1zRFV2aTFtS2drOEhOVEVSSjZzZDN0Z053X3NrMnJEVTRGQm1EOHh6aDJYWC16bTVPdlpxVk10Vkh0ZkNrdkx1YzFodGc1WVQ4NkpPanN3TnZPZjcxYmcwS0xaSk1DelBQUzM4RFpNNVdubXR5WlRZZXA2b3paamIwdkcwVEpUTWFNSDBuWGQ?oc=5"
       }
     ]
   },

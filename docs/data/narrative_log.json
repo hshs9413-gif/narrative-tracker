@@ -2462,5 +2462,112 @@
     ],
     "at": "2026-11-06T10:51+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-07",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "us-labor-cooling-2026",
+    "kind": "update",
+    "verdict": "keep",
+    "reason": "10월 미국 비농업 고용이 16만 5000명 증가해 예상을 대폭 상회하며 급랭 우려가 정상화 국면으로 진정되었습니다.",
+    "status": "applied",
+    "changes": {
+      "phase": [
+        "shock",
+        "correction"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "[속보] 10월 美 비농업 고용 16만 5000명 증가로 '예상 대폭 상회'…실업률 4.1%",
+        "source": "뉴스핌",
+        "date": "2026-11-06",
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5NOG1MbnAtVHF6RjBCLTFGbkxUYWNkYkk3aUJSYWFaNXNNcmkyeWctRHQ2bnRlOXdFbHI0dlE4NnlqaXZKWWNOd0twM2hJYzBGX2hFckFWY2daRy16?oc=5"
+      },
+      {
+        "title": "US labor market regains ground as job growth surges, unemployment rate falls to 4.1%",
+        "source": "Reuters",
+        "date": "2026-11-06",
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPakNLaDVCMElHQkc5cjV5SmVJcFNPdVpMbnZHRmVFMkoxR3hhbERYTnBZcUlmQVZBanhMeVhEZHpsN3JxM0xrUHNsYVZPWW1EdXBWam1pNk5lSEZVNHkwcUV1VG9xbmVYek80a3JXelRIcW9fQjQ3TUljTUdpZkhYWUJaZHhxNTUybWQwME81bUtPTmJ4UUg4ZjVrZjVlLUx2azFkWjhmeThDWkp2MHJwdTVR?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-07",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "AI 버블 공포와 기술주 급락으로 국내외 증시 변동성이 크게 확대되어 진행 중으로 재점화되었습니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "dormant",
+        "active"
+      ],
+      "phase": [
+        "overshoot",
+        "shock"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "[마켓펄스] “9개월 만에 5000포인트 증발”...AI 버블 공포에 삼전닉스 ‘급락’",
+        "source": "투데이신문",
+        "date": "2026-11-06",
+        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9RbzFGcTh1bUo4eU51c1lxbVFBTHc2bV9YMXppSGJheHZ6M0xCaUtkQWhHYlNmZXNIcW1qdmtZdlFqdVhQUEtLUUI4U25WRjlPdllJdTJud3JiYWZ2ODhZWG1XcDh4MHB1VENv0gFvQVVfeXFMTjJFbnFhRFBnOTVkbmQ2TGl6d1lhaW5FYXI1b3FjQ2RJZFhuSk94Sjkya3hvMURNcjloOW5FUmgyX0xQck9XUDk5RWVJZXBCYWcydHgzVUh1U0JZNGFrbG95V0JNdzJXeWpSV2hYTVdz?oc=5"
+      },
+      {
+        "title": "‘블루쇼크’에 AI 버블 붕괴?…월가 일각서 \"단순 조정장 아닐 수도\"",
+        "source": "JTBC",
+        "date": "2026-11-06",
+        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAyVmoxUzVrQmJ3ekZoamRvTllSbVFGU0s4SUhxczk0aE81cVU4dlkwdGdyQ2JQRUpzMlFmQmt4bTZTMzN0VFRqaVJPSnNCTUNxeXc?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-07",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "crypto-exchange-taxation-2026",
+    "kind": "new",
+    "name": "가상자산 거래소 해킹 및 과세 유예",
+    "reason": "바이낸스 해킹 이슈와 가상자산 과세 2년 유예 결정이 맞물리며 관련 보도가 지속되었습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-07",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "10월 미국 비농업 고용이 예상을 상회해 고용 급랭 우려는 진정 국면으로 전환되었고, AI 버블 공포로 잠잠하던 AI 밸류에이션 내러티브가 재점화되었습니다. 지켜보던 가상자산 거래소 해킹 및 과세 유예 이슈는 신규 내러티브로 승격되었습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "재점화",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "테슬라·스페이스X 합병 구상",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "국민연금 국내 증시 평가손실",
+      "SMR 및 원자력 기술 개발"
+    ],
+    "at": "2026-11-07T10:15+09:00",
+    "trigger": "schedule"
   }
 ]
