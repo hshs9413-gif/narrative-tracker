@@ -32,10 +32,10 @@
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5DbUJoYktXS0hZOXBVTnZPbmRuWkljUHlCeWxBS0JaR1VMLVdIVkZGcnNmZnFJVGU0ZE80UllpdTV6ZmJYcVAxTG84TUg1VmczSlBQbk1keW1FZURhV2cwTjhyUEtuMEZqT3BFZllJeUo?oc=5"
     },
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 중간선거 여소야대 시 41.1조 달러 부채한도 디폴트 위기 가능성이 제기되었습니다."
+      "reason": "미국 부채한도 디폴트 위기 경고 보도가 나오는 가운데 기존 신용 위험 흐름을 유지합니다."
     }
   },
   {
@@ -71,10 +71,10 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9odWsyUXhuZjBjdElKMzRwenFpa3ZGVWFRTzhsRU9uUkZWSFVTU2J5dUZqUVlOZkFlWFJDUjYxQXFhUlpIRmlRTmhLQnI1TGdxM01PbzdpM2ZDUdIBX0FVX3lxTE9iUjByWXRXbC1jZWcyTEhYMWY5SFdLUXNRcWRIejZmdFRPZ3JBMFFtLVI4SWtTNFJkdElpOFdUNWZNU1Z4RzBiN2l0MngyNmNlTVVDTTVLLVJHUlBhNGxr?oc=5"
     },
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "트럼프가 거론한 알래스카 LNG 투자에 대해 정부가 상업성 평가에 착수했습니다."
+      "reason": "정부의 알래스카 LNG 사업 상업성 평가 착수 등 통상 협력 보도가 지속되고 있습니다."
     }
   },
   {
@@ -83,11 +83,11 @@
     "layer": "cyclical",
     "layer_secondary": null,
     "phase": "shock",
-    "status": "dormant",
+    "status": "active",
     "intensity": "high",
     "trigger_date": "2026-10-14",
     "peak_date": null,
-    "half_life_date": "2026-10-29",
+    "half_life_date": null,
     "assets": [
       "dollar",
       "us10y",
@@ -105,18 +105,17 @@
     "added_by": "gemini",
     "added_on": "2026-10-16",
     "headline": {
-      "title": "美, 8월 생산자물가 0.4%p 상승…전년 대비 5.4%↑",
-      "source": "TradingView",
-      "date": "2026-11-02",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5LMzFlTUxoeWQwVWx0ZWlhaVZPdE5maVAzR2J5VFBkc0UyLS1NZFZRS3JKOTlBUHhCOHVGaDBCdzFNY1lsWXFyYmp2bXJaMmEwZC1VNS1HTC1OWTRlRG1FampyRXMxT2hu?oc=5"
+      "title": "[뉴욕증시-주간전망] 美 인플레 향방은…'AI 풍향계' 코어위브 실적 주목 |",
+      "source": "연합인포맥스",
+      "date": "2026-11-07",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1qNTdFV3dxUHk0V2RkNFlqNFVKa05LNHNveWN0VllvdElyVDVibUI0MEo3RnRnaTJGWHh3dnNyeDJHRGhYd1VsUEtEQmtmbDNFWXFWa2hVaU92c2VORFpzTUpRV0UzSnlISndfWEZTMDFVV1k5?oc=5"
     },
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
-      "verdict": "유지",
-      "reason": "언급 지표 식음 판정에 따라 잠잠 상태를 유지합니다."
-    },
-    "dormant_since": "2026-10-29"
+      "verdict": "재점화",
+      "reason": "미국 CPI 및 PPI 지표 발표를 앞두고 인플레이션 향방에 대한 경계감이 주요 매체를 통해 다시 부각되었습니다."
+    }
   },
   {
     "id": "financial-ai-security-2026",
@@ -145,16 +144,16 @@
     "added_on": "2026-10-15",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "금융권 해킹 '도미노'…37개사 뚫리고 정보 47만건 유출",
-      "source": "이코노미스트",
+      "title": "금융권 해킹 사고 40건으로 확대...개인정보 47만 건 유출에 10억원 금전 피해도",
+      "source": "조선일보",
       "date": "2026-11-05",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE90bDNURWtSYzdyemdYcjRod0ZXcXZ0UmtCS0xKeXk3N2M5SWlZMlk5bnhwd0VMV1NDQ2N2V2cwSzV2ZXFNYVZJUXhrYnU5TnhJamRqOUFBVGpKOUVNOW05OXpn?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPR2ZFYWJ0cHhqZGwzSVBnR1RtZnk4VXgxOXhPOVJEdTJKOUtjVW5zXzIzejRodFFISkhOaXd2MGVGcnNEVVpnWmdIR25mTGZ1V2UxRHVjLVJmT3JDbTE3MHlEcnp2NE5lRUh6MGlRc1NEYWt5M1prU2d1WmdVWjJfVTFCeS1adnhrUGhIOERR?oc=5"
     },
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "금융사 37곳에서 개인정보 47만 건이 유출되며 금융권 해킹 리스크 우려가 계속되고 있습니다."
+      "reason": "금융사 개인정보 유출 및 AI 보안 리스크 관련 보도가 지속되고 있습니다."
     }
   },
   {
@@ -223,16 +222,16 @@
     "added_on": "2026-10-13",
     "candidate_since": "2026-10-11",
     "headline": {
-      "title": "철새 몰려오자 가축전염병 비상…화성시, AI·ASF·구제역 통합 방역체계 가동",
-      "source": "에너지경제신문",
-      "date": "2026-11-03",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9pUkxIN2J4dWJ4OTlfYlQ5dlFnRnhtQW5iYTRYX0IyS241R2dOX2pLTDdnR0JJU2hHUGZ6Wjl6VkhiS0JsYS1iVEpTYWpHUzVfbHZUQzhRaTVDaVk?oc=5"
+      "title": "추미애 지사, 연천 고병원성 AI 발생에 긴급 방역 강화 지시",
+      "source": "아주경제",
+      "date": "2026-11-05",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE8tMjIxRzBwam9FZHMzZkdNNHRlbzBobTk5eW5hbERHVldlcnIwY3lvdlNTVUQ2cmUzY1RHMlpNRjhmRnpGY0JHUm5VV211TXo4RUFqa2hHaXfSAVhBVV95cUxPLTIyMUcwcGpvRWRzM2ZHTTR0ZW8waG05OXluYWxER1ZXZXJyMGN5b3ZTU1VENnJlM2NURzJaTUY4ZkZ6RmNCR1JuVVdtdU16OEVBamtoR2l3?oc=5"
     },
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "지자체 방역체계 가동 보도가 이어지나 전반적 관심은 잠잠 상태를 유지하고 있습니다."
+      "reason": "지방자치단체의 가축 전염병 방역 강화 보도가 이어지며 잠잠 상태를 유지합니다."
     },
     "dormant_since": "2026-10-28"
   },
@@ -266,10 +265,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 재정적자 우려 속에 미 국채 금리와 달러화가 동반 상승세를 보였습니다."
+      "reason": "미국 국채금리 상승과 주요국 재정적자 우려 보도가 계속되고 있습니다."
     },
     "headline": {
       "title": "미 달러화 강세…기술주 반등에 미 국채 금리와 동반 상승",
@@ -308,16 +307,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "증시 급락에 따라 코스피 변동성지수가 3개월 만에 60선을 상회했습니다."
+      "reason": "반도체주 주가 변동성 속에서 빚투 반대매매 유예 및 담보비율 조율 보도가 이어지고 있습니다."
     },
     "headline": {
-      "title": "증시급락에 코스피 변동성지수 껑충…3개월만에 60선 웃돌아",
-      "source": "연합뉴스",
+      "title": "삼전닉스 주가는 급락, 빚은 그대로…'빚투' 발 수급 비상 오나",
+      "source": "뉴스핌",
       "date": "2026-11-06",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB0UVFYbmJRWHoxU082d29tU2ZfMXJ0aWhpenhTenRXQTNTOEdBcC16aUp5cUxrVWRVUFVuSFliTHVqUmhjdEFRWkx5bi1vc25UeC14WHFPemJ5aGZZcV9SMtIBYEFVX3lxTFB0UVFYbmJRWHoxU082d29tU2ZfMXJ0aWhpenhTenRXQTNTOEdBcC16aUp5cUxrVWRVUFVuSFliTHVqUmhjdEFRWkx5bi1vc25UeC14WHFPemJ5aGZZcV9SMg?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5jaFBhZXk2eURRcFZ0MWoyQ2tYOFNaTXJSUHNmeEtUaVpUT29salIwalZNRWZNZ0pCSGZkenEzdThmczhDZW5uNkNPUy00RmhQZjNUci1VZmZLWjM0?oc=5"
     }
   },
   {
@@ -349,10 +348,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본은행이 금리 인상을 계속 추진하는 것이 적절하다고 밝혔습니다."
+      "reason": "일본은행의 추가 금리 인상 적절성 발언과 엔화 운용 상품 보도가 유지되고 있습니다."
     },
     "headline": {
       "title": "“엔화 다시 오르나”…일본은행 “금리 인상 계속 적절”",
@@ -475,10 +474,10 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "유조선 공격으로 국제유가가 반등하며 중동 지정학적 불안이 계속되고 있습니다."
+      "reason": "호르무즈 해협 정세와 유조선 공격 등 중동 공급 차질 우려로 유가 변동성이 지속되고 있습니다."
     },
     "headline": {
       "title": "[금/유가] 사흘 급락했던 유가, 유조선 공격에 급반등…금값 약 2주 만에 최고",
@@ -512,16 +511,16 @@
     ],
     "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대.\n[10-11 검증] 빅테크 4사 2026 설비투자 전망 약 7,250억 달러, 엔비디아 10월 첫 주 사상 최고가 후 조정, 버블 경고 확산. 7/28 코스피 반도체 레버리지 붕괴(-10.84%). 키워드는 언급량이 66일 중 57일 100건 포화라 더 좁힘.",
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
-      "verdict": "재점화",
-      "reason": "AI 버블 공포와 기술주 급락으로 국내외 증시 변동성이 크게 확대되어 진행 중으로 재점화되었습니다."
+      "verdict": "유지",
+      "reason": "잠잠 제안이 있었으나 최근 3일간 월가의 AI 버블 우려 및 시장 조정 보도가 다수 확인되어 진행 중을 유지합니다."
     },
     "headline": {
-      "title": "[마켓펄스] “9개월 만에 5000포인트 증발”...AI 버블 공포에 삼전닉스 ‘급락’",
-      "source": "투데이신문",
+      "title": "월가 전문가들, 약세장 진입 경고…\"블루쇼크에 AI 버블 우려 현실화\"",
+      "source": "뉴시스",
       "date": "2026-11-06",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9RbzFGcTh1bUo4eU51c1lxbVFBTHc2bV9YMXppSGJheHZ6M0xCaUtkQWhHYlNmZXNIcW1qdmtZdlFqdVhQUEtLUUI4U25WRjlPdllJdTJud3JiYWZ2ODhZWG1XcDh4MHB1VENv0gFvQVVfeXFMTjJFbnFhRFBnOTVkbmQ2TGl6d1lhaW5FYXI1b3FjQ2RJZFhuSk94Sjkya3hvMURNcjloOW5FUmgyX0xQck9XUDk5RWVJZXBCYWcydHgzVUh1U0JZNGFrbG95V0JNdzJXeWpSV2hYTVdz?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9OUnBCbWUyV2VFdHFQVC0yTVRCV0RZcl85Ul9EbjBodVF5T01pU2RvSFVNbER0OUlQYXZpMDdRaWwxYWxlaTVRbzBoRFFzWERmZkFBWnZZZTFKd3ZJZHRfU9IBeEFVX3lxTE96cGJUQnNSODFvQkNKUTRtQkkwQUJ3NkdoNXAwU0JOSjIxMUpwM20tSzNSUHZOSHJZcFlCMHYzV2RWY3luR25yQ0lWTmNpbUs4dXV5bkJVS1BqRVVURlJrTHVjRktEUnVrWUZxd0xwV3VrSlB1ckdtRw?oc=5"
     }
   },
   {
@@ -553,10 +552,10 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "중국과 캐나다가 상호관세 면제를 2년 연장하는 등 완화 국면이 지속되고 있습니다."
+      "reason": "미국 선거 이후 관세 정책 전망과 주요국의 상호관세 면제 연장 조치 보도가 이어지고 있습니다."
     },
     "headline": {
       "title": "선거 다음날 美 보란듯…中·캐나다, 상호관세 면제 2년 연장",

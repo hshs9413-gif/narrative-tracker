@@ -2569,5 +2569,99 @@
     ],
     "at": "2026-11-07T10:15+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-08",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "us-inflation-shock-2026",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "미국 CPI 및 PPI 지표 발표를 앞두고 인플레이션 향방에 대한 경계감이 주요 매체를 통해 다시 부각되었습니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "dormant",
+        "active"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "[11월2주 글로벌 증시 캘린더] 미국 CPI·PPI에 AI 실적까지…증시 흔들 변수는",
+        "source": "https://www.theconnectmoney.com/",
+        "date": "2026-11-07",
+        "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5ZMXhCeWd2OVNXZkpTSHJRdGxQbG16akRtMW5BbC1RR0FkenNZSUNzc0hITHVHMDB1NzMtUGVMblB5UlZQTWc1UlVTQWYwUFBkNlFCZThyT1NINlRxcU15aA?oc=5"
+      },
+      {
+        "title": "[뉴욕증시-주간전망] 美 인플레 향방은…'AI 풍향계' 코어위브 실적 주목 |",
+        "source": "연합인포맥스",
+        "date": "2026-11-07",
+        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1qNTdFV3dxUHk0V2RkNFlqNFVKa05LNHNveWN0VllvdElyVDVibUI0MEo3RnRnaTJGWHh3dnNyeDJHRGhYd1VsUEtEQmtmbDNFWXFWa2hVaU92c2VORFpzTUpRV0UzSnlISndfWEZTMDFVV1k5?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-08",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "us-labor-cooling-2026",
+    "kind": "update",
+    "verdict": "down",
+    "reason": "10월 미국 비농업 고용 증가 폭이 예상을 대폭 상회하며 고용 급랭에 대한 우려가 진정되었습니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-08",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "tesla-spacex-political-risk-2026",
+    "kind": "new",
+    "name": "테슬라·스페이스X 연계 및 정치 역풍",
+    "reason": "미국 중간선거 이후 일론 머스크 관련 계열사의 정치 베팅 역풍과 사업 연계 보도가 지속되고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-08",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "crypto-security-taxation-2026",
+    "kind": "new",
+    "name": "가상자산 보안 리스크 및 과세 유예",
+    "reason": "가상자산업계의 잇단 해킹 사고에 따른 금융당국 긴급 소집과 과세 유예 논의가 잇따르고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-08",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "10월 미국 비농업 고용 증가로 고용 급랭 우려가 다소 완화된 반면, CPI 발표를 앞둔 인플레이션 경계감은 다시 재점화되었습니다. 지켜보던 후보 중 일론 머스크 기업의 정치 역풍과 가상자산 보안·과세 이슈를 신규 내러티브로 전환 등록했습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "재점화",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "테슬라·스페이스X 합병 구상",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "SMR 및 원자력 기술 개발"
+    ],
+    "at": "2026-11-08T09:57+09:00",
+    "trigger": "schedule"
   }
 ]

@@ -3,15 +3,59 @@
     "key": "국산비만약시장경쟁",
     "name": "국산 비만약 시장 경쟁",
     "first_seen": "2026-10-15",
-    "days_seen": 14,
-    "last_seen": "2026-11-07",
-    "why": "국산 비만치료제 출시 이후 제약업계 내 경쟁 및 파이프라인 보도가 지속되고 있습니다.",
+    "days_seen": 15,
+    "last_seen": "2026-11-08",
+    "why": "국산 비만치료제 출시 이후 제약업계 내 파이프라인 개발 및 시장 경쟁 관련 보도가 지속되고 있습니다.",
     "evidence": [
       {
-        "title": "\"안전상비약 확대보다 판매관리부터\"…약사회·소비자단체 안전성 논의",
-        "source": "약업닷컴",
-        "date": "2026-11-05",
-        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE50OF9tNktzR0VOVlBRX3VLQl9CdUQ2UTJqNDRRRTk5akxQQlhuM3Y4TVFTXzZLS1MzUm5yTFJlVm00UmlEcGFLQ3RpUTBqWUpPaUUtdDBxTTg0VVFXRHVCODJOeFNwQQ?oc=5"
+        "title": "How Cardiologists’ High Hopes for Two Drugs Were Dashed",
+        "source": "The New York Times",
+        "date": "2026-11-07",
+        "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOa0NfZEYxYnc3ZWxPRlJYQVZZR3hEYWEtMHlQRldPdE02QWhaanpnUHdIWVByaFBaR2hidkt0Ym1GZHRNVkZpVENpajJKUWN6cXprb1h2dW5wZGtzSUpyZ1Rsak9DOGdQRFgtN2c2WHVTckRqeV9sQXVPMnNVel9fVkpPU2VFUDJBVmhtMVJVQzFTUQ?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "국민연금국내증시평가손실",
+    "name": "국민연금 국내 증시 평가손실",
+    "first_seen": "2026-10-19",
+    "days_seen": 13,
+    "last_seen": "2026-11-08",
+    "why": "코스피 변동성 장세 속에 연기금 수급 조율 및 증시 완화 정책 보도가 이어지고 있습니다.",
+    "evidence": [
+      {
+        "title": "[신용융자 규제 완화] 첫 카드 꺼낸 당국 \"투심 완충제 우선 세운다\"",
+        "source": "연합인포맥스",
+        "date": "2026-11-07",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE94aHJGTmJSa0puYW5MdURLaUgxTlhFSlZ5MV81UTJxMzhqd185WlNMN2ZaNlNMenpQenVhUGtsT2Ftdlk0VnBnR3U3cm8wSWdvYW1zRUUzX3NOVXhBUnNHSFF1cEpqYkU4Wm15SWh0MFrSAXRBVV95cUxQSjR3U21DQWdfSTNjMTZlUEQ3NUpqbG1yVkJWZklqQkRRYVloSUpIcWRPS21UNEtaUjNCcE56YXlmOHN5bVh2WkxJWjZKaDgxSDZsNlBfcl8zclAzNDREemFnY2xPS3RzQWtqaXIzY25RbnhibQ?oc=5"
+      },
+      {
+        "title": "글로벌 증시 급락에 상장지수펀드 순자산 400조원 깨졌다",
+        "source": "연합뉴스",
+        "date": "2026-11-07",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9VYkIwZEtSMElTSmIxaGhHemZBTUlnMXQ1dnZfVXNULURReWl4ZFlaSm1fV2hNRW1OU2dRZ19VaHJBdWZOcnhlenVPaFRFUzc0WWhYWlRsNExnVDg?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "앤트로픽대규모자금조달및상장추진",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "first_seen": "2026-10-28",
+    "days_seen": 7,
+    "last_seen": "2026-11-08",
+    "why": "앤트로픽의 높은 기업가치 평가와 함께 중간선거 이후 데이터센터 증설에 대한 여론적 반발이 맞물리고 있습니다.",
+    "evidence": [
+      {
+        "title": "Anthropic IPO meets AI backlash after midterms show stinging rebuke of data centers",
+        "source": "CNBC",
+        "date": "2026-11-07",
+        "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBkVFNKdFlSLTl6ZndHZTBvOFFta0JaelYzcldkc21kSVJiSHNOcDVBX19xTVY3clpiekZSWmpRbFdtaHdTbVo1d3lNNXJTa3FfQ2NiWHhJV3Vvb3hEekdfQnJDV2xQcU0wUFo4dnBiM050YnhVOVFfYXo4VW5PRWc?oc=5"
+      },
+      {
+        "title": "Chart of the Week: Data centres rebuked",
+        "source": "Financial Times",
+        "date": "2026-11-07",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQk9qamlJdm1YTENlcUdqS3lwZnpTRXhNMmxMVENvdUl4LVZDZS1tREpocHpLY3gza1pEVGthV2QweVR5NnpubW9sNmIwV0NtNXpwd004WnNjTlB3RzN2dmdfV3FFUEVnN29DUWN4Z1B6REQtTWVudktCczhHT2k1V3Q5VUI?oc=5"
       }
     ]
   },
@@ -38,22 +82,6 @@
     ]
   },
   {
-    "key": "앤트로픽대규모자금조달및상장추진",
-    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
-    "first_seen": "2026-10-28",
-    "days_seen": 6,
-    "last_seen": "2026-11-07",
-    "why": "앤트로픽의 1조 5천억 달러 기업가치 평가에 대한 월가의 신중론과 외신 보도가 지속되고 있습니다.",
-    "evidence": [
-      {
-        "title": "Investors brace for lower Anthropic valuation, calling $1.5 trillion a 'stretch'",
-        "source": "CNBC",
-        "date": "2026-11-06",
-        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPc2xnRmphZ1JWMGh1OHplODE3ek1GTHFoLXBkNkY2RVlDM2NVRHJBdzBsYlNVMFlJSWdXMVpBMkV5TFRMbUxSaGsyVmN4T0pKSGhiYnhKWkg5Q1ZkZEVmUE9RVUhXTlJWSFAtOE4yM0JCbG5PdGVIbnE4VURQam9RNWcyNHFrZUFZdkdCNzlGbzJuRzhYYjBDb0JPSk91cUhlWnRaemVR?oc=5"
-      }
-    ]
-  },
-  {
     "key": "가상자산거래소이슈및과세논의",
     "name": "가상자산 거래소 이슈 및 과세 논의",
     "first_seen": "2026-10-31",
@@ -72,22 +100,6 @@
         "source": "Futurism",
         "date": "2026-11-05",
         "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9taktFZUZWcU90LVNjM3haNXBRQ0pQeXFvcUY0bncya2ZxM2sxRHFIRWtTeTJVN0doNWlpeHZwZVMtMDg3c3AyWFV1RlRDekItN01DU3Q1NkhkUlhHVVNZaS1lcllkdkcxZElZYU1RWQ?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "국민연금국내증시평가손실",
-    "name": "국민연금 국내 증시 평가손실",
-    "first_seen": "2026-10-19",
-    "days_seen": 12,
-    "last_seen": "2026-11-04",
-    "why": "코스피 변동성 장세 속 연기금 수급 및 평가손실에 관한 지적과 관심이 계속되고 있습니다.",
-    "evidence": [
-      {
-        "title": "국민연금 받는 80세 이상 107만 명 육박",
-        "source": "이투데이",
-        "date": "2026-11-03",
-        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1Oc2RPSDNNb1BBSGhpZGwxX2Rqb2l3aTVYbE9OdEZmZ3ZlLUdQcHhqUjQ1andXUEhUc3o1eVZUend3ZDJTSVRLN0xMbkRmZ3ZvdVl0YVJoZkFoUQ?oc=5"
       }
     ]
   },
