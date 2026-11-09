@@ -43,6 +43,12 @@
     ],
     "us-inflation-shock-2026": [
       {
+        "title": "중국 10월 생산자물가지수(PPI) 5.7% 상승",
+        "source": "서울뉴스통신",
+        "date": "2026-11-09",
+        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5mSzRyWWxfbUhOS2gwS29UNkdTUG9VU0t2TGs1LVFQbjBLTE1RX0VOWEV2NVY4NGhMMm5rdWM0a2MxVkJNSlk2akg2UGhyZnFIQU5wa1F3cTJpczNxRjI4dWVpcFhpUW9kZmNv?oc=5"
+      },
+      {
         "title": "[한국증시 전망] 코스피 5,000선서 반격 나설까…삼성전자·SK하이닉스 반등과 미국 CPI가 가른다",
         "source": "톱스타뉴스",
         "date": "2026-11-08",
@@ -53,20 +59,14 @@
         "source": "https://www.theconnectmoney.com/",
         "date": "2026-11-07",
         "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5ZMXhCeWd2OVNXZkpTSHJRdGxQbG16akRtMW5BbC1RR0FkenNZSUNzc0hITHVHMDB1NzMtUGVMblB5UlZQTWc1UlVTQWYwUFBkNlFCZThyT1NINlRxcU15aA?oc=5"
-      },
-      {
-        "title": "유로스타트: 2026년 9월 EU27 중간재 생산자물가지수 124.9 - 뉴스 및 통계",
-        "source": "IndexBox",
-        "date": "2026-11-07",
-        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOa1MtYi1NUXZZaFo4UE5TMEZ5MkoyVUZSZEdhWXh3cFRVUklWQTlSMGVpbUlidUlFRW5PaWxLd2s1dWUzcGNnVS1INXJvTlFabTlNUS1XcXI2dV9XbDVodnU1cmZBZkVtTU1SYkxyMHVlckpYZnUzV1Zsb3hXMjNwQ1htS1JLLUJ3YmpTYWdpVHJSQU9JcXJsU3M2VVREeTRIcFVPcVYyNFo3TE9VY0Y0Z0hGczlyRFFC?oc=5"
       }
     ],
     "financial-ai-security-2026": [
       {
-        "title": "잇따른 개인정보 유출사고에 ‘2차 피해 특별대응’ 연말까지",
-        "source": "한국보험신문",
-        "date": "2026-11-06",
-        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5MWnVmc0w4LWlnZUFUU2tuMGNFSE1WcDdITUl0b05UdE1zTF9vbE4zQ1lvV0VvNkVXa3VqWWp6bDY5dUdZZ3hYVzhXbnBoWFlmY3diNWoxaWthbVJjcjlFM0NwSmotYVJBdEJn0gFvQVVfeXFMUG0zbDMyX28tNGc4WDQtYjU5Q3pyMWhZbHRUN2FmVXRsdTJ5dG93V05wQU5ZcEUtMGhnMnl6MTFmM01wckExRzYyVFVtTXJycHVNUUVBOU9ZNHBHeV9ESnRSTVBtWEpRRFAwVE1sRnhj?oc=5"
+        "title": "끊이지 않는 금융권 해킹 정보 유출",
+        "source": "부산일보",
+        "date": "2026-11-08",
+        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9PX0Q4UFpxcDhVMEhlRExOV2FHY0hsam9iRXZJUlVLT2xRR3NGY0NUaHZoSzlub1A5QzVQbHViMUJkd0hmZDl2blByeGFsdXhVTzVkeF9KUWtSbmtfLS1wQ1ZRTndKV0JJTG1ScUUzTGprT29NUXdOMw?oc=5"
       },
       {
         "title": "[이슈K] 개인정보 유출의 ‘덫’…피해 막을 방법은?",
@@ -75,10 +75,10 @@
         "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBrWFpUZU44QjFjNnBXZUVYX2JHSjBxdlhFRkV2M05MVXp1TjB2SHdRZW03SDlFZG5KWm82WVlhWHU4dzBIWmpRYXpUQmlWRGNDb0VNZDdxTEpFQ0k?oc=5"
       },
       {
-        "title": "금융권 해킹 한 달 새 40건···당국, 580개사 보안체계 전수점검",
-        "source": "시사저널e",
+        "title": "잇따른 개인정보 유출사고에 ‘2차 피해 특별대응’ 연말까지",
+        "source": "한국보험신문",
         "date": "2026-11-06",
-        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1Ud1Y3S25NRFhVYVRkUUFhbG5IQlFxcjQwSndRZlQ4Z3Myb0Y5bG5VTl9ZM0F4RUdObk5oVlBGcW1MOU1HQzZxTk1zLU03cjM1RjBnUkJ6QWhSSjJIOTZZenVROTVJZHZ1cEtuOXJDRVZzM3NpWUHSAXZBVV95cUxNVHdWN0tuTURYVWFUZFFBYWxuSEJRcXI0MEp3UWZUOGdzMm9GOWxuVU5fWTNBeEVHTm5OaFZQRnFtTDlNR0M2cU5Ncy1NN3IzNUYwZ1JCekFoUkoySDk2WXp1UTk1SWR2dXBLbjlyQ0VWczNzaVlB?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5MWnVmc0w4LWlnZUFUU2tuMGNFSE1WcDdITUl0b05UdE1zTF9vbE4zQ1lvV0VvNkVXa3VqWWp6bDY5dUdZZ3hYVzhXbnBoWFlmY3diNWoxaWthbVJjcjlFM0NwSmotYVJBdEJn0gFvQVVfeXFMUG0zbDMyX28tNGc4WDQtYjU5Q3pyMWhZbHRUN2FmVXRsdTJ5dG93V05wQU5ZcEUtMGhnMnl6MTFmM01wckExRzYyVFVtTXJycHVNUUVBOU9ZNHBHeV9ESnRSTVBtWEpRRFAwVE1sRnhj?oc=5"
       }
     ],
     "global-bond-selloff-2026": [
@@ -121,7 +121,33 @@
         "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9DSzJzd25yWnVLNGphX1NRTm1yWDVwOWJTZnRhNDE0R0dHc1hBWUx0aFVWcFR6MjlRQU1xR28tSllyMEljMDVMdVBZUE90TW1HWUtKVnpaSWEtYVBBc2F0Vzgwb3A0aHNG?oc=5"
       }
     ],
+    "boj-normalization-2026": [
+      {
+        "title": "“달러 환전 없이 굴리고, 원화로 일본 국채 투자”…IBK투자증권, 외화 신탁 3종 출시",
+        "source": "디지털데일리",
+        "date": "2026-11-06",
+        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1HYXVWSFVZM0dKa3VnVzdSRm1UU2gta3pSQjdMYmVtNV82Q3BRNDhMSW1PVUx5aGNEMFZPal9NTlFXZ1M4UTJudVZwRk5qQ2Vmc2RoMVVnbWstWGVWVnR4ejVNT0Q?oc=5"
+      },
+      {
+        "title": "IBK투자증권, 환전 없이 달러 굴리고 원화로 일본 국채 투자",
+        "source": "중앙이코노미뉴스",
+        "date": "2026-11-06",
+        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5GbHJkRG0tanJmQmZadDROOHZiS3FYX1dINUVpZE90NEFjeUNSdE82VmF4RTZiY2dzdENPV1R2NDlYQXhWZ1dZLW9qTkZkVzd2M0ZubXRvczZ5VlRZY1lZYVEwb0ZKMUlpaTZ6S05NQjVlUQ?oc=5"
+      },
+      {
+        "title": "“엔화 다시 오르나”…일본은행 “금리 인상 계속 적절”",
+        "source": "이데일리",
+        "date": "2026-11-05",
+        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPN0pnV2xWREt6MGVDdnozSWdDMno5MEpaNGxoa3VEUVVJcTFKOEdhaWFWOTlWYTZyYm5pMm9NRGFhMGZYVGFxV2RxYU9oaUdIaEMwMjNZZkF5TGNjV2pJaEljZm1MVnFybU1jRU5CQjJBaVllX3NJTVdTbThwM2Jhdg?oc=5"
+      }
+    ],
     "us-labor-cooling-2026": [
+      {
+        "title": "금 가격, 미국 고용 호조 후 인플레이션 데이터 앞두고 $4,100 위로 반등",
+        "source": "Investing.com 한국어",
+        "date": "2026-11-09",
+        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1zcW5UazlxTnhtcjJ6eUZ3T3NQaGtEX3lGbmEyVDhKaHo2aVJBYzRyemxhcDNSR2lLc2pCRVoyN1FITXlPME9SVl9zdjEwZWFNVzNuYzM0TzJDZ01zZDlBa1Y5dTM1THJvejFVZm5sRQ?oc=5"
+      },
       {
         "title": "\"미국 고용 서프라이즈…금리인상 서두르진 않을 것\"",
         "source": "뉴스투데이",
@@ -133,12 +159,6 @@
         "source": "네이버 프리미엄콘텐츠",
         "date": "2026-11-07",
         "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQOXBXc3J4NXJENmRyRkhZUUY0czBYT3cyVWo3WUZjcDE2RUQ0cjlYcEZlRXRMcDc4Sy1BeGpxcmEyVHl5YUhIZE5xaDBpb0hDbmFCWXMwa1ZMTGlXMW5XbklNYWpzWnpEQThlaS1QcnFYSm5WejlFVGItRGJPUzZPa2xvSi1ZUXJhaXFieDRVOGQ?oc=5"
-      },
-      {
-        "title": "뉴욕증시, 기술주 반등·비농업 고용지표 소화하며 혼조 출발",
-        "source": "연합뉴스",
-        "date": "2026-11-06",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE92akp1UnRDSDVJeGlfWkxtUmxZUlJVVllfR2FPMVVwMW9ZclFBcDZvVmQ1dzE2SWY4aVFKdEN6M3hCeWF2aWVaQmpSM0w4cWZoVUdJNEltOFNOd3PSAWBBVV95cUxOd2RBV3FpNk1mWHFvTy1SMDNYOWgxYVVEaXI3VlpHTmpOa0p2ZGFHOWdBNUJQcXI1TFFSeGJUVjJyYnhlbGJmaUs0cHprRUtQdHZaMFBHbzRPeXp1UnlYTHM?oc=5"
       }
     ],
     "iran-war-2026": [
