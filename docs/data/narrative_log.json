@@ -2663,5 +2663,84 @@
     ],
     "at": "2026-11-08T09:57+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-09",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "us-inflation-shock-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "인플레이션 관련 언론 언급량이 정점 대비 크게 줄어 제안에 따라 잠잠 상태로 변경합니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-09",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "boj-normalization-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "최근 7일간 관련 기사가 보도되지 않아 제안에 따라 잠잠 상태로 변경합니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": []
+  },
+  {
+    "date": "2026-11-09",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "us-labor-cooling-2026",
+    "kind": "update",
+    "verdict": "down",
+    "reason": "10월 비농업 고용이 16만 5천 명 증가하며 예상을 크게 상회함에 따라 고용 급랭 우려가 진정되어 시장 영향이 작아짐으로 변경합니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-09",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "crypto-exchange-tax-2026",
+    "kind": "new",
+    "name": "가상자산 거래소 이슈 및 과세 논의",
+    "reason": "바이낸스 대규모 해킹과 함께 디지털자산법 발표 및 가상자산 과세 논의 관련 보도가 이어지고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-09",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "10월 미국 비농업 고용이 예상을 대폭 상회하며 고용 급랭 우려가 다소 완화(down)되었고, 미 인플레와 일본은행 금리 이슈는 잠잠(잠잠)으로 돌렸습니다. AI 밸류에이션 및 반도체 빚투 반대매매, 금융권 개인정보 유출 등 주요 내러티브는 진행 중을 유지하였으며, 지속 관찰되던 가상자산 거래소 및 과세 논의를 신규 내러티브로 등록했습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "잠잠",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "테슬라·스페이스X 합병 구상",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "가상자산 거래소 이슈 및 과세 논의"
+    ],
+    "at": "2026-11-09T10:15+09:00",
+    "trigger": "schedule"
   }
 ]
