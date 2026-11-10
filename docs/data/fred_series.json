@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T23:35:41+00:00",
+  "generated_at": "2026-11-10T00:43:57+00:00",
   "api_key_configured": true,
   "api_key_status": "ok",
   "series": [
@@ -19,7 +19,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 15:03:29-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "dxy_broad",
@@ -37,7 +37,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 15:16:53-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "wti",
@@ -55,7 +55,7 @@
         "observation_end": "2026-11-03",
         "last_updated": "2026-11-04 12:18:32-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "us10y",
@@ -73,7 +73,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 15:16:45-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "fedrate",
@@ -91,7 +91,7 @@
         "observation_end": "2026-11-09",
         "last_updated": "2026-11-09 07:01:29-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "us2y",
@@ -109,7 +109,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 15:17:01-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "hy_oas",
@@ -127,7 +127,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 08:41:39-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "breakeven10y",
@@ -145,7 +145,7 @@
         "observation_end": "2026-11-09",
         "last_updated": "2026-11-09 16:03:42-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "nfci",
@@ -163,7 +163,7 @@
         "observation_end": "2026-10-30",
         "last_updated": "2026-11-04 07:37:30-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "stlfsi4",
@@ -181,7 +181,7 @@
         "observation_end": "2026-10-30",
         "last_updated": "2026-11-04 12:11:30-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "usdkrw_fred",
@@ -199,7 +199,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 15:16:28-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "us30y",
@@ -217,7 +217,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 15:17:02-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "real10y",
@@ -235,7 +235,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 15:16:44-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "term_premium10y",
@@ -253,7 +253,7 @@
         "observation_end": "2026-10-30",
         "last_updated": "2026-11-03 14:03:52-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "ig_oas",
@@ -271,7 +271,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 08:37:31-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "ccc_oas",
@@ -289,7 +289,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 08:44:53-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "sofr",
@@ -307,7 +307,7 @@
         "observation_end": "2026-11-06",
         "last_updated": "2026-11-09 07:02:18-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "iorb",
@@ -325,7 +325,7 @@
         "observation_end": "2026-11-10",
         "last_updated": "2026-11-09 15:31:26-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "fed_assets",
@@ -343,7 +343,7 @@
         "observation_end": "2026-11-04",
         "last_updated": "2026-11-05 15:32:30-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "reserves",
@@ -361,7 +361,7 @@
         "observation_end": "2026-11-04",
         "last_updated": "2026-11-05 15:32:25-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "rrp",
@@ -379,7 +379,7 @@
         "observation_end": "2026-11-09",
         "last_updated": "2026-11-09 13:02:37-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     },
     {
       "column": "tga",
@@ -397,7 +397,7 @@
         "observation_end": "2026-11-04",
         "last_updated": "2026-11-05 15:31:55-06"
       },
-      "meta_fetched_at": "2026-11-09T23:35:41+00:00"
+      "meta_fetched_at": "2026-11-10T00:43:57+00:00"
     }
   ]
 }
