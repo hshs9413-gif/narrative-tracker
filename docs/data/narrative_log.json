@@ -2742,5 +2742,106 @@
     ],
     "at": "2026-11-09T10:15+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-10",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "alaska-lng-trade-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언급 지표상 식음 판정이 내려짐에 따라 잠잠 상태로 전환합니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "美 중간선거 후폭풍…한국 원전·알래스카 LNG 투자도 불확실성 확대",
+        "source": "전기신문",
+        "date": "2026-11-09",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9mTW1ZcGNnMlJBWWE3aDZtdWV5cXdjZGFzYVF4NGM1TnlCb2VJb2VXZ0stdWoxWTdWTnU3NVN5UERWTWlNeHFvZEFXWVlzVUVhME5tTlZ4WHN1eGtobkI2bjhvWUVnUlFjZzRtc0hTdnrSAXBBVV95cUxPZk1tWXBjZzJSQVlhN2g2bXVleXF3Y2Rhc2FReDRjNU55Qm9lSW9lV2dLLXVqMVk3Vk51NzVTeVBEVk1pTXhxb2RBV1lZc1VFYTBObU5WeFhzdXhraG5CNm44b1lFZ1JRY2c0bXNIU3Z6?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-10",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "us-inflation-shock-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언급 지표상 식음 판정이 내려짐에 따라 잠잠 상태로 전환합니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-10",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언급 지표상 식음 판정이 내려짐에 따라 잠잠 상태로 전환합니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "\"AI 버블 터지면 닷컴버블 때보다 충격 클 것\"",
+        "source": "한국경제",
+        "date": "2026-11-10",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFByVUljNDZsMTc2a3lqYW1lZmJyNGhYQ2djZ0Q1UGFZRWUxNUlqUVI2Smp6NVNmVEtfYXllQ1dvNTV0bDZUaHdWTTJ0SkdOTjVZNVFwQTFIVjNQZw?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-10",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "anthropic-ipo-funding-2026",
+    "kind": "new",
+    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
+    "reason": "이틀 이상 지켜보던 후보로서 최근 앤트로픽의 상장 추진 관련 외신 보도가 잇따르며 신규 내러티브 조건에 도달했습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-10",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "알래스카 LNG, 미국 CPI 쇼크, AI 밸류에이션 테마는 지표 기준 식음 판정에 따라 잠잠으로 전환되었으며, 앤트로픽 상장 추진 건은 이틀 이상 관찰을 거쳐 신규 내러티브로 격상 반영되었습니다.",
+    "reviews": {
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "잠잠",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "잠잠",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "엔비디아 CEO 스캔들 및 당국 조사",
+      "국민연금 국내 증시 평가손실",
+      "테슬라·스페이스X 합병 구상",
+      "앤트로픽 대규모 자금 조달 및 상장 추진",
+      "가상자산 거래소 이슈 및 과세 논의"
+    ],
+    "at": "2026-11-10T12:51+09:00",
+    "trigger": "schedule"
   }
 ]
