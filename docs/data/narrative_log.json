@@ -2843,5 +2843,84 @@
     ],
     "at": "2026-11-10T12:51+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-11",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "pandemic-risk-2026",
+    "kind": "update",
+    "verdict": "end",
+    "reason": "잠잠 일수가 14일을 넘었고 식음 지표가 참으로 확인되어 종료 처리합니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "dormant",
+        "ended"
+      ]
+    },
+    "evidence": []
+  },
+  {
+    "date": "2026-11-11",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "anthropic-ipo-valuation-2026",
+    "kind": "new",
+    "name": "앤트로픽 대규모 상장 추진 및 기업가치 급등",
+    "reason": "앤트로픽이 대규모 자금 조달과 함께 대형 상장을 추진한다는 보도가 잇따르며 빅테크 및 AI 시장의 주목을 받고 있습니다.",
+    "status": "applied",
+    "evidence": [
+      {
+        "title": "Anthropic IPO, 최대 644억 달러 조달 목표 - 로이터",
+        "source": "Investing.com 한국어",
+        "date": "2026-11-10",
+        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBQVGFLZUZQdWJvLVpHR3c1MGc0WlFmVFZ4XzlYbG9HaG01XzR5VjZzVlpGWC0zY0hNMjM1NGJyVFllSXV4dzA1azV2eWozSC04ZTk4c1lYSjBCajBpMDcxT0Z2bjlYSDNZek5FbUxZeS12eUMzTENSMA?oc=5"
+      },
+      {
+        "title": "Anthropic bankers prepare to increase IPO valuation to $1.5tn or more",
+        "source": "Financial Times",
+        "date": "2026-11-11",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOemcxaS1wZzZyUGhITkh5Unh5cnVndFpLa3cxc1ZwLUxVeDFmUVBjREdnVlU2NFJIMWxhYW5OX243TVhJRUVCeXFFY0ZrelJWVzMyLTJ2R1BVUnQySmtsck5xWWJNUU5RX21HMHF4bVNBMERHSGxQWEppbnJVay11dDFCb2c?oc=5"
+      },
+      {
+        "title": "With Its Giant I.P.O., Anthropic Ties Itself Closer to Nvidia",
+        "source": "The New York Times",
+        "date": "2026-11-10",
+        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE40WWRMa0xmRm9vTGdfM2E0MXRhQUtaMmc1QnZzdm4tVG5zSlJsMWxnRzJsMXhxdlJHcC1hb0NTTF8tU25OODhVdjd4Z2JpYnpHQ3BnNktJbUZQcnFrbEJ4UW5EOXR4YVI2TXU5SnhWWXp1Y3AyeVpwVQ?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-11",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미국 CPI 지표 발표에 따른 국채 금리 급등과 이란 외교 협상 기대감에 따른 유가 하락이 주요 동인으로 작동했습니다. 장기 잠잠 상태였던 전염병 우려 내러티브는 종료 처리하고, 앤트로픽의 대규모 IPO 추진을 새로운 구조적 내러티브로 추가했습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "추가",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "pandemic-risk-2026": "종료",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "엔비디아 CEO 스캔들 및 당국 조사",
+      "국민연금 국내 증시 평가손실",
+      "테슬라·스페이스X 합병 구상"
+    ],
+    "at": "2026-11-11T10:32+09:00",
+    "trigger": "schedule"
   }
 ]

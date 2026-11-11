@@ -3,21 +3,37 @@
     "key": "국산비만약시장경쟁",
     "name": "국산 비만약 시장 경쟁",
     "first_seen": "2026-10-15",
-    "days_seen": 17,
-    "last_seen": "2026-11-10",
-    "why": "비만치료제 관련 부작용 경고 보도 등 제약 분야 주요 보도가 지속되어 추적합니다.",
+    "days_seen": 18,
+    "last_seen": "2026-11-11",
+    "why": "GLP-1 비만치료제에 대한 미 당국과 식약처의 안전성 서한 배포 및 경고 보도가 이어져 지속적으로 관찰합니다.",
     "evidence": [
       {
-        "title": "식약처, 위고비에 ‘시력손상 위험’ 문구 의무화…“다른 제품도 검토”",
-        "source": "KBS 뉴스",
+        "title": "美 ‘비만약 실명 위험’ 경고에…식약처, GLP-1 안전성 서한 배포",
+        "source": "팜이데일리",
         "date": "2026-11-10",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBtY1k5eXBvakxTcXZzT2NzZHNoZnk0OWhKVWljVDlnV2pUTzFsUnUydUdnNFdDQUE4X2RZZnlQMk5XZmhpT2Jtdml3RTFzeGxab1pLTjExc1NnVzQ?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB1V1RjNUQ0N1c5ZmtfaFV3N0IwUk1EZGQ4aE54YVlHS095cmVGZktyR3F6Q1MtZC0zT2dMd214S2tnRmx4bHRiRDMwM0lHUkYzXzRhb2IxdmZwcEp2YWI0N2pMcmtTYXNhckpOYXJR?oc=5"
       },
       {
-        "title": "FDA tells GLP-1 makers to warn of potential vision loss side effect",
-        "source": "The Washington Post",
+        "title": "Makers of GLP-1 drugs ordered to add warnings about rare eye condition that can lead to blindness",
+        "source": "BBC",
         "date": "2026-11-10",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQVXU1bS1jS2hkQ0ZmVlpTWDhXMnRON2g5RHNEUkxfcG8xTUgxelZNdEV3QWVDdDdiTUlfX2ZMMVM0ZHItdHFyUE9CbzNVRF9rc1VFbm5jS3VMUFZZcF85MGx1ajQxRVNwckN0LU5hN0lMdnpES1lrM3VhNVA5QjJuQVd0emUtZlA2QWRrRVBtc1lFQWYwbWhuUW1PaHZRYXBkUmJNVGdtd3F1UEZGOWVUcQ?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE02N2prd0FUZWRGTWdTOGlOMTg3R1RmR0pOMllPSWt1bjJReXFaSm9ON0tsdzNLWXBhbk4xSnlDdGxjbTRSLTVjcVQ3azBsUGFkbDZwNjFrc0NwdGc?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "가상자산거래소이슈및과세논의",
+    "name": "가상자산 거래소 이슈 및 과세 논의",
+    "first_seen": "2026-10-31",
+    "days_seen": 6,
+    "last_seen": "2026-11-11",
+    "why": "바이낸스 해킹 자금 이동 관련 보도가 이어지며 가상자산 시장 이슈를 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "북 해커, 바이낸스서 훔친 돈 어떻게 했나?…“10초마다 거래” [지금뉴스]",
+        "source": "KBS 뉴스",
+        "date": "2026-11-10",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBqMVlESGxRaDlGVVpHbUsxM1JPVE52UHlxTWZ2UXFUeVprdkRNRTZObHNFY3ZlWlplbEwtcFd4S3FLRmxzZG5mcXJMV2NtZFRjUDVURzd0eGpBa2M?oc=5"
       }
     ]
   },
@@ -25,27 +41,21 @@
     "key": "엔비디아ceo스캔들및당국조사",
     "name": "엔비디아 CEO 스캔들 및 당국 조사",
     "first_seen": "2026-11-10",
-    "days_seen": 1,
-    "last_seen": "2026-11-10",
-    "why": "젠슨 황 엔비디아 CEO 관련 스캔들과 조사 보도가 잇따라 지켜볼 필요가 있습니다.",
+    "days_seen": 2,
+    "last_seen": "2026-11-11",
+    "why": "엔비디아 CEO의 AI 칩 관련 밀반입 의혹과 미 상무부 국가안보 경고 보도가 나와 추이를 지켜봅니다.",
     "evidence": [
       {
-        "title": "\"'젠슨 황 스캔들' 여성, 중국 투자자들에 '엔비디아 GPU 확보' 과시\"",
-        "source": "MBC 뉴스",
+        "title": "\"젠슨황 연인 앨리스황, 10조원 엔비디아 AI칩 중국 밀반입\"",
+        "source": "연합뉴스TV",
         "date": "2026-11-10",
-        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBGQXJZVF9yblZTcHNfOURTWW1hWWRISUlvaWcza2x1SnRPSzh3ODZnTzNsdGpsSmxiQmxiNVBYRFhET1NxbXVEeDRZLXVXZWJUVTZYdWVONjJjcURNOUMwd0lhbml4eFBOTkJTcjYyX3l0RmZQ0gF0QVVfeXFMTS1RY0s2TFV6OTc5ZDFXSUM1SzFGR0dNNnc5c2dHTG5DSHBUdXZvTHhWNE11SXQ4eXQwMXlWeEdqMDFsanFnbDVfUXB0b2pWa0hNcGxNQVAzal9WeUk2RzRmZ09VN0pmTXRhcGFuUW0yWERYMEw?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5abEVValJfQ3p1cFRHTGIwWEJwUEpQOXQ2cjJwZC1fWk9xZTQwZFNlOU4wcTdnWjhoTkZkbDJaM1NwVmVlWlNsaHVkZWROUjNyWHdBMEFwODc5dzR0Q3BZNVVENXIzcms?oc=5"
       },
       {
-        "title": "Trump says FBI investigating Nvidia boss's affair with alleged Chinese spy",
-        "source": "BBC",
+        "title": "Scoop: Commerce Department received national security warning on Nvidia CEO affair",
+        "source": "Axios",
         "date": "2026-11-10",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1VYUxyVHdHSk13YlNwc0JfajNMejBiRVAwYzJPbGl1cG9fZUlsUFZOSHNhWVJodHBFYTR3dFBraWlUbVd2cTl5Vl81cjhlS21RR1hoM0x4dWI4bk0?oc=5"
-      },
-      {
-        "title": "A.I. Fueled Nvidia CEO Jensen Huang’s Elite Status, but Scandal Followed",
-        "source": "The New York Times",
-        "date": "2026-11-09",
-        "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNelRLQnJ2bjdqYmZoc2ZUc19ILTlZdFpuYzloR3VpVFBlMEk1TWs5Ul9hdHU2S3hmajBYU2FBRHBlbXRVM3luclV5ckYyZ25oRk04Y1AtOWU5TnJYdlF2MnBDdkJLbm81UHZZUm55R1oyYXRZLVdqdWNod1BHS3pUS0NHVTRqTU02cHdZZWo3Z1U?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5NTWlEVTREeTZ0V3J5d1VBblV3Q1JiV0tqTWJUSGVJQ2MxSElWWHpVVG9lTkxKR3ctY2RDVHJUaTdWak1oS2lGSGhPbUJ6MU9CZ2xJdGY1Ui0zQy1uaFliV3c1MXprY3RDejF2eXp2WWc2WWJRSTZiOEljZw?oc=5"
       }
     ]
   },
@@ -84,50 +94,6 @@
         "source": "Austin American-Statesman",
         "date": "2026-11-07",
         "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPT3doV3ZscGZ3Zk9SNDlFOFI1TXByTHFWR04zcDZEUGxMT2RxRnU2UWZHay1IS1Z3cjAxTXpkeW1FUzlhQkVqWWtCQVVrcnFHTmFmMlJxb3dvM1pwTDRxcUlUa25RSVEwQ1h5ZWRIdVhTa1Z3U0FlSGpnaEFySVJYSlQyY2RkZ1ZEMExJR3pteS0?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "앤트로픽대규모자금조달및상장추진",
-    "name": "앤트로픽 대규모 자금 조달 및 상장 추진",
-    "first_seen": "2026-10-28",
-    "days_seen": 7,
-    "last_seen": "2026-11-08",
-    "why": "앤트로픽의 높은 기업가치 평가와 함께 중간선거 이후 데이터센터 증설에 대한 여론적 반발이 맞물리고 있습니다.",
-    "evidence": [
-      {
-        "title": "Anthropic IPO meets AI backlash after midterms show stinging rebuke of data centers",
-        "source": "CNBC",
-        "date": "2026-11-07",
-        "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBkVFNKdFlSLTl6ZndHZTBvOFFta0JaelYzcldkc21kSVJiSHNOcDVBX19xTVY3clpiekZSWmpRbFdtaHdTbVo1d3lNNXJTa3FfQ2NiWHhJV3Vvb3hEekdfQnJDV2xQcU0wUFo4dnBiM050YnhVOVFfYXo4VW5PRWc?oc=5"
-      },
-      {
-        "title": "Chart of the Week: Data centres rebuked",
-        "source": "Financial Times",
-        "date": "2026-11-07",
-        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQk9qamlJdm1YTENlcUdqS3lwZnpTRXhNMmxMVENvdUl4LVZDZS1tREpocHpLY3gza1pEVGthV2QweVR5NnpubW9sNmIwV0NtNXpwd004WnNjTlB3RzN2dmdfV3FFUEVnN29DUWN4Z1B6REQtTWVudktCczhHT2k1V3Q5VUI?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "가상자산거래소이슈및과세논의",
-    "name": "가상자산 거래소 이슈 및 과세 논의",
-    "first_seen": "2026-10-31",
-    "days_seen": 5,
-    "last_seen": "2026-11-06",
-    "why": "바이낸스 해킹 이슈와 가상자산 과세 2년 유예 결정 보도가 맞물려 관심이 지속되고 있습니다.",
-    "evidence": [
-      {
-        "title": "코인 과세, 결국 2년 더 미룬다…조세 형평성 훼손 논란 불가피",
-        "source": "경향신문",
-        "date": "2026-11-05",
-        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE43YTU1ZG9DcmNKQmp6SzlNRllQT1N6QWhoMU9wQnlPZnk3NGJ2ZjFmVEpuVV9zMy04QXhFVkI3MkVtcXVOU3NPWnplRUhCZ1ppYzFFM2UtM3VQd9IBX0FVX3lxTE42ZTMxYzRhTHpLNHE5OGhzcGFfam03QmZiZFkzVW9UbWxIQ3llRHpVODNDZ3BRQ0J0ZGpEYkg0ekk1ZFFSWldnS09PRmFNVkFZREQ1TVdJb2g2eldUeGE0?oc=5"
-      },
-      {
-        "title": "It Turns Out Binance’s $6 Billion Hack Happened Because Its Employees Were Vibe Coding",
-        "source": "Futurism",
-        "date": "2026-11-05",
-        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9taktFZUZWcU90LVNjM3haNXBRQ0pQeXFvcUY0bncya2ZxM2sxRHFIRWtTeTJVN0doNWlpeHZwZVMtMDg3c3AyWFV1RlRDekItN01DU3Q1NkhkUlhHVVNZaS1lcllkdkcxZElZYU1RWQ?oc=5"
       }
     ]
   }
