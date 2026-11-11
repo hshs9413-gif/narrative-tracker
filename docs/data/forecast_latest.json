@@ -14,31 +14,31 @@
       "scored": false,
       "actual": null,
       "live": {
-        "n": 18,
-        "in_range": 15,
-        "dir_tried": 18,
-        "dir_hits": 9
+        "n": 19,
+        "in_range": 16,
+        "dir_tried": 19,
+        "dir_hits": 10
       },
       "model": "선형회귀",
       "board": [
         {
           "name": "선형회귀",
-          "oos": 0.167,
+          "oos": 0.171,
           "dir": 0.688
         },
         {
           "name": "릿지",
-          "oos": 0.167,
+          "oos": 0.171,
           "dir": 0.688
         },
         {
           "name": "랜덤포레스트",
-          "oos": 0.117,
+          "oos": 0.121,
           "dir": 0.668
         },
         {
           "name": "부스팅",
-          "oos": 0.083,
+          "oos": 0.087,
           "dir": 0.66
         }
       ]
