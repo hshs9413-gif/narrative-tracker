@@ -2922,5 +2922,64 @@
     ],
     "at": "2026-11-11T10:32+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-12",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "us-inflation-shock-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언급 지표 감소 판정 제안에 따라 잠잠 상태로 전환합니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": []
+  },
+  {
+    "date": "2026-11-12",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "nvidia-ceo-scandal-2026",
+    "kind": "new",
+    "name": "엔비디아 CEO 스캔들 및 당국 조사",
+    "reason": "엔비디아 CEO 젠슨 황의 임원과의 부적절한 관계 의혹 및 이사회의 해임 준비 보도가 확산되며 빅테크 증시에 영향을 주고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-12",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "미국 CPI 충격 내러티브는 식음 지표에 따라 잠잠으로 전환되었으며, 지켜보던 엔비디아 CEO 스캔들 이슈는 이사회 해임 추진 보도가 구체화되어 신규 내러티브로 등록되었습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "잠잠",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "엔비디아 CEO 스캔들 및 당국 조사",
+      "테슬라·스페이스X 합병 구상"
+    ],
+    "at": "2026-11-12T11:35+09:00",
+    "trigger": "schedule"
   }
 ]

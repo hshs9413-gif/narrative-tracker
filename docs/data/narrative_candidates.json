@@ -3,21 +3,31 @@
     "key": "국산비만약시장경쟁",
     "name": "국산 비만약 시장 경쟁",
     "first_seen": "2026-10-15",
-    "days_seen": 18,
-    "last_seen": "2026-11-11",
-    "why": "GLP-1 비만치료제에 대한 미 당국과 식약처의 안전성 서한 배포 및 경고 보도가 이어져 지속적으로 관찰합니다.",
+    "days_seen": 19,
+    "last_seen": "2026-11-12",
+    "why": "GLP-1 계열 비만치료제 시장 성장 및 부작용 안내 미흡 등 관련 보도가 이어지고 있어 주시합니다.",
     "evidence": [
       {
-        "title": "美 ‘비만약 실명 위험’ 경고에…식약처, GLP-1 안전성 서한 배포",
-        "source": "팜이데일리",
-        "date": "2026-11-10",
-        "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB1V1RjNUQ0N1c5ZmtfaFV3N0IwUk1EZGQ4aE54YVlHS095cmVGZktyR3F6Q1MtZC0zT2dMd214S2tnRmx4bHRiRDMwM0lHUkYzXzRhb2IxdmZwcEp2YWI0N2pMcmtTYXNhckpOYXJR?oc=5"
-      },
+        "title": "비만치료제 시장 2조 눈앞…실명 위험 속 “부작용 안내 못 받아”",
+        "source": "한겨레",
+        "date": "2026-11-11",
+        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5BaHl3SGxEc25sZk41S2Q0ODJCWHNoQXU0enZNSlY1bkdyQUhxLURpOGJXWmczd2FnZnFnR1p1OVJobnFQTmhUdVJnemV3RVdINkt4QkNoVGFBc0RxcllzRndqV2RIaE1JVlJfMjVKVUVsZw?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "국민연금국내증시평가손실",
+    "name": "국민연금 국내 증시 평가손실",
+    "first_seen": "2026-10-19",
+    "days_seen": 15,
+    "last_seen": "2026-11-12",
+    "why": "국민연금의 금융지주 사외이사 추천 등 지배구조 개혁 영향력 행사 보도가 지속되어 관찰합니다.",
+    "evidence": [
       {
-        "title": "Makers of GLP-1 drugs ordered to add warnings about rare eye condition that can lead to blindness",
-        "source": "BBC",
-        "date": "2026-11-10",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE02N2prd0FUZWRGTWdTOGlOMTg3R1RmR0pOMllPSWt1bjJReXFaSm9ON0tsdzNLWXBhbk4xSnlDdGxjbTRSLTVjcVQ3azBsUGFkbDZwNjFrc0NwdGc?oc=5"
+        "title": "[지배구조 개혁] 이찬진이 띄운 '국민연금'…지주 사외이사 추천 나설까",
+        "source": "연합인포맥스",
+        "date": "2026-11-11",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9IUVlBdDNJZFdiV29DNHBoTXBYazA2S3hsUnBMMWplb21FeGNfZkxYdUJTS012Q0ZzeS1nYVllSGlIYVRkbnY4Sy1JcEF1eUI0cEpXQUFKVWFjRzFKQ01IbHhvd2dBdmo3MkdFdGF3Tzk?oc=5"
       }
     ]
   },
@@ -56,22 +66,6 @@
         "source": "Axios",
         "date": "2026-11-10",
         "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5NTWlEVTREeTZ0V3J5d1VBblV3Q1JiV0tqTWJUSGVJQ2MxSElWWHpVVG9lTkxKR3ctY2RDVHJUaTdWak1oS2lGSGhPbUJ6MU9CZ2xJdGY1Ui0zQy1uaFliV3c1MXprY3RDejF2eXp2WWc2WWJRSTZiOEljZw?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "국민연금국내증시평가손실",
-    "name": "국민연금 국내 증시 평가손실",
-    "first_seen": "2026-10-19",
-    "days_seen": 14,
-    "last_seen": "2026-11-09",
-    "why": "코스피 변동성 장세 속에서 금융지주 주주환원 및 수급 이슈 보도가 이어지고 있습니다.",
-    "evidence": [
-      {
-        "title": "“번 돈의 절반은 주주에 돌려줍니다”…4대 금융지주, 배당·자사주 소각 역대급",
-        "source": "매일경제",
-        "date": "2026-11-08",
-        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE05SXpaakc2TjF2TzNva0thbERuOGxZQkhWM2l0bjVyMUtnel9JYjl5enNVaDNvaWZYUEt6YU4xaXNMOVA5dG04WS16ejNEbmRUVEZOaw?oc=5"
       }
     ]
   },
