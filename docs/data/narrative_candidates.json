@@ -1,5 +1,71 @@
 [
   {
+    "key": "마이크로소프트아웃룩대규모장애",
+    "name": "마이크로소프트 아웃룩 대규모 장애",
+    "first_seen": "2026-11-13",
+    "days_seen": 1,
+    "last_seen": "2026-11-13",
+    "why": "마이크로소프트 아웃룩 접속 장애 등 글로벌 서비스 차질 보도가 연이어 나와 추이를 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "마이크로소프트, 대규모 접속 장애…“아웃룩 관련 신고 13만 건”",
+        "source": "KBS 뉴스",
+        "date": "2026-11-12",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9rUWJ5cVUwc09NQnhNMWgybHhQNUpBRnRPOEJMVHExVkdDRTNwSU9pNzdOZWJLSHp5enp4NENfNUtJYTJuR2RXR2s3cjdONW9uS1ZpbG9uRENIbm8?oc=5"
+      },
+      {
+        "title": "Microsoft Outlook outage stretches on for hours",
+        "source": "ABC News - Breaking News, Latest News and Videos",
+        "date": "2026-11-13",
+        "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcjZSX2hZVHVlY0d2clcySTg2UEhUcnc0MlkxQmdNOGhDcWJnMkpxOXY5UWJ3T2JUUGdrZDkyeTVTeFBZb3psd3Y1NEJiMU9nbWFBX2ZLSEduWlNmWnpuZkVfYlRNR0RiNDBraFpSV0lzOUFrX1FaNXdCNkFFTktFTkZNN01CYzJTakc2OVFB0gGTAUFVX3lxTFBya0ZHS3VKZzZLZFFRMzlBQVFfaW9kT2syZGZxVFh1UlBPdXhaUDdlODhVT1dRSlFoSXl0Q1ZzVFJnMXRmX0hDOHZYeEJBdUs2VEY1YW9oenU0dkduS0dkS1VzMnVUd1ltSExvMEV4cXZCa2NlXzdvZGdZbUV6c3RhekdQOGs0aFczV1l1X2xwMVJoWQ?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "북한해커딥페이크화상해킹파문",
+    "name": "북한 해커 딥페이크·화상 해킹 파문",
+    "first_seen": "2026-11-13",
+    "days_seen": 1,
+    "last_seen": "2026-11-13",
+    "why": "북한 해커들이 화상회의 악성코드 등을 이용해 대규모 자금을 갈취한다는 FBI 경고와 국내외 보도가 이어져 관찰합니다.",
+    "evidence": [
+      {
+        "title": "지인 초대 화상회의에서 악성코드…‘페이스스틸러’ 해킹 적발",
+        "source": "KBS 뉴스",
+        "date": "2026-11-13",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1mUFhFUlNQRkZjMV9kV3JvWFRVRkl6OXlEc3BENkpOSlo3TkhNbDE2dXo5N182bGxaRlotWUVSZlB3c3JISmt5dWQ4NmFuZmZfUXVacFZXQWlxeGFoSzk3S2FIdUprUQ?oc=5"
+      },
+      {
+        "title": "North Korean hackers steal more than $400 million using video images, FBI says",
+        "source": "Reuters",
+        "date": "2026-11-12",
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQYUJYTGpUb1lrNXVCaVFFUjN3all5a2w1cF9HdW51OWROWC1taVFOOFozQ0pkYmpReklqTEhtNm1McUhtYVBvWTVMM2tHczJlUFZaem14Q1U0VndNaWk2Z3AxdzFvVThleTFNUXpPd3E0WlU2ZkdPSFFXeXJqNktka05TYUZmTER4TExyS3dOVTFLVWNLcVVHejdkVTk3UXVkRnUtNmNrQ3B3anBHelhIaGlka0RFMTZ0bnNWUWREeU0xV0tRNXp1THBIdw?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "미국의중국ai칩우회수출규제",
+    "name": "미국의 중국 AI 칩 우회 수출 규제",
+    "first_seen": "2026-11-13",
+    "days_seen": 1,
+    "last_seen": "2026-11-13",
+    "why": "미 상무부가 동남아 우회 경로를 통한 중국향 AI 칩 유입 차단을 추진한다는 소식이 보도되어 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "\"미국 상무부, 중국 AI 칩 '동남아 우회로' 차단 추진\"",
+        "source": "SBS 뉴스",
+        "date": "2026-11-12",
+        "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBOYUQzdWkzT3VNczdaclR5dk1zYi1PZVYzb0pDc0tJX3FnU3VOY3lkUFdwRkstR21SWWFvUzVzRDBGQkdQYUlQb093QXhSQ3dIOWljeTBoMDFJSm8wM2p1YTlNSXRvRGQ5SUE?oc=5"
+      },
+      {
+        "title": "Lutnick should have prevented the diversion of sensitive Nvidia AI chips to China, critics charge",
+        "source": "CBS News",
+        "date": "2026-11-12",
+        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBWWUFFVjY5Z3BrdDd6b2JaRDlvME50cGpLeUR4U2lPVU1tNnM1TjlrX3MtaVRrR3dsTmxoa2tmRGotVUdTYjhVTG5OV0k4U0ViTWRDM01vZExzZzFRLVY0UDA3a1lQWVNtT0Y4?oc=5"
+      }
+    ]
+  },
+  {
     "key": "국산비만약시장경쟁",
     "name": "국산 비만약 시장 경쟁",
     "first_seen": "2026-10-15",

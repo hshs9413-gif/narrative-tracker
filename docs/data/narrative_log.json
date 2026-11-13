@@ -2981,5 +2981,91 @@
     ],
     "at": "2026-11-12T11:35+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-13",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "젠슨 황 사임 여파와 학계의 경고로 AI 버블 붕괴 우려가 여러 매체에서 다시 집중 조명되었습니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "dormant",
+        "active"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "하버드대 석학 “AI 버블 반드시 붕괴…한국, 지출 늘려선 안 돼” [자막뉴스]",
+        "source": "채널A",
+        "date": "2026-11-13",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1Yd1FCWHpCdmw3MC0xSDBtcUpocHZ1LWVTblJpZjZ4eTkwdmYxdWhqUDBSWWUwcnE1NzFYOVUzckV3TUtOSjBhdlBZYWo5NlF2Y016cU9Cc2lGd3NQVkHSAWNBVV95cUxPdnJ4Zk1Ib21Bckwxdm5IRmp0ak9PcGFWNlRFckRIbHkzcUtTTTJoLW9FQUFDc2Ridk40VmZLU2NlYzhadmhxeGQ2bTNXYUVqZnhVa1pmd3hXQzlXUVR5XzJhakE?oc=5"
+      },
+      {
+        "title": "젠슨황 폭탄에 커지는 ‘AI 버블’ 우려… 韓 직격탄 경고음",
+        "source": "문화일보",
+        "date": "2026-11-12",
+        "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBNVGFhQzVaUzJsQUZyOGFjM29qWlBuNzd0bFpHUm1NLU1RTnR3SkVoZjBjXzk3NHVUVTdDcnpOc0R1UkVpLVdSLUNhNG5SSm13?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-13",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "nvidia-ceo-ouster-2026",
+    "kind": "new",
+    "name": "엔비디아 CEO 사임 및 조사 파문",
+    "reason": "엔비디아 CEO 젠슨 황의 전격 사임과 AI 칩 밀반입 의혹 조사 소식에 미 기술주와 코스피 반도체주가 크게 요동쳤습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-13",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "event_id": "tesla-spacex-merger-2026",
+    "kind": "new",
+    "name": "테슬라·스페이스X 합병 추진",
+    "reason": "스페이스X의 대규모 데이터센터 투자와 테슬라와의 기록적인 합병 논의 진전 보도가 잇따르며 주목받고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-13",
+    "by": "gemini",
+    "model": "gemini-3.5-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "엔비디아 CEO 젠슨 황의 전격 사임 및 조사 파문과 테슬라·스페이스X 합병 추진 논의가 신규 주요 이슈로 부상했습니다. 또한 젠슨 황 사임 여파로 잠잠하던 AI 밸류에이션 버블 우려 내러티브가 다시 재격화되었습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "재점화",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "마이크로소프트 아웃룩 대규모 장애",
+      "북한 해커 딥페이크·화상 해킹 파문",
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "가상자산 거래소 이슈 및 과세 논의",
+      "엔비디아 CEO 스캔들 및 당국 조사",
+      "테슬라·스페이스X 합병 구상"
+    ],
+    "at": "2026-11-13T11:15+09:00",
+    "trigger": "schedule"
   }
 ]
