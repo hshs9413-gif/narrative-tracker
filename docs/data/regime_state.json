@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T02:15:53.950068+00:00",
+  "generated_at": "2026-11-13T03:26:18.228090+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "인플레이션 레짐",
@@ -44,9 +44,9 @@
   "kospi_vol": {
     "label": "고변동",
     "level_index": 2,
-    "rv20": 59.4,
-    "as_of": "2026-11-11",
-    "value": 5375.36
+    "rv20": 53.1,
+    "as_of": "2026-11-12",
+    "value": 5342.73
   },
   "cross_check": {
     "nfci": {
