@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T22:42:21.539901+00:00",
+  "generated_at": "2026-11-14T01:49:50.334523+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "골디락스",
@@ -44,9 +44,9 @@
   "kospi_vol": {
     "label": "고변동",
     "level_index": 2,
-    "rv20": 53.1,
-    "as_of": "2026-11-12",
-    "value": 5342.73
+    "rv20": 52.5,
+    "as_of": "2026-11-13",
+    "value": 5290.53
   },
   "cross_check": {
     "nfci": {

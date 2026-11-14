@@ -3067,5 +3067,60 @@
     ],
     "at": "2026-11-13T11:15+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-14",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언급 지표 식음 판정과 시스템 제안에 따라 AI 버블 우려 논의를 잠잠 국면으로 돌립니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-14",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "nvidia-ceo-exit-shock-2026",
+    "kind": "new",
+    "name": "엔비디아 CEO 사임 파문 및 AI 칩 shock",
+    "reason": "엔비디아 젠슨 황 CEO의 사임과 스캔들 파문으로 주요 반도체주와 AI 스타트업 투자가 직격탄을 맞고 글로벌 증시 변동성이 확대되었습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-14",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "식음 지표에 따라 AI 밸류에이션 내러티브를 잠잠(잠잠)으로 변경했습니다. 후보군에 있던 엔비디아 CEO 사임 파문을 신규 주도 내러티브로 격상 반영했습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "마이크로소프트 365 대규모 장애",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "마이크로소프트 아웃룩 대규모 장애",
+      "북한 해커 딥페이크·화상 해킹 파문",
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실",
+      "가상자산 거래소 이슈 및 과세 논의"
+    ],
+    "at": "2026-11-14T10:49+09:00",
+    "trigger": "schedule"
   }
 ]

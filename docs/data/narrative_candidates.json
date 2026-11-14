@@ -1,5 +1,71 @@
 [
   {
+    "key": "미국의중국ai칩우회수출규제",
+    "name": "미국의 중국 AI 칩 우회 수출 규제",
+    "first_seen": "2026-11-13",
+    "days_seen": 2,
+    "last_seen": "2026-11-14",
+    "why": "미 상무부와 의회가 동남아 등 우회 경로를 통한 대중국 AI 칩 수출 차단 법안을 가속화하고 있어 관심이 집중됩니다.",
+    "evidence": [
+      {
+        "title": "둑 터진 대중 반도체 규제… 美, 수출 우회로 틀어막는다",
+        "source": "조선일보",
+        "date": "2026-11-13",
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQS0NwMmN0czRONXBFUUlLajMtUVJURVd1Wm1GUDNGRG1vakF1Z01aQ0E3eTFfWGFJdl9wWm5XYlRtOTZXRHJGcnBoeUpjYzl1ZnN5anN0RXRCSFFmc2ZmOGtWb01oWUlheHFJTnZXT2xGN0dFNGJhUzJtd09qMUM4NlFOQQ?oc=5"
+      },
+      {
+        "title": "美의회 ‘對中 칩 규제 3법’ 가속… 국내기업 中공장 불똥 우려",
+        "source": "동아일보",
+        "date": "2026-11-13",
+        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB6UUZ5ak1nY0E1Y3kyekNneFgyZEZpdkVpNnZpZDNER1poakdlckxRS3NWRkdXSXN3bTg4Y0Q2NUFnVE00VVpVajRIYmJVaGRrRzN3RXBYMlh2cHBRSFhvWTlkMjU1Z1ZvNTZaSEg1UDBhc0pLSWfSAWZBVV95cUxNM2JIRG9oZ0NSZTdvRWJDZlgzc2JzV25SQVhsUkkyUmhPWnJ5S1FFR1Z1aExvSVNRSk5jM1FtMDhYUEJOVkhPX3o0d0Rlc09rSHI5ejNxeXJjSzZLWXY1OXpodldmV3c?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "마이크로소프트365대규모장애",
+    "name": "마이크로소프트 365 대규모 장애",
+    "first_seen": "2026-11-14",
+    "days_seen": 1,
+    "last_seen": "2026-11-14",
+    "why": "마이크로소프트 365 서비스 장애가 이틀째 지속되며 클라우드 및 글로벌 기업 업무 차질 보도가 이어지고 있습니다.",
+    "evidence": [
+      {
+        "title": "MS, 이틀째 장애에 “깊이 사과…사이버 공격 무관한 기술적 문제”",
+        "source": "KBS 뉴스",
+        "date": "2026-11-13",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5IWXVjbEpZbWRjdjZQbG9qM2JlWmFtVVBBb0V5bVdFNFFCc0Z3S0pZTjV2dF92YmlScjBYSVVZRFMzcXc2ZENZckVRS1p5WVFFNWsyMnVoUEtERzFuMXVnMjBKM0tzUQ?oc=5"
+      },
+      {
+        "title": "Microsoft 365 Outage Continues: Tech Giant Has No Timeline For Recovery, Says It’s ‘Deeply Sorry’",
+        "source": "Forbes",
+        "date": "2026-11-13",
+        "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNd0ZWZFJCWmp3MUlFMFFrRExhTldkeEs1aEt2bVJDend6Y24yck5wUHlsNF9yNERkQWNsY25va25DMnpMWFE2QmtZVy1CQnlVMjZTNlBFM1g1ak5kWjJEclk2V0IycmFKRHg1RjU2M1RVaHhwTEJUM2hZa0FXaUZRWVRZd0tpTThCZkoxeTJxZERQSFZBb1M3SWptclpVVUVxUEtzSUFTMWxLcmM4VURJbXNCQ1NZQm9fTzBnOS00eGRiV2NRVUo3Rl94QnR2TnlfMGM5dUYxRmZuVDQzZzBWRE0zb2w?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "미국faa전국항공기운항전면중단",
+    "name": "미국 FAA 전국 항공기 운항 전면 중단",
+    "first_seen": "2026-11-14",
+    "days_seen": 1,
+    "last_seen": "2026-11-14",
+    "why": "관제 통신 시스템 장애로 미국 전역의 항공기 운항이 전면 중단되는 사태가 발생해 경과를 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "미국 전역 항공기 운항 전면 중단...\"관제 통신 시스템 장애\"",
+        "source": "YTN",
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1HQUE4cVVaTWZfYmpIZ3Jwc3g4RDZzdmRldVNxMnNLbFFZdTFXQTh0ZDRjTjBzVzFlY2t2cndpcUNpLVZ6ZkRCYVhsNHAxQVJpMV9XQUxHcW03NjlMMVE?oc=5"
+      },
+      {
+        "title": "Live Updates: FAA Declares Rare Nationwide Ground Stop of Flights",
+        "source": "The New York Times",
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOS1F1U1pLV0V3dTVlT1RnSGF1dlJERU1sbkN5X2pMUmlPSFVoZkZaTmlRM3plQmZJQTBBaXdMQnZpbm1PV2NfajFvclpsUWE2VlhwZ3ZlcjVkNG1CbUVxMW9jempQY3VtVlNSUU11c3hGLU9GYk82N0cxT1BBQTZkbWs4VQ?oc=5"
+      }
+    ]
+  },
+  {
     "key": "마이크로소프트아웃룩대규모장애",
     "name": "마이크로소프트 아웃룩 대규모 장애",
     "first_seen": "2026-11-13",
@@ -40,28 +106,6 @@
         "source": "Reuters",
         "date": "2026-11-12",
         "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQYUJYTGpUb1lrNXVCaVFFUjN3all5a2w1cF9HdW51OWROWC1taVFOOFozQ0pkYmpReklqTEhtNm1McUhtYVBvWTVMM2tHczJlUFZaem14Q1U0VndNaWk2Z3AxdzFvVThleTFNUXpPd3E0WlU2ZkdPSFFXeXJqNktka05TYUZmTER4TExyS3dOVTFLVWNLcVVHejdkVTk3UXVkRnUtNmNrQ3B3anBHelhIaGlka0RFMTZ0bnNWUWREeU0xV0tRNXp1THBIdw?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "미국의중국ai칩우회수출규제",
-    "name": "미국의 중국 AI 칩 우회 수출 규제",
-    "first_seen": "2026-11-13",
-    "days_seen": 1,
-    "last_seen": "2026-11-13",
-    "why": "미 상무부가 동남아 우회 경로를 통한 중국향 AI 칩 유입 차단을 추진한다는 소식이 보도되어 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "\"미국 상무부, 중국 AI 칩 '동남아 우회로' 차단 추진\"",
-        "source": "SBS 뉴스",
-        "date": "2026-11-12",
-        "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBOYUQzdWkzT3VNczdaclR5dk1zYi1PZVYzb0pDc0tJX3FnU3VOY3lkUFdwRkstR21SWWFvUzVzRDBGQkdQYUlQb093QXhSQ3dIOWljeTBoMDFJSm8wM2p1YTlNSXRvRGQ5SUE?oc=5"
-      },
-      {
-        "title": "Lutnick should have prevented the diversion of sensitive Nvidia AI chips to China, critics charge",
-        "source": "CBS News",
-        "date": "2026-11-12",
-        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBWWUFFVjY5Z3BrdDd6b2JaRDlvME50cGpLeUR4U2lPVU1tNnM1TjlrX3MtaVRrR3dsTmxoa2tmRGotVUdTYjhVTG5OV0k4U0ViTWRDM01vZExzZzFRLVY0UDA3a1lQWVNtT0Y4?oc=5"
       }
     ]
   },
@@ -110,50 +154,6 @@
         "source": "KBS 뉴스",
         "date": "2026-11-10",
         "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBqMVlESGxRaDlGVVpHbUsxM1JPVE52UHlxTWZ2UXFUeVprdkRNRTZObHNFY3ZlWlplbEwtcFd4S3FLRmxzZG5mcXJMV2NtZFRjUDVURzd0eGpBa2M?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "엔비디아ceo스캔들및당국조사",
-    "name": "엔비디아 CEO 스캔들 및 당국 조사",
-    "first_seen": "2026-11-10",
-    "days_seen": 2,
-    "last_seen": "2026-11-11",
-    "why": "엔비디아 CEO의 AI 칩 관련 밀반입 의혹과 미 상무부 국가안보 경고 보도가 나와 추이를 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "\"젠슨황 연인 앨리스황, 10조원 엔비디아 AI칩 중국 밀반입\"",
-        "source": "연합뉴스TV",
-        "date": "2026-11-10",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5abEVValJfQ3p1cFRHTGIwWEJwUEpQOXQ2cjJwZC1fWk9xZTQwZFNlOU4wcTdnWjhoTkZkbDJaM1NwVmVlWlNsaHVkZWROUjNyWHdBMEFwODc5dzR0Q3BZNVVENXIzcms?oc=5"
-      },
-      {
-        "title": "Scoop: Commerce Department received national security warning on Nvidia CEO affair",
-        "source": "Axios",
-        "date": "2026-11-10",
-        "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5NTWlEVTREeTZ0V3J5d1VBblV3Q1JiV0tqTWJUSGVJQ2MxSElWWHpVVG9lTkxKR3ctY2RDVHJUaTdWak1oS2lGSGhPbUJ6MU9CZ2xJdGY1Ui0zQy1uaFliV3c1MXprY3RDejF2eXp2WWc2WWJRSTZiOEljZw?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "테슬라스페이스x합병구상",
-    "name": "테슬라·스페이스X 합병 구상",
-    "first_seen": "2026-10-24",
-    "days_seen": 11,
-    "last_seen": "2026-11-09",
-    "why": "미국 중간선거 이후 일론 머스크 계열사 관련 투자 의견과 논란 보도가 계속되고 있습니다.",
-    "evidence": [
-      {
-        "title": "\"머스크 정치보복 과도한 우려\"…도이체방크, 스페이스X '매수' 유지",
-        "source": "연합인포맥스",
-        "date": "2026-11-08",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBMTzdpUHJnbnlPSDhOOWtQZGtRRUx0SndtZjhtMXNtVTcwUUI2MVozSVdTRDFSTWdqS2pVTFc0a29vSW5fdEowa204T2JITjhVMlZPb0luY21uWENTbnhQNFByU0FOZHR6ekIybmd2QzE?oc=5"
-      },
-      {
-        "title": "Dozens party outside Elon Musk's Austin home after campaign donations fell flat",
-        "source": "Austin American-Statesman",
-        "date": "2026-11-07",
-        "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPT3doV3ZscGZ3Zk9SNDlFOFI1TXByTHFWR04zcDZEUGxMT2RxRnU2UWZHay1IS1Z3cjAxTXpkeW1FUzlhQkVqWWtCQVVrcnFHTmFmMlJxb3dvM1pwTDRxcUlUa25RSVEwQ1h5ZWRIdVhTa1Z3U0FlSGpnaEFySVJYSlQyY2RkZ1ZEMExJR3pteS0?oc=5"
       }
     ]
   }
