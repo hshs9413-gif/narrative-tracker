@@ -3122,5 +3122,90 @@
     ],
     "at": "2026-11-14T10:49+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-15",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "alaska-lng-trade-2026",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "알래스카 주지사에 민주당 후보가 당선되면서 트럼프 전 대통령이 압박해 온 한국의 알래스카 LNG 투자 사업에 변수가 생겨 다시 논의되고 있습니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "dormant",
+        "active"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "트럼프 후보 꺾은 37세 주지사 “가스관 지지”...韓 ‘알래스카 LNG투자’ 변수",
+        "source": "중앙일보",
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1vYW5FX3lCbno1QlRyZ1dGV0RzTUhDeldFeG81NFBEZVV3QmdZT3l4a2h6SFNTUXJLTlZjMHRiV1M4aHlqcVpWQ1ZyMzJyUWI4aWphSlVB?oc=5"
+      },
+      {
+        "title": "알래스카, 美민주당 주지사 당선…트럼프 압박 '韓 LNG 투자' 변수로 - 머니투데이",
+        "source": "머니투데이",
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5wUmhaNU9fbWdhem5rRm5VWURjWmVjZ18zcWRNS3o1TFV3NVhtdmM3R3FnX0YzWENWWld2d20tVm0xWk9Ed1U3NE1tVThjTXA2SE4xQThNZHFSTld0V1EtbS1aMEFOOVdkNDhlaFZB0gFuQVVfeXFMTnBSaFo1T19tZ2F6bmtGblVZRGNaZWNnXzNxZE1LejVMVXc1WG12YzdHcWdfRjNYQ1ZaV3Z3bS1WbTFaT0R3VTc0TW1VOGNNcDZITjFBOE1kcVJOV3RXUS1tLVowQU45V2Q0OGVoVkE?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-15",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "식음 지표 판정 및 언론 언급 감소에 따라 잠잠 상태로 전환합니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-15",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "nvidia-jensen-huang-exit-2026",
+    "kind": "new",
+    "name": "젠슨 황 사임 및 엔비디아 충격",
+    "reason": "엔비디아 젠슨 황 CEO 사임 파문이 퍼지며 글로벌 반도체주와 증시, 가상자산 시장까지 큰 충격을 주고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-15",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "엔비디아 젠슨 황 CEO 사임 파문이 반도체 및 증시 전반에 큰 충격을 주며 신규 내러티브로 진입했습니다. 민주당 주지사 당선으로 한국의 알래스카 LNG 투자 변수가 부각된 내러티브는 재점화되었으며, AI 밸류에이션 내러티브는 식음 지표에 맞춰 잠잠 상태로 전환되었습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "재점화",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "마이크로소프트 글로벌 서비스 장애",
+      "마이크로소프트 365 대규모 장애",
+      "마이크로소프트 아웃룩 대규모 장애",
+      "북한 해커 딥페이크·화상 해킹 파문",
+      "국산 비만약 시장 경쟁",
+      "국민연금 국내 증시 평가손실"
+    ],
+    "at": "2026-11-15T10:22+09:00",
+    "trigger": "schedule"
   }
 ]

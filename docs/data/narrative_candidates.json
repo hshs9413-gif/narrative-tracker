@@ -3,21 +3,65 @@
     "key": "미국의중국ai칩우회수출규제",
     "name": "미국의 중국 AI 칩 우회 수출 규제",
     "first_seen": "2026-11-13",
-    "days_seen": 2,
-    "last_seen": "2026-11-14",
-    "why": "미 상무부와 의회가 동남아 등 우회 경로를 통한 대중국 AI 칩 수출 차단 법안을 가속화하고 있어 관심이 집중됩니다.",
+    "days_seen": 3,
+    "last_seen": "2026-11-15",
+    "why": "동남아 우회 경로를 통한 대중국 AI 칩 수출 차단 법안 논의가 진행 중이어 추이를 지켜봅니다.",
     "evidence": [
       {
-        "title": "둑 터진 대중 반도체 규제… 美, 수출 우회로 틀어막는다",
+        "title": "\"트럼프, AI칩 수출통제 풀며 엔비디아 주식 구입\"",
+        "source": "YTN",
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1zbUJVMEhrczVwZ1RNN1c0Sy1nOGRELXF3cW90ejJoNlA4c3ZKaW1RZUV0REJJYk10a2s4emlJMTZ3NTBOUmJzREkyVktXanY2SEcwa3dpcFZHSEUyb2c?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "미국faa전국항공기운항전면중단",
+    "name": "미국 FAA 전국 항공기 운항 전면 중단",
+    "first_seen": "2026-11-14",
+    "days_seen": 2,
+    "last_seen": "2026-11-15",
+    "why": "통신 시스템 장애로 미국 전역의 항공기 운항이 대규모 차질을 빚어 경과를 주시합니다.",
+    "evidence": [
+      {
+        "title": "美 이틀간 1만3265편 결항… \"낡은 구리 통신선 교체 중 항공대란\"",
         "source": "조선일보",
-        "date": "2026-11-13",
-        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQS0NwMmN0czRONXBFUUlLajMtUVJURVd1Wm1GUDNGRG1vakF1Z01aQ0E3eTFfWGFJdl9wWm5XYlRtOTZXRHJGcnBoeUpjYzl1ZnN5anN0RXRCSFFmc2ZmOGtWb01oWUlheHFJTnZXT2xGN0dFNGJhUzJtd09qMUM4NlFOQQ?oc=5"
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPeHMxZGlkM0xwNkVUcGhaYk5IUV9NTFgxaDRwb0dfWnBjaU9XRmhHOHlpX2VEVDFoMkRFbW9mbWhpZ3QwTHpjc3dzY2J2MjAxZlI3UDkwOWQyS0hyVTBlY3UzcHoxZldYcDJhVHVWenFjSUdEY0MxVy1vXzlGQ3k3V2UyUGtzQVJkcndaRUtYVEF1alhVaC1Db2VPb2o1QQ?oc=5"
       },
       {
-        "title": "美의회 ‘對中 칩 규제 3법’ 가속… 국내기업 中공장 불똥 우려",
-        "source": "동아일보",
+        "title": "'Root cause’ of nationwide ground stop is unknown, FAA says",
+        "source": "CNBC",
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbE9aSm53eUtPR2pwcWw3QUU1RXVhLUxOUTB3R1M4RDMzTUlyNm51YjJ3d1JmamVEUDgtVzJ6bHlaOGEwR19nVEM5STdMZWVhRkdHQngyX3pjZGc4blotU3JQRFN5UmlYMUVKV1o3MHJzQkVrQzRLekhZNkZQNXlISEhCT1psTHh2aFlLMmFRVzFab080NUpybdIBngFBVV95cUxPVFVrSWJ0Skt4d2pjcUF1UHhYYTNVS051OTVNOEF0MTItdEtNVlB2cDVNZDdQMVZ4cWdLeXNEbXA4RnpFU1RyZmd0eVpxRmppaWg5SXplRkQzSjBYZnZWZjJxbFp3RW8yaW84OEFxUUcwaUlHMnpUQlVySWh5Vk1hUm5BME93cGJwVlhRbGVfNWsxWDRQM1dhellXQi1jdw?oc=5"
+      },
+      {
+        "title": "Over 1,322 flights delayed, 268 canceled amid widespread U.S. travel disruptions",
+        "source": "NJ.com",
         "date": "2026-11-13",
-        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB6UUZ5ak1nY0E1Y3kyekNneFgyZEZpdkVpNnZpZDNER1poakdlckxRS3NWRkdXSXN3bTg4Y0Q2NUFnVE00VVpVajRIYmJVaGRrRzN3RXBYMlh2cHBRSFhvWTlkMjU1Z1ZvNTZaSEg1UDBhc0pLSWfSAWZBVV95cUxNM2JIRG9oZ0NSZTdvRWJDZlgzc2JzV25SQVhsUkkyUmhPWnJ5S1FFR1Z1aExvSVNRSk5jM1FtMDhYUEJOVkhPX3o0d0Rlc09rSHI5ejNxeXJjSzZLWXY1OXpodldmV3c?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPUVZkbzRpY0dtZHZLU2JQbGJHQjZKYXVDZVd3b2ZRX0VsYnRTSkJXWWlFcHhoalhhX0FOc0xrYzVRbHJlcVlSUGxHdktJSlBORlRmbUFESmZubVUxRF8wR19ZdkdBOUYzcFZwbnZrWWxxN2d1V01HbnMweEp3NnNSTE5WRFRUUG5ZcFcwaldEMHlEVXVwMzRNOHdxV19YWUhicFN3NFFEQjRxM1lRQkpQSWZJY9IBxwFBVV95cUxNbGJxYk9oeW9ESXVQaUhBU0VEVm45eXFMSFJCREotZWtWSUpabTR1Z0xJNWx5d1h2TFNDYmpUQkNZZ1FkU2ctZjJCZU5NRTZRaWJ3U2ZSZmV4eVlITHRFQkxwODYzU1g1UGZRNlctWGRQaXkzbk5OT3BMR2ExbUt4RkVKcFpjZW9ZdXdUNFVscFdQWTV3ZXhvZ181bEoxMWx5WWtIWHc2djJabDJSUF9CaE1uX1lkQXRHaXo3STBjaHkyOTNsdDVR?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "마이크로소프트글로벌서비스장애",
+    "name": "마이크로소프트 글로벌 서비스 장애",
+    "first_seen": "2026-11-15",
+    "days_seen": 1,
+    "last_seen": "2026-11-15",
+    "why": "마이크로소프트 365 및 아웃룩 등 클라우드 서비스 장애로 글로벌 업무 차질 보도가 나와 관찰합니다.",
+    "evidence": [
+      {
+        "title": "정부, 마이크로소프트 서비스 장애에 비상대응반 구성하고 점검",
+        "source": "MBC 뉴스",
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1EaGgzRnBCQUxmZnV0WlJETVRZY0hTSHREaGE5Y000dGdVd0o4ZVhwNVVpOTBtWW14MzZ3cVVadkVEWjVQLVY2dVRmSDBNcTBXU2lVZmpwaV9mZ0E0V09iMHphMHpRVmNSWUJNWm5ObWVHY0NR0gF0QVVfeXFMUE9EM1lUa1hNb0tLLUl1eUNlZFNoWG1FSDBIT3BGUVFiQjR0djIwb3RJMjdjaGFnZERTQWNZcHlxTHo0ZXRRd29JZDlobC1lOFRqcHNBRzhGOU42ZWlRRmwxRUtJTTR3WnBVSjZNVkFTM0FFb3c?oc=5"
+      },
+      {
+        "title": "Microsoft says services fully restored after hourslong global outage",
+        "source": "AP News",
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZHlYRjJoX0RfREJ3UFBlQ3pacWMwMjBXeGJETGNBTFIzbHZMd1o0UFpMR00tQ25kb0x3YlBjZk4wd25hQTVoQ0FQdTVydERxenNBbkx0YVU5VGtnMUJwcW0tc2FFZ0tsMk0wbFc4TjRHWFhid01xWmljT0tZMVFicUVWRk1ueWdscFMyZXdHWGVJWjdSQ1ozLWJGdXpNMFRQdFc2Mw?oc=5"
       }
     ]
   },
@@ -40,28 +84,6 @@
         "source": "Forbes",
         "date": "2026-11-13",
         "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNd0ZWZFJCWmp3MUlFMFFrRExhTldkeEs1aEt2bVJDend6Y24yck5wUHlsNF9yNERkQWNsY25va25DMnpMWFE2QmtZVy1CQnlVMjZTNlBFM1g1ak5kWjJEclk2V0IycmFKRHg1RjU2M1RVaHhwTEJUM2hZa0FXaUZRWVRZd0tpTThCZkoxeTJxZERQSFZBb1M3SWptclpVVUVxUEtzSUFTMWxLcmM4VURJbXNCQ1NZQm9fTzBnOS00eGRiV2NRVUo3Rl94QnR2TnlfMGM5dUYxRmZuVDQzZzBWRE0zb2w?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "미국faa전국항공기운항전면중단",
-    "name": "미국 FAA 전국 항공기 운항 전면 중단",
-    "first_seen": "2026-11-14",
-    "days_seen": 1,
-    "last_seen": "2026-11-14",
-    "why": "관제 통신 시스템 장애로 미국 전역의 항공기 운항이 전면 중단되는 사태가 발생해 경과를 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "미국 전역 항공기 운항 전면 중단...\"관제 통신 시스템 장애\"",
-        "source": "YTN",
-        "date": "2026-11-14",
-        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1HQUE4cVVaTWZfYmpIZ3Jwc3g4RDZzdmRldVNxMnNLbFFZdTFXQTh0ZDRjTjBzVzFlY2t2cndpcUNpLVZ6ZkRCYVhsNHAxQVJpMV9XQUxHcW03NjlMMVE?oc=5"
-      },
-      {
-        "title": "Live Updates: FAA Declares Rare Nationwide Ground Stop of Flights",
-        "source": "The New York Times",
-        "date": "2026-11-14",
-        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOS1F1U1pLV0V3dTVlT1RnSGF1dlJERU1sbkN5X2pMUmlPSFVoZkZaTmlRM3plQmZJQTBBaXdMQnZpbm1PV2NfajFvclpsUWE2VlhwZ3ZlcjVkNG1CbUVxMW9jempQY3VtVlNSUU11c3hGLU9GYk82N0cxT1BBQTZkbWs4VQ?oc=5"
       }
     ]
   },
@@ -138,22 +160,6 @@
         "source": "연합인포맥스",
         "date": "2026-11-11",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9IUVlBdDNJZFdiV29DNHBoTXBYazA2S3hsUnBMMWplb21FeGNfZkxYdUJTS012Q0ZzeS1nYVllSGlIYVRkbnY4Sy1JcEF1eUI0cEpXQUFKVWFjRzFKQ01IbHhvd2dBdmo3MkdFdGF3Tzk?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "가상자산거래소이슈및과세논의",
-    "name": "가상자산 거래소 이슈 및 과세 논의",
-    "first_seen": "2026-10-31",
-    "days_seen": 6,
-    "last_seen": "2026-11-11",
-    "why": "바이낸스 해킹 자금 이동 관련 보도가 이어지며 가상자산 시장 이슈를 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "북 해커, 바이낸스서 훔친 돈 어떻게 했나?…“10초마다 거래” [지금뉴스]",
-        "source": "KBS 뉴스",
-        "date": "2026-11-10",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBqMVlESGxRaDlGVVpHbUsxM1JPVE52UHlxTWZ2UXFUeVprdkRNRTZObHNFY3ZlWlplbEwtcFd4S3FLRmxzZG5mcXJMV2NtZFRjUDVURzd0eGpBa2M?oc=5"
       }
     ]
   }
