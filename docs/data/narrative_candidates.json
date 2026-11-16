@@ -1,5 +1,77 @@
 [
   {
+    "key": "미국faa전국항공기운항전면중단",
+    "name": "미국 FAA 전국 항공기 운항 전면 중단",
+    "first_seen": "2026-11-14",
+    "days_seen": 3,
+    "last_seen": "2026-11-16",
+    "why": "통신 시스템 장애로 미국 전역의 항공기 운항이 전면 차질을 빚고 충돌 사고 보도가 이어져 경과를 주시합니다.",
+    "evidence": [
+      {
+        "title": "Duffy blames Congress, prior administrations for air travel halt, chaos",
+        "source": "The Washington Post",
+        "date": "2026-11-16",
+        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQVlQzU3hQUWZCUmRhaEFhLWJqU29tT2Z0c3lwV1RQckNNVVkxV0gxdW0wOER1Vmp6UklNb09rQUcxT2d2ZDNhT0RjTERxaTFXTHEtZGJodk5oY3NyVTFDRE1QdXZkckFoMV9rTGFubjRGODhUS2VUaDBMcV9GbmFNU3Y1VUlWZEJ0WS0zaVVxcWEwc0Q0TVNOMHpKM1FrbDFPYzFTN2gtU1V0V2dBNndTTnhQZXA4WXJEQkxoSjYwanNPUQ?oc=5"
+      },
+      {
+        "title": "Two planes collide on taxiway at Miami airport one day after national grounding",
+        "source": "The Guardian",
+        "date": "2026-11-15",
+        "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNbnlqY0IwelVhVGQxdGoxSjVjOVNVRDY2NjJDZFVad1Z5Q05ORWlXX1QzVUZseWhnVVBNOGRBX0dqbWVtOFJTTFVGdko5ZnlETEhMVU41R1VWTm1Fek8tLV85bDVOdXh4Nng1TzJucEZ4ZEVlR2Q0Vk15dnZSUU5UYW9R?oc=5"
+      },
+      {
+        "title": "Could everything be broken? Grounded jets, Microsoft outage, AI chaos make some wonder",
+        "source": "AP News",
+        "date": "2026-11-15",
+        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbUFCdzU3WWxqWDJyOThxR0pfSENwbHdjWE50LVZfX0xSUUZFZnpTemtWN2RRckNlOW56TnZwT2pmUHpPYnU0cGtiaUJ4aFpzLXZ4OHN0a3UxVEpNenFlc0VETFE2UDJkdy1Ld0ZSU2V2MHJxNE9WN3VFMjA2U1lLRThOdE5kSWk2UVdpektzb00yV3ZjUjhOeWpiNA?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "마이크로소프트글로벌서비스장애",
+    "name": "마이크로소프트 글로벌 서비스 장애",
+    "first_seen": "2026-11-15",
+    "days_seen": 2,
+    "last_seen": "2026-11-16",
+    "why": "마이크로소프트 365 및 클라우드 대규모 장애가 복구된 이후에도 전 세계 업무 차질 여파 보도가 나와 관찰합니다.",
+    "evidence": [
+      {
+        "title": "Microsoft says services fully restored after hourslong global outage",
+        "source": "AP News",
+        "date": "2026-11-14",
+        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZHlYRjJoX0RfREJ3UFBlQ3pacWMwMjBXeGJETGNBTFIzbHZMd1o0UFpMR00tQ25kb0x3YlBjZk4wd25hQTVoQ0FQdTVydERxenNBbkx0YVU5VGtnMUJwcW0tc2FFZ0tsMk0wbFc4TjRHWFhid01xWmljT0tZMVFicUVWRk1ueWdscFMyZXdHWGVJWjdSQ1ozLWJGdXpNMFRQdFc2Mw?oc=5"
+      },
+      {
+        "title": "Could everything be broken? Grounded jets, Microsoft outage, AI chaos make some wonder",
+        "source": "AP News",
+        "date": "2026-11-15",
+        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbUFCdzU3WWxqWDJyOThxR0pfSENwbHdjWE50LVZfX0xSUUZFZnpTemtWN2RRckNlOW56TnZwT2pmUHpPYnU0cGtiaUJ4aFpzLXZ4OHN0a3UxVEpNenFlc0VETFE2UDJkdy1Ld0ZSU2V2MHJxNE9WN3VFMjA2U1lLRThOdE5kSWk2UVdpektzb00yV3ZjUjhOeWpiNA?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "북한사이버공격및개인정보유출",
+    "name": "북한 사이버 공격 및 개인정보 유출",
+    "first_seen": "2026-11-16",
+    "days_seen": 1,
+    "last_seen": "2026-11-16",
+    "why": "북한 김수키의 국회의원실 사칭 악성코드 포착과 안보실의 사이버안보 공동대응 회의가 보도되어 추이를 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "북한 김수키, 국회의원실 사칭 공격…신종 악성코드 포착",
+        "source": "연합뉴스",
+        "date": "2026-11-15",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE02aVBtQzFSVTFnMzNnZ3MwcGZpUkZTVXlzNVotdEhxN3pWbGxKSXVyb2lqVFB3RjA0c1JhNDF0OUcxUEZwTGNwMXNTQnhpR2lUclNFVmo5b2xIUDTSAWBBVV95cUxOcDBLbGM4VzV1aWNyWUd1ZzhPdlFPYURLcDRYc3VNdV9BNmVsZUtiS2lzQmJQTDVGcDVzd21vdW9iZUlCMC1nZ1VqTE9zOTg4eEFCYUNHYXNYVkRJVUVIQ3k?oc=5"
+      },
+      {
+        "title": "안보실, 민·관·군 사이버안보 공동대응 회의…IT자산 관리점검",
+        "source": "연합뉴스",
+        "date": "2026-11-15",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE45YzJ2aGlFcldINWJsUXhnS1U1SkxOR1FGSXZFRlJKVTJSam8yMXJqLUZrcVNDbWdqa25KS0s5YThBMXpRN1Q4aS12YnBhRzZWeEhxRzZDTG1meHPSAWBBVV95cUxOdTV0U2NQN2lzSWRfM2RRMllNMHZqUFRXcHBfYW1kRjZHNE10RVJENXpodGJPNlZpT2kyZnF2SDgyaFZDdFRHMzNyQ01jZFpUTHFERFRaSWdreHFDTG5xcGU?oc=5"
+      }
+    ]
+  },
+  {
     "key": "미국의중국ai칩우회수출규제",
     "name": "미국의 중국 AI 칩 우회 수출 규제",
     "first_seen": "2026-11-13",
@@ -12,56 +84,6 @@
         "source": "YTN",
         "date": "2026-11-14",
         "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1zbUJVMEhrczVwZ1RNN1c0Sy1nOGRELXF3cW90ejJoNlA4c3ZKaW1RZUV0REJJYk10a2s4emlJMTZ3NTBOUmJzREkyVktXanY2SEcwa3dpcFZHSEUyb2c?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "미국faa전국항공기운항전면중단",
-    "name": "미국 FAA 전국 항공기 운항 전면 중단",
-    "first_seen": "2026-11-14",
-    "days_seen": 2,
-    "last_seen": "2026-11-15",
-    "why": "통신 시스템 장애로 미국 전역의 항공기 운항이 대규모 차질을 빚어 경과를 주시합니다.",
-    "evidence": [
-      {
-        "title": "美 이틀간 1만3265편 결항… \"낡은 구리 통신선 교체 중 항공대란\"",
-        "source": "조선일보",
-        "date": "2026-11-14",
-        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPeHMxZGlkM0xwNkVUcGhaYk5IUV9NTFgxaDRwb0dfWnBjaU9XRmhHOHlpX2VEVDFoMkRFbW9mbWhpZ3QwTHpjc3dzY2J2MjAxZlI3UDkwOWQyS0hyVTBlY3UzcHoxZldYcDJhVHVWenFjSUdEY0MxVy1vXzlGQ3k3V2UyUGtzQVJkcndaRUtYVEF1alhVaC1Db2VPb2o1QQ?oc=5"
-      },
-      {
-        "title": "'Root cause’ of nationwide ground stop is unknown, FAA says",
-        "source": "CNBC",
-        "date": "2026-11-14",
-        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbE9aSm53eUtPR2pwcWw3QUU1RXVhLUxOUTB3R1M4RDMzTUlyNm51YjJ3d1JmamVEUDgtVzJ6bHlaOGEwR19nVEM5STdMZWVhRkdHQngyX3pjZGc4blotU3JQRFN5UmlYMUVKV1o3MHJzQkVrQzRLekhZNkZQNXlISEhCT1psTHh2aFlLMmFRVzFab080NUpybdIBngFBVV95cUxPVFVrSWJ0Skt4d2pjcUF1UHhYYTNVS051OTVNOEF0MTItdEtNVlB2cDVNZDdQMVZ4cWdLeXNEbXA4RnpFU1RyZmd0eVpxRmppaWg5SXplRkQzSjBYZnZWZjJxbFp3RW8yaW84OEFxUUcwaUlHMnpUQlVySWh5Vk1hUm5BME93cGJwVlhRbGVfNWsxWDRQM1dhellXQi1jdw?oc=5"
-      },
-      {
-        "title": "Over 1,322 flights delayed, 268 canceled amid widespread U.S. travel disruptions",
-        "source": "NJ.com",
-        "date": "2026-11-13",
-        "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPUVZkbzRpY0dtZHZLU2JQbGJHQjZKYXVDZVd3b2ZRX0VsYnRTSkJXWWlFcHhoalhhX0FOc0xrYzVRbHJlcVlSUGxHdktJSlBORlRmbUFESmZubVUxRF8wR19ZdkdBOUYzcFZwbnZrWWxxN2d1V01HbnMweEp3NnNSTE5WRFRUUG5ZcFcwaldEMHlEVXVwMzRNOHdxV19YWUhicFN3NFFEQjRxM1lRQkpQSWZJY9IBxwFBVV95cUxNbGJxYk9oeW9ESXVQaUhBU0VEVm45eXFMSFJCREotZWtWSUpabTR1Z0xJNWx5d1h2TFNDYmpUQkNZZ1FkU2ctZjJCZU5NRTZRaWJ3U2ZSZmV4eVlITHRFQkxwODYzU1g1UGZRNlctWGRQaXkzbk5OT3BMR2ExbUt4RkVKcFpjZW9ZdXdUNFVscFdQWTV3ZXhvZ181bEoxMWx5WWtIWHc2djJabDJSUF9CaE1uX1lkQXRHaXo3STBjaHkyOTNsdDVR?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "마이크로소프트글로벌서비스장애",
-    "name": "마이크로소프트 글로벌 서비스 장애",
-    "first_seen": "2026-11-15",
-    "days_seen": 1,
-    "last_seen": "2026-11-15",
-    "why": "마이크로소프트 365 및 아웃룩 등 클라우드 서비스 장애로 글로벌 업무 차질 보도가 나와 관찰합니다.",
-    "evidence": [
-      {
-        "title": "정부, 마이크로소프트 서비스 장애에 비상대응반 구성하고 점검",
-        "source": "MBC 뉴스",
-        "date": "2026-11-14",
-        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1EaGgzRnBCQUxmZnV0WlJETVRZY0hTSHREaGE5Y000dGdVd0o4ZVhwNVVpOTBtWW14MzZ3cVVadkVEWjVQLVY2dVRmSDBNcTBXU2lVZmpwaV9mZ0E0V09iMHphMHpRVmNSWUJNWm5ObWVHY0NR0gF0QVVfeXFMUE9EM1lUa1hNb0tLLUl1eUNlZFNoWG1FSDBIT3BGUVFiQjR0djIwb3RJMjdjaGFnZERTQWNZcHlxTHo0ZXRRd29JZDlobC1lOFRqcHNBRzhGOU42ZWlRRmwxRUtJTTR3WnBVSjZNVkFTM0FFb3c?oc=5"
-      },
-      {
-        "title": "Microsoft says services fully restored after hourslong global outage",
-        "source": "AP News",
-        "date": "2026-11-14",
-        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZHlYRjJoX0RfREJ3UFBlQ3pacWMwMjBXeGJETGNBTFIzbHZMd1o0UFpMR00tQ25kb0x3YlBjZk4wd25hQTVoQ0FQdTVydERxenNBbkx0YVU5VGtnMUJwcW0tc2FFZ0tsMk0wbFc4TjRHWFhid01xWmljT0tZMVFicUVWRk1ueWdscFMyZXdHWGVJWjdSQ1ozLWJGdXpNMFRQdFc2Mw?oc=5"
       }
     ]
   },
@@ -144,22 +166,6 @@
         "source": "한겨레",
         "date": "2026-11-11",
         "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5BaHl3SGxEc25sZk41S2Q0ODJCWHNoQXU0enZNSlY1bkdyQUhxLURpOGJXWmczd2FnZnFnR1p1OVJobnFQTmhUdVJnemV3RVdINkt4QkNoVGFBc0RxcllzRndqV2RIaE1JVlJfMjVKVUVsZw?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "국민연금국내증시평가손실",
-    "name": "국민연금 국내 증시 평가손실",
-    "first_seen": "2026-10-19",
-    "days_seen": 15,
-    "last_seen": "2026-11-12",
-    "why": "국민연금의 금융지주 사외이사 추천 등 지배구조 개혁 영향력 행사 보도가 지속되어 관찰합니다.",
-    "evidence": [
-      {
-        "title": "[지배구조 개혁] 이찬진이 띄운 '국민연금'…지주 사외이사 추천 나설까",
-        "source": "연합인포맥스",
-        "date": "2026-11-11",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9IUVlBdDNJZFdiV29DNHBoTXBYazA2S3hsUnBMMWplb21FeGNfZkxYdUJTS012Q0ZzeS1nYVllSGlIYVRkbnY4Sy1JcEF1eUI0cEpXQUFKVWFjRzFKQ01IbHhvd2dBdmo3MkdFdGF3Tzk?oc=5"
       }
     ]
   }

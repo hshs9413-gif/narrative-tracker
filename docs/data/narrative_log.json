@@ -3207,5 +3207,84 @@
     ],
     "at": "2026-11-15T10:22+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-16",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "alaska-lng-trade-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언급 지표 식음 판정 제안에 따라 알래스카 LNG 투자 및 통상 협력 내러티브를 잠잠 국면으로 전환합니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-16",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언급 지표 식음 판정 제안에 따라 AI 버블 및 밸류에이션 논의를 잠잠 국면으로 전환합니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "하버드대 석학 “AI 버블 반드시 붕괴…한국, 지출 늘려선 안 돼” [자막뉴스]",
+        "source": "채널A",
+        "date": "2026-11-13",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1Yd1FCWHpCdmw3MC0xSDBtcUpocHZ1LWVTblJpZjZ4eTkwdmYxdWhqUDBSWWUwcnE1NzFYOVUzckV3TUtOSjBhdlBZYWo5NlF2Y016cU9Cc2lGd3NQVkHSAWNBVV95cUxPdnJ4Zk1Ib21Bckwxdm5IRmp0ak9PcGFWNlRFckRIbHkzcUtTTTJoLW9FQUFDc2Ridk40VmZLU2NlYzhadmhxeGQ2bTNXYUVqZnhVa1pmd3hXQzlXUVR5XzJhakE?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-16",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "nvidia-ceo-resignation-scandal-2026",
+    "kind": "new",
+    "name": "엔비디아 CEO 사임 및 대중국 우회 수출 파문",
+    "reason": "젠슨 황 엔비디아 CEO의 사임 파문과 대중국 반도체 우회 수출 의혹 조사가 겹치며 글로벌 기술주 및 반도체 시장 전반에 큰 충격을 주고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-16",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "식음 지표 판정에 따라 알래스카 LNG 및 AI 밸류에이션 내러티브를 잠잠 국면으로 전환했습니다. 엔비디아 CEO 사임 및 대중국 반도체 수출 의혹 파문이 시장 전반에 고강도 충격을 주어 신규 진행 중 내러티브로 등록했습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "잠잠",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "마이크로소프트 글로벌 서비스 장애",
+      "북한 사이버 공격 및 개인정보 유출",
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "마이크로소프트 365 대규모 장애",
+      "마이크로소프트 아웃룩 대규모 장애",
+      "북한 해커 딥페이크·화상 해킹 파문",
+      "국산 비만약 시장 경쟁"
+    ],
+    "at": "2026-11-16T10:26+09:00",
+    "trigger": "schedule"
   }
 ]
