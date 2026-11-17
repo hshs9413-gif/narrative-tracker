@@ -1,5 +1,59 @@
 [
   {
+    "key": "미국의중국ai칩우회수출규제",
+    "name": "미국의 중국 AI 칩 우회 수출 규제",
+    "first_seen": "2026-11-13",
+    "days_seen": 4,
+    "last_seen": "2026-11-17",
+    "why": "동남아 등 우회 경로를 통한 대중국 AI 반도체 수출 차단 법안 및 규제 강화 움직임이 보도되어 주시합니다.",
+    "evidence": [
+      {
+        "title": "Trump administration orders Commerce to close chip loophole at heart of Nvidia scandal",
+        "source": "The Washington Post",
+        "date": "2026-11-17",
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQeFlDQ0VJUFBIZS1nQTJUN281Z2JRbmJ4N3JFSEo2cDJYdlpXOWhIWkw4Mm95ZXZXWkQ1MjJGRnZCVkVKUWlVakVub2ZwU0dhVUJKeGtJclFVa2pMZFVMZjRmYUhTbFBZV1BGdENBdGkzMV9nZGRaUkhFcVJMYUtITkN3M0pwRFlsQmkxUXNIaEpPanZIRll1TVNXRFJpVzlDOTNLUTVaNDY1Ql9TVXdV?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "마이크로소프트글로벌서비스장애",
+    "name": "마이크로소프트 글로벌 서비스 장애",
+    "first_seen": "2026-11-15",
+    "days_seen": 3,
+    "last_seen": "2026-11-17",
+    "why": "마이크로소프트 365 및 클라우드 서비스 장애 여파로 전 세계 주요 기업과 기관의 업무 차질 보도가 지속되고 있습니다.",
+    "evidence": [
+      {
+        "title": "FAA, Microsoft, banks: Why it feels like everything keeps breaking",
+        "source": "USA Today",
+        "date": "2026-11-17",
+        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWGlOa3VFSE1MZnl5dlR1TzE2YnN3TjAzRHgxVWZEMVYtSDV2dmRWZnVuY1doc2JfbnhGRnhoQzBKS1I5VmlRVXRwLU45aGxKNUVaTXdfVGtOcU83T3VxV1NaWWphMWZqbXlya183REctRkFpRksxZmxSTXUyUl9ZV1ZMNGduOEI5Nm9MX3BzR05oZ1g1RlhJdGYwVERDVTk1ZVE?oc=5"
+      },
+      {
+        "title": "Microsoft reveals hidden bug behind global Outlook and Microsoft 365 outage",
+        "source": "Fox Business",
+        "date": "2026-11-16",
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQWQ5ZldDc3JKb2V4TzR4b2JxZ1VjOHptcGg4cHl4V01Xd2hJNWl4eDgzT0dhMkpBZG9lQm9KaEFkVWNScTFTbHZkc1lfWW9TQ29jMDA0eFVFakZBaXpGWXJhbVk0MUdqUTMxamJ0Tm4tM3JYclM4bE05NkwxWVJWX1ZhTXJLSmxkWFN2SlVQY2NXbHN6cDU2ZE9ySXJnaFdySjQ0VnhOeF9jY0JZbXdF0gG0AUFVX3lxTFBqOWoyZUZjeTdmQmktLUptUDktQ1U1MjVWYWFiMWdDQ2lFLWxsd2N0cElicjA3YV9DaVRUN25rWTBvZ3ZyNGp1Mmx0RU1zZnJESVVlUHhKbnBfLXRmUVpOcVpEd1lOU2twZ2lrZy1YVm5pdnJQOUl2SmR1dXdja29pMFpQNnV2R3N1RGpTWm5wdEtSXy1GZFVKaUt3cC1aYVpDUGpnTl9FWGZlRVFiN1JZdDJKZQ?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "북한사이버공격및개인정보유출",
+    "name": "북한 사이버 공격 및 개인정보 유출",
+    "first_seen": "2026-11-16",
+    "days_seen": 2,
+    "last_seen": "2026-11-17",
+    "why": "국회의원실 사칭 및 화상회의 악성코드를 통한 북한 해커의 사이버 위협 경고가 나와 추이를 관찰합니다.",
+    "evidence": [
+      {
+        "title": "A technical issue at JPMorgan Chase triggers online banking delays for major US banks",
+        "source": "AP News",
+        "date": "2026-11-17",
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPT2I5X1NCMDRQZURDMlVFTTY4TmJ1TFVCeUIyWFRuenhhUmV4QTd5ZW9ydEdUaUFXb0dGTVFjR3VubUxvaExsZ3pfWUd2dUw1dEdFbDg5TWhkbEFxNEJydHNtaTgxRnJ1VXRNdjJQY25GSU1NdEZRcG9wUlN0NTJlRHk4QW5WbHk1eV9XOTROU2M3M3N4ZU0wbkxBSTY?oc=5"
+      }
+    ]
+  },
+  {
     "key": "미국faa전국항공기운항전면중단",
     "name": "미국 FAA 전국 항공기 운항 전면 중단",
     "first_seen": "2026-11-14",
@@ -24,66 +78,6 @@
         "source": "AP News",
         "date": "2026-11-15",
         "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbUFCdzU3WWxqWDJyOThxR0pfSENwbHdjWE50LVZfX0xSUUZFZnpTemtWN2RRckNlOW56TnZwT2pmUHpPYnU0cGtiaUJ4aFpzLXZ4OHN0a3UxVEpNenFlc0VETFE2UDJkdy1Ld0ZSU2V2MHJxNE9WN3VFMjA2U1lLRThOdE5kSWk2UVdpektzb00yV3ZjUjhOeWpiNA?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "마이크로소프트글로벌서비스장애",
-    "name": "마이크로소프트 글로벌 서비스 장애",
-    "first_seen": "2026-11-15",
-    "days_seen": 2,
-    "last_seen": "2026-11-16",
-    "why": "마이크로소프트 365 및 클라우드 대규모 장애가 복구된 이후에도 전 세계 업무 차질 여파 보도가 나와 관찰합니다.",
-    "evidence": [
-      {
-        "title": "Microsoft says services fully restored after hourslong global outage",
-        "source": "AP News",
-        "date": "2026-11-14",
-        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZHlYRjJoX0RfREJ3UFBlQ3pacWMwMjBXeGJETGNBTFIzbHZMd1o0UFpMR00tQ25kb0x3YlBjZk4wd25hQTVoQ0FQdTVydERxenNBbkx0YVU5VGtnMUJwcW0tc2FFZ0tsMk0wbFc4TjRHWFhid01xWmljT0tZMVFicUVWRk1ueWdscFMyZXdHWGVJWjdSQ1ozLWJGdXpNMFRQdFc2Mw?oc=5"
-      },
-      {
-        "title": "Could everything be broken? Grounded jets, Microsoft outage, AI chaos make some wonder",
-        "source": "AP News",
-        "date": "2026-11-15",
-        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbUFCdzU3WWxqWDJyOThxR0pfSENwbHdjWE50LVZfX0xSUUZFZnpTemtWN2RRckNlOW56TnZwT2pmUHpPYnU0cGtiaUJ4aFpzLXZ4OHN0a3UxVEpNenFlc0VETFE2UDJkdy1Ld0ZSU2V2MHJxNE9WN3VFMjA2U1lLRThOdE5kSWk2UVdpektzb00yV3ZjUjhOeWpiNA?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "북한사이버공격및개인정보유출",
-    "name": "북한 사이버 공격 및 개인정보 유출",
-    "first_seen": "2026-11-16",
-    "days_seen": 1,
-    "last_seen": "2026-11-16",
-    "why": "북한 김수키의 국회의원실 사칭 악성코드 포착과 안보실의 사이버안보 공동대응 회의가 보도되어 추이를 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "북한 김수키, 국회의원실 사칭 공격…신종 악성코드 포착",
-        "source": "연합뉴스",
-        "date": "2026-11-15",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE02aVBtQzFSVTFnMzNnZ3MwcGZpUkZTVXlzNVotdEhxN3pWbGxKSXVyb2lqVFB3RjA0c1JhNDF0OUcxUEZwTGNwMXNTQnhpR2lUclNFVmo5b2xIUDTSAWBBVV95cUxOcDBLbGM4VzV1aWNyWUd1ZzhPdlFPYURLcDRYc3VNdV9BNmVsZUtiS2lzQmJQTDVGcDVzd21vdW9iZUlCMC1nZ1VqTE9zOTg4eEFCYUNHYXNYVkRJVUVIQ3k?oc=5"
-      },
-      {
-        "title": "안보실, 민·관·군 사이버안보 공동대응 회의…IT자산 관리점검",
-        "source": "연합뉴스",
-        "date": "2026-11-15",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE45YzJ2aGlFcldINWJsUXhnS1U1SkxOR1FGSXZFRlJKVTJSam8yMXJqLUZrcVNDbWdqa25KS0s5YThBMXpRN1Q4aS12YnBhRzZWeEhxRzZDTG1meHPSAWBBVV95cUxOdTV0U2NQN2lzSWRfM2RRMllNMHZqUFRXcHBfYW1kRjZHNE10RVJENXpodGJPNlZpT2kyZnF2SDgyaFZDdFRHMzNyQ01jZFpUTHFERFRaSWdreHFDTG5xcGU?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "미국의중국ai칩우회수출규제",
-    "name": "미국의 중국 AI 칩 우회 수출 규제",
-    "first_seen": "2026-11-13",
-    "days_seen": 3,
-    "last_seen": "2026-11-15",
-    "why": "동남아 우회 경로를 통한 대중국 AI 칩 수출 차단 법안 논의가 진행 중이어 추이를 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "\"트럼프, AI칩 수출통제 풀며 엔비디아 주식 구입\"",
-        "source": "YTN",
-        "date": "2026-11-14",
-        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1zbUJVMEhrczVwZ1RNN1c0Sy1nOGRELXF3cW90ejJoNlA4c3ZKaW1RZUV0REJJYk10a2s4emlJMTZ3NTBOUmJzREkyVktXanY2SEcwa3dpcFZHSEUyb2c?oc=5"
       }
     ]
   },
