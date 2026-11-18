@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-18T04:21:03.515901+00:00",
+  "generated_at": "2026-11-18T22:21:26.809112+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "골디락스",
     "pmi": 55.5,
     "pmi_as_of": "2026-10-01",
-    "breakeven": 2.21,
-    "breakeven_date": "2026-11-17",
-    "breakeven_change": 0.026,
+    "breakeven": 2.19,
+    "breakeven_date": "2026-11-18",
+    "breakeven_change": 0.016,
     "breakeven_lookback_days": 91
   },
   "credit_stress": {
@@ -18,17 +18,17 @@
     "confirm_days": 3,
     "detail": {
       "hy_oas_pct": {
-        "value": 3.34,
-        "as_of": "2026-11-16",
+        "value": 3.43,
+        "as_of": "2026-11-17",
         "band": "평상"
       },
       "vix_level": {
-        "value": 22.91,
-        "as_of": "2026-11-16",
+        "value": 25.46,
+        "as_of": "2026-11-17",
         "band": "경계"
       },
       "curve_2s10y": {
-        "value": 0.29,
+        "value": 0.3,
         "inverted": false
       }
     }
@@ -36,10 +36,10 @@
   "policy_stance": {
     "label": "긴축",
     "current": 4.0,
-    "current_date": "2026-11-17",
+    "current_date": "2026-11-18",
     "lookback_days": 90,
     "lookback_value": 3.75,
-    "lookback_date": "2026-08-19"
+    "lookback_date": "2026-08-20"
   },
   "kospi_vol": {
     "label": "고변동",
@@ -50,13 +50,13 @@
   },
   "cross_check": {
     "nfci": {
-      "value": -0.46,
-      "as_of": "2026-11-17",
+      "value": -0.48,
+      "as_of": "2026-11-18",
       "interpretation": "평균보다 완화적"
     },
     "stlfsi4": {
-      "value": -0.49,
-      "as_of": "2026-11-17",
+      "value": -0.87,
+      "as_of": "2026-11-18",
       "interpretation": "평균보다 낮음"
     }
   },
@@ -70,20 +70,20 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 86.01,
-      "as_of": "2026-11-17",
-      "base_value": 101.79,
-      "base_date": "2026-10-20",
+      "value": 81.88,
+      "as_of": "2026-11-18",
+      "base_value": 97.15,
+      "base_date": "2026-10-21",
       "lookback_days": 28,
-      "change": -15.78,
-      "change_pct": -15.5
+      "change": -15.27,
+      "change_pct": -15.72
     },
     "breakeven_3m": {
-      "value": 2.21,
-      "as_of": "2026-11-17",
+      "value": 2.19,
+      "as_of": "2026-11-18",
       "window_days": 28,
       "lookback_days": 91,
-      "change": 0.026
+      "change": 0.016
     }
   }
 }
