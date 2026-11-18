@@ -3,15 +3,31 @@
     "key": "미국의중국ai칩우회수출규제",
     "name": "미국의 중국 AI 칩 우회 수출 규제",
     "first_seen": "2026-11-13",
-    "days_seen": 4,
-    "last_seen": "2026-11-17",
-    "why": "동남아 등 우회 경로를 통한 대중국 AI 반도체 수출 차단 법안 및 규제 강화 움직임이 보도되어 주시합니다.",
+    "days_seen": 5,
+    "last_seen": "2026-11-18",
+    "why": "동남아 우회 경로 차단 법안이 파운드리 및 후공정 산업에 미칠 영향 주시.",
     "evidence": [
       {
-        "title": "Trump administration orders Commerce to close chip loophole at heart of Nvidia scandal",
-        "source": "The Washington Post",
+        "title": "美, 동남아 우회 AI칩 '패스트트랙' 닫았다…韓 파운드리·후공정 악영향 우려",
+        "source": "전자신문",
         "date": "2026-11-17",
-        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQeFlDQ0VJUFBIZS1nQTJUN281Z2JRbmJ4N3JFSEo2cDJYdlpXOWhIWkw4Mm95ZXZXWkQ1MjJGRnZCVkVKUWlVakVub2ZwU0dhVUJKeGtJclFVa2pMZFVMZjRmYUhTbFBZV1BGdENBdGkzMV9nZGRaUkhFcVJMYUtITkN3M0pwRFlsQmkxUXNIaEpPanZIRll1TVNXRFJpVzlDOTNLUTVaNDY1Ql9TVXdV?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1qSlFPUFZnbVFnNktXWFJGQWlEX2JzSm9pc21YRlV5WHFGU3BUQUlFV2VjY3lGS05fbW5hbEMtUFVkNDR2alRjOE5EeG50Zw?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "북한해커사이버공격",
+    "name": "북한 해커 사이버 공격",
+    "first_seen": "2026-11-18",
+    "days_seen": 1,
+    "last_seen": "2026-11-18",
+    "why": "국제 외교안보 및 금융권 대상 해킹 시도가 지속적으로 보도됨.",
+    "evidence": [
+      {
+        "title": "[단독] 아세안정상회의, 中해커에 공격당했다…외교안보 해킹 전쟁 본격화",
+        "source": "매일경제",
+        "date": "2026-11-17",
+        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1aRm1Qa2hNSzdTTTNDNy1XcVJsX3owTnRKckhNb3lUVDJHXzg3YkJwak94TWNvSi1UbXBmOTczMTRxWTlySEw1XzkzWlNJbkdCamc?oc=5"
       }
     ]
   },
@@ -144,22 +160,6 @@
         "source": "Reuters",
         "date": "2026-11-12",
         "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQYUJYTGpUb1lrNXVCaVFFUjN3all5a2w1cF9HdW51OWROWC1taVFOOFozQ0pkYmpReklqTEhtNm1McUhtYVBvWTVMM2tHczJlUFZaem14Q1U0VndNaWk2Z3AxdzFvVThleTFNUXpPd3E0WlU2ZkdPSFFXeXJqNktka05TYUZmTER4TExyS3dOVTFLVWNLcVVHejdkVTk3UXVkRnUtNmNrQ3B3anBHelhIaGlka0RFMTZ0bnNWUWREeU0xV0tRNXp1THBIdw?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "국산비만약시장경쟁",
-    "name": "국산 비만약 시장 경쟁",
-    "first_seen": "2026-10-15",
-    "days_seen": 19,
-    "last_seen": "2026-11-12",
-    "why": "GLP-1 계열 비만치료제 시장 성장 및 부작용 안내 미흡 등 관련 보도가 이어지고 있어 주시합니다.",
-    "evidence": [
-      {
-        "title": "비만치료제 시장 2조 눈앞…실명 위험 속 “부작용 안내 못 받아”",
-        "source": "한겨레",
-        "date": "2026-11-11",
-        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5BaHl3SGxEc25sZk41S2Q0ODJCWHNoQXU0enZNSlY1bkdyQUhxLURpOGJXWmczd2FnZnFnR1p1OVJobnFQTmhUdVJnemV3RVdINkt4QkNoVGFBc0RxcllzRndqV2RIaE1JVlJfMjVKVUVsZw?oc=5"
       }
     ]
   }

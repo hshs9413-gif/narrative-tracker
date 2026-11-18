@@ -3401,5 +3401,76 @@
     ],
     "at": "2026-11-17T13:14+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-18",
+    "by": "rule",
+    "event_id": "alaska-lng-trade-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "status": "applied",
+    "reason": "언급이 줄었는데(7일 기사 8건, 정점 대비 0.31) Gemini가 이어진다는 최근 3일 기사(매체 2곳)를 대지 않아 잠잠으로",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    }
+  },
+  {
+    "date": "2026-11-18",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "nvidia-leadership-crisis-2026",
+    "kind": "new",
+    "name": "엔비디아 젠슨 황 사임 및 경영 리스크",
+    "reason": "젠슨 황의 사임과 SEC의 공시 위반 조사로 인해 엔비디아 및 기술주 전반의 불확실성이 급격히 확대됨.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-18",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "global-tech-infrastructure-outage-2026",
+    "kind": "new",
+    "name": "글로벌 IT 인프라 연쇄 장애",
+    "reason": "마이크로소프트, 애플 등 주요 IT 서비스의 연쇄 장애로 글로벌 업무 및 금융 시스템에 차질 발생.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-18",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "엔비디아 경영 리스크와 글로벌 IT 인프라 장애가 시장의 새로운 충격으로 부상했습니다. 기존의 AI 버블 경고와 고금리·고물가 내러티브는 여전히 시장의 주요 변수로 작용하고 있습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "잠잠",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "북한 해커 사이버 공격",
+      "마이크로소프트 글로벌 서비스 장애",
+      "북한 사이버 공격 및 개인정보 유출",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "마이크로소프트 365 대규모 장애",
+      "마이크로소프트 아웃룩 대규모 장애",
+      "북한 해커 딥페이크·화상 해킹 파문"
+    ],
+    "at": "2026-11-18T12:18+09:00",
+    "trigger": "schedule"
   }
 ]
