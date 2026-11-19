@@ -3472,5 +3472,61 @@
     ],
     "at": "2026-11-18T12:18+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-19",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "ai-patch-outage-2026",
+    "kind": "new",
+    "name": "AI발 전산 마비 대란",
+    "reason": "전 세계적인 클라우드 및 서비스 장애가 해킹이 아닌 AI 기반 패치 오류로 밝혀지며 기술적 신뢰성 문제가 부각됨.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-19",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "event_id": "nvidia-leadership-risk-2026",
+    "kind": "new",
+    "name": "엔비디아 젠슨 황 리스크",
+    "reason": "엔비디아 경영진의 리더십 논란과 젠슨 황의 거취 문제가 AI 시장 전반의 불확실성을 증폭시키고 있음.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-19",
+    "by": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "kind": "summary",
+    "status": "info",
+    "reason": "AI 기술의 급격한 도입에 따른 전산 마비 대란과 엔비디아 경영진 리스크가 시장의 새로운 핵심 변수로 부상했습니다. 기존의 인플레이션, 고금리, 지정학적 리스크는 여전히 시장의 하방 압력으로 작용하고 있습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "북한 사이버 공격",
+      "북한 해커 사이버 공격",
+      "마이크로소프트 글로벌 서비스 장애",
+      "북한 사이버 공격 및 개인정보 유출",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "마이크로소프트 365 대규모 장애",
+      "마이크로소프트 아웃룩 대규모 장애"
+    ],
+    "at": "2026-11-19T11:52+09:00",
+    "trigger": "schedule"
   }
 ]

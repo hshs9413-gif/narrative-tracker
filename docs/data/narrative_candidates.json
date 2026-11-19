@@ -3,15 +3,31 @@
     "key": "미국의중국ai칩우회수출규제",
     "name": "미국의 중국 AI 칩 우회 수출 규제",
     "first_seen": "2026-11-13",
-    "days_seen": 5,
-    "last_seen": "2026-11-18",
-    "why": "동남아 우회 경로 차단 법안이 파운드리 및 후공정 산업에 미칠 영향 주시.",
+    "days_seen": 6,
+    "last_seen": "2026-11-19",
+    "why": "중국 AI 모델 사용 기업에 대한 규제 강화 움직임이 반도체 공급망에 미칠 영향 주시.",
     "evidence": [
       {
-        "title": "美, 동남아 우회 AI칩 '패스트트랙' 닫았다…韓 파운드리·후공정 악영향 우려",
-        "source": "전자신문",
-        "date": "2026-11-17",
-        "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1qSlFPUFZnbVFnNktXWFJGQWlEX2JzSm9pc21YRlV5WHFGU3BUQUlFV2VjY3lGS05fbW5hbEMtUFVkNDR2alRjOE5EeG50Zw?oc=5"
+        "title": "미국, ‘중국 AI 모델 사용’ 기업 공개 의무화 추진",
+        "source": "KBS 뉴스",
+        "date": "2026-11-18",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9iT3Z5UHBSQWxTTGY2VExXVnFYeUt2dlBPamNYamNScXVlYnFFckZnTDFNemlITk9iOV9oMEZSWnI5TVM0RUFDTkx5UzZSWHhRcTdjWDdPSXNVR1U?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "북한사이버공격",
+    "name": "북한 사이버 공격",
+    "first_seen": "2026-11-19",
+    "days_seen": 1,
+    "last_seen": "2026-11-19",
+    "why": "국가 안보실의 긴급 대책회의 및 해킹 툴 관련 보도가 이어지며 금융 및 보안 리스크 관찰.",
+    "evidence": [
+      {
+        "title": "국가안보실, 웹 언어 ‘자바’ 취약점 확인에 민·관·군 긴급대책회의",
+        "source": "한겨레",
+        "date": "2026-11-18",
+        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1IVG81MDZSRXd0eGcwN0twTEpfT2FNaVZ4NGZTdGt4Y092M1lLcEhRZEJUSkJ2R3M0RVFiS0hsSm4tSEwtRzBfWHVtYUhrMDc0OW1oblVlVE9LUDdkWnNqVDJYTUpLVFc0dzdz?oc=5"
       }
     ]
   },
@@ -138,28 +154,6 @@
         "source": "ABC News - Breaking News, Latest News and Videos",
         "date": "2026-11-13",
         "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcjZSX2hZVHVlY0d2clcySTg2UEhUcnc0MlkxQmdNOGhDcWJnMkpxOXY5UWJ3T2JUUGdrZDkyeTVTeFBZb3psd3Y1NEJiMU9nbWFBX2ZLSEduWlNmWnpuZkVfYlRNR0RiNDBraFpSV0lzOUFrX1FaNXdCNkFFTktFTkZNN01CYzJTakc2OVFB0gGTAUFVX3lxTFBya0ZHS3VKZzZLZFFRMzlBQVFfaW9kT2syZGZxVFh1UlBPdXhaUDdlODhVT1dRSlFoSXl0Q1ZzVFJnMXRmX0hDOHZYeEJBdUs2VEY1YW9oenU0dkduS0dkS1VzMnVUd1ltSExvMEV4cXZCa2NlXzdvZGdZbUV6c3RhekdQOGs0aFczV1l1X2xwMVJoWQ?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "북한해커딥페이크화상해킹파문",
-    "name": "북한 해커 딥페이크·화상 해킹 파문",
-    "first_seen": "2026-11-13",
-    "days_seen": 1,
-    "last_seen": "2026-11-13",
-    "why": "북한 해커들이 화상회의 악성코드 등을 이용해 대규모 자금을 갈취한다는 FBI 경고와 국내외 보도가 이어져 관찰합니다.",
-    "evidence": [
-      {
-        "title": "지인 초대 화상회의에서 악성코드…‘페이스스틸러’ 해킹 적발",
-        "source": "KBS 뉴스",
-        "date": "2026-11-13",
-        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1mUFhFUlNQRkZjMV9kV3JvWFRVRkl6OXlEc3BENkpOSlo3TkhNbDE2dXo5N182bGxaRlotWUVSZlB3c3JISmt5dWQ4NmFuZmZfUXVacFZXQWlxeGFoSzk3S2FIdUprUQ?oc=5"
-      },
-      {
-        "title": "North Korean hackers steal more than $400 million using video images, FBI says",
-        "source": "Reuters",
-        "date": "2026-11-12",
-        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQYUJYTGpUb1lrNXVCaVFFUjN3all5a2w1cF9HdW51OWROWC1taVFOOFozQ0pkYmpReklqTEhtNm1McUhtYVBvWTVMM2tHczJlUFZaem14Q1U0VndNaWk2Z3AxdzFvVThleTFNUXpPd3E0WlU2ZkdPSFFXeXJqNktka05TYUZmTER4TExyS3dOVTFLVWNLcVVHejdkVTk3UXVkRnUtNmNrQ3B3anBHelhIaGlka0RFMTZ0bnNWUWREeU0xV0tRNXp1THBIdw?oc=5"
       }
     ]
   }

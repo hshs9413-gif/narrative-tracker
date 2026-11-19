@@ -28,16 +28,16 @@
     "added_on": "2026-11-11",
     "candidate_since": "2026-10-28",
     "headline": {
-      "title": "[앤트로픽 IPO-③] \"산업 전체가 상장하는 셈\"…업계 초미의 관심 집중",
-      "source": "연합인포맥스",
-      "date": "2026-11-17",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE02cGRRWjV0ODBnZ2RJZXA1SHozbDE4UUlpSjlUN2F6cExVMzhRYjlTYzNDdGl6elRnZDJDR0pyaUZObUZtRDktSHRsbEN4Z25yYnJZeHhxQzBwSFc0cGtIVTA2dlE5Q1Q2U0VDSkdxVk8?oc=5"
+      "title": "앤트로픽, 기관 수요 폭발에 IPO 공모가 인상 검토",
+      "source": "AI타임스",
+      "date": "2026-11-18",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5xU0M1TzlrUmROVGdHUkhKQ292eFlSSnFpN081QVBXWVlBSDhsa2NzbEhpTmh5bGxsSHJuZ0haamdqTHRjNVFUVWdNS3FzQkhWd2J5MGxrdXRIV2RWa0FvSVhjTU84QTl4aUE?oc=5"
     },
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "앤트로픽 IPO에 대한 시장의 기대감이 높으며 공모가 상단 돌파 전망이 지속적으로 보도됨."
+      "reason": "앤트로픽 IPO 공모가 상향 검토 등 흥행 기대감이 지속되며 시장의 높은 관심을 받고 있습니다."
     }
   },
   {
@@ -67,16 +67,16 @@
     "added_by": "gemini",
     "added_on": "2026-10-23",
     "headline": {
-      "title": "美 '빅스텝' 가능성까지…기업 신용위험 '경고등'",
-      "source": "이데일리",
-      "date": "2026-11-16",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZWdFRnlOc3Q5Z0ZxYXFpLXZuWGI1RjcyN0ZTMW4yc0U3VTFOeUpxRDVPSG1tRHppNElUYmctbXVja1pPWGJ2YjdyZUdOc3FaZ01ta1g5ZjhtU1Q0bzNGR3dsWloyMHI0OGpqYmFEci04SFlCbEphd1k5MFlYYlhkRA?oc=5"
+      "title": "[단독] MBK·미래에셋, 1200억 CGI홀딩스 인수금융 디폴트…CGV가 대신 갚는다",
+      "source": "한국경제",
+      "date": "2026-11-17",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE12Ul91STc2clJldUNoZVFSMTRsUUVKTTlaa09WMUdYdzg1ZVcyXzZMNjU5WkdWcllQVExjWjN4Nkd6TllDVGhhQ2pDYlY1OEJRQmZxdHA1S2ZWZw?oc=5"
     },
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 금리 인상 가능성과 맞물려 기업 신용 위험에 대한 경고가 계속되고 있음."
+      "reason": "기업 신용 위험과 디폴트 관련 보도가 지속적으로 이어지며 리스크가 해소되지 않고 있습니다."
     }
   },
   {
@@ -112,10 +112,10 @@
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1EN0YwQWw4NEMyQkdXMEZNUHNLSklQTVAxbFFjTDJ4NUROLS1rTWRSZ0hfbzBOODhrSDBPaktxZEFwVThtb19qNlg4YjhZWnFxeGU3THVJRVFvUy1lMnJ0N0U1cXZPLXM?oc=5"
     },
     "last_review": {
-      "date": "2026-11-18",
-      "by": "rule",
-      "verdict": "잠잠",
-      "reason": "언급이 줄었는데(7일 기사 8건, 정점 대비 0.31) Gemini가 이어진다는 최근 3일 기사(매체 2곳)를 대지 않아 잠잠으로"
+      "date": "2026-11-19",
+      "by": "gemini",
+      "verdict": "유지",
+      "reason": "트럼프 당선인의 언급으로 다시 주목받고 있으나, 실질적인 사업 진전보다는 정치적 수사 위주로 잠잠한 상태입니다."
     },
     "dormant_since": "2026-11-18"
   },
@@ -153,10 +153,10 @@
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5EbkpPM1YtUmNteVBuS0xmenFZVEJ6NFhhak5nX2tnUjQyN3luR2J0Uzg4N0lFTmNUVURyeVpwaXprNU14WGZfSW5MaDgzWUlIVllZNTdVNnVEdlpuVVM3MXQxbjJVbEpwZFBUX25mRlg?oc=5"
     },
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 생산자물가지수(PPI)가 시장 전망치를 하회했으나 여전히 높은 수준을 유지하며 인플레이션 우려가 지속됨."
+      "reason": "미국 PPI가 4년 만에 최고치를 기록하며 인플레이션 재발작 우려가 시장에 강한 영향을 주고 있습니다."
     }
   },
   {
@@ -192,10 +192,10 @@
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1JZHBUajMyMzhhcTRhLXhzSmphMm1jUmdtUFlnZWFVek1sZGo2R1REdTRxcWtSVWc5eUpFMXpxdzNJcFZkUnFTcFVZMlJJQWhGbDV2UWhZX1VkenfSAWBBVV95cUxNVnNQOVd3YjJlRHE3VzA4SkJpckQ0V1E5cjdPY0Y3MC13WTlBNkw4cDNTaVFBdENkaEFoMHNfQXZCOVdpcGk3MzFPN1JTVjZCVVVOcEk2TEtmYWlCQzNVY1Q?oc=5"
     },
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "금융권 개인정보 유출 및 AI 보안 취약점에 대한 사회적 우려와 대책 촉구가 계속됨."
+      "reason": "금융권 개인정보 유출 및 보안 리스크에 대한 규탄과 대책 요구가 계속되고 있습니다."
     }
   },
   {
@@ -307,10 +307,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미 국채 금리 급등세가 지속되며 글로벌 채권 시장의 변동성을 키우고 있음."
+      "reason": "미 국채 금리 급등과 재정 적자 우려가 글로벌 자산 시장의 변동성을 지속적으로 키우고 있습니다."
     },
     "headline": {
       "title": "‘블루쓰나미’ 후 급락한 미 국채 금리와 유가, 다시 슬금슬금 오른다",
@@ -349,10 +349,10 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "삼성전자와 SK하이닉스에 집중된 '빚투' 규모가 커지며 증시 변동성 확대 우려가 지속됨."
+      "reason": "삼성전자와 SK하이닉스에 집중된 '빚투' 규모가 증시 변동성을 확대하는 주요 요인으로 지목되고 있습니다."
     },
     "headline": {
       "title": "‘빚투’ 30%가 삼전∙닉스에 몰렸다…증시 변동성 키운 시한폭탄",
@@ -390,16 +390,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "일본은행의 금리 정상화 전망과 엔화 강세 흐름이 외환 시장에 영향을 미치고 있음."
+      "reason": "일본은행의 금리 인상 전망이 유지되면서 엔화 강세와 국채 시장에 영향을 주고 있습니다."
     },
     "headline": {
-      "title": "[환율마감] 원·달러 껌장 속 소폭 하락, 네고+엔화 강세",
-      "source": "이투데이",
+      "title": "일본 엔화: 일본은행 금리 인상 전망 유지 – 코메르츠방크",
+      "source": "www.tmgm.com",
       "date": "2026-11-16",
-      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFB3ZWRPdU40bVFxLWFnSmQ1WXlwb01JNlpOR2xHa1lPenBhYUc5QkZaQ0xrem0zcGxteVcwNUJBb19Da2pXOHlobjRVVEFrRU9xa0tIMA?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPcVNsN2lIZ1paMXFCa2xRMkUwbkd6VmJZV09VMnllMUlhMW1feG5IX3BRci00aHdCTnNZZkh6UXNNTWdnejZlOTV0SHhma0Y4QkRSMVJEd0drdjZPeTg1Y2sxV1Exd01OLVlXTHdsSU9TeGM4NFVfYzctTnJTa0lvRThQSFQ3VVpvNkc0LTV4djFLalpWcHdsWFRsdWQzVEQ4dHZsQmczX0tON2hJYWNuVA?oc=5"
     }
   },
   {
@@ -432,16 +432,16 @@
     "added_by": "claude",
     "added_on": "2026-10-11",
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "미국 고용 시장 둔화와 스태그플레이션 우려가 경제 전망의 핵심 변수로 남아있음."
+      "reason": "고용 시장의 둔화와 스태그플레이션 우려가 경제 전망의 핵심 변수로 남아 있습니다."
     },
     "headline": {
-      "title": "[미리보기] 11월 3주차 금융시장 전망",
-      "source": "KB Think",
-      "date": "2026-11-16",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0teGxhd2N6MjdUZG5JYVAwU0ZyMVB1SEIwclUydHlOUENRVE9qWEJJa1FTVTYteGl0OFFQcE80OHJ0czhvcVR5bVdBSVdkNXlIQjd5M3BuSFZtSDBFelVHRlk3YVVpc2tyWFFGMQ?oc=5"
+      "title": "미국 고용 견조하나, 물가가 문제[오대정의 경제지표 읽기]",
+      "source": "한경매거진",
+      "date": "2026-11-18",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9uaW41RHZSalpxR0dCN240SHJlaFhzSjEyTEJZaFh5SlBqYjE0eHRRc18zU1N1a0lyLXdRS1Q5YjZzY2NCaU4wMlR5NVhmUHNTNjBPNnExZnRyYnpfRWVKQ1F5bGQwRURCX2RrZQ?oc=5"
     }
   },
   {
@@ -516,16 +516,16 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "중동 긴장 고조로 인한 유가 변동성이 지속되고 있음."
+      "reason": "중동 긴장과 유가 변동성이 지속되며 지정학적 리스크가 시장을 압박하고 있습니다."
     },
     "headline": {
-      "title": "국제유가, 중동 긴장 고조에 소폭 상승‥브렌트유 93달러대",
-      "source": "MBC 뉴스",
-      "date": "2026-11-17",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB1WEFHSm5pZVFTX2VMQlZDNXRBNXc3UFl0QXdaN0NPWmtFeVlPd0d0THEyRjdCMFVONVlVcHlTWTNucW50c3dDdF9XNEJTdENIQ0lUSmJ6bTVBdTZKelRubmVSbEg0U002Nl9aalJGXzJac3o00gF0QVVfeXFMUHVYQUdKbmllUVNfZUxCVkM1dEE1dzdQWXRBd1o3Q09aa0V5WU93R3RMcTJGN0IwVU41WVVweVNZM25xbnRzd0N0X1c0QlN0Q0hDSVRKYnptNUF1Nkp6VG5uZVJsSDRTTTY2X1pqUkZfMlpzejQ?oc=5"
+      "title": "트럼프 \"이란과 합의 필요 없다\" 급선회…국제유가 급등",
+      "source": "연합뉴스TV",
+      "date": "2026-11-12",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9wUDJ1VUhZbktwb2RFci0zQzZ6NmdjZUY5WEFXU2xHbF8zc2d0Wk9oUmduX3VWSUdRMjk5VmRna2JwYzU0S0laeG91QWQ0cUtvTWNuelNCMjh6VU90SlZGY3U1bFFBNE0?oc=5"
     }
   },
   {
@@ -553,16 +553,16 @@
     ],
     "notes": "구조테마 층. 수년 주기로 잘 안 뒤집히나 실적 시즌마다 변동성 확대.\n[10-11 검증] 빅테크 4사 2026 설비투자 전망 약 7,250억 달러, 엔비디아 10월 첫 주 사상 최고가 후 조정, 버블 경고 확산. 7/28 코스피 반도체 레버리지 붕괴(-10.84%). 키워드는 언급량이 66일 중 57일 100건 포화라 더 좁힘.",
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "AI 버블 붕괴 경고가 지속적으로 제기되고 있으나 시장의 관심은 여전히 높음."
+      "reason": "AI 버블론과 실적 우려가 공존하며 시장의 경계심이 유지되고 있습니다."
     },
     "headline": {
-      "title": "전 SEC 위원장 \"AI 버블 터져서 2028년 대선 전 침체 유발\"",
-      "source": "연합인포맥스",
-      "date": "2026-11-17",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1RT01vbHY3MjFoVkNIN1pFTEN0U3IzeVc1QUpkOFVMU2czYjlXQWwyZm1YZEI0LTk1Z3lDdGNrSkowYnVlcTVDTGhfeWZZMW1scXRQdXM4ZnVTYl93bGRoX1lONUE5bEI3VkF5X2Y1Vkc?oc=5"
+      "title": "김용관 삼성전자 사장 “네오클라우드 비중 8%…AI 버블 우려 과도”",
+      "source": "전자신문",
+      "date": "2026-11-18",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1kbzBDX1YwQjh4LVgyVmJyWDVMbzFMM0FtNnBlWmpSbEl2NnRHeld2Mmx1ZGNTOGo5aW5MU2lsY19tbVI3OW9jU1pMWXdYZw?oc=5"
     },
     "dormant_since": "2026-11-16"
   },
@@ -595,10 +595,10 @@
       "change": "dormant->active"
     },
     "last_review": {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "by": "gemini",
       "verdict": "유지",
-      "reason": "트럼프 관세 정책에 대한 시장의 경계와 협상 기대가 공존함."
+      "reason": "관세 쇼크에 대한 우려가 여전하나, 협상 국면이 진행되며 영향력은 제한적으로 유지되고 있습니다."
     },
     "headline": {
       "title": "달러 강세…트럼프 관세 쇼크 낙폭 모두 만회",
