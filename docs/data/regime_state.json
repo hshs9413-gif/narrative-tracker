@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-20T22:01:38.900793+00:00",
+  "generated_at": "2026-11-20T23:09:08.966018+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "골디락스",
     "pmi": 55.5,
     "pmi_as_of": "2026-10-01",
-    "breakeven": 2.16,
-    "breakeven_date": "2026-11-19",
-    "breakeven_change": 0.004,
+    "breakeven": 2.15,
+    "breakeven_date": "2026-11-20",
+    "breakeven_change": -0.01,
     "breakeven_lookback_days": 91
   },
   "credit_stress": {
@@ -71,20 +71,20 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 83.68,
+      "value": 83.62,
       "as_of": "2026-11-20",
       "base_value": 103.27,
       "base_date": "2026-10-23",
       "lookback_days": 28,
-      "change": -19.59,
-      "change_pct": -18.97
+      "change": -19.65,
+      "change_pct": -19.03
     },
     "breakeven_3m": {
-      "value": 2.16,
-      "as_of": "2026-11-19",
+      "value": 2.15,
+      "as_of": "2026-11-20",
       "window_days": 28,
       "lookback_days": 91,
-      "change": 0.004
+      "change": -0.01
     }
   }
 }
