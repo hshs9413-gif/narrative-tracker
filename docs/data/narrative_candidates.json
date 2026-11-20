@@ -1,5 +1,43 @@
 [
   {
+    "key": "마이크로소프트글로벌서비스장애",
+    "name": "마이크로소프트 글로벌 서비스 장애",
+    "first_seen": "2026-11-15",
+    "days_seen": 4,
+    "last_seen": "2026-11-20",
+    "why": "클라우드 및 서비스 장애 여파로 글로벌 업무 차질 및 생필품 사재기 보도가 이어지고 있습니다.",
+    "evidence": [
+      {
+        "title": "The outages keep coming. Some Americans are preparing for a collapse.",
+        "source": "The Washington Post",
+        "date": "2026-11-19",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPNVRoT3NPeTQ4MUpoNjJSeUpadHJZRHlHYU5yN1lYMEI1OEJVUHoxbUFOSmswdFlCc0JWRUZXT01kSXhEWWtXQ0hCUllJU1pIV29DTXFmLW91NEpac1RBVXlwcmxUMHBCUUhrWXRocXhlb3dObmN1cXR6Uzd3ZkwxdVRfRDFvUTkzai01ai1YZ3hPRDNVS25OR3E0UVJaYnB6?oc=5"
+      },
+      {
+        "title": "Walmart, Costco see some panic-buying after tech outages",
+        "source": "Yahoo Finance",
+        "date": "2026-11-19",
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTHh0Qnd1ZUs1di12Tjd5LXVVR1lTc3pWWVlnVTlDbWZ3Q25id2YxMFhndk9nQzdNNDVvQkdobXlBY0xZd1Y1QmUyTVlmWGo0VHY2VTNaMHBnek5vdU5JZWdaTlZpckpUWnNydUVnMnlCMENKbXIyMkxqaGhpcDNRT0ZXQnBZTUNjNDJXVUlGSEFxT20xQU1KSVpzQlB4b1QzOTJRbmFub2NrZjRxTWdRU2pn?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "북한사이버공격",
+    "name": "북한 사이버 공격",
+    "first_seen": "2026-11-19",
+    "days_seen": 2,
+    "last_seen": "2026-11-20",
+    "why": "주요 금융 및 기관 대상 사이버 공격과 정보 유출 우려 관련 보도가 이어져 추이를 관찰합니다.",
+    "evidence": [
+      {
+        "title": "Cyberattack may have exposed Chase Bank and Mastercard customer data",
+        "source": "The Washington Post",
+        "date": "2026-11-20",
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQOWw5Ml9NYmZNeTNiSlV4QUhBc0JuTzY1ZEVBX295eW5xYVlIeGpGY3J5Ulc0UEhvSW9iQnFtVVZNQ2p0UFdoLUJPTHh2OVNvTFlhRVlVV0ZMdU5rcE5pdzZtV0pYVnlDUENlNWlSMUhUbzBueWxIcHpEdWtJUmlXbjVhN1ZKOXFIa09HMGNsdTZtS01TbXJDdFBfTlVocDAxXzhsNkRiVzVQVWRRS3NZQmc0aFI?oc=5"
+      }
+    ]
+  },
+  {
     "key": "미국의중국ai칩우회수출규제",
     "name": "미국의 중국 AI 칩 우회 수출 규제",
     "first_seen": "2026-11-13",
@@ -16,22 +54,6 @@
     ]
   },
   {
-    "key": "북한사이버공격",
-    "name": "북한 사이버 공격",
-    "first_seen": "2026-11-19",
-    "days_seen": 1,
-    "last_seen": "2026-11-19",
-    "why": "국가 안보실의 긴급 대책회의 및 해킹 툴 관련 보도가 이어지며 금융 및 보안 리스크 관찰.",
-    "evidence": [
-      {
-        "title": "국가안보실, 웹 언어 ‘자바’ 취약점 확인에 민·관·군 긴급대책회의",
-        "source": "한겨레",
-        "date": "2026-11-18",
-        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1IVG81MDZSRXd0eGcwN0twTEpfT2FNaVZ4NGZTdGt4Y092M1lLcEhRZEJUSkJ2R3M0RVFiS0hsSm4tSEwtRzBfWHVtYUhrMDc0OW1oblVlVE9LUDdkWnNqVDJYTUpLVFc0dzdz?oc=5"
-      }
-    ]
-  },
-  {
     "key": "북한해커사이버공격",
     "name": "북한 해커 사이버 공격",
     "first_seen": "2026-11-18",
@@ -44,28 +66,6 @@
         "source": "매일경제",
         "date": "2026-11-17",
         "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1aRm1Qa2hNSzdTTTNDNy1XcVJsX3owTnRKckhNb3lUVDJHXzg3YkJwak94TWNvSi1UbXBmOTczMTRxWTlySEw1XzkzWlNJbkdCamc?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "마이크로소프트글로벌서비스장애",
-    "name": "마이크로소프트 글로벌 서비스 장애",
-    "first_seen": "2026-11-15",
-    "days_seen": 3,
-    "last_seen": "2026-11-17",
-    "why": "마이크로소프트 365 및 클라우드 서비스 장애 여파로 전 세계 주요 기업과 기관의 업무 차질 보도가 지속되고 있습니다.",
-    "evidence": [
-      {
-        "title": "FAA, Microsoft, banks: Why it feels like everything keeps breaking",
-        "source": "USA Today",
-        "date": "2026-11-17",
-        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWGlOa3VFSE1MZnl5dlR1TzE2YnN3TjAzRHgxVWZEMVYtSDV2dmRWZnVuY1doc2JfbnhGRnhoQzBKS1I5VmlRVXRwLU45aGxKNUVaTXdfVGtOcU83T3VxV1NaWWphMWZqbXlya183REctRkFpRksxZmxSTXUyUl9ZV1ZMNGduOEI5Nm9MX3BzR05oZ1g1RlhJdGYwVERDVTk1ZVE?oc=5"
-      },
-      {
-        "title": "Microsoft reveals hidden bug behind global Outlook and Microsoft 365 outage",
-        "source": "Fox Business",
-        "date": "2026-11-16",
-        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQWQ5ZldDc3JKb2V4TzR4b2JxZ1VjOHptcGg4cHl4V01Xd2hJNWl4eDgzT0dhMkpBZG9lQm9KaEFkVWNScTFTbHZkc1lfWW9TQ29jMDA0eFVFakZBaXpGWXJhbVk0MUdqUTMxamJ0Tm4tM3JYclM4bE05NkwxWVJWX1ZhTXJLSmxkWFN2SlVQY2NXbHN6cDU2ZE9ySXJnaFdySjQ0VnhOeF9jY0JZbXdF0gG0AUFVX3lxTFBqOWoyZUZjeTdmQmktLUptUDktQ1U1MjVWYWFiMWdDQ2lFLWxsd2N0cElicjA3YV9DaVRUN25rWTBvZ3ZyNGp1Mmx0RU1zZnJESVVlUHhKbnBfLXRmUVpOcVpEd1lOU2twZ2lrZy1YVm5pdnJQOUl2SmR1dXdja29pMFpQNnV2R3N1RGpTWm5wdEtSXy1GZFVKaUt3cC1aYVpDUGpnTl9FWGZlRVFiN1JZdDJKZQ?oc=5"
       }
     ]
   },
