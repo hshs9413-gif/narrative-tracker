@@ -1,5 +1,43 @@
 [
   {
+    "key": "미국faa항공기운항전면중단및인프라장애",
+    "name": "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
+    "first_seen": "2026-11-21",
+    "days_seen": 1,
+    "last_seen": "2026-11-21",
+    "why": "통신 시스템 장애로 미국 전역 항공기 운항 차질과 국가사이버국장 해임 보도가 이어져 경과를 주시합니다.",
+    "evidence": [
+      {
+        "title": "美 잇단 주요 인프라 장애에 백악관 국가사이버국장 해임",
+        "source": "MBC 뉴스",
+        "date": "2026-11-20",
+        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE4xbWdCa0NTcHM2NUxYVmpIRUJabkdtaTZVcW5SY3JtUW1JcW1pTTJWNXppV1htcUdIVGVRZDBDVVNKOEpKM3VoS012OU9LTEJsZWFMQWV6cGpyWXlvSGVuaVhqRkdQaWNVMkhPZmxFQmNWY3h30gF0QVVfeXFMTUduLWpEaDdEbFc0b1NpTU1aWV9KTzVoUEtrdnlKby04ekdRVjgyRDhkcFpfVDdYVXR1SjhsRWVoMV9Ob2tMOGpwMndFS0hIQ1VyYjNwME84LWc3T3A2dDZBelVaeW1MRG5DbE9YM1Q1M2RVam8?oc=5"
+      },
+      {
+        "title": "US will soon announce root cause behind FAA nationwide ground stop",
+        "source": "Ars Technica",
+        "date": "2026-11-20",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPS1lDWmpyendldk0xZVAtZlFfeWlDLUpqN1pyZHVDMkhSZzdTNTBkOHBZcGZzVGhDTXY1VmpXeTRSaldQRlhFVGlWREU0WmUwV2VFTlpRbjFnWV9nTk9SZHJoelVNeXBBWThIWmI2VmkteTJWOUxzcmk3VVE0blJqc2QxOFdMWFVrZWoyS1BRdHFNMjNJWVJaRDNkUkQtQURXR2hteUF4NUJVMnl3ellFTlEtVmZyTjRxMXVHZjV3?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "글로벌금융권결제망사이버공격",
+    "name": "글로벌 금융권 결제망 사이버 공격",
+    "first_seen": "2026-11-21",
+    "days_seen": 1,
+    "last_seen": "2026-11-21",
+    "why": "비자, 마스터카드, 체이스 등 주요 금융사가 외주업체 사이버 공격 피해를 확인하여 리스크 확산 여부를 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "Did Banks Get Hacked? Visa, Mastercard, Chase Confirm Vendor Cyberattack",
+        "source": "Forbes",
+        "date": "2026-11-20",
+        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPWmtiRW9MYzFST09HZVM5UTFLd1hZN1Y3Wkx1UndGRzhmRW55dWRQZFktSXRiX2tkU190WTVLWVVLZ1NuSE1GWUR6bkt5WnFldDBDMFItQU1FQ1BJR0pqSWc2M0sxWFFEMjRIdGlkU2hJdG9YSzdyRkVSYU02Z2J4ME9UNl9MU2dPSzZiOWgtTExfbGM2Tm1ZU2NzZ3VBdDlQSnl5OTROd1ZnbGxvOUlOaQ?oc=5"
+      }
+    ]
+  },
+  {
     "key": "마이크로소프트글로벌서비스장애",
     "name": "마이크로소프트 글로벌 서비스 장애",
     "first_seen": "2026-11-15",
@@ -110,50 +148,6 @@
         "source": "AP News",
         "date": "2026-11-15",
         "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbUFCdzU3WWxqWDJyOThxR0pfSENwbHdjWE50LVZfX0xSUUZFZnpTemtWN2RRckNlOW56TnZwT2pmUHpPYnU0cGtiaUJ4aFpzLXZ4OHN0a3UxVEpNenFlc0VETFE2UDJkdy1Ld0ZSU2V2MHJxNE9WN3VFMjA2U1lLRThOdE5kSWk2UVdpektzb00yV3ZjUjhOeWpiNA?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "마이크로소프트365대규모장애",
-    "name": "마이크로소프트 365 대규모 장애",
-    "first_seen": "2026-11-14",
-    "days_seen": 1,
-    "last_seen": "2026-11-14",
-    "why": "마이크로소프트 365 서비스 장애가 이틀째 지속되며 클라우드 및 글로벌 기업 업무 차질 보도가 이어지고 있습니다.",
-    "evidence": [
-      {
-        "title": "MS, 이틀째 장애에 “깊이 사과…사이버 공격 무관한 기술적 문제”",
-        "source": "KBS 뉴스",
-        "date": "2026-11-13",
-        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5IWXVjbEpZbWRjdjZQbG9qM2JlWmFtVVBBb0V5bVdFNFFCc0Z3S0pZTjV2dF92YmlScjBYSVVZRFMzcXc2ZENZckVRS1p5WVFFNWsyMnVoUEtERzFuMXVnMjBKM0tzUQ?oc=5"
-      },
-      {
-        "title": "Microsoft 365 Outage Continues: Tech Giant Has No Timeline For Recovery, Says It’s ‘Deeply Sorry’",
-        "source": "Forbes",
-        "date": "2026-11-13",
-        "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNd0ZWZFJCWmp3MUlFMFFrRExhTldkeEs1aEt2bVJDend6Y24yck5wUHlsNF9yNERkQWNsY25va25DMnpMWFE2QmtZVy1CQnlVMjZTNlBFM1g1ak5kWjJEclk2V0IycmFKRHg1RjU2M1RVaHhwTEJUM2hZa0FXaUZRWVRZd0tpTThCZkoxeTJxZERQSFZBb1M3SWptclpVVUVxUEtzSUFTMWxLcmM4VURJbXNCQ1NZQm9fTzBnOS00eGRiV2NRVUo3Rl94QnR2TnlfMGM5dUYxRmZuVDQzZzBWRE0zb2w?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "마이크로소프트아웃룩대규모장애",
-    "name": "마이크로소프트 아웃룩 대규모 장애",
-    "first_seen": "2026-11-13",
-    "days_seen": 1,
-    "last_seen": "2026-11-13",
-    "why": "마이크로소프트 아웃룩 접속 장애 등 글로벌 서비스 차질 보도가 연이어 나와 추이를 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "마이크로소프트, 대규모 접속 장애…“아웃룩 관련 신고 13만 건”",
-        "source": "KBS 뉴스",
-        "date": "2026-11-12",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9rUWJ5cVUwc09NQnhNMWgybHhQNUpBRnRPOEJMVHExVkdDRTNwSU9pNzdOZWJLSHp5enp4NENfNUtJYTJuR2RXR2s3cjdONW9uS1ZpbG9uRENIbm8?oc=5"
-      },
-      {
-        "title": "Microsoft Outlook outage stretches on for hours",
-        "source": "ABC News - Breaking News, Latest News and Videos",
-        "date": "2026-11-13",
-        "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcjZSX2hZVHVlY0d2clcySTg2UEhUcnc0MlkxQmdNOGhDcWJnMkpxOXY5UWJ3T2JUUGdrZDkyeTVTeFBZb3psd3Y1NEJiMU9nbWFBX2ZLSEduWlNmWnpuZkVfYlRNR0RiNDBraFpSV0lzOUFrX1FaNXdCNkFFTktFTkZNN01CYzJTakc2OVFB0gGTAUFVX3lxTFBya0ZHS3VKZzZLZFFRMzlBQVFfaW9kT2syZGZxVFh1UlBPdXhaUDdlODhVT1dRSlFoSXl0Q1ZzVFJnMXRmX0hDOHZYeEJBdUs2VEY1YW9oenU0dkduS0dkS1VzMnVUd1ltSExvMEV4cXZCa2NlXzdvZGdZbUV6c3RhekdQOGs0aFczV1l1X2xwMVJoWQ?oc=5"
       }
     ]
   }

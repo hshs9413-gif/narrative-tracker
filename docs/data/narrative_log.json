@@ -3627,5 +3627,50 @@
     ],
     "at": "2026-11-20T11:39+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-21",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "tech-rout-nvidia-probe-2026",
+    "kind": "new",
+    "name": "미국 기술주 투매 및 엔비디아 회계 조사 충격",
+    "reason": "미국 증권거래위원회의 엔비디아 회계 조사 보도와 함께 나스닥이 5.3% 폭락하고 코스피 매도 사이드카가 발동되는 등 글로벌 기술주 투매가 확산되었습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-21",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "엔비디아 회계 조사 보도로 나스닥이 5.3% 폭락하고 코스피 매도 사이드카가 발동하는 등 기술주 투매 충격이 신규 내러티브로 부상했습니다. 기존 내러티브들은 상장 데뷔를 마친 앤트로픽과 호르무즈 물류 차질 등을 포함해 대체로 기존 흐름을 유지했습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
+      "글로벌 금융권 결제망 사이버 공격",
+      "마이크로소프트 글로벌 서비스 장애",
+      "북한 사이버 공격",
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "북한 해커 사이버 공격",
+      "북한 사이버 공격 및 개인정보 유출",
+      "미국 FAA 전국 항공기 운항 전면 중단"
+    ],
+    "at": "2026-11-21T11:54+09:00",
+    "trigger": "schedule"
   }
 ]
