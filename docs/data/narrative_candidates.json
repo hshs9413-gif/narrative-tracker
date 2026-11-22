@@ -1,5 +1,59 @@
 [
   {
+    "key": "미국의중국ai칩우회수출규제",
+    "name": "미국의 중국 AI 칩 우회 수출 규제",
+    "first_seen": "2026-11-13",
+    "days_seen": 7,
+    "last_seen": "2026-11-22",
+    "why": "대중국 반도체 수출 규제 행보가 반도체 시장에 미칠 영향을 지속 주시합니다.",
+    "evidence": [
+      {
+        "title": "엔비디아, 중국 간첩 연루 메가스피드 관련사에 칩 4만개 판매신청",
+        "source": "KBS 뉴스",
+        "date": "2026-11-20",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9DN2tydDlMR091MW9yWWdSSmhhOEo5MElGR2ttU0lmWUdyYjREU21JelplRnB1NHVDVGxGRnhNNDNQdXVaNDZhWmh6WVR6Tk1zbjNaOVQ0WFZMc0k?oc=5"
+      },
+      {
+        "title": "Bessent says no further restrictions are needed for Nvidia chip exports to China",
+        "source": "PBS",
+        "date": "2026-11-21",
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNdGhFLVdNQVNlbl9tSXFrRmI4LS1VQmhxamhUS0F0WjhFMmoydGtBbG5Lc1AzbklUekQ0NDdvWDM0Q2Nfd2dOUTZEdE9MVnZCUVJtc1p3M0R4M2VjVS1zNUdXWWF1R2ZnNmpQU2lJSXNQQlM5WUk3cF92bDB3c3F5N3d6ZEEySktWeVRmSkE4SXR3R3JUaXhObmhjdmgzSEgxNTV6d3N0M2k5UU9uSDBsRXZiNzIxRWJsQmfSAb8BQVVfeXFMUElMcEVVRXcweUZhTloxWGJFdlN0UWx2ZDBBSm5DRzhiejNJZlgtWWV2eUpiQ0diajZlZ3BrbmZEMTJRZnU2eVBJWkwxdGNzTkprSElzTk05VXhKREVDcnYwN0t4aXl2V2VFbHZ4SWNuWEVvUXA5bEE1dm94UWU3aTBQT0phSEEydHdEMWYzSkNvbWtlbHVlajJRblRfUUc3eFBXTFZmd2VYQWh2RjMwZzM3N2ZYQ0l3OWhqS29mQm8?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "미국faa전국항공기운항전면중단",
+    "name": "미국 FAA 전국 항공기 운항 전면 중단",
+    "first_seen": "2026-11-14",
+    "days_seen": 4,
+    "last_seen": "2026-11-22",
+    "why": "시스템 장애 원인 조사 관련 보도가 계속되어 추이를 관찰합니다.",
+    "evidence": [
+      {
+        "title": "US will soon announce root cause behind FAA nationwide ground stop",
+        "source": "Ars Technica",
+        "date": "2026-11-20",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPS1lDWmpyendldk0xZVAtZlFfeWlDLUpqN1pyZHVDMkhSZzdTNTBkOHBZcGZzVGhDTXY1VmpXeTRSaldQRlhFVGlWREU0WmUwV2VFTlpRbjFnWV9nTk9SZHJoelVNeXBBWThIWmI2VmkteTJWOUxzcmk3VVE0blJqc2QxOFdMWFVrZWoyS1BRdHFNMjNJWVJaRDNkUkQtQURXR2hteUF4NUJVMnl3ellFTlEtVmZyTjRxMXVHZjV3?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "글로벌금융권결제망사이버공격",
+    "name": "글로벌 금융권 결제망 사이버 공격",
+    "first_seen": "2026-11-21",
+    "days_seen": 2,
+    "last_seen": "2026-11-22",
+    "why": "주요 금융사 외주업체 데이터 유출 보도가 이어져 파급 효과를 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "JPMorgan, Visa, and Mastercard customer data leaked on the dark web by \"n0n\" ransomware group",
+        "source": "TechSpot",
+        "date": "2026-11-20",
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQR2pxamJfUzVYMzF0N3BXdGFfcmV6Yl84UWNlRGkycmlkM2VYR3hnc1JJS0dMSFN2a2dVUUpGM1lsTFk5NnJ0QmcwMEY3LTJJT21PQ3VIY0NORkJ3RWRKak5SQ1pPX0djVDVueGdnUGkwWWhfNEctRldvVTAwWmpqMUxkcXZZTWY0SGFqMHVRTXZzeEpfbXF2TXVIT3A?oc=5"
+      }
+    ]
+  },
+  {
     "key": "미국faa항공기운항전면중단및인프라장애",
     "name": "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
     "first_seen": "2026-11-21",
@@ -18,22 +72,6 @@
         "source": "Ars Technica",
         "date": "2026-11-20",
         "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPS1lDWmpyendldk0xZVAtZlFfeWlDLUpqN1pyZHVDMkhSZzdTNTBkOHBZcGZzVGhDTXY1VmpXeTRSaldQRlhFVGlWREU0WmUwV2VFTlpRbjFnWV9nTk9SZHJoelVNeXBBWThIWmI2VmkteTJWOUxzcmk3VVE0blJqc2QxOFdMWFVrZWoyS1BRdHFNMjNJWVJaRDNkUkQtQURXR2hteUF4NUJVMnl3ellFTlEtVmZyTjRxMXVHZjV3?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "글로벌금융권결제망사이버공격",
-    "name": "글로벌 금융권 결제망 사이버 공격",
-    "first_seen": "2026-11-21",
-    "days_seen": 1,
-    "last_seen": "2026-11-21",
-    "why": "비자, 마스터카드, 체이스 등 주요 금융사가 외주업체 사이버 공격 피해를 확인하여 리스크 확산 여부를 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "Did Banks Get Hacked? Visa, Mastercard, Chase Confirm Vendor Cyberattack",
-        "source": "Forbes",
-        "date": "2026-11-20",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPWmtiRW9MYzFST09HZVM5UTFLd1hZN1Y3Wkx1UndGRzhmRW55dWRQZFktSXRiX2tkU190WTVLWVVLZ1NuSE1GWUR6bkt5WnFldDBDMFItQU1FQ1BJR0pqSWc2M0sxWFFEMjRIdGlkU2hJdG9YSzdyRkVSYU02Z2J4ME9UNl9MU2dPSzZiOWgtTExfbGM2Tm1ZU2NzZ3VBdDlQSnl5OTROd1ZnbGxvOUlOaQ?oc=5"
       }
     ]
   },
@@ -76,22 +114,6 @@
     ]
   },
   {
-    "key": "미국의중국ai칩우회수출규제",
-    "name": "미국의 중국 AI 칩 우회 수출 규제",
-    "first_seen": "2026-11-13",
-    "days_seen": 6,
-    "last_seen": "2026-11-19",
-    "why": "중국 AI 모델 사용 기업에 대한 규제 강화 움직임이 반도체 공급망에 미칠 영향 주시.",
-    "evidence": [
-      {
-        "title": "미국, ‘중국 AI 모델 사용’ 기업 공개 의무화 추진",
-        "source": "KBS 뉴스",
-        "date": "2026-11-18",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9iT3Z5UHBSQWxTTGY2VExXVnFYeUt2dlBPamNYamNScXVlYnFFckZnTDFNemlITk9iOV9oMEZSWnI5TVM0RUFDTkx5UzZSWHhRcTdjWDdPSXNVR1U?oc=5"
-      }
-    ]
-  },
-  {
     "key": "북한해커사이버공격",
     "name": "북한 해커 사이버 공격",
     "first_seen": "2026-11-18",
@@ -120,34 +142,6 @@
         "source": "AP News",
         "date": "2026-11-17",
         "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPT2I5X1NCMDRQZURDMlVFTTY4TmJ1TFVCeUIyWFRuenhhUmV4QTd5ZW9ydEdUaUFXb0dGTVFjR3VubUxvaExsZ3pfWUd2dUw1dEdFbDg5TWhkbEFxNEJydHNtaTgxRnJ1VXRNdjJQY25GSU1NdEZRcG9wUlN0NTJlRHk4QW5WbHk1eV9XOTROU2M3M3N4ZU0wbkxBSTY?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "미국faa전국항공기운항전면중단",
-    "name": "미국 FAA 전국 항공기 운항 전면 중단",
-    "first_seen": "2026-11-14",
-    "days_seen": 3,
-    "last_seen": "2026-11-16",
-    "why": "통신 시스템 장애로 미국 전역의 항공기 운항이 전면 차질을 빚고 충돌 사고 보도가 이어져 경과를 주시합니다.",
-    "evidence": [
-      {
-        "title": "Duffy blames Congress, prior administrations for air travel halt, chaos",
-        "source": "The Washington Post",
-        "date": "2026-11-16",
-        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQVlQzU3hQUWZCUmRhaEFhLWJqU29tT2Z0c3lwV1RQckNNVVkxV0gxdW0wOER1Vmp6UklNb09rQUcxT2d2ZDNhT0RjTERxaTFXTHEtZGJodk5oY3NyVTFDRE1QdXZkckFoMV9rTGFubjRGODhUS2VUaDBMcV9GbmFNU3Y1VUlWZEJ0WS0zaVVxcWEwc0Q0TVNOMHpKM1FrbDFPYzFTN2gtU1V0V2dBNndTTnhQZXA4WXJEQkxoSjYwanNPUQ?oc=5"
-      },
-      {
-        "title": "Two planes collide on taxiway at Miami airport one day after national grounding",
-        "source": "The Guardian",
-        "date": "2026-11-15",
-        "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNbnlqY0IwelVhVGQxdGoxSjVjOVNVRDY2NjJDZFVad1Z5Q05ORWlXX1QzVUZseWhnVVBNOGRBX0dqbWVtOFJTTFVGdko5ZnlETEhMVU41R1VWTm1Fek8tLV85bDVOdXh4Nng1TzJucEZ4ZEVlR2Q0Vk15dnZSUU5UYW9R?oc=5"
-      },
-      {
-        "title": "Could everything be broken? Grounded jets, Microsoft outage, AI chaos make some wonder",
-        "source": "AP News",
-        "date": "2026-11-15",
-        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbUFCdzU3WWxqWDJyOThxR0pfSENwbHdjWE50LVZfX0xSUUZFZnpTemtWN2RRckNlOW56TnZwT2pmUHpPYnU0cGtiaUJ4aFpzLXZ4OHN0a3UxVEpNenFlc0VETFE2UDJkdy1Ld0ZSU2V2MHJxNE9WN3VFMjA2U1lLRThOdE5kSWk2UVdpektzb00yV3ZjUjhOeWpiNA?oc=5"
       }
     ]
   }

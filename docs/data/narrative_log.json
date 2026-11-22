@@ -3672,5 +3672,79 @@
     ],
     "at": "2026-11-21T11:54+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-22",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "alaska-lng-trade-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "지표 제안에 따라 관련 언론 언급이 확연히 줄어 잠잠 상태로 전환합니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-22",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "잠잠하던 AI 밸류에이션 논란이 앤트로픽 상장과 기술주 급락 속에 다시 여러 매체에서 조명받고 있습니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "dormant",
+        "active"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "앤트로픽 IPO, AI 버블의 시험대? 대박 흥행 뒤에 남은 엄청난 리스크",
+        "source": "머니네버슬립",
+        "date": "2026-11-20",
+        "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5UMEs1RHdONkRzR3hGQzZUYlpCaTBCSHdjc1BDakFDcDZqWmVDTHJEOXplNmFWV2JUNHlta05uR20zaG9JaW1lVVlXWlo3WUVQWWpULXVVcjhLX2VtbEZZS19FclVSN2I4MGswdWxzLTYwN2vSAXdBVV95cUxPYmtCcmJiVFVGVmZwVlFUbkJ1UnN4bmNjc3dENEVtN3BSQ0dSLVh6aEpSbWRIS1NDN1p3ZDkyRkRBT3NLZTdLVU5NbTBCVXh5bWVCSnJQWXRhUWhQcWt2WnhOcktDRUo1S0FPOGY4R04wenRkUFVVSQ?oc=5"
+      },
+      {
+        "title": "'5천피' 무너지고 美증시 급락…'AI 투매' 추가 충격오나",
+        "source": "연합뉴스",
+        "date": "2026-11-21",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5sSVlQR3NzWjNIdEpnZF9KVVNnOEFYVnM0cVppaXZfSjZXSHl6UlNYRnB1UUFtYU5PV0xUQmtDSWgtMjRvdmdWUzA2dzl5eFk1M3JxUS1kWHJsblnSAWBBVV95cUxNV1puVTNuemZya3lBTnF3ci1jZ1pxSW0yVXp6NTBGQlRXZmtjZGxFczgta21UV2hpVWVSVGV6Mzd5cTdoVk56VEZ5RmNPblM1eTV2OGJ1X3NQREZDUU5LTWg?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "언론 보도가 식은 알래스카 LNG 내러티브를 잠잠으로 전환하고, 증시 급락 속 AI 밸류에이션 우려를 다시 재점화 반영하였으며 나머지 주요 내러티브는 기존 상태를 유지했습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "재점화",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "글로벌 금융권 결제망 사이버 공격",
+      "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
+      "마이크로소프트 글로벌 서비스 장애",
+      "북한 사이버 공격",
+      "북한 해커 사이버 공격",
+      "북한 사이버 공격 및 개인정보 유출"
+    ],
+    "at": "2026-11-22T10:37+09:00",
+    "trigger": "schedule"
   }
 ]
