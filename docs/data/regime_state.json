@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T22:30:24.349719+00:00",
+  "generated_at": "2026-11-23T02:01:19.022548+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "골디락스",
@@ -71,13 +71,13 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 83.41,
+      "value": 83.98,
       "as_of": "2026-11-20",
       "base_value": 103.27,
       "base_date": "2026-10-23",
       "lookback_days": 28,
-      "change": -19.86,
-      "change_pct": -19.23
+      "change": -19.29,
+      "change_pct": -18.68
     },
     "breakeven_3m": {
       "value": 2.15,

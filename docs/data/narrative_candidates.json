@@ -1,5 +1,55 @@
 [
   {
+    "key": "마이크로소프트글로벌서비스장애",
+    "name": "마이크로소프트 글로벌 서비스 장애",
+    "first_seen": "2026-11-15",
+    "days_seen": 5,
+    "last_seen": "2026-11-23",
+    "why": "글로벌 테크 장애 여파로 대중 교통 및 생필품 수급 차질 관련 보도가 이어져 추이를 관찰합니다.",
+    "evidence": [
+      {
+        "title": "Delta computer outage disrupts flights at MSP ahead of Thanksgiving",
+        "source": "Star Tribune",
+        "date": "2026-11-22",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOZlNjcHozY1hpYnNhcncxaW5aOG5mQmJudWFZc3BXU21jT1Utd05aNndQZGhDUWlLTC1rVUxVNmdhZHlnT2hkLTM2ZjdmbURHeFBQVWM2X1BlUnpQekMxc0RHN3NaS29uNmFMM3I1MmFENVlhZ3JwS3p2M3NRaEpaUkFIZ3dCMFFkX3Q3Nl9vbHIzS295Tmg4Sld5RjAwMVE3SW8tYkJQSzRfUXlISUU3ZkZaZmF4T29Rd3JrV2ZB?oc=5"
+      },
+      {
+        "title": "Director of National Intelligence Jay Clayton warns Americans of 'bumps in the road' after tech outages",
+        "source": "CNBC",
+        "date": "2026-11-22",
+        "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPc0UyZUdJbmJyV3E2MkFmMjlaVU43ZXItWDZNd2JtdVFKcGEwMlNENHpLdWJ0dGlqNk5iTXhvc0xXRkI5TVhzSHg3bTFTdzN6MkNkT1pnRktNRWFFazZCTkQ2dlNrZGhjTGI4cWxKaDhKbTg3R2dSbXE2N19aU2plcktMUGFNYmpqLVdkbkVLU3ZDd9IBlwFBVV95cUxQRmQ4Rjd1WnZHMVZWb1BKNTYwWFdzV1JRWWY3SllzSm5EOG5yZjlvNmhma0JEUWhJbHIwNkxHUGZfTTZqUHVQV0ZyR0JfQmx5VFNVR29OaTByQ1VhS3hmVFdNUkJlUmlnbElzSDNXc3Y1VjNkdm9nUTVOTUtYdUNsWHdNajJ5eGhPZVB1Uk5QMmZ4VzV1Q3Fj?oc=5"
+      },
+      {
+        "title": "Walmart shoppers stocked up on emergency supplies after series of tech outages: report",
+        "source": "Fox Business",
+        "date": "2026-11-21",
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUng4UVFJOXRjQ2lwUU5MZ2dwVVk5WEkwNTJjT3g1UkZkOXhrcWRPZlowUDJkNEhnclJtOFhJRUYwbFdaYlNDMFctSXRrODNaZlZ3RDQzUUw2ak5uQU90RktjZDM0TTlkTUw3TjNYNVU3LUVrSXlYN29QRGtwNDdGYTl3QUtZTklrLU9XMDBJdGpxYzVlT1RhZVBrT0I0SnFoM2d1WXBNd0RRUGJCeFBGbEN6YjZmUdIBuwFBVV95cUxQd1B4c3htS0puckdCQllyQ1dwTm8wSWhMdkJjbjFDUFh4ZEpHcGhwM2VBMHpYa3NWdDVPNl9TQTc0QWlVUU9DZUNQWmp4NFVCUzFtSGZodXJ4NmRvb0lpLXB3YVVEbzVoR3RoTzB1YXZOakJJSm8zdHJmbnR4MC1wQUZKUGoyMmk3WnQwUXItMnI1RVZBaFRmS2FVRGdiUGg5N2NKM0NEMjRtbGRYektDcmRBcVk0b3BDZjJv?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "북한사이버공격및개인정보유출",
+    "name": "북한 사이버 공격 및 개인정보 유출",
+    "first_seen": "2026-11-16",
+    "days_seen": 3,
+    "last_seen": "2026-11-23",
+    "why": "금융기관 및 공공 전산망 대상 사이버 해킹 및 정보 유출 경고 보도가 이어져 관찰합니다.",
+    "evidence": [
+      {
+        "title": "대구경북권 대학서 해킹 피해 잇따라…영남대서도 개인정보 유출",
+        "source": "KBS 뉴스",
+        "date": "2026-11-19",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBCQ3ZNZzJGaVFDcWpteWU0Wm9lcmlIbHR1OFd3b0o2cnFveGhsZUpjQUhYMGxEWTNvM1ZmSGpwNVV3RnQyV2laSWk4UmxQeGpNcEpibDdGZVhlLUU?oc=5"
+      },
+      {
+        "title": "한전, 주민번호·카드번호 등 150만명 개인정보 유출…대국민 사과",
+        "source": "연합인포맥스",
+        "date": "2026-11-22",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5WeDNnblNieV8xMGVjR0dUaTNsSUlZTEFsYk5RYUFqZDRxdlFGQUFCRjhpakxJYVV4MVYtRm5xT1ZOZXZaSE9hWlRZcVBHcDZuYUdPZHhqMDZTSnh2cHlFNUdzWXlXZ2JURkl2a0tBMTQ?oc=5"
+      }
+    ]
+  },
+  {
     "key": "미국의중국ai칩우회수출규제",
     "name": "미국의 중국 AI 칩 우회 수출 규제",
     "first_seen": "2026-11-13",
@@ -76,28 +126,6 @@
     ]
   },
   {
-    "key": "마이크로소프트글로벌서비스장애",
-    "name": "마이크로소프트 글로벌 서비스 장애",
-    "first_seen": "2026-11-15",
-    "days_seen": 4,
-    "last_seen": "2026-11-20",
-    "why": "클라우드 및 서비스 장애 여파로 글로벌 업무 차질 및 생필품 사재기 보도가 이어지고 있습니다.",
-    "evidence": [
-      {
-        "title": "The outages keep coming. Some Americans are preparing for a collapse.",
-        "source": "The Washington Post",
-        "date": "2026-11-19",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPNVRoT3NPeTQ4MUpoNjJSeUpadHJZRHlHYU5yN1lYMEI1OEJVUHoxbUFOSmswdFlCc0JWRUZXT01kSXhEWWtXQ0hCUllJU1pIV29DTXFmLW91NEpac1RBVXlwcmxUMHBCUUhrWXRocXhlb3dObmN1cXR6Uzd3ZkwxdVRfRDFvUTkzai01ai1YZ3hPRDNVS25OR3E0UVJaYnB6?oc=5"
-      },
-      {
-        "title": "Walmart, Costco see some panic-buying after tech outages",
-        "source": "Yahoo Finance",
-        "date": "2026-11-19",
-        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTHh0Qnd1ZUs1di12Tjd5LXVVR1lTc3pWWVlnVTlDbWZ3Q25id2YxMFhndk9nQzdNNDVvQkdobXlBY0xZd1Y1QmUyTVlmWGo0VHY2VTNaMHBnek5vdU5JZWdaTlZpckpUWnNydUVnMnlCMENKbXIyMkxqaGhpcDNRT0ZXQnBZTUNjNDJXVUlGSEFxT20xQU1KSVpzQlB4b1QzOTJRbmFub2NrZjRxTWdRU2pn?oc=5"
-      }
-    ]
-  },
-  {
     "key": "북한사이버공격",
     "name": "북한 사이버 공격",
     "first_seen": "2026-11-19",
@@ -126,22 +154,6 @@
         "source": "매일경제",
         "date": "2026-11-17",
         "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1aRm1Qa2hNSzdTTTNDNy1XcVJsX3owTnRKckhNb3lUVDJHXzg3YkJwak94TWNvSi1UbXBmOTczMTRxWTlySEw1XzkzWlNJbkdCamc?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "북한사이버공격및개인정보유출",
-    "name": "북한 사이버 공격 및 개인정보 유출",
-    "first_seen": "2026-11-16",
-    "days_seen": 2,
-    "last_seen": "2026-11-17",
-    "why": "국회의원실 사칭 및 화상회의 악성코드를 통한 북한 해커의 사이버 위협 경고가 나와 추이를 관찰합니다.",
-    "evidence": [
-      {
-        "title": "A technical issue at JPMorgan Chase triggers online banking delays for major US banks",
-        "source": "AP News",
-        "date": "2026-11-17",
-        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPT2I5X1NCMDRQZURDMlVFTTY4TmJ1TFVCeUIyWFRuenhhUmV4QTd5ZW9ydEdUaUFXb0dGTVFjR3VubUxvaExsZ3pfWUd2dUw1dEdFbDg5TWhkbEFxNEJydHNtaTgxRnJ1VXRNdjJQY25GSU1NdEZRcG9wUlN0NTJlRHk4QW5WbHk1eV9XOTROU2M3M3N4ZU0wbkxBSTY?oc=5"
       }
     ]
   }

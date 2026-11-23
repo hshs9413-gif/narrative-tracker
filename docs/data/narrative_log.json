@@ -3746,5 +3746,60 @@
     ],
     "at": "2026-11-22T10:37+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-23",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언급 지표 감소와 식음 판정 제안에 따라 잠잠 상태로 변경합니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-23",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "us-china-nvidia-export-controls-2026",
+    "kind": "new",
+    "name": "미국의 중국 AI 칩 우회 수출 규제",
+    "reason": "미국 당국이 엔비디아의 대중국 AI 칩 우회 수출 준수 여부를 조사하면서 미중 무역 갈등과 기술주 변동성이 확대되었습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-23",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "AI 밸류에이션 내러티브는 식음 지표에 따라 잠잠으로 전환되었으며, 후보군에 있던 미국의 중국 AI 칩 우회 수출 규제 이슈가 다수 매체 보도로 새 내러티브로 등록되었습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "마이크로소프트 글로벌 서비스 장애",
+      "북한 사이버 공격 및 개인정보 유출",
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "글로벌 금융권 결제망 사이버 공격",
+      "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
+      "북한 사이버 공격",
+      "북한 해커 사이버 공격"
+    ],
+    "at": "2026-11-23T11:01+09:00",
+    "trigger": "schedule"
   }
 ]
