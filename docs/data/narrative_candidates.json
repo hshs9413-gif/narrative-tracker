@@ -1,5 +1,71 @@
 [
   {
+    "key": "미국faa항공기운항전면중단및인프라장애",
+    "name": "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
+    "first_seen": "2026-11-21",
+    "days_seen": 2,
+    "last_seen": "2026-11-24",
+    "why": "항공 시스템 장애 관련 보도가 이어지고 있어 경과를 주시합니다.",
+    "evidence": [
+      {
+        "title": "Thanksgiving travel could be messy with storms coming after a week filled with airline glitches",
+        "source": "AP News",
+        "date": "2026-11-23",
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQUThKclEzNmdSeWQ1MUIzc0hJWnBqSWdXdUtSVkIxMVdYTWIwQjU5UGVIclhJVUl1bVVyLVlCSVFLdWRHckdabDh6RDNsMVNDdUdKdjNFZEJLb3FCVE5Qa1RLVWp1NHVjeUxRWERFT3pJYWpOY3o1emQ3Z1JGbHNQeEhTdmZCeVUzUVpmY3dCeUdzSWZELUZlUjJTck5QaHJyLWVTeF9uV1BsQlBtSEE?oc=5"
+      },
+      {
+        "title": "US intel chief warns of 'bumps in the road' amid tech upgrades of aging systems",
+        "source": "Fox Business",
+        "date": "2026-11-23",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQYmQxU3E3Y3BfM0Z1bi15blNCcFoxaWdFd2RpUy1sb3Q1MEptRFQ1X2FFUk93RTExWEl0RXhSLW10ZkNBMjlZTWRYTEE1dVdjeVlFU1l4X2tyWUVQWE1xZ1dFbC1yd0hRQ241eEwtRXJnSWNid0g2V3F5SnZFM3UzdGRBRE1WaHFqZ3dua013dEttS1dfUkN0SktKd1BnS2ZhTzhMUkR0ZVE0Z9IBrwFBVV95cUxOb251RkVCWm1lNkQtUXdOMVdpNy1EX1NRX2ZHQ1BVQ09kcHdyeEo2Q3h1MGdSdHd4Q1JXNjMxQngyTk1XYUVUUEt0VDRsTmszaUlRalg0Qjh5N3FfMlFCVDFlVU1SVFpScmE4V0xxOEc4RDdyVHJMN1I3M1JkX2JNMnhpZkpzME1SYUpyOEtGb0RScTZkdkczV2w3ZllLbkVuYUlpU2RnbFJ5aEN3dVFN?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "글로벌사이버공격및정보유출",
+    "name": "글로벌 사이버 공격 및 정보 유출",
+    "first_seen": "2026-11-24",
+    "days_seen": 1,
+    "last_seen": "2026-11-24",
+    "why": "에너지 운반선 사이버 공격 조사 및 바이낸스 해킹 자금 몰수 소송 보도를 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "미국, 에너지 운반선 50척 사이버공격 조사…이란 연루 의심",
+        "source": "KBS 뉴스",
+        "date": "2026-11-24",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE42dUZLNkRoWF9ET21aSWpCUnBCWWN2dm5yOE11cUwzRWlXTXR5NjR2VmN4RGNhMkVibGZ5YVc3VXRXOFR3bEQ2Rmgyc2UxcC1wX2wzeVFOSXBNNlE?oc=5"
+      },
+      {
+        "title": "미 법무부, 북 바이낸스 해킹 자금 1조 5천억 원 몰수 소송",
+        "source": "연합뉴스TV",
+        "date": "2026-11-24",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1Ca2ZmenpCWV9MbGVIVm55dVFLN0NhV2p0M0t3c2NWMXdJMVJRZ0xYOVdrUHZSS1lyZExUckFpQndMQnRwQUI5ZmZhdnpPcjc1SWdZbFpKZ19uNkp3UVROdEF6ZUdZWGs?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "ai데이터센터자금난및규제우려",
+    "name": "AI 데이터센터 자금난 및 규제 우려",
+    "first_seen": "2026-11-24",
+    "days_seen": 1,
+    "last_seen": "2026-11-24",
+    "why": "데이터센터 구축 차질 경고와 법적 규제 소송이 이어져 경과를 주시합니다.",
+    "evidence": [
+      {
+        "title": "머스크, 데이터센터 차질에 우려…\"AI기업 내년에 자금난\"",
+        "source": "한국무역협회-KITA.NET",
+        "date": "2026-11-23",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPRV9WT185OExnNDZmalZqdF9KV05aWTh0N0xBc1dpNEJ0SzRZY3dKeHczTXFEdVNHNWNld01qMEZueVlwSmpLY1dKbk1oR3JCOU80bk5uSjcwMHQtLWlVaEphZVJ3a05RNldPV0NnSThrWkJRNExFSzFYazJUeXk1U3FpcHZPNXNNalZfRFYxc2dfU1JGM25TMTJYQlpCc180VHFOMFJBS1FWN2pTYkhETlBHaWZybU9HR25udDVOWWhLMVFMSHR5UUJ1M3BmNHpNRmxZVW5n?oc=5"
+      },
+      {
+        "title": "States sue SpaceX to stop Grok from generating child sex images, revenge porn",
+        "source": "Ars Technica",
+        "date": "2026-11-23",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWXFIRlRpQkkyY0F5YUVjb1RmN1g2cUdPWHJ3ZkhTVnVzcVNJaG5QY0lHRlV1cEdBNmFqWHQ3c0lpWEU1RGlLanphd1pPbmZjc0dvME9UcXFsNWNSTWJ0VDNsTmcyWGVNaG1lRzAwTEMxNXVycHc3YjItWkVXRXFiNDRZeWVWVEZzZ2NLd2FCOHVhSGVVTEJDMTEwdG1JVVRJdDBVSzQyS0lhY1Q5MnNYZmZFdmVWUlR2TmhzdG1R?oc=5"
+      }
+    ]
+  },
+  {
     "key": "마이크로소프트글로벌서비스장애",
     "name": "마이크로소프트 글로벌 서비스 장애",
     "first_seen": "2026-11-15",
@@ -100,60 +166,6 @@
         "source": "TechSpot",
         "date": "2026-11-20",
         "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQR2pxamJfUzVYMzF0N3BXdGFfcmV6Yl84UWNlRGkycmlkM2VYR3hnc1JJS0dMSFN2a2dVUUpGM1lsTFk5NnJ0QmcwMEY3LTJJT21PQ3VIY0NORkJ3RWRKak5SQ1pPX0djVDVueGdnUGkwWWhfNEctRldvVTAwWmpqMUxkcXZZTWY0SGFqMHVRTXZzeEpfbXF2TXVIT3A?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "미국faa항공기운항전면중단및인프라장애",
-    "name": "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
-    "first_seen": "2026-11-21",
-    "days_seen": 1,
-    "last_seen": "2026-11-21",
-    "why": "통신 시스템 장애로 미국 전역 항공기 운항 차질과 국가사이버국장 해임 보도가 이어져 경과를 주시합니다.",
-    "evidence": [
-      {
-        "title": "美 잇단 주요 인프라 장애에 백악관 국가사이버국장 해임",
-        "source": "MBC 뉴스",
-        "date": "2026-11-20",
-        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE4xbWdCa0NTcHM2NUxYVmpIRUJabkdtaTZVcW5SY3JtUW1JcW1pTTJWNXppV1htcUdIVGVRZDBDVVNKOEpKM3VoS012OU9LTEJsZWFMQWV6cGpyWXlvSGVuaVhqRkdQaWNVMkhPZmxFQmNWY3h30gF0QVVfeXFMTUduLWpEaDdEbFc0b1NpTU1aWV9KTzVoUEtrdnlKby04ekdRVjgyRDhkcFpfVDdYVXR1SjhsRWVoMV9Ob2tMOGpwMndFS0hIQ1VyYjNwME84LWc3T3A2dDZBelVaeW1MRG5DbE9YM1Q1M2RVam8?oc=5"
-      },
-      {
-        "title": "US will soon announce root cause behind FAA nationwide ground stop",
-        "source": "Ars Technica",
-        "date": "2026-11-20",
-        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPS1lDWmpyendldk0xZVAtZlFfeWlDLUpqN1pyZHVDMkhSZzdTNTBkOHBZcGZzVGhDTXY1VmpXeTRSaldQRlhFVGlWREU0WmUwV2VFTlpRbjFnWV9nTk9SZHJoelVNeXBBWThIWmI2VmkteTJWOUxzcmk3VVE0blJqc2QxOFdMWFVrZWoyS1BRdHFNMjNJWVJaRDNkUkQtQURXR2hteUF4NUJVMnl3ellFTlEtVmZyTjRxMXVHZjV3?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "북한사이버공격",
-    "name": "북한 사이버 공격",
-    "first_seen": "2026-11-19",
-    "days_seen": 2,
-    "last_seen": "2026-11-20",
-    "why": "주요 금융 및 기관 대상 사이버 공격과 정보 유출 우려 관련 보도가 이어져 추이를 관찰합니다.",
-    "evidence": [
-      {
-        "title": "Cyberattack may have exposed Chase Bank and Mastercard customer data",
-        "source": "The Washington Post",
-        "date": "2026-11-20",
-        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQOWw5Ml9NYmZNeTNiSlV4QUhBc0JuTzY1ZEVBX295eW5xYVlIeGpGY3J5Ulc0UEhvSW9iQnFtVVZNQ2p0UFdoLUJPTHh2OVNvTFlhRVlVV0ZMdU5rcE5pdzZtV0pYVnlDUENlNWlSMUhUbzBueWxIcHpEdWtJUmlXbjVhN1ZKOXFIa09HMGNsdTZtS01TbXJDdFBfTlVocDAxXzhsNkRiVzVQVWRRS3NZQmc0aFI?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "북한해커사이버공격",
-    "name": "북한 해커 사이버 공격",
-    "first_seen": "2026-11-18",
-    "days_seen": 1,
-    "last_seen": "2026-11-18",
-    "why": "국제 외교안보 및 금융권 대상 해킹 시도가 지속적으로 보도됨.",
-    "evidence": [
-      {
-        "title": "[단독] 아세안정상회의, 中해커에 공격당했다…외교안보 해킹 전쟁 본격화",
-        "source": "매일경제",
-        "date": "2026-11-17",
-        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1aRm1Qa2hNSzdTTTNDNy1XcVJsX3owTnRKckhNb3lUVDJHXzg3YkJwak94TWNvSi1UbXBmOTczMTRxWTlySEw1XzkzWlNJbkdCamc?oc=5"
       }
     ]
   }

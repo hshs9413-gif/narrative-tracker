@@ -3801,5 +3801,108 @@
     ],
     "at": "2026-11-23T11:01+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-24",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "corporate-credit-stress-2026",
+    "kind": "update",
+    "verdict": "down",
+    "reason": "젠슨 황 복귀 소식에 글로벌 회사채 시장이 반등하며 기업 신용위험이 완화되었습니다.",
+    "status": "applied",
+    "changes": {
+      "intensity": [
+        "mid",
+        "low"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "젠슨 황 복귀에 글로벌 회사채 시장도 반등…기업 신용위험 완화",
+        "source": "www.ebn.co.kr",
+        "date": "2026-11-24",
+        "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBHb3hQaThiZ0J6cjBfcFdCOHI3OHJrcURFR0w3c2xCdmpKcFFoZnJPMjJ1OC01X1ZWUkhuTkhoRjVqZVVLMnZQVkxlWDJvR3VMUVVHTzU1bnhuTHhaR0RBVkJzbnliM0ZE?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-24",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "global-bond-selloff-2026",
+    "kind": "update",
+    "verdict": "down",
+    "reason": "안전자산 수요로 미 국채 금리가 4거래일 연속 하락세를 보였습니다.",
+    "status": "applied",
+    "changes": {
+      "intensity": [
+        "high",
+        "mid"
+      ]
+    },
+    "evidence": [
+      {
+        "title": "미 국채 금리, 안전자산 수요에 하락…10년물 4거래일 연속 내려",
+        "source": "Investing.com 한국어",
+        "date": "2026-11-19",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBoeDlyVFUyRUNoX0tsY3BEbHBsUll1OFRCbkNORWE5NWJ0eE9pT0ZmUnpBNmY5VFY1ZnJpUExkc05Dam1tS0Nic2RzbDlvbWMzVVhMWkdrWElfUkotNTdRcWxyTDMtQS1UeW9SQXNYV3k?oc=5"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-24",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "식음 지표 판정 제안에 따라 잠잠 상태로 변경합니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-24",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "jensen-huang-reinstatement-2026",
+    "kind": "new",
+    "name": "젠슨 황 복귀 및 엔비디아 급등",
+    "reason": "젠슨 황 CEO 복귀 발표 후 엔비디아와 글로벌 증시가 급등하고 상무부의 제재 발표 등 관련 보도가 잇달았습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-24",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "젠슨 황 엔비디아 CEO의 복귀 소식으로 글로벌 증시 및 회사채 시장이 완화세를 보이며 신규 내러티브로 지정되었고, AI 밸류에이션 내러티브는 식음 지표 판정에 따라 잠잠 상태로 전환되었습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "약화",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "약화",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
+      "글로벌 사이버 공격 및 정보 유출",
+      "AI 데이터센터 자금난 및 규제 우려",
+      "마이크로소프트 글로벌 서비스 장애",
+      "북한 사이버 공격 및 개인정보 유출",
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "글로벌 금융권 결제망 사이버 공격"
+    ],
+    "at": "2026-11-24T14:34+09:00",
+    "trigger": "schedule"
   }
 ]
