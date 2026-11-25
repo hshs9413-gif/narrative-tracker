@@ -3904,5 +3904,73 @@
     ],
     "at": "2026-11-24T14:34+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-25",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "alaska-lng-trade-2026",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "관련 기사 수와 언급량이 눈에 띄게 줄어들어 잠잠한 상태로 전환됩니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": []
+  },
+  {
+    "date": "2026-11-25",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "dormant",
+    "reason": "언론 언급 수치가 줄어들고 식음 지표 판정에 따라 잠잠한 상태로 전환됩니다.",
+    "status": "applied",
+    "changes": {
+      "status": [
+        "active",
+        "dormant"
+      ]
+    },
+    "evidence": []
+  },
+  {
+    "date": "2026-11-25",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "알래스카 LNG와 AI 밸류에이션 내러티브는 언론 언급 감소에 따라 잠잠 상태로 전환되었으며, 신규 이벤트 요건을 충족하는 주제가 없어 기존 후보들을 지속 관찰합니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "잠잠",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "잠잠",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "마이크로소프트 글로벌 서비스 장애",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
+      "글로벌 사이버 공격 및 정보 유출",
+      "AI 데이터센터 자금난 및 규제 우려",
+      "북한 사이버 공격 및 개인정보 유출",
+      "글로벌 금융권 결제망 사이버 공격"
+    ],
+    "at": "2026-11-25T13:39+09:00",
+    "trigger": "schedule"
   }
 ]

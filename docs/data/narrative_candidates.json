@@ -1,5 +1,53 @@
 [
   {
+    "key": "미국의중국ai칩우회수출규제",
+    "name": "미국의 중국 AI 칩 우회 수출 규제",
+    "first_seen": "2026-11-13",
+    "days_seen": 8,
+    "last_seen": "2026-11-25",
+    "why": "싱가포르 등 우회 경로 차단을 위한 미 정부 협력 보도가 이어져 반도체 시장 파급을 주시합니다.",
+    "evidence": [
+      {
+        "title": "싱가포르 총리 \"AI 반도체 우회 수출 차단 위해 미국과 협력\"",
+        "source": "한국무역협회-KITA.NET",
+        "date": "2026-11-24",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOM2dRZEJYV0RiM091dER0TlVEY2tvSktMVU9nQmtpZkpRbi1mVllsOGZYTnRsM1V2eHdqZHRqSV82RTZKWkZwRndqcWpZYWFlSzFVVi0zaF9qcnNRcHFOVXYwNDNjOWdQLTE1S1lLdlBQU21LOGM5RHJtckpyeXZBV1E2WF8taEZBR25jVHlrNEFhOUZwa0h6TUM4MjlMUVRZSXhxQ3B6Q29VN3RhRFVrbGhRWTYteDRiVjhnRzJsblNWeVZwbl9OVUR0ZlE5VzZWMTdrbUJR?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "마이크로소프트글로벌서비스장애",
+    "name": "마이크로소프트 글로벌 서비스 장애",
+    "first_seen": "2026-11-15",
+    "days_seen": 6,
+    "last_seen": "2026-11-25",
+    "why": "클라우드 장애 후속 영향과 엔지니어링 문제 보도가 나와 경과를 관찰합니다.",
+    "evidence": [
+      {
+        "title": "Microsoft’s historic cloud outage exposed an engineering “fog of war”",
+        "source": "Ars Technica",
+        "date": "2026-11-24",
+        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQd3N2cjRYc2MyZTh4cGdIbjB4a2dac0h2VG5TN21RdllmQjdhNHg2UWNsRVNpaGUyUmFibjkwT1JEOWx2WE5QTmtXYUk2SXR3Y2VsQ3NBRFYzOUlIOXp3cHZYV0pabktqQlBnaUttQlFZcVlMMU90SGphZjJuREVsSnBLZEJBd0tuY0VFY0lKRU1feUVpMm5pa2FrcnRrMTZrYjlpbjA1aldzRDg?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "미국faa전국항공기운항전면중단",
+    "name": "미국 FAA 전국 항공기 운항 전면 중단",
+    "first_seen": "2026-11-14",
+    "days_seen": 5,
+    "last_seen": "2026-11-25",
+    "why": "시카고 오헤어 공항 등 전산 장비 장애로 인한 항공기 지연 보도가 이어져 추이를 주시합니다.",
+    "evidence": [
+      {
+        "title": "Equipment outage delays several flight at O’Hare",
+        "source": "WGN-TV",
+        "date": "2026-11-24",
+        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQTTFTeU11blUxRkktRS1VSXpQelBvUDhHak9oNkdRVEg3bVdmMU00RnNqaHAxY2kwMEdaZDhfYWtETTRBMHVRN0wwVVJJSEMzUGY4YjZ5S1Jac29UcmJOYVJYUHBhYnR2a284OXdMNW13bFNQY0dUZVMwSlc5eF8zcm9TamdFMXZ0cWZQSUk1MNIBlAFBVV95cUxNaDk0c185aVZxTnhSenIyY2k5SWpyRHlqblppSzF5WkdvczBFLWowQlZXT1g0WlR6dXNYQi1aUmw1QnhhcUc2UFhEQnpHNFFRQTJTdkdJRXlDbHZwdEpITE9wS01CQ0NQQXpaUFVEa05XLXFnS1NJLUhzT3FEc3pFRzV5WjNiN05weXlyOU1RSHNNZ2VT?oc=5"
+      }
+    ]
+  },
+  {
     "key": "미국faa항공기운항전면중단및인프라장애",
     "name": "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
     "first_seen": "2026-11-21",
@@ -66,34 +114,6 @@
     ]
   },
   {
-    "key": "마이크로소프트글로벌서비스장애",
-    "name": "마이크로소프트 글로벌 서비스 장애",
-    "first_seen": "2026-11-15",
-    "days_seen": 5,
-    "last_seen": "2026-11-23",
-    "why": "글로벌 테크 장애 여파로 대중 교통 및 생필품 수급 차질 관련 보도가 이어져 추이를 관찰합니다.",
-    "evidence": [
-      {
-        "title": "Delta computer outage disrupts flights at MSP ahead of Thanksgiving",
-        "source": "Star Tribune",
-        "date": "2026-11-22",
-        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOZlNjcHozY1hpYnNhcncxaW5aOG5mQmJudWFZc3BXU21jT1Utd05aNndQZGhDUWlLTC1rVUxVNmdhZHlnT2hkLTM2ZjdmbURHeFBQVWM2X1BlUnpQekMxc0RHN3NaS29uNmFMM3I1MmFENVlhZ3JwS3p2M3NRaEpaUkFIZ3dCMFFkX3Q3Nl9vbHIzS295Tmg4Sld5RjAwMVE3SW8tYkJQSzRfUXlISUU3ZkZaZmF4T29Rd3JrV2ZB?oc=5"
-      },
-      {
-        "title": "Director of National Intelligence Jay Clayton warns Americans of 'bumps in the road' after tech outages",
-        "source": "CNBC",
-        "date": "2026-11-22",
-        "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPc0UyZUdJbmJyV3E2MkFmMjlaVU43ZXItWDZNd2JtdVFKcGEwMlNENHpLdWJ0dGlqNk5iTXhvc0xXRkI5TVhzSHg3bTFTdzN6MkNkT1pnRktNRWFFazZCTkQ2dlNrZGhjTGI4cWxKaDhKbTg3R2dSbXE2N19aU2plcktMUGFNYmpqLVdkbkVLU3ZDd9IBlwFBVV95cUxQRmQ4Rjd1WnZHMVZWb1BKNTYwWFdzV1JRWWY3SllzSm5EOG5yZjlvNmhma0JEUWhJbHIwNkxHUGZfTTZqUHVQV0ZyR0JfQmx5VFNVR29OaTByQ1VhS3hmVFdNUkJlUmlnbElzSDNXc3Y1VjNkdm9nUTVOTUtYdUNsWHdNajJ5eGhPZVB1Uk5QMmZ4VzV1Q3Fj?oc=5"
-      },
-      {
-        "title": "Walmart shoppers stocked up on emergency supplies after series of tech outages: report",
-        "source": "Fox Business",
-        "date": "2026-11-21",
-        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUng4UVFJOXRjQ2lwUU5MZ2dwVVk5WEkwNTJjT3g1UkZkOXhrcWRPZlowUDJkNEhnclJtOFhJRUYwbFdaYlNDMFctSXRrODNaZlZ3RDQzUUw2ak5uQU90RktjZDM0TTlkTUw3TjNYNVU3LUVrSXlYN29QRGtwNDdGYTl3QUtZTklrLU9XMDBJdGpxYzVlT1RhZVBrT0I0SnFoM2d1WXBNd0RRUGJCeFBGbEN6YjZmUdIBuwFBVV95cUxQd1B4c3htS0puckdCQllyQ1dwTm8wSWhMdkJjbjFDUFh4ZEpHcGhwM2VBMHpYa3NWdDVPNl9TQTc0QWlVUU9DZUNQWmp4NFVCUzFtSGZodXJ4NmRvb0lpLXB3YVVEbzVoR3RoTzB1YXZOakJJSm8zdHJmbnR4MC1wQUZKUGoyMmk3WnQwUXItMnI1RVZBaFRmS2FVRGdiUGg5N2NKM0NEMjRtbGRYektDcmRBcVk0b3BDZjJv?oc=5"
-      }
-    ]
-  },
-  {
     "key": "북한사이버공격및개인정보유출",
     "name": "북한 사이버 공격 및 개인정보 유출",
     "first_seen": "2026-11-16",
@@ -112,44 +132,6 @@
         "source": "연합인포맥스",
         "date": "2026-11-22",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5WeDNnblNieV8xMGVjR0dUaTNsSUlZTEFsYk5RYUFqZDRxdlFGQUFCRjhpakxJYVV4MVYtRm5xT1ZOZXZaSE9hWlRZcVBHcDZuYUdPZHhqMDZTSnh2cHlFNUdzWXlXZ2JURkl2a0tBMTQ?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "미국의중국ai칩우회수출규제",
-    "name": "미국의 중국 AI 칩 우회 수출 규제",
-    "first_seen": "2026-11-13",
-    "days_seen": 7,
-    "last_seen": "2026-11-22",
-    "why": "대중국 반도체 수출 규제 행보가 반도체 시장에 미칠 영향을 지속 주시합니다.",
-    "evidence": [
-      {
-        "title": "엔비디아, 중국 간첩 연루 메가스피드 관련사에 칩 4만개 판매신청",
-        "source": "KBS 뉴스",
-        "date": "2026-11-20",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9DN2tydDlMR091MW9yWWdSSmhhOEo5MElGR2ttU0lmWUdyYjREU21JelplRnB1NHVDVGxGRnhNNDNQdXVaNDZhWmh6WVR6Tk1zbjNaOVQ0WFZMc0k?oc=5"
-      },
-      {
-        "title": "Bessent says no further restrictions are needed for Nvidia chip exports to China",
-        "source": "PBS",
-        "date": "2026-11-21",
-        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNdGhFLVdNQVNlbl9tSXFrRmI4LS1VQmhxamhUS0F0WjhFMmoydGtBbG5Lc1AzbklUekQ0NDdvWDM0Q2Nfd2dOUTZEdE9MVnZCUVJtc1p3M0R4M2VjVS1zNUdXWWF1R2ZnNmpQU2lJSXNQQlM5WUk3cF92bDB3c3F5N3d6ZEEySktWeVRmSkE4SXR3R3JUaXhObmhjdmgzSEgxNTV6d3N0M2k5UU9uSDBsRXZiNzIxRWJsQmfSAb8BQVVfeXFMUElMcEVVRXcweUZhTloxWGJFdlN0UWx2ZDBBSm5DRzhiejNJZlgtWWV2eUpiQ0diajZlZ3BrbmZEMTJRZnU2eVBJWkwxdGNzTkprSElzTk05VXhKREVDcnYwN0t4aXl2V2VFbHZ4SWNuWEVvUXA5bEE1dm94UWU3aTBQT0phSEEydHdEMWYzSkNvbWtlbHVlajJRblRfUUc3eFBXTFZmd2VYQWh2RjMwZzM3N2ZYQ0l3OWhqS29mQm8?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "미국faa전국항공기운항전면중단",
-    "name": "미국 FAA 전국 항공기 운항 전면 중단",
-    "first_seen": "2026-11-14",
-    "days_seen": 4,
-    "last_seen": "2026-11-22",
-    "why": "시스템 장애 원인 조사 관련 보도가 계속되어 추이를 관찰합니다.",
-    "evidence": [
-      {
-        "title": "US will soon announce root cause behind FAA nationwide ground stop",
-        "source": "Ars Technica",
-        "date": "2026-11-20",
-        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPS1lDWmpyendldk0xZVAtZlFfeWlDLUpqN1pyZHVDMkhSZzdTNTBkOHBZcGZzVGhDTXY1VmpXeTRSaldQRlhFVGlWREU0WmUwV2VFTlpRbjFnWV9nTk9SZHJoelVNeXBBWThIWmI2VmkteTJWOUxzcmk3VVE0blJqc2QxOFdMWFVrZWoyS1BRdHFNMjNJWVJaRDNkUkQtQURXR2hteUF4NUJVMnl3ellFTlEtVmZyTjRxMXVHZjV3?oc=5"
       }
     ]
   },
