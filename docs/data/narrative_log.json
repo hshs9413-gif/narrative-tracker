@@ -3972,5 +3972,71 @@
     ],
     "at": "2026-11-25T13:39+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-26",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "AI 버블 논쟁과 반도체 주가 변동성 관련 보도가 복수의 매체에서 다시 쏟아지며 잠잠하던 내러티브가 재점화되었습니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-26",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "nvidia-governance-credit-risk-2026",
+    "kind": "new",
+    "name": "엔비디아 지배구조 리스크 및 신용등급 강등 경고",
+    "reason": "젠슨 황 CEO 관련 이슈와 S&P의 신용등급 강등 검토 보도로 기술주 및 신용 시장 불안이 커졌습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-26",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "spacex-space-ai-datacenter-2026",
+    "kind": "new",
+    "name": "스페이스X 우주 AI 데이터센터 승인 및 사업 확대",
+    "reason": "스페이스X가 100만 기의 우주 AI 데이터센터 위성 승인을 받으며 대규모 우주 인프라 투자 보도가 잇따랐습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-26",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "AI 버블 우려 보도 증가로 잠잠하던 AI 밸류에이션 내러티브가 재점화되었으며, 엔비디아 지배구조 리스크와 스페이스X 우주 데이터센터 승인이 새로운 주요 이벤트로 추가되었습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "글로벌 사이버 공격 및 정보 유출",
+      "한국은행 기준금리 인상 및 경제 전망 상향",
+      "마이크로소프트 글로벌 서비스 장애",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
+      "AI 데이터센터 자금난 및 규제 우려",
+      "북한 사이버 공격 및 개인정보 유출"
+    ],
+    "at": "2026-11-26T12:50+09:00",
+    "trigger": "schedule"
   }
 ]

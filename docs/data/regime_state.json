@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T01:01:25.162204+00:00",
+  "generated_at": "2026-11-26T03:50:20.139358+00:00",
   "thresholds_locked": false,
   "growth_inflation": {
     "label": "골디락스",
@@ -44,9 +44,9 @@
   "kospi_vol": {
     "label": "고변동",
     "level_index": 2,
-    "rv20": 57.9,
-    "as_of": "2026-11-24",
-    "value": 5006.03
+    "rv20": 55.2,
+    "as_of": "2026-11-25",
+    "value": 4697.51
   },
   "cross_check": {
     "nfci": {
@@ -71,13 +71,13 @@
   },
   "report_crosscheck": {
     "wti_front_4w": {
-      "value": 82.05,
-      "as_of": "2026-11-24",
-      "base_value": 99.9,
-      "base_date": "2026-10-27",
+      "value": 83.68,
+      "as_of": "2026-11-25",
+      "base_value": 102.78,
+      "base_date": "2026-10-28",
       "lookback_days": 28,
-      "change": -17.85,
-      "change_pct": -17.87
+      "change": -19.1,
+      "change_pct": -18.58
     },
     "breakeven_3m": {
       "value": 2.12,

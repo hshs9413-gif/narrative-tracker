@@ -3,15 +3,59 @@
     "key": "미국의중국ai칩우회수출규제",
     "name": "미국의 중국 AI 칩 우회 수출 규제",
     "first_seen": "2026-11-13",
-    "days_seen": 8,
-    "last_seen": "2026-11-25",
-    "why": "싱가포르 등 우회 경로 차단을 위한 미 정부 협력 보도가 이어져 반도체 시장 파급을 주시합니다.",
+    "days_seen": 9,
+    "last_seen": "2026-11-26",
+    "why": "미국의 AI 칩 규제로 수십억 달러 규모의 데이터센터 계약이 중단되었다는 보도가 나와 추이를 계속 지켜봅니다.",
     "evidence": [
       {
-        "title": "싱가포르 총리 \"AI 반도체 우회 수출 차단 위해 미국과 협력\"",
-        "source": "한국무역협회-KITA.NET",
-        "date": "2026-11-24",
-        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOM2dRZEJYV0RiM091dER0TlVEY2tvSktMVU9nQmtpZkpRbi1mVllsOGZYTnRsM1V2eHdqZHRqSV82RTZKWkZwRndqcWpZYWFlSzFVVi0zaF9qcnNRcHFOVXYwNDNjOWdQLTE1S1lLdlBQU21LOGM5RHJtckpyeXZBV1E2WF8taEZBR25jVHlrNEFhOUZwa0h6TUM4MjlMUVRZSXhxQ3B6Q29VN3RhRFVrbGhRWTYteDRiVjhnRzJsblNWeVZwbl9OVUR0ZlE5VzZWMTdrbUJR?oc=5"
+        "title": "Billions in Data Center Deals Grind to Halt After AI Chip Curbs",
+        "source": "Bloomberg",
+        "date": "2026-11-26",
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNZzNtOUdnTHJCQ2FCUGIyOXp4STRoQ2p4NTduYVNjYzF6eGFTUTE4LUFTRUZUUjlFZ0cyWVV0enBBNDNHazJIWTdiZUs3VHg3ckw3bjhhYndIN1g2Q21vcUh2RkFKcHp1TW1NQmpPS0VfQy1uMnBRZ1FTMzg1akN2UlVZUkVqRnh5OHFfWElYNWVnazFfSXV0WTlPclFNOUdEcU9Dbmg3c2xacldjNHpZZjFJYWM?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "글로벌사이버공격및정보유출",
+    "name": "글로벌 사이버 공격 및 정보 유출",
+    "first_seen": "2026-11-24",
+    "days_seen": 2,
+    "last_seen": "2026-11-26",
+    "why": "저축은행 등 금융기관의 개인정보 유출 피해 보도가 잇따라 해킹 리스크를 지켜봅니다.",
+    "evidence": [
+      {
+        "title": "한국투자저축은행, 8만6433명 개인정보 유출",
+        "source": "보안뉴스",
+        "date": "2026-11-25",
+        "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9kdExkX3JIUkZUQXhZSUpuSnduZ216cXhidzZvVmRTcVFZVm95T1hDUUVnUUNMWFVscWRoR2s1ZWtpeHlFX3RWVmZIdTlfb0lnYjhTU3BYVnJwM0NWSXdkNFFUVWJpNWd6dWl3?oc=5"
+      },
+      {
+        "title": "한국투자저축은행, 해킹에 고객 8만6천여명 개인정보 유출",
+        "source": "연합인포맥스",
+        "date": "2026-11-25",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5TZnNDVzV1OTNYWkYxZWVxcXBJcnd2Ump2bm5SWlRBY3QtN2drMFp2MGJmMkNPRzg3MlZLSVdCU3hYZjJ0U1RWYkwybW1SR2J1NG9rRFJ2Nk1yU0ZMejVpSF9XX29kWmhja2k4OEdjeW8?oc=5"
+      }
+    ]
+  },
+  {
+    "key": "한국은행기준금리인상및경제전망상향",
+    "name": "한국은행 기준금리 인상 및 경제 전망 상향",
+    "first_seen": "2026-11-26",
+    "days_seen": 1,
+    "last_seen": "2026-11-26",
+    "why": "한국은행이 기준금리를 3.25%로 인상하고 내년 성장률 전망을 상향 조정한 파급 효과를 관찰합니다.",
+    "evidence": [
+      {
+        "title": "한은, 기준금리 3.25%로 인상‥내년 성장률 전망치도 4.1%로 상향 조정",
+        "source": "MBC 뉴스",
+        "date": "2026-11-26",
+        "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9PR3NYY3pocEltSjZtY1pGS01JQ0M5Z25Cbnh5aGxMY3c0ajl0ZDlHcjRTRUxDYlplYzVsNFZ4QWllc2hIYzN4NUtkS0NlZlcwbVRjZlZTR3Fsa0tWbjMtWGltTkNKQzZKc2V3UWRIbm5nTTFv0gF0QVVfeXFMT1BSbHpoQ2hIa214MlBta2hoVHNGYnFpamlIX3Jua04wd2thYzdSWUVITFVXNUR5cEhNVl9lSFhQdWZ0NUNDYXVnWVN0b1FsZDZ6aXJuaXhBbzU4WUYyd25UNmdOekYxTXd6Ul84Y3dkUWwwX0Y?oc=5"
+      },
+      {
+        "title": "South Korea upgrades growth forecast, raises benchmark rates to highest in two years",
+        "source": "CNBC",
+        "date": "2026-11-26",
+        "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1BX0ltaTV6dmM2SkZLci1OMHRCRHpKYTVHUTY2bmcwSDhFRTRGN2tGUUttWndwSmV1WnYzTXhGTTRkN3JfckQ2bmtJbGw3RTVwNFJMeDZvbi1rd3RKdTJZTjE1czJud2tTNGhDdDRRcnNPNDRybzY0SW9vS3UzS2fSAYQBQVVfeXFMTzBydDUteUdVY1J0eUMza3RsTlZQdG82RG9OUDlXLXdyYl93NVpXcldtSUg5S3RtT3ZXVGFsTjRnaGVlUGFIeU5BUU1aNGxWODVRMHNGWUdwdmFFanBac3U1NXhKVUE2TjZFdVdjcUF3MlA0cWpMS0xDTHZGYnNQVjg3Y3Fp?oc=5"
       }
     ]
   },
@@ -70,28 +114,6 @@
     ]
   },
   {
-    "key": "글로벌사이버공격및정보유출",
-    "name": "글로벌 사이버 공격 및 정보 유출",
-    "first_seen": "2026-11-24",
-    "days_seen": 1,
-    "last_seen": "2026-11-24",
-    "why": "에너지 운반선 사이버 공격 조사 및 바이낸스 해킹 자금 몰수 소송 보도를 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "미국, 에너지 운반선 50척 사이버공격 조사…이란 연루 의심",
-        "source": "KBS 뉴스",
-        "date": "2026-11-24",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE42dUZLNkRoWF9ET21aSWpCUnBCWWN2dm5yOE11cUwzRWlXTXR5NjR2VmN4RGNhMkVibGZ5YVc3VXRXOFR3bEQ2Rmgyc2UxcC1wX2wzeVFOSXBNNlE?oc=5"
-      },
-      {
-        "title": "미 법무부, 북 바이낸스 해킹 자금 1조 5천억 원 몰수 소송",
-        "source": "연합뉴스TV",
-        "date": "2026-11-24",
-        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1Ca2ZmenpCWV9MbGVIVm55dVFLN0NhV2p0M0t3c2NWMXdJMVJRZ0xYOVdrUHZSS1lyZExUckFpQndMQnRwQUI5ZmZhdnpPcjc1SWdZbFpKZ19uNkp3UVROdEF6ZUdZWGs?oc=5"
-      }
-    ]
-  },
-  {
     "key": "ai데이터센터자금난및규제우려",
     "name": "AI 데이터센터 자금난 및 규제 우려",
     "first_seen": "2026-11-24",
@@ -132,22 +154,6 @@
         "source": "연합인포맥스",
         "date": "2026-11-22",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5WeDNnblNieV8xMGVjR0dUaTNsSUlZTEFsYk5RYUFqZDRxdlFGQUFCRjhpakxJYVV4MVYtRm5xT1ZOZXZaSE9hWlRZcVBHcDZuYUdPZHhqMDZTSnh2cHlFNUdzWXlXZ2JURkl2a0tBMTQ?oc=5"
-      }
-    ]
-  },
-  {
-    "key": "글로벌금융권결제망사이버공격",
-    "name": "글로벌 금융권 결제망 사이버 공격",
-    "first_seen": "2026-11-21",
-    "days_seen": 2,
-    "last_seen": "2026-11-22",
-    "why": "주요 금융사 외주업체 데이터 유출 보도가 이어져 파급 효과를 지켜봅니다.",
-    "evidence": [
-      {
-        "title": "JPMorgan, Visa, and Mastercard customer data leaked on the dark web by \"n0n\" ransomware group",
-        "source": "TechSpot",
-        "date": "2026-11-20",
-        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQR2pxamJfUzVYMzF0N3BXdGFfcmV6Yl84UWNlRGkycmlkM2VYR3hnc1JJS0dMSFN2a2dVUUpGM1lsTFk5NnJ0QmcwMEY3LTJJT21PQ3VIY0NORkJ3RWRKak5SQ1pPX0djVDVueGdnUGkwWWhfNEctRldvVTAwWmpqMUxkcXZZTWY0SGFqMHVRTXZzeEpfbXF2TXVIT3A?oc=5"
       }
     ]
   }
