@@ -54,12 +54,12 @@
       "inputs": "어젯밤(11/25) 미국 장 미 10년물 -5.6bp",
       "oos": 0.131,
       "dir_rate": 0.596,
-      "scored": false,
-      "actual": null,
+      "scored": true,
+      "actual": 2.9,
       "live": {
-        "n": 30,
-        "in_range": 29,
-        "dir_tried": 30,
+        "n": 31,
+        "in_range": 30,
+        "dir_tried": 31,
         "dir_hits": 18
       },
       "model": "선형회귀",

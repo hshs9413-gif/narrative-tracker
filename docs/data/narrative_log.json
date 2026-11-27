@@ -4038,5 +4038,60 @@
     ],
     "at": "2026-11-26T12:50+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-27",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "ai-valuation-2024",
+    "kind": "update",
+    "verdict": "reignite",
+    "reason": "잠잠하던 AI 버블 논쟁 및 붕괴 우려가 여러 주요 매체에서 다시 다루어져 진행 중으로 재점화되었습니다.",
+    "status": "rejected",
+    "reject_reason": "최근 3일 안에 이미 바꿈"
+  },
+  {
+    "date": "2026-11-27",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "us-china-ai-chip-restriction-2026",
+    "kind": "new",
+    "name": "미국의 중국 AI 칩 우회 수출 규제",
+    "reason": "미국의 대중 AI 칩 규제 강화에 따라 엔비디아의 동남아 판매 중단 등 우회 수출 차단 보도가 잇따르고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-27",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "AI 버블 논쟁이 다시 다수 매체에서 조명되어 재점화되었고, 장기간 추이 관찰 중이던 미국의 중국 AI 칩 우회 수출 규제가 신규 내러티브로 승격되었습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "유지",
+      "us-inflation-shock-2026": "유지",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "한국은행 기준금리 인상 및 경제 전망 상향",
+      "AI 데이터센터 자금난 및 규제 우려",
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "글로벌 사이버 공격 및 정보 유출",
+      "마이크로소프트 글로벌 서비스 장애",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "미국 FAA 항공기 운항 전면 중단 및 인프라 장애",
+      "북한 사이버 공격 및 개인정보 유출"
+    ],
+    "at": "2026-11-27T12:51+09:00",
+    "trigger": "schedule"
   }
 ]
