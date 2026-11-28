@@ -4093,5 +4093,50 @@
     ],
     "at": "2026-11-27T12:51+09:00",
     "trigger": "schedule"
+  },
+  {
+    "date": "2026-11-28",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "event_id": "nvidia-china-bypass-2026",
+    "kind": "new",
+    "name": "미국의 엔비디아 AI 칩 중국 우회 수출 규제 및 파장",
+    "reason": "엔비디아의 첨단 AI 칩이 중국 관련 업체 데이터센터에 설치되었다는 정황이 포착되며 우회 수출 규제 파장이 확대되고 있습니다.",
+    "status": "rejected",
+    "reject_reason": "진행 중 내러티브가 이미 12개"
+  },
+  {
+    "date": "2026-11-28",
+    "by": "gemini",
+    "model": "gemini-3.6-flash",
+    "kind": "summary",
+    "status": "info",
+    "reason": "앤트로픽 반등과 호르무즈 해협 불안에 따른 유가 반등 등 기존 내러티브가 유지되는 가운데, 엔비디아 AI 칩의 중국 우회 유출 이슈가 신규 내러티브로 등록되었습니다.",
+    "reviews": {
+      "anthropic-ipo-valuation-2026": "유지",
+      "corporate-credit-stress-2026": "유지",
+      "alaska-lng-trade-2026": "잠잠",
+      "us-inflation-shock-2026": "잠잠",
+      "financial-ai-security-2026": "유지",
+      "global-bond-selloff-2026": "유지",
+      "kospi-semis-leverage-2026": "유지",
+      "boj-normalization-2026": "유지",
+      "us-labor-cooling-2026": "유지",
+      "iran-war-2026": "유지",
+      "ai-valuation-2024": "잠잠",
+      "tariff-shock-2025": "유지"
+    },
+    "candidates": [
+      "한국은행 기준금리 인상 및 경제 전망 상향",
+      "금융권 및 인프라 사이버 해킹",
+      "AI 데이터센터 자금난 및 규제 우려",
+      "미국의 중국 AI 칩 우회 수출 규제",
+      "글로벌 사이버 공격 및 정보 유출",
+      "마이크로소프트 글로벌 서비스 장애",
+      "미국 FAA 전국 항공기 운항 전면 중단",
+      "미국 FAA 항공기 운항 전면 중단 및 인프라 장애"
+    ],
+    "at": "2026-11-28T12:33+09:00",
+    "trigger": "schedule"
   }
 ]
